@@ -1,0 +1,354 @@
+// Fonts
+// @import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import url('/node_modules/bootstrap/');
+
+// Icons
+@import url('/node_modules/bootstrap-icons/');
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+// variabel
+$primaryCol: #253560;
+$secondaryCol: #152551;
+$tertiaryCol: #7384b3;
+
+// mixin
+@mixin heading-center {
+    text-align: center;
+    color: $primaryCol;
+    font-weight: 600;
+}
+@mixin tombol {
+    background-color: $primaryCol;
+    border-radius: 2em;
+    padding-inline: 20px;
+    padding-block: 7px;
+    color: #ffffff;  
+    text-decoration: none;
+    transition: 0.4s ease-in-out;
+    &:hover {
+        background-color: #ffffff;
+        border: 1px solid black;
+        font-weight: 700;
+        color: $primaryCol;
+    }
+}
+
+// style
+body {    
+    .container-fluid-custom {
+        width: 100vw; // Atur lebar sesuai viewport width
+        padding-right: 15px; // Tambahkan sedikit padding kanan agar konten tidak menempel langsung ke tepi layar
+        padding-left: 15px; // Tambahkan sedikit padding kiri agar konten tidak menempel langsung ke tepi layar
+    }
+    .background-image {
+        position: absolute;
+        top: 110px;
+        left: 710px;
+        width: 32%;
+        height: auto;
+        // z-index: -1;
+        // object-fit: cover;
+        // object-position: 50vh 0vh; /* Sesuaikan dengan posisi yang diinginkan */
+        background-color: transparent; /* Warna latar belakang jika gambar tidak tersedia */
+        @media screen and (max-width: 991px) {
+            position: relative; /* Mengubah posisi menjadi relatif untuk menempatkan di bawah container */
+            top: auto;
+            left: 300px;
+            // width: 70%; /* Mengisi lebar container penuh */
+            padding-top: 90px; /* Atur jarak antara gambar dan container */
+        }
+        @media screen and (max-width:500px) {
+            position: relative; /* Mengubah posisi menjadi relatif untuk menempatkan di bawah container */
+            top: auto;
+            left: 145px;
+            // width: 70%; /* Mengisi lebar container penuh */
+            padding-top: 90px;
+        }
+    }
+    // .background-image {
+    //     position: absolute;
+    //     top: 110px;
+    //     left: 710px;
+    //     width: 33%;
+    //     height: auto;
+    //     // z-index: -1;
+    //     object-fit: cover;
+    //     // object-position: 50vh 0vh; /* Sesuaikan dengan posisi yang diinginkan */
+    //     background-color: transparent; /* Warna latar belakang jika gambar tidak tersedia */
+    //     @media screen and (max-width: 992px) {
+    //         position: absolute;
+    //         top: 630px;
+    //         left: 210px;
+    //         // object-position: 2vh 20vh; /* Sesuaikan dengan posisi yang diinginkan pada responsivitas */
+    //     }
+    // }
+    
+
+    h1 {
+        @include heading-center();
+    }
+
+    font-family: "Poppins", sans-serif;
+    // background-image: url('/aset/landing-img.png');
+    // background-attachment: scroll;
+    // // background-blend-mode: multiply;
+    // background-position-y: 22vh;
+    // background-position-x: 125vh;
+    // // background-position: center right;
+    // background-repeat: no-repeat;
+    // background-size: 30vmax;
+    width: 99%;
+    background-color: #E9E9E9;
+    height: 200vh;
+
+    @media screen and (max-width: 992px) {
+        background-position-y: 70vh;
+        background-position-x: 50vh;
+    }
+
+    // navbar
+    .custom-nav {
+        background-color: #ffffff;
+        padding-inline: 17px;
+        border-radius: 4em;
+        .navbar-brand {
+            img {
+                width: auto;
+                height: 40px;
+                margin-left: 25px;
+                margin-right: 10px;
+                margin-bottom: 5px;
+            }
+            span {
+                color: $primaryCol;
+                font-weight: 600;
+                font-size: 1.4rem;
+            }
+        }
+        .navbar-toggler {
+            // background-color: none;
+            border: none;
+            border-radius: 2em;
+            margin-inline: 10px;
+            transition: 0.4s ease-in-out;
+            &:hover {
+                border: 1px solid $primaryCol;
+                background-color: lighten($color: $primaryCol, $amount: 65%);
+                transition: 0.4s ease-in-out;
+            }
+        }
+        #navbarSupportedContent {
+            @media screen and (max-width: 992px) {
+                // background-color: $tertiaryCol;
+                padding: 20px;
+                border-bottom-right-radius: 2em;
+                border-bottom-left-radius: 2em;
+                // border-radius: 0;
+                transition: 0.3s ease;
+            }
+            // max-width: 70%;
+            .navbar-nav {
+                // max-width: 50%;
+                .nav-item {
+                    .nav-link {
+                        color: $primaryCol;
+                        // text-transform: uppercase;
+                        font-weight: 400;
+                        font-size: 18px;
+                        margin-inline: 7px;
+                        transition: 0.3s ease;
+                        &:hover {
+                            background-color: $primaryCol;
+                            border-radius: 2em;
+                            padding-inline: 20px;
+                            color: lighten($color: $primaryCol, $amount: 100%);
+                        }
+                        // .dropdown-item {
+                        //     @include tombol();
+                        // }
+                    }
+                    .fitur-btn {
+                        @include tombol();
+                    }
+                }
+            }
+        }
+        @media screen and (max-width: 992px) {
+            padding-block: 10px;
+            // padding-inline: 10px;
+            // margin-top: -1em;
+        }
+    }   
+
+    // landing text
+    .container-landing {
+        // margin-top: 10.5rem;
+        padding-top: 10.5rem;
+        .custom-section {
+            color: $primaryCol;
+            // margin-top: 50px;
+            // margin-inline-start: 100px;
+            padding-inline: 140px;
+            h2 {
+                // text-align: right;
+                font-weight: 600;
+                font-size: 2.7rem;
+                // text-align: right;
+                color: $secondaryCol;
+                // white-space: nowrap;
+            }
+            p {
+                margin-top: 20px;
+                margin-bottom: 35px; 
+                font-weight: 300;
+                font-size: 1rem;
+                width: 121%;
+            }
+            a {
+                @include tombol();
+            }
+            @media screen and (max-width: 992px) {
+                margin-inline: -7px;
+                // padding-inline: -97px;
+                font-size: smaller;
+                // padding-top: 2.5rem;
+                h2 {
+                    font-weight: 600;
+                    font-size: 2.89rem;
+                }
+            }
+        }
+    }
+
+    // stats
+    .container-stats {
+        background-color: transparent;
+        margin-top: 10rem;
+        margin-bottom: 4rem;
+        .card {
+            background-color: transparent;
+            text-align: center;
+            padding-block: 25px;
+            border: none;
+            .card-icon {
+                font-size: 4rem; /* Ukuran ikon diperbesar */
+                margin-bottom: 5px; /* Jarak antara ikon dan angka */
+            }
+            .span-head {
+                font-size: 125%;
+                font-weight: 600;
+            }
+            .span-count {
+                font-weight: 600;
+                font-size: 45px;
+            }
+        }
+        @media screen and (max-width: 992px) {
+            margin-top: 7rem;
+        }
+    }
+
+    .container-head {
+        background-color: transparent;
+        margin-block: 10rem;
+        text-align: center;
+        p {
+            width: 100%;
+            margin-block: 33px;
+        }
+        .card {
+            background-color: transparent;
+            text-align: center;
+            padding: 20px;
+            border: none;
+            .card-icon {
+                font-size: 3rem; /* Ukuran ikon diperbesar */
+                margin-bottom: 10px; /* Jarak antara ikon dan angka */
+            }
+            .span-head {
+                font-size: 90%;
+                font-weight: 500;
+            }
+            .span-count {
+                font-weight: 600;
+                font-size: xx-large;
+            }
+        }
+        @media screen and (max-width: 992px) {
+            // margin-block: 5rem;
+        }
+    }
+
+    // pengumuman
+    .container-pengumuman {        
+        background-color: transparent;
+        // margin-block: 10rem;
+        text-align: center;
+        .row {
+            margin-top: 10px;
+            .card {
+                margin-top: 25px;
+                background-color: transparent;
+                text-align: center;
+                padding: 20px;
+            }
+            @media screen and (max-width: 992px) {
+                // margin-block: 5rem;
+            }
+        }
+        a {                
+            width: fit-content;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @include tombol();
+        }
+    }
+    
+    // layanan
+    .container-layanan {
+        background-color: transparent;
+        margin-top: 7rem;
+        // margin-bottom: 4rem;
+        .card {
+            margin-top: 30px;
+            background-color: transparent;
+            @include tombol();
+            text-align: center;
+            align-items: center;
+            padding-block: 25px;
+            // border: none;
+            .card-icon {
+                font-size: 4rem; /* Ukuran ikon diperbesar */
+                margin-bottom: 5px; /* Jarak antara ikon dan angka */
+            }
+            .span-head {
+                font-size: 130%;
+                padding-inline: 25px;
+                font-weight: 500;
+            }
+        }
+        @media screen and (max-width: 992px) {
+            margin-top: 7rem;
+        }
+    }
+
+    footer {
+        color: #ffffff;
+        margin-top: 4em;
+        width: 101%;
+        background-color: $primaryCol;
+        .f1 {
+            padding-inline: 90px;
+        }
+        .f2 {
+            background-color: $secondaryCol;
+        }
+    }
+}

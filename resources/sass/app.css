@@ -1,0 +1,300 @@
+@import url("/node_modules/bootstrap/");
+@import url("/node_modules/bootstrap-icons/");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+body {
+  font-family: "Poppins", sans-serif;
+  width: 99%;
+  background-color: #E9E9E9;
+  height: 200vh;
+}
+body .container-fluid-custom {
+  width: 100vw;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+body .background-image {
+  position: absolute;
+  top: 110px;
+  left: 710px;
+  width: 32%;
+  height: auto;
+  background-color: transparent; /* Warna latar belakang jika gambar tidak tersedia */
+}
+@media screen and (max-width: 991px) {
+  body .background-image {
+    position: relative; /* Mengubah posisi menjadi relatif untuk menempatkan di bawah container */
+    top: auto;
+    left: 300px;
+    padding-top: 90px; /* Atur jarak antara gambar dan container */
+  }
+}
+@media screen and (max-width: 500px) {
+  body .background-image {
+    position: relative; /* Mengubah posisi menjadi relatif untuk menempatkan di bawah container */
+    top: auto;
+    left: 145px;
+    padding-top: 90px;
+  }
+}
+body h1 {
+  text-align: center;
+  color: #253560;
+  font-weight: 600;
+}
+@media screen and (max-width: 992px) {
+  body {
+    background-position-y: 70vh;
+    background-position-x: 50vh;
+  }
+}
+body .custom-nav {
+  background-color: #ffffff;
+  padding-inline: 17px;
+  border-radius: 4em;
+}
+body .custom-nav .navbar-brand img {
+  width: auto;
+  height: 40px;
+  margin-left: 25px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+body .custom-nav .navbar-brand span {
+  color: #253560;
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+body .custom-nav .navbar-toggler {
+  border: none;
+  border-radius: 2em;
+  margin-inline: 10px;
+  transition: 0.4s ease-in-out;
+}
+body .custom-nav .navbar-toggler:hover {
+  border: 1px solid #253560;
+  background-color: #dee4f2;
+  transition: 0.4s ease-in-out;
+}
+@media screen and (max-width: 992px) {
+  body .custom-nav #navbarSupportedContent {
+    padding: 20px;
+    border-bottom-right-radius: 2em;
+    border-bottom-left-radius: 2em;
+    transition: 0.3s ease;
+  }
+}
+body .custom-nav #navbarSupportedContent .navbar-nav .nav-item .nav-link {
+  color: #253560;
+  font-weight: 400;
+  font-size: 18px;
+  margin-inline: 7px;
+  transition: 0.3s ease;
+}
+body .custom-nav #navbarSupportedContent .navbar-nav .nav-item .nav-link:hover {
+  background-color: #253560;
+  border-radius: 2em;
+  padding-inline: 20px;
+  color: white;
+}
+body .custom-nav #navbarSupportedContent .navbar-nav .nav-item .fitur-btn {
+  background-color: #253560;
+  border-radius: 2em;
+  padding-inline: 20px;
+  padding-block: 7px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.4s ease-in-out;
+}
+body .custom-nav #navbarSupportedContent .navbar-nav .nav-item .fitur-btn:hover {
+  background-color: #ffffff;
+  border: 1px solid black;
+  font-weight: 700;
+  color: #253560;
+}
+@media screen and (max-width: 992px) {
+  body .custom-nav {
+    padding-block: 10px;
+  }
+}
+body .container-landing {
+  padding-top: 10.5rem;
+}
+body .container-landing .custom-section {
+  color: #253560;
+  padding-inline: 140px;
+}
+body .container-landing .custom-section h2 {
+  font-weight: 600;
+  font-size: 2.7rem;
+  color: #152551;
+}
+body .container-landing .custom-section p {
+  margin-top: 20px;
+  margin-bottom: 35px;
+  font-weight: 300;
+  font-size: 1rem;
+  width: 121%;
+}
+body .container-landing .custom-section a {
+  background-color: #253560;
+  border-radius: 2em;
+  padding-inline: 20px;
+  padding-block: 7px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.4s ease-in-out;
+}
+body .container-landing .custom-section a:hover {
+  background-color: #ffffff;
+  border: 1px solid black;
+  font-weight: 700;
+  color: #253560;
+}
+@media screen and (max-width: 992px) {
+  body .container-landing .custom-section {
+    margin-inline: -7px;
+    font-size: smaller;
+  }
+  body .container-landing .custom-section h2 {
+    font-weight: 600;
+    font-size: 2.89rem;
+  }
+}
+body .container-stats {
+  background-color: transparent;
+  margin-top: 10rem;
+  margin-bottom: 4rem;
+}
+body .container-stats .card {
+  background-color: transparent;
+  text-align: center;
+  padding-block: 25px;
+  border: none;
+}
+body .container-stats .card .card-icon {
+  font-size: 4rem; /* Ukuran ikon diperbesar */
+  margin-bottom: 5px; /* Jarak antara ikon dan angka */
+}
+body .container-stats .card .span-head {
+  font-size: 125%;
+  font-weight: 600;
+}
+body .container-stats .card .span-count {
+  font-weight: 600;
+  font-size: 45px;
+}
+@media screen and (max-width: 992px) {
+  body .container-stats {
+    margin-top: 7rem;
+  }
+}
+body .container-head {
+  background-color: transparent;
+  margin-block: 10rem;
+  text-align: center;
+}
+body .container-head p {
+  width: 100%;
+  margin-block: 33px;
+}
+body .container-head .card {
+  background-color: transparent;
+  text-align: center;
+  padding: 20px;
+  border: none;
+}
+body .container-head .card .card-icon {
+  font-size: 3rem; /* Ukuran ikon diperbesar */
+  margin-bottom: 10px; /* Jarak antara ikon dan angka */
+}
+body .container-head .card .span-head {
+  font-size: 90%;
+  font-weight: 500;
+}
+body .container-head .card .span-count {
+  font-weight: 600;
+  font-size: xx-large;
+}
+body .container-pengumuman {
+  background-color: transparent;
+  text-align: center;
+}
+body .container-pengumuman .row {
+  margin-top: 10px;
+}
+body .container-pengumuman .row .card {
+  margin-top: 25px;
+  background-color: transparent;
+  text-align: center;
+  padding: 20px;
+}
+body .container-pengumuman a {
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #253560;
+  border-radius: 2em;
+  padding-inline: 20px;
+  padding-block: 7px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.4s ease-in-out;
+}
+body .container-pengumuman a:hover {
+  background-color: #ffffff;
+  border: 1px solid black;
+  font-weight: 700;
+  color: #253560;
+}
+body .container-layanan {
+  background-color: transparent;
+  margin-top: 7rem;
+}
+body .container-layanan .card {
+  margin-top: 30px;
+  background-color: transparent;
+  background-color: #253560;
+  border-radius: 2em;
+  padding-inline: 20px;
+  padding-block: 7px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.4s ease-in-out;
+  text-align: center;
+  align-items: center;
+  padding-block: 25px;
+}
+body .container-layanan .card:hover {
+  background-color: #ffffff;
+  border: 1px solid black;
+  font-weight: 700;
+  color: #253560;
+}
+body .container-layanan .card .card-icon {
+  font-size: 4rem; /* Ukuran ikon diperbesar */
+  margin-bottom: 5px; /* Jarak antara ikon dan angka */
+}
+body .container-layanan .card .span-head {
+  font-size: 130%;
+  padding-inline: 25px;
+  font-weight: 500;
+}
+@media screen and (max-width: 992px) {
+  body .container-layanan {
+    margin-top: 7rem;
+  }
+}
+body footer {
+  color: #ffffff;
+  margin-top: 4em;
+  width: 101%;
+  background-color: #253560;
+}
+body footer .f1 {
+  padding-inline: 90px;
+}
+body footer .f2 {
+  background-color: #152551;
+}/*# sourceMappingURL=app.css.map */
