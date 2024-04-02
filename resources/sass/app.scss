@@ -339,6 +339,54 @@ body {
         }
     }
 
+    .container-umkm {        
+        background-color: transparent;
+        .heading-center {
+            margin-top: 6rem;
+        }
+        text-align: center;
+        .card-container {
+            text-align: justify;
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Menentukan jumlah kolom dan lebar minimum dan maksimum */
+            gap: 30px; /* Jarak antar kartu */
+        }
+        .fixedButton {
+            position: fixed;
+            bottom: 20px; /* Ubah sesuai dengan jarak dari bawah yang diinginkan */
+            right: 20px; /* Ubah sesuai dengan jarak dari kanan yang diinginkan */
+            z-index: 999; /* Atur nilai z-index agar tombol muncul di depan kartu-kartu */
+            // box-shadow: 9px 9px 9px rgba(8, 12, 137, 0.685); /* Menambahkan bayangan */
+            // border-radius: 55px;
+        }          
+        .roundedFixedBtn {
+            // height: 60px;
+            // width: 60px;
+            // padding: 13px;
+            // padding-inline: 20px;  
+            border-radius: 25px;
+            border-style: double;
+            border-color: #ffffff;
+            background-color: $secondaryCol;
+            cursor: pointer;
+            button {
+                i {
+                    margin-right: 11px;
+                }
+                @include tombol();
+                padding: 10px;
+                padding-inline: 25px;
+                border: none;
+                background-color: transparent;
+                text-align: center;
+                font-size: 1em;
+                font-weight: 500;
+                // color: white;
+            }
+        }
+    }
+
     footer {
         color: #ffffff;
         margin-top: 4em;
