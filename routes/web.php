@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UmkmController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -16,7 +17,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('landing');
-});
+})->name('landing');
+
+Route::get('/umkm', function () {
+    return view('global.umkm');
+})->name('umkm');
+// Route::post('/submit-umkm', [UmkmController::class, 'submitUmkm'])->name('submit.umkm');
 
 Auth::routes();
 
