@@ -9,9 +9,12 @@ class Umkm extends Model
 {
     use HasFactory;
 
+    protected $table = 'umkm';
+    protected $primaryKey = 'id_umkm';
     protected $fillable = [
-        'nama',
-        'deskripsi',
-        // Tambahkan field lainnya jika diperlukan
+        'nik_pemilik',
+        'nama_umkm',
+        'foto_umkm',
+        'desc_umkm',
     ];
 }

@@ -7,7 +7,7 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Form Ajukan UMKM</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Pengajuan UMKM</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -15,18 +15,29 @@
                         <form action="{{ route('submit.umkm') }}" method="POST">
                             @csrf
                             <!-- Tambahkan input form sesuai kebutuhan -->
-                            <div class="mb-3">
+                            <div class="form-group mb-3">
                                 <label for="nama_umkm" class="form-label">Nama UMKM</label>
-                                <input type="text" class="form-control" id="nama_umkm" name="nama_umkm" required>
+                                <input type="text" class="form-control" id="nama_umkm" name="nama_umkm" placeholder="Masukkan Nama UMKM" required>
                             </div>
-                            <div class="mb-3">
+                            <div class="form-group mb-3">
+                                <label for="nama_pemilik" class="form-label">Nama Pemilik</label>
+                                <input type="text" class="form-control" id="nama_pemilik" name="nama_pemilik" placeholder="Masukkan Nama Pemilik" required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="custom-file-label" for="foto_umkm">Foto UMKM</label>
+                                <input type="file" class="form-control" id="foto_umkm" name="foto_umkm" required>
+                              </div>
+                            <div class="form-group mb-3">
                                 <label for="deskripsi" class="form-label">Deskripsi UMKM</label>
-                                <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3" required></textarea>
+                                <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3" placeholder="Masukkan Deskripsi UMKM" required></textarea>
                             </div>
                             <!-- Tambahkan input lainnya sesuai kebutuhan -->
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                            <div class="modal-footer justify-content-end">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
                         </form>
-                    </div>
                 </div>
             </div>
         </div>
@@ -65,7 +76,7 @@
             menengah (UMKM) yang terdaftar dalam lingkungan RW ini.</p>
         <div class="card-container">
             <div class="card">
-                <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/184.webp" class="card-img-top"
+                <img src="https://blog-static.mamikos.com/wp-content/uploads/2023/06/Polinema.jpg" class="card-img-top"
                     alt="Fissure in Sandstone" />
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>

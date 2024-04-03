@@ -22,7 +22,7 @@ Route::get('/', function () {
 Route::get('/umkm', function () {
     return view('global.umkm');
 })->name('umkm');
-// Route::post('/submit-umkm', [UmkmController::class, 'submitUmkm'])->name('submit.umkm');
+Route::post('/submit-umkm', [UmkmController::class, 'submitUmkm'])->name('submit.umkm');
 
 Auth::routes();
 
