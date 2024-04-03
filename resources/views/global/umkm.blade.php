@@ -10,26 +10,44 @@
                         <h5 class="modal-title" id="exampleModalLabel">Pengajuan UMKM</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
+
+                    <!-- Tambahkan di mana pun Anda ingin menampilkan pesan -->
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+            
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     <div class="modal-body">
                         <!-- Form untuk pengajuan UMKM -->
                         <form action="{{ route('submit.umkm') }}" method="POST">
                             @csrf
                             <!-- Tambahkan input form sesuai kebutuhan -->
                             <div class="form-group mb-3">
-                                <label for="nama_umkm" class="form-label">Nama UMKM</label>
+                                <label for="nama_umkm" class="form-label text-start">Nama UMKM</label>
                                 <input type="text" class="form-control" id="nama_umkm" name="nama_umkm" placeholder="Masukkan Nama UMKM" required>
                             </div>
                             <div class="form-group mb-3">
-                                <label for="nama_pemilik" class="form-label">Nama Pemilik</label>
-                                <input type="text" class="form-control" id="nama_pemilik" name="nama_pemilik" placeholder="Masukkan Nama Pemilik" required>
+                                <label for="nik_pemilik" class="form-label">Nama Pemilik</label>
+                                <input type="text" class="form-control" id="nik_pemilik" name="nik_pemilik" placeholder="Masukkan Nik Pemilik" required>
                             </div>
                             <div class="form-group mb-3">
                                 <label class="custom-file-label" for="foto_umkm">Foto UMKM</label>
                                 <input type="file" class="form-control" id="foto_umkm" name="foto_umkm" required>
                               </div>
                             <div class="form-group mb-3">
-                                <label for="deskripsi" class="form-label">Deskripsi UMKM</label>
-                                <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3" placeholder="Masukkan Deskripsi UMKM" required></textarea>
+                                <label for="desc_umkm" class="form-label">Deskripsi UMKM</label>
+                                <textarea class="form-control" id="desc_umkm" name="desc_umkm" rows="3" placeholder="Masukkan Deskripsi UMKM" required></textarea>
                             </div>
                             <!-- Tambahkan input lainnya sesuai kebutuhan -->
                         </div>
@@ -47,23 +65,6 @@
                 modal.show();
             });
         </script>
-
-        <!-- Tambahkan di mana pun Anda ingin menampilkan pesan -->
-        @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
-
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
 
         <a class="fixedButton" id="ajukanUmkmButton" data-bs-toggle="modal" data-bs-target="#ajukanUmkmModal">
             <div class="roundedFixedBtn">

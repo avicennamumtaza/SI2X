@@ -41,7 +41,7 @@ $tertiaryCol: #7384b3;
 
 // style
 body {    
-    .container-fluid-custom {
+    .container-fluid-nav {
         width: 100vw; // Atur lebar sesuai viewport width
         padding-right: 15px; // Tambahkan sedikit padding kanan agar konten tidak menempel langsung ke tepi layar
         padding-left: 15px; // Tambahkan sedikit padding kiri agar konten tidak menempel langsung ke tepi layar
@@ -399,4 +399,11 @@ body {
             background-color: $secondaryCol;
         }
     }
+    
+  .sidebar {
+    z-index: 1000;
+    height: 100vh;
+    position: fixed !important;
+    left: 0px;
+  }
 }

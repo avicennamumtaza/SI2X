@@ -25,7 +25,7 @@
 </head>
 
 <body>
-    <div class="container-fluid-custom">
+    <div class="container-fluid-nav">
         <nav class="navbar fixed-top my-3 mx-5 custom-nav navbar-expand-lg">
             <a class="navbar-brand" href="#">
                 <img src="{{ asset('assets/landing-pict.png') }}" alt="tes">
@@ -56,7 +56,7 @@
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-end">
                             <li><a class="dropdown-item" href="#">Pengumuman</a></li>
-                            <li><a class="dropdown-item" href="{{ route('umkm') }}">Daftar UMKM</a></li>
+                            <li><a class="dropdown-item" href="{{ route('landing_umkm') }}">Daftar UMKM</a></li>
                             <li><a class="dropdown-item" href="#">Pengajuan Surat</a></li>
                             <li><a class="dropdown-item" href="#">Laporan Keuangan</a></li>
                             <li>
