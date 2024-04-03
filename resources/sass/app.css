@@ -7,7 +7,7 @@ body {
   background-color: #E9E9E9;
   height: 200vh;
 }
-body .container-fluid-custom {
+body .container-fluid-nav {
   width: 100vw;
   padding-right: 15px;
   padding-left: 15px;
@@ -349,4 +349,10 @@ body footer .f1 {
 }
 body footer .f2 {
   background-color: #152551;
+}
+body .sidebar {
+  z-index: 1000;
+  height: 100vh;
+  position: fixed !important;
+  left: 0px;
 }/*# sourceMappingURL=app.css.map */
