@@ -7,34 +7,38 @@
             <div class="table-responsive">
                 <table class="table">
                     <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                      </tr>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">nama</th>
+                            <th scope="col">nik pemilik</th>
+                            <th scope="col">foto</th>
+                            <th scope="col">deskripsi</th>
+                            <th scope="col">status</th>
+                            <th scope="col">aksi</th>
+                        </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                      </tr>
+                        @foreach ($umkms as $umkm)
+                            <tr>
+                                <td>{{ $umkm->id_umkm }}</td>
+                                <td>{{ $umkm->nama_umkm }}</td>
+                                <td>{{ $umkm->nik_pemilik }}</td>
+                                <td>{{ $umkm->foto_umkm }}</td>
+                                <td>{{ $umkm->desc_umkm }}</td>
+                                <td>{{ $umkm->status_umkm }}</td>
+                                <td>
+                                    <a href="" class="btn btn-primary btn-sm">Edit</a>
+                                    <form action="{{ route('umkm.destroy', $umkm->id_umkm) }}" method="POST" class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
-              </div>
+            </div>
         </div>
     </div>
 @endsection
