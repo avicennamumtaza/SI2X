@@ -32,6 +32,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 // manage umkm
-Route::get('/umkmm', function () {
-    return view('auth.rw.umkm');
-})->name('manage_umkm');
+Route::get('/umkmm', [UmkmController::class, 'showAllUmkm'])->name('manage_umkm');
+// Route::get('/umkm/{id}/edit', [UmkmController::class, 'edit'])->name('umkm.edit');
+// Route::put('/umkm/{id}', [UmkmController::class, 'update'])->name('umkm.update');
+Route::delete('/umkm/{id}', [UmkmController::class, 'destroy'])->name('umkm.destroy');
