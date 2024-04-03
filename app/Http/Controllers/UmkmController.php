@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 
 class UmkmController extends Controller
 {
+    public function index() {
+        return view('global.umkm');
+    }
     public function submitUmkm(Request $request)
     {
         // dd($request->all());
