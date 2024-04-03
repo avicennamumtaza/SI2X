@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('no_rw', 4);
             $table->string('nik_pemilik', 16);
             $table->string('nama_umkm', 50);
+            $table->string('wa_umkm', 14);
             $table->text('foto_umkm');
             $table->text('desc_umkm');
             $table->string('status_umkm', 50);
