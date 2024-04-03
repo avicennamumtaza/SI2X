@@ -27,3 +27,11 @@ Route::post('/submit-umkm', [UmkmController::class, 'submitUmkm'])->name('submit
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/ly', function () {
+    return view('layouts.user');
+})->name('ly');
+
+Route::get('/umkmm', function () {
+    return view('auth.rw.umkm');
+})->name('umkm');
