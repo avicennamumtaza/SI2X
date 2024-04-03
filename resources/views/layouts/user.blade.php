@@ -67,7 +67,7 @@
                                     <li class="mb-2  position-relative">
                                         <div class="content nav-item gap-1 d-flex align-items-center">
                                             <i class="bi bi-exclamation-circle"></i>
-                                            <a class="nav-link" href="{{ route('umkm') }}" title="report">UMKM</a>
+                                            <a class="nav-link" href="{{ route('manage_umkm') }}" title="report">UMKM</a>
                                         </div>
                                     </li>
                                     {{-- @endif --}}
