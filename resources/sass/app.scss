@@ -405,5 +405,9 @@ body {
     height: 100vh;
     position: fixed !important;
     left: 0px;
+    background-color: $primaryCol;
+    .nav-link, .bi {
+        color: #ffffff;
+    }
   }
 }

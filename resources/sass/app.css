@@ -355,4 +355,8 @@ body .sidebar {
   height: 100vh;
   position: fixed !important;
   left: 0px;
+  background-color: #253560;
+}
+body .sidebar .nav-link, body .sidebar .bi {
+  color: #ffffff;
 }/*# sourceMappingURL=app.css.map */
