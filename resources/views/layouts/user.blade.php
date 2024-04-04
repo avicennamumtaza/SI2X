@@ -71,65 +71,65 @@
                                         </div>
                                     </li>
                                     {{-- @endif --}}
-                                    <li class="mb-2 position-relative">
+                                    {{-- <li class="mb-2 position-relative">
                                         <div
                                             class="content nav-item gap-1 d-flex justify-content-center align-items-center">
-                                            <i class="bi bi-bell"></i>
-                                            <a class="nav-link" {{-- href="/{{ $role }}/notification" --}}>Notification
+                                            <i class="bi bi-bell"></i> --}}
+                                            {{-- <a class="nav-link" href="/{{ $role }}/notification">Notification --}}
                                                 {{-- @if ($role == 'mahasiswa')
                                                 @if ($newViolationCount > 0) --}}
-                                                <span
-                                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                                {{-- <span
+                                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"> --}}
                                                     {{-- {{ $newViolationCount }} --}}
-                                                    <span class="visually-hidden">unread messages</span>
-                                                </span>
+                                                    {{-- <span class="visually-hidden">unread messages</span> --}}
+                                                {{-- </span> --}}
                                                 {{-- @endif
                                             @else
                                                 @if ($newReportCommentCount > 0) --}}
-                                                <span
-                                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                                {{-- <span
+                                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"> --}}
                                                     {{-- {{ $newReportCommentCount }} --}}
-                                                    <span class="visually-hidden">unread messages</span>
-                                                </span>
+                                                    {{-- <span class="visually-hidden">unread messages</span>
+                                                </span> --}}
                                                 {{-- @endif
                                             @endif --}}
-                                            </a>
+                                            {{-- </a>
                                         </div>
-                                    </li>
+                                    </li> --}}
                                     {{-- @if ($role == 'admin') --}}
-                                    <li class="mb-2 gap-1">
+                                    {{-- <li class="mb-2 gap-1">
                                         <div class="col-auto position-relative content nav-item align-items-center"
                                             title="/admin/manage">
                                             <i class="bi bi-folder"></i>
                                             <button type="button" class="btn dropdown-toggle shadow-none"
                                                 data-bs-toggle="dropdown" aria-expanded="false">Manage</button>
                                             <ul class="dropdown-menu position-static">
-                                                <li><a class="dropdown-item" {{-- href="/{{ $role }}/manage/mahasiswa" --}}>
+                                                <li><a class="dropdown-item" href="/{{ $role }}/manage/mahasiswa">
                                                         Mahasiswa</a></li>
-                                                <li><a class="dropdown-item" {{-- href="/{{ $role }}/manage/dosen" --}}>Dosen</a>
+                                                <li><a class="dropdown-item" href="/{{ $role }}/manage/dosen">Dosen</a>
                                                 </li>
-                                                <li><a class="dropdown-item" {{-- href="/{{ $role }}/manage/admin" --}}>Admin</a>
+                                                <li><a class="dropdown-item" href="/{{ $role }}/manage/admin">Admin</a>
                                                 </li>
-                                                <li><a class="dropdown-item" {{-- href="/{{ $role }}/manage/violation-level" --}}>Violation Level</a>
+                                                <li><a class="dropdown-item" href="/{{ $role }}/manage/violation-level">Violation Level</a>
                                                 </li>
-                                                <li><a class="dropdown-item" {{-- href="/{{ $role }}/manage/code-of-conduct" --}}>Code of Conduct</a>
+                                                <li><a class="dropdown-item" href="/{{ $role }}/manage/code-of-conduct">Code of Conduct</a>
                                                 </li>
                                             </ul>
                                         </div>
-                                    </li>
-                                    <li class="mb-2 position-relative">
+                                    </li> --}}
+                                    {{-- <li class="mb-2 position-relative">
                                         <div class="content nav-item gap-1 d-flex align-items-center">
                                             <i class="bi bi-activity"></i>
-                                            <a class="nav-link" {{-- href="/{{ $role }}/log-activity" --}}>Log Activity</a>
+                                            <a class="nav-link" href="/{{ $role }}/log-activity">Log Activity</a>
                                         </div>
-                                    </li>
+                                    </li> --}}
                                     {{-- @endif --}}
-                                    <li class="mb-2 position-relative">
+                                    {{-- <li class="mb-2 position-relative">
                                         <div class="content nav-item  d-flex gap-1 align-items-center">
-                                            <i class="bi bi-person"></i>
-                                            <a class="nav-link" {{-- href="/{{ $role }}/profile" --}}>Profile</a>
+                                            <i class="bi bi-person"></i> --}}
+                                            {{-- <a class="nav-link" href="/{{ $role }}/profile">Profile</a>
                                         </div>
-                                    </li>
+                                    </li> --}}
                                     <li class="logOut border-top mt-2 position-relative">
                                         <div class="content nav-item gap-1 d-flex align-items-center">
                                             <i class="bi bi-box-arrow-in-right"></i>

@@ -21,7 +21,7 @@ class CreateRwTable extends Migration
             $table->integer('jumlah_penduduk_rw');
             $table->timestamps();
 
-            // $table->foreign('nikRW')->references('NIK')->on('penduduk')->onDelete('cascade');
+            // $table->foreign('nik_rw')->references('nik')->on('penduduk')->onDelete('cascade');
         });
     }
 
