@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('laporan_keuangan', function (Blueprint $table) {
             $table->id('id_laporan');
-            //$table->string('noRW',4);
+            $table->String('no_rw', 4);
             $table->float('nominal');
             $table->text('detail_laporan');
             $table->date('tanggal_laporan');
@@ -22,7 +22,7 @@ return new class extends Migration
             $table->boolean('is_income');
             $table->timestamps();
 
-            //$table->foreign('noRW')->references('noRW')->on('RW')->onDelete('cascade');
+            $table->foreign('no_rw')->references('no_rw')->on('rw')->onDelete('cascade');
         });
     }
 

@@ -15,11 +15,11 @@ return new class extends Migration
             //pake id karena tidak di rekomendasi tanpa id
             $table->increments('id');
             $table->string('nik', 16);
-            $table->string('id_pengajuan');
+            $table->unsignedBigInteger('id_pengajuan');
             $table->timestamps();
 
-            // $table->foreign('NIK')->references('NIK')->on('Penduduk')->onDelete('cascade');
-            // $table->foreign('idPengaju')->references('idPengaju')->on('dokumen')->onDelete('cascade');
+            $table->foreign('nik')->references('nik')->on('penduduk')->onDelete('cascade');
+            $table->foreign('id_pengajuan')->references('id_pengajuan')->on('dokumen')->onDelete('cascade');
         });
     }
 

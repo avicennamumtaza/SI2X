@@ -14,12 +14,13 @@ class CreatePendudukTable extends Migration
     public function up()
     {
         Schema::create('penduduk', function (Blueprint $table) {
-            $table->id('nik',16);
-            $table->string('no_rt', 4);
+            $table->string('nik', 16)->primary();
             $table->string('nkk', 16);
+            $table->string('no_rt', 4);
             $table->string('nama','50');
             $table->string('tempat_lahir',25);
             $table->date('tanggal_lahir');
+            $table->text('alamat');
             $table->boolean('jenis_kelamin');
             $table->string('pekerjaan',30);
             $table->string('gol_darah',5);
@@ -28,7 +29,7 @@ class CreatePendudukTable extends Migration
             $table->timestamps();
             
 
-            // $table->foreign('NKK')->references('NKK')->on('keluarga')->onDelete('cascade');
+            $table->foreign('nkk')->references('nkk')->on('keluarga')->onDelete('cascade');
             // $table->foreign('noRT')->references('noRT')->on('rt')->onDelete('cascade');
         });
     }

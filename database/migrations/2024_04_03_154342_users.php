@@ -11,16 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id('id_user');
             $table->string('nik',16);
             $table->string('username',20);
             $table->string('role',20);
             $table->string('email',50);
-            $table->string('password',255);
+            $table->text('password');
             $table->timestamps();
 
-            // $table->foreign('NIK')->references('NIK')->on('Penduduk')->onDelete('cascade');
+            $table->foreign('nik')->references('nik')->on('penduduk')->onDelete('cascade');
         });
     }
 

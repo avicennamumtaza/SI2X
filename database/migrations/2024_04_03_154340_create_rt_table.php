@@ -20,7 +20,7 @@ class CreateRtTable extends Migration
             $table->integer('jumlah_penduduk_rt');
             $table->timestamps();
 
-            // $table->foreign('nikRT')->references('NIK')->on('penduduk')->onDelete('cascade');
+            $table->foreign('nik_rt')->references('nik')->on('penduduk')->onDelete('cascade');
         });
     }
 

@@ -13,14 +13,13 @@ return new class extends Migration
     {
         Schema::create('pengumuman', function (Blueprint $table) {
             $table->id('id_pengumuman');
-            //apakah perlu no rw
-             //$table->string('noRW',4);
+            $table->string('no_rw',4);
             $table->string('judul', 50);
             $table->text('deskripsi');
             $table->date('tanggal_pengumuman');
             $table->timestamps();
 
-             //$table->foreign('noRW')->references('noRW')->on('RW')->onDelete('cascade');
+            $table->foreign('no_rw')->references('no_rw')->on('rw')->onDelete('cascade');
             
         });
     }
