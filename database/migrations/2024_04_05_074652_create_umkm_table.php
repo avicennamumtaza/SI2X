@@ -22,8 +22,8 @@ return new class extends Migration
             $table->string('status_umkm', 50);
             $table->timestamps();
 
-            // $table->foreign('nik_pemilik')->references('nik')->on('penduduk')->onDelete('cascade');
-            // $table->foreign('no_rw')->references('no_rw')->on('rw')->onDelete('cascade');
+            $table->foreign('nik_pemilik')->references('nik')->on('penduduk')->onDelete('cascade');
+            $table->foreign('no_rw')->references('no_rw')->on('rw')->onDelete('cascade');
         });
     }
 

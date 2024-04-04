@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('dokumen', function (Blueprint $table) {
             $table->id('id_pengajuan');
-            $table->string('no_rt',4);
+            $table->unsignedBigInteger('no_rt');
             $table->string('nik_pengaju',16);
             $table->string('jenis_dokumen',16);
             $table->string('status_pengajuan',10);
@@ -22,7 +22,7 @@ return new class extends Migration
             $table->date('tanggal_pengajuan');
             $table->timestamps();
 
-            // $table->foreign('noRT')->references('noRT')->on('RT')->onDelete('cascade');
+            $table->foreign('no_rt')->references('no_rt')->on('rt')->onDelete('cascade');
         });
     }
 

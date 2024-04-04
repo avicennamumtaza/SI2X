@@ -17,10 +17,10 @@ return new class extends Migration
             $table->string('username',20);
             $table->string('role',20);
             $table->string('email',50);
-            $table->string('password',255);
+            $table->text('password');
             $table->timestamps();
 
-            // $table->foreign('NIK')->references('NIK')->on('Penduduk')->onDelete('cascade');
+            $table->foreign('nik')->references('nik')->on('penduduk')->onDelete('cascade');
         });
     }
 

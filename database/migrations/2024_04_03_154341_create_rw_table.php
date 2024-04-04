@@ -14,14 +14,14 @@ class CreateRwTable extends Migration
     public function up()
     {
         Schema::create('rw', function (Blueprint $table) {
-            $table->id('no_rw');
+            $table->string('no_rw', 4)->primary();
             $table->string('nik_rw',16);
             $table->integer('jumlah_rt');
             $table->integer('jumlah_keluarga_rw');
             $table->integer('jumlah_penduduk_rw');
             $table->timestamps();
 
-            // $table->foreign('nik_rw')->references('nik')->on('penduduk')->onDelete('cascade');
+            $table->foreign('nik_rw')->references('nik')->on('penduduk')->onDelete('cascade');
         });
     }
 
