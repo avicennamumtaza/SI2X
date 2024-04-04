@@ -27,6 +27,7 @@ class CreatePendudukTable extends Migration
             $table->boolean('is_married');
             $table->boolean('is_stranger');
             $table->timestamps();
+            
 
             $table->foreign('nkk')->references('nkk')->on('keluarga')->onDelete('cascade');
             // $table->foreign('noRT')->references('noRT')->on('rt')->onDelete('cascade');

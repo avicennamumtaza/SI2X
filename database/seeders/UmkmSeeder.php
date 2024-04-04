@@ -31,7 +31,7 @@ class UmkmSeeder extends Seeder
 
         foreach (range(1, 20) as $index) {
             DB::table('umkm')->insert([
-                'no_rw' => $faker->numberBetween(1, 100),
+                'no_rw' => $faker->numberBetween(6, 6),
                 'nik_pemilik' => $faker->numerify('################'),
                 'nama_umkm' => $faker->company,
                 'wa_umkm' => $faker->numerify('08##########'),
