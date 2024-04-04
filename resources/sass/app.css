@@ -355,4 +355,106 @@ body .sidebar {
   height: 100vh;
   position: fixed !important;
   left: 0px;
+}
+
+.rjl {
+  background-color: #152551;
+  height: 100vh;
+}
+.rjl .container-rjl {
+  margin-top: 35px;
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Menengahkan secara horizontal */
+  align-items: center; /* Menengahkan secara vertikal */
+}
+.rjl .login-form {
+  background-color: #4461AE;
+  width: 400px;
+  padding: 20px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Menengahkan secara vertikal */
+}
+.rjl .login-form .form-header {
+  display: inline;
+  align-items: center;
+  justify-content: space-between; /* Menengahkan secara horizontal */
+  margin-bottom: 20px;
+  padding-inline: 20px; /* Tambahkan padding agar tidak terlalu rapat dengan tepi */
+  width: 100%; /* Mengisi lebar agar elemen lainnya tidak tumpang tindih */
+}
+.rjl .login-form .form-header h2 {
+  text-align: center;
+  color: #ffffff;
+  margin: 0; /* Menghapus margin bawaan */
+}
+.rjl .login-form .form-header a {
+  align-self: flex-start; /* Memposisikan elemen <a> di pojok kiri atas */
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+}
+.rjl .login-form .form-header a i {
+  font-size: 150%;
+}
+.rjl .login-form .sirw_icon {
+  width: auto;
+  height: 100px;
+  display: flex;
+  margin-bottom: 15px;
+  justify-items: center;
+  align-self: center; /* Menengahkan vertikal */
+}
+.rjl .login-form form {
+  display: flex; /* Menggunakan flexbox */
+  flex-direction: column; /* Menjadikan flex-direction menjadi column */
+  align-items: center; /* Menengahkan secara vertikal */
+  justify-content: center; /* Menengahkan secara horizontal */
+  margin-inline: 20px;
+  margin-block: 13px;
+}
+.rjl .login-form form input {
+  margin-bottom: 15px;
+  padding-inline: 20px;
+  padding-block: 10px;
+  width: 130%;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+}
+.rjl .login-form form button {
+  background-color: #253560;
+  border-radius: 2em;
+  padding-inline: 20px;
+  padding-block: 7px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.4s ease-in-out;
+  border: none;
+  padding-block: 10px;
+  padding-inline: 60px;
+  cursor: pointer;
+}
+.rjl .login-form form button:hover {
+  background-color: #ffffff;
+  border: 1px solid black;
+  font-weight: 700;
+  color: #253560;
+}
+.rjl .login-form form button:hover {
+  background-color: #0d193f;
+  color: #fff;
+}
+.rjl .login-form form a {
+  color: #fff;
+  display: block; /* Mengubah elemen <a> menjadi blok agar bisa mendapatkan ruang secara penuh */
+  margin-bottom: 10px;
+}
+.rjl .login-form strong {
+  color: rgb(224, 33, 33);
+  font-size: smaller;
 }/*# sourceMappingURL=app.css.map */

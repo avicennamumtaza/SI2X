@@ -16,6 +16,7 @@
 $primaryCol: #253560;
 $secondaryCol: #152551;
 $tertiaryCol: #7384b3;
+$fourthCol: #4461AE;
 
 // mixin
 @mixin heading-center {
@@ -406,4 +407,124 @@ body {
     position: fixed !important;
     left: 0px;
   }
+}
+
+.rjl {
+    background-color: $secondaryCol;
+    height: 100vh;
+    .container-rjl {
+        margin-top: 35px;
+        width: 100%;
+        display: flex;
+        justify-content: center; /* Menengahkan secara horizontal */
+        align-items: center; /* Menengahkan secara vertikal */
+    }
+
+    .login-form {
+        background-color: $fourthCol;
+        width: 400px;
+        padding: 20px;
+        border: none;
+        border-radius: 4px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Menengahkan secara vertikal */
+
+        .form-header {
+            display: inline;
+            align-items: center;
+            justify-content: space-between; /* Menengahkan secara horizontal */
+            margin-bottom: 20px;
+            padding-inline: 20px; /* Tambahkan padding agar tidak terlalu rapat dengan tepi */
+            width: 100%; /* Mengisi lebar agar elemen lainnya tidak tumpang tindih */
+
+            h2 {
+                text-align: center;
+                color: #ffffff;
+                margin: 0; /* Menghapus margin bawaan */
+            }
+            
+            a {
+                align-self: flex-start; /* Memposisikan elemen <a> di pojok kiri atas */
+                // background-color: #253560;
+                color: #fff;
+                // padding: 5px 10px; /* Sesuaikan padding sesuai kebutuhan */
+                border-radius: 4px;
+                text-decoration: none;
+
+                i{
+                    font-size:150%;
+                }
+            }
+        }
+
+        .sirw_icon {
+            width: auto;
+            height: 100px;
+            display: flex;
+            margin-bottom: 15px;
+            justify-items: center;      
+            align-self: center; /* Menengahkan vertikal */
+        }
+
+        form {
+            display: flex; /* Menggunakan flexbox */
+            flex-direction: column; /* Menjadikan flex-direction menjadi column */
+            align-items: center; /* Menengahkan secara vertikal */
+            justify-content: center; /* Menengahkan secara horizontal */
+            margin-inline: 20px;
+            margin-block: 13px;
+
+            input {
+                margin-bottom: 15px;
+                padding-inline: 20px;
+                padding-block: 10px;
+                width: 130%;
+                border: 1px solid #ddd;
+                border-radius: 25px;               
+            }
+            
+            button {
+                // margin-top: 20px;
+                @include tombol();
+                &:hover {
+                    background-color: #0d193f;
+                    color: #fff;
+                }
+                border: none;
+                padding-block: 10px;
+                padding-inline: 60px;
+                cursor: pointer;
+            }
+
+            a {
+                color: #fff;
+                display: block; /* Mengubah elemen <a> menjadi blok agar bisa mendapatkan ruang secara penuh */
+                margin-bottom: 10px;
+            }
+        }
+        // .is-invalid {
+        //     border-color: #dc3545; /* Set a clear error border color */
+        //     width: 108%;
+        // }
+
+          
+        //   .invalid-feedback {
+        //     display: block; /* Ensure error message displays consistently */
+        //     color: #dc3545; /* Match error border color for visual association */
+        //     // margin-top: 0.25rem; /* Maintain spacing for readability */
+        //     font-size: 80%; /* Slightly smaller font for better hierarchy */
+        //   }
+          
+        //   .form-control:focus {
+        //     border-color: #8bd2ef; /* Adjust focus border color for better interaction feedback */
+        //     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Subtle focus shadow for improved usability */
+        //   }        
+        strong {
+            color: rgb(224, 33, 33);
+            font-size: smaller;
+        }
+    }
 }
