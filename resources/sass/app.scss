@@ -106,7 +106,7 @@ body {
     // background-size: 30vmax;
     width: 99%;
     background-color: #E9E9E9;
-    height: 200vh;
+    height: 100vh;
 
     @media screen and (max-width: 992px) {
         background-position-y: 70vh;
@@ -415,7 +415,7 @@ body {
 
 .rjl {
     background-color: $secondaryCol;
-    height: 100vh;
+    height: 90vh;
     .container-rjl {
         margin-top: 35px;
         width: 100%;
@@ -509,12 +509,12 @@ body {
                 margin-bottom: 10px;
             }
         }
+
         // .is-invalid {
         //     border-color: #dc3545; /* Set a clear error border color */
         //     width: 108%;
         // }
 
-          
         //   .invalid-feedback {
         //     display: block; /* Ensure error message displays consistently */
         //     color: #dc3545; /* Match error border color for visual association */
