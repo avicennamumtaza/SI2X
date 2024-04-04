@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('laporan_keuangan', function (Blueprint $table) {
             $table->id('id_laporan');
-            $table->String('no_rw', 4);
+            $table->String('no_rw', 4)->index();
             $table->float('nominal');
             $table->text('detail_laporan');
             $table->date('tanggal_laporan');

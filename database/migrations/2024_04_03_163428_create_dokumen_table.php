@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('dokumen', function (Blueprint $table) {
             $table->id('id_pengajuan');
-            $table->unsignedBigInteger('no_rt');
+            $table->unsignedBigInteger('no_rt')->index();
             $table->string('nik_pengaju',16);
             $table->string('jenis_dokumen',16);
             $table->string('status_pengajuan',10);

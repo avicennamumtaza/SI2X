@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('pengajuan_doc', function (Blueprint $table) {
             //pake id karena tidak di rekomendasi tanpa id
             $table->increments('id');
-            $table->string('nik', 16);
-            $table->unsignedBigInteger('id_pengajuan');
+            $table->string('nik', 16)->index();
+            $table->unsignedBigInteger('id_pengajuan')->index();
             $table->timestamps();
 
             $table->foreign('nik')->references('nik')->on('penduduk')->onDelete('cascade');

@@ -15,7 +15,7 @@ class CreateRtTable extends Migration
     {
         Schema::create('rt', function (Blueprint $table) {
             $table->id('no_rt');
-            $table->string('nik_rt', 16);
+            $table->string('nik_rt', 16)->index();
             $table->integer('jumlah_keluarga_rt');
             $table->integer('jumlah_penduduk_rt');
             $table->timestamps();
