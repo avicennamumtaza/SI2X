@@ -26,13 +26,16 @@ class UmkmSeeder extends Seeder
         //     ]
         // ];
         // DB::table('umkm')->insert($data);
-        
+
         $faker = Faker::create();
+
+        // Ambil semua nik yang ada
+        $nikPemilik = DB::table('penduduk')->pluck('nik')->toArray();
 
         foreach (range(1, 20) as $index) {
             DB::table('umkm')->insert([
                 'no_rw' => $faker->numberBetween(6, 6),
-                'nik_pemilik' => $faker->numerify('################'),
+                'nik_pemilik' => $faker->randomElement($nikPemilik),
                 'nama_umkm' => $faker->company,
                 'wa_umkm' => $faker->numerify('08##########'),
                 'foto_umkm' => $faker->imageUrl(),
