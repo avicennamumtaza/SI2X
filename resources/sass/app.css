@@ -5,7 +5,7 @@ body {
   font-family: "Poppins", sans-serif;
   width: 99%;
   background-color: #E9E9E9;
-  height: 200vh;
+  height: 100vh;
 }
 body .container-fluid-nav {
   width: 100vw;
@@ -355,12 +355,15 @@ body .sidebar {
   height: 100vh;
   position: fixed !important;
   left: 0px;
-<<<<<<< HEAD
+  background-color: #253560;
+}
+body .sidebar .nav-link, body .sidebar .bi {
+  color: #ffffff;
 }
 
 .rjl {
   background-color: #152551;
-  height: 100vh;
+  height: 90vh;
 }
 .rjl .container-rjl {
   margin-top: 35px;
@@ -458,10 +461,4 @@ body .sidebar {
 .rjl .login-form strong {
   color: rgb(224, 33, 33);
   font-size: smaller;
-=======
-  background-color: #253560;
-}
-body .sidebar .nav-link, body .sidebar .bi {
-  color: #ffffff;
->>>>>>> df0dd9791974e1ecf613a2a204cd4f0dfd3b0cc5
 }/*# sourceMappingURL=app.css.map */

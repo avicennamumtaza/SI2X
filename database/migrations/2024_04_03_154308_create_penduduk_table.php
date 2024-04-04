@@ -17,17 +17,17 @@ class CreatePendudukTable extends Migration
             $table->string('nik', 16)->primary();
             $table->string('nkk', 16);
             $table->string('no_rt', 4);
-            $table->string('nama','50');
-            $table->string('tempat_lahir',25);
+            $table->string('nama', 50);
+            $table->string('tempat_lahir', 25);
             $table->date('tanggal_lahir');
             $table->text('alamat');
-            $table->boolean('jenis_kelamin');
-            $table->string('pekerjaan',30);
-            $table->string('gol_darah',5);
+            $table->string('jenis_kelamin');
+            $table->string('pekerjaan', 30);
+            $table->string('gol_darah', 5);
             $table->boolean('is_married');
             $table->boolean('is_stranger');
             $table->timestamps();
-            
+
 
             $table->foreign('nkk')->references('nkk')->on('keluarga')->onDelete('cascade');
             // $table->foreign('noRT')->references('noRT')->on('rt')->onDelete('cascade');
