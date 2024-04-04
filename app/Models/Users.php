@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -24,6 +25,11 @@ class Users extends Authenticatable
         'email',
         'password',
     ];
+
+    public function penduduk(): BelongsTo
+    {
+        return $this->belongsTo(Penduduk::class, 'nik', 'nik');
+    }
 
     /**
      * The attributes that should be hidden for serialization.

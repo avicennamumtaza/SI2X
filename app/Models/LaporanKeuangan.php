@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class LaporanKeuangan extends Model
 {
@@ -19,4 +20,9 @@ class LaporanKeuangan extends Model
         'saldo',
         'is_income',
     ];
+
+    public function rw(): BelongsTo
+    {
+        return $this->belongsTo(Rw::class, 'nik_rw', 'nik_rw');
+    }
 }

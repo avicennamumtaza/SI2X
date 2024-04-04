@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Rw extends Model
 {
@@ -17,4 +19,24 @@ class Rw extends Model
         'jumlah_keluarga_rw',
         'jumlah_penduduk_rw',
     ];
+
+public function penduduk(): BelongsTo
+    {
+        return $this->belongsTo(Penduduk::class, 'nik_rw', 'nik');
+    }
+
+    public function umkm(): HasMany
+    {
+        return $this->hasMany(Umkm::class, 'no_rw', 'no_rw');
+    }
+
+    public function pengumuman(): HasMany
+    {
+        return $this->hasMany(Pengumuman::class, 'no_rw', 'no_rw');
+    }
+
+    public function laporan(): HasMany
+    {
+        return $this->hasMany(LaporanKeuangan::class, 'no_rw', 'no_rw');
+    }
 }

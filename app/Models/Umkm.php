@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Umkm extends Model
 {
@@ -18,4 +19,14 @@ class Umkm extends Model
         'foto_umkm',
         'desc_umkm',
     ];
+
+    public function penduduk(): BelongsTo
+    {
+        return $this->belongsTo(Penduduk::class, 'nik_pemilik', 'nik');
+    }
+
+    public function rw(): BelongsTo
+    {
+        return $this->belongsTo(Rw::class, 'nik_pemilik', 'nik_rw');
+    }
 }

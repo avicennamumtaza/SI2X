@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class keluarga extends Model
+class Keluarga extends Model
 {
     use HasFactory;
 
@@ -15,4 +16,9 @@ class keluarga extends Model
         'nik_kepala_keluarga',
         'jumlah_nik',
     ];
+
+    public function penduduk(): HasMany
+    {
+        return $this->hasMany(Penduduk::class, 'nkk', 'nkk');
+    }
 }
