@@ -355,6 +355,7 @@ body .sidebar {
   height: 100vh;
   position: fixed !important;
   left: 0px;
+<<<<<<< HEAD
 }
 
 .rjl {
@@ -457,4 +458,10 @@ body .sidebar {
 .rjl .login-form strong {
   color: rgb(224, 33, 33);
   font-size: smaller;
+=======
+  background-color: #253560;
+}
+body .sidebar .nav-link, body .sidebar .bi {
+  color: #ffffff;
+>>>>>>> df0dd9791974e1ecf613a2a204cd4f0dfd3b0cc5
 }/*# sourceMappingURL=app.css.map */
