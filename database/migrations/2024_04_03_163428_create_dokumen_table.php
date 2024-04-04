@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('jenis_dokumen',16);
             $table->string('status_pengajuan',10);
             $table->text('catatan');
-            $table->date('tanggal_pengajuan');
             $table->string('nama_pengaju',50);
+            $table->date('tanggal_pengajuan');
             $table->timestamps();
 
             // $table->foreign('noRT')->references('noRT')->on('RT')->onDelete('cascade');
