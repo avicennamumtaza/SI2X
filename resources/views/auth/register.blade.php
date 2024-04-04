@@ -12,7 +12,7 @@
                             @csrf
 
                             <div class="row mb-3">
-                                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Username') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text"
@@ -45,14 +45,13 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="name"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Role') }}</label>
-
+                                <label for="role" class="col-md-4 col-form-label text-md-end">{{ __('Role') }}</label>
                                 <div class="col-md-6">
-                                    <input id="role" type="text"
-                                        class="form-control @error('role') is-invalid @enderror" name="role"
-                                        value="{{ old('role') }}" required autocomplete="role" autofocus>
-
+                                    <select id="role" class="form-control @error('role') is-invalid @enderror" name="role" required autofocus>
+                                        <option value="Rt" {{ old('role') == 'Rt' ? 'selected' : '' }}>Rt</option>
+                                        <option value="Rw" {{ old('role') == 'Rw' ? 'selected' : '' }}>Rw</option>
+                                        <option value="Staf" {{ old('role') == 'Staf' ? 'selected' : '' }}>Staf</option>
+                                    </select>
                                     @error('role')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
