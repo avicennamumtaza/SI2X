@@ -99,7 +99,7 @@
                     </div>
                 </div>
             </div>
-            <a class="position-absolute start-50 translate-middle-x" href="#">Lainnya</a>
+            <a class="position-absolute start-50 translate-middle-x" href="{{ route('pengumuman.global') }}">Lainnya</a>
         </div>
     <!-- </div> -->
 </div>
