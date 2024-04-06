@@ -1,7 +1,7 @@
 @extends('layouts.user')
 
 @section('content')
-    <div class="container container-pengumuman col-12">
+    {{-- <div class="container container-pengumuman col-12"> --}}
         <!-- Modal -->
         <div class="modal fade" id="ajukanpengumumanModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-md">
@@ -46,17 +46,70 @@
             </div>
         </div>
 
-
+    {{-- <div class="container"> --}}
+        {{-- <table id="myTable" class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">judul</th>
+                    <th scope="col">deskripsi</th>
+                    <th scope="col">tanggal Pengumuman</th>
+                    <th scope="col">aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($pengumumans as $pengumuman)
+                    <tr>
+                        {{-- <td>{{ ++$i }}</td> --}}
+        {{-- <td>{{ $pengumuman->id_pengumuman }}</td>
+                        <td>{{ $pengumuman->judul }}</td>
+                        <td>{{ $pengumuman->deskripsi }}</td>
+                        <td>{{ $pengumuman->tanggal_pengumuman }}</td>
+                        <td>
+                            <form style="display: inline-block;"
+                                action="{{ route('pengumuman.destroy', $pengumuman->id_pengumuman) }}" method="POST">
+                                <a class="btn btn-primary"
+                                    href="{{ route('pengumuman.edit', $pengumuman->id_pengumuman) }}">Edit</a>
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form> --}}
+        {{-- </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table> --}}
         <div class="card">
+            <div class="card-header card-header-tabel p-4 mb-3">
+                <h5>
+                    Pengumuman
+                    <button class="btn btn-success float-end" data-bs-toggle="modal"
+                        data-bs-target="#ajukanpengumumanModal">Add</button>
+                </h5>
+            </div>
+            <hr>
+            <div class="card-body">
+                <div class="table-responsive">
+                    {{ $dataTable->table() }}
+                </div>
+            </div>
+        </div>
+
+        @push('scripts')
+            {{ $dataTable->scripts() }}
+        @endpush
+
+
+        {{-- <div class="card">
             <h5 class="card-header p-4 mb-3">Kelola Pengumuman
                 <button class="btn btn-success float-end" data-bs-toggle="modal"
                     data-bs-target="#ajukanpengumumanModal">Add</button>
             </h5>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
+                    <table id="myTable" class="table table-striped">
+                        <thead> --}}
+        {{-- <tr>
                                 <th scope="col">id</th>
                                 <th scope="col">judul</th>
                                 <th scope="col">deskripsi</th>
@@ -66,13 +119,13 @@
                         </thead>
                         <tbody>
                             @foreach ($pengumumans as $pengumuman)
-                                <tr>
-                                    {{-- <td>{{ ++$i }}</td> --}}
-                                    <td>{{ $pengumuman->id_pengumuman }}</td>
+                                <tr> --}}
+        {{-- <td>{{ ++$i }}</td> --}}
+        {{-- <td>{{ $pengumuman->id_pengumuman }}</td>
                                     <td>{{ $pengumuman->judul }}</td>
                                     <td>{{ $pengumuman->deskripsi }}</td>
-                                    <td>{{ $pengumuman->tanggal_pengumuman }}</td>
-                                    <td>
+                                    <td>{{ $pengumuman->tanggal_pengumuman }}</td> --}}
+        {{-- <td>
                                         <form style="display: inline-block;"
                                             action="{{  route('pengumuman.destroy', $pengumuman->id_pengumuman) }}"
                                             method="POST">
@@ -86,8 +139,12 @@
                                 </tr>
                             @endforeach
                         </tbody>
-                    </table>
-                </div>
+                    </table> --}}
+        {{-- </div>
             </div>
-        </div>
+        </div> --}}
+        {{-- <script>
+        let table = new DataTable('#myTable');
+        <script src="https://cdn.datatables.net/v/bs5/dt-2.0.3/datatables.min.js"></script>
+    </script> --}}
     @endsection
