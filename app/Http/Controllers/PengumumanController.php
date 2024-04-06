@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\PengumumanDataTable;
 use App\Models\Pengumuman;
 use Illuminate\Http\Request;
 
 class PengumumanController extends Controller
 {
-    public function index()
+    public function index(PengumumanDataTable $dataTable)
     {
-        $pengumumans = Pengumuman::all();
-        return view('auth.rw.pengumuman', compact('pengumumans'));
+        // $pengumumans = Pengumuman::all();
+        // return view('auth.rw.pengumuman', compact('pengumumans'));
+        return $dataTable->render('auth.rw.pengumuman');
     }
 
     // public function create()
@@ -40,7 +42,7 @@ class PengumumanController extends Controller
         $pengumuman->deskripsi = $request->desc_pengumuman;
         $pengumuman->tanggal_pengumuman = $request->tanggal_pengumuman;
         $pengumuman->save();
-        
+
         return redirect()->back()->with('success', 'Pengumuman berhasil diajukan!');
     }
 
@@ -60,14 +62,14 @@ class PengumumanController extends Controller
         $pengumuman->update($request->all());
 
         return redirect()->route('pengumuman.index')
-                         ->with('success', 'Pengumuman berhasil diperbarui.');
+            ->with('success', 'Pengumuman berhasil diperbarui.');
     }
 
     public function destroy(Pengumuman $pengumuman)
     {
         $pengumuman->delete();
 
-        return redirect()->route('pengumuman.index')
-                         ->with('success', 'Pengumuman berhasil dihapus.');
+        return redirect()->back()
+            ->with('success', 'Pengumuman berhasil dihapus.');
     }
 }
