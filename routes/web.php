@@ -45,5 +45,6 @@ Route::get('/pengumuman', [PengumumanController::class, 'index'])->name('pengumu
 // manage pengumuman
 Route::get('/pengumumann', [PengumumanController::class, 'list'])->name('pengumuman.manage');
 Route::post('/pengumumann', [PengumumanController::class, 'store'])->name('pengumuman.store');
-// Route::get('/pengumumann/{pengumuman}/edit', [PengumumanController::class, 'edit'])->name('pengumuman.edit');
+Route::get('/pengumumann/{pengumuman}/edit', [PengumumanController::class, 'edit'])->name('pengumuman.edit');
+Route::put('/pengumumann/{pengumuman}', [PengumumanController::class, 'update'])->name('pengumuman.update');
 Route::delete('/pengumumann/{pengumuman}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy');
