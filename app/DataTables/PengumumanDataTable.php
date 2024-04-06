@@ -27,7 +27,8 @@ class PengumumanDataTable extends DataTable
                 $editUrl = route('pengumuman.edit', $row->id_pengumuman);
                 $deleteUrl = route('pengumuman.destroy', $row->id_pengumuman);
                 $action = '<a href="' . $editUrl . '" class="edit btn btn-primary btn-sm">Edit</a>';
-                $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
+                $action .= '&nbsp;'; // Menambahkan spasi HTML
+                $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline-block;">
                     ' . csrf_field() . '
                     ' . method_field('DELETE') . '
                     <button type="submit" class="delete btn btn-danger btn-sm">Delete</button>
@@ -73,11 +74,19 @@ class PengumumanDataTable extends DataTable
             //       ->printable(false)
             //       ->width(60)
             //       ->addClass('text-center'),
-            Column::make('id_pengumuman'),
-            Column::make('judul'),
-            Column::make('deskripsi'),
-            Column::make('tanggal_pengumuman'),
-            Column::make('action'),
+            Column::make('id_pengumuman')->title('Id'),
+            Column::make('judul')->title('Judul'),
+            Column::make('deskripsi')->title('Deskripsi'),
+            Column::computed('tanggal_pengumuman')->title('Tanggal')
+            ->exportable(false)
+            ->printable(false)
+            ->width(120)
+            ->addClass('text-center'),
+            Column::computed('action')
+              ->exportable(false)
+              ->printable(false)
+              ->width(170) 
+              ->addClass('text-center'),
             // Column::make('created_at'),
             // Column::make('updated_at'),
         ];
