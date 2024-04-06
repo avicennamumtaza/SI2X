@@ -31,6 +31,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/pengumuman', function () {
+    return view('global.pengumuman');
+})->name('landing_pengumuman');
 
 // manage umkm
 Route::get('/umkmm', [UmkmController::class, 'list'])->name('manage_umkm');
