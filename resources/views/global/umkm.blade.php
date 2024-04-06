@@ -22,30 +22,53 @@
                                     placeholder="Masukkan Nama UMKM" required>
                             </div>
                             <div class="form-group mb-3">
-                                <label for="nik_pemilik" class="form-label">Nama Pemilik</label>
-                                <input type="text" class="form-control" id="nik_pemilik" name="nik_pemilik"
+                                <label for="nik_pemilik" class="form-label">NIK Pemilik</label>
+                                {{-- <input list="browsers" name="browserr">
+                                <datalist id="browsers">
+                                    <option value="Chrome">
+                                    <option value="Firefox">
+                                    <option value="Internet Explorer">
+                                    <option value="Opera">
+                                    <option value="Safari">
+                                </datalist> --}}
+                                <input list="nik_pemilik_list" class="form-control" id="nik_pemilik" name="nik_pemilik_umkm"
                                     placeholder="Masukkan Nik Pemilik" required>
+                                <datalist id="nik_pemilik_list">
+                                    @foreach ($nik_penduduks as $nik_penduduk)
+                                        <option value="{{ $nik_penduduk->nik }}">{{ $nik_penduduk->nik }}</option>
+                                    @endforeach
+                                </datalist>
                             </div>
                             <div class="form-group mb-3">
-                                <label for="wa_umkm" class="form-label">WhatsApp UMKM/Pemilik</label>
+                                <label for="no_rw" class="form-label text-start">No RW</label>
+                                <input type="text" class="form-control" id="no_rw" name="no_rw"
+                                    placeholder="6" value="6" readonly>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="status_umkm" class="form-label text-start">Status Pengajuan</label>
+                                <input type="text" class="form-control" id="status_umkm" name="status_umkm"
+                                    placeholder="Baru" value="Baru" readonly>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="wa_umkm" class="form-label">WhatsApp</label>
                                 <input type="text" class="form-control" id="wa_umkm" name="wa_umkm"
-                                    placeholder="Masukkan Nik Pemilik" required>
+                                    placeholder="Masukkan WhatsApp Pemilik/UMKM" required>
                             </div>
                             <div class="form-group mb-3">
                                 <label class="custom-file-label mb-2" for="foto_umkm">Foto UMKM</label>
-                                <input type="file" class="form-control" id="foto_umkm" name="foto_umkm" required>
+                                <input type="file" class="form-control" id="foto_umkm" name="foto_umkm" placeholder="Masukkan Foto Produk atau UMKM" required>
                             </div>
                             <div class="form-group mb-3">
-                                <label for="desc_umkm" class="form-label">Deskripsi UMKM</label>
+                                <label for="desc_umkm" class="form-label">Deskripsi</label>
                                 <textarea class="form-control" id="desc_umkm" name="desc_umkm" rows="3" placeholder="Masukkan Deskripsi UMKM"
                                     required></textarea>
                             </div>
                             <!-- Tambahkan input lainnya sesuai kebutuhan -->
-                            </div>
-                            <div class="modal-footer justify-content-end">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
-                                <button type="submit" class="btn btn-success">Submit</button>
-                            </div>
+                    </div>
+                    <div class="modal-footer justify-content-end">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
                     </form>
                 </div>
             </div>
@@ -64,13 +87,11 @@
         </a>
 
         <!-- Tambahkan di mana pun Anda ingin menampilkan pesan -->
-        @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
+        {{-- @if ($errors->any())
+            {{ alert()->error('Title',' $errors->first() '); }}
+        @endif --}}
 
-        @if ($errors->any())
+        {{-- @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -78,7 +99,8 @@
                     @endforeach
                 </ul>
             </div>
-        @endif
+        @endif --}}
+
         <h1 class="heading-center">UMKM</h1>
         <p>Fitur UMKM pada SIRW memungkinkan para warga untuk dengan mudah mengakses dan menjelajahi daftar UMKM yang
             beroperasi di lingkungan mereka. Melalui fitur ini, pengguna dapat mengetahui beragam usaha mikro, kecil, dan
