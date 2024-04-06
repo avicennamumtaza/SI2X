@@ -5,8 +5,8 @@
 @import 'variables';
 
 // Bootstrap
-// @import url('/node_modules/bootstrap/');
-@import 'bootstrap/scss/bootstrap';
+@import url('/node_modules/bootstrap/');
+// @import 'bootstrap/scss/bootstrap';
 
 // Icons
 // @import url('/node_modules/bootstrap-icons/');
@@ -47,9 +47,30 @@ $fourthCol: #4461AE;
         color: $primaryCol;
     }
 }
+@mixin tombolDelete {
+    background-color: rgb(195, 8, 8);
+    border-radius: 2em;
+    padding-inline: 20px;
+    padding-block: 7px;
+    color: #ffffff;  
+    text-decoration: none;
+    border: none;
+    transition: 0.2s ease-in-out;
+    &:hover {
+        padding-inline: 19px;
+        padding-block: 6px;
+        background-color: #ffffff;
+        border: 1px solid rgb(195, 8, 8);
+        font-weight: 700;
+        color: rgb(195, 8, 8);
+    }
+}
 
 // style
 body {    
+    .btn-delete {
+        @include tombolDelete();
+    }
     .container-fluid-nav {
         width: 100vw; // Atur lebar sesuai viewport width
         padding-right: 15px; // Tambahkan sedikit padding kanan agar konten tidak menempel langsung ke tepi layar
@@ -794,6 +815,25 @@ body {
         color: #ffffff;
     }
   }
+
+  .card-header-tabel {
+    background-color: $primaryCol;
+        h5 {
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0px;
+        }
+    }
+    hr {
+        margin-top: -20px;
+        height: 10px;
+        color: orange;
+        background-color: orange;
+        border: orange;
+        opacity: 0.99;
+    }
 }
 
 .rjl {
