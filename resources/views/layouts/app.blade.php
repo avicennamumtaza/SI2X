@@ -41,7 +41,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#beranda">Beranda</a>
+                        <a class="nav-link" aria-current="page" href="{{ route('landing') }}">Beranda</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#stats">Statistik</a>
@@ -55,7 +55,7 @@
                             Layanan
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-end">
-                            <li><a class="dropdown-item" href="#">Pengumuman</a></li>
+                            <li><a class="dropdown-item" href="{{ route('landing_pengumuman') }}">Pengumuman</a></li>
                             <li><a class="dropdown-item" href="{{ route('landing_umkm') }}">Daftar UMKM</a></li>
                             <li><a class="dropdown-item" href="#">Pengajuan Surat</a></li>
                             <li><a class="dropdown-item" href="#">Laporan Keuangan</a></li>
