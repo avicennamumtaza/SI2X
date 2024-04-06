@@ -83,8 +83,8 @@
             <div class="card-header card-header-tabel p-4 mb-3">
                 <h5>
                     Pengumuman
-                    <button class="btn btn-success float-end" data-bs-toggle="modal"
-                        data-bs-target="#ajukanpengumumanModal">Add</button>
+                    <button class="btn btn-add float-end" data-bs-toggle="modal"
+                        data-bs-target="#ajukanpengumumanModal">Tambah Data</button>
                 </h5>
             </div>
             <hr>

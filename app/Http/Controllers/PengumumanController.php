@@ -8,10 +8,15 @@ use Illuminate\Http\Request;
 
 class PengumumanController extends Controller
 {
-    public function index(PengumumanDataTable $dataTable)
+    public function index()
     {
+        $pengumumans = Pengumuman::all();
+        return view('global.pengumuman')->with('pengumumans', $pengumumans);
         // $pengumumans = Pengumuman::all();
         // return view('auth.rw.pengumuman', compact('pengumumans'));
+    }
+    
+    public function list(PengumumanDataTable $dataTable) {
         return $dataTable->render('auth.rw.pengumuman');
     }
 
@@ -61,7 +66,7 @@ class PengumumanController extends Controller
 
         $pengumuman->update($request->all());
 
-        return redirect()->route('pengumuman.index')
+        return redirect()->route('pengumuman.manage')
             ->with('success', 'Pengumuman berhasil diperbarui.');
     }
 

@@ -55,8 +55,8 @@
                             Layanan
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-end">
-                            <li><a class="dropdown-item" href="{{ route('landing_pengumuman') }}">Pengumuman</a></li>
-                            <li><a class="dropdown-item" href="{{ route('landing_umkm') }}">Daftar UMKM</a></li>
+                            <li><a class="dropdown-item" href="{{ route('pengumuman.global') }}">Pengumuman</a></li>
+                            <li><a class="dropdown-item" href="{{ route('umkm.global') }}">Daftar UMKM</a></li>
                             <li><a class="dropdown-item" href="#">Pengajuan Surat</a></li>
                             <li><a class="dropdown-item" href="#">Laporan Keuangan</a></li>
                             <li>
