@@ -34,7 +34,7 @@ class PengumumanDataTable extends DataTable
                 </form>
                 ';
                 // return $action;
-                // $action = '<a href="kategori/edit/'.$row->kategori_id.'" class="edit btn-primary  btn-sm">Edit</a>';
+                // $action = '<a href="kategori/edit/'.$row->kategori_id.'" class="edit btn-primary btn-sm">Edit</a>';
                 // $action .= '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
                 return $action;
             });

@@ -36,7 +36,7 @@
                                             @method('DELETE')
                                             <button type="submit" class="btn p-2 btn-danger">Hapus</button>
                                         </form>
-                                        <div class="modal fade" id="editModal" tabindex="-1"
+                                        {{-- <div class="modal fade" id="editModal" tabindex="-1"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-md">
                                                 <div class="modal-content">
@@ -60,7 +60,7 @@
                                                                         <option value="Diterima" {{ ($umkm->status_umkm == "Diterima") ? 'selected' : '' }}>Diterima</option>
                                                                         <option value="Ditolak" {{ ($umkm->status_umkm == "Ditolak") ? 'selected' : '' }}>Ditolak</option>
                                                                     </select> --}}
-                                                                </div>
+                                                                {{-- </div>
                                                         </div>
                                                         <div class="modal-footer justify-content-end">
                                                             <button type="button" class="btn btn-danger"
@@ -76,7 +76,7 @@
                                                 var modal = new bootstrap.Modal(document.getElementById('editModal'));
                                                 modal.show();
                                             });
-                                        </script>
+                                        </script> --}}
                                     </td>
                                 </tr>
                             @endforeach
