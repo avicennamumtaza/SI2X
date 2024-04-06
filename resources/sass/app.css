@@ -18,15 +18,31 @@ body .btn-delete {
   color: #ffffff;
   text-decoration: none;
   border: none;
-  transition: 0.2s ease-in-out;
+  transition: 0.1s ease-in-out;
 }
 body .btn-delete:hover {
-  padding-inline: 19px;
+  padding-inline: 18px;
   padding-block: 6px;
   background-color: #ffffff;
   border: 1px solid rgb(195, 8, 8);
   font-weight: 700;
   color: rgb(195, 8, 8);
+}
+body .btn-add {
+  background-color: rgb(7, 165, 83);
+  border-radius: 2em;
+  padding-inline: 20px;
+  padding-block: 7px;
+  color: #ffffff;
+  text-decoration: none;
+  border: none;
+  transition: 0.1s ease-in-out;
+}
+body .btn-add:hover {
+  background-color: #ffffff;
+  border: 0px solid rgb(7, 165, 83);
+  font-weight: 700;
+  color: rgb(7, 165, 83);
 }
 body .container-fluid-nav {
   width: 100vw;
@@ -373,7 +389,7 @@ body footer .f2 {
 }
 body .container-p {
   background-color: transparent;
-  margin-block: 7.7rem;
+  margin-top: 6rem;
   text-align: center;
   @import url("https://fonts.googleapis.com/css2?family=Baloo+2&display=swap");
   /* This pen */

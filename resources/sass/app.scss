@@ -55,9 +55,9 @@ $fourthCol: #4461AE;
     color: #ffffff;  
     text-decoration: none;
     border: none;
-    transition: 0.2s ease-in-out;
+    transition: 0.1s ease-in-out;
     &:hover {
-        padding-inline: 19px;
+        padding-inline: 18px;
         padding-block: 6px;
         background-color: #ffffff;
         border: 1px solid rgb(195, 8, 8);
@@ -65,11 +65,32 @@ $fourthCol: #4461AE;
         color: rgb(195, 8, 8);
     }
 }
+@mixin tombolAdd {
+    background-color: rgb(7, 165, 83);
+    border-radius: 2em;
+    padding-inline: 20px;
+    padding-block: 7px;
+    color: #ffffff;  
+    text-decoration: none;
+    border: none;
+    transition: 0.1s ease-in-out;
+    &:hover {
+        // padding-inline: 19px;
+        // padding-block: 6px;
+        background-color: #ffffff;
+        border: 0px solid rgb(7, 165, 83);
+        font-weight: 700;
+        color: rgb(7, 165, 83);
+    }
+}
 
 // style
 body {    
     .btn-delete {
         @include tombolDelete();
+    }
+    .btn-add {
+        @include tombolAdd();
     }
     .container-fluid-nav {
         width: 100vw; // Atur lebar sesuai viewport width
@@ -433,7 +454,7 @@ body {
     
     .container-p {        
         background-color: transparent;
-        margin-block: 7.7rem;
+        margin-top: 6rem;
         text-align: center;
         p {
             width: 100%;
