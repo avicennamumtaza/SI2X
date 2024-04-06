@@ -47,9 +47,3 @@ Route::get('/pengumumann', [PengumumanController::class, 'index'])->name('pengum
 Route::post('/pengumumann', [PengumumanController::class, 'store'])->name('pengumuman.store');
 Route::delete('/pengumumann/{pengumuman}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy');
 Route::get('/pengumumann/{pengumuman}/edit', [PengumumanController::class, 'edit'])->name('pengumuman.edit');
-
-// Route::get('/pengumuman/create', 'PengumumanController@create')->name('pengumuman.create');
-// Route::post('/pengumuman/store', 'PengumumanController@store')->name('pengumuman.store');
-// Route::get('/pengumuman/{pengumuman}/edit', 'PengumumanController@edit')->name('pengumuman.edit');
-// Route::put('/pengumuman/{pengumuman}', 'PengumumanController@update')->name('pengumuman.update');
-// Route::delete('/pengumuman/{pengumuman}', 'PengumumanController@destroy')->name('pengumuman.destroy');
