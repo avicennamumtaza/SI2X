@@ -83,11 +83,32 @@ $fourthCol: #4461AE;
         color: rgb(7, 165, 83);
     }
 }
+@mixin tombolEdit {
+    background-color: rgb(247, 144, 34);
+    border-radius: 2em;
+    padding-inline: 30px;
+    padding-block: 7px;
+    color: #ffffff;  
+    text-decoration: none;
+    border: none;
+    transition: 0.1s;
+    &:hover {
+        padding-inline: 28px;
+        padding-block: 6.4px;
+        background-color: #ffffff;
+        border: 1px solid rgb(247, 144, 34);
+        font-weight: 700;
+        color: rgb(247, 144, 34);
+    }
+}
 
 // style
 body {    
     .btn-delete {
         @include tombolDelete();
+    }
+    .btn-edit {
+        @include tombolEdit();
     }
     .btn-add {
         @include tombolAdd();

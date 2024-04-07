@@ -28,6 +28,24 @@ body .btn-delete:hover {
   font-weight: 700;
   color: rgb(195, 8, 8);
 }
+body .btn-edit {
+  background-color: rgb(247, 144, 34);
+  border-radius: 2em;
+  padding-inline: 30px;
+  padding-block: 7px;
+  color: #ffffff;
+  text-decoration: none;
+  border: none;
+  transition: 0.1s;
+}
+body .btn-edit:hover {
+  padding-inline: 28px;
+  padding-block: 6.4px;
+  background-color: #ffffff;
+  border: 1px solid rgb(247, 144, 34);
+  font-weight: 700;
+  color: rgb(247, 144, 34);
+}
 body .btn-add {
   background-color: rgb(7, 165, 83);
   border-radius: 2em;
