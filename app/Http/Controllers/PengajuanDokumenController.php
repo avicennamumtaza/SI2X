@@ -11,7 +11,7 @@ class PengajuanDokumenController extends Controller
      */
     public function index()
     {
-        //
+        return view('global.pengajuandokumen');
     }
 
     /**
