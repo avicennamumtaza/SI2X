@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\LaporanKeuanganDataTable;
+use App\Models\LaporanKeuangan;
 use Illuminate\Http\Request;
 
 class LaporanKeuanganController extends Controller
@@ -11,7 +13,12 @@ class LaporanKeuanganController extends Controller
      */
     public function index()
     {
-        //
+        return view('global.laporankeuangan');
+    }
+
+    public function list(LaporanKeuanganDataTable $dataTable)
+    {
+        return $dataTable->render('auth.rw.laporankeuangan');
     }
 
     /**
@@ -27,7 +34,31 @@ class LaporanKeuanganController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validasi data input dari form
+        $request->validate([
+            'id_laporankeuangan' => 'required',
+            'is_income' => 'required',
+            'nominal' => 'required',
+            'detail_laporan' => 'required',
+            'tanggal_laporan' => 'required',
+        ]);
+
+        // Simpan data pengumuman ke dalam database
+        // Pengumuman::create([
+        //     'nama_pengumuman' => $request->nama_pengumuman,
+        //     'desc_pengumuman' => $request->desc_pengumuman,
+        //     'tanggal_pengumuman' => $request->tanggal_pengumuman,
+        // ]);
+
+        $laporanKeuangan = new LaporanKeuangan();
+        $laporanKeuangan->id_laporankeuangan = $request->id_laporankeuangan;
+        $laporanKeuangan->is_income = $request->is_income;
+        $laporanKeuangan->nominal = $request->nominal;
+        $laporanKeuangan->detail_laporan = $request->detail_laporan;
+        $laporanKeuangan->tanggal_laporan = $request->tanggal_laporan;
+        $laporanKeuangan->save();
+
+        return redirect()->back()->with('success', 'Laporan Keuangan berhasil dipublish!');
     }
 
     /**
