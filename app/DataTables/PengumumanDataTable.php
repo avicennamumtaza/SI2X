@@ -22,30 +22,29 @@ class PengumumanDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            // ->setRowId('id')
-            // ->addColumn('action', function($row){
-            //     $editUrl = route('pengumuman.edit', $row->id_pengumuman);
-            //     $deleteUrl = route('pengumuman.destroy', $row->id_pengumuman);
-            //     $action = '<a href="' . $editUrl . '" class="edit btn btn-primary btn-sm">Edit</a>';
-            //     $action .= '&nbsp;'; // Menambahkan spasi HTML
-            //     $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline-block;">
-            //         ' . csrf_field() . '
-            //         ' . method_field('DELETE') . '
-            //         <button type="submit" class="delete btn btn-danger btn-sm">Delete</button>
-            //     </form>';
-            //     return $action;
             ->setRowId('id')
             ->addColumn('action', function($row){
                 $editUrl = route('pengumuman.edit', $row->id_pengumuman);
                 $deleteUrl = route('pengumuman.destroy', $row->id_pengumuman);
-                $action = '<a href="' . $editUrl . '" class="edit btn btn-edit btn-sm">Edit</a>';
-                $action .= '&nbsp;';
+                $action = '<a href="' . $editUrl . '" class="edit btn btn-primary btn-sm">Edit</a>';
+                $action .= '&nbsp;'; // Menambahkan spasi HTML
                 $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline-block;">
                     ' . csrf_field() . '
                     ' . method_field('DELETE') . '
-                    <button type="submit" class="delete btn btn-delete btn-sm">Delete</button>
+                    <button type="submit" class="delete btn btn-danger btn-sm">Delete</button>
                 </form>';
                 return $action;
+            // ->setRowId('id')
+            // ->addColumn('action', function($row){
+            //     $editUrl = route('pengumuman.edit', $row->id_pengumuman);
+            //     $deleteUrl = route('pengumuman.destroy', $row->id_pengumuman);
+            //     $action = '<a href="' . $editUrl . '" class="edit btn btn-edit btn-sm">Edit</a>';
+            //     $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline-block;">
+            //         ' . csrf_field() . '
+            //         ' . method_field('DELETE') . '
+            //         <button type="submit" class="delete btn btn-delete btn-sm">Delete</button>
+            //     </form>';
+            //     return $action;
             });
     }
 
