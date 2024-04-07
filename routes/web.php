@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\LaporanKeuanganController;
+use App\Http\Controllers\PengajuanDokumenController;
 use App\Http\Controllers\UmkmController;
 use App\Http\Controllers\PengumumanController;
 use Illuminate\Support\Facades\Auth;
@@ -39,7 +41,7 @@ Route::get('/umkmm', [UmkmController::class, 'list'])->name('umkm.manage');
 // Route::put('/umkm/{id}', [UmkmController::class, 'update'])->name('umkm.update');
 Route::delete('/umkm/{id}', [UmkmController::class, 'destroy'])->name('umkm.destroy');
 
-// global
+// global pengumuman
 Route::get('/pengumuman', [PengumumanController::class, 'index'])->name('pengumuman.global');
 
 // manage pengumuman
@@ -48,3 +50,17 @@ Route::post('/pengumumann', [PengumumanController::class, 'store'])->name('pengu
 Route::get('/pengumumann/{pengumuman}/edit', [PengumumanController::class, 'edit'])->name('pengumuman.edit');
 Route::put('/pengumumann/{pengumuman}', [PengumumanController::class, 'update'])->name('pengumuman.update');
 Route::delete('/pengumumann/{pengumuman}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy');
+
+// global pengajuan dokumen
+Route::get('/pengajuandokumen', [PengajuanDokumenController::class, 'index'])->name('pengajuandokumen.global');
+
+// manage pengajuan dokumen
+// Route::get('/laporankeuangann', [LaporanKeuanganController::class, 'list'])->name('laporankeuangan.manage');
+
+// global laporan keuangan
+Route::get('/laporankeuangan', [LaporanKeuanganController::class, 'index'])->name('laporankeuangan.global');
+
+// manage laporan keuangan
+Route::get('/laporankeuangann', [LaporanKeuanganController::class, 'list'])->name('laporankeuangan.manage');
+Route::post('/laporankeuangann', [LaporanKeuanganController::class, 'store'])->name('laporankeuangan.store');
+Route::delete('/laporankeuangann', [LaporanKeuanganController::class, 'destroy'])->name('laporankeuangan.destroy');
