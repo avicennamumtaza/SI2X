@@ -48,7 +48,7 @@ class PengumumanController extends Controller
         $pengumuman->tanggal_pengumuman = $request->tanggal_pengumuman;
         $pengumuman->save();
 
-        return redirect()->back()->with('success', 'Pengumuman berhasil diajukan!');
+        return redirect()->back()->with('success', 'Pengumuman berhasil dipublish!');
     }
 
     public function edit(Pengumuman $pengumuman)
