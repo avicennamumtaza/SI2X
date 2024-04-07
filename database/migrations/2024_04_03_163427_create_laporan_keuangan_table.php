@@ -12,17 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('laporan_keuangan', function (Blueprint $table) {
-            $table->id('id_laporan');
-            $table->String('no_rw', 4)->index();
+            $table->id('id_laporankeuangan');
+            // $table->String('no_rw', 4)->index();
             $table->float('nominal');
-            $table->text('detail_laporan');
-            $table->date('tanggal_laporan');
+            $table->text('detail');
+            $table->date('tanggal');
             $table->string('pihak_terlibat',50);
             $table->float('saldo');
             $table->boolean('is_income');
             $table->timestamps();
 
-            $table->foreign('no_rw')->references('no_rw')->on('rw')->onDelete('cascade');
+            // $table->foreign('no_rw')->references('no_rw')->on('rw')->onDelete('cascade');
         });
     }
 

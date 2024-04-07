@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('umkm', function (Blueprint $table) {
             $table->id('id_umkm');
-            $table->string('no_rw', 4)->index();
+            // $table->string('no_rw', 4)->index();
             $table->string('nik_pemilik', 16)->index();
             $table->string('nama_umkm', 50);
             $table->string('wa_umkm', 14);
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreign('nik_pemilik')->references('nik')->on('penduduk')->onDelete('cascade');
-            $table->foreign('no_rw')->references('no_rw')->on('rw')->onDelete('cascade');
+            // $table->foreign('no_rw')->references('no_rw')->on('rw')->onDelete('cascade');
         });
     }
 
