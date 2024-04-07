@@ -39,7 +39,8 @@ class PengumumanDataTable extends DataTable
                 $editUrl = route('pengumuman.edit', $row->id_pengumuman);
                 $deleteUrl = route('pengumuman.destroy', $row->id_pengumuman);
                 $action = '<a href="' . $editUrl . '" class="edit btn btn-edit btn-sm">Edit</a>';
-                $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
+                $action .= '&nbsp;';
+                $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline-block;">
                     ' . csrf_field() . '
                     ' . method_field('DELETE') . '
                     <button type="submit" class="delete btn btn-delete btn-sm">Delete</button>
@@ -92,7 +93,7 @@ class PengumumanDataTable extends DataTable
             Column::computed('action')
               ->exportable(false)
               ->printable(false)
-              ->width(170) 
+              ->width(220) 
               ->addClass('text-center'),
             // Column::make('created_at'),
             // Column::make('updated_at'),
