@@ -7,6 +7,7 @@ use App\Models\Umkm;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\DataTables\UmkmDataTable;
 // use Illuminate\Console\View\Components\Alert;
 
 class UmkmController extends Controller
@@ -19,10 +20,11 @@ class UmkmController extends Controller
         // return view('global.umkm');
     }
     // Fungsi tambahan untuk menampilkan seluruh data UMKM
-    public function list()
+    public function list(UmkmDataTable $dataTable)
     {
-        $umkms = Umkm::all();
-        return view('auth.rw.umkm')->with('umkms', $umkms);
+        // $umkms = Umkm::all();
+        // return view('auth.rw.umkm')->with('umkms', $umkms);
+        return $dataTable->render('auth.rw.umkm');
     }
     public function store(Request $request)
     {
