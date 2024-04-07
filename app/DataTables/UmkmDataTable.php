@@ -27,7 +27,6 @@ class UmkmDataTable extends DataTable
                 $editUrl = route('umkm.edit', $row->id_umkm);
                 $deleteUrl = route('umkm.destroy', $row->id_umkm);
                 $action = '<a href="' . $editUrl . '" class="edit btn btn-edit btn-sm">Edit</a>';
-                $action .= '&nbsp;';
                 $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline-block;">
                     ' . csrf_field() . '
                     ' . method_field('DELETE') . '
@@ -50,21 +49,18 @@ class UmkmDataTable extends DataTable
      */
     public function html(): HtmlBuilder
     {
+       
         return $this->builder()
                     ->setTableId('umkm-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
-                    //->dom('Bfrtip')
-                    ->orderBy(1)
-                    ->selectStyleSingle()
-                    ->buttons([
-                        Button::make('excel'),
-                        Button::make('csv'),
-                        Button::make('pdf'),
-                        Button::make('print'),
-                        Button::make('reset'),
-                        Button::make('reload')
-                    ]);
+                    ->orderBy(0, 'asc') // Set default order by column 0 (id_pengumuman)
+                    ->parameters([
+                        'dom' => 'Bfrtip', // Menambahkan tombol
+                        'buttons' => ['excel', 'csv', 'pdf', 'print', 'reset', 'reload'], // Menambahkan tombol ekspor dan lainnya
+                        'order' => [], // Mengaktifkan order by untuk setiap kolom
+                    ])
+                    ->selectStyleSingle();
     }
 
     /**
@@ -97,6 +93,6 @@ class UmkmDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'Pengumuman_' . date('YmdHis');
+        return 'Umkm_' . date('YmdHis');
     }
 }
