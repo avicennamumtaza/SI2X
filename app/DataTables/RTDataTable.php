@@ -26,11 +26,11 @@ class RTDataTable extends DataTable
             ->addColumn('action', function($row){
                 $editUrl = route('rt.edit', $row->no_rt);
                 $deleteUrl = route('rt.destroy', $row->no_rt);
-                $action = '<a href="' . $editUrl . '" class="edit btn btn-edit btn-sm">Edit</a>';
+                $action = '<a href="' . $editUrl . '" class="edit btn btn-primary btn-sm">Edit</a>';
                 $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline-block;">
                     ' . csrf_field() . '
                     ' . method_field('DELETE') . '
-                    <button type="submit" class="delete btn btn-delete btn-sm">Delete</button>
+                    <button type="submit" class="delete btn btn-danger btn-sm">Delete</button>
                 </form>';
                 return $action;
             });
