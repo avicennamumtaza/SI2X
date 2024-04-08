@@ -72,4 +72,4 @@ Route::delete('/laporankeuangann', [LaporanKeuanganController::class, 'destroy']
 Route::get('/pendataan/rt', [RTController::class, 'list'])->name('rt.manage');
 Route::get('/pendataan/rt/{rt}/edit', [RTController::class, 'edit'])->name('rt.edit');
 Route::post('/pendataan/rt', [RTController::class, 'store'])->name('rt.store');
-Route::delete('/pendataan/rt', [RTController::class, 'destroy'])->name('rt.destroy');
+Route::delete('/pendataan/rt/{rt}', [RTController::class, 'destroy'])->name('rt.destroy');
