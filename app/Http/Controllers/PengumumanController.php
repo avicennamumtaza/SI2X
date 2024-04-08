@@ -29,7 +29,7 @@ class PengumumanController extends Controller
     {
         // Validasi data input dari form
         $request->validate([
-            'nama_pengumuman' => 'required',
+            'judul_pengumuman' => 'required',
             'desc_pengumuman' => 'required',
             'tanggal_pengumuman' => 'required',
         ]);
@@ -42,7 +42,7 @@ class PengumumanController extends Controller
         // ]);
 
         $pengumuman = new Pengumuman();
-        $pengumuman->judul = $request->nama_pengumuman;
+        $pengumuman->judul = $request->judul_pengumuman;
         $pengumuman->deskripsi = $request->desc_pengumuman;
         $pengumuman->tanggal = $request->tanggal_pengumuman;
         $pengumuman->foto = $request->foto_pengumuman;
@@ -51,23 +51,42 @@ class PengumumanController extends Controller
         return redirect()->back()->with('success', 'Pengumuman berhasil dipublish!');
     }
 
-    public function edit(Pengumuman $pengumuman)
-    {
-        return view('pengumuman.edit', compact('pengumuman'));
-    }
+    // public function edit(Pengumuman $pengumuman)
+    // {
+    //     return view('pengumuman.edit', compact('pengumuman'));
+    // }
 
-    public function update(Request $request, Pengumuman $pengumuman)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'judul' => 'required',
             'deskripsi' => 'required',
             'tanggal_pengumuman' => 'required',
+            'foto_pengumuman' => 'required',
         ]);
 
-        $pengumuman->update($request->all());
+        try {
+            // Temukan UMKM yang akan diperbarui
+            $pengumuman = Pengumuman::findOrFail($id);
 
-        return redirect()->route('pengumuman.manage')
-            ->with('success', 'Pengumuman berhasil diperbarui.');
+            // Perbarui data UMKM dengan data yang baru
+            $pengumuman->update([
+                'judul' => $request->judul_pengumuman,
+                'deskripsi' => $request->desc_pengumuman,
+                'tanggal' => $request->tanggal_pengumuman,
+                'foto' => $request->foto_pengumuman,
+            ]);
+
+            // Redirect dengan pesan sukses
+            return redirect()->back()->with('success', 'Pengumuman berhasil diperbarui.');
+        } catch (\Exception $e) {
+            // Redirect dengan pesan error jika terjadi kesalahan
+            return redirect()->back()->with('error', $e->getMessage());
+        }
+        // $pengumuman->update($request->all());
+
+        // return redirect()->route('pengumuman.manage')
+        //     ->with('success', 'Pengumuman berhasil diperbarui.');
     }
 
     public function destroy(Pengumuman $pengumuman)

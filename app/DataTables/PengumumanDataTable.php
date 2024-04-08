@@ -24,11 +24,18 @@ class PengumumanDataTable extends DataTable
         return (new EloquentDataTable($query))
             ->setRowId('id')
             ->addColumn('action', function($row){
-                $editUrl = route('pengumuman.edit', $row->id_pengumuman);
                 $deleteUrl = route('pengumuman.destroy', $row->id_pengumuman);
+                
+                // $editUrl = route('pengumuman.edit', $row->id_pengumuman);
                 $action = '
                 <div class="container-action">
-                <a href="' . $editUrl . '" class="edit btn btn-edit btn-sm">Edit</a>';
+                <button type="button"
+                data-judul_pengumuman="' . $row->judul . '"
+                data-tanggal_pengumuman="' . $row->tanggal . '"
+                data-desc_pengumuman="' . $row->deskripsi . '"
+                data-foto_pengumuman="' . $row->foto. '"
+                data-bs-toggle="modal" data-bs-target="#editPengumumanModal" class="edit-user edit btn btn-edit btn-sm">Edit</button>';
+                
                 $action .= '
                 <form action="' . $deleteUrl . '" method="post" style="display:inline;">
                     ' . csrf_field() . '
