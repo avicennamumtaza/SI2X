@@ -146,9 +146,6 @@
         </div>
     </div>
 
-    @push('scripts')
-        {{ $dataTable->scripts() }}
-    @endpush
 
 
     {{-- <div class="card">
@@ -205,18 +202,17 @@
                 $("#editPengumumanModal").on("show.bs.modal", function(event) {
 
                     var target = $(event.relatedTarget);
-                    let id_pengumuman = target.data('id')
+                    let id = target.data('id')
                     let judul = target.data('judul_pengumuman')
                     let deskripsi = target.data('desc_pengumuman')
                     let tanggal = target.data('tanggal_pengumuman')
                     let foto = target.data('foto_pengumuman')
 
 
-                    $('#editPendudukModal #id_pengumuman').val(id_pengumuman);
-                    $('#editPendudukModal #judul').val(judul);
-                    $('#editPendudukModal #deskripsi').val(deskripsi);
-                    $('#editPendudukModal #tanggal').val(tanggal);
-                    $('#editPendudukModal #foto').val(foto);
+                    $('#editPengumumanModal #nama_pengumuman').val(judul);
+                    $('#editPengumumanModal #desc_pengumuman').val(deskripsi); //iki wis genah a
+                    $('#editPengumumanModal #tanggal_pengumuman').val(tanggal);
+                    // $('#foto_pengumuman').val(foto);
 
 
                     let url = "{{ route('pengumuman.update', ':__id') }}";
