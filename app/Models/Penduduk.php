@@ -14,11 +14,13 @@ class Penduduk extends Model
     protected $table = 'penduduk';
     protected $primaryKey = 'nik';
     protected $fillable = [
-        'no_rt',
+        'nik',
         'nkk',
+        'no_rt',
         'nama',
         'tempat_lahir',
         'tanggal_lahir',
+        'alamat',
         'jenis_kelamin',
         'pekerjaan',
         'gol_darah',
