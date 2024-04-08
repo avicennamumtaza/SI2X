@@ -25,17 +25,18 @@ class PengumumanDataTable extends DataTable
             ->setRowId('id')
             ->addColumn('action', function($row){
                 $deleteUrl = route('pengumuman.destroy', $row->id_pengumuman);
-                
+
                 // $editUrl = route('pengumuman.edit', $row->id_pengumuman);
                 $action = '
                 <div class="container-action">
                 <button type="button"
+                data-id="' . $row->id_pengumuman . '"
                 data-judul_pengumuman="' . $row->judul . '"
                 data-tanggal_pengumuman="' . $row->tanggal . '"
                 data-desc_pengumuman="' . $row->deskripsi . '"
                 data-foto_pengumuman="' . $row->foto. '"
                 data-bs-toggle="modal" data-bs-target="#editPengumumanModal" class="edit-user edit btn btn-edit btn-sm">Edit</button>';
-                
+
                 $action .= '
                 <form action="' . $deleteUrl . '" method="post" style="display:inline;">
                     ' . csrf_field() . '
@@ -106,7 +107,7 @@ class PengumumanDataTable extends DataTable
                 ->addClass('text-center'),
         ];
     }
-    
+
     /**
      * Get the filename for export.
      */
