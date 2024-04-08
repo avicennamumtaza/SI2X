@@ -18,22 +18,19 @@ class PendudukSeeder extends Seeder
         // Menggunakan Faker untuk mengisi data
         $faker = Faker::create();
 
-        // Ambil semua nkk yang ada
-        $nkk = DB::table('keluarga')->pluck('nkk')->toArray();
-
         // Loop untuk mengisi data sebanyak yang diinginkan
-        foreach (range(1, 20) as $index) {
+        foreach (range(1, 40) as $index) {
             // Insert data baru ke tabel penduduk
             DB::table('penduduk')->insert([
-                'nik' => $faker->unique()->numerify('35##############'),
-                'nkk' => $faker->randomElement($nkk),
-                'no_rt' => $faker->numerify('#'),
-                'nama' => $faker->name,
-                'tempat_lahir' => $faker->city,
+                'nik' => $faker->unique()->numerify('################'),
+                'nkk' => $faker->numerify('################'),
+                'no_rt' => $faker->numberBetween(1, 16),
+                'nama' => $faker->name(),
+                'tempat_lahir' => $faker->city(),
                 'tanggal_lahir' => $faker->date(),
-                'alamat' => $faker->address,
+                'alamat' => $faker->address(),
                 'jenis_kelamin' => $faker->randomElement(['L', 'P']),
-                'pekerjaan' => $faker->sentence(2, true),
+                'pekerjaan' => $faker->jobTitle(),
                 'gol_darah' => $faker->randomElement(['A', 'B', 'AB', 'O']),
                 'is_married' => $faker->boolean(),
                 'is_stranger' => $faker->boolean(),

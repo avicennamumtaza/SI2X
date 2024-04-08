@@ -18,20 +18,16 @@ class LaporanKeuanganSeeder extends Seeder
         // Menggunakan Faker untuk mengisi data
         $faker = Faker::create();
 
-        // Ambil semua nomor rw yang ada
-        $rwNumbers = DB::table('rw')->pluck('no_rw')->toArray();
-
         // Loop untuk mengisi data sebanyak yang diinginkan
         foreach (range(1, 20) as $index) {
             // Insert data baru ke tabel laporan_keuangan
             DB::table('laporan_keuangan')->insert([
-                'no_rw' => $faker->randomElement($rwNumbers),
-                'nominal' => $faker->randomFloat(2, 1000, 10000),
-                'detail_laporan' => $faker->sentence,
-                'tanggal_laporan' => $faker->date(),
-                'pihak_terlibat' => $faker->name,
-                'saldo' => $faker->randomFloat(2, 10000, 50000),
                 'is_income' => $faker->boolean(),
+                'nominal' => $faker->numberBetween(1000, 100000000),
+                'tanggal' => $faker->date(),
+                'pihak_terlibat' => $faker->name(),
+                'detail' => $faker->sentence(5),
+                'saldo' => $faker->numberBetween(0, 100000000000),
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

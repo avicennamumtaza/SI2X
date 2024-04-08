@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id('id_pengumuman');
             // $table->string('no_rw',1)->index();
             $table->string('judul', 50);
+            $table->date('tanggal');
             $table->text('deskripsi');
             $table->text('foto');
-            $table->date('tanggal_pengumuman');
             $table->timestamps();
 
             // $table->foreign('no_rw')->references('no_rw')->on('rw')->onDelete('cascade');

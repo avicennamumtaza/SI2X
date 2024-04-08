@@ -18,13 +18,19 @@ class KeluargaSeeder extends Seeder
         // Menggunakan Faker untuk mengisi data
         $faker = Faker::create();
 
+        // Ambil semua nik yang ada
+        $nik = DB::table('penduduk')->pluck('nik')->toArray();
+        
+        // Ambil semua nkk yang ada
+        $nkk = DB::table('penduduk')->pluck('nkk')->toArray();
+
         // Loop untuk mengisi data sebanyak yang diinginkan
-        foreach (range(1, 20) as $index) {
+        foreach (range(1, 10) as $index) {
             // Insert data baru ke tabel keluarga
             DB::table('keluarga')->insert([
-                'nkk' => $faker->unique()->numerify('3###############'),
-                'nik_kepala_keluarga' => $faker->unique()->numerify('35##############'),
-                'jumlah_nik' => $faker->numberBetween(3, 8),
+                'nkk' => $faker->unique()->randomElement($nkk),
+                'nik_kepala_keluarga' => $faker->unique()->randomElement($nik),
+                'jumlah_nik' => $faker->numberBetween(2, 10),
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

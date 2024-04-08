@@ -34,12 +34,12 @@ class UmkmSeeder extends Seeder
 
         foreach (range(1, 20) as $index) {
             DB::table('umkm')->insert([
-                'no_rw' => $faker->numberBetween(6, 6),
+                // 'no_rw' => $faker->numberBetween(6, 6),
                 'nik_pemilik' => $faker->randomElement($nikPemilik),
-                'nama_umkm' => $faker->company,
+                'nama_umkm' => $faker->company(),
                 'wa_umkm' => $faker->numerify('08##########'),
                 'foto_umkm' => $faker->imageUrl(),
-                'desc_umkm' => $faker->paragraph,
+                'desc_umkm' => $faker->paragraph(2),
                 'status_umkm' => $faker->randomElement(['Diterima', 'Ditolak', 'Baru']),
                 'created_at' => now(),
                 'updated_at' => now(),

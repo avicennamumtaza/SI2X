@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class PengajuanDoc extends Model
+class PengajuanDokumen extends Model
 {
     use HasFactory;
 
-    protected $table = 'pengajuan_doc';
+    protected $table = 'pengajuan_dokumen';
     protected $primaryKey = 'id';
     protected $fillable = [
         'nik',

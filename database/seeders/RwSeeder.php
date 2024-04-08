@@ -18,6 +18,11 @@ class RwSeeder extends Seeder
         // Menggunakan Faker untuk mengisi data
         $faker = Faker::create();
 
+        // Menghitung jumlah baris pada tabel rt, keluarga, penduduk
+        // $jumlahRt = DB::table('rt')->count();
+        // $jumlahRt = DB::table('keluarga')->count();
+        // $jumlahRt = DB::table('penduduk')->count();
+
         // Ambil semua nik yang ada
         $nikRw = DB::table('penduduk')->pluck('nik')->toArray();
 
@@ -27,7 +32,7 @@ class RwSeeder extends Seeder
             DB::table('rw')->insert([
                 'no_rw' => 6,
                 'nik_rw' => $faker->randomElement($nikRw),
-                'jumlah_rt' => 10,
+                'jumlah_rt' => 16,
                 'jumlah_keluarga_rw' => $faker->numberBetween(50, 100),
                 'jumlah_penduduk_rw' => $faker->numberBetween(200, 300),
                 'created_at' => now(),

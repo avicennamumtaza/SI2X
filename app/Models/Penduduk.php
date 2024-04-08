@@ -48,7 +48,7 @@ class Penduduk extends Model
 
     public function pengajuan(): HasMany
     {
-        return $this->hasMany(PengajuanDoc::class, 'nik', 'nik');
+        return $this->hasMany(PengajuanDokumen::class, 'nik', 'nik');
     }
 
     public function rt(): HasOne

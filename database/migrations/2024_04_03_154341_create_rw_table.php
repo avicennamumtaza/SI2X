@@ -15,7 +15,7 @@ class CreateRwTable extends Migration
     {
         Schema::create('rw', function (Blueprint $table) {
             $table->string('no_rw')->primary();
-            $table->string('nik_rw',16)->index();
+            $table->string('nik_rw', 17)->index();
             $table->integer('jumlah_rt');
             $table->integer('jumlah_keluarga_rw');
             $table->integer('jumlah_penduduk_rw');
