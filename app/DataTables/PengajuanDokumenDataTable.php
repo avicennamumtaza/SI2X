@@ -28,12 +28,15 @@ class PengajuanDokumenDataTable extends DataTable
         ->addColumn('action', function($row){
             // $editUrl = route('pengajuandokumen.edit', $row->id_pengajuandokumen);
             $deleteUrl = route('pengajuandokumen.destroy', $row->id_pengajuandokumen);
-            $action = '<a href="' . 1 . '" class="edit btn btn-edit btn-sm">Edit</a>';
+            $action = '
+            <div class="container-action">
+            <a href="' . 1 . '" class="edit btn btn-edit btn-sm">Edit</a>';
             $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
                 ' . csrf_field() . '
                 ' . method_field('DELETE') . '
                 <button type="submit" class="delete btn btn-delete btn-sm">Delete</button>
-            </form>';
+            </form>
+            </div>';
             return $action;
         });
     }
@@ -52,7 +55,7 @@ class PengajuanDokumenDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-                    ->setTableId('laporankeuangan-table')
+                    ->setTableId('pengajuandokumen-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->orderBy(0, 'asc') // Set default order by column 0 (id_pengumuman)
@@ -70,8 +73,11 @@ class PengajuanDokumenDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            Column::make('id')->title('Id'),
-            Column::make('nama_pengaju')->title('Nama Pengaju'),
+            Column::make('id_pengajuandokumen')->title('Id'),
+            Column::make('id_dokumen')->title('Dokumen'),
+            Column::make('no_rt')->title('RT'),
+            Column::make('nik_pengaju')->title('NIK'),
+            Column::make('nama_pengaju')->title('Nama'),
             Column::make('status_pengajuan')->title('Status'),
             Column::make('catatan')->title('Catatan'),
             Column::make('created_at')->title('Tanggal'),
@@ -80,7 +86,7 @@ class PengajuanDokumenDataTable extends DataTable
             Column::computed('action')
               ->exportable(false)
               ->printable(false)
-              ->width(170) 
+              ->width(130) 
               ->addClass('text-center'),
         ];
     }

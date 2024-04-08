@@ -27,12 +27,15 @@ class LaporanKeuanganDataTable extends DataTable
             ->addColumn('action', function($row){
                 // $editUrl = route('laporankeuangan.edit', $row->id_laporankeuangan);
                 $deleteUrl = route('laporankeuangan.destroy', $row->id_laporankeuangan);
-                $action = '<a href="' . 1 . '" class="edit btn btn-edit btn-sm">Edit</a>';
+                $action = '
+                <div class="container-action">
+                <a href="' . 1 . '" class="edit btn btn-edit btn-sm">Edit</a>';
                 $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
                     ' . csrf_field() . '
                     ' . method_field('DELETE') . '
                     <button type="submit" class="delete btn btn-delete btn-sm">Delete</button>
-                </form>';
+                </form>
+                </div>';
                 return $action;
             });
     }
@@ -69,12 +72,12 @@ class LaporanKeuanganDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            Column::make('id_laporan')->title('Id'),
+            Column::make('id_laporankeuangan')->title('Id'),
             Column::make('is_income')->title('Pemasukan?'),
             Column::make('nominal')->title('Nominal'),
-            Column::make('tanggal_laporan')->title('Tanggal'),
+            Column::make('tanggal')->title('Tanggal'),
             Column::make('pihak_terlibat')->title('Terlibat'),
-            Column::make('detail_laporan')->title('Detail Laporan'),
+            Column::make('detail')->title('Detail'),
             Column::make('saldo')->title('Saldo'),
             Column::computed('action')
               ->exportable(false)

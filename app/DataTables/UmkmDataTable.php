@@ -60,13 +60,13 @@ class UmkmDataTable extends DataTable
                 $deleteUrl = route('umkm.destroy', $row->id_umkm);
                 $action = '
                 <div class="container-action">
-                <button class="btn-edit btn-sm" data-bs-toggle="modal" data-bs-target="#validasi">Edit</button>
+                <button class="btn btn-edit btn-sm" data-bs-toggle="modal" data-bs-target="#validasi">Edit</button>
                 ';
                 $action .= '
                 <form data-confirm-delete="true" action="' . $deleteUrl . '" method="post" style="display:inline-block;">
                     ' . csrf_field() . '
                     ' . method_field('DELETE') . '
-                    <button type="submit" class="delete btn btn-delete btn-sm">Delete</button>
+                    <button type="submit" class="btn btn-delete btn-sm">Delete</button>
                 </form>
                 </div>';
                 return $action;
