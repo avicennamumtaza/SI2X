@@ -24,49 +24,22 @@ class UmkmDataTable extends DataTable
         return (new EloquentDataTable($query))
             ->setRowId('id')
             ->addColumn('action', function ($row) {
-                $editUrl = route('umkm.update', $row->id_umkm);
-                $editModal = '
-                <div class="modal fade" id="validasi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-md">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Pengajuan UMKM</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <form action="' . $editUrl . '" method="POST">
-                            <div class="modal-body justify-content-start text-start">
-                                ' .
-                                //  . (@csrf) . (@method('PUT')) . 
-                                '
-                                    <div class="form-group mb-3">
-                                        <label for="status_umkm" class="form-label text-start">Status UMKM</label>
-                                        <select class="form-control" id="status_umkm" name="status_umkm" required>
-                                            <option value="Baru" ' .  ($row->status_umkm == 'Baru' ? 'selected' : '') . '>Baru</option>
-                                            <option value="Diterima" ' . ($row->status_umkm == 'Diterima' ? 'selected' : '') . '>Diterima
-                                            </option>
-                                            <option value="Ditolak" ' . ($row->status_umkm == 'Ditolak' ? 'selected' : '') . '>Ditolak
-                                            </option>
-                                        </select>
-                                    </div>
-                            </div>
-                            <div class="modal-footer justify-content-end">
-                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                                <button type="submit" class="btn btn-success">Simpan Perubahan</button>
-                            </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>';
                 $deleteUrl = route('umkm.destroy', $row->id_umkm);
                 $action = '
                 <div class="container-action">
-                <button class="btn btn-edit btn-sm" data-bs-toggle="modal" data-bs-target="#validasi">Edit</button>
-                ';
-                $action .= '
-                <form data-confirm-delete="true" action="' . $deleteUrl . '" method="post" style="display:inline-block;">
-                    ' . csrf_field() . '
-                    ' . method_field('DELETE') . '
-                    <button type="submit" class="btn btn-delete btn-sm">Delete</button>
+                <button type="button"
+                data-id_umkm="' . $row->id_umkm . '"
+                data-nik_pemilik="' . $row->nik_pemilik . '"
+                data-nama_umkm="' . $row->nama_umkm . '"
+                data-wa_umkm="' . $row->wa_umkm . '"
+                data-foto_umkm="' . $row->foto_umkm . '"
+                data-desc_umkm="' . $row->desc_umkm . '"
+                data-status_umkm="' . $row->status_umkm . '"
+                data-bs-toggle="modal" data-bs-target="#editUmkmModal" class="edit btn btn-edit btn-sm">Edit</button>';
+                $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
+                ' . csrf_field() . '
+                ' . method_field('DELETE') . '
+                <button type="submit" class="delete btn btn-delete btn-sm">Delete</button>
                 </form>
                 </div>';
                 return $action;
