@@ -19,10 +19,10 @@ class DokumenSeeder extends Seeder
         $faker = Faker::create();
 
         // Loop untuk mengisi data sebanyak yang diinginkan
-        foreach (range(1, 20) as $index) {
+        foreach (range(1, 3) as $index) {
             // Insert data baru ke tabel dokumen
             DB::table('dokumen')->insert([
-                'jenis_dokumen' => $faker->randomElement(['SKTM', 'Surat Kematian', 'Surat Pengantar']),
+                'jenis_dokumen' => $faker->unique()->randomElement(['SKTM', 'Surat Kematian', 'Surat Pengantar']),
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
