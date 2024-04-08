@@ -47,9 +47,8 @@ class PendudukController extends Controller
                 'is_married' => $validated['is_married'],
                 'is_stranger' => $validated['is_stranger'],
             ]);
-
-            Alert::success('Data Penduduk berhasil ditambahkan!');
-            return redirect()->back()->with('warning', 'Data penduduk yang anda tambahkan akan tampil di halaman ini');
+            
+            return redirect()->back()->with('success', 'Data Penduduk berhasil ditambahkan!');
 
         } catch(\Exception $e){
             Alert::error('Error', $e->getMessage());
