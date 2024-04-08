@@ -88,7 +88,8 @@ class PengumumanDataTable extends DataTable
             Column::make('id_pengumuman')->title('Id'),
             Column::make('judul')->title('Judul'),
             Column::make('deskripsi')->title('Deskripsi'),
-            Column::make('tanggal_pengumuman')->title('Tanggal'),
+            Column::make('tanggal')->title('Tanggal'),
+            Column::make('foto'),
             Column::computed('action')
               ->exportable(false)
               ->printable(false)
