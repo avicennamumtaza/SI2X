@@ -13,7 +13,7 @@
 
                     <div class="modal-body justify-content-start text-start">
                         <!-- Form untuk pengajuan UMKM -->
-                        <form action="{{ route('umkm.submit') }}" method="POST">
+                        <form action="{{ route('umkm.store') }}" method="POST">
                             @csrf
                             <!-- Tambahkan input form sesuai kebutuhan -->
                             <div class="form-group mb-3">

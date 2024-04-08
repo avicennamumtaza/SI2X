@@ -74,11 +74,6 @@
         {{ $dataTable->scripts() }}
     @endpush
 
-
-
-
-
-
     {{-- <div class="container container-umkm col-12">
         <div class="card">
             <h5 class="card-header p-4 mb-3">Kelola UMKM</h5>
