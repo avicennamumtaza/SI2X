@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\KeluargaController;
 use App\Http\Controllers\LaporanKeuanganController;
+use App\Http\Controllers\PendudukController;
 use App\Http\Controllers\PengajuanDokumenController;
 use App\Http\Controllers\UmkmController;
 use App\Http\Controllers\PengumumanController;
@@ -66,3 +68,17 @@ Route::get('/laporankeuangan', [LaporanKeuanganController::class, 'index'])->nam
 Route::get('/laporankeuangann', [LaporanKeuanganController::class, 'list'])->name('laporankeuangan.manage');
 Route::post('/laporankeuangann', [LaporanKeuanganController::class, 'store'])->name('laporankeuangan.store');
 Route::delete('/laporankeuangann', [LaporanKeuanganController::class, 'destroy'])->name('laporankeuangan.destroy');
+
+// manage penduduk
+Route::get('/penduduk', [PendudukController::class, 'list'])->name('penduduk.manage');
+Route::post('/penduduk', [PendudukController::class, 'store'])->name('penduduk.store');
+Route::get('/penduduk/{penduduk}/edit', [PendudukController::class, 'edit'])->name('penduduk.edit');
+Route::put('/penduduk/{penduduk}', [PendudukController::class, 'update'])->name('penduduk.update');
+Route::delete('/penduduk/{penduduk}', [PendudukController::class, 'destroy'])->name('penduduk.destroy');
+
+// manage keluarga
+Route::get('/keluarga', [KeluargaController::class, 'list'])->name('keluarga.manage');
+Route::post('/keluarga', [KeluargaController::class, 'store'])->name('keluarga.store');
+Route::get('/keluarga/{keluarga}/edit', [KeluargaController::class, 'edit'])->name('keluarga.edit');
+Route::put('/keluarga/{keluarga}', [KeluargaController::class, 'update'])->name('keluarga.update');
+Route::delete('/keluarga/{keluarga}', [KeluargaController::class, 'destroy'])->name('keluarga.destroy');
