@@ -198,12 +198,40 @@
         let table = new DataTable('#myTable');
         <script src="https://cdn.datatables.net/v/bs5/dt-2.0.3/datatables.min.js"></script>
     </script> --}}
+    @push('scripts')
+        {{ $dataTable->scripts() }}
+        <script>
+            $('#pengumuman-table').ready(function() {
+                $("#editPengumumanModal").on("show.bs.modal", function(event) {
+
+                    var target = $(event.relatedTarget);
+                    let id_pengumuman = target.data('id')
+                    let judul = target.data('judul_pengumuman')
+                    let deskripsi = target.data('desc_pengumuman')
+                    let tanggal = target.data('tanggal_pengumuman')
+                    let foto = target.data('foto_pengumuman')
+
+
+                    $('#editPendudukModal #id_pengumuman').val(id_pengumuman);
+                    $('#editPendudukModal #judul').val(judul);
+                    $('#editPendudukModal #deskripsi').val(deskripsi);
+                    $('#editPendudukModal #tanggal').val(tanggal);
+                    $('#editPendudukModal #foto').val(foto);
+
+
+                    let url = "{{ route('pengumuman.update', ':__id') }}";
+                    url = url.replace(':__id', id);
+                    $('#editPengumumanForm').attr('action', url)
+                });
+            });
+        </script>
+    @endpush
 @endsection
 
 @push('css')
 @endpush
 
-@push('js')
+{{-- @push('js')
     <script>
         $(document).ready(function() {
             $('.edit').click(function() {
@@ -224,4 +252,4 @@
             });
         });
     </script>
-@endpush
+@endpush --}}
