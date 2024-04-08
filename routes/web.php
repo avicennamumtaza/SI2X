@@ -39,10 +39,9 @@ Route::get('/umkm', [UmkmController::class, 'index'])->name('umkm.global');
 // manage umkm
 Route::get('/umkmm', [UmkmController::class, 'list'])->name('umkm.manage');
 // Route::get('/umkm/{id}/edit', [UmkmController::class, 'edit'])->name('umkm.edit');
-// Route::put('/umkm/{id}', [UmkmController::class, 'update'])->name('umkm.update');
+Route::put('/umkm/{id}', [UmkmController::class, 'update'])->name('umkm.update');
 Route::delete('/umkmm/{id}', [UmkmController::class, 'destroy'])->name('umkm.destroy');
-Route::get('/umkmm/{id}/edit', [UmkmController::class, 'edit'])->name('umkm.edit');
-
+// Route::get('/umkmm/{id}/edit', [UmkmController::class, 'edit'])->name('umkm.edit');
 
 // global pengumuman
 Route::get('/pengumuman', [PengumumanController::class, 'index'])->name('pengumuman.global');
