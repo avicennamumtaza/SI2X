@@ -23,22 +23,28 @@ class PengajuanDokumenDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-        // ->addColumn('action', 'pengajuandokumen.action')
-        ->setRowId('id')
-        ->addColumn('action', function($row){
-            // $editUrl = route('pengajuandokumen.edit', $row->id_pengajuandokumen);
-            $deleteUrl = route('pengajuandokumen.destroy', $row->id_pengajuandokumen);
-            $action = '
-            <div class="container-action">
-            <a href="' . 1 . '" class="edit btn btn-edit btn-sm">Edit</a>';
-            $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
+            ->setRowId('id')
+            ->addColumn('action', function ($row) {
+                $deleteUrl = route('pengajuandokumen.delete', $row->id_pengajuandokumen);
+                $action = '
+                <div class="container-action">
+                <button type="button"
+                data-id_pengajuandokumen="' . $row->id_pengajuandokumen . '"
+                data-no_rt="' . $row->no_rt . '"
+                data-id_dokumen="' . $row->id_dokumen . '"
+                data-nik_pengaju="' . $row->nik_pengaju . '"
+                data-nama_pengaju="' . $row->foto_pengajuandokumen . '"
+                data-status_pengajuan="' . $row->status_pengajuan . '"
+                data-catatan="' . $row->catatan . '"
+                data-bs-toggle="modal" data-bs-target="#editPengajuanDokumenModal" class="edit btn btn-edit btn-sm">Edit</button>';
+                $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
                 ' . csrf_field() . '
                 ' . method_field('DELETE') . '
                 <button type="submit" class="delete btn btn-delete btn-sm">Delete</button>
-            </form>
-            </div>';
-            return $action;
-        });
+                </form>
+                </div>';
+                return $action;
+            });
     }
 
     /**
