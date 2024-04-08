@@ -111,9 +111,11 @@ body {
         display: inline-block;
         .btn-edit {
             @include tombolEdit();
+            // margin-inline: 10px;
         }
         .btn-delete {
             @include tombolDelete();
+            // margin-inline: 10px;
         }
     }
     .container-fluid-nav {
