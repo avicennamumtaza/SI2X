@@ -39,11 +39,11 @@
                                     @endforeach
                                 </datalist>
                             </div>
-                            <div class="form-group mb-3">
+                            {{-- <div class="form-group mb-3">
                                 <label for="no_rw" class="form-label text-start">No RW</label>
                                 <input type="text" class="form-control" id="no_rw" name="no_rw"
                                     placeholder="6" value="6" readonly>
-                            </div>
+                            </div> --}}
                             <div class="form-group mb-3">
                                 <label for="status_umkm" class="form-label text-start">Status Pengajuan</label>
                                 <input type="text" class="form-control" id="status_umkm" name="status_umkm"
