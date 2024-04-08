@@ -72,36 +72,28 @@ class UmkmController extends Controller
             return redirect()->back();
         }
     }
-    // public function edit($id)
-    // {
-    //     // Mengambil data UMKM berdasarkan ID
-    //     $umkm = Umkm::findOrFail($id);
-
-    //     // Mengembalikan data UMKM dalam format JSON
-    //     return response()->json($umkm);
-    // }
-    public function update(Request $request, $id)
+    public function edit(Umkm $umkm)
     {
-        // Validasi input
+        $umkm = Umkm::findOrFail($umkm->nik);
+        return view('umkm.edit', compact('umkm'));
+    }
+    public function update(Request $request, Umkm $umkm)
+    {
+
         $request->validate([
-            'status_umkm' => 'required|string|max:50',
+            // 'id_umkm' => 'required',
+            // 'nik_pemilik' => 'required',
+            // 'nama_umkm' => 'required',
+            // 'wa_umkm' => 'required',
+            // 'foto_umkm' => 'required',
+            // 'desc_umkm' => 'required',
+            'status_umkm' => 'required',
         ]);
 
-        try {
-            // Temukan UMKM yang akan diperbarui
-            $umkm = Umkm::findOrFail($id);
+        $umkm->update($request->all());
 
-            // Perbarui data UMKM dengan data yang baru
-            $umkm->update([
-                'status' => $request->nama_umkm,
-            ]);
-
-            // Redirect dengan pesan sukses
-            return redirect()->back()->with('success', 'Data UMKM berhasil diperbarui.');
-        } catch (\Exception $e) {
-            // Redirect dengan pesan error jika terjadi kesalahan
-            return redirect()->back()->with('error', $e->getMessage());
-        }
+        return redirect()->route('umkm.manage')
+            ->with('success', 'Umkm berhasil diperbarui.');
     }
     public function destroy($id)
     {
