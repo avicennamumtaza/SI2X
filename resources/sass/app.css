@@ -10,45 +10,9 @@ body {
   background-color: #E9E9E9;
   height: 100vh;
 }
-body .btn-delete {
-  background-color: rgb(195, 8, 8);
-  border-radius: 2em;
-  padding-inline: 20px;
-  padding-block: 7px;
-  color: #ffffff;
-  text-decoration: none;
-  border: none;
-  transition: 0.1s ease-in-out;
-}
-body .btn-delete:hover {
-  padding-inline: 18px;
-  padding-block: 6px;
-  background-color: #ffffff;
-  border: 1px solid rgb(195, 8, 8);
-  font-weight: 700;
-  color: rgb(195, 8, 8);
-}
-body .btn-edit {
-  background-color: rgb(247, 144, 34);
-  border-radius: 2em;
-  padding-inline: 30px;
-  padding-block: 7px;
-  color: #ffffff;
-  text-decoration: none;
-  border: none;
-  transition: 0.1s;
-}
-body .btn-edit:hover {
-  padding-inline: 28px;
-  padding-block: 6.4px;
-  background-color: #ffffff;
-  border: 1px solid rgb(247, 144, 34);
-  font-weight: 700;
-  color: rgb(247, 144, 34);
-}
 body .btn-add {
   background-color: rgb(7, 165, 83);
-  border-radius: 2em;
+  border-radius: 0.7em;
   padding-inline: 20px;
   padding-block: 7px;
   color: #ffffff;
@@ -61,6 +25,45 @@ body .btn-add:hover {
   border: 0px solid rgb(7, 165, 83);
   font-weight: 700;
   color: rgb(7, 165, 83);
+}
+body .container-action {
+  display: inline-block;
+}
+body .container-action .btn-edit {
+  background-color: rgb(247, 144, 34);
+  border-radius: 0.7em;
+  padding-inline: 18px;
+  padding-block: 7px;
+  color: #ffffff;
+  text-decoration: none;
+  border: none;
+  transition: 0.1s;
+}
+body .container-action .btn-edit:hover {
+  padding-inline: 17px;
+  padding-block: 6px;
+  background-color: #ffffff;
+  border: 1px solid rgb(247, 144, 34);
+  font-weight: 700;
+  color: rgb(247, 144, 34);
+}
+body .container-action .btn-delete {
+  background-color: rgb(195, 8, 8);
+  border-radius: 0.7em;
+  padding-inline: 10px;
+  padding-block: 7px;
+  color: #ffffff;
+  text-decoration: none;
+  border: none;
+  transition: 0.1s ease-in-out;
+}
+body .container-action .btn-delete:hover {
+  padding-inline: 9px;
+  padding-block: 6px;
+  background-color: #ffffff;
+  border: 1px solid rgb(195, 8, 8);
+  font-weight: 700;
+  color: rgb(195, 8, 8);
 }
 body .container-fluid-nav {
   width: 100vw;

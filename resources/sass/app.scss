@@ -47,27 +47,9 @@ $fourthCol: #4461AE;
         color: $primaryCol;
     }
 }
-@mixin tombolDelete {
-    background-color: rgb(195, 8, 8);
-    border-radius: 2em;
-    padding-inline: 20px;
-    padding-block: 7px;
-    color: #ffffff;  
-    text-decoration: none;
-    border: none;
-    transition: 0.1s ease-in-out;
-    &:hover {
-        padding-inline: 18px;
-        padding-block: 6px;
-        background-color: #ffffff;
-        border: 1px solid rgb(195, 8, 8);
-        font-weight: 700;
-        color: rgb(195, 8, 8);
-    }
-}
 @mixin tombolAdd {
     background-color: rgb(7, 165, 83);
-    border-radius: 2em;
+    border-radius: 0.7em;
     padding-inline: 20px;
     padding-block: 7px;
     color: #ffffff;  
@@ -83,18 +65,36 @@ $fourthCol: #4461AE;
         color: rgb(7, 165, 83);
     }
 }
+@mixin tombolDelete {
+    background-color: rgb(195, 8, 8);
+    border-radius: 0.7em;
+    padding-inline: 10px;
+    padding-block: 7px;
+    color: #ffffff;  
+    text-decoration: none;
+    border: none;
+    transition: 0.1s ease-in-out;
+    &:hover {
+        padding-inline: 9px;
+        padding-block: 6px;
+        background-color: #ffffff;
+        border: 1px solid rgb(195, 8, 8);
+        font-weight: 700;
+        color: rgb(195, 8, 8);
+    }
+}
 @mixin tombolEdit {
     background-color: rgb(247, 144, 34);
-    border-radius: 2em;
-    padding-inline: 30px;
+    border-radius: 0.7em;
+    padding-inline: 18px;
     padding-block: 7px;
     color: #ffffff;  
     text-decoration: none;
     border: none;
     transition: 0.1s;
     &:hover {
-        padding-inline: 28px;
-        padding-block: 6.4px;
+        padding-inline: 17px;
+        padding-block: 6px;
         background-color: #ffffff;
         border: 1px solid rgb(247, 144, 34);
         font-weight: 700;
@@ -104,14 +104,17 @@ $fourthCol: #4461AE;
 
 // style
 body {    
-    .btn-delete {
-        @include tombolDelete();
-    }
-    .btn-edit {
-        @include tombolEdit();
-    }
     .btn-add {
         @include tombolAdd();
+    }
+    .container-action {
+        display: inline-block;
+        .btn-edit {
+            @include tombolEdit();
+        }
+        .btn-delete {
+            @include tombolDelete();
+        }
     }
     .container-fluid-nav {
         width: 100vw; // Atur lebar sesuai viewport width
