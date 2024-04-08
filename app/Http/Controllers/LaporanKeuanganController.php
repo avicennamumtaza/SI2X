@@ -43,13 +43,6 @@ class LaporanKeuanganController extends Controller
             'tanggal_laporan' => 'required',
         ]);
 
-        // Simpan data pengumuman ke dalam database
-        // Pengumuman::create([
-        //     'nama_pengumuman' => $request->nama_pengumuman,
-        //     'desc_pengumuman' => $request->desc_pengumuman,
-        //     'tanggal_pengumuman' => $request->tanggal_pengumuman,
-        // ]);
-
         $laporanKeuangan = new LaporanKeuangan();
         $laporanKeuangan->id_laporankeuangan = $request->id_laporankeuangan;
         $laporanKeuangan->is_income = $request->is_income;
