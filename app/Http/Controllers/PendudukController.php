@@ -16,7 +16,7 @@ class PendudukController extends Controller
     public function store(Request $request)
     {
         // Validasi input
-        $request->validate([
+        $validated = $request->validate([
             'nik' => 'required|string|min:15|max:17',
             'nkk' => 'required|string|min:15|max:17',
             'no_rt' => 'required|string|max:2',
@@ -32,22 +32,30 @@ class PendudukController extends Controller
             // Tambahkan validasi untuk input lainnya jika diperlukan
         ]);
 
-        $penduduk = new Penduduk();
-        $penduduk->nik = $request->nik;
-        $penduduk->nkk = $request->nkk;
-        $penduduk->no_rt = $request->no_rt;
-        $penduduk->nama = $request->nama;
-        $penduduk->tempat_lahir = $request->tempat_lahir;
-        $penduduk->tanggal_lahir = $request->tanggal_lahir;
-        $penduduk->alamat = $request->alamat;
-        $penduduk->jenis_kelamin = $request->jenis_kelamin;
-        $penduduk->pekerjaan = $request->pekerjaan;
-        $penduduk->gol_darah = $request->gol_darah;
-        $penduduk->is_married = $request->is_married;
-        $penduduk->is_stranger = $request->is_stranger;
-        $penduduk->save();
+        try{
+            Penduduk::create([
+                'nik' => $validated['nik'],
+                'nkk' => $validated['nkk'],
+                'no_rt' => $validated['no_rt'],
+                'nama' => $validated['nama'],
+                'tempat_lahir' => $validated['tempat_lahir'],
+                'tanggal_lahir' => $validated['tanggal_lahir'],
+                'alamat' => $validated['alamat'],
+                'jenis_kelamin' => $validated['jenis_kelamin'],
+                'pekerjaan' => $validated['pekerjaan'],
+                'gol_darah' => $validated['gol_darah'],
+                'is_married' => $validated['is_married'],
+                'is_stranger' => $validated['is_stranger'],
+            ]);
 
-        return redirect()->back()->with('success', 'Penduduk berhasil ditambahkan!');
+            Alert::success('Data Penduduk berhasil ditambahkan!');
+            return redirect()->back()->with('warning', 'Data penduduk yang anda tambahkan akan tampil di halaman ini');
+
+        } catch(\Exception $e){
+            Alert::error('Error', $e->getMessage());
+            return redirect()->back();
+        }
+
     }
     public function edit(Penduduk $penduduk)
     {

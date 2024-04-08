@@ -263,8 +263,8 @@
                 // $('#editPengumumanModal #deskripsi').val(deskripsi);
                 // $('#editPengumumanModal #tanggal_pengumuman').val(tanggal_pengumuman);
 
-                // // Tampilkan modal
-                // $('#editPengumumanModal').modal('show');
+                // Tampilkan modal
+                $('#editPendudukModal').modal('show');
             });
         });
     </script>
