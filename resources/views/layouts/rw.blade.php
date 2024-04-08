@@ -50,7 +50,8 @@
                                     aria-label="Close"></button>
                             </div>
                             <div class="offcanvas-body flex-column">
-                                <ul class="navbar-nav mb-2 mb-lg-0 flex-column align-items-end align-items-lg-start flex-grow-1 pe-2">
+                                <ul
+                                    class="navbar-nav mb-2 mb-lg-0 flex-column align-items-end align-items-lg-start flex-grow-1 pe-2">
                                     <li class="mb-2 position-relative">
                                         <div class="content nav-item gap-2 d-flex align-items-center">
                                             <i class="bi bi-house"></i>
@@ -114,27 +115,38 @@
                                             <button style="color: white" type="button"
                                                 class="btn dropdown-toggle shadow-none" data-bs-toggle="dropdown"
                                                 aria-expanded="false">Kelola</button>
-                                            <ul style="background-color: transparent; border: 1px solid #fff" class="dropdown-menu position-static">
+                                            <ul style="background-color: transparent; border: 1px solid #fff"
+                                                class="dropdown-menu position-static">
                                                 <li>
-                                                    <a class="dropdown-item" style="background-color: transparent; color: white" href="#">
+                                                    <a class="dropdown-item"
+                                                        style="background-color: transparent; color: white"
+                                                        href="#">
                                                         Penduduk
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a class="dropdown-item" style="background-color: transparent; color: white" href="#">Keluarga</a>
+                                                    <a class="dropdown-item"
+                                                        style="background-color: transparent; color: white"
+                                                        href="#">Keluarga</a>
                                                 </li>
                                                 <li>
-                                                    <a class="dropdown-item" style="background-color: transparent; color: white" href="#">
+                                                    <a class="dropdown-item"
+                                                        style="background-color: transparent; color: white"
+                                                        href="#">
                                                         RT
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a class="dropdown-item" style="background-color: transparent; color: white" href="#-level">
+                                                    <a class="dropdown-item"
+                                                        style="background-color: transparent; color: white"
+                                                        href="#-level">
                                                         RW
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a class="dropdown-item" style="background-color: transparent; color: white" href="#">
+                                                    <a class="dropdown-item"
+                                                        style="background-color: transparent; color: white"
+                                                        href="#">
                                                         Pengguna
                                                     </a>
                                                 </li>
@@ -211,6 +223,9 @@
 
     @stack('scripts')
 
+    {{-- Sweet Alert --}}
+    @include('sweetalert::alert');
+
     {{-- Add common CSS customizations --}}
 
     @push('css')
@@ -218,11 +233,11 @@
         <style type="text/css">
             {{-- You can add AdminLTE customizations here --}}
             /* .card-header {
-                        border-bottom: none;
-                        }
-                        .card-title {
-                        font-weight: 600;
-                        } */
+                            border-bottom: none;
+                            }
+                            .card-title {
+                            font-weight: 600;
+                            } */
         </style>
     @endpush
 </body>
