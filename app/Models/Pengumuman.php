@@ -15,11 +15,12 @@ class Pengumuman extends Model
     protected $fillable = [
         'judul',
         'deskripsi',
-        'tanggal_pengumuman',
+        'tanggal',
+        'foto',
     ];
 
-    public function rw(): BelongsTo
-    {
-        return $this->belongsTo(Rw::class, 'no_rw', 'no_rw');
-    }
+    // public function rw(): BelongsTo
+    // {
+    //     return $this->belongsTo(Rw::class, 'no_rw', 'no_rw');
+    // }
 }

@@ -11,10 +11,14 @@ class PengajuanDokumen extends Model
     use HasFactory;
 
     protected $table = 'pengajuan_dokumen';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_pengajuandokumen';
     protected $fillable = [
-        'nik',
-        'id_pengajuan',
+        'no_rt',
+        'id_dokumen',
+        'nik_pengaju',
+        'nama_pengaju',
+        'status_pengajuan',
+        'catatan',
     ];
 
     public function penduduk(): BelongsTo
@@ -24,6 +28,6 @@ class PengajuanDokumen extends Model
 
     public function dokumen(): BelongsTo
     {
-        return $this->belongsTo(Dokumen::class, 'id_pengajuan', 'id_pengajuan');
+        return $this->belongsTo(Dokumen::class, 'id_dokumen', 'id_dokumen');
     }
 }

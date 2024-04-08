@@ -11,18 +11,18 @@ class LaporanKeuangan extends Model
     use HasFactory;
 
     protected $table = 'laporan_keuangan';
-    protected $primaryKey = 'id_laporan';
+    protected $primaryKey = 'id_laporankeuangan';
     protected $fillable = [
         'nominal',
-        'detail_laporan',
-        'tanggal_laporan',
+        'detail',
+        'tanggal',
         'pihak_terlibat',
         'saldo',
         'is_income',
     ];
 
-    public function rw(): BelongsTo
-    {
-        return $this->belongsTo(Rw::class, 'nik_rw', 'nik_rw');
-    }
+    // public function rw(): BelongsTo
+    // {
+    //     return $this->belongsTo(Rw::class, 'nik_rw', 'nik_rw');
+    // }
 }
