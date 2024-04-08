@@ -22,18 +22,24 @@ class LaporanKeuanganDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            // ->addColumn('action', 'laporankeuangan.action')
             ->setRowId('id')
-            ->addColumn('action', function($row){
-                // $editUrl = route('laporankeuangan.edit', $row->id_laporankeuangan);
+            ->addColumn('action', function ($row) {
                 $deleteUrl = route('laporankeuangan.destroy', $row->id_laporankeuangan);
                 $action = '
                 <div class="container-action">
-                <a href="' . 1 . '" class="edit btn btn-edit btn-sm">Edit</a>';
+                <button type="button"
+                data-id_laporankeuangan="' . $row->id_laporankeuangan . '"
+                data-nominal="' . $row->nominal . '"
+                data-detail="' . $row->detail . '"
+                data-tanggal="' . $row->tanggal . '"
+                data-pihak_terlibat="' . $row->pihak_terlibat . '"
+                data-saldo="' . $row->saldo . '"
+                data-is_income="' . $row->is_income . '"
+                data-bs-toggle="modal" data-bs-target="#editLaporanKeuanganModal" class="edit btn btn-edit btn-sm">Edit</button>';
                 $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
-                    ' . csrf_field() . '
-                    ' . method_field('DELETE') . '
-                    <button type="submit" class="delete btn btn-delete btn-sm">Delete</button>
+                ' . csrf_field() . '
+                ' . method_field('DELETE') . '
+                <button type="submit" class="delete btn btn-delete btn-sm">Delete</button>
                 </form>
                 </div>';
                 return $action;
@@ -82,7 +88,7 @@ class LaporanKeuanganDataTable extends DataTable
             Column::computed('action')
               ->exportable(false)
               ->printable(false)
-              ->width(170) 
+              ->width(130) 
               ->addClass('text-center'),
         ];
         // return [

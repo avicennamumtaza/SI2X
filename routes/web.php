@@ -68,7 +68,9 @@ Route::get('/laporankeuangan', [LaporanKeuanganController::class, 'index'])->nam
 // manage laporan keuangan
 Route::get('/laporankeuangann', [LaporanKeuanganController::class, 'list'])->name('laporankeuangan.manage');
 Route::post('/laporankeuangann', [LaporanKeuanganController::class, 'store'])->name('laporankeuangan.store');
-Route::delete('/laporankeuangann', [LaporanKeuanganController::class, 'destroy'])->name('laporankeuangan.destroy');
+Route::get('/laporankeuangann/edit/{laporankeuangan}', [LaporanKeuanganController::class, 'edit'])->name('laporankeuangan.edit');
+Route::put('/laporankeuangann/update/{laporankeuangan}', [LaporanKeuanganController::class, 'update'])->name('laporankeuangan.update');
+Route::delete('/laporankeuangann/{laporankeuangan}', [LaporanKeuanganController::class, 'destroy'])->name('laporankeuangan.destroy');
 
 // manage penduduk
 Route::get('/penduduk', [PendudukController::class, 'list'])->name('penduduk.manage');

@@ -1,8 +1,69 @@
 @extends('layouts.rw')
 
 @section('content')
-    {{-- <div class="container container-pengumuman col-12"> --}}
-    <!-- Modal -->
+    {{-- Edit Laporan Keuangan --}}
+    <div class="modal fade" id="editLaporanKeuanganModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Laporan Keuangan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body justify-content-start text-start">
+                    <form id='editLaporanKeuanganForm' method="POST">
+                        @method('PUT')
+                        @csrf
+                        <div class="form-group mb-3">
+                            <label for="id_laporankeuangan" class="form-label text-start">id_laporankeuangan</label>
+                            <input type="text" class="form-control" id="id_laporankeuangan" name="id_laporankeuangan"
+                                 required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="nominal" class="form-label text-start">nominal</label>
+                            <input type="text" class="form-control" id="nominal" name="nominal"
+                                 required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="detail" class="form-label text-start">detail</label>
+                            <input type="text" class="form-control" id="detail" name="detail"
+                                 required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="tanggal" class="form-label text-start">tanggal</label>
+                            <input type="text" class="form-control" id="tanggal" name="tanggal"
+                                 required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="pihak_terlibat" class="form-label text-start">pihak_terlibat</label>
+                            <input type="text" class="form-control" id="pihak_terlibat" name="pihak_terlibat"
+                                 required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="saldo" class="form-label text-start">saldo</label>
+                            <input type="text" class="form-control" id="saldo" name="saldo"
+                                 required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="is_income" class="form-label text-start">is_income</label>
+                            <select class="form-select" id="is_income" name="is_income" required>
+                                <option value="1">Ya</option>
+                                <option value="0">Tidak</option>
+                            </select>
+                        </div>
+
+                        <div class="modal-footer justify-content-end">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+                            <button type="submit" class="btn btn-success" name="submit" value="Submit">Simpan Perubahan</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tambah Laporan Keuangan -->
     <div class="modal fade" id="tambahLaporanKeuangan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-md">
             <div class="modal-content">
@@ -12,10 +73,8 @@
                 </div>
 
                 <div class="modal-body justify-content-start text-start">
-                    <!-- Form untuk pengajuan laporan keuangan -->
                     <form action="{{ route('laporankeuangan.store') }}" method="POST">
                         @csrf
-                        <!-- Tambahkan input form sesuai kebutuhan -->
                         <div class="form-group mb-3">
                             <label for="nominal" class="form-label text-start">Nominal</label>
                             <input type="number" class="form-control" id="nominal" name="nominal"
@@ -81,6 +140,33 @@
 
     @push('scripts')
         {{ $dataTable->scripts() }}
+        <script>
+            $('#laporankeuangan-table').ready(function() {
+                $("#editLaporanKeuanganModal").on("show.bs.modal", function(event) {
+
+                    var target = $(event.relatedTarget);
+                    let id_laporankeuangan = target.data('id_laporankeuangan')
+                    let nominal = target.data('nominal')
+                    let detail = target.data('detail')
+                    let tanggal = target.data('tanggal')
+                    let pihak_terlibat = target.data('pihak_terlibat')
+                    let saldo = target.data('saldo')
+                    let is_income = target.data('is_income')
+
+                    $('#editLaporanKeuanganModal #id_laporankeuangan').val(id_laporankeuangan);
+                    $('#editLaporanKeuanganModal #nominal').val(nominal);
+                    $('#editLaporanKeuanganModal #detail').val(detail);
+                    $('#editLaporanKeuanganModal #tanggal').val(tanggal);
+                    $('#editLaporanKeuanganModal #pihak_terlibat').val(pihak_terlibat);
+                    $('#editLaporanKeuanganModal #saldo').val(saldo);
+                    $('#editLaporanKeuanganModal #is_income').val(is_income);
+
+                    let url = "{{route('laporankeuangan.update',':__id')}}";
+                    url = url.replace(':__id', id_laporankeuangan);
+                    $('#editLaporanKeuanganForm').attr('action', url)
+                });
+            });
+        </script>
     @endpush
 @endsection
 
