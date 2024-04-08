@@ -344,34 +344,34 @@ body .container-layanan .card .span-head {
     margin-top: 7rem;
   }
 }
-body .container-umkm {
+body .container-umkm, body .container-p {
   background-color: transparent;
   text-align: center;
 }
-body .container-umkm .heading-center {
+body .container-umkm .heading-center, body .container-p .heading-center {
   margin-top: 6rem;
 }
-body .container-umkm .card-container {
+body .container-umkm .card-container, body .container-p .card-container {
   text-align: justify;
   margin-top: 40px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Menentukan jumlah kolom dan lebar minimum dan maksimum */
   gap: 30px; /* Jarak antar kartu */
 }
-body .container-umkm .fixedButton {
+body .container-umkm .fixedButton, body .container-p .fixedButton {
   position: fixed;
   bottom: 20px; /* Ubah sesuai dengan jarak dari bawah yang diinginkan */
   right: 20px; /* Ubah sesuai dengan jarak dari kanan yang diinginkan */
   z-index: 999; /* Atur nilai z-index agar tombol muncul di depan kartu-kartu */
 }
-body .container-umkm .roundedFixedBtn {
+body .container-umkm .roundedFixedBtn, body .container-p .roundedFixedBtn {
   border-radius: 25px;
   border-style: double;
   border-color: #ffffff;
   background-color: #152551;
   cursor: pointer;
 }
-body .container-umkm .roundedFixedBtn button {
+body .container-umkm .roundedFixedBtn button, body .container-p .roundedFixedBtn button {
   background-color: #253560;
   border-radius: 2em;
   padding-inline: 20px;
@@ -387,10 +387,10 @@ body .container-umkm .roundedFixedBtn button {
   font-size: 1em;
   font-weight: 500;
 }
-body .container-umkm .roundedFixedBtn button i {
+body .container-umkm .roundedFixedBtn button i, body .container-p .roundedFixedBtn button i {
   margin-right: 11px;
 }
-body .container-umkm .roundedFixedBtn button:hover {
+body .container-umkm .roundedFixedBtn button:hover, body .container-p .roundedFixedBtn button:hover {
   background-color: #ffffff;
   border: 1px solid black;
   font-weight: 700;
