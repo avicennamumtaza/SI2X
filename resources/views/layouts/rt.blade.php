@@ -67,18 +67,18 @@
                                     {{-- </div>
                                 </li> --}}
                                     {{-- @else --}}
-                                    <li class="mb-2 position-relative">
+                                    {{-- <li class="mb-2 position-relative">
                                         <div class="content nav-item gap-2 d-flex align-items-center">
                                             <i class="bi bi-exclamation-circle"></i>
                                             <a class="nav-link" href="{{ route('umkm.manage') }}"
                                                 title="report">UMKM</a>
                                         </div>
-                                    </li>
+                                    </li> --}}
                                     <li class="mb-2 position-relative">
                                         <div class="content nav-item gap-2 d-flex align-items-center">
                                             <i class="bi bi-activity"></i>
-                                            <a class="nav-link" href="{{ route('pengumuman.manage') }}"
-                                                title="report">Pengumuman</a>
+                                            <a class="nav-link" href="{{ route('pengajuandokumen.manage') }}"
+                                                title="report">Pengajuan Dokumen</a>
                                         </div>
                                     </li>
                                     {{-- @endif --}}
@@ -121,19 +121,8 @@
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a class="dropdown-item" style="background-color: transparent; color: white" href="#">Keluarga</a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item" style="background-color: transparent; color: white" href="{{ route('rt.manage') }}">RT</a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item" style="background-color: transparent; color: white" href="#-level">
-                                                        RW
-                                                    </a>
-                                                </li>
-                                                <li>
                                                     <a class="dropdown-item" style="background-color: transparent; color: white" href="#">
-                                                        Pengguna
+                                                        Keluarga
                                                     </a>
                                                 </li>
                                             </ul>
@@ -155,7 +144,7 @@
                                     <li class="logOut border-top mt-2 position-relative">
                                         <div class="content nav-item gap-2 d-flex align-items-center">
                                             <i class="bi bi-box-arrow-in-right"></i>
-                                            <a class="nav-link" href="/auth/logout">Log Out</a>
+                                            <a class="nav-link" href="{{ route('logout') }}">Log Out</a>
                                         </div>
                                     </li>
                                 </ul>

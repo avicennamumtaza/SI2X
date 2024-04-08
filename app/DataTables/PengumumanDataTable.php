@@ -26,26 +26,25 @@ class PengumumanDataTable extends DataTable
             ->addColumn('action', function($row){
                 $editUrl = route('pengumuman.edit', $row->id_pengumuman);
                 $deleteUrl = route('pengumuman.destroy', $row->id_pengumuman);
-                $action = '<a href="' . $editUrl . '" class="edit btn btn-primary btn-sm">Edit</a>';
-                $action .= '&nbsp;'; // Menambahkan spasi HTML
-                $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline-block;">
+                $action = '
+                <div class="container-action">
+                <a href="' . $editUrl . '" class="edit btn btn-edit btn-sm">Edit</a>';
+                $action .= '
+                <form action="' . $deleteUrl . '" method="post" style="display:inline;">
                     ' . csrf_field() . '
                     ' . method_field('DELETE') . '
-                    <button type="submit" class="delete btn btn-danger btn-sm">Delete</button>
-                </form>';
+                    <button type="submit" class="delete btn btn-delete btn-sm">Delete</button>
+                </form>
+                </div>';
                 return $action;
-            // ->setRowId('id')
-            // ->addColumn('action', function($row){
-            //     $editUrl = route('pengumuman.edit', $row->id_pengumuman);
-            //     $deleteUrl = route('pengumuman.destroy', $row->id_pengumuman);
-            //     $action = '<a href="' . $editUrl . '" class="edit btn btn-edit btn-sm">Edit</a>';
-            //     $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline-block;">
-            //         ' . csrf_field() . '
-            //         ' . method_field('DELETE') . '
-            //         <button type="submit" class="delete btn btn-delete btn-sm">Delete</button>
-            //     </form>';
-            //     return $action;
             });
+            // Menambahkan kolom "foto" ke tabel
+            // ->addColumn('foto', function($row) {
+            //     // Pastikan $row adalah objek yang memiliki properti "foto"
+            //     $imageUrl = isset($row->foto) ? $row->foto : '';
+            //     $foto = '<img src="' . $imageUrl . '" width="100" height="100">';
+            //     return $foto;
+            // });
     }
 
     /**
@@ -80,26 +79,27 @@ class PengumumanDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            // Column::computed('action')
-            //       ->exportable(false)
-            //       ->printable(false)
-            //       ->width(60)
-            //       ->addClass('text-center'),
             Column::make('id_pengumuman')->title('Id'),
             Column::make('judul')->title('Judul'),
-            Column::make('deskripsi')->title('Deskripsi'),
             Column::make('tanggal')->title('Tanggal'),
-            Column::make('foto'),
+            Column::make('deskripsi')->title('Deskripsi'),
+            Column::make('foto')->title('Foto'),
+            // Column::computed('foto')
+            //     ->title('Foto')
+            //     ->render(function ($pengumuman) {
+            //         // Pastikan $pengumuman adalah objek yang memiliki properti "foto"
+            //         $imageUrl = isset($pengumuman->foto) ? $pengumuman->foto : '';
+            //         return '<img src="' . $imageUrl . '" width="100" height="100">';
+            //     })
+            //     ->addClass('text-center'),
             Column::computed('action')
-              ->exportable(false)
-              ->printable(false)
-              ->width(220) 
-              ->addClass('text-center'),
-            // Column::make('created_at'),
-            // Column::make('updated_at'),
+                ->exportable(false)
+                ->printable(false)
+                ->width(130)
+                ->addClass('text-center'),
         ];
     }
-
+    
     /**
      * Get the filename for export.
      */

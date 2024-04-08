@@ -124,7 +124,9 @@
                                                     <a class="dropdown-item" style="background-color: transparent; color: white" href="#">Keluarga</a>
                                                 </li>
                                                 <li>
-                                                    <a class="dropdown-item" style="background-color: transparent; color: white" href="{{ route('rt.manage') }}">RT</a>
+                                                    <a class="dropdown-item" style="background-color: transparent; color: white" href="#">
+                                                        RT
+                                                    </a>
                                                 </li>
                                                 <li>
                                                     <a class="dropdown-item" style="background-color: transparent; color: white" href="#-level">
@@ -155,7 +157,7 @@
                                     <li class="logOut border-top mt-2 position-relative">
                                         <div class="content nav-item gap-2 d-flex align-items-center">
                                             <i class="bi bi-box-arrow-in-right"></i>
-                                            <a class="nav-link" href="/auth/logout">Log Out</a>
+                                            <a class="nav-link" href="{{ route('logout') }}">Log Out</a>
                                         </div>
                                     </li>
                                 </ul>

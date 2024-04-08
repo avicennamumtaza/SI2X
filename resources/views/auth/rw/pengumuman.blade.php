@@ -1,4 +1,4 @@
-@extends('layouts.user')
+@extends('layouts.rw')
 
 @section('content')
     {{-- <div class="container container-pengumuman col-12"> --}}
@@ -202,7 +202,7 @@
 @endpush
 
 @push('js')
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             $('.edit').click(function() {
                 // Ambil data pengumuman dari tombol edit yang diklik
@@ -219,5 +219,5 @@
                 $('#editPengumumanModal').modal('show');
             });
         });
-    </script>
+    </script> --}}
 @endpush

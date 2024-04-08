@@ -6,6 +6,7 @@ use App\Http\Controllers\PendudukController;
 use App\Http\Controllers\PengajuanDokumenController;
 use App\Http\Controllers\UmkmController;
 use App\Http\Controllers\PengumumanController;
+use App\Http\Controllers\RTController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -40,10 +41,9 @@ Route::get('/umkm', [UmkmController::class, 'index'])->name('umkm.global');
 // manage umkm
 Route::get('/umkmm', [UmkmController::class, 'list'])->name('umkm.manage');
 // Route::get('/umkm/{id}/edit', [UmkmController::class, 'edit'])->name('umkm.edit');
-// Route::put('/umkm/{id}', [UmkmController::class, 'update'])->name('umkm.update');
+Route::put('/umkm/{id}', [UmkmController::class, 'update'])->name('umkm.update');
 Route::delete('/umkmm/{id}', [UmkmController::class, 'destroy'])->name('umkm.destroy');
-Route::get('/umkmm/{id}/edit', [UmkmController::class, 'edit'])->name('umkm.edit');
-
+// Route::get('/umkmm/{id}/edit', [UmkmController::class, 'edit'])->name('umkm.edit');
 
 // global pengumuman
 Route::get('/pengumuman', [PengumumanController::class, 'index'])->name('pengumuman.global');
@@ -82,3 +82,8 @@ Route::post('/keluarga', [KeluargaController::class, 'store'])->name('keluarga.s
 Route::get('/keluarga/{keluarga}/edit', [KeluargaController::class, 'edit'])->name('keluarga.edit');
 Route::put('/keluarga/{keluarga}', [KeluargaController::class, 'update'])->name('keluarga.update');
 Route::delete('/keluarga/{keluarga}', [KeluargaController::class, 'destroy'])->name('keluarga.destroy');
+// manage pendataan
+Route::get('/pendataan/rt', [RTController::class, 'list'])->name('rt.manage');
+Route::get('/pendataan/rt/{rt}/edit', [RTController::class, 'edit'])->name('rt.edit');
+Route::post('/pendataan/rt', [RTController::class, 'store'])->name('rt.store');
+Route::delete('/pendataan/rt/{rt}', [RTController::class, 'destroy'])->name('rt.destroy');

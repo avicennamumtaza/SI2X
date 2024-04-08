@@ -18,6 +18,7 @@ class Umkm extends Model
         'wa_umkm',
         'foto_umkm',
         'desc_umkm',
+        'status_umkm',
     ];
 
     public function penduduk(): BelongsTo
@@ -25,8 +26,8 @@ class Umkm extends Model
         return $this->belongsTo(Penduduk::class, 'nik_pemilik', 'nik');
     }
 
-    public function rw(): BelongsTo
-    {
-        return $this->belongsTo(Rw::class, 'nik_pemilik', 'nik_rw');
-    }
+    // public function rw(): BelongsTo
+    // {
+    //     return $this->belongsTo(Rw::class, 'nik_pemilik', 'nik_rw');
+    // }
 }

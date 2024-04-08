@@ -1,4 +1,4 @@
-@extends('layouts.user')
+@extends('layouts.rw')
 
 @section('content')
     <!-- Modal -->
@@ -58,8 +58,8 @@
         <div class="card-header card-header-tabel p-4 mb-3">
             <h5>
                 Umkm
-                <button class="btn btn-add float-end" data-bs-toggle="modal" data-bs-target="#tambahUmkm">Tambah
-                    Data</button>
+                {{-- <button class="btn btn-add float-end" data-bs-toggle="modal" data-bs-target="#tambahUmkm">Tambah
+                    Data</button> --}}
             </h5>
         </div>
         <hr>
