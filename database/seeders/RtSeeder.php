@@ -22,9 +22,10 @@ class RtSeeder extends Seeder
         $nikRt = DB::table('penduduk')->pluck('nik')->toArray();
 
         // Loop untuk mengisi data sebanyak yang diinginkan
-        foreach (range(1, 10) as $index) {
+        foreach (range(1, 16) as $index) {
             // Insert data baru ke tabel rt
             DB::table('rt')->insert([
+                'no_rt' => $faker->unique()->numberBetween(1, 16),
                 'nik_rt' => $faker->randomElement($nikRt),
                 'jumlah_keluarga_rt' => $faker->numberBetween(10, 20),
                 'jumlah_penduduk_rt' => $faker->numberBetween(20, 40),

@@ -19,14 +19,17 @@ class UsersSeeder extends Seeder
         // Menggunakan Faker untuk mengisi data
         $faker = Faker::create();
 
+        // Ambil semua nik yang ada
+        $nikUser = DB::table('penduduk')->pluck('nik')->toArray();
+
         // Loop untuk mengisi data sebanyak yang diinginkan
         foreach (range(1, 20) as $index) {
             // Insert data baru ke tabel users
             DB::table('users')->insert([
-                'nik' => $faker->numerify(16, true),
-                'username' => $faker->userName,
-                'role' => $faker->randomElement(['admin', 'user']),
-                'email' => $faker->unique()->safeEmail,
+                'nik' => $faker->randomElement($nikUser),
+                'username' => $faker->userName(),
+                'role' => $faker->randomElement(['rw', 'rt', 'staf']),
+                'email' => $faker->unique()->safeEmail(),
                 'password' => Hash::make('password'), // Default password
                 'created_at' => now(),
                 'updated_at' => now(),

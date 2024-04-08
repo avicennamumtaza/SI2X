@@ -20,7 +20,7 @@ class PengajuanDokumenSeeder extends Seeder
 
         // Ambil semua nik yang ada
         $noRt = DB::table('rt')->pluck('no_rt')->toArray();
-        $idPengajuan = DB::table('dokumen')->pluck('id_pengajuan')->toArray();
+        $idDokumen = DB::table('dokumen')->pluck('id_dokumen')->toArray();
         $nikPengaju = DB::table('penduduk')->pluck('nik')->toArray();
 
         // Loop untuk mengisi data sebanyak yang diinginkan
@@ -28,11 +28,11 @@ class PengajuanDokumenSeeder extends Seeder
             // Insert data baru ke tabel pengajuan_dokumen
             DB::table('pengajuan_dokumen')->insert([
                 'no_rt' => $faker->randomElement($noRt),
-                'id_pengajuan' => $faker->randomElement($idPengajuan),
+                'id_dokumen' => $faker->randomElement($idDokumen),
                 'nik_pengaju' => $faker->randomElement($nikPengaju),
-                'nama_pengaju' => $faker->name,
+                'nama_pengaju' => $faker->name(),
                 'status_pengajuan' => $faker->randomElement(['Baru', 'Disetujui', 'Ditolak']),
-                'catatan' => $faker->text,
+                'catatan' => $faker->sentence(5),
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

@@ -24,14 +24,15 @@ class PengumumanSeeder extends Seeder
         // Loop untuk mengisi data sebanyak yang diinginkan
         foreach (range(1, 10) as $index) {
             // Pilih nomor rw secara acak
-            $noRw = $faker->randomElement($rwNumbers);
+            // $noRw = $faker->randomElement($rwNumbers);
 
             // Insert data baru ke tabel pengumuman
             DB::table('pengumuman')->insert([
-                'no_rw' => $noRw,
+                // 'no_rw' => $noRw,
                 'judul' => $faker->sentence(3),
+                'tanggal' => $faker->date(),
                 'deskripsi' => $faker->paragraph(3),
-                'tanggal_pengumuman' => $faker->date(),
+                'foto' => $faker->imageUrl(),
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

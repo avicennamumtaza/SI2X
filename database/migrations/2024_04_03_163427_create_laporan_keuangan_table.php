@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,16 +12,13 @@ return new class extends Migration
     {
         Schema::create('laporan_keuangan', function (Blueprint $table) {
             $table->id('id_laporankeuangan');
-            // $table->String('no_rw', 4)->index();
-            $table->float('nominal');
-            $table->text('detail');
-            $table->date('tanggal');
-            $table->string('pihak_terlibat',50);
-            $table->float('saldo');
             $table->boolean('is_income');
+            $table->double('nominal');
+            $table->date('tanggal');
+            $table->string('pihak_terlibat', 50);
+            $table->text('detail');
+            $table->double('saldo');
             $table->timestamps();
-
-            // $table->foreign('no_rw')->references('no_rw')->on('rw')->onDelete('cascade');
         });
     }
 
