@@ -43,12 +43,32 @@ class PengumumanController extends Controller
         //     return redirect()->back();
         // }
 
-        $pengumuman = new Pengumuman();
-        $pengumuman->judul = $request->nama_pengumuman;
-        $pengumuman->deskripsi = $request->desc_pengumuman;
-        $pengumuman->tanggal = $request->tanggal_pengumuman;
-        $pengumuman->foto = $request->foto_pengumuman;
-        $pengumuman->save();
+        // $pengumuman = new Pengumuman();
+        // $pengumuman->judul = $request->nama_pengumuman;
+        // $pengumuman->deskripsi = $request->desc_pengumuman;
+        // $pengumuman->tanggal = $request->tanggal_pengumuman;
+        // $pengumuman->foto = $request->foto_pengumuman;
+        // $pengumuman->save();
+
+        // Validasi data input dari form
+            $validated = $request->validate([
+                'judul_pengumuman' => 'required',
+                'desc_pengumuman' => 'required',
+                'tanggal_pengumuman' => 'required',
+            ]);
+    
+            try {
+                Pengumuman::create([
+                    'judul' => $validated['judul_pengumuman'],
+                    'deskripsi' => $validated['desc_pengumuman'],
+                    'tanggal' => $validated['tanggal_pengumuman'],
+                    'foto' => $request->foto_pengumuman,
+                ]);
+                return redirect()->back()->with('success', 'Pengumuman berhasil dipublish!');
+            } catch (\Exception $e) {
+                Alert::error('Oops!', $e->getMessage());
+                return redirect()->back();
+            }
     }
 
     // public function edit(Pengumuman $pengumuman)
