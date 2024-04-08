@@ -23,12 +23,25 @@ class PendudukDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->setRowId('id')
-            ->addColumn('action', function($row){
-                $editUrl = route('penduduk.edit', $row->nik);
+            ->addColumn('action', function ($row) {
+
                 $deleteUrl = route('penduduk.destroy', $row->nik);
-                $action ='
+                $action = '
                 <div class="container-action">
-                <a href="' . $editUrl . '" class="edit btn btn-edit btn-sm">Edit</a>';
+                <button type="button"
+                data-id="' . $row->nik . '"
+                data-nkk="' . $row->nkk . '"
+                data-no_rt="' . $row->no_rt . '"
+                data-nama="' . $row->nama . '"
+                data-tempat_lahir="' . $row->tempat_lahir . '"
+                data-tanggal_lahir="' . $row->tanggal_lahir . '"
+                data-alamat="' . $row->alamat . '"
+                data-jenis_kelamin="' . $row->jenis_kelamin . '"
+                data-pekerjaan="' . $row->pekerjaan . '"
+                data-gol_darah="' . $row->gol_darah . '"
+                data-is_married="' . $row->is_married . '"
+                data-is_stranger="' . $row->is_stranger . '"
+                data-bs-toggle="modal" data-bs-target="#editPendudukModal" class="edit-user edit btn btn-edit btn-sm">Edit</button>';
                 $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
                 ' . csrf_field() . '
                 ' . method_field('DELETE') . '
@@ -77,7 +90,7 @@ class PendudukDataTable extends DataTable
             //     ->printable(false)
             //     ->width(60)
             //     ->addClass('text-center'),
-            Column::make('nik'),
+            Column::make('nik')->type('string'),
             Column::make('nkk'),
             Column::make('no_rt'),
             Column::make('nama'),
@@ -90,10 +103,10 @@ class PendudukDataTable extends DataTable
             Column::make('is_married'),
             Column::make('is_stranger'),
             Column::computed('action')
-              ->exportable(false)
-              ->printable(false)
-              ->width(300)
-              ->addClass('text-center'),
+                ->exportable(false)
+                ->printable(false)
+                ->width(300)
+                ->addClass('text-center'),
             Column::make('created_at'),
             Column::make('updated_at'),
         ];

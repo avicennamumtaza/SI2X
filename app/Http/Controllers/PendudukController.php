@@ -47,7 +47,7 @@ class PendudukController extends Controller
                 'is_married' => $validated['is_married'],
                 'is_stranger' => $validated['is_stranger'],
             ]);
-            
+
             return redirect()->back()->with('success', 'Data Penduduk berhasil ditambahkan!');
 
         } catch(\Exception $e){
@@ -58,11 +58,12 @@ class PendudukController extends Controller
     }
     public function edit(Penduduk $penduduk)
     {
+        $penduduk = Penduduk::findOrFail($penduduk->nik);
         return view('penduduk.edit', compact('penduduk'));
     }
-
     public function update(Request $request, Penduduk $penduduk)
     {
+
         $request->validate([
             'nik' => 'required',
             'nkk' => 'required',
