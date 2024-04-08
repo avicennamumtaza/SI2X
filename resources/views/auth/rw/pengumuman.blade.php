@@ -34,6 +34,12 @@
                                 required>
                         </div>
 
+                        <div class="form-group mb-3">
+                            <label for="foto_pengumuman" class="form-label">Foto Pengumuman</label>
+                            <input type="file" class="form-control" id="foto_pengumuman" name="foto_pengumuman"
+                                required>
+                        </div>
+
 
                         <!-- Tambahkan input lainnya sesuai kebutuhan -->
                 </div>
@@ -196,7 +202,7 @@
 @endpush
 
 @push('js')
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             $('.edit').click(function() {
                 // Ambil data pengumuman dari tombol edit yang diklik
@@ -213,5 +219,5 @@
                 $('#editPengumumanModal').modal('show');
             });
         });
-    </script>
+    </script> --}}
 @endpush

@@ -124,9 +124,7 @@
                                                     <a class="dropdown-item" style="background-color: transparent; color: white" href="#">Keluarga</a>
                                                 </li>
                                                 <li>
-                                                    <a class="dropdown-item" style="background-color: transparent; color: white" href="#">
-                                                        RT
-                                                    </a>
+                                                    <a class="dropdown-item" style="background-color: transparent; color: white" href="{{ route('rt.manage') }}">RT</a>
                                                 </li>
                                                 <li>
                                                     <a class="dropdown-item" style="background-color: transparent; color: white" href="#-level">

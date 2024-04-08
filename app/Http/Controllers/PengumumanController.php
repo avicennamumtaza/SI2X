@@ -42,10 +42,10 @@ class PengumumanController extends Controller
         // ]);
 
         $pengumuman = new Pengumuman();
-        $pengumuman->no_rw = 6;
         $pengumuman->judul = $request->nama_pengumuman;
         $pengumuman->deskripsi = $request->desc_pengumuman;
-        $pengumuman->tanggal_pengumuman = $request->tanggal_pengumuman;
+        $pengumuman->tanggal = $request->tanggal_pengumuman;
+        $pengumuman->foto = $request->foto_pengumuman;
         $pengumuman->save();
 
         return redirect()->back()->with('success', 'Pengumuman berhasil dipublish!');
