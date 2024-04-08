@@ -30,6 +30,6 @@ class Dokumen extends Model
 
     public function pengajuan(): HasMany
     {
-        return $this->hasMany(PengajuanDoc::class, 'id_pengajuan', 'id_pengajuan');
+        return $this->hasMany(PengajuanDokumen::class, 'id_pengajuan', 'id_pengajuan');
     }
 }
