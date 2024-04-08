@@ -54,42 +54,47 @@ class LaporanKeuanganController extends Controller
         $laporanKeuangan->id_laporankeuangan = $request->id_laporankeuangan;
         $laporanKeuangan->is_income = $request->is_income;
         $laporanKeuangan->nominal = $request->nominal;
-        $laporanKeuangan->detail_laporan = $request->detail_laporan;
-        $laporanKeuangan->tanggal_laporan = $request->tanggal_laporan;
+        $laporanKeuangan->detail = $request->detail;
+        $laporanKeuangan->tanggal = $request->tanggal;
+        $laporanKeuangan->saldo = $request->saldo;
+        $laporanKeuangan->pihak_terlibat = $request->pihak_terlibat;
         $laporanKeuangan->save();
 
         return redirect()->back()->with('success', 'Laporan Keuangan berhasil dipublish!');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function edit(LaporanKeuangan $laporanKeuangan)
     {
-        //
+        $laporanKeuangan = LaporanKeuangan::findOrFail($laporanKeuangan->id_laporankeuangan);
+        return view('laporankeuangan.edit', compact('laporanKeuangan'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function update(Request $request, LaporanKeuangan $laporanKeuangan)
     {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
+        $request->validate([
+            'id_laporankeuangan' => 'required',
+            'nominal' => 'required',
+            'detail' => 'required',
+            'tanggal' => 'required',
+            'pihak_terlibat' => 'required',
+            'saldo' => 'required',
+            'is_income' => 'required',
+        ]);
+
+        $laporanKeuangan->update($request->all());
+
+        return redirect()->route('laporankeuangan.manage')
+            ->with('success', 'Laporan keuangan berhasil diperbarui.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id_laporankeuangan)
     {
-        //
-    }
+        $laporankeuangan = LaporanKeuangan::findOrFail($id_laporankeuangan);
+        $laporankeuangan->delete();
+        return redirect()->back()->with('success', 'Data berhasil dihapus!');
+    }    
 }
