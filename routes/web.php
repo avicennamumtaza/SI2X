@@ -4,6 +4,7 @@ use App\Http\Controllers\LaporanKeuanganController;
 use App\Http\Controllers\PengajuanDokumenController;
 use App\Http\Controllers\UmkmController;
 use App\Http\Controllers\PengumumanController;
+use App\Http\Controllers\RTController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -66,3 +67,9 @@ Route::get('/laporankeuangan', [LaporanKeuanganController::class, 'index'])->nam
 Route::get('/laporankeuangann', [LaporanKeuanganController::class, 'list'])->name('laporankeuangan.manage');
 Route::post('/laporankeuangann', [LaporanKeuanganController::class, 'store'])->name('laporankeuangan.store');
 Route::delete('/laporankeuangann', [LaporanKeuanganController::class, 'destroy'])->name('laporankeuangan.destroy');
+
+// manage pendataan
+Route::get('/pendataan/rt', [RTController::class, 'list'])->name('rt.manage');
+Route::get('/pendataan/rt/{rt}/edit', [RTController::class, 'edit'])->name('rt.edit');
+Route::post('/pendataan/rt', [RTController::class, 'store'])->name('rt.store');
+Route::delete('/pendataan/rt', [RTController::class, 'destroy'])->name('rt.destroy');
