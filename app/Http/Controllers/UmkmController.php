@@ -84,11 +84,7 @@ class UmkmController extends Controller
     {
         // Validasi input
         $request->validate([
-            'nama_umkm' => 'required|string|max:50',
-            'nik_pemilik_umkm' => 'required|string|min:15|max:17',
-            'foto_umkm' => 'required|string',
-            'desc_umkm' => 'required|string',
-            'wa_umkm' => 'required|string|min:10|max:14',
+            'status_umkm' => 'required|string|max:50',
         ]);
 
         try {
@@ -97,11 +93,7 @@ class UmkmController extends Controller
 
             // Perbarui data UMKM dengan data yang baru
             $umkm->update([
-                'nama_umkm' => $request->nama_umkm,
-                'nik_pemilik' => $request->nik_pemilik_umkm,
-                'foto_umkm' => $request->foto_umkm,
-                'desc_umkm' => $request->desc_umkm,
-                'wa_umkm' => $request->wa_umkm,
+                'status' => $request->nama_umkm,
             ]);
 
             // Redirect dengan pesan sukses
@@ -114,8 +106,13 @@ class UmkmController extends Controller
     public function destroy($id)
     {
         $umkm = Umkm::findOrFail($id);
-        $umkm->delete();
-        return redirect()->back();
-        // ->with('success', 'UMKM berhasil dihapus!');
+        return confirmDelete('Apakah anda yakin ingin menghapus data ini?', 'Data yang sudah terhapus tidak akan bisa dikembalikan', route('umkm.delete', $umkm->id_umkm));
     }
+    
+    public function delete($id)
+    {
+        $umkm = Umkm::findOrFail($id);
+        $umkm->delete();
+        return redirect()->back()->with('success', 'Data berhasil dihapus!');
+    }    
 }

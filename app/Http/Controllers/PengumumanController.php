@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\DataTables\PengumumanDataTable;
 use App\Models\Pengumuman;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PengumumanController extends Controller
 {
@@ -28,19 +29,38 @@ class PengumumanController extends Controller
     public function store(Request $request)
     {
         // Validasi data input dari form
+<<<<<<< HEAD
         $request->validate([
             'judul_pengumuman' => 'required',
+=======
+        $validated = $request->validate([
+            'nama_pengumuman' => 'required',
+>>>>>>> 6c2f43f2807464a9392743ac4b4964caea67a03b
             'desc_pengumuman' => 'required',
             'tanggal_pengumuman' => 'required',
         ]);
+        
+        try {
+            Pengumuman::create([
+                'judul' => $validated['nama_pengumuman'],
+                'deskripsi' => $validated['desc_pengumuman'],
+                'tanggal' => $validated['tanggal_pengumuman'],
+                'foto' => $request->foto_pengumuman,
+            ]);
+            return redirect()->back()->with('success', 'Pengumuman berhasil dipublish!');
+        } catch (\Exception $e) {
+            Alert::error('Oops!', $e->getMessage());
+            return redirect()->back();
+        }
 
-        // Simpan data pengumuman ke dalam database
-        // Pengumuman::create([
-        //     'nama_pengumuman' => $request->nama_pengumuman,
-        //     'desc_pengumuman' => $request->desc_pengumuman,
-        //     'tanggal_pengumuman' => $request->tanggal_pengumuman,
-        // ]);
+        // $pengumuman = new Pengumuman();
+        // $pengumuman->judul = $request->nama_pengumuman;
+        // $pengumuman->deskripsi = $request->desc_pengumuman;
+        // $pengumuman->tanggal = $request->tanggal_pengumuman;
+        // $pengumuman->foto = $request->foto_pengumuman;
+        // $pengumuman->save();
 
+<<<<<<< HEAD
         $pengumuman = new Pengumuman();
         $pengumuman->judul = $request->judul_pengumuman;
         $pengumuman->deskripsi = $request->desc_pengumuman;
@@ -49,6 +69,9 @@ class PengumumanController extends Controller
         $pengumuman->save();
 
         return redirect()->back()->with('success', 'Pengumuman berhasil dipublish!');
+=======
+        // return redirect()->back()->with('success', 'Pengumuman berhasil dipublish!');
+>>>>>>> 6c2f43f2807464a9392743ac4b4964caea67a03b
     }
 
     // public function edit(Pengumuman $pengumuman)

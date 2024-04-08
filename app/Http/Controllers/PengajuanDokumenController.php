@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\PengajuanDokumenDataTable;
+use App\Models\PengajuanDokumen;
 use Illuminate\Http\Request;
 
 class PengajuanDokumenController extends Controller
@@ -12,6 +14,10 @@ class PengajuanDokumenController extends Controller
     public function index()
     {
         return view('global.pengajuandokumen');
+    }
+
+    public function list(PengajuanDokumenDataTable $dataTable) {
+        return $dataTable->render('auth.rt.pengajuandokumen');
     }
 
     /**
@@ -57,8 +63,10 @@ class PengajuanDokumenController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id_pengajuandokumen)
     {
-        //
+        $pengajuanDokumen = PengajuanDokumen::findOrFail($id_pengajuandokumen);
+        $pengajuanDokumen->delete();
+        return redirect()->back()->with('success', 'Data Pengajuan Dokumen berhasil dihapus!');
     }
 }

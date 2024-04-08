@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -63,7 +64,7 @@
                                     {{-- <li class="mb-2 position-relative">
                                     <div class="content nav-item gap-1 d-flex align-items-center">
                                         <i class="bi bi-exclamation-circle"></i>
-                                        <a class="nav-link"
+                                        <a class="nav-link" 
                                         {{-- href="/{{ $role }}/violation-history" --}}
                                     {{-- title="report">Violation History</a> --}}
                                     {{-- </div>
@@ -81,6 +82,12 @@
                                             <i class="bi bi-activity"></i>
                                             <a class="nav-link" href="{{ route('pengumuman.manage') }}"
                                                 title="report">Pengumuman</a>
+                                        </div>
+                                    <li class="mb-2 position-relative">
+                                        <div class="content nav-item gap-2 d-flex align-items-center">
+                                            <i class="bi bi-activity"></i>
+                                            <a class="nav-link" href="{{ route('laporankeuangan.manage') }}"
+                                                title="report">Laporan Keuangan</a>
                                         </div>
                                     </li>
                                     {{-- @endif --}}
@@ -121,33 +128,33 @@
                                                 <li>
                                                     <a class="dropdown-item"
                                                         style="background-color: transparent; color: white"
-                                                        href="#">
+                                                        href="{{ route('penduduk.manage') }}">
                                                         Penduduk
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a class="dropdown-item"
                                                         style="background-color: transparent; color: white"
-                                                        href="#">Keluarga</a>
+                                                        href="{{ route('keluarga.manage') }}">Keluarga</a>
                                                 </li>
                                                 <li>
                                                     <a class="dropdown-item"
                                                         style="background-color: transparent; color: white"
-                                                        href="#">
+                                                        href="{{ route('rt.manage') }}">
                                                         RT
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a class="dropdown-item"
                                                         style="background-color: transparent; color: white"
-                                                        href="#-level">
+                                                        href="{{ route('rw.manage') }}">
                                                         RW
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a class="dropdown-item"
                                                         style="background-color: transparent; color: white"
-                                                        href="#">
+                                                        href="{{ route('rw.manage') }}">
                                                         Pengguna
                                                     </a>
                                                 </li>
