@@ -6,6 +6,7 @@ use App\Http\Controllers\PendudukController;
 use App\Http\Controllers\PengajuanDokumenController;
 use App\Http\Controllers\UmkmController;
 use App\Http\Controllers\PengumumanController;
+use App\Http\Controllers\RWController;
 use App\Http\Controllers\RTController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -87,3 +88,8 @@ Route::get('/pendataan/rt', [RTController::class, 'list'])->name('rt.manage');
 Route::get('/pendataan/rt/{rt}/edit', [RTController::class, 'edit'])->name('rt.edit');
 Route::post('/pendataan/rt', [RTController::class, 'store'])->name('rt.store');
 Route::delete('/pendataan/rt/{rt}', [RTController::class, 'destroy'])->name('rt.destroy');
+
+Route::get('/pendataan/rw', [RWController::class, 'list'])->name('rw.manage');
+Route::get('/pendataan/rw/{rw}/edit', [RWController::class, 'edit'])->name('rw.edit');
+Route::post('/pendataan/rw', [RWController::class, 'store'])->name('rw.store');
+Route::delete('/pendataan/rw/{rw}', [RwController::class, 'destroy'])->name('rw.destroy');
