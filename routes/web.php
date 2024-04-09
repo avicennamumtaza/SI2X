@@ -64,7 +64,7 @@ Route::get('/pengajuandokumen', [PengajuanDokumenController::class, 'index'])->n
 Route::get('/pengajuandokumenn', [PengajuanDokumenController::class, 'list'])->name('pengajuandokumen.manage');
 Route::get('/pengajuandokumenn/edit/{pengajuandokumen}', [PengajuanDokumenController::class, 'edit'])->name('pengajuandokumen.edit');
 Route::put('/pengajuandokumenn/update/{pengajuandokumen}', [PengajuanDokumenController::class, 'update'])->name('pengajuandokumen.update');
-Route::delete('/pengajuandokumenn/{pengajuandokumen}', [PengajuanDokumenController::class, 'delete'])->name('pengajuandokumen.delete');
+Route::delete('/pengajuandokumenn/{pengajuandokumen}', [PengajuanDokumenController::class, 'destroy'])->name('pengajuandokumen.destroy');
 
 // global laporan keuangan
 Route::get('/laporankeuangan', [LaporanKeuanganController::class, 'index'])->name('laporankeuangan.global');

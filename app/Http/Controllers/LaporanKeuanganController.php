@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\DataTables\LaporanKeuanganDataTable;
 use App\Models\LaporanKeuangan;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class LaporanKeuanganController extends Controller
 {
@@ -36,33 +37,37 @@ class LaporanKeuanganController extends Controller
     {
         // Validasi data input dari form
         $request->validate([
-            'id_laporankeuangan' => 'required',
+            // 'id_laporankeuangan' => 'required',
             'is_income' => 'required',
             'nominal' => 'required',
-            'detail_laporan' => 'required',
-            'tanggal_laporan' => 'required',
+            'detail' => 'required',
+            'tanggal' => 'required',
         ]);
 
-        $laporanKeuangan = new LaporanKeuangan();
-        $laporanKeuangan->id_laporankeuangan = $request->id_laporankeuangan;
-        $laporanKeuangan->is_income = $request->is_income;
-        $laporanKeuangan->nominal = $request->nominal;
-        $laporanKeuangan->detail = $request->detail;
-        $laporanKeuangan->tanggal = $request->tanggal;
-        $laporanKeuangan->saldo = $request->saldo;
-        $laporanKeuangan->pihak_terlibat = $request->pihak_terlibat;
-        $laporanKeuangan->save();
-
-        return redirect()->back()->with('success', 'Laporan Keuangan berhasil dipublish!');
+        try {
+            $laporanKeuangan = new LaporanKeuangan();
+            $laporanKeuangan->id_laporankeuangan = $request->id_laporankeuangan;
+            $laporanKeuangan->is_income = $request->is_income;
+            $laporanKeuangan->nominal = $request->nominal;
+            $laporanKeuangan->detail = $request->detail;
+            $laporanKeuangan->tanggal = $request->tanggal;
+            $laporanKeuangan->saldo = $request->saldo;
+            $laporanKeuangan->pihak_terlibat = $request->pihak_terlibat;
+            $laporanKeuangan->save();
+            return redirect()->back()->with('success', 'Data Penduduk berhasil ditambahkan!');
+        } catch (\Exception $e) {
+            Alert::error('Error', $e->getMessage());
+            return redirect()->back();
+        }
     }
 
-    public function edit(LaporanKeuangan $laporanKeuangan)
+    public function edit(LaporanKeuangan $laporankeuangan)
     {
-        $laporanKeuangan = LaporanKeuangan::findOrFail($laporanKeuangan->id_laporankeuangan);
-        return view('laporankeuangan.edit', compact('laporanKeuangan'));
+        $laporankeuangan = Laporankeuangan::findOrFail($laporankeuangan->id_laporankeuangan);
+        return view('laporankeuangan.edit', compact('laporankeuangan'));
     }
 
-    public function update(Request $request, LaporanKeuangan $laporanKeuangan)
+    public function update(Request $request, LaporanKeuangan $laporankeuangan)
     {
 
         $request->validate([
@@ -75,10 +80,14 @@ class LaporanKeuanganController extends Controller
             'is_income' => 'required',
         ]);
 
-        $laporanKeuangan->update($request->all());
-
-        return redirect()->route('laporankeuangan.manage')
-            ->with('success', 'Laporan keuangan berhasil diperbarui.');
+        try {
+            $laporankeuangan->update($request->all());
+            return redirect()->route('laporankeuangan.manage')
+                ->with('success', 'Laporan keuangan berhasil diperbarui.');
+        } catch (\Exception $e) {
+            Alert::error('Error', $e->getMessage());
+            return redirect()->back();
+        }
     }
 
     /**
@@ -86,8 +95,17 @@ class LaporanKeuanganController extends Controller
      */
     public function destroy($id_laporankeuangan)
     {
-        $laporankeuangan = LaporanKeuangan::findOrFail($id_laporankeuangan);
-        $laporankeuangan->delete();
-        return redirect()->back()->with('success', 'Data berhasil dihapus!');
-    }    
+        try {
+            $laporankeuangan = LaporanKeuangan::findOrFail($id_laporankeuangan);
+            confirmDelete('Apakah Anda yakin ingin menghapus data ini?', 'Data yang sudah terhapus tidak bisa dikembalikan');
+            if (confirmDelete('Apakah Anda yakin ingin menghapus data ini?', 'Data yang sudah terhapus tidak bisa dikembalikan')) {
+                $laporankeuangan->delete();
+                return redirect()->back()->with('success', 'Data berhasil dihapus!');
+            }
+            return redirect()->back()->with('warning', 'Penghapusan data dibatalkan');
+        } catch (\Exception $e) {
+            Alert::error('Error', $e->getMessage());
+            return redirect()->back();
+        }
+    }
 }
