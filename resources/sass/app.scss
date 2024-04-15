@@ -312,6 +312,7 @@ body {
             background-color: transparent;
             text-align: center;
             padding-block: 25px;
+            width: 150px;
             border: none;
             .card-icon {
                 font-size: 4rem; /* Ukuran ikon diperbesar */
@@ -394,6 +395,7 @@ body {
         margin-top: 7rem;
         // margin-bottom: 4rem;
         .card {
+            width: 225px;
             margin-top: 30px;
             background-color: transparent;
             @include tombol();
