@@ -105,7 +105,7 @@ class PengajuanDokumenController extends Controller
     /**
      * Remove the specified resource from storage.
      */    
-    public function delete($id_pengajuandokumen)
+    public function destroy($id_pengajuandokumen)
     {
         $pengajuandokumen = PengajuanDokumen::findOrFail($id_pengajuandokumen);
         $pengajuandokumen->delete();
