@@ -150,7 +150,10 @@
                                     <li class="logOut border-top mt-2 position-relative">
                                         <div class="content nav-item gap-2 d-flex align-items-center">
                                             <i class="bi bi-box-arrow-in-right"></i>
-                                            <a class="nav-link" href="{{ route('logout') }}">Log Out</a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                                @csrf
+                                                <button class="nav-link" type="submit">Log Out</button>
+                                            </form>
                                         </div>
                                     </li>
                                 </ul>
@@ -214,11 +217,11 @@
         <style type="text/css">
             {{-- You can add AdminLTE customizations here --}}
             /* .card-header {
-                                border-bottom: none;
-                                }
-                                .card-title {
-                                font-weight: 600;
-                                } */
+                                    border-bottom: none;
+                                    }
+                                    .card-title {
+                                    font-weight: 600;
+                                    } */
         </style>
     @endpush
 </body>

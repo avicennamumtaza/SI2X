@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -26,7 +25,9 @@
     {{-- DataTables --}}
     {{-- <link href="vendor\datatables.net\datatables.net-bs5\css\dataTables.bootstrap5.min.css" rel="stylesheet"></link> --}}
     <link href="https://cdn.datatables.net/v/bs5/dt-2.0.3/datatables.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
 
 </head>
 
@@ -177,7 +178,10 @@
                                     <li class="logOut border-top mt-2 position-relative">
                                         <div class="content nav-item gap-2 d-flex align-items-center">
                                             <i class="bi bi-box-arrow-in-right"></i>
-                                            <a class="nav-link" href="{{ route('logout') }}">Log Out</a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                                @csrf
+                                                <button class="nav-link" type="submit">Log Out</button>
+                                            </form>
                                         </div>
                                     </li>
                                 </ul>
@@ -241,11 +245,11 @@
         <style type="text/css">
             {{-- You can add AdminLTE customizations here --}}
             /* .card-header {
-                            border-bottom: none;
-                            }
-                            .card-title {
-                            font-weight: 600;
-                            } */
+                                        border-bottom: none;
+                                        }
+                                        .card-title {
+                                        font-weight: 600;
+                                        } */
         </style>
     @endpush
 </body>
