@@ -2,7 +2,6 @@
 
 namespace App\DataTables;
 
-use App\Models\PengajuanDokuman;
 use App\Models\PengajuanDokumen;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
@@ -33,7 +32,7 @@ class PengajuanDokumenDataTable extends DataTable
                 data-no_rt="' . $row->no_rt . '"
                 data-id_dokumen="' . $row->id_dokumen . '"
                 data-nik_pengaju="' . $row->nik_pengaju . '"
-                data-nama_pengaju="' . $row->foto_pengajuandokumen . '"
+                data-nama_pengaju="' . $row->nama_pengaju . '"
                 data-status_pengajuan="' . $row->status_pengajuan . '"
                 data-catatan="' . $row->catatan . '"
                 data-bs-toggle="modal" data-bs-target="#editPengajuanDokumenModal" class="edit btn btn-edit btn-sm">Edit</button>';
