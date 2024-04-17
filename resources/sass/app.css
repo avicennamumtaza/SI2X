@@ -161,7 +161,7 @@ body .custom-nav #navbarSupportedContent .navbar-nav .nav-item .fitur-btn {
   padding-block: 7px;
   color: #ffffff;
   text-decoration: none;
-  transition: 0.4s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 body .custom-nav #navbarSupportedContent .navbar-nav .nav-item .fitur-btn:hover {
   background-color: #ffffff;
@@ -200,7 +200,7 @@ body .container-landing .custom-section a {
   padding-block: 7px;
   color: #ffffff;
   text-decoration: none;
-  transition: 0.4s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 body .container-landing .custom-section a:hover {
   background-color: #ffffff;
@@ -299,7 +299,7 @@ body .container-pengumuman a {
   padding-block: 7px;
   color: #ffffff;
   text-decoration: none;
-  transition: 0.4s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 body .container-pengumuman a:hover {
   background-color: #ffffff;
@@ -321,7 +321,7 @@ body .container-layanan .card {
   padding-block: 7px;
   color: #ffffff;
   text-decoration: none;
-  transition: 0.4s ease-in-out;
+  transition: 0.3s ease-in-out;
   text-align: center;
   align-items: center;
   padding-block: 25px;
@@ -380,7 +380,7 @@ body .container-umkm .roundedFixedBtn button, body .container-p .roundedFixedBtn
   padding-block: 7px;
   color: #ffffff;
   text-decoration: none;
-  transition: 0.4s ease-in-out;
+  transition: 0.3s ease-in-out;
   padding: 10px;
   padding-inline: 25px;
   border: none;
@@ -798,7 +798,7 @@ body hr {
   padding-block: 7px;
   color: #ffffff;
   text-decoration: none;
-  transition: 0.4s ease-in-out;
+  transition: 0.3s ease-in-out;
   border: none;
   padding-block: 10px;
   padding-inline: 60px;
