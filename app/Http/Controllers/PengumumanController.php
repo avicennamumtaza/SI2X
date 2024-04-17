@@ -75,38 +75,30 @@ class PengumumanController extends Controller
     // {
     //     return view('pengumuman.edit', compact('pengumuman'));
     // }
+    public function edit(Pengumuman $pengumuman)
+    {
+        $pengumuman = Pengumuman::findOrFail($pengumuman->id_pengumuman);
+        return view('pengumuman.edit', compact('pengumuman'));
+    }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Pengumuman $pengumuman)
     {
         $request->validate([
-            'judul' => 'required',
-            'deskripsi' => 'required',
+            'judul_pengumuman' => 'required',
+            'desc_pengumuman' => 'required',
             'tanggal_pengumuman' => 'required',
             'foto_pengumuman' => 'required',
         ]);
 
-        try {
-            // Temukan UMKM yang akan diperbarui
-            $pengumuman = Pengumuman::findOrFail($id);
+        Pengumuman::find($pengumuman->id_pengumuman)->update([
+            'judul' => $request->judul_pengumuman,
+            'deskripsi' => $request->desc_pengumuman,
+            'tanggal' => $request->tanggal_pengumuman,
+            'foto' => $request->foto_pengumuman,
+        ]);
 
-            // Perbarui data UMKM dengan data yang baru
-            $pengumuman->update([
-                'judul' => $request->judul_pengumuman,
-                'deskripsi' => $request->desc_pengumuman,
-                'tanggal' => $request->tanggal_pengumuman,
-                'foto' => $request->foto_pengumuman,
-            ]);
-
-            // Redirect dengan pesan sukses
-            return redirect()->back()->with('success', 'Pengumuman berhasil diperbarui.');
-        } catch (\Exception $e) {
-            // Redirect dengan pesan error jika terjadi kesalahan
-            return redirect()->back()->with('error', $e->getMessage());
-        }
-        // $pengumuman->update($request->all());
-
-        // return redirect()->route('pengumuman.manage')
-        //     ->with('success', 'Pengumuman berhasil diperbarui.');
+        return redirect()->route('pengumuman.manage')
+            ->with('success', 'Pengumuman berhasil dipublish.');
     }
 
     public function destroy(Pengumuman $pengumuman)

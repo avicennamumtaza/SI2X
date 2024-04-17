@@ -67,8 +67,9 @@
                         @method('PUT')
                         <!-- Tambahkan input form sesuai kebutuhan -->
                         <div class="form-group mb-3">
-                            <label for="nama_pengumuman" class="form-label text-start">Judul</label>
-                            <input type="text" class="form-control" id="nama_pengumuman" name="nama_pengumuman" required>
+                            <label for="judul_pengumuman" class="form-label text-start">Judul</label>
+                            <input type="text" class="form-control" id="judul_pengumuman" name="judul_pengumuman"
+                                required>
                         </div>
 
                         <div class="form-group mb-3">
@@ -202,21 +203,21 @@
                 $("#editPengumumanModal").on("show.bs.modal", function(event) {
 
                     var target = $(event.relatedTarget);
-                    let id = target.data('id')
+                    let id_pengumuman = target.data('id')
                     let judul = target.data('judul_pengumuman')
                     let deskripsi = target.data('desc_pengumuman')
                     let tanggal = target.data('tanggal_pengumuman')
                     let foto = target.data('foto_pengumuman')
 
 
-                    $('#editPengumumanModal #nama_pengumuman').val(judul);
-                    $('#editPengumumanModal #desc_pengumuman').val(deskripsi); //iki wis genah a
+                    $('#editPengumumanModal #judul_pengumuman').val(judul);
+                    $('#editPengumumanModal #desc_pengumuman').val(deskripsi);
                     $('#editPengumumanModal #tanggal_pengumuman').val(tanggal);
-                    // $('#foto_pengumuman').val(foto);
+                    // $('#editPengumumanModal #foto_pengumuman').val(foto);
 
 
                     let url = "{{ route('pengumuman.update', ':__id') }}";
-                    url = url.replace(':__id', id);
+                    url = url.replace(':__id', id_pengumuman);
                     $('#editPengumumanForm').attr('action', url)
                 });
             });

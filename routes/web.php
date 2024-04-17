@@ -51,9 +51,8 @@ Route::get('/pengumuman', [PengumumanController::class, 'index'])->name('pengumu
 // manage pengumuman
 Route::get('/pengumumann', [PengumumanController::class, 'list'])->name('pengumuman.manage');
 Route::post('/pengumumann', [PengumumanController::class, 'store'])->name('pengumuman.store');
-Route::get('/pengumumann/edit/{Pengumuman}', [PengumumanController::class, 'edit'])->name('pengumuman.edit');
-Route::put('/pengumumann/update/{Pengumuman}', [PengumumanController::class, 'update'])->name('pengumuman.update');
-
+Route::get('/pengumumann/edit/{pengumuman}', [PengumumanController::class, 'edit'])->name('pengumuman.edit');
+Route::put('/pengumumann/update/{pengumuman}', [PengumumanController::class, 'update'])->name('pengumuman.update');
 Route::delete('/pengumumann/{pengumuman}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy');
 
 // global pengajuan dokumen
