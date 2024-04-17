@@ -28,8 +28,6 @@ class UmkmController extends Controller
     }
     public function store(Request $request)
     {
-        // dd($request->all());
-        // Validasi input
         $validated = $request->validate([
             'nik_pemilik_umkm' => 'required|string|min:15|max:17',
             'nama_umkm' => 'required|string|max:50',
@@ -41,21 +39,7 @@ class UmkmController extends Controller
             // Tambahkan validasi untuk input lainnya jika diperlukan
         ]);
 
-        // if ($request->fails()) {
-        //     return back()->with('errors', $request->messages()->all()[0])->withInput();
-        // }
-
         try {
-            // Simpan data UMKM ke dalam database
-            // $umkm = new Umkm();
-            // $umkm->nama_umkm = $request->nama_umkm;
-            // $umkm->nik_pemilik = $request->nik_pemilik;
-            // $umkm->foto_umkm = $request->foto_umkm;
-            // $umkm->desc_umkm = $request->desc_umkm;
-            // $umkm->wa_umkm = $request->wa_umkm;
-            // $umkm->no_rw = 6;
-            // $umkm->status_umkm = 'Baru';
-            // $umkm->save();
             Umkm::create([
                 'nama_umkm' => $validated['nama_umkm'],
                 'nik_pemilik' => $validated['nik_pemilik_umkm'],
@@ -94,11 +78,6 @@ class UmkmController extends Controller
 
         return redirect()->route('umkm.manage')
             ->with('success', 'Umkm berhasil diperbarui.');
-    }
-    public function destroy($id)
-    {
-        $umkm = Umkm::findOrFail($id);
-        return confirmDelete('Apakah anda yakin ingin menghapus data ini?', 'Data yang sudah terhapus tidak akan bisa dikembalikan', route('umkm.delete', $umkm->id_umkm));
     }
     
     public function delete($id)

@@ -1,4 +1,4 @@
-@extends('layouts.user')
+@extends('layouts.rw')
 
 @section('content')
     {{-- <div class="container container-pengumuman col-12"> --}}

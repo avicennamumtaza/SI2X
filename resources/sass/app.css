@@ -227,6 +227,7 @@ body .container-stats .card {
   background-color: transparent;
   text-align: center;
   padding-block: 25px;
+  width: 150px;
   border: none;
 }
 body .container-stats .card .card-icon {
@@ -311,6 +312,7 @@ body .container-layanan {
   margin-top: 7rem;
 }
 body .container-layanan .card {
+  width: 225px;
   margin-top: 30px;
   background-color: transparent;
   background-color: #253560;

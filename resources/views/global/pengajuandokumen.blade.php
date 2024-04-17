@@ -17,22 +17,14 @@
                             @csrf
                             <!-- Tambahkan input form sesuai kebutuhan -->
                             <div class="form-group mb-3">
-                                <label for="nama_umkm" class="form-label text-start">Nama UMKM</label>
+                                <label for="nama_umkm" class="form-label text-start">RT</label>
                                 <input type="text" class="form-control" id="nama_umkm" name="nama_umkm"
-                                    placeholder="Masukkan Nama UMKM" required>
+                                    placeholder="Masukkan Nomor RT" required>
                             </div>
                             <div class="form-group mb-3">
-                                <label for="nik_pemilik" class="form-label">NIK Pemilik</label>
-                                {{-- <input list="browsers" name="browserr">
-                                <datalist id="browsers">
-                                    <option value="Chrome">
-                                    <option value="Firefox">
-                                    <option value="Internet Explorer">
-                                    <option value="Opera">
-                                    <option value="Safari">
-                                </datalist> --}}
+                                <label for="nik_pemilik" class="form-label">NIK Pengaju</label>
                                 <input list="nik_pemilik_list" class="form-control" id="nik_pemilik" name="nik_pemilik_umkm"
-                                    placeholder="Masukkan Nik Pemilik" required>
+                                    placeholder="Masukkan Nik Pengaju" required>
                                 <datalist id="nik_pemilik_list">
                                     {{-- @foreach ($nik_penduduks as $nik_penduduk) --}}
                                         {{-- <option value="{{ $nik_penduduk->nik }}">{{ $nik_penduduk->nik }}</option> --}}
@@ -40,9 +32,9 @@
                                 </datalist>
                             </div>
                             <div class="form-group mb-3">
-                                <label for="no_rw" class="form-label text-start">No RW</label>
+                                <label for="no_rw" class="form-label text-start">Nama Pengaju</label>
                                 <input type="text" class="form-control" id="no_rw" name="no_rw"
-                                    placeholder="6" value="6" readonly>
+                                    placeholder="Masukkan Nama Pengaju">
                             </div>
                             <div class="form-group mb-3">
                                 <label for="status_umkm" class="form-label text-start">Status Pengajuan</label>
@@ -50,18 +42,9 @@
                                     placeholder="Baru" value="Baru" readonly>
                             </div>
                             <div class="form-group mb-3">
-                                <label for="wa_umkm" class="form-label">WhatsApp</label>
+                                <label for="wa_umkm" class="form-label">Dokumen</label>
                                 <input type="text" class="form-control" id="wa_umkm" name="wa_umkm"
-                                    placeholder="Masukkan WhatsApp Pemilik/UMKM" required>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label class="custom-file-label mb-2" for="foto_umkm">Foto UMKM</label>
-                                <input type="file" class="form-control" id="foto_umkm" name="foto_umkm" placeholder="Masukkan Foto Produk atau UMKM" required>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label for="desc_umkm" class="form-label">Deskripsi</label>
-                                <textarea class="form-control" id="desc_umkm" name="desc_umkm" rows="3" placeholder="Masukkan Deskripsi UMKM"
-                                    required></textarea>
+                                    placeholder="Masukkan Jenis Dokumen" required>
                             </div>
                             <!-- Tambahkan input lainnya sesuai kebutuhan -->
                     </div>

@@ -56,10 +56,14 @@ Route::put('/pengumumann/update/{pengumuman}', [PengumumanController::class, 'up
 Route::delete('/pengumumann/{pengumuman}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy');
 
 // global pengajuan dokumen
+Route::post('/pengajuandokumen', [UmkmController::class, 'store'])->name('pengajuandokumen.store');
 Route::get('/pengajuandokumen', [PengajuanDokumenController::class, 'index'])->name('pengajuandokumen.global');
 
 // manage pengajuan dokumen
-// Route::get('/laporankeuangann', [LaporanKeuanganController::class, 'list'])->name('laporankeuangan.manage');
+Route::get('/pengajuandokumenn', [PengajuanDokumenController::class, 'list'])->name('pengajuandokumen.manage');
+Route::get('/pengajuandokumenn/edit/{pengajuandokumen}', [PengajuanDokumenController::class, 'edit'])->name('pengajuandokumen.edit');
+Route::put('/pengajuandokumenn/update/{pengajuandokumen}', [PengajuanDokumenController::class, 'update'])->name('pengajuandokumen.update');
+Route::delete('/pengajuandokumenn/{pengajuandokumen}', [PengajuanDokumenController::class, 'destroy'])->name('pengajuandokumen.destroy');
 
 // global laporan keuangan
 Route::get('/laporankeuangan', [LaporanKeuanganController::class, 'index'])->name('laporankeuangan.global');
