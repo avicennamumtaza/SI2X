@@ -33,7 +33,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\PengajuanDokumenController::class, 'list'])->name('home');
+Route::get('/rt', function () {
+    return view('auth.rt.dashboard');
+});
+Route::get('/rw', function () {
+    return view('auth.rw.dashboard');
+});
+Route::get('/home', [App\Http\Controllers\PengajuanDokumenController::class, 'list'])->name('home');
 
 // global umkm
 Route::post('/umkm', [UmkmController::class, 'store'])->name('umkm.store');
