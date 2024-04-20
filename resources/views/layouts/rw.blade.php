@@ -57,15 +57,18 @@
                                     class="navbar-nav mb-2 mb-lg-0 flex-column align-items-end align-items-lg-start flex-grow-1 pe-2">
                                     <li class="mb-2 position-relative">
                                         <div class="content nav-item gap-2 d-flex align-items-center">
-                                            <i class="bi bi-house"></i>
-                                            <a class="nav-link" aria-current="page" {{-- href="/{{ $role }}/dashboard" --}}>Dashboard</a>
+                                            <a id="dashboard-link" class="nav-link" title="dashboard"
+                                                href="{{ route('rw.dashboard') }}">
+                                                <i class="bi bi-house mx-2"></i>
+                                                <p class="me-2 d-inline">Dashboard</p>
+                                            </a>
                                         </div>
                                     </li>
                                     {{-- @if ($role == 'mahasiswa') --}}
                                     {{-- <li class="mb-2 position-relative">
                                     <div class="content nav-item gap-1 d-flex align-items-center">
                                         <i class="bi bi-exclamation-circle"></i>
-                                        <a class="nav-link"
+                                        <a id="dashboard-link" class="nav-link" 
                                         {{-- href="/{{ $role }}/violation-history" --}}
                                     {{-- title="report">Violation History</a> --}}
                                     {{-- </div>
@@ -73,22 +76,29 @@
                                     {{-- @else --}}
                                     <li class="mb-2 position-relative">
                                         <div class="content nav-item gap-2 d-flex align-items-center">
-                                            <i class="bi bi-exclamation-circle"></i>
-                                            <a class="nav-link" href="{{ route('umkm.manage') }}"
-                                                title="report">UMKM</a>
+                                            <a id="umkm-link" class="nav-link" href="{{ route('umkm.manage') }}"
+                                                title="UMKM">
+                                                <i class="bi bi-exclamation-circle mx-2"></i>
+                                                <p class="me-2 d-inline">UMKM</p>
+                                            </a>
                                         </div>
                                     </li>
                                     <li class="mb-2 position-relative">
                                         <div class="content nav-item gap-2 d-flex align-items-center">
-                                            <i class="bi bi-activity"></i>
-                                            <a class="nav-link" href="{{ route('pengumuman.manage') }}"
-                                                title="report">Pengumuman</a>
+                                            <a id="pengumuman-link" class="nav-link"
+                                                href="{{ route('pengumuman.manage') }}" title="Pengumuman">
+                                                <i class="bi bi-megaphone card-icon mx-2"></i>
+                                                <p class="me-2 d-inline">Pengumuman</p>
+                                            </a>
                                         </div>
+                                    </li>
                                     <li class="mb-2 position-relative">
                                         <div class="content nav-item gap-2 d-flex align-items-center">
-                                            <i class="bi bi-activity"></i>
-                                            <a class="nav-link" href="{{ route('laporankeuangan.manage') }}"
-                                                title="report">Laporan Keuangan</a>
+                                            <a id="laporan-link" class="nav-link" style="width: 220px"
+                                                href="{{ route('laporankeuangan.manage') }}" title="Laporan Keuangan">
+                                                <i class="bi bi-cash mx-2"></i>
+                                                <p class="me-2 d-inline">Laporan Keuangan</p>
+                                            </a>
                                         </div>
                                     </li>
                                     {{-- @endif --}}
@@ -96,7 +106,7 @@
                                         <div
                                             class="content nav-item gap-1 d-flex justify-content-center align-items-center">
                                             <i class="bi bi-bell"></i> --}}
-                                    {{-- <a class="nav-link" href="/{{ $role }}/notification">Notification --}}
+                                    {{-- <a id="dashboard-link" class="nav-link"  href="/{{ $role }}/notification">Notification --}}
                                     {{-- @if ($role == 'mahasiswa')
                                                 @if ($newViolationCount > 0) --}}
                                     {{-- <span
@@ -121,9 +131,9 @@
                                     <li class="mb-2 gap-1">
                                         <div class="col-auto position-relative content nav-item align-items-center">
                                             <i class="bi bi-person"></i>
-                                            <button style="color: white" type="button"
+                                            <a style="color: white" type="button"
                                                 class="btn dropdown-toggle shadow-none" data-bs-toggle="dropdown"
-                                                aria-expanded="false">Kelola</button>
+                                                aria-expanded="false">Kelola</a>
                                             <ul style="background-color: transparent; border: 1px solid #fff"
                                                 class="dropdown-menu position-static">
                                                 <li>
@@ -165,22 +175,30 @@
                                     {{-- <li class="mb-2 position-relative">
                                         <div class="content nav-item gap-1 d-flex align-items-center">
                                             <i class="bi bi-activity"></i>
-                                            <a class="nav-link" href="/{{ $role }}/log-activity">Log Activity</a>
+                                            <a id="dashboard-link" class="nav-link"  href="/{{ $role }}/log-activity">Log Activity</a>
                                         </div>
                                     </li> --}}
                                     {{-- @endif --}}
                                     {{-- <li class="mb-2 position-relative">
                                         <div class="content nav-item  d-flex gap-1 align-items-center">
                                             <i class="bi bi-person"></i> --}}
-                                    {{-- <a class="nav-link" href="/{{ $role }}/profile">Profile</a>
+                                    {{-- <a id="dashboard-link" class="nav-link"  href="/{{ $role }}/profile">Profile</a>
                                         </div>
                                     </li> --}}
-                                    <li class="logOut border-top mt-2 position-relative">
+                                    <li id="dashboard-link" class="logOut mt-2 position-relative">
+                                        <hr
+                                            style="background-color: #fff;
+                                                    margin-top: 0px;
+                                                    height: 1px;
+                                                    opacity: 0.99;
+                                                    width: 217px;"
+                                        >
                                         <div class="content nav-item gap-2 d-flex align-items-center">
                                             <i class="bi bi-box-arrow-in-right"></i>
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                                 @csrf
-                                                <button class="nav-link" type="submit">Log Out</button>
+                                                <button id="dashboard-link" class="nav-link" type="submit">Log
+                                                    Out</button>
                                             </form>
                                         </div>
                                     </li>
@@ -245,11 +263,34 @@
         <style type="text/css">
             {{-- You can add AdminLTE customizations here --}}
             /* .card-header {
-                                        border-bottom: none;
-                                        }
-                                        .card-title {
-                                        font-weight: 600;
-                                        } */
+                                                                                                                    border-bottom: none;
+                                                                                                                    }
+                                                                                                                    .card-title {
+                                                                                                                    font-weight: 600;
+                                                                                                                    } */
         </style>
     @endpush
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var menuLinks = document.querySelectorAll('.nav-link');
+
+        // Saat halaman dimuat, periksa penyimpanan lokal untuk mendapatkan status menu yang terakhir kali diklik
+        var activeMenu = localStorage.getItem('activeMenu');
+        if (activeMenu) {
+            document.getElementById(activeMenu).classList.add('aktif');
+        }
+
+        menuLinks.forEach(function(link) {
+            link.addEventListener('click', function(event) {
+                // Saat link menu diklik, simpan ID menu yang diklik ke dalam penyimpanan lokal
+                var currentActive = document.querySelector('.nav-link.aktif');
+                if (currentActive) {
+                    currentActive.classList.remove('aktif');
+                }
+                this.classList.add('aktif');
+                localStorage.setItem('activeMenu', this.id);
+            });
+        });
+    });
+</script>
