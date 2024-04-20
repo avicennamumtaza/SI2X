@@ -30,14 +30,30 @@ class UmkmController extends Controller
     {
         $validated = $request->validate([
             'nik_pemilik_umkm' => 'required|string|min:15|max:17',
-            'nama_umkm' => 'required|string|max:50',
+            'nama_umkm' => 'required|string|max:49',
             'foto_umkm' => 'required|string',
             'desc_umkm' => 'required|string',
             'wa_umkm' => 'required|string|min:10|max:14',
             // 'no_rw' => 'string',
             // 'status_umkm' => 'string',
-            // Tambahkan validasi untuk input lainnya jika diperlukan
+        ], [
+            'nik_pemilik_umkm.required' => 'NIK pemilik UMKM wajib diisi.',
+            'nik_pemilik_umkm.string' => 'NIK pemilik UMKM harus berupa teks.',
+            'nik_pemilik_umkm.min' => 'NIK pemilik UMKM harus memiliki panjang minimal :min karakter.',
+            'nik_pemilik_umkm.max' => 'NIK pemilik UMKM harus memiliki panjang maksimal :max karakter.',
+            'nama_umkm.required' => 'Nama UMKM wajib diisi.',
+            'nama_umkm.string' => 'Nama UMKM harus berupa teks.',
+            'nama_umkm.max' => 'Nama UMKM harus memiliki panjang maksimal :max karakter.',
+            'foto_umkm.required' => 'Foto UMKM wajib diunggah.',
+            'foto_umkm.string' => 'Foto UMKM harus berupa teks.',
+            'desc_umkm.required' => 'Deskripsi UMKM wajib diisi.',
+            'desc_umkm.string' => 'Deskripsi UMKM harus berupa teks.',
+            'wa_umkm.required' => 'Nomor WhatsApp UMKM wajib diisi.',
+            'wa_umkm.string' => 'Nomor WhatsApp UMKM harus berupa teks.',
+            'wa_umkm.min' => 'Nomor WhatsApp UMKM harus memiliki panjang minimal :min karakter.',
+            'wa_umkm.max' => 'Nomor WhatsApp UMKM harus memiliki panjang maksimal :max karakter.',
         ]);
+        
 
         try {
             Umkm::create([
@@ -72,6 +88,8 @@ class UmkmController extends Controller
             // 'foto_umkm' => 'required',
             // 'desc_umkm' => 'required',
             'status_umkm' => 'required',
+        ], [
+            'status_umkm.required' => 'Status UMKM wajib diisi.',
         ]);
 
         $umkm->update($request->all());

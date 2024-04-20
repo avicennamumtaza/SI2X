@@ -8,6 +8,7 @@ use App\Http\Controllers\UmkmController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\RWController;
 use App\Http\Controllers\RTController;
+use App\Models\PengajuanDokumen;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -63,7 +64,7 @@ Route::put('/pengumumann/update/{pengumuman}', [PengumumanController::class, 'up
 Route::delete('/pengumumann/{pengumuman}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy');
 
 // global pengajuan dokumen
-Route::post('/pengajuandokumen', [UmkmController::class, 'store'])->name('pengajuandokumen.store');
+Route::post('/pengajuandokumen', [PengajuanDokumenController::class, 'store'])->name('pengajuandokumen.store');
 Route::get('/pengajuandokumen', [PengajuanDokumenController::class, 'index'])->name('pengajuandokumen.global');
 
 // manage pengajuan dokumen

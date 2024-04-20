@@ -10,17 +10,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Dokumen extends Model
 {
     use HasFactory;
-    protected $table = 'umkm';
-    protected $primaryKey = 'id_pengajuan';
+    protected $table = 'dokumen';
+    protected $primaryKey = 'id_dokumen';
     protected $fillable = [
-        'no_rt',
-        'nik_pengaju',
         'jenis_dokumen',
-        'status_pengajuan',
-        'catatan',
-        'tanggal_pengajuan',
-        'nama_pengaju',
-        'tanggal_pengajuan',
     ];
 
     public function rt(): BelongsTo

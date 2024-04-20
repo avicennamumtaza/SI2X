@@ -18,39 +18,46 @@
                         <div class="form-group mb-3">
                             <label for="id_laporankeuangan" class="form-label text-start">id_laporankeuangan</label>
                             <input type="text" class="form-control" id="id_laporankeuangan" name="id_laporankeuangan"
-                                 required>
+                                 required readonly disabled>
                         </div>
+
                         <div class="form-group mb-3">
-                            <label for="nominal" class="form-label text-start">nominal</label>
+                            <label for="is_income" class="form-label">Jenis Laporan</label>
+                            <select class="form-select" id="is_income" name="is_income" required>
+                                <option value="" selected disabled>Pilih Jenis Laporan Keuangan</option>
+                                <option value="1">Pemasukan</option>
+                                <option value="0">Pengeluaran</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="nominal" class="form-label text-start">Nominal</label>
                             <input type="text" class="form-control" id="nominal" name="nominal"
                                  required>
                         </div>
+
                         <div class="form-group mb-3">
-                            <label for="detail" class="form-label text-start">detail</label>
+                            <label for="detail" class="form-label text-start">Detail</label>
                             <input type="text" class="form-control" id="detail" name="detail"
                                  required>
                         </div>
+
                         <div class="form-group mb-3">
-                            <label for="tanggal" class="form-label text-start">tanggal</label>
+                            <label for="tanggal" class="form-label text-start">Tanggal</label>
                             <input type="text" class="form-control" id="tanggal" name="tanggal"
                                  required>
                         </div>
+
                         <div class="form-group mb-3">
-                            <label for="pihak_terlibat" class="form-label text-start">pihak_terlibat</label>
+                            <label for="pihak_terlibat" class="form-label text-start">Pihak Terlibat</label>
                             <input type="text" class="form-control" id="pihak_terlibat" name="pihak_terlibat"
                                  required>
                         </div>
+
                         <div class="form-group mb-3">
                             <label for="saldo" class="form-label text-start">saldo</label>
                             <input type="text" class="form-control" id="saldo" name="saldo"
-                                 required>
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="is_income" class="form-label text-start">is_income</label>
-                            <select class="form-select" id="is_income" name="is_income" required>
-                                <option value="1">Ya</option>
-                                <option value="0">Tidak</option>
-                            </select>
+                                 required readonly disabled>
                         </div>
 
                         <div class="modal-footer justify-content-end">
@@ -75,6 +82,16 @@
                 <div class="modal-body justify-content-start text-start">
                     <form action="{{ route('laporankeuangan.store') }}" method="POST">
                         @csrf
+
+                        <div class="form-group mb-3">
+                            <label for="is_income" class="form-label">Jenis Laporan</label>
+                            <select class="form-select" id="is_income" name="is_income" required>
+                                <option value="" selected disabled>Pilih Jenis Laporan Keuangan</option>
+                                <option value="1">Pemasukan</option>
+                                <option value="0">Pengeluaran</option>
+                            </select>
+                        </div>
+                        
                         <div class="form-group mb-3">
                             <label for="nominal" class="form-label text-start">Nominal</label>
                             <input type="number" class="form-control" id="nominal" name="nominal"
@@ -101,14 +118,6 @@
                             <label for="saldo" class="form-label">Saldo</label>
                             <input type="number" class="form-control" id="saldo" name="saldo"
                                 placeholder="Masukkan Saldo" required>
-                        </div>
-
-                        <div class="form-group mb-3">
-                            <label for="is_income" class="form-label">Is Income</label>
-                            <select class="form-select" id="is_income" name="is_income" required>
-                                <option value="1">Ya</option>
-                                <option value="0">Tidak</option>
-                            </select>
                         </div>
 
                         <!-- Tambahkan input lainnya sesuai kebutuhan -->
