@@ -1,5 +1,44 @@
 // Fonts
 // @import url('https://fonts.bunny.net/css?family=Nunito');
+#laporankeuangan-table {
+    font-size: 0.85rem; /* Ukuran font teks */
+}
+
+#laporankeuangan-table th,
+#laporankeuangan-table td {
+    padding: 0.5rem; /* Padding */
+}
+
+#laporankeuangan-table th:first-child,
+#laporankeuangan-table td:first-child {
+    padding-left: 0.75rem; /* Padding kiri untuk kolom pertama */
+}
+
+#laporankeuangan-table th:last-child,
+#laporankeuangan-table td:last-child {
+    padding-right: 0.75rem; /* Padding kanan untuk kolom terakhir */
+}
+
+#laporankeuangan-table .dataTables_scrollBody {
+    overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
+}
+
+#laporankeuangan-table_wrapper .dataTables_length,
+#laporankeuangan-table_wrapper .dataTables_filter,
+#laporankeuangan-table_wrapper .dataTables_info,
+#laporankeuangan-table_wrapper .dataTables_paginate {
+    font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
+}
+
+#laporankeuangan-table_wrapper .dataTables_length select,
+#laporankeuangan-table_wrapper .dataTables_filter input {
+    padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
+    font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
+}
+
+#laporankeuangan-table_wrapper .dataTables_paginate .paginate_button {
+    margin: 0 0.1rem; /* Margin antara tombol paginasi */
+}
 
 // Variables
 @import 'variables';
@@ -101,6 +140,23 @@ $fourthCol: #4461AE;
         color: rgb(247, 144, 34);
     }
 }
+
+
+.aktif {
+    // display: inline;
+    width: 220px;
+    border-radius: 10px;
+    background-color: #152551; /* Ganti dengan warna yang diinginkan */
+    // fontc: white;
+    p {
+        color: white;
+    }
+    
+}
+// .content.nav-item.active {
+//     background-color: red; /* Ganti dengan warna yang diinginkan */
+// }
+
 
 // style
 body {    
@@ -856,6 +912,7 @@ body {
     
   .sidebar {
     z-index: 1000;
+    width: 20%;
     height: 100vh;
     position: fixed !important;
     left: 0px;
@@ -864,6 +921,7 @@ body {
         color: #ffffff;
     }
   }
+
 
   .card-header-tabel {
     background-color: $primaryCol;
