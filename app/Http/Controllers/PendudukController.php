@@ -20,12 +20,12 @@ class PendudukController extends Controller
             'nik' => 'required|string|min:15|max:17',
             'nkk' => 'required|string|min:15|max:17',
             'no_rt' => 'required|string|max:2',
-            'nama' => 'required|string',
-            'tempat_lahir' => 'required|string',
-            'tanggal_lahir' => 'required',
-            'alamat' => 'required|string',
+            'nama' => 'required|string|max:49',
+            'tempat_lahir' => 'required|string|min:2|max:49',
+            'tanggal_lahir' => 'required|date',
+            'alamat' => 'required|string|min:5',
             'jenis_kelamin' => 'required|string|max:1',
-            'pekerjaan' => 'required|string',
+            'pekerjaan' => 'required|string|min:2|max:49',
             'gol_darah' => 'required|string|max:2',
             'is_married' => 'required',
             'is_stranger' => 'required',
@@ -47,9 +47,7 @@ class PendudukController extends Controller
                 'is_married' => $validated['is_married'],
                 'is_stranger' => $validated['is_stranger'],
             ]);
-
             return redirect()->back()->with('success', 'Data Penduduk berhasil ditambahkan!');
-
         } catch(\Exception $e){
             Alert::error('Error', $e->getMessage());
             return redirect()->back();
@@ -65,16 +63,16 @@ class PendudukController extends Controller
     {
 
         $request->validate([
-            'nik' => 'required',
-            'nkk' => 'required',
-            'no_rt' => 'required',
-            'nama' => 'required',
-            'tempat_lahir' => 'required',
-            'tanggal_lahir' => 'required',
-            'alamat' => 'required',
-            'jenis_kelamin' => 'required',
-            'pekerjaan' => 'required',
-            'gol_darah' => 'required',
+            'nik' => 'required|string|min:15|max:17', // (tidak bisa mengedit nik as primary key, cek view)
+            'nkk' => 'required|string|min:15|max:17',
+            'no_rt' => 'required|string|max:2',
+            'nama' => 'required|string|max:49',
+            'tempat_lahir' => 'required|string|min:2|max:49',
+            'tanggal_lahir' => 'required|date',
+            'alamat' => 'required|string|min:5',
+            'jenis_kelamin' => 'required|string|max:1',
+            'pekerjaan' => 'required|string|min:2|max:49',
+            'gol_darah' => 'required|string|max:2',
             'is_married' => 'required',
             'is_stranger' => 'required',
         ]);

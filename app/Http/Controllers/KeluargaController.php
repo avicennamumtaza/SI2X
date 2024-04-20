@@ -39,8 +39,8 @@ class KeluargaController extends Controller
     public function update(Request $request, Keluarga $keluarga)
     {
         $request->validate([
-            'nkk' => 'required',
-            'nik' => 'required',
+            'nkk' => 'required|string|min:15|max:17', // (tidak bisa mengedit nkk as primary key, cek view)
+            'nik' => 'required|string|min:15|max:17|',
             'jumlah_nik' => 'required',
         ]);
 

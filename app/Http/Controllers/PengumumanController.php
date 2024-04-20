@@ -52,9 +52,10 @@ class PengumumanController extends Controller
 
         // Validasi data input dari form
             $validated = $request->validate([
-                'judul_pengumuman' => 'required',
+                'judul_pengumuman' => 'required|min:5|max:49',
                 'desc_pengumuman' => 'required',
-                'tanggal_pengumuman' => 'required',
+                'tanggal_pengumuman' => 'required|date',
+                'foto_pengumuman' => 'required|image',
             ]);
     
             try {
@@ -62,7 +63,8 @@ class PengumumanController extends Controller
                     'judul' => $validated['judul_pengumuman'],
                     'deskripsi' => $validated['desc_pengumuman'],
                     'tanggal' => $validated['tanggal_pengumuman'],
-                    'foto' => $request->foto_pengumuman,
+                    // 'foto' => $request->foto_pengumuman,
+                    'foto' => $validated['foto_pengumuman'],
                 ]);
                 return redirect()->back()->with('success', 'Pengumuman berhasil dipublish!');
             } catch (\Exception $e) {
@@ -83,18 +85,19 @@ class PengumumanController extends Controller
 
     public function update(Request $request, Pengumuman $pengumuman)
     {
-        $request->validate([
-            'judul_pengumuman' => 'required',
+        $validated = $request->validate([
+            'judul_pengumuman' => 'required|min:5|max:49',
             'desc_pengumuman' => 'required',
-            'tanggal_pengumuman' => 'required',
-            'foto_pengumuman' => 'required',
+            'tanggal_pengumuman' => 'required|date',
+            'foto_pengumuman' => 'required|image',
         ]);
 
         Pengumuman::find($pengumuman->id_pengumuman)->update([
-            'judul' => $request->judul_pengumuman,
-            'deskripsi' => $request->desc_pengumuman,
-            'tanggal' => $request->tanggal_pengumuman,
-            'foto' => $request->foto_pengumuman,
+            'judul' => $validated['judul_pengumuman'],
+            'deskripsi' => $validated['desc_pengumuman'],
+            'tanggal' => $validated['tanggal_pengumuman'],
+            // 'foto' => $request->foto_pengumuman,
+            'foto' => $validated['foto_pengumuman'],
         ]);
 
         return redirect()->route('pengumuman.manage')

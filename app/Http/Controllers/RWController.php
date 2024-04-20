@@ -31,18 +31,11 @@ class RWController extends Controller
         // Validasi data input dari form
         $request->validate([
             'no_rw' => 'required',
-            'nik_rw' => 'required',
+            'nik_rw' => 'required|min:15|max:17',
             'jumlah_rt' => 'required',
             'jumlah_keluarga_rw' => 'required',
             'jumlah_penduduk_rw' => 'required',
         ]);
-
-        // Simpan data pengumuman ke dalam database
-        // Pengumuman::create([
-        //     'nama_pengumuman' => $request->nama_pengumuman,
-        //     'desc_pengumuman' => $request->desc_pengumuman,
-        //     'tanggal_pengumuman' => $request->tanggal_pengumuman,
-        // ]);
 
         $rw = new Rw();
         $rw->no_rw = $request->no_rw;
@@ -63,8 +56,8 @@ class RWController extends Controller
     public function update(Request $request, Rw $rw)
     {
         $request->validate([
-            'no_rw' => 'required',
-            'nik_rw' => 'required',
+            'no_rw' => 'required', // (tidak bisa mengubah no_rw as primary key, cek view)
+            'nik_rw' => 'required|min:15|max:17',
             'jumlah_rt' => 'required',
             'jumlah_keluarga_rw' => 'required',
             'jumlah_penduduk_rw' => 'required',
