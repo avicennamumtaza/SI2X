@@ -37,10 +37,10 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\PengajuanDokumenController::class, 'list'])->name('home');
 Route::get('/rt', function () {
     return view('auth.rt.dashboard');
-});
+})->name('rt.dashboard');
 Route::get('/rw', function () {
     return view('auth.rw.dashboard');
-});
+})->name('rw.dashboard');
 Route::get('/home', [App\Http\Controllers\PengajuanDokumenController::class, 'list'])->name('home');
 
 // global umkm
