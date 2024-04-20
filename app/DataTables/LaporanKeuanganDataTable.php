@@ -63,49 +63,35 @@ class LaporanKeuanganDataTable extends DataTable
                     ->setTableId('laporankeuangan-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
-                    ->orderBy(0, 'asc') // Set default order by column 0 (id_pengumuman)
+                    ->orderBy(0, 'asc')
                     ->parameters([
-                        'dom' => 'Bfrtip', // Menambahkan tombol
-                        'buttons' => ['excel', 'csv', 'pdf', 'print', 'reset', 'reload'], // Menambahkan tombol ekspor dan lainnya
-                        'order' => [], // Mengaktifkan order by untuk setiap kolom
+                        'autoWidth' => false, // Menonaktifkan autoWidth
+                        'dom' => 'Bfrtip',
+                        'buttons' => [],
+                        'order' => [],
                     ])
                     ->selectStyleSingle();
     }
 
-    /**
-     * Get the dataTable columns definition.
-     */
+    
     public function getColumns(): array
     {
         return [
-            Column::make('id_laporankeuangan')->title('Id'),
-            Column::make('is_income')->title('Pemasukan?'),
-            Column::make('nominal')->title('Nominal'),
-            Column::make('tanggal')->title('Tanggal'),
-            Column::make('pihak_terlibat')->title('Terlibat'),
-            Column::make('detail')->title('Detail'),
-            Column::make('saldo')->title('Saldo'),
+            Column::make('id_laporankeuangan')->title('Id')->width('5%'),
+            Column::make('is_income')->title('Pemasukan?')->width('5%'),
+            Column::make('nominal')->title('Nominal')->width('10%'),
+            Column::make('tanggal')->title('Tanggal')->width('10%'),
+            Column::make('pihak_terlibat')->title('Terlibat')->width('15%'),
+            Column::make('detail')->title('Detail')->width('30%'), // Mengatur lebar kolom "Detail"
+            Column::make('saldo')->title('Saldo')->width('10%'),
             Column::computed('action')
-              ->exportable(false)
-              ->printable(false)
-              ->width(130) 
-              ->addClass('text-center'),
+                  ->exportable(false)
+                  ->printable(false)
+                  ->width(130) 
+                  ->addClass('text-center'),
         ];
-        // return [
-        //     Column::make('id_laporankeuangan')->title('Id'),
-        //     Column::make('is_income')->title('Pemasukan?'),
-        //     Column::make('nominal')->title('Nominal'),
-        //     Column::make('tanggal')->title('Tanggal'),
-        //     Column::make('pihak_terlibat')->title('Terlibat'),
-        //     Column::make('detail')->title('Detail Laporan'),
-        //     Column::make('saldo')->title('Saldo'),
-        //     Column::computed('action')
-        //       ->exportable(false)
-        //       ->printable(false)
-        //       ->width(170) 
-        //       ->addClass('text-center'),
-        // ];
     }
+    
 
     /**
      * Get the filename for export.
