@@ -1,43 +1,194 @@
 // Fonts
 // @import url('https://fonts.bunny.net/css?family=Nunito');
-#laporankeuangan-table {
-    font-size: 0.85rem; /* Ukuran font teks */
-}
 
-#laporankeuangan-table th,
-#laporankeuangan-table td {
-    padding: 0.5rem; /* Padding */
-}
+.tabel{    
+    
+    #pengajuandokumen-table {
+        font-size: 0.85rem; /* Ukuran font teks */
+    }
+    
+    #pengajuandokumen-table .dataTables_scrollBody {
+        overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
+    }
+    
+    #pengajuandokumen-table_wrapper .dataTables_length,
+    #pengajuandokumen-table_wrapper .dataTables_filter,
+    #pengajuandokumen-table_wrapper .dataTables_info,
+    #pengajuandokumen-table_wrapper .dataTables_paginate {
+        font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
+    }
+    
+    #pengajuandokumen-table_wrapper .dataTables_length select,
+    #pengajuandokumen-table_wrapper .dataTables_filter input {
+        padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
+        font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
+    }
 
-#laporankeuangan-table th:first-child,
-#laporankeuangan-table td:first-child {
-    padding-left: 0.75rem; /* Padding kiri untuk kolom pertama */
-}
-
-#laporankeuangan-table th:last-child,
-#laporankeuangan-table td:last-child {
-    padding-right: 0.75rem; /* Padding kanan untuk kolom terakhir */
-}
-
-#laporankeuangan-table .dataTables_scrollBody {
-    overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
-}
-
-#laporankeuangan-table_wrapper .dataTables_length,
-#laporankeuangan-table_wrapper .dataTables_filter,
-#laporankeuangan-table_wrapper .dataTables_info,
-#laporankeuangan-table_wrapper .dataTables_paginate {
-    font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
-}
-
-#laporankeuangan-table_wrapper .dataTables_length select,
-#laporankeuangan-table_wrapper .dataTables_filter input {
-    padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
-    font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
-}
-
-#laporankeuangan-table_wrapper .dataTables_paginate .paginate_button {
-    margin: 0 0.1rem; /* Margin antara tombol paginasi */
+    #laporankeuangan-table {
+        font-size: 0.85rem; /* Ukuran font teks */
+    }
+    
+    #laporankeuangan-table .dataTables_scrollBody {
+        overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
+    }
+    
+    #laporankeuangan-table_wrapper .dataTables_length,
+    #laporankeuangan-table_wrapper .dataTables_filter,
+    #laporankeuangan-table_wrapper .dataTables_info,
+    #laporankeuangan-table_wrapper .dataTables_paginate {
+        font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
+    }
+    
+    #laporankeuangan-table_wrapper .dataTables_length select,
+    #laporankeuangan-table_wrapper .dataTables_filter input {
+        padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
+        font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
+    }
+    
+    #umkm-table {
+        font-size: 0.85rem; /* Ukuran font teks */
+    }
+    
+    #umkm-table .dataTables_scrollBody {
+        overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
+    }
+    
+    #umkm-table_wrapper .dataTables_length,
+    #umkm-table_wrapper .dataTables_filter,
+    #umkm-table_wrapper .dataTables_info,
+    #umkm-table_wrapper .dataTables_paginate {
+        font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
+    }
+    
+    #umkm-table_wrapper .dataTables_length select,
+    #umkm-table_wrapper .dataTables_filter input {
+        padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
+        font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
+    }
+    
+    #pengumuman-table {
+        font-size: 0.85rem; /* Ukuran font teks */
+    }
+    
+    #pengumuman-table .dataTables_scrollBody {
+        overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
+    }
+    
+    #pengumuman-table_wrapper .dataTables_length,
+    #pengumuman-table_wrapper .dataTables_filter,
+    #pengumuman-table_wrapper .dataTables_info,
+    #pengumuman-table_wrapper .dataTables_paginate {
+        font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
+    }
+    
+    #pengumuman-table_wrapper .dataTables_length select,
+    #pengumuman-table_wrapper .dataTables_filter input {
+        padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
+        font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
+    }
+    
+    #rw-table {
+        font-size: 0.85rem; /* Ukuran font teks */
+    }
+    
+    #rw-table .dataTables_scrollBody {
+        overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
+    }
+    
+    #rw-table_wrapper .dataTables_length,
+    #rw-table_wrapper .dataTables_filter,
+    #rw-table_wrapper .dataTables_info,
+    #rw-table_wrapper .dataTables_paginate {
+        font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
+    }
+    
+    #rw-table_wrapper .dataTables_length select,
+    #rw-table_wrapper .dataTables_filter input {
+        padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
+        font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
+    }
+    
+    #rt-table {
+        font-size: 0.85rem; /* Ukuran font teks */
+    }
+    
+    #rt-table .dataTables_scrollBody {
+        overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
+    }
+    
+    #rt-table_wrapper .dataTables_length,
+    #rt-table_wrapper .dataTables_filter,
+    #rt-table_wrapper .dataTables_info,
+    #rt-table_wrapper .dataTables_paginate {
+        font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
+    }
+    
+    #rt-table_wrapper .dataTables_length select,
+    #rt-table_wrapper .dataTables_filter input {
+        padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
+        font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
+    }
+    
+    #keluarga-table {
+        font-size: 0.85rem; /* Ukuran font teks */
+    }
+    
+    #keluarga-table .dataTables_scrollBody {
+        overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
+    }
+    
+    #keluarga-table_wrapper .dataTables_length,
+    #keluarga-table_wrapper .dataTables_filter,
+    #keluarga-table_wrapper .dataTables_info,
+    #keluarga-table_wrapper .dataTables_paginate {
+        font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
+    }
+    
+    #keluarga-table_wrapper .dataTables_length select,
+    #keluarga-table_wrapper .dataTables_filter input {
+        padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
+        font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
+    }
+    
+    #penduduk-table {
+        font-size: 0.85rem; /* Ukuran font teks */
+    }
+    
+    #penduduk-table .dataTables_scrollBody {
+        overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
+    }
+    
+    #penduduk-table_wrapper .dataTables_length,
+    #penduduk-table_wrapper .dataTables_filter,
+    #penduduk-table_wrapper .dataTables_info,
+    #penduduk-table_wrapper .dataTables_paginate {
+        font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
+    }
+    
+    #penduduk-table_wrapper .dataTables_length select,
+    #penduduk-table_wrapper .dataTables_filter input {
+        padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
+        font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
+    }
+    
+    // #laporankeuangan-table th,
+    // #laporankeuangan-table td {
+    //     // padding: 0.5rem; /* Padding */
+    // }
+    
+    // #laporankeuangan-table th:first-child,
+    // #laporankeuangan-table td:first-child {
+    //     // padding-left: 0.75rem; /* Padding kiri untuk kolom pertama */
+    // }
+    
+    // #laporankeuangan-table th:last-child,
+    // #laporankeuangan-table td:last-child {
+    //     // padding-right: 0.75rem; /* Padding kanan untuk kolom terakhir */
+    // }
+    
+    // #laporankeuangan-table_wrapper .dataTables_paginate .paginate_button {
+    //     // margin: 0 0.1rem; /* Margin antara tombol paginasi */
+    // }
 }
 
 // Variables
