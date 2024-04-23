@@ -23,6 +23,18 @@ class PendudukDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->setRowId('id')
+            ->editColumn('jenis_kelamin', function ($row) {
+                if ($row->jenis_kelamin === 'L') {
+                    return 'Laki-laki';
+                } elseif ($row->jenis_kelamin === 'P') {
+                    return 'Perempuan';}
+            })
+            ->editColumn('is_married', function ($row) {
+                return $row->is_married ? 'Menikah' : 'Belum Menikah';
+            })
+            ->editColumn('is_stranger', function ($row) {
+                return $row->is_stranger ? 'Non Domisili' : 'Domisili';
+            })
             ->addColumn('action', function ($row) {
 
                 $deleteUrl = route('penduduk.destroy', $row->nik);
