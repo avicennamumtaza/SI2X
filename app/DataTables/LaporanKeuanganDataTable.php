@@ -23,6 +23,9 @@ class LaporanKeuanganDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->setRowId('id')
+            ->editColumn('is_income', function ($row) {
+                return $row->is_income ? 'Pemasukkan' : 'Pengeluaran';
+            })
             ->addColumn('action', function ($row) {
                 $deleteUrl = route('laporankeuangan.destroy', $row->id_laporankeuangan);
                 $action = '
@@ -39,7 +42,7 @@ class LaporanKeuanganDataTable extends DataTable
                 $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
                 ' . csrf_field() . '
                 ' . method_field('DELETE') . '
-                <button type="submit" class="delete btn btn-delete btn-sm">Delete</button>
+                <button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Delete</button>
                 </form>
                 </div>';
                 return $action;
@@ -79,7 +82,7 @@ class LaporanKeuanganDataTable extends DataTable
     {
         return [
             Column::make('id_laporankeuangan')->title('Id'),
-            Column::make('is_income')->title('Pemasukan?'),
+            Column::make('is_income')->title('Jenis'),
             Column::make('nominal')->title('Nominal'),
             Column::make('tanggal')->title('Tanggal'),
             Column::make('pihak_terlibat')->title('Terlibat'),
@@ -91,20 +94,6 @@ class LaporanKeuanganDataTable extends DataTable
               ->width(130) 
               ->addClass('text-center'),
         ];
-        // return [
-        //     Column::make('id_laporankeuangan')->title('Id'),
-        //     Column::make('is_income')->title('Pemasukan?'),
-        //     Column::make('nominal')->title('Nominal'),
-        //     Column::make('tanggal')->title('Tanggal'),
-        //     Column::make('pihak_terlibat')->title('Terlibat'),
-        //     Column::make('detail')->title('Detail Laporan'),
-        //     Column::make('saldo')->title('Saldo'),
-        //     Column::computed('action')
-        //       ->exportable(false)
-        //       ->printable(false)
-        //       ->width(170) 
-        //       ->addClass('text-center'),
-        // ];
     }
 
     /**
