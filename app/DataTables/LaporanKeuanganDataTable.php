@@ -66,17 +66,18 @@ class LaporanKeuanganDataTable extends DataTable
                     ->setTableId('laporankeuangan-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
-                    ->orderBy(0, 'asc')
+                    ->orderBy(0, 'asc') // Set default order by column 0 (id_pengumuman)
                     ->parameters([
-                        'autoWidth' => false, // Menonaktifkan autoWidth
-                        'dom' => 'Bfrtip',
-                        'buttons' => [],
-                        'order' => [],
+                        'dom' => 'Bfrtip', // Menambahkan tombol
+                        'buttons' => ['excel', 'csv', 'pdf', 'print', 'reset', 'reload'], // Menambahkan tombol ekspor dan lainnya
+                        'order' => [], // Mengaktifkan order by untuk setiap kolom
                     ])
                     ->selectStyleSingle();
     }
 
-    
+    /**
+     * Get the dataTable columns definition.
+     */
     public function getColumns(): array
     {
         return [
@@ -94,7 +95,6 @@ class LaporanKeuanganDataTable extends DataTable
                   ->addClass('text-center'),
         ];
     }
-    
 
     /**
      * Get the filename for export.

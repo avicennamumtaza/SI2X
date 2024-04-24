@@ -189,7 +189,6 @@ body .container-action .btn-edit:hover {
   padding-inline: 17px;
   padding-block: 6px;
   background-color: #ffffff;
-  border: 1px solid rgb(247, 144, 34);
   font-weight: 700;
   color: rgb(247, 144, 34);
 }
@@ -207,7 +206,6 @@ body .container-action .btn-delete:hover {
   padding-inline: 9px;
   padding-block: 6px;
   background-color: #ffffff;
-  border: 1px solid rgb(195, 8, 8);
   font-weight: 700;
   color: rgb(195, 8, 8);
 }
