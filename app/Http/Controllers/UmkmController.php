@@ -98,7 +98,7 @@ class UmkmController extends Controller
             ->with('success', 'Umkm berhasil diperbarui.');
     }
     
-    public function delete($id)
+    public function destroy($id)
     {
         $umkm = Umkm::findOrFail($id);
         $umkm->delete();

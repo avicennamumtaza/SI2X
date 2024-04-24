@@ -107,7 +107,6 @@ class PengumumanController extends Controller
     public function destroy(Pengumuman $pengumuman)
     {
         $pengumuman->delete();
-
         return redirect()->back()
             ->with('success', 'Pengumuman berhasil dihapus.');
     }

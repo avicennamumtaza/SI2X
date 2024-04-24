@@ -14,6 +14,7 @@ class LaporanKeuanganController extends Controller
      */
     public function index()
     {
+        // $this->authorize('isRt');
         return view('global.laporankeuangan');
     }
 
