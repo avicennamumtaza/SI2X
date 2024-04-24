@@ -47,7 +47,7 @@
                             <div class="form-group mb-3">
                                 <label for="status_umkm" class="form-label text-start">Status Pengajuan</label>
                                 <input type="text" class="form-control" id="status_umkm" name="status_umkm"
-                                    placeholder="Baru" value="Baru" readonly>
+                                    placeholder="Baru" value="Baru" disabled readonly>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="wa_umkm" class="form-label">WhatsApp</label>
