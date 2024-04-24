@@ -38,8 +38,8 @@ class UmkmDataTable extends DataTable
                 data-bs-toggle="modal" data-bs-target="#editUmkmModal" class="edit btn btn-edit btn-sm">Edit</button>';
                 $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
                 ' . csrf_field() . '
-                ' . method_field('DELETE') . '
-                <button type="submit" class="delete btn btn-delete btn-sm">Delete</button>
+                ' . method_field('DELETE') . 
+                '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
                 </form>
                 </div>';
                 return $action;
