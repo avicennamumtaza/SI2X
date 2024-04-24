@@ -23,6 +23,9 @@ class LaporanKeuanganDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->setRowId('id')
+            ->editColumn('is_income', function ($row) {
+                return $row->is_income ? 'Pemasukkan' : 'Pengeluaran';
+            })
             ->addColumn('action', function ($row) {
                 $deleteUrl = route('laporankeuangan.destroy', $row->id_laporankeuangan);
                 $action = '
@@ -39,7 +42,7 @@ class LaporanKeuanganDataTable extends DataTable
                 $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
                 ' . csrf_field() . '
                 ' . method_field('DELETE') . '
-                <button type="submit" class="delete btn btn-delete btn-sm">Delete</button>
+                <button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Delete</button>
                 </form>
                 </div>';
                 return $action;
