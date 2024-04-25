@@ -155,7 +155,7 @@
                                                 <li>
                                                     <a class="dropdown-item"
                                                         style="background-color: transparent; color: white"
-                                                        href="{{ route('rw.manage') }}">
+                                                        href="{{ route('users.manage') }}">
                                                         Pengguna
                                                     </a>
                                                 </li>
@@ -245,11 +245,11 @@
         <style type="text/css">
             {{-- You can add AdminLTE customizations here --}}
             /* .card-header {
-                                        border-bottom: none;
-                                        }
-                                        .card-title {
-                                        font-weight: 600;
-                                        } */
+                                                    border-bottom: none;
+                                                    }
+                                                    .card-title {
+                                                    font-weight: 600;
+                                                    } */
         </style>
     @endpush
 </body>

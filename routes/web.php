@@ -8,6 +8,7 @@ use App\Http\Controllers\UmkmController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\RWController;
 use App\Http\Controllers\RTController;
+use App\Http\Controllers\UsersController;
 use App\Models\PengajuanDokumen;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -106,3 +107,10 @@ Route::get('/pendataan/rw', [RWController::class, 'list'])->name('rw.manage');
 Route::get('/pendataan/rw/{rw}/edit', [RWController::class, 'edit'])->name('rw.edit');
 Route::post('/pendataan/rw', [RWController::class, 'store'])->name('rw.store');
 Route::delete('/pendataan/rw/{rw}', [RwController::class, 'destroy'])->name('rw.destroy');
+
+// manage user
+Route::get('/users', [UsersController::class, 'list'])->name('users.manage');
+Route::post('/users', [UsersController::class, 'store'])->name('users.store');
+Route::get('/users/edit/{users}', [UsersController::class, 'edit'])->name('users.edit');
+Route::put('/users/update/{users}', [UsersController::class, 'update'])->name('users.update');
+Route::delete('/users/{users}', [UsersController::class, 'destroy'])->name('users.destroy');
