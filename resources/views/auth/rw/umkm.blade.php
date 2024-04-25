@@ -66,7 +66,7 @@
         </div>
         <hr>
         <div class="card-body">
-            <div class="table-responsive">
+            <div class="table-responsive tabel">
                 {{ $dataTable->table() }}
             </div>
         </div>

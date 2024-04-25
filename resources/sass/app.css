@@ -4,6 +4,152 @@
 @import "datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css";
 @import "datatables.net-select-bs5/css/select.bootstrap5.css";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.tabel #pengajuandokumen-table {
+  font-size: 0.85rem; /* Ukuran font teks */
+}
+.tabel #pengajuandokumen-table .dataTables_scrollBody {
+  overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
+}
+.tabel #pengajuandokumen-table_wrapper .dataTables_length,
+.tabel #pengajuandokumen-table_wrapper .dataTables_filter,
+.tabel #pengajuandokumen-table_wrapper .dataTables_info,
+.tabel #pengajuandokumen-table_wrapper .dataTables_paginate {
+  font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
+}
+.tabel #pengajuandokumen-table_wrapper .dataTables_length select,
+.tabel #pengajuandokumen-table_wrapper .dataTables_filter input {
+  padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
+  font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
+}
+.tabel #laporankeuangan-table {
+  font-size: 0.85rem; /* Ukuran font teks */
+}
+.tabel #laporankeuangan-table .dataTables_scrollBody {
+  overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
+}
+.tabel #laporankeuangan-table_wrapper .dataTables_length,
+.tabel #laporankeuangan-table_wrapper .dataTables_filter,
+.tabel #laporankeuangan-table_wrapper .dataTables_info,
+.tabel #laporankeuangan-table_wrapper .dataTables_paginate {
+  font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
+}
+.tabel #laporankeuangan-table_wrapper .dataTables_length select,
+.tabel #laporankeuangan-table_wrapper .dataTables_filter input {
+  padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
+  font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
+}
+.tabel #umkm-table {
+  font-size: 0.85rem; /* Ukuran font teks */
+}
+.tabel #umkm-table .dataTables_scrollBody {
+  overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
+}
+.tabel #umkm-table_wrapper .dataTables_length,
+.tabel #umkm-table_wrapper .dataTables_filter,
+.tabel #umkm-table_wrapper .dataTables_info,
+.tabel #umkm-table_wrapper .dataTables_paginate {
+  font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
+}
+.tabel #umkm-table_wrapper .dataTables_length select,
+.tabel #umkm-table_wrapper .dataTables_filter input {
+  padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
+  font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
+}
+.tabel #pengumuman-table {
+  font-size: 0.85rem; /* Ukuran font teks */
+}
+.tabel #pengumuman-table .dataTables_scrollBody {
+  overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
+}
+.tabel #pengumuman-table_wrapper .dataTables_length,
+.tabel #pengumuman-table_wrapper .dataTables_filter,
+.tabel #pengumuman-table_wrapper .dataTables_info,
+.tabel #pengumuman-table_wrapper .dataTables_paginate {
+  font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
+}
+.tabel #pengumuman-table_wrapper .dataTables_length select,
+.tabel #pengumuman-table_wrapper .dataTables_filter input {
+  padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
+  font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
+}
+.tabel #rw-table {
+  font-size: 0.85rem; /* Ukuran font teks */
+}
+.tabel #rw-table .dataTables_scrollBody {
+  overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
+}
+.tabel #rw-table_wrapper .dataTables_length,
+.tabel #rw-table_wrapper .dataTables_filter,
+.tabel #rw-table_wrapper .dataTables_info,
+.tabel #rw-table_wrapper .dataTables_paginate {
+  font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
+}
+.tabel #rw-table_wrapper .dataTables_length select,
+.tabel #rw-table_wrapper .dataTables_filter input {
+  padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
+  font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
+}
+.tabel #rt-table {
+  font-size: 0.85rem; /* Ukuran font teks */
+}
+.tabel #rt-table .dataTables_scrollBody {
+  overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
+}
+.tabel #rt-table_wrapper .dataTables_length,
+.tabel #rt-table_wrapper .dataTables_filter,
+.tabel #rt-table_wrapper .dataTables_info,
+.tabel #rt-table_wrapper .dataTables_paginate {
+  font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
+}
+.tabel #rt-table_wrapper .dataTables_length select,
+.tabel #rt-table_wrapper .dataTables_filter input {
+  padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
+  font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
+}
+.tabel #keluarga-table {
+  font-size: 0.85rem; /* Ukuran font teks */
+}
+.tabel #keluarga-table .dataTables_scrollBody {
+  overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
+}
+.tabel #keluarga-table_wrapper .dataTables_length,
+.tabel #keluarga-table_wrapper .dataTables_filter,
+.tabel #keluarga-table_wrapper .dataTables_info,
+.tabel #keluarga-table_wrapper .dataTables_paginate {
+  font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
+}
+.tabel #keluarga-table_wrapper .dataTables_length select,
+.tabel #keluarga-table_wrapper .dataTables_filter input {
+  padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
+  font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
+}
+.tabel #penduduk-table {
+  font-size: 0.85rem; /* Ukuran font teks */
+}
+.tabel #penduduk-table .dataTables_scrollBody {
+  overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
+}
+.tabel #penduduk-table_wrapper .dataTables_length,
+.tabel #penduduk-table_wrapper .dataTables_filter,
+.tabel #penduduk-table_wrapper .dataTables_info,
+.tabel #penduduk-table_wrapper .dataTables_paginate {
+  font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
+}
+.tabel #penduduk-table_wrapper .dataTables_length select,
+.tabel #penduduk-table_wrapper .dataTables_filter input {
+  padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
+  font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
+}
+
+.aktif {
+  width: 220px;
+  border-radius: 10px;
+  background-color: #152551; /* Ganti dengan warna yang diinginkan */
+}
+.aktif p {
+  color: white;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   width: 99%;
@@ -43,7 +189,6 @@ body .container-action .btn-edit:hover {
   padding-inline: 17px;
   padding-block: 6px;
   background-color: #ffffff;
-  border: 1px solid rgb(247, 144, 34);
   font-weight: 700;
   color: rgb(247, 144, 34);
 }
@@ -61,7 +206,6 @@ body .container-action .btn-delete:hover {
   padding-inline: 9px;
   padding-block: 6px;
   background-color: #ffffff;
-  border: 1px solid rgb(195, 8, 8);
   font-weight: 700;
   color: rgb(195, 8, 8);
 }
@@ -695,6 +839,7 @@ body .container-p .yellow:nth-child(2n)::before {
 }
 body .sidebar {
   z-index: 1000;
+  width: 20%;
   height: 100vh;
   position: fixed !important;
   left: 0px;

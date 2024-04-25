@@ -30,8 +30,7 @@
 
                         <div class="form-group mb-3">
                             <label for="no_rt" class="form-label text-start">Nomor RT</label>
-                            <input type="text" class="form-control" id="no_rt" name="no_rt"
-                                placeholder="Masukkan Nomor RT" required>
+                            <input type="text" class="form-control" id="no_rt" name="no_rt" required>
                         </div>
 
                         <div class="form-group mb-3">
@@ -58,8 +57,11 @@
 
                         <div class="form-group mb-3">
                             <label for="jenis_kelamin" class="form-label text-start">Jenis Kelamin</label>
-                            <input type="text" class="form-control" id="jenis_kelamin" name="jenis_kelamin"
-                                placeholder="Masukkan Jenis Kelamin" required>
+                            <select class="form-select" id="jenis_kelamin" name="jenis_kelamin" required>
+                                <option value="" selected disabled>Pilih Jenis Kelamin</option>
+                                <option value="L">Laki-laki</option>
+                                <option value="P">Perempuan</option>
+                            </select>
                         </div>
 
                         <div class="form-group mb-3">
@@ -70,20 +72,31 @@
 
                         <div class="form-group mb-3">
                             <label for="gol_darah" class="form-label text-start">Golongan Darah</label>
-                            <input type="text" class="form-control" id="gol_darah" name="gol_darah"
-                                placeholder="Masukkan Golongan Darah" required>
+                            <select class="form-select" id="gol_darah" name="gol_darah" required>
+                                <option value="" selected disabled>Pilih Golongan Darah</option>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="AB">AB</option>
+                                <option value="O">O</option>
+                            </select>
                         </div>
 
                         <div class="form-group mb-3">
                             <label for="is_married" class="form-label text-start">Status Menikah</label>
-                            <input type="text" class="form-control" id="is_married" name="is_married"
-                                placeholder="Masukkan Status Menikah" required>
+                            <select class="form-select" id="is_married" name="is_married" required>
+                                <option value="" selected disabled>Pilih Status Menikah</option>
+                                <option value="1">Menikah</option>
+                                <option value="0">Belum Menikah</option>
+                            </select>    
                         </div>
 
                         <div class="form-group mb-3">
                             <label for="is_stranger" class="form-label text-start">Status Domisili</label>
-                            <input type="text" class="form-control" id="is_stranger" name="is_stranger"
-                                placeholder="Masukkan Status Domisili" required>
+                            <select class="form-select" id="is_stranger" name="is_stranger" required>
+                                <option value="" selected disabled>Pilih Status Domisili</option>
+                                <option value="0">Domisili</option>
+                                <option value="1">Non Domisili</option>
+                            </select>
                         </div>
 
                         <!-- Tambahkan input lainnya sesuai kebutuhan -->
@@ -150,7 +163,12 @@
 
                         <div class="form-group mb-3">
                             <label for="jenis_kelamin" class="form-label text-start">Jenis Kelamin</label>
-                            <input type="text" class="form-control" id="jenis_kelamin" name="jenis_kelamin" required>
+                            <select class="form-select" id="jenis_kelamin" name="jenis_kelamin"
+                                 required>
+                                <option value="" selected disabled>Pilih Jenis Kelamin</option>
+                                <option value="L">Laki-laki</option>
+                                <option value="P">Perempuan</option>
+                            </select>
                         </div>
 
                         <div class="form-group mb-3">
@@ -160,17 +178,34 @@
 
                         <div class="form-group mb-3">
                             <label for="gol_darah" class="form-label text-start">Golongan Darah</label>
-                            <input type="text" class="form-control" id="gol_darah" name="gol_darah" required>
+                            <select class="form-select" id="gol_darah" name="gol_darah"
+                                 required>
+                                <option value="" selected disabled>Pilih Golongan Darah</option>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="AB">AB</option>
+                                <option value="O">O</option>
+                            </select>
                         </div>
 
                         <div class="form-group mb-3">
                             <label for="is_married" class="form-label text-start">Status Menikah</label>
-                            <input type="text" class="form-control" id="is_married" name="is_married" required>
+                            <select class="form-select" id="is_married" name="is_married"
+                                 required>
+                                <option value="" selected disabled>Pilih Status Menikah</option>
+                                <option value="1">Menikah</option>
+                                <option value="0">Belum Menikah</option>
+                            </select>    
                         </div>
 
                         <div class="form-group mb-3">
                             <label for="is_stranger" class="form-label text-start">Status Domisili</label>
-                            <input type="text" class="form-control" id="is_stranger" name="is_stranger" required>
+                            <select type="text" class="form-select" id="is_stranger" name="is_stranger"
+                                 required>
+                                <option value="" selected disabled>Pilih Status Domisili</option>
+                                <option value="0">Domisili</option>
+                                <option value="1">Non Domisili</option>
+                            </select>
                         </div>
 
                         <div class="modal-footer justify-content-end">
@@ -194,7 +229,7 @@
         </div>
         <hr>
         <div class="card-body">
-            <div class="table-responsive">
+            <div class="table-responsive tabel">
                 {{ $dataTable->table() }}
             </div>
         </div>

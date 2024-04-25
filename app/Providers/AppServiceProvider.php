@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Users;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 use Yajra\DataTables\Html\Builder;
 
@@ -22,5 +24,13 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         Builder::useVite();
+
+        Gate::define('isRt', function (Users $user) {
+            return $user->role === 'Rt';
+        });
+        
+        Gate::define('isRw', function (Users $user) {
+            return $user->role === 'Rw';
+        });
     }
 }

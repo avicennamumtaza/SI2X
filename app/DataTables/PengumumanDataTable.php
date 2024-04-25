@@ -36,13 +36,12 @@ class PengumumanDataTable extends DataTable
                 data-desc_pengumuman="' . $row->deskripsi . '"
                 data-foto_pengumuman="' . $row->foto. '"
                 data-bs-toggle="modal" data-bs-target="#editPengumumanModal" class="edit-user edit btn btn-edit btn-sm">Edit</button>';
-
                 $action .= '
                 <form action="' . $deleteUrl . '" method="post" style="display:inline;">
                     ' . csrf_field() . '
                     ' . method_field('DELETE') . 
                     // <button type="submit" class="delete btn btn-delete btn-sm">Delete</button>
-                    '<button type="submit" class="btn btn-danger btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
+                    '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
                 </form>
                 </div>';
                 return $action;

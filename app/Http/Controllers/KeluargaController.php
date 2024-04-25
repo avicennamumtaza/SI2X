@@ -16,11 +16,21 @@ class KeluargaController extends Controller
     {
         // Validasi input
         $request->validate([
-            'nkk' => 'required|string|min:15|max:17',
-            'nik_kepala_keluarga' => 'required|string|min:15|max:17',
+            'nkk' => 'required|string|min:15|max:17|unique:keluarga,nkk', // Ganti nama_tabel dengan nama tabel sebenarnya
+            'nik_kepala_keluarga' => 'required|string|min:15|max:17|unique:keluarga,nik_kepala_keluarga', // Ganti nama_tabel dengan nama tabel sebenarnya
             'jumlah_nik' => 'required',
-
-            // Tambahkan validasi untuk input lainnya jika diperlukan
+        ], [
+            'nkk.required' => 'Nomor Kartu Keluarga (NKK) wajib diisi.',
+            'nkk.string' => 'Nomor Kartu Keluarga (NKK) harus berupa teks.',
+            'nkk.min' => 'Nomor Kartu Keluarga (NKK) harus memiliki panjang minimal :min digit.',
+            'nkk.max' => 'Nomor Kartu Keluarga (NKK) harus memiliki panjang maksimal :max digit.',
+            'nkk.unique' => 'Nomor Kartu Keluarga (NKK) sudah digunakan.',
+            'nik_kepala_keluarga.required' => 'NIK Kepala Keluarga wajib diisi.',
+            'nik_kepala_keluarga.string' => 'NIK Kepala Keluarga harus berupa teks.',
+            'nik_kepala_keluarga.min' => 'NIK Kepala Keluarga harus memiliki panjang minimal :min digit.',
+            'nik_kepala_keluarga.max' => 'NIK Kepala Keluarga harus memiliki panjang maksimal :max digit.',
+            'nik_kepala_keluarga.unique' => 'NIK Kepala Keluarga sudah digunakan.',
+            'jumlah_nik.required' => 'Jumlah NIK wajib diisi.',
         ]);
 
         $keluarga = new Keluarga();
@@ -33,15 +43,28 @@ class KeluargaController extends Controller
     }
     public function edit(Keluarga $keluarga)
     {
+        // $keluarga = Keluarga::findOrFail($keluarga->nkk);
         return view('keluarga.edit', compact('keluarga'));
     }
 
     public function update(Request $request, Keluarga $keluarga)
     {
         $request->validate([
-            'nkk' => 'required|string|min:15|max:17', // (tidak bisa mengedit nkk as primary key, cek view)
-            'nik' => 'required|string|min:15|max:17|',
+            // 'nkk' => 'required|string|min:15|max:17|unique:keluarga,nkk', // Ganti nama_tabel dengan nama tabel sebenarnya
+            'nik_kepala_keluarga' => 'required|string|min:15|max:17|unique:keluarga,nik_kepala_keluarga', // Ganti nama_tabel dengan nama tabel sebenarnya
             'jumlah_nik' => 'required',
+        ], [
+            // 'nkk.required' => 'Nomor Kartu Keluarga (NKK) wajib diisi.',
+            // 'nkk.string' => 'Nomor Kartu Keluarga (NKK) harus berupa teks.',
+            // 'nkk.min' => 'Nomor Kartu Keluarga (NKK) harus memiliki panjang minimal :min digit.',
+            // 'nkk.max' => 'Nomor Kartu Keluarga (NKK) harus memiliki panjang maksimal :max digit.',
+            // 'nkk.unique' => 'Nomor Kartu Keluarga (NKK) sudah digunakan.',
+            'nik_kepala_keluarga.required' => 'NIK Kepala Keluarga wajib diisi.',
+            'nik_kepala_keluarga.string' => 'NIK Kepala Keluarga harus berupa teks.',
+            'nik_kepala_keluarga.min' => 'NIK Kepala Keluarga harus memiliki panjang minimal :min digit.',
+            'nik_kepala_keluarga.max' => 'NIK Kepala Keluarga harus memiliki panjang maksimal :max digit.',
+            'nik_kepala_keluarga.unique' => 'NIK Kepala Keluarga sudah digunakan.',
+            'jumlah_nik.required' => 'Jumlah NIK wajib diisi.',
         ]);
 
         $keluarga->update($request->all());
