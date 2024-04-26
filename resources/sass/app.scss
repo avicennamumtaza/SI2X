@@ -983,6 +983,10 @@ body {
                 .sidebar-item {
                     position: relative;
                 }
+                .active {
+                    background-color: lighten($color: $secondaryCol, $amount: 5%);
+                    border-left: 3px solid white;
+                }
                 a.sidebar-link {
                     padding: .6rem 1.5rem;
                     color: white;
@@ -1012,7 +1016,7 @@ body {
             position: absolute;
             top: 0;
             left: 70px;
-            background-color: #bd150b;
+            background-color: $secondaryCol;
             padding: 0;
             min-width: 15rem;
             display: none;

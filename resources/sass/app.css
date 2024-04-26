@@ -771,6 +771,10 @@ body .wrapper #sidebar .sidebar-nav {
 body .wrapper #sidebar .sidebar-nav .sidebar-item {
   position: relative;
 }
+body .wrapper #sidebar .sidebar-nav .active {
+  background-color: #1a2e65;
+  border-left: 3px solid white;
+}
 body .wrapper #sidebar .sidebar-nav a.sidebar-link {
   padding: 0.6rem 1.5rem;
   color: white;
@@ -798,7 +802,7 @@ body .wrapper #sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
   position: absolute;
   top: 0;
   left: 70px;
-  background-color: #bd150b;
+  background-color: #152551;
   padding: 0;
   min-width: 15rem;
   display: none;
