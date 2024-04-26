@@ -1,196 +1,6 @@
 // Fonts
 // @import url('https://fonts.bunny.net/css?family=Nunito');
 
-.tabel{    
-    
-    #pengajuandokumen-table {
-        font-size: 0.85rem; /* Ukuran font teks */
-    }
-    
-    #pengajuandokumen-table .dataTables_scrollBody {
-        overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
-    }
-    
-    #pengajuandokumen-table_wrapper .dataTables_length,
-    #pengajuandokumen-table_wrapper .dataTables_filter,
-    #pengajuandokumen-table_wrapper .dataTables_info,
-    #pengajuandokumen-table_wrapper .dataTables_paginate {
-        font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
-    }
-    
-    #pengajuandokumen-table_wrapper .dataTables_length select,
-    #pengajuandokumen-table_wrapper .dataTables_filter input {
-        padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
-        font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
-    }
-
-    #laporankeuangan-table {
-        font-size: 0.85rem; /* Ukuran font teks */
-    }
-    
-    #laporankeuangan-table .dataTables_scrollBody {
-        overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
-    }
-    
-    #laporankeuangan-table_wrapper .dataTables_length,
-    #laporankeuangan-table_wrapper .dataTables_filter,
-    #laporankeuangan-table_wrapper .dataTables_info,
-    #laporankeuangan-table_wrapper .dataTables_paginate {
-        font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
-    }
-    
-    #laporankeuangan-table_wrapper .dataTables_length select,
-    #laporankeuangan-table_wrapper .dataTables_filter input {
-        padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
-        font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
-    }
-    
-    #umkm-table {
-        font-size: 0.85rem; /* Ukuran font teks */
-    }
-    
-    #umkm-table .dataTables_scrollBody {
-        overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
-    }
-    
-    #umkm-table_wrapper .dataTables_length,
-    #umkm-table_wrapper .dataTables_filter,
-    #umkm-table_wrapper .dataTables_info,
-    #umkm-table_wrapper .dataTables_paginate {
-        font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
-    }
-    
-    #umkm-table_wrapper .dataTables_length select,
-    #umkm-table_wrapper .dataTables_filter input {
-        padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
-        font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
-    }
-    
-    #pengumuman-table {
-        font-size: 0.85rem; /* Ukuran font teks */
-    }
-    
-    #pengumuman-table .dataTables_scrollBody {
-        overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
-    }
-    
-    #pengumuman-table_wrapper .dataTables_length,
-    #pengumuman-table_wrapper .dataTables_filter,
-    #pengumuman-table_wrapper .dataTables_info,
-    #pengumuman-table_wrapper .dataTables_paginate {
-        font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
-    }
-    
-    #pengumuman-table_wrapper .dataTables_length select,
-    #pengumuman-table_wrapper .dataTables_filter input {
-        padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
-        font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
-    }
-    
-    #rw-table {
-        font-size: 0.85rem; /* Ukuran font teks */
-    }
-    
-    #rw-table .dataTables_scrollBody {
-        overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
-    }
-    
-    #rw-table_wrapper .dataTables_length,
-    #rw-table_wrapper .dataTables_filter,
-    #rw-table_wrapper .dataTables_info,
-    #rw-table_wrapper .dataTables_paginate {
-        font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
-    }
-    
-    #rw-table_wrapper .dataTables_length select,
-    #rw-table_wrapper .dataTables_filter input {
-        padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
-        font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
-    }
-    
-    #rt-table {
-        font-size: 0.85rem; /* Ukuran font teks */
-    }
-    
-    #rt-table .dataTables_scrollBody {
-        overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
-    }
-    
-    #rt-table_wrapper .dataTables_length,
-    #rt-table_wrapper .dataTables_filter,
-    #rt-table_wrapper .dataTables_info,
-    #rt-table_wrapper .dataTables_paginate {
-        font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
-    }
-    
-    #rt-table_wrapper .dataTables_length select,
-    #rt-table_wrapper .dataTables_filter input {
-        padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
-        font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
-    }
-    
-    #keluarga-table {
-        font-size: 0.85rem; /* Ukuran font teks */
-    }
-    
-    #keluarga-table .dataTables_scrollBody {
-        overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
-    }
-    
-    #keluarga-table_wrapper .dataTables_length,
-    #keluarga-table_wrapper .dataTables_filter,
-    #keluarga-table_wrapper .dataTables_info,
-    #keluarga-table_wrapper .dataTables_paginate {
-        font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
-    }
-    
-    #keluarga-table_wrapper .dataTables_length select,
-    #keluarga-table_wrapper .dataTables_filter input {
-        padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
-        font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
-    }
-    
-    #penduduk-table {
-        font-size: 0.85rem; /* Ukuran font teks */
-    }
-    
-    #penduduk-table .dataTables_scrollBody {
-        overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
-    }
-    
-    #penduduk-table_wrapper .dataTables_length,
-    #penduduk-table_wrapper .dataTables_filter,
-    #penduduk-table_wrapper .dataTables_info,
-    #penduduk-table_wrapper .dataTables_paginate {
-        font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
-    }
-    
-    #penduduk-table_wrapper .dataTables_length select,
-    #penduduk-table_wrapper .dataTables_filter input {
-        padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
-        font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
-    }
-    
-    // #laporankeuangan-table th,
-    // #laporankeuangan-table td {
-    //     // padding: 0.5rem; /* Padding */
-    // }
-    
-    // #laporankeuangan-table th:first-child,
-    // #laporankeuangan-table td:first-child {
-    //     // padding-left: 0.75rem; /* Padding kiri untuk kolom pertama */
-    // }
-    
-    // #laporankeuangan-table th:last-child,
-    // #laporankeuangan-table td:last-child {
-    //     // padding-right: 0.75rem; /* Padding kanan untuk kolom terakhir */
-    // }
-    
-    // #laporankeuangan-table_wrapper .dataTables_paginate .paginate_button {
-    //     // margin: 0 0.1rem; /* Margin antara tombol paginasi */
-    // }
-}
-
 // Variables
 @import 'variables';
 
@@ -216,20 +26,36 @@ $secondaryCol: #152551;
 $tertiaryCol: #7384b3;
 $fourthCol: #4461AE;
 
+// ::after, ::before {
+//     box-sizing: border-box;
+//     margin: 0;
+//     padding: 0;
+// }
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
 // mixin
 @mixin heading-center {
     text-align: center;
     color: $primaryCol;
     font-weight: 600;
 }
+
 @mixin tombol {
     background-color: $primaryCol;
     border-radius: 2em;
     padding-inline: 20px;
     padding-block: 7px;
-    color: #ffffff;  
+    color: #ffffff;
     text-decoration: none;
     transition: 0.3s ease-in-out;
+
     &:hover {
         background-color: #ffffff;
         border: 1px solid black;
@@ -237,15 +63,17 @@ $fourthCol: #4461AE;
         color: $primaryCol;
     }
 }
+
 @mixin tombolAdd {
     background-color: rgb(7, 165, 83);
     border-radius: 0.7em;
     padding-inline: 20px;
     padding-block: 7px;
-    color: #ffffff;  
+    color: #ffffff;
     text-decoration: none;
     border: none;
     transition: 0.1s ease-in-out;
+
     &:hover {
         // padding-inline: 19px;
         // padding-block: 6px;
@@ -255,15 +83,17 @@ $fourthCol: #4461AE;
         color: rgb(7, 165, 83);
     }
 }
+
 @mixin tombolDelete {
     background-color: rgb(195, 8, 8);
     border-radius: 0.7em;
     padding-inline: 10px;
     padding-block: 7px;
-    color: #ffffff;  
+    color: #ffffff;
     text-decoration: none;
     border: none;
     transition: 0.1s ease-in-out;
+
     &:hover {
         padding-inline: 9px;
         padding-block: 6px;
@@ -273,15 +103,17 @@ $fourthCol: #4461AE;
         color: rgb(195, 8, 8);
     }
 }
+
 @mixin tombolEdit {
     background-color: rgb(247, 144, 34);
     border-radius: 0.7em;
     padding-inline: 18px;
     padding-block: 7px;
-    color: #ffffff;  
+    color: #ffffff;
     text-decoration: none;
     border: none;
     transition: 0.1s;
+
     &:hover {
         padding-inline: 17px;
         padding-block: 6px;
@@ -297,39 +129,47 @@ $fourthCol: #4461AE;
     // display: inline;
     width: 220px;
     border-radius: 10px;
-    background-color: #152551; /* Ganti dengan warna yang diinginkan */
+    background-color: #152551;
+
+    /* Ganti dengan warna yang diinginkan */
     // fontc: white;
     p {
         color: white;
     }
-    
+
 }
+
 // .content.nav-item.active {
 //     background-color: red; /* Ganti dengan warna yang diinginkan */
 // }
 
 
 // style
-body {    
+body {
     .btn-add {
         @include tombolAdd();
     }
+
     .container-action {
         display: inline-block;
+
         .btn-edit {
             @include tombolEdit();
             // margin-inline: 10px;
         }
+
         .btn-delete {
             @include tombolDelete();
             // margin-inline: 10px;
         }
     }
+
     .container-fluid-nav {
         width: 100vw; // Atur lebar sesuai viewport width
         padding-right: 15px; // Tambahkan sedikit padding kanan agar konten tidak menempel langsung ke tepi layar
         padding-left: 15px; // Tambahkan sedikit padding kiri agar konten tidak menempel langsung ke tepi layar
     }
+
     .background-image {
         position: absolute;
         top: 110px;
@@ -339,54 +179,35 @@ body {
         // z-index: -1;
         // object-fit: cover;
         // object-position: 50vh 0vh; /* Sesuaikan dengan posisi yang diinginkan */
-        background-color: transparent; /* Warna latar belakang jika gambar tidak tersedia */
+        background-color: transparent;
+
+        /* Warna latar belakang jika gambar tidak tersedia */
         @media screen and (max-width: 991px) {
-            position: relative; /* Mengubah posisi menjadi relatif untuk menempatkan di bawah container */
+            position: relative;
+            /* Mengubah posisi menjadi relatif untuk menempatkan di bawah container */
             top: auto;
             left: 300px;
             // width: 70%; /* Mengisi lebar container penuh */
-            padding-top: 90px; /* Atur jarak antara gambar dan container */
+            padding-top: 90px;
+            /* Atur jarak antara gambar dan container */
         }
+
         @media screen and (max-width:500px) {
-            position: relative; /* Mengubah posisi menjadi relatif untuk menempatkan di bawah container */
+            position: relative;
+            /* Mengubah posisi menjadi relatif untuk menempatkan di bawah container */
             top: auto;
             left: 145px;
             // width: 70%; /* Mengisi lebar container penuh */
             padding-top: 90px;
         }
     }
-    // .background-image {
-    //     position: absolute;
-    //     top: 110px;
-    //     left: 710px;
-    //     width: 33%;
-    //     height: auto;
-    //     // z-index: -1;
-    //     object-fit: cover;
-    //     // object-position: 50vh 0vh; /* Sesuaikan dengan posisi yang diinginkan */
-    //     background-color: transparent; /* Warna latar belakang jika gambar tidak tersedia */
-    //     @media screen and (max-width: 992px) {
-    //         position: absolute;
-    //         top: 630px;
-    //         left: 210px;
-    //         // object-position: 2vh 20vh; /* Sesuaikan dengan posisi yang diinginkan pada responsivitas */
-    //     }
-    // }
-    
 
     h1 {
         @include heading-center();
     }
 
-    font-family: "Poppins", sans-serif;
-    // background-image: url('/aset/landing-img.png');
-    // background-attachment: scroll;
-    // // background-blend-mode: multiply;
-    // background-position-y: 22vh;
-    // background-position-x: 125vh;
-    // // background-position: center right;
-    // background-repeat: no-repeat;
-    // background-size: 30vmax;
+    font-family: "Poppins",
+    sans-serif;
     width: 99%;
     background-color: #E9E9E9;
     height: 100vh;
@@ -401,6 +222,7 @@ body {
         background-color: #ffffff;
         padding-inline: 17px;
         border-radius: 4em;
+
         .navbar-brand {
             img {
                 width: auto;
@@ -409,24 +231,28 @@ body {
                 margin-right: 10px;
                 margin-bottom: 5px;
             }
+
             span {
                 color: $primaryCol;
                 font-weight: 600;
                 font-size: 1.4rem;
             }
         }
+
         .navbar-toggler {
             // background-color: none;
             border: none;
             border-radius: 2em;
             margin-inline: 10px;
             transition: 0.4s ease-in-out;
+
             &:hover {
                 border: 1px solid $primaryCol;
                 background-color: lighten($color: $primaryCol, $amount: 65%);
                 transition: 0.4s ease-in-out;
             }
         }
+
         #navbarSupportedContent {
             @media screen and (max-width: 992px) {
                 // background-color: $tertiaryCol;
@@ -436,8 +262,10 @@ body {
                 // border-radius: 0;
                 transition: 0.3s ease;
             }
+
             // max-width: 70%;
             .navbar-nav {
+
                 // max-width: 50%;
                 .nav-item {
                     .nav-link {
@@ -447,38 +275,44 @@ body {
                         font-size: 18px;
                         margin-inline: 7px;
                         transition: 0.3s ease;
+
                         &:hover {
                             background-color: $primaryCol;
                             border-radius: 2em;
                             padding-inline: 20px;
                             color: lighten($color: $primaryCol, $amount: 100%);
                         }
+
                         // .dropdown-item {
                         //     @include tombol();
                         // }
                     }
+
                     .fitur-btn {
                         @include tombol();
                     }
                 }
             }
         }
+
         @media screen and (max-width: 992px) {
             padding-block: 10px;
             // padding-inline: 10px;
             // margin-top: -1em;
         }
-    }   
+    }
 
     // landing text
     .container-landing {
         // margin-top: 10.5rem;
         padding-top: 10.5rem;
+
         .custom-section {
             color: $primaryCol;
             // margin-top: 50px;
             // margin-inline-start: 100px;
             padding-inline: 140px;
+
             h2 {
                 // text-align: right;
                 font-weight: 600;
@@ -487,20 +321,24 @@ body {
                 color: $secondaryCol;
                 // white-space: nowrap;
             }
+
             p {
                 margin-top: 20px;
-                margin-bottom: 35px; 
+                margin-bottom: 35px;
                 font-weight: 300;
                 font-size: 1rem;
                 width: 121%;
             }
+
             a {
                 @include tombol();
             }
+
             @media screen and (max-width: 992px) {
                 margin-inline: -7px;
                 // padding-inline: -97px;
                 font-size: smaller;
+
                 // padding-top: 2.5rem;
                 h2 {
                     font-weight: 600;
@@ -515,25 +353,32 @@ body {
         background-color: transparent;
         margin-top: 10rem;
         margin-bottom: 4rem;
+
         .card {
             background-color: transparent;
             text-align: center;
             padding-block: 25px;
             width: 150px;
             border: none;
+
             .card-icon {
-                font-size: 4rem; /* Ukuran ikon diperbesar */
-                margin-bottom: 5px; /* Jarak antara ikon dan angka */
+                font-size: 4rem;
+                /* Ukuran ikon diperbesar */
+                margin-bottom: 5px;
+                /* Jarak antara ikon dan angka */
             }
+
             .span-head {
                 font-size: 125%;
                 font-weight: 600;
             }
+
             .span-count {
                 font-weight: 600;
                 font-size: 45px;
             }
         }
+
         @media screen and (max-width: 992px) {
             margin-top: 7rem;
         }
@@ -543,51 +388,63 @@ body {
         background-color: transparent;
         margin-block: 10rem;
         text-align: center;
+
         p {
             width: 100%;
             margin-block: 33px;
         }
+
         .card {
             background-color: transparent;
             text-align: center;
             padding: 20px;
             border: none;
+
             .card-icon {
-                font-size: 3rem; /* Ukuran ikon diperbesar */
-                margin-bottom: 10px; /* Jarak antara ikon dan angka */
+                font-size: 3rem;
+                /* Ukuran ikon diperbesar */
+                margin-bottom: 10px;
+                /* Jarak antara ikon dan angka */
             }
+
             .span-head {
                 font-size: 90%;
                 font-weight: 500;
             }
+
             .span-count {
                 font-weight: 600;
                 font-size: xx-large;
             }
         }
+
         @media screen and (max-width: 992px) {
             // margin-block: 5rem;
         }
     }
 
     // pengumuman
-    .container-pengumuman {        
+    .container-pengumuman {
         background-color: transparent;
         // margin-block: 10rem;
         text-align: center;
+
         .row {
             margin-top: 10px;
+
             .card {
                 margin-top: 25px;
                 background-color: transparent;
                 text-align: center;
                 padding: 20px;
             }
+
             @media screen and (max-width: 992px) {
                 // margin-block: 5rem;
             }
         }
-        a {                
+
+        a {
             width: fit-content;
             display: flex;
             justify-content: center;
@@ -595,11 +452,12 @@ body {
             @include tombol();
         }
     }
-    
+
     // layanan
     .container-layanan {
         background-color: transparent;
         margin-top: 7rem;
+
         // margin-bottom: 4rem;
         .card {
             width: 225px;
@@ -609,43 +467,59 @@ body {
             text-align: center;
             align-items: center;
             padding-block: 25px;
+
             // border: none;
             .card-icon {
-                font-size: 4rem; /* Ukuran ikon diperbesar */
-                margin-bottom: 5px; /* Jarak antara ikon dan angka */
+                font-size: 4rem;
+                /* Ukuran ikon diperbesar */
+                margin-bottom: 5px;
+                /* Jarak antara ikon dan angka */
             }
+
             .span-head {
                 font-size: 130%;
                 padding-inline: 25px;
                 font-weight: 500;
             }
         }
+
         @media screen and (max-width: 992px) {
             margin-top: 7rem;
         }
     }
 
-    .container-umkm, .container-p {        
+    .container-umkm,
+    .container-p {
         background-color: transparent;
+
         .heading-center {
             margin-top: 6rem;
         }
+
         text-align: center;
+
         .card-container {
             text-align: justify;
             margin-top: 40px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Menentukan jumlah kolom dan lebar minimum dan maksimum */
-            gap: 30px; /* Jarak antar kartu */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            /* Menentukan jumlah kolom dan lebar minimum dan maksimum */
+            gap: 30px;
+            /* Jarak antar kartu */
         }
+
         .fixedButton {
             position: fixed;
-            bottom: 20px; /* Ubah sesuai dengan jarak dari bawah yang diinginkan */
-            right: 20px; /* Ubah sesuai dengan jarak dari kanan yang diinginkan */
-            z-index: 999; /* Atur nilai z-index agar tombol muncul di depan kartu-kartu */
+            bottom: 20px;
+            /* Ubah sesuai dengan jarak dari bawah yang diinginkan */
+            right: 20px;
+            /* Ubah sesuai dengan jarak dari kanan yang diinginkan */
+            z-index: 999;
+            /* Atur nilai z-index agar tombol muncul di depan kartu-kartu */
             // box-shadow: 9px 9px 9px rgba(8, 12, 137, 0.685); /* Menambahkan bayangan */
             // border-radius: 55px;
-        }          
+        }
+
         .roundedFixedBtn {
             // height: 60px;
             // width: 60px;
@@ -656,10 +530,12 @@ body {
             border-color: #ffffff;
             background-color: $secondaryCol;
             cursor: pointer;
+
             button {
                 i {
                     margin-right: 11px;
                 }
+
                 @include tombol();
                 padding: 10px;
                 padding-inline: 25px;
@@ -678,23 +554,27 @@ body {
         margin-top: 4em;
         width: 101%;
         background-color: $primaryCol;
+
         .f1 {
             padding-inline: 90px;
         }
+
         .f2 {
             background-color: $secondaryCol;
         }
     }
 
-    
-    .container-p {        
+
+    .container-p {
         background-color: transparent;
         margin-top: 6rem;
         text-align: center;
+
         p {
             width: 100%;
             margin-block: 33px;
         }
+
         @import url("https://fonts.googleapis.com/css2?family=Baloo+2&display=swap");
         $main-green: #79dd09 !default;
         $main-green-rgb-015: rgba(121, 221, 9, 0.1) !default;
@@ -719,7 +599,8 @@ body {
             background: #f3f5f7;
         }
 
-        a, a:hover {
+        a,
+        a:hover {
             text-decoration: none;
             transition: color 0.3s ease-in-out;
         }
@@ -733,198 +614,201 @@ body {
 
         /* Cards */
         .postcard {
-        flex-wrap: wrap;
-        display: flex;
-        
-        box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
-        border-radius: 10px;
-        margin: 0 0 2rem 0;
-        overflow: hidden;
-        position: relative;
-        color: #ffffff;
+            flex-wrap: wrap;
+            display: flex;
+
+            box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
+            border-radius: 10px;
+            margin: 0 0 2rem 0;
+            overflow: hidden;
+            position: relative;
+            color: #ffffff;
 
             &.light {
                 background-color: #e1e5ea;
             }
-            
+
             .t-dark {
                 color: #18151f;
             }
-            
-        a {
-            color: inherit;
-        }
-            
-            h1,	.h1 {
+
+            a {
+                color: inherit;
+            }
+
+            h1,
+            .h1 {
                 margin-bottom: 0.5rem;
                 font-weight: 500;
                 line-height: 1.2;
             }
-            
+
             .small {
                 font-size: 80%;
             }
 
-        .postcard__title {
-            font-size: 1.75rem;
-        }
-
-        .postcard__img {
-            max-height: 180px;
-            width: 100%;
-            object-fit: cover;
-            position: relative;
-        }
-
-        .postcard__img_link {
-            display: contents;
-        }
-
-        .postcard__bar {
-            width: 50px;
-            height: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            background-color: #424242;
-            transition: width 0.2s ease;
-        }
-
-        .postcard__text {
-            padding: 1.5rem;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .postcard__preview-txt {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            text-align: justify;
-            height: 100%;
-        }
-
-        .postcard__tagbox {
-            display: flex;
-            flex-flow: row wrap;
-            font-size: 14px;
-            margin: 20px 0 0 0;
-                padding: 0;
-            justify-content: center;
-
-            .tag__item {
-            display: inline-block;
-            background: rgba(83, 83, 83, 0.4);
-            border-radius: 3px;
-            padding: 2.5px 10px;
-            margin: 0 5px 5px 0;
-            cursor: default;
-            user-select: none;
-            transition: background-color 0.3s;
-
-            &:hover {
-                background: rgba(83, 83, 83, 0.8);
-            }
-            }
-        }
-
-        &:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background-image: linear-gradient(-70deg, #424242, transparent 50%);
-            opacity: 1;
-            border-radius: 10px;
-        }
-
-        &:hover .postcard__bar {
-            width: 100px;
-        }
-        }
-
-        @media screen and (min-width: 769px) {
-        .postcard {
-            flex-wrap: inherit;
-
             .postcard__title {
-            font-size: 2rem;
-            }
-
-            .postcard__tagbox {
-            justify-content: start;
+                font-size: 1.75rem;
             }
 
             .postcard__img {
-            max-width: 300px;
-            max-height: 100%;
-            transition: transform 0.3s ease;
+                max-height: 180px;
+                width: 100%;
+                object-fit: cover;
+                position: relative;
+            }
+
+            .postcard__img_link {
+                display: contents;
+            }
+
+            .postcard__bar {
+                width: 50px;
+                height: 10px;
+                margin: 10px 0;
+                border-radius: 5px;
+                background-color: #424242;
+                transition: width 0.2s ease;
             }
 
             .postcard__text {
-            padding: 3rem;
-            width: 100%;
+                padding: 1.5rem;
+                position: relative;
+                display: flex;
+                flex-direction: column;
             }
 
-            .media.postcard__text:before {
-            content: "";
-            position: absolute;
-            display: block;
-            background: #18151f;
-            top: -20%;
-            height: 130%;
-            width: 55px;
+            .postcard__preview-txt {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                text-align: justify;
+                height: 100%;
             }
 
-            &:hover .postcard__img {
-            transform: scale(1.1);
+            .postcard__tagbox {
+                display: flex;
+                flex-flow: row wrap;
+                font-size: 14px;
+                margin: 20px 0 0 0;
+                padding: 0;
+                justify-content: center;
+
+                .tag__item {
+                    display: inline-block;
+                    background: rgba(83, 83, 83, 0.4);
+                    border-radius: 3px;
+                    padding: 2.5px 10px;
+                    margin: 0 5px 5px 0;
+                    cursor: default;
+                    user-select: none;
+                    transition: background-color 0.3s;
+
+                    &:hover {
+                        background: rgba(83, 83, 83, 0.8);
+                    }
+                }
             }
 
-            &:nth-child(2n+1) {
-            flex-direction: row;
+            &:before {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background-image: linear-gradient(-70deg, #424242, transparent 50%);
+                opacity: 1;
+                border-radius: 10px;
             }
 
-            &:nth-child(2n+0) {
-            flex-direction: row-reverse;
-            }
-
-            &:nth-child(2n+1) .postcard__text::before {
-            left: -12px !important;
-            transform: rotate(4deg);
-            }
-
-            &:nth-child(2n+0) .postcard__text::before {
-            right: -12px !important;
-            transform: rotate(-4deg);
+            &:hover .postcard__bar {
+                width: 100px;
             }
         }
-        }
-        @media screen and (min-width: 1024px){
+
+        @media screen and (min-width: 769px) {
+            .postcard {
+                flex-wrap: inherit;
+
+                .postcard__title {
+                    font-size: 2rem;
+                }
+
+                .postcard__tagbox {
+                    justify-content: start;
+                }
+
+                .postcard__img {
+                    max-width: 300px;
+                    max-height: 100%;
+                    transition: transform 0.3s ease;
+                }
+
                 .postcard__text {
-            padding: 2rem 3.5rem;
+                    padding: 3rem;
+                    width: 100%;
+                }
+
+                .media.postcard__text:before {
+                    content: "";
+                    position: absolute;
+                    display: block;
+                    background: #18151f;
+                    top: -20%;
+                    height: 130%;
+                    width: 55px;
+                }
+
+                &:hover .postcard__img {
+                    transform: scale(1.1);
+                }
+
+                &:nth-child(2n+1) {
+                    flex-direction: row;
+                }
+
+                &:nth-child(2n+0) {
+                    flex-direction: row-reverse;
+                }
+
+                &:nth-child(2n+1) .postcard__text::before {
+                    left: -12px !important;
+                    transform: rotate(4deg);
+                }
+
+                &:nth-child(2n+0) .postcard__text::before {
+                    right: -12px !important;
+                    transform: rotate(-4deg);
+                }
             }
-                
-                .postcard__text:before {
-            content: "";
-            position: absolute;
-            display: block;
-            
-            top: -20%;
-            height: 130%;
-            width: 55px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            .postcard__text {
+                padding: 2rem 3.5rem;
             }
-            
-        .postcard.dark {
+
+            .postcard__text:before {
+                content: "";
+                position: absolute;
+                display: block;
+
+                top: -20%;
+                height: 130%;
+                width: 55px;
+            }
+
+            .postcard.dark {
                 .postcard__text:before {
                     background: #18151f;
                 }
-        }
+            }
+
             .postcard.light {
                 .postcard__text:before {
                     background: #e1e5ea;
                 }
-        }
+            }
         }
 
         /* COLORS */
@@ -932,19 +816,21 @@ body {
             background: $main-green;
             color: black;
         }
+
         .green .postcard__title:hover {
             color: $main-green;
         }
+
         .green .postcard__bar {
             background-color: $main-green;
         }
+
         .green::before {
-            background-image: linear-gradient(
-                -30deg,
-                $main-green-rgb-015,
-                transparent 50%
-            );
+            background-image: linear-gradient(-30deg,
+                    $main-green-rgb-015,
+                    transparent 50%);
         }
+
         .green:nth-child(2n)::before {
             background-image: linear-gradient(30deg, $main-green-rgb-015, transparent 50%);
         }
@@ -952,15 +838,19 @@ body {
         .postcard .postcard__tagbox .blue.play:hover {
             background: $main-blue;
         }
+
         .blue .postcard__title:hover {
             color: $main-blue;
         }
+
         .blue .postcard__bar {
             background-color: $main-blue;
         }
+
         .blue::before {
             background-image: linear-gradient(-30deg, $main-blue-rgb-015, transparent 50%);
         }
+
         .blue:nth-child(2n)::before {
             background-image: linear-gradient(30deg, $main-blue-rgb-015, transparent 50%);
         }
@@ -968,15 +858,19 @@ body {
         .postcard .postcard__tagbox .red.play:hover {
             background: $main-red;
         }
+
         .red .postcard__title:hover {
             color: $main-red;
         }
+
         .red .postcard__bar {
             background-color: $main-red;
         }
+
         .red::before {
             background-image: linear-gradient(-30deg, $main-red-rgb-015, transparent 50%);
         }
+
         .red:nth-child(2n)::before {
             background-image: linear-gradient(30deg, $main-red-rgb-015, transparent 50%);
         }
@@ -985,50 +879,46 @@ body {
             background: $main-yellow;
             color: black;
         }
+
         .yellow .postcard__title:hover {
             color: $main-yellow;
         }
+
         .yellow .postcard__bar {
             background-color: $main-yellow;
         }
+
         .yellow::before {
-            background-image: linear-gradient(
-                -30deg,
-                $main-yellow-rgb-015,
-                transparent 50%
-            );
+            background-image: linear-gradient(-30deg,
+                    $main-yellow-rgb-015,
+                    transparent 50%);
         }
+
         .yellow:nth-child(2n)::before {
-            background-image: linear-gradient(
-                30deg,
-                $main-yellow-rgb-015,
-                transparent 50%
-            );
+            background-image: linear-gradient(30deg,
+                    $main-yellow-rgb-015,
+                    transparent 50%);
         }
 
         @media screen and (min-width: 769px) {
             .green::before {
-                background-image: linear-gradient(
-                    -80deg,
-                    $main-green-rgb-015,
-                    transparent 50%
-                );
+                background-image: linear-gradient(-80deg,
+                        $main-green-rgb-015,
+                        transparent 50%);
             }
+
             .green:nth-child(2n)::before {
-                background-image: linear-gradient(
-                    80deg,
-                    $main-green-rgb-015,
-                    transparent 50%
-                );
+                background-image: linear-gradient(80deg,
+                        $main-green-rgb-015,
+                        transparent 50%);
             }
 
             .blue::before {
-                background-image: linear-gradient(
-                    -80deg,
-                    $main-blue-rgb-015,
-                    transparent 50%
-                );
+                background-image: linear-gradient(-80deg,
+                        $main-blue-rgb-015,
+                        transparent 50%);
             }
+
             .blue:nth-child(2n)::before {
                 background-image: linear-gradient(80deg, $main-blue-rgb-015, transparent 50%);
             }
@@ -1036,23 +926,21 @@ body {
             .red::before {
                 background-image: linear-gradient(-80deg, $main-red-rgb-015, transparent 50%);
             }
+
             .red:nth-child(2n)::before {
                 background-image: linear-gradient(80deg, $main-red-rgb-015, transparent 50%);
             }
-            
+
             .yellow::before {
-                background-image: linear-gradient(
-                    -80deg,
-                    $main-yellow-rgb-015,
-                    transparent 50%
-                );
+                background-image: linear-gradient(-80deg,
+                        $main-yellow-rgb-015,
+                        transparent 50%);
             }
+
             .yellow:nth-child(2n)::before {
-                background-image: linear-gradient(
-                    80deg,
-                    $main-yellow-rgb-015,
-                    transparent 50%
-                );
+                background-image: linear-gradient(80deg,
+                        $main-yellow-rgb-015,
+                        transparent 50%);
             }
         }
 
@@ -1060,22 +948,123 @@ body {
             // margin-block: 5rem;
         }
     }
-    
-  .sidebar {
-    z-index: 1000;
-    width: 20%;
-    height: 100vh;
-    position: fixed !important;
-    left: 0px;
-    background-color: $primaryCol;
-    .nav-link, .bi {
-        color: #ffffff;
+
+    .wrapper {
+        display: flex;
+        #sidebar {
+            width: 70px;
+            min-width: 70px;
+            z-index: 1000;
+            transition: all .25s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            background-color: $secondaryCol;
+            #toggle-btn {
+                background-color: transparent;
+                cursor: pointer;
+                border: 0;
+                padding: 1rem 1.5rem;
+                i {
+                    font-size: 1.5rem;
+                    color: white;
+                }
+            }
+            .sidebar-logo {
+                margin: auto 0;
+                a {
+                    color: white;
+                    font-size: 1.15rem;
+                    font-weight: 600;
+                }
+            }
+            .sidebar-nav {
+                padding: 2rem 0;
+                flex: 1 1 auto;
+                .sidebar-item {
+                    position: relative;
+                }
+                a.sidebar-link {
+                    padding: .6rem 1.5rem;
+                    color: white;
+                    display: block;
+                    font-size: 1.1rem;
+                    white-space: nowrap;
+                    border-left: 3px solid transparent;
+                    &:hover {
+                        background-color: $primaryCol;
+                        border-left: 3px solid white;
+                    }
+                    i {
+                        font-size: 1.2rem;
+                        margin-right: .75rem;
+                    }
+                }
+            }
+        }
+        #sidebar.expand {
+            width: 280px;
+            min-width: 280px;
+        }
+        #sidebar:not(.expand) .sidebar-logo, #sidebar:not(.expand) a.sidebar-link span {
+            display: none;
+        }
+        #sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
+            position: absolute;
+            top: 0;
+            left: 70px;
+            background-color: #bd150b;
+            padding: 0;
+            min-width: 15rem;
+            display: none;
+        }
+        #sidebar:not(.expand) .sidebar-item:hover .has-dropdown+.sidebar-dropdown {
+            display: block;
+            max-height: 15rem;
+            width: 100%;
+            opacity: 1;
+        }
+        #sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
+            border: solid;
+            border-width: 0 .075rem .075rem 0;
+            content: "";
+            display: inline-block;
+            padding: 2px;
+            position: absolute;
+            right: 1.5rem;
+            top: 1.25rem;
+            transform: rotate(-135deg);
+            transition: all .2s ease-out;
+        }
+        #sidebar.expand .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
+            transform: rotate(45deg);
+            transition: all .2s ease-out;
+        }
+        .main {
+            min-height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            transition: all 0.35s ease-in-out;
+            background-color: black;
+        }
     }
-  }
 
+    .sidebar {
+        z-index: 1000;
+        width: 20%;
+        height: 100vh;
+        position: fixed !important;
+        left: 0px;
+        background-color: $primaryCol;
 
-  .card-header-tabel {
-    background-color: $primaryCol;
+        .nav-link,
+        .bi {
+            color: #ffffff;
+        }
+    }
+
+    .card-header-tabel {
+        background-color: $primaryCol;
+
         h5 {
             color: #fff;
             display: flex;
@@ -1084,6 +1073,7 @@ body {
             margin-bottom: 0px;
         }
     }
+
     hr {
         margin-top: -20px;
         height: 10px;
@@ -1097,12 +1087,15 @@ body {
 .rjl {
     background-color: $secondaryCol;
     height: 90vh;
+
     .container-rjl {
         margin-top: 35px;
         width: 100%;
         display: flex;
-        justify-content: center; /* Menengahkan secara horizontal */
-        align-items: center; /* Menengahkan secara vertikal */
+        justify-content: center;
+        /* Menengahkan secara horizontal */
+        align-items: center;
+        /* Menengahkan secara vertikal */
     }
 
     .login-form {
@@ -1111,36 +1104,42 @@ body {
         padding: 20px;
         border: none;
         border-radius: 4px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         border-radius: 20px;
         display: flex;
         flex-direction: column;
-        align-items: center; /* Menengahkan secara vertikal */
+        align-items: center;
+        /* Menengahkan secara vertikal */
 
         .form-header {
             display: inline;
             align-items: center;
-            justify-content: space-between; /* Menengahkan secara horizontal */
+            justify-content: space-between;
+            /* Menengahkan secara horizontal */
             margin-bottom: 20px;
-            padding-inline: 20px; /* Tambahkan padding agar tidak terlalu rapat dengan tepi */
-            width: 100%; /* Mengisi lebar agar elemen lainnya tidak tumpang tindih */
+            padding-inline: 20px;
+            /* Tambahkan padding agar tidak terlalu rapat dengan tepi */
+            width: 100%;
+            /* Mengisi lebar agar elemen lainnya tidak tumpang tindih */
 
             h2 {
                 text-align: center;
                 color: #ffffff;
-                margin: 0; /* Menghapus margin bawaan */
+                margin: 0;
+                /* Menghapus margin bawaan */
             }
-            
+
             a {
-                align-self: flex-start; /* Memposisikan elemen <a> di pojok kiri atas */
+                align-self: flex-start;
+                /* Memposisikan elemen <a> di pojok kiri atas */
                 // background-color: #253560;
                 color: #fff;
                 // padding: 5px 10px; /* Sesuaikan padding sesuai kebutuhan */
                 border-radius: 4px;
                 text-decoration: none;
 
-                i{
-                    font-size:150%;
+                i {
+                    font-size: 150%;
                 }
             }
         }
@@ -1150,15 +1149,20 @@ body {
             height: 100px;
             display: flex;
             margin-bottom: 15px;
-            justify-items: center;      
-            align-self: center; /* Menengahkan vertikal */
+            justify-items: center;
+            align-self: center;
+            /* Menengahkan vertikal */
         }
 
         form {
-            display: flex; /* Menggunakan flexbox */
-            flex-direction: column; /* Menjadikan flex-direction menjadi column */
-            align-items: center; /* Menengahkan secara vertikal */
-            justify-content: center; /* Menengahkan secara horizontal */
+            display: flex;
+            /* Menggunakan flexbox */
+            flex-direction: column;
+            /* Menjadikan flex-direction menjadi column */
+            align-items: center;
+            /* Menengahkan secara vertikal */
+            justify-content: center;
+            /* Menengahkan secara horizontal */
             margin-inline: 20px;
             margin-block: 13px;
 
@@ -1168,16 +1172,18 @@ body {
                 padding-block: 10px;
                 width: 130%;
                 border: 1px solid #ddd;
-                border-radius: 25px;               
+                border-radius: 25px;
             }
-            
+
             button {
                 // margin-top: 20px;
                 @include tombol();
+
                 &:hover {
                     background-color: #0d193f;
                     color: #fff;
                 }
+
                 border: none;
                 padding-block: 10px;
                 padding-inline: 60px;
@@ -1186,30 +1192,247 @@ body {
 
             a {
                 color: #fff;
-                display: block; /* Mengubah elemen <a> menjadi blok agar bisa mendapatkan ruang secara penuh */
+                display: block;
+                /* Mengubah elemen <a> menjadi blok agar bisa mendapatkan ruang secara penuh */
                 margin-bottom: 10px;
             }
         }
 
-        // .is-invalid {
-        //     border-color: #dc3545; /* Set a clear error border color */
-        //     width: 108%;
-        // }
-
-        //   .invalid-feedback {
-        //     display: block; /* Ensure error message displays consistently */
-        //     color: #dc3545; /* Match error border color for visual association */
-        //     // margin-top: 0.25rem; /* Maintain spacing for readability */
-        //     font-size: 80%; /* Slightly smaller font for better hierarchy */
-        //   }
-          
-        //   .form-control:focus {
-        //     border-color: #8bd2ef; /* Adjust focus border color for better interaction feedback */
-        //     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Subtle focus shadow for improved usability */
-        //   }        
         strong {
             color: rgb(224, 33, 33);
             font-size: smaller;
         }
     }
+}
+
+
+
+.tabel {
+
+    #pengajuandokumen-table {
+        font-size: 0.85rem;
+        /* Ukuran font teks */
+    }
+
+    #pengajuandokumen-table .dataTables_scrollBody {
+        overflow-x: auto;
+        /* Menampilkan scrollbar horizontal jika diperlukan */
+    }
+
+    #pengajuandokumen-table_wrapper .dataTables_length,
+    #pengajuandokumen-table_wrapper .dataTables_filter,
+    #pengajuandokumen-table_wrapper .dataTables_info,
+    #pengajuandokumen-table_wrapper .dataTables_paginate {
+        font-size: 0.85rem;
+        /* Ukuran font untuk elemen-elemen kontrol tabel */
+    }
+
+    #pengajuandokumen-table_wrapper .dataTables_length select,
+    #pengajuandokumen-table_wrapper .dataTables_filter input {
+        padding: 0.25rem 0.5rem;
+        /* Padding untuk elemen-elemen input dan tombol */
+        font-size: 0.85rem;
+        /* Ukuran font untuk elemen-elemen input dan tombol */
+    }
+
+    #laporankeuangan-table {
+        font-size: 0.85rem;
+        /* Ukuran font teks */
+    }
+
+    #laporankeuangan-table .dataTables_scrollBody {
+        overflow-x: auto;
+        /* Menampilkan scrollbar horizontal jika diperlukan */
+    }
+
+    #laporankeuangan-table_wrapper .dataTables_length,
+    #laporankeuangan-table_wrapper .dataTables_filter,
+    #laporankeuangan-table_wrapper .dataTables_info,
+    #laporankeuangan-table_wrapper .dataTables_paginate {
+        font-size: 0.85rem;
+        /* Ukuran font untuk elemen-elemen kontrol tabel */
+    }
+
+    #laporankeuangan-table_wrapper .dataTables_length select,
+    #laporankeuangan-table_wrapper .dataTables_filter input {
+        padding: 0.25rem 0.5rem;
+        /* Padding untuk elemen-elemen input dan tombol */
+        font-size: 0.85rem;
+        /* Ukuran font untuk elemen-elemen input dan tombol */
+    }
+
+    #umkm-table {
+        font-size: 0.85rem;
+        /* Ukuran font teks */
+    }
+
+    #umkm-table .dataTables_scrollBody {
+        overflow-x: auto;
+        /* Menampilkan scrollbar horizontal jika diperlukan */
+    }
+
+    #umkm-table_wrapper .dataTables_length,
+    #umkm-table_wrapper .dataTables_filter,
+    #umkm-table_wrapper .dataTables_info,
+    #umkm-table_wrapper .dataTables_paginate {
+        font-size: 0.85rem;
+        /* Ukuran font untuk elemen-elemen kontrol tabel */
+    }
+
+    #umkm-table_wrapper .dataTables_length select,
+    #umkm-table_wrapper .dataTables_filter input {
+        padding: 0.25rem 0.5rem;
+        /* Padding untuk elemen-elemen input dan tombol */
+        font-size: 0.85rem;
+        /* Ukuran font untuk elemen-elemen input dan tombol */
+    }
+
+    #pengumuman-table {
+        font-size: 0.85rem;
+        /* Ukuran font teks */
+    }
+
+    #pengumuman-table .dataTables_scrollBody {
+        overflow-x: auto;
+        /* Menampilkan scrollbar horizontal jika diperlukan */
+    }
+
+    #pengumuman-table_wrapper .dataTables_length,
+    #pengumuman-table_wrapper .dataTables_filter,
+    #pengumuman-table_wrapper .dataTables_info,
+    #pengumuman-table_wrapper .dataTables_paginate {
+        font-size: 0.85rem;
+        /* Ukuran font untuk elemen-elemen kontrol tabel */
+    }
+
+    #pengumuman-table_wrapper .dataTables_length select,
+    #pengumuman-table_wrapper .dataTables_filter input {
+        padding: 0.25rem 0.5rem;
+        /* Padding untuk elemen-elemen input dan tombol */
+        font-size: 0.85rem;
+        /* Ukuran font untuk elemen-elemen input dan tombol */
+    }
+
+    #rw-table {
+        font-size: 0.85rem;
+        /* Ukuran font teks */
+    }
+
+    #rw-table .dataTables_scrollBody {
+        overflow-x: auto;
+        /* Menampilkan scrollbar horizontal jika diperlukan */
+    }
+
+    #rw-table_wrapper .dataTables_length,
+    #rw-table_wrapper .dataTables_filter,
+    #rw-table_wrapper .dataTables_info,
+    #rw-table_wrapper .dataTables_paginate {
+        font-size: 0.85rem;
+        /* Ukuran font untuk elemen-elemen kontrol tabel */
+    }
+
+    #rw-table_wrapper .dataTables_length select,
+    #rw-table_wrapper .dataTables_filter input {
+        padding: 0.25rem 0.5rem;
+        /* Padding untuk elemen-elemen input dan tombol */
+        font-size: 0.85rem;
+        /* Ukuran font untuk elemen-elemen input dan tombol */
+    }
+
+    #rt-table {
+        font-size: 0.85rem;
+        /* Ukuran font teks */
+    }
+
+    #rt-table .dataTables_scrollBody {
+        overflow-x: auto;
+        /* Menampilkan scrollbar horizontal jika diperlukan */
+    }
+
+    #rt-table_wrapper .dataTables_length,
+    #rt-table_wrapper .dataTables_filter,
+    #rt-table_wrapper .dataTables_info,
+    #rt-table_wrapper .dataTables_paginate {
+        font-size: 0.85rem;
+        /* Ukuran font untuk elemen-elemen kontrol tabel */
+    }
+
+    #rt-table_wrapper .dataTables_length select,
+    #rt-table_wrapper .dataTables_filter input {
+        padding: 0.25rem 0.5rem;
+        /* Padding untuk elemen-elemen input dan tombol */
+        font-size: 0.85rem;
+        /* Ukuran font untuk elemen-elemen input dan tombol */
+    }
+
+    #keluarga-table {
+        font-size: 0.85rem;
+        /* Ukuran font teks */
+    }
+
+    #keluarga-table .dataTables_scrollBody {
+        overflow-x: auto;
+        /* Menampilkan scrollbar horizontal jika diperlukan */
+    }
+
+    #keluarga-table_wrapper .dataTables_length,
+    #keluarga-table_wrapper .dataTables_filter,
+    #keluarga-table_wrapper .dataTables_info,
+    #keluarga-table_wrapper .dataTables_paginate {
+        font-size: 0.85rem;
+        /* Ukuran font untuk elemen-elemen kontrol tabel */
+    }
+
+    #keluarga-table_wrapper .dataTables_length select,
+    #keluarga-table_wrapper .dataTables_filter input {
+        padding: 0.25rem 0.5rem;
+        /* Padding untuk elemen-elemen input dan tombol */
+        font-size: 0.85rem;
+        /* Ukuran font untuk elemen-elemen input dan tombol */
+    }
+
+    #penduduk-table {
+        font-size: 0.85rem;
+        /* Ukuran font teks */
+    }
+
+    #penduduk-table .dataTables_scrollBody {
+        overflow-x: auto;
+        /* Menampilkan scrollbar horizontal jika diperlukan */
+    }
+
+    #penduduk-table_wrapper .dataTables_length,
+    #penduduk-table_wrapper .dataTables_filter,
+    #penduduk-table_wrapper .dataTables_info,
+    #penduduk-table_wrapper .dataTables_paginate {
+        font-size: 0.85rem;
+        /* Ukuran font untuk elemen-elemen kontrol tabel */
+    }
+
+    #penduduk-table_wrapper .dataTables_length select,
+    #penduduk-table_wrapper .dataTables_filter input {
+        padding: 0.25rem 0.5rem;
+        /* Padding untuk elemen-elemen input dan tombol */
+        font-size: 0.85rem;
+        /* Ukuran font untuk elemen-elemen input dan tombol */
+    }
+
+    // #laporankeuangan-table th,
+    // #laporankeuangan-table td {
+    //     // padding: 0.5rem; /* Padding */
+    // }
+
+    // #laporankeuangan-table th:first-child,
+    // #laporankeuangan-table td:first-child {
+    //     // padding-left: 0.75rem; /* Padding kiri untuk kolom pertama */
+    // }
+
+    // #laporankeuangan-table th:last-child,
+    // #laporankeuangan-table td:last-child {
+    //     // padding-right: 0.75rem; /* Padding kanan untuk kolom terakhir */
+    // }
+
+    // #laporankeuangan-table_wrapper .dataTables_paginate .paginate_button {
+    //     // margin: 0 0.1rem; /* Margin antara tombol paginasi */
+    // }
 }
