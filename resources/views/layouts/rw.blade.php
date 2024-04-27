@@ -94,22 +94,22 @@
                         <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item">
                                 <a href="{{ route('penduduk.manage') }}" class="sidebar-link">
-                                    <div class="ms-5">Penduduk</div>
+                                    <div class="single-item-menu">Penduduk</div>
                                 </a>
                             </li>
                             <li class="sidebar-item">
                                 <a href="{{ route('keluarga.manage') }}" class="sidebar-link">
-                                    <div class="ms-5">Keluarga</div>
+                                    <div class="single-item-menu">Keluarga</div>
                                 </a>
                             </li>
                             <li class="sidebar-item">
                                 <a href="{{ route('rt.manage') }}" class="sidebar-link">
-                                    <div class="ms-5">RT</div>
+                                    <div class="single-item-menu">RT</div>
                                 </a>
                             </li>
                             <li class="sidebar-item">
                                 <a href="{{ route('rw.manage') }}" class="sidebar-link">
-                                    <div class="ms-5">RW</div>
+                                    <div class="single-item-menu">RW</div>
                                 </a>
                             </li>
                         </ul>

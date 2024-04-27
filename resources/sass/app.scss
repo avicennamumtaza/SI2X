@@ -1008,9 +1008,15 @@ body {
         #sidebar.expand {
             width: 280px;
             min-width: 280px;
+            .single-item-menu {
+                margin-left: 36px;
+            }
         }
         #sidebar:not(.expand) .sidebar-logo, #sidebar:not(.expand) a.sidebar-link span {
             display: none;
+            .single-item-menu {
+                margin-left: 0px;
+            }
         }
         #sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
             position: absolute;
@@ -1018,7 +1024,7 @@ body {
             left: 70px;
             background-color: $secondaryCol;
             padding: 0;
-            min-width: 15rem;
+            min-width: 10rem;
             display: none;
         }
         #sidebar:not(.expand) .sidebar-item:hover .has-dropdown+.sidebar-dropdown {
