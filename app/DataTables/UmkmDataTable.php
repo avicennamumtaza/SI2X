@@ -38,13 +38,13 @@ class UmkmDataTable extends DataTable
                 data-bs-toggle="modal" data-bs-target="#editUmkmModal" class="edit btn btn-edit btn-sm">Edit</button>';
                 $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
                 ' . csrf_field() . '
-                ' . method_field('DELETE') . 
-                '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
+                ' . method_field('DELETE') .
+                    '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
                 </form>
                 </div>';
                 return $action;
             });
-    }    
+    }
 
     /**
      * Get the query source of dataTable.
@@ -79,22 +79,9 @@ class UmkmDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            // Column::computed('action')
-            //   ->exportable(false)
-            //   ->printable(false)
-            //   ->width(60)
-            //   ->addClass('text-center'),
             Column::make('id_umkm')->title('ID'),
             Column::make('nik_pemilik')->title('NIK Pemilik'),
             Column::make('nama_umkm')->title('Nama'),
-            Column::make('foto_umkm')->title('Foto'),
-            // Column::computed('foto_umkm')
-            //     ->exportable(false)
-            //     ->printable(false)
-            //     ->width(130)
-            //     // ->addClass('text-center')
-            //     ->title('Foto'),
-            // // ->width(10),
             Column::make('desc_umkm')->title('Deskripsi'),
             Column::make('status_umkm')->title('Status'),
             Column::computed('action')

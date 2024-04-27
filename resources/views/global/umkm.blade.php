@@ -13,7 +13,7 @@
 
                     <div class="modal-body justify-content-start text-start">
                         <!-- Form untuk pengajuan UMKM -->
-                        <form action="{{ route('umkm.store') }}" method="POST">
+                        <form action="{{ route('umkm.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <!-- Tambahkan input form sesuai kebutuhan -->
                             <div class="form-group mb-3">
@@ -73,6 +73,7 @@
                 </div>
             </div>
         </div>
+        
         <script>
             document.getElementById('ajukanUmkmButton').addEventListener('click', function() {
                 var modal = new bootstrap.Modal(document.getElementById('ajukanUmkmModal'));
