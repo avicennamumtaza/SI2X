@@ -7,35 +7,10 @@
         <p>Fitur pengumuman dalam SIRW adalah sebuah sarana menfasilitasi penyebaran informasi kepada penduduk. Pengumuman
             ini dapat berupa berbagai hal, mulai dari pengumuman kegiatan sosial, keamanan lingkungan, pemberitahuan acara,
             hingga informasi urgent seperti perubahan kebijakan pemerintah.</p>
-        <!-- <div class="row">
-                  <div class="row justify-content-center">
-                      <div class="card col-md-4 col-sm-6">
-                      One of two columns
-                      </div>
-                      <div class="card col-md-4 col-sm-6">
-                      One of two columns
-                      </div>
-                      <div class="card col-md-4 col-sm-6">
-                      One of two columns
-                      </div>
-                      <div class="card col-md-4 col-sm-6">
-                      One of two columns
-                      </div>
-                      <div class="card col-md-4 col-sm-6">
-                      One of two columns
-                      </div>
-                      <div class="card col-md-4 col-sm-6">
-                      One of two columns
-                      </div>
-                  </div>
-              </div> -->
-        <!-- <section class="light"> -->
-        <!-- <div class="container py-2"> -->
-        <!-- <div class="h1 text-center text-dark" id="pageHeaderTitle">My Cards Light</div> -->
         @foreach ($pengumumans as $pengumuman)
             <article class="postcard light blue">
                 <a class="postcard__img_link" href="#">
-                    <img class="postcard__img" src="https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900" alt="Image Title" />
+                    <img class="postcard__img" src="{{ $pengumuman->foto ? asset('Foto Pengumuman/' . $pengumuman->foto) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}" alt="Foto Pengumuman" />
                 </a>
                 <div class="postcard__text t-dark">
                     <h1 class="postcard__title blue"><a href="#">{{ $pengumuman->judul }}</a></h1>
