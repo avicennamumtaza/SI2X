@@ -66,7 +66,7 @@
                             <!-- Tambahkan input lainnya sesuai kebutuhan -->
                     </div>
                     <div class="modal-footer justify-content-end">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
                         <button type="submit" class="btn btn-success">Submit</button>
                     </div>
                     </form>
