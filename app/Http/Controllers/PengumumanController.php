@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\DataTables\PengumumanDataTable;
 use App\Models\Pengumuman;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class PengumumanController extends Controller
@@ -85,6 +86,7 @@ class PengumumanController extends Controller
 
     public function destroy(Pengumuman $pengumuman)
     {
+        File::delete(public_path('Foto Pengumuman') . '/' . $pengumuman->foto);
         $pengumuman->delete();
         return redirect()->back()
             ->with('success', 'Pengumuman berhasil dihapus.');
