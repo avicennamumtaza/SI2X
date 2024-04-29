@@ -72,7 +72,7 @@
                 Pengajuan Dokumen
             </h5>
         </div>
-        <hr>
+        <hr class="tabel">
         <div class="card-body">
             <div class="table-responsive tabel">
                 {{ $dataTable->table() }}

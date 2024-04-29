@@ -65,7 +65,7 @@
                 <button class="btn btn-add float-end" data-bs-toggle="modal" data-bs-target="#tambahRW">Tambah Data</button>
             </h5>
         </div>
-        <hr>
+        <hr class="tabel">
         <div class="card-body">
             <div class="table-responsive tabel">
                 {{ $dataTable->table() }}

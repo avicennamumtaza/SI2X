@@ -987,13 +987,17 @@ body {
                     background-color: lighten($color: $secondaryCol, $amount: 5%);
                     border-left: 3px solid white;
                 }
-                a.sidebar-link {
+                button.sidebar-link {
+                    background-color: $secondaryCol;
+                    padding-right: 162px;
+                }
+                .sidebar-link {
                     padding: .6rem 1.5rem;
                     color: white;
                     display: block;
                     font-size: 1.1rem;
                     white-space: nowrap;
-                    border-left: 3px solid transparent;
+                    border: 0;
                     &:hover {
                         background-color: $primaryCol;
                         border-left: 3px solid white;
@@ -1002,6 +1006,11 @@ body {
                         font-size: 1.2rem;
                         margin-right: .75rem;
                     }
+                }
+                .sidebar-footer {
+                    margin-top: 10px;
+                    padding-top: 10px;
+                    border-top: 3px solid orange;
                 }
             }
         }
@@ -1012,11 +1021,15 @@ body {
                 margin-left: 36px;
             }
         }
-        #sidebar:not(.expand) .sidebar-logo, #sidebar:not(.expand) a.sidebar-link span {
+        #sidebar:not(.expand) .sidebar-logo, #sidebar:not(.expand) .sidebar-link span {
             display: none;
             .single-item-menu {
                 margin-left: 0px;
             }
+        }
+        #sidebar:not(.expand) button.sidebar-link {
+            // width: 70px;
+            padding-right: 12px;
         }
         #sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
             position: absolute;
@@ -1084,12 +1097,21 @@ body {
         }
     }
 
-    hr {
+    hr.tabel {
         margin-top: -20px;
         height: 10px;
         color: orange;
         background-color: orange;
         border: orange;
+        opacity: 0.99;
+    }
+
+    hr {
+        margin-top: -20px;
+        height: 10px;
+        color: $secondaryCol;
+        background-color: $secondaryCol;
+        border: $secondaryCol;
         opacity: 0.99;
     }
 }
@@ -1103,9 +1125,7 @@ body {
         width: 100%;
         display: flex;
         justify-content: center;
-        /* Menengahkan secara horizontal */
         align-items: center;
-        /* Menengahkan secara vertikal */
     }
 
     .login-form {
