@@ -129,12 +129,19 @@
                             <span>UMKM</span>
                         </a>
                     </li>
-                    <div class="sidebar-footer">
-                        <a href="{{ route('logout') }}" class="sidebar-link">
-                            <i class="lni lni-exit"></i>
-                            <span>Keluar</span>
-                        </a>
-                    </div>
+                    <li class="sidebar-item">
+                        <div class="sidebar-footer">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button class="sidebar-link" type="submit">
+                                    {{-- <a href="{{ route('logout') }}" class="sidebar-link"> --}}
+                                        <i class="lni lni-exit"></i>
+                                        <span>Keluar</span>
+                                    {{-- </a> --}}
+                                </button>
+                            </form>
+                        </div>
+                    </li>
                 </ul>
             </aside>
             <div class="" style="background-color: black;
