@@ -8,6 +8,8 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\DataTables\UmkmDataTable;
+use Illuminate\Support\Facades\File;
+
 // use Illuminate\Console\View\Components\Alert;
 
 class UmkmController extends Controller
@@ -104,8 +106,9 @@ class UmkmController extends Controller
     }
 
     public function destroy($id)
-    {
+    {        
         $umkm = Umkm::findOrFail($id);
+        File::delete(public_path('Foto UMKM') . '/' . $umkm->foto_umkm);
         $umkm->delete();
         return redirect()->back()->with('success', 'Data berhasil dihapus!');
     }
