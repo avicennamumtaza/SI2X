@@ -59,7 +59,7 @@
         </div>
     </div>
 
-    <div class="card">
+    <div class="card card-tabel">
         <div class="card-header card-header-tabel p-4 mb-3">
             <h5>
                 UMKM

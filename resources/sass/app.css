@@ -775,28 +775,46 @@ body .wrapper #sidebar .sidebar-nav .active {
   background-color: #1a2e65;
   border-left: 3px solid white;
 }
-body .wrapper #sidebar .sidebar-nav a.sidebar-link {
+body .wrapper #sidebar .sidebar-nav button.sidebar-link {
+  background-color: #152551;
+  padding-right: 162px;
+}
+body .wrapper #sidebar .sidebar-nav .sidebar-link {
   padding: 0.6rem 1.5rem;
   color: white;
   display: block;
   font-size: 1.1rem;
   white-space: nowrap;
-  border-left: 3px solid transparent;
+  border: 0;
 }
-body .wrapper #sidebar .sidebar-nav a.sidebar-link:hover {
+body .wrapper #sidebar .sidebar-nav .sidebar-link:hover {
   background-color: #253560;
   border-left: 3px solid white;
 }
-body .wrapper #sidebar .sidebar-nav a.sidebar-link i {
+body .wrapper #sidebar .sidebar-nav .sidebar-link i {
   font-size: 1.2rem;
   margin-right: 0.75rem;
+}
+body .wrapper #sidebar .sidebar-nav .sidebar-footer {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 3px solid orange;
 }
 body .wrapper #sidebar.expand {
   width: 280px;
   min-width: 280px;
 }
-body .wrapper #sidebar:not(.expand) .sidebar-logo, body .wrapper #sidebar:not(.expand) a.sidebar-link span {
+body .wrapper #sidebar.expand .single-item-menu {
+  margin-left: 36px;
+}
+body .wrapper #sidebar:not(.expand) .sidebar-logo, body .wrapper #sidebar:not(.expand) .sidebar-link span {
   display: none;
+}
+body .wrapper #sidebar:not(.expand) .sidebar-logo .single-item-menu, body .wrapper #sidebar:not(.expand) .sidebar-link span .single-item-menu {
+  margin-left: 0px;
+}
+body .wrapper #sidebar:not(.expand) button.sidebar-link {
+  padding-right: 12px;
 }
 body .wrapper #sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
   position: absolute;
@@ -804,7 +822,7 @@ body .wrapper #sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
   left: 70px;
   background-color: #152551;
   padding: 0;
-  min-width: 15rem;
+  min-width: 10rem;
   display: none;
 }
 body .wrapper #sidebar:not(.expand) .sidebar-item:hover .has-dropdown + .sidebar-dropdown {
@@ -836,18 +854,6 @@ body .wrapper .main {
   transition: all 0.35s ease-in-out;
   background-color: black;
 }
-body .sidebar {
-  z-index: 1000;
-  width: 20%;
-  height: 100vh;
-  position: fixed !important;
-  left: 0px;
-  background-color: #253560;
-}
-body .sidebar .nav-link,
-body .sidebar .bi {
-  color: #ffffff;
-}
 body .card-header-tabel {
   background-color: #253560;
 }
@@ -858,12 +864,24 @@ body .card-header-tabel h5 {
   align-items: center;
   margin-bottom: 0px;
 }
-body hr {
+body hr.tabel {
   margin-top: -20px;
   height: 10px;
   color: orange;
   background-color: orange;
   border: orange;
+  opacity: 0.99;
+}
+body .card-tabel {
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+body hr {
+  margin-top: -20px;
+  height: 10px;
+  color: #152551;
+  background-color: #152551;
+  border: #152551;
   opacity: 0.99;
 }
 
@@ -876,9 +894,7 @@ body hr {
   width: 100%;
   display: flex;
   justify-content: center;
-  /* Menengahkan secara horizontal */
   align-items: center;
-  /* Menengahkan secara vertikal */
 }
 .rjl .login-form {
   background-color: #4461AE;

@@ -206,8 +206,7 @@ body {
         @include heading-center();
     }
 
-    font-family: "Poppins",
-    sans-serif;
+    font-family: "Poppins", sans-serif;
     width: 99%;
     background-color: #E9E9E9;
     height: 100vh;
@@ -960,6 +959,7 @@ body {
             flex-direction: column;
             background-color: $secondaryCol;
             #toggle-btn {
+                // position: fixed;
                 background-color: transparent;
                 cursor: pointer;
                 border: 0;
@@ -970,6 +970,7 @@ body {
                 }
             }
             .sidebar-logo {
+                // position: fixed;
                 margin: auto 0;
                 a {
                     color: white;
@@ -978,6 +979,7 @@ body {
                 }
             }
             .sidebar-nav {
+                // position: fixed;
                 padding: 2rem 0;
                 flex: 1 1 auto;
                 .sidebar-item {
@@ -1071,19 +1073,19 @@ body {
         }
     }
 
-    .sidebar {
-        z-index: 1000;
-        width: 20%;
-        height: 100vh;
-        position: fixed !important;
-        left: 0px;
-        background-color: $primaryCol;
+    // .sidebar {
+    //     z-index: 1000;
+    //     width: 20%;
+    //     height: 100vh;
+    //     position: fixed !important;
+    //     left: 0px;
+    //     background-color: $primaryCol;
 
-        .nav-link,
-        .bi {
-            color: #ffffff;
-        }
-    }
+    //     .nav-link,
+    //     .bi {
+    //         color: #ffffff;
+    //     }
+    // }
 
     .card-header-tabel {
         background-color: $primaryCol;
@@ -1104,6 +1106,10 @@ body {
         background-color: orange;
         border: orange;
         opacity: 0.99;
+    }
+
+    .card-tabel {
+        max-width: fit-content;
     }
 
     hr {
@@ -1238,7 +1244,6 @@ body {
 
 
 .tabel {
-
     #pengajuandokumen-table {
         font-size: 0.85rem;
         /* Ukuran font teks */

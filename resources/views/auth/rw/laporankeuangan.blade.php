@@ -131,7 +131,7 @@
         </div>
     </div>
 
-    <div class="card" style="margin-left: 63px">
+    <div class="card card-tabel">
         <div class="card-header card-header-tabel p-4 mb-3">
             <h5>
                 Laporan Keuangan
