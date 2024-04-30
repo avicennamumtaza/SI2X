@@ -99,11 +99,11 @@ Route::put('/keluarga/{keluarga}', [KeluargaController::class, 'update'])->name(
 Route::delete('/keluarga/{keluarga}', [KeluargaController::class, 'destroy'])->name('keluarga.destroy')->middleware('auth');
 
 // manage user
-Route::get('/users', [UsersController::class, 'list'])->name('users.manage');
-Route::post('/users', [UsersController::class, 'store'])->name('users.store');
-Route::get('/users/edit/{users}', [UsersController::class, 'edit'])->name('users.edit');
-Route::put('/users/update/{users}', [UsersController::class, 'update'])->name('users.update');
-Route::delete('/users/{users}', [UsersController::class, 'destroy'])->name('users.destroy');
+Route::get('/users', [UsersController::class, 'list'])->name('users.manage')->middleware('isRw');
+Route::post('/users', [UsersController::class, 'store'])->name('users.store')->middleware('isRw');
+//Route::get('/users/edit/{users}', [UsersController::class, 'edit'])->name('users.edit')->middleware('isRw');
+Route::put('/users/update/{users}', [UsersController::class, 'update'])->name('users.update')->middleware('isRw');
+Route::delete('/users/{users}', [UsersController::class, 'destroy'])->name('users.destroy')->middleware('isRw');
 // manage rt
 Route::get('/pendataan/rt', [RTController::class, 'list'])->name('rt.manage')->middleware('isRw');
 Route::get('/pendataan/rt/{rt}/edit', [RTController::class, 'edit'])->name('rt.edit')->middleware('isRw');
