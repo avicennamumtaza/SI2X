@@ -992,6 +992,7 @@ body {
                 button.sidebar-link {
                     background-color: $secondaryCol;
                     padding-right: 162px;
+                    transition: all .25s ease-in-out;
                 }
                 .sidebar-link {
                     padding: .6rem 1.5rem;

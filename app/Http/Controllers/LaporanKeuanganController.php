@@ -60,6 +60,9 @@ class LaporanKeuanganController extends Controller
             'tanggal.date' => 'Tanggal harus dalam format tanggal yang benar.',
         ]);
 
+        // Mengambil data terbaru kolom saldo
+        $latestSaldo = LaporanKeuangan::latest()->value('saldo');
+
         try {
             $laporanKeuangan = new LaporanKeuangan();
             // $laporanKeuangan->id_laporankeuangan = $request->id_laporankeuangan;
@@ -67,7 +70,11 @@ class LaporanKeuanganController extends Controller
             $laporanKeuangan->nominal = $request->nominal;
             $laporanKeuangan->detail = $request->detail;
             $laporanKeuangan->tanggal = $request->tanggal;
-            $laporanKeuangan->saldo = $request->saldo;
+            if (!$laporanKeuangan->is_income || $laporanKeuangan->is_income == 0) {
+                $laporanKeuangan->saldo = $latestSaldo - $laporanKeuangan->nominal;
+            } else if ($laporanKeuangan->is_income === true || $laporanKeuangan->is_income == 1) {
+                $laporanKeuangan->saldo = $latestSaldo + $laporanKeuangan->nominal;
+            }
             $laporanKeuangan->pihak_terlibat = $request->pihak_terlibat;
             $laporanKeuangan->save();
             return redirect()->back()->with('success', 'Laporan Keuangan berhasil ditambahkan!');
@@ -83,6 +90,59 @@ class LaporanKeuanganController extends Controller
         return view('laporankeuangan.edit', compact('laporankeuangan'));
     }
 
+    // public function update(Request $request, LaporanKeuangan $laporankeuangan)
+    // {
+    //     $request->validate([
+    //         // 'id_laporankeuangan' => 'required', // (tidak bisa mengedit id as primary key, cek view)
+    //         'pihak_terlibat' => 'required|string|min:2|max:49',
+    //         // 'saldo' => 'required', // (tidak bisa mengedit saldo, cek view)
+    //         'is_income' => 'required',
+    //         'nominal' => 'required|integer|min_digits:3|max_digits:10',
+    //         'detail' => 'required|string',
+    //         'tanggal' => 'required|date',
+    //     ], [
+    //         'pihak_terlibat.required' => 'Pihak terlibat wajib diisi.',
+    //         'pihak_terlibat.string' => 'Pihak terlibat harus berupa teks.',
+    //         'pihak_terlibat.min' => 'Pihak terlibat harus memiliki panjang minimal :min karakter.',
+    //         'pihak_terlibat.max' => 'Pihak terlibat harus memiliki panjang maksimal :max karakter.',
+    //         'is_income.required' => 'Status pendapatan/wyidrawajib diisi.',
+    //         'nominal.required' => 'Nominal wajib diisi.',
+    //         'nominal.integer' => 'Nominal harus berupa bilangan bulat.',
+    //         'nominal.min_digits' => 'Nominal harus memiliki panjang minimal :min digit.',
+    //         'nominal.max_digits' => 'Nominal harus memiliki panjang maksimal :max digit.',
+    //         'detail.required' => 'Detail wajib diisi.',
+    //         'detail.string' => 'Detail harus berupa teks.',
+    //         'tanggal.required' => 'Tanggal wajib diisi.',
+    //         'tanggal.date' => 'Tanggal harus dalam format tanggal yang benar.',
+    //     ]);
+
+    //     try {
+    //         // Setel nilai atribut laporan keuangan berdasarkan request
+    //         $laporankeuangan->pihak_terlibat = $request->pihak_terlibat;
+    //         $laporankeuangan->is_income = $request->is_income;
+    //         $laporankeuangan->nominal = $request->nominal;
+    //         $laporankeuangan->detail = $request->detail;
+    //         $laporankeuangan->tanggal = $request->tanggal;
+
+    //         // Lakukan perhitungan saldo
+    //         $latestSaldo = $laporankeuangan->saldo;
+    //         if (!$request->is_income || $request->is_income == 0) {
+    //             $laporankeuangan->saldo = $latestSaldo - $request->nominal;
+    //         } else if ($request->is_income === true || $request->is_income == 1) {
+    //             $laporankeuangan->saldo = $latestSaldo + $request->nominal;
+    //         }
+
+    //         // Simpan perubahan ke dalam database
+    //         $laporankeuangan->save();
+
+    //         return redirect()->route('laporankeuangan.manage')
+    //             ->with('success', 'Laporan Keuangan berhasil diperbarui.');
+    //     } catch (\Exception $e) {
+    //         Alert::error('Error', $e->getMessage());
+    //         return redirect()->back();
+    //     }
+    // }
+
     public function update(Request $request, LaporanKeuangan $laporankeuangan)
     {
 
@@ -90,8 +150,8 @@ class LaporanKeuanganController extends Controller
             // 'id_laporankeuangan' => 'required', // (tidak bisa mengedit id as primary key, cek view)
             'pihak_terlibat' => 'required|string|min:2|max:49',
             // 'saldo' => 'required', // (tidak bisa mengedit saldo, cek view)
-            'is_income' => 'required',
-            'nominal' => 'required|integer|min_digits:3|max_digits:10',
+            // 'is_income' => 'required',
+            // 'nominal' => 'required|integer|min_digits:3|max_digits:10',
             'detail' => 'required|string',
             'tanggal' => 'required|date',
         ], [
@@ -99,11 +159,11 @@ class LaporanKeuanganController extends Controller
             'pihak_terlibat.string' => 'Pihak terlibat harus berupa teks.',
             'pihak_terlibat.min' => 'Pihak terlibat harus memiliki panjang minimal :min karakter.',
             'pihak_terlibat.max' => 'Pihak terlibat harus memiliki panjang maksimal :max karakter.',
-            'is_income.required' => 'Status pendapatan/wyidrawajib diisi.',
-            'nominal.required' => 'Nominal wajib diisi.',
-            'nominal.integer' => 'Nominal harus berupa bilangan bulat.',
-            'nominal.min_digits' => 'Nominal harus memiliki panjang minimal :min digit.',
-            'nominal.max_digits' => 'Nominal harus memiliki panjang maksimal :max digit.',
+            // 'is_income.required' => 'Status pendapatan/wyidrawajib diisi.',
+            // 'nominal.required' => 'Nominal wajib diisi.',
+            // 'nominal.integer' => 'Nominal harus berupa bilangan bulat.',
+            // 'nominal.min_digits' => 'Nominal harus memiliki panjang minimal :min digit.',
+            // 'nominal.max_digits' => 'Nominal harus memiliki panjang maksimal :max digit.',
             'detail.required' => 'Detail wajib diisi.',
             'detail.string' => 'Detail harus berupa teks.',
             'tanggal.required' => 'Tanggal wajib diisi.',
@@ -127,7 +187,7 @@ class LaporanKeuanganController extends Controller
     {
         try {
             $laporankeuangan = LaporanKeuangan::findOrFail($id_laporankeuangan);
-            confirmDelete('Apakah Anda yakin ingin menghapus data ini?', 'Data yang sudah terhapus tidak bisa dikembalikan'); 
+            confirmDelete('Apakah Anda yakin ingin menghapus data ini?', 'Data yang sudah terhapus tidak bisa dikembalikan');
             // PESAN DI ATAS BELUM BISA MUNCUL, JADI NILAI DEFAULT confirmDelete DISET TRUEEE"
             if (confirmDelete('Apakah Anda yakin ingin menghapus data ini?', 'Data yang sudah terhapus tidak bisa dikembalikan')) {
                 $laporankeuangan->delete();

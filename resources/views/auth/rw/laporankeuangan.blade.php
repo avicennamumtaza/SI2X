@@ -21,7 +21,7 @@
                                  required readonly disabled>
                         </div>
 
-                        <div class="form-group mb-3">
+                        {{-- <div class="form-group mb-3">
                             <label for="is_income" class="form-label">Jenis Laporan</label>
                             <select class="form-select" id="is_income" name="is_income" required>
                                 <option value="" selected disabled>Pilih Jenis Laporan Keuangan</option>
@@ -34,7 +34,7 @@
                             <label for="nominal" class="form-label text-start">Nominal</label>
                             <input type="text" class="form-control" id="nominal" name="nominal"
                                  required>
-                        </div>
+                        </div> --}}
 
                         <div class="form-group mb-3">
                             <label for="detail" class="form-label text-start">Detail</label>
@@ -54,11 +54,11 @@
                                  required>
                         </div>
 
-                        <div class="form-group mb-3">
+                        {{-- <div class="form-group mb-3">
                             <label for="saldo" class="form-label text-start">saldo</label>
                             <input type="text" class="form-control" id="saldo" name="saldo"
                                  required readonly disabled>
-                        </div>
+                        </div> --}}
 
                         <div class="modal-footer justify-content-end">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
@@ -114,11 +114,11 @@
                                 placeholder="Masukkan Pihak Terlibat" required>
                         </div>
 
-                        <div class="form-group mb-3">
-                            <label for="saldo" class="form-label">Saldo</label>
-                            <input type="number" class="form-control" id="saldo" name="saldo"
-                                placeholder="Masukkan Saldo" required>
-                        </div>
+                        {{-- <div class="form-group mb-3">
+                            <label for="saldo" class="form-label text-start">Saldo</label>
+                            <input type="text" class="form-control" id="saldo" name="saldo"
+                                placeholder="Saldo dikalkulasi secara otomatis" readonly disabled>
+                        </div> --}}
 
                         <!-- Tambahkan input lainnya sesuai kebutuhan -->
                 </div>

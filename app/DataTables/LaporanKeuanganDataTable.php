@@ -82,9 +82,9 @@ class LaporanKeuanganDataTable extends DataTable
     {
         return [
             Column::make('id_laporankeuangan')->title('Nomor')->width(1),
+            Column::make('tanggal')->title('Tanggal')->width(10),
             Column::make('is_income')->title('Jenis')->width(10),
             Column::make('nominal')->title('Nominal')->width(10),
-            Column::make('tanggal')->title('Tanggal')->width(10),
             Column::make('pihak_terlibat')->title('Pihak Terlibat')->width(111),
             Column::make('detail')->title('Detail Laporan')->width(172), // Mengatur lebar kolom "Detail"
             Column::make('saldo')->title('Saldo')->width(10),
