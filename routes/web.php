@@ -9,6 +9,8 @@ use App\Http\Controllers\UmkmController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\RWController;
 use App\Http\Controllers\RTController;
+use App\Http\Controllers\UsersController;
+use App\Models\PengajuanDokumen;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -96,6 +98,12 @@ Route::get('/keluarga/{keluarga}/edit', [KeluargaController::class, 'edit'])->na
 Route::put('/keluarga/{keluarga}', [KeluargaController::class, 'update'])->name('keluarga.update')->middleware('auth');
 Route::delete('/keluarga/{keluarga}', [KeluargaController::class, 'destroy'])->name('keluarga.destroy')->middleware('auth');
 
+// manage user
+Route::get('/users', [UsersController::class, 'list'])->name('users.manage')->middleware('isRw');
+Route::post('/users', [UsersController::class, 'store'])->name('users.store')->middleware('isRw');
+//Route::get('/users/edit/{users}', [UsersController::class, 'edit'])->name('users.edit')->middleware('isRw');
+Route::put('/users/update/{users}', [UsersController::class, 'update'])->name('users.update')->middleware('isRw');
+Route::delete('/users/{users}', [UsersController::class, 'destroy'])->name('users.destroy')->middleware('isRw');
 // manage rt
 Route::get('/pendataan/rt', [RTController::class, 'list'])->name('rt.manage')->middleware('isRw');
 Route::get('/pendataan/rt/{rt}/edit', [RTController::class, 'edit'])->name('rt.edit')->middleware('isRw');

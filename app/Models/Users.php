@@ -24,6 +24,7 @@ class Users extends Authenticatable
         'role',
         'email',
         'password',
+        'confirm_password',
     ];
 
     public function penduduk(): BelongsTo
