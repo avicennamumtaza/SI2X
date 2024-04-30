@@ -4,147 +4,19 @@
 @import "datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css";
 @import "datatables.net-select-bs5/css/select.bootstrap5.css";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-.tabel #pengajuandokumen-table {
-  font-size: 0.85rem; /* Ukuran font teks */
+a {
+  text-decoration: none;
 }
-.tabel #pengajuandokumen-table .dataTables_scrollBody {
-  overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
-}
-.tabel #pengajuandokumen-table_wrapper .dataTables_length,
-.tabel #pengajuandokumen-table_wrapper .dataTables_filter,
-.tabel #pengajuandokumen-table_wrapper .dataTables_info,
-.tabel #pengajuandokumen-table_wrapper .dataTables_paginate {
-  font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
-}
-.tabel #pengajuandokumen-table_wrapper .dataTables_length select,
-.tabel #pengajuandokumen-table_wrapper .dataTables_filter input {
-  padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
-  font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
-}
-.tabel #laporankeuangan-table {
-  font-size: 0.85rem; /* Ukuran font teks */
-}
-.tabel #laporankeuangan-table .dataTables_scrollBody {
-  overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
-}
-.tabel #laporankeuangan-table_wrapper .dataTables_length,
-.tabel #laporankeuangan-table_wrapper .dataTables_filter,
-.tabel #laporankeuangan-table_wrapper .dataTables_info,
-.tabel #laporankeuangan-table_wrapper .dataTables_paginate {
-  font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
-}
-.tabel #laporankeuangan-table_wrapper .dataTables_length select,
-.tabel #laporankeuangan-table_wrapper .dataTables_filter input {
-  padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
-  font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
-}
-.tabel #umkm-table {
-  font-size: 0.85rem; /* Ukuran font teks */
-}
-.tabel #umkm-table .dataTables_scrollBody {
-  overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
-}
-.tabel #umkm-table_wrapper .dataTables_length,
-.tabel #umkm-table_wrapper .dataTables_filter,
-.tabel #umkm-table_wrapper .dataTables_info,
-.tabel #umkm-table_wrapper .dataTables_paginate {
-  font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
-}
-.tabel #umkm-table_wrapper .dataTables_length select,
-.tabel #umkm-table_wrapper .dataTables_filter input {
-  padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
-  font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
-}
-.tabel #pengumuman-table {
-  font-size: 0.85rem; /* Ukuran font teks */
-}
-.tabel #pengumuman-table .dataTables_scrollBody {
-  overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
-}
-.tabel #pengumuman-table_wrapper .dataTables_length,
-.tabel #pengumuman-table_wrapper .dataTables_filter,
-.tabel #pengumuman-table_wrapper .dataTables_info,
-.tabel #pengumuman-table_wrapper .dataTables_paginate {
-  font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
-}
-.tabel #pengumuman-table_wrapper .dataTables_length select,
-.tabel #pengumuman-table_wrapper .dataTables_filter input {
-  padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
-  font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
-}
-.tabel #rw-table {
-  font-size: 0.85rem; /* Ukuran font teks */
-}
-.tabel #rw-table .dataTables_scrollBody {
-  overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
-}
-.tabel #rw-table_wrapper .dataTables_length,
-.tabel #rw-table_wrapper .dataTables_filter,
-.tabel #rw-table_wrapper .dataTables_info,
-.tabel #rw-table_wrapper .dataTables_paginate {
-  font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
-}
-.tabel #rw-table_wrapper .dataTables_length select,
-.tabel #rw-table_wrapper .dataTables_filter input {
-  padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
-  font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
-}
-.tabel #rt-table {
-  font-size: 0.85rem; /* Ukuran font teks */
-}
-.tabel #rt-table .dataTables_scrollBody {
-  overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
-}
-.tabel #rt-table_wrapper .dataTables_length,
-.tabel #rt-table_wrapper .dataTables_filter,
-.tabel #rt-table_wrapper .dataTables_info,
-.tabel #rt-table_wrapper .dataTables_paginate {
-  font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
-}
-.tabel #rt-table_wrapper .dataTables_length select,
-.tabel #rt-table_wrapper .dataTables_filter input {
-  padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
-  font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
-}
-.tabel #keluarga-table {
-  font-size: 0.85rem; /* Ukuran font teks */
-}
-.tabel #keluarga-table .dataTables_scrollBody {
-  overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
-}
-.tabel #keluarga-table_wrapper .dataTables_length,
-.tabel #keluarga-table_wrapper .dataTables_filter,
-.tabel #keluarga-table_wrapper .dataTables_info,
-.tabel #keluarga-table_wrapper .dataTables_paginate {
-  font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
-}
-.tabel #keluarga-table_wrapper .dataTables_length select,
-.tabel #keluarga-table_wrapper .dataTables_filter input {
-  padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
-  font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
-}
-.tabel #penduduk-table {
-  font-size: 0.85rem; /* Ukuran font teks */
-}
-.tabel #penduduk-table .dataTables_scrollBody {
-  overflow-x: auto; /* Menampilkan scrollbar horizontal jika diperlukan */
-}
-.tabel #penduduk-table_wrapper .dataTables_length,
-.tabel #penduduk-table_wrapper .dataTables_filter,
-.tabel #penduduk-table_wrapper .dataTables_info,
-.tabel #penduduk-table_wrapper .dataTables_paginate {
-  font-size: 0.85rem; /* Ukuran font untuk elemen-elemen kontrol tabel */
-}
-.tabel #penduduk-table_wrapper .dataTables_length select,
-.tabel #penduduk-table_wrapper .dataTables_filter input {
-  padding: 0.25rem 0.5rem; /* Padding untuk elemen-elemen input dan tombol */
-  font-size: 0.85rem; /* Ukuran font untuk elemen-elemen input dan tombol */
+
+li {
+  list-style: none;
 }
 
 .aktif {
   width: 220px;
   border-radius: 10px;
-  background-color: #152551; /* Ganti dengan warna yang diinginkan */
+  background-color: #152551;
+  /* Ganti dengan warna yang diinginkan */
 }
 .aktif p {
   color: white;
@@ -220,19 +92,23 @@ body .background-image {
   left: 710px;
   width: 32%;
   height: auto;
-  background-color: transparent; /* Warna latar belakang jika gambar tidak tersedia */
+  background-color: transparent;
+  /* Warna latar belakang jika gambar tidak tersedia */
 }
 @media screen and (max-width: 991px) {
   body .background-image {
-    position: relative; /* Mengubah posisi menjadi relatif untuk menempatkan di bawah container */
+    position: relative;
+    /* Mengubah posisi menjadi relatif untuk menempatkan di bawah container */
     top: auto;
     left: 300px;
-    padding-top: 90px; /* Atur jarak antara gambar dan container */
+    padding-top: 90px;
+    /* Atur jarak antara gambar dan container */
   }
 }
 @media screen and (max-width: 500px) {
   body .background-image {
-    position: relative; /* Mengubah posisi menjadi relatif untuk menempatkan di bawah container */
+    position: relative;
+    /* Mengubah posisi menjadi relatif untuk menempatkan di bawah container */
     top: auto;
     left: 145px;
     padding-top: 90px;
@@ -375,8 +251,10 @@ body .container-stats .card {
   border: none;
 }
 body .container-stats .card .card-icon {
-  font-size: 4rem; /* Ukuran ikon diperbesar */
-  margin-bottom: 5px; /* Jarak antara ikon dan angka */
+  font-size: 4rem;
+  /* Ukuran ikon diperbesar */
+  margin-bottom: 5px;
+  /* Jarak antara ikon dan angka */
 }
 body .container-stats .card .span-head {
   font-size: 125%;
@@ -407,8 +285,10 @@ body .container-head .card {
   border: none;
 }
 body .container-head .card .card-icon {
-  font-size: 3rem; /* Ukuran ikon diperbesar */
-  margin-bottom: 10px; /* Jarak antara ikon dan angka */
+  font-size: 3rem;
+  /* Ukuran ikon diperbesar */
+  margin-bottom: 10px;
+  /* Jarak antara ikon dan angka */
 }
 body .container-head .card .span-head {
   font-size: 90%;
@@ -477,8 +357,10 @@ body .container-layanan .card:hover {
   color: #253560;
 }
 body .container-layanan .card .card-icon {
-  font-size: 4rem; /* Ukuran ikon diperbesar */
-  margin-bottom: 5px; /* Jarak antara ikon dan angka */
+  font-size: 4rem;
+  /* Ukuran ikon diperbesar */
+  margin-bottom: 5px;
+  /* Jarak antara ikon dan angka */
 }
 body .container-layanan .card .span-head {
   font-size: 130%;
@@ -490,34 +372,45 @@ body .container-layanan .card .span-head {
     margin-top: 7rem;
   }
 }
-body .container-umkm, body .container-p {
+body .container-umkm,
+body .container-p {
   background-color: transparent;
   text-align: center;
 }
-body .container-umkm .heading-center, body .container-p .heading-center {
+body .container-umkm .heading-center,
+body .container-p .heading-center {
   margin-top: 6rem;
 }
-body .container-umkm .card-container, body .container-p .card-container {
+body .container-umkm .card-container,
+body .container-p .card-container {
   text-align: justify;
   margin-top: 40px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Menentukan jumlah kolom dan lebar minimum dan maksimum */
-  gap: 30px; /* Jarak antar kartu */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* Menentukan jumlah kolom dan lebar minimum dan maksimum */
+  gap: 30px;
+  /* Jarak antar kartu */
 }
-body .container-umkm .fixedButton, body .container-p .fixedButton {
+body .container-umkm .fixedButton,
+body .container-p .fixedButton {
   position: fixed;
-  bottom: 20px; /* Ubah sesuai dengan jarak dari bawah yang diinginkan */
-  right: 20px; /* Ubah sesuai dengan jarak dari kanan yang diinginkan */
-  z-index: 999; /* Atur nilai z-index agar tombol muncul di depan kartu-kartu */
+  bottom: 20px;
+  /* Ubah sesuai dengan jarak dari bawah yang diinginkan */
+  right: 20px;
+  /* Ubah sesuai dengan jarak dari kanan yang diinginkan */
+  z-index: 999;
+  /* Atur nilai z-index agar tombol muncul di depan kartu-kartu */
 }
-body .container-umkm .roundedFixedBtn, body .container-p .roundedFixedBtn {
+body .container-umkm .roundedFixedBtn,
+body .container-p .roundedFixedBtn {
   border-radius: 25px;
   border-style: double;
   border-color: #ffffff;
   background-color: #152551;
   cursor: pointer;
 }
-body .container-umkm .roundedFixedBtn button, body .container-p .roundedFixedBtn button {
+body .container-umkm .roundedFixedBtn button,
+body .container-p .roundedFixedBtn button {
   background-color: #253560;
   border-radius: 2em;
   padding-inline: 20px;
@@ -533,10 +426,12 @@ body .container-umkm .roundedFixedBtn button, body .container-p .roundedFixedBtn
   font-size: 1em;
   font-weight: 500;
 }
-body .container-umkm .roundedFixedBtn button i, body .container-p .roundedFixedBtn button i {
+body .container-umkm .roundedFixedBtn button i,
+body .container-p .roundedFixedBtn button i {
   margin-right: 11px;
 }
-body .container-umkm .roundedFixedBtn button:hover, body .container-p .roundedFixedBtn button:hover {
+body .container-umkm .roundedFixedBtn button:hover,
+body .container-p .roundedFixedBtn button:hover {
   background-color: #ffffff;
   border: 1px solid black;
   font-weight: 700;
@@ -577,7 +472,8 @@ body .container-p body {
 body .container-p .light {
   background: #f3f5f7;
 }
-body .container-p a, body .container-p a:hover {
+body .container-p a,
+body .container-p a:hover {
   text-decoration: none;
   transition: color 0.3s ease-in-out;
 }
@@ -606,7 +502,8 @@ body .container-p .postcard .t-dark {
 body .container-p .postcard a {
   color: inherit;
 }
-body .container-p .postcard h1, body .container-p .postcard .h1 {
+body .container-p .postcard h1,
+body .container-p .postcard .h1 {
   margin-bottom: 0.5rem;
   font-weight: 500;
   line-height: 1.2;
@@ -837,16 +734,125 @@ body .container-p .yellow:nth-child(2n)::before {
     background-image: linear-gradient(80deg, rgba(189, 187, 73, 0.1), transparent 50%);
   }
 }
-body .sidebar {
-  z-index: 1000;
-  width: 20%;
-  height: 100vh;
-  position: fixed !important;
-  left: 0px;
-  background-color: #253560;
+body .wrapper {
+  display: flex;
 }
-body .sidebar .nav-link, body .sidebar .bi {
-  color: #ffffff;
+body .wrapper #sidebar {
+  width: 70px;
+  min-width: 70px;
+  z-index: 1000;
+  transition: all 0.25s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  background-color: #152551;
+}
+body .wrapper #sidebar #toggle-btn {
+  background-color: transparent;
+  cursor: pointer;
+  border: 0;
+  padding: 1rem 1.5rem;
+}
+body .wrapper #sidebar #toggle-btn i {
+  font-size: 1.5rem;
+  color: white;
+}
+body .wrapper #sidebar .sidebar-logo {
+  margin: auto 0;
+}
+body .wrapper #sidebar .sidebar-logo a {
+  color: white;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+body .wrapper #sidebar .sidebar-nav {
+  padding: 2rem 0;
+  flex: 1 1 auto;
+}
+body .wrapper #sidebar .sidebar-nav .sidebar-item {
+  position: relative;
+}
+body .wrapper #sidebar .sidebar-nav .active {
+  background-color: #1a2e65;
+  border-left: 3px solid white;
+}
+body .wrapper #sidebar .sidebar-nav button.sidebar-link {
+  background-color: #152551;
+  padding-right: 162px;
+}
+body .wrapper #sidebar .sidebar-nav .sidebar-link {
+  padding: 0.6rem 1.5rem;
+  color: white;
+  display: block;
+  font-size: 1.1rem;
+  white-space: nowrap;
+  border: 0;
+}
+body .wrapper #sidebar .sidebar-nav .sidebar-link:hover {
+  background-color: #253560;
+  border-left: 3px solid white;
+}
+body .wrapper #sidebar .sidebar-nav .sidebar-link i {
+  font-size: 1.2rem;
+  margin-right: 0.75rem;
+}
+body .wrapper #sidebar .sidebar-nav .sidebar-footer {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 3px solid orange;
+}
+body .wrapper #sidebar.expand {
+  width: 280px;
+  min-width: 280px;
+}
+body .wrapper #sidebar.expand .single-item-menu {
+  margin-left: 36px;
+}
+body .wrapper #sidebar:not(.expand) .sidebar-logo, body .wrapper #sidebar:not(.expand) .sidebar-link span {
+  display: none;
+}
+body .wrapper #sidebar:not(.expand) .sidebar-logo .single-item-menu, body .wrapper #sidebar:not(.expand) .sidebar-link span .single-item-menu {
+  margin-left: 0px;
+}
+body .wrapper #sidebar:not(.expand) button.sidebar-link {
+  padding-right: 12px;
+}
+body .wrapper #sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
+  position: absolute;
+  top: 0;
+  left: 70px;
+  background-color: #152551;
+  padding: 0;
+  min-width: 10rem;
+  display: none;
+}
+body .wrapper #sidebar:not(.expand) .sidebar-item:hover .has-dropdown + .sidebar-dropdown {
+  display: block;
+  max-height: 15rem;
+  width: 100%;
+  opacity: 1;
+}
+body .wrapper #sidebar.expand .sidebar-link[data-bs-toggle=collapse]::after {
+  border: solid;
+  border-width: 0 0.075rem 0.075rem 0;
+  content: "";
+  display: inline-block;
+  padding: 2px;
+  position: absolute;
+  right: 1.5rem;
+  top: 1.25rem;
+  transform: rotate(-135deg);
+  transition: all 0.2s ease-out;
+}
+body .wrapper #sidebar.expand .sidebar-link[data-bs-toggle=collapse].collapsed::after {
+  transform: rotate(45deg);
+  transition: all 0.2s ease-out;
+}
+body .wrapper .main {
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  transition: all 0.35s ease-in-out;
+  background-color: black;
 }
 body .card-header-tabel {
   background-color: #253560;
@@ -858,12 +864,24 @@ body .card-header-tabel h5 {
   align-items: center;
   margin-bottom: 0px;
 }
-body hr {
+body hr.tabel {
   margin-top: -20px;
   height: 10px;
   color: orange;
   background-color: orange;
   border: orange;
+  opacity: 0.99;
+}
+body .card-tabel {
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+body hr {
+  margin-top: -20px;
+  height: 10px;
+  color: #152551;
+  background-color: #152551;
+  border: #152551;
   opacity: 0.99;
 }
 
@@ -875,8 +893,8 @@ body hr {
   margin-top: 35px;
   width: 100%;
   display: flex;
-  justify-content: center; /* Menengahkan secara horizontal */
-  align-items: center; /* Menengahkan secara vertikal */
+  justify-content: center;
+  align-items: center;
 }
 .rjl .login-form {
   background-color: #4461AE;
@@ -888,23 +906,29 @@ body hr {
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Menengahkan secara vertikal */
+  align-items: center;
+  /* Menengahkan secara vertikal */
 }
 .rjl .login-form .form-header {
   display: inline;
   align-items: center;
-  justify-content: space-between; /* Menengahkan secara horizontal */
+  justify-content: space-between;
+  /* Menengahkan secara horizontal */
   margin-bottom: 20px;
-  padding-inline: 20px; /* Tambahkan padding agar tidak terlalu rapat dengan tepi */
-  width: 100%; /* Mengisi lebar agar elemen lainnya tidak tumpang tindih */
+  padding-inline: 20px;
+  /* Tambahkan padding agar tidak terlalu rapat dengan tepi */
+  width: 100%;
+  /* Mengisi lebar agar elemen lainnya tidak tumpang tindih */
 }
 .rjl .login-form .form-header h2 {
   text-align: center;
   color: #ffffff;
-  margin: 0; /* Menghapus margin bawaan */
+  margin: 0;
+  /* Menghapus margin bawaan */
 }
 .rjl .login-form .form-header a {
-  align-self: flex-start; /* Memposisikan elemen <a> di pojok kiri atas */
+  align-self: flex-start;
+  /* Memposisikan elemen <a> di pojok kiri atas */
   color: #fff;
   border-radius: 4px;
   text-decoration: none;
@@ -918,13 +942,18 @@ body hr {
   display: flex;
   margin-bottom: 15px;
   justify-items: center;
-  align-self: center; /* Menengahkan vertikal */
+  align-self: center;
+  /* Menengahkan vertikal */
 }
 .rjl .login-form form {
-  display: flex; /* Menggunakan flexbox */
-  flex-direction: column; /* Menjadikan flex-direction menjadi column */
-  align-items: center; /* Menengahkan secara vertikal */
-  justify-content: center; /* Menengahkan secara horizontal */
+  display: flex;
+  /* Menggunakan flexbox */
+  flex-direction: column;
+  /* Menjadikan flex-direction menjadi column */
+  align-items: center;
+  /* Menengahkan secara vertikal */
+  justify-content: center;
+  /* Menengahkan secara horizontal */
   margin-inline: 20px;
   margin-block: 13px;
 }
@@ -961,10 +990,188 @@ body hr {
 }
 .rjl .login-form form a {
   color: #fff;
-  display: block; /* Mengubah elemen <a> menjadi blok agar bisa mendapatkan ruang secara penuh */
+  display: block;
+  /* Mengubah elemen <a> menjadi blok agar bisa mendapatkan ruang secara penuh */
   margin-bottom: 10px;
 }
 .rjl .login-form strong {
   color: rgb(224, 33, 33);
   font-size: smaller;
+}
+
+.tabel #pengajuandokumen-table {
+  font-size: 0.85rem;
+  /* Ukuran font teks */
+}
+.tabel #pengajuandokumen-table .dataTables_scrollBody {
+  overflow-x: auto;
+  /* Menampilkan scrollbar horizontal jika diperlukan */
+}
+.tabel #pengajuandokumen-table_wrapper .dataTables_length,
+.tabel #pengajuandokumen-table_wrapper .dataTables_filter,
+.tabel #pengajuandokumen-table_wrapper .dataTables_info,
+.tabel #pengajuandokumen-table_wrapper .dataTables_paginate {
+  font-size: 0.85rem;
+  /* Ukuran font untuk elemen-elemen kontrol tabel */
+}
+.tabel #pengajuandokumen-table_wrapper .dataTables_length select,
+.tabel #pengajuandokumen-table_wrapper .dataTables_filter input {
+  padding: 0.25rem 0.5rem;
+  /* Padding untuk elemen-elemen input dan tombol */
+  font-size: 0.85rem;
+  /* Ukuran font untuk elemen-elemen input dan tombol */
+}
+.tabel #laporankeuangan-table {
+  font-size: 0.85rem;
+  /* Ukuran font teks */
+}
+.tabel #laporankeuangan-table .dataTables_scrollBody {
+  overflow-x: auto;
+  /* Menampilkan scrollbar horizontal jika diperlukan */
+}
+.tabel #laporankeuangan-table_wrapper .dataTables_length,
+.tabel #laporankeuangan-table_wrapper .dataTables_filter,
+.tabel #laporankeuangan-table_wrapper .dataTables_info,
+.tabel #laporankeuangan-table_wrapper .dataTables_paginate {
+  font-size: 0.85rem;
+  /* Ukuran font untuk elemen-elemen kontrol tabel */
+}
+.tabel #laporankeuangan-table_wrapper .dataTables_length select,
+.tabel #laporankeuangan-table_wrapper .dataTables_filter input {
+  padding: 0.25rem 0.5rem;
+  /* Padding untuk elemen-elemen input dan tombol */
+  font-size: 0.85rem;
+  /* Ukuran font untuk elemen-elemen input dan tombol */
+}
+.tabel #umkm-table {
+  font-size: 0.85rem;
+  /* Ukuran font teks */
+}
+.tabel #umkm-table .dataTables_scrollBody {
+  overflow-x: auto;
+  /* Menampilkan scrollbar horizontal jika diperlukan */
+}
+.tabel #umkm-table_wrapper .dataTables_length,
+.tabel #umkm-table_wrapper .dataTables_filter,
+.tabel #umkm-table_wrapper .dataTables_info,
+.tabel #umkm-table_wrapper .dataTables_paginate {
+  font-size: 0.85rem;
+  /* Ukuran font untuk elemen-elemen kontrol tabel */
+}
+.tabel #umkm-table_wrapper .dataTables_length select,
+.tabel #umkm-table_wrapper .dataTables_filter input {
+  padding: 0.25rem 0.5rem;
+  /* Padding untuk elemen-elemen input dan tombol */
+  font-size: 0.85rem;
+  /* Ukuran font untuk elemen-elemen input dan tombol */
+}
+.tabel #pengumuman-table {
+  font-size: 0.85rem;
+  /* Ukuran font teks */
+}
+.tabel #pengumuman-table .dataTables_scrollBody {
+  overflow-x: auto;
+  /* Menampilkan scrollbar horizontal jika diperlukan */
+}
+.tabel #pengumuman-table_wrapper .dataTables_length,
+.tabel #pengumuman-table_wrapper .dataTables_filter,
+.tabel #pengumuman-table_wrapper .dataTables_info,
+.tabel #pengumuman-table_wrapper .dataTables_paginate {
+  font-size: 0.85rem;
+  /* Ukuran font untuk elemen-elemen kontrol tabel */
+}
+.tabel #pengumuman-table_wrapper .dataTables_length select,
+.tabel #pengumuman-table_wrapper .dataTables_filter input {
+  padding: 0.25rem 0.5rem;
+  /* Padding untuk elemen-elemen input dan tombol */
+  font-size: 0.85rem;
+  /* Ukuran font untuk elemen-elemen input dan tombol */
+}
+.tabel #rw-table {
+  font-size: 0.85rem;
+  /* Ukuran font teks */
+}
+.tabel #rw-table .dataTables_scrollBody {
+  overflow-x: auto;
+  /* Menampilkan scrollbar horizontal jika diperlukan */
+}
+.tabel #rw-table_wrapper .dataTables_length,
+.tabel #rw-table_wrapper .dataTables_filter,
+.tabel #rw-table_wrapper .dataTables_info,
+.tabel #rw-table_wrapper .dataTables_paginate {
+  font-size: 0.85rem;
+  /* Ukuran font untuk elemen-elemen kontrol tabel */
+}
+.tabel #rw-table_wrapper .dataTables_length select,
+.tabel #rw-table_wrapper .dataTables_filter input {
+  padding: 0.25rem 0.5rem;
+  /* Padding untuk elemen-elemen input dan tombol */
+  font-size: 0.85rem;
+  /* Ukuran font untuk elemen-elemen input dan tombol */
+}
+.tabel #rt-table {
+  font-size: 0.85rem;
+  /* Ukuran font teks */
+}
+.tabel #rt-table .dataTables_scrollBody {
+  overflow-x: auto;
+  /* Menampilkan scrollbar horizontal jika diperlukan */
+}
+.tabel #rt-table_wrapper .dataTables_length,
+.tabel #rt-table_wrapper .dataTables_filter,
+.tabel #rt-table_wrapper .dataTables_info,
+.tabel #rt-table_wrapper .dataTables_paginate {
+  font-size: 0.85rem;
+  /* Ukuran font untuk elemen-elemen kontrol tabel */
+}
+.tabel #rt-table_wrapper .dataTables_length select,
+.tabel #rt-table_wrapper .dataTables_filter input {
+  padding: 0.25rem 0.5rem;
+  /* Padding untuk elemen-elemen input dan tombol */
+  font-size: 0.85rem;
+  /* Ukuran font untuk elemen-elemen input dan tombol */
+}
+.tabel #keluarga-table {
+  font-size: 0.85rem;
+  /* Ukuran font teks */
+}
+.tabel #keluarga-table .dataTables_scrollBody {
+  overflow-x: auto;
+  /* Menampilkan scrollbar horizontal jika diperlukan */
+}
+.tabel #keluarga-table_wrapper .dataTables_length,
+.tabel #keluarga-table_wrapper .dataTables_filter,
+.tabel #keluarga-table_wrapper .dataTables_info,
+.tabel #keluarga-table_wrapper .dataTables_paginate {
+  font-size: 0.85rem;
+  /* Ukuran font untuk elemen-elemen kontrol tabel */
+}
+.tabel #keluarga-table_wrapper .dataTables_length select,
+.tabel #keluarga-table_wrapper .dataTables_filter input {
+  padding: 0.25rem 0.5rem;
+  /* Padding untuk elemen-elemen input dan tombol */
+  font-size: 0.85rem;
+  /* Ukuran font untuk elemen-elemen input dan tombol */
+}
+.tabel #penduduk-table {
+  font-size: 0.85rem;
+  /* Ukuran font teks */
+}
+.tabel #penduduk-table .dataTables_scrollBody {
+  overflow-x: auto;
+  /* Menampilkan scrollbar horizontal jika diperlukan */
+}
+.tabel #penduduk-table_wrapper .dataTables_length,
+.tabel #penduduk-table_wrapper .dataTables_filter,
+.tabel #penduduk-table_wrapper .dataTables_info,
+.tabel #penduduk-table_wrapper .dataTables_paginate {
+  font-size: 0.85rem;
+  /* Ukuran font untuk elemen-elemen kontrol tabel */
+}
+.tabel #penduduk-table_wrapper .dataTables_length select,
+.tabel #penduduk-table_wrapper .dataTables_filter input {
+  padding: 0.25rem 0.5rem;
+  /* Padding untuk elemen-elemen input dan tombol */
+  font-size: 0.85rem;
+  /* Ukuran font untuk elemen-elemen input dan tombol */
 }/*# sourceMappingURL=app.css.map */

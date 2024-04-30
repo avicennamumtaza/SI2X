@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\DataTables\PengumumanDataTable;
 use App\Models\Pengumuman;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class PengumumanController extends Controller
@@ -28,43 +29,26 @@ class PengumumanController extends Controller
 
     public function store(Request $request)
     {
-        // Validasi data input dari form
-        
-        // try {
-        //     Pengumuman::create([
-        //         'judul' => $validated['nama_pengumuman'],
-        //         'deskripsi' => $validated['desc_pengumuman'],
-        //         'tanggal' => $validated['tanggal_pengumuman'],
-        //         'foto' => $request->foto_pengumuman,
-        //     ]);
-        //     return redirect()->back()->with('success', 'Pengumuman berhasil dipublish!');
-        // } catch (\Exception $e) {
-        //     Alert::error('Oops!', $e->getMessage());
-        //     return redirect()->back();
-        // }
-
-        // $pengumuman = new Pengumuman();
-        // $pengumuman->judul = $request->nama_pengumuman;
-        // $pengumuman->deskripsi = $request->desc_pengumuman;
-        // $pengumuman->tanggal = $request->tanggal_pengumuman;
-        // $pengumuman->foto = $request->foto_pengumuman;
-        // $pengumuman->save();
-
-        // Validasi data input dari form
             $validated = $request->validate([
                 'judul_pengumuman' => 'required|min:5|max:49',
                 'desc_pengumuman' => 'required',
                 'tanggal_pengumuman' => 'required|date',
-                'foto_pengumuman' => 'required|image',
+                'foto_pengumuman' => 'required|mimes:png,jpg,jpeg',
             ]);
+
+            $foto_pengumuman = $request->file('foto_pengumuman');
+            $foto_pengumuman_ext = $foto_pengumuman->getClientOriginalExtension();;
+            $foto_pengumuman_filename = $validated['judul_pengumuman'] . date('ymdhis') . "." . $foto_pengumuman_ext;
     
+            $foto_pengumuman->move(public_path('Foto Pengumuman'), $foto_pengumuman_filename);
+
             try {
                 Pengumuman::create([
                     'judul' => $validated['judul_pengumuman'],
                     'deskripsi' => $validated['desc_pengumuman'],
                     'tanggal' => $validated['tanggal_pengumuman'],
                     // 'foto' => $request->foto_pengumuman,
-                    'foto' => $validated['foto_pengumuman'],
+                    'foto' => $foto_pengumuman_filename,
                 ]);
                 return redirect()->back()->with('success', 'Pengumuman berhasil dipublish!');
             } catch (\Exception $e) {
@@ -73,10 +57,6 @@ class PengumumanController extends Controller
             }
     }
 
-    // public function edit(Pengumuman $pengumuman)
-    // {
-    //     return view('pengumuman.edit', compact('pengumuman'));
-    // }
     public function edit(Pengumuman $pengumuman)
     {
         $pengumuman = Pengumuman::findOrFail($pengumuman->id_pengumuman);
@@ -106,6 +86,7 @@ class PengumumanController extends Controller
 
     public function destroy(Pengumuman $pengumuman)
     {
+        File::delete(public_path('Foto Pengumuman') . '/' . $pengumuman->foto);
         $pengumuman->delete();
         return redirect()->back()
             ->with('success', 'Pengumuman berhasil dihapus.');

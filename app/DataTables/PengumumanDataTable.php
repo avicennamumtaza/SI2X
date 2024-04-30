@@ -87,23 +87,14 @@ class PengumumanDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            Column::make('id_pengumuman')->title('Id'),
-            Column::make('judul')->title('Judul'),
-            Column::make('tanggal')->title('Tanggal'),
-            Column::make('deskripsi')->title('Deskripsi'),
-            Column::make('foto')->title('Foto'),
-            // Column::computed('foto')
-            //     ->title('Foto')
-            //     ->render(function ($pengumuman) {
-            //         // Pastikan $pengumuman adalah objek yang memiliki properti "foto"
-            //         $imageUrl = isset($pengumuman->foto) ? $pengumuman->foto : '';
-            //         return '<img src="' . $imageUrl . '" width="100" height="100">';
-            //     })
-            //     ->addClass('text-center'),
+            Column::make('id_pengumuman')->title('Nomor')->width(1),
+            Column::make('judul')->title('Judul')->width(200),
+            Column::make('tanggal')->title('Tanggal')->width(10),
+            Column::make('deskripsi')->title('Deskripsi')->width(400),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
-                ->width(130)
+                ->width(141)
                 ->addClass('text-center'),
         ];
     }
