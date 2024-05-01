@@ -75,14 +75,14 @@ class RWDataTable extends DataTable
     {
         return [
             Column::make('no_rw'),
-            Column::make('nik_rw'),
-            Column::make('jumlah_rt'),
-            Column::make('jumlah_keluarga_rw'),
-            Column::make('jumlah_penduduk_rw'),
+            Column::make('nik_rw')->width(200),
+            Column::make('jumlah_rt')->width(150),
+            Column::make('jumlah_keluarga_rw')->width(150),
+            Column::make('jumlah_penduduk_rw')->width(150),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
-                  ->width(220)
+                  ->width(200)
                   ->addClass('text-center'),
         ];
     }

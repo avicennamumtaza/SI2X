@@ -14,6 +14,7 @@ use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
+use DateTime;
 
 class PendudukDataTable extends DataTable
 {
@@ -38,6 +39,13 @@ class PendudukDataTable extends DataTable
             ->editColumn('is_stranger', function ($row) {
                 return $row->is_stranger ? 'Non Domisili' : 'Domisili';
             })
+            // ->addColumn('umur', function ($row) {
+            //     // Menghitung umur berdasarkan tanggal lahir
+            //     $tanggal_lahir = new DateTime($row->tanggal_lahir);
+            //     $waktu_sekarang = new DateTime();
+            //     $selisih = $tanggal_lahir->diff($waktu_sekarang);
+            //     return $selisih->y;
+            // })            
             ->addColumn('action', function ($row) {
 
                 $deleteUrl = route('penduduk.destroy', $row->nik);
@@ -117,21 +125,22 @@ class PendudukDataTable extends DataTable
             Column::make('nkk'),
             Column::make('no_rt'),
             Column::make('nama'),
-            Column::make('tempat_lahir'),
+            // Column::make('tempat_lahir'),
             Column::make('tanggal_lahir'),
-            Column::make('alamat'),
-            Column::make('jenis_kelamin'),
-            Column::make('pekerjaan'),
-            Column::make('gol_darah'),
-            Column::make('is_married'),
+            // Column::make('umur'),
+            Column::make('alamat')->width(170),
+            // Column::make('jenis_kelamin'),
+            // Column::make('pekerjaan'),
+            // Column::make('gol_darah'),
+            // Column::make('is_married'),
             Column::make('is_stranger'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
                 ->width(300)
                 ->addClass('text-center'),
-            Column::make('created_at'),
-            Column::make('updated_at'),
+            // Column::make('created_at'),
+            // Column::make('updated_at'),
         ];
     }
 
