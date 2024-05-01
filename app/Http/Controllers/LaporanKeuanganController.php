@@ -19,12 +19,14 @@ class LaporanKeuanganController extends Controller
         // $this->authorize('isRt');
         // return view('global.laporankeuangan');
         $laporankeuangans = LaporanKeuangan::all();
+        $latestLaporanKeuangan = LaporanKeuangan::latest()->first();
+        $saldo = $latestLaporanKeuangan->saldo;
 
         foreach ($laporankeuangans as $laporankeuangan) {
             $laporankeuangan->tanggal = Carbon::parse($laporankeuangan->tanggal)->format('d-m-Y');
         }
         
-        return view('global.laporankeuangan')->with('laporanKeuangans', $laporankeuangans);
+        return view('global.laporankeuangan')->with('laporanKeuangans', $laporankeuangans)->with('saldo', $saldo);
 
     }
 

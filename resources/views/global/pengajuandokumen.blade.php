@@ -129,7 +129,17 @@
                                                 class="badge bg-secondary rounded-pill">{{ $pengajuanDokumen->status_pengajuan }}</span>
                                         @endif
                                     </td>
-                                    <td>{{ $pengajuanDokumen->catatan }}</td>
+                                    <td>
+                                        @if ($pengajuanDokumen->status_pengajuan == 'Baru')
+                                            Pengajuan Belum Diproses RT
+                                        @else
+                                            @if (!$pengajuanDokumen->catatan || $pengajuanDokumen->catatan == '')
+                                                Tidak Ada Catatan
+                                            @else
+                                                {{ $pengajuanDokumen->catatan }}
+                                            @endif
+                                        @endif
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
