@@ -150,6 +150,26 @@ body {
         @include tombolAdd();
     }
 
+    .btn-edit {
+        background-color: rgb(247, 144, 34);
+        border-radius: 0.7em;
+        padding-inline: 18px;
+        padding-block: 7px;
+        color: #ffffff;
+        text-decoration: none;
+        border: none;
+        transition: 0.1s;
+    
+        &:hover {
+            // padding-inline: 17px;
+            // padding-block: 6px;
+            background-color: rgb(244, 212, 178);
+            // border: 1px solid rgb(247, 144, 34);
+            font-weight: 700;
+            color: rgb(247, 144, 34);
+        }
+    }
+
     .container-action {
         display: inline-block;
 
@@ -206,7 +226,8 @@ body {
         @include heading-center();
     }
 
-    font-family: "Poppins", sans-serif;
+    font-family: "Poppins",
+    sans-serif;
     width: 99%;
     background-color: #E9E9E9;
     height: 100vh;
@@ -950,6 +971,7 @@ body {
 
     .wrapper {
         display: flex;
+
         #sidebar {
             width: 70px;
             min-width: 70px;
@@ -958,42 +980,51 @@ body {
             display: flex;
             flex-direction: column;
             background-color: $secondaryCol;
+
             #toggle-btn {
                 // position: fixed;
                 background-color: transparent;
                 cursor: pointer;
                 border: 0;
                 padding: 1rem 1.5rem;
+
                 i {
                     font-size: 1.5rem;
                     color: white;
                 }
             }
+
             .sidebar-logo {
                 // position: fixed;
                 margin: auto 0;
+
                 a {
                     color: white;
                     font-size: 1.15rem;
                     font-weight: 600;
                 }
             }
+
             .sidebar-nav {
                 // position: fixed;
                 padding: 2rem 0;
                 flex: 1 1 auto;
+
                 .sidebar-item {
                     position: relative;
                 }
+
                 .active {
                     background-color: lighten($color: $secondaryCol, $amount: 5%);
                     border-left: 3px solid white;
                 }
+
                 button.sidebar-link {
                     background-color: $secondaryCol;
                     padding-right: 162px;
                     transition: all .25s ease-in-out;
                 }
+
                 .sidebar-link {
                     padding: .6rem 1.5rem;
                     color: white;
@@ -1001,15 +1032,18 @@ body {
                     font-size: 1.1rem;
                     white-space: nowrap;
                     border: 0;
+
                     &:hover {
                         background-color: $primaryCol;
                         border-left: 3px solid white;
                     }
+
                     i {
                         font-size: 1.2rem;
                         margin-right: .75rem;
                     }
                 }
+
                 .sidebar-footer {
                     margin-top: 10px;
                     padding-top: 10px;
@@ -1017,23 +1051,30 @@ body {
                 }
             }
         }
+
         #sidebar.expand {
             width: 280px;
             min-width: 280px;
+
             .single-item-menu {
                 margin-left: 36px;
             }
         }
-        #sidebar:not(.expand) .sidebar-logo, #sidebar:not(.expand) .sidebar-link span {
+
+        #sidebar:not(.expand) .sidebar-logo,
+        #sidebar:not(.expand) .sidebar-link span {
             display: none;
+
             .single-item-menu {
                 margin-left: 0px;
             }
         }
+
         #sidebar:not(.expand) button.sidebar-link {
             // width: 70px;
             padding-right: 12px;
         }
+
         #sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
             position: absolute;
             top: 0;
@@ -1043,12 +1084,14 @@ body {
             min-width: 10rem;
             display: none;
         }
+
         #sidebar:not(.expand) .sidebar-item:hover .has-dropdown+.sidebar-dropdown {
             display: block;
             max-height: 15rem;
             width: 100%;
             opacity: 1;
         }
+
         #sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
             border: solid;
             border-width: 0 .075rem .075rem 0;
@@ -1061,10 +1104,12 @@ body {
             transform: rotate(-135deg);
             transition: all .2s ease-out;
         }
+
         #sidebar.expand .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
             transform: rotate(45deg);
             transition: all .2s ease-out;
         }
+
         .main {
             min-height: 100vh;
             width: 100%;

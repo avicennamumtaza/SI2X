@@ -44,6 +44,21 @@ body .btn-add:hover {
   font-weight: 700;
   color: rgb(7, 165, 83);
 }
+body .btn-edit {
+  background-color: rgb(247, 144, 34);
+  border-radius: 0.7em;
+  padding-inline: 18px;
+  padding-block: 7px;
+  color: #ffffff;
+  text-decoration: none;
+  border: none;
+  transition: 0.1s;
+}
+body .btn-edit:hover {
+  background-color: rgb(244, 212, 178);
+  font-weight: 700;
+  color: rgb(247, 144, 34);
+}
 body .container-action {
   display: inline-block;
 }
@@ -808,10 +823,12 @@ body .wrapper #sidebar.expand {
 body .wrapper #sidebar.expand .single-item-menu {
   margin-left: 36px;
 }
-body .wrapper #sidebar:not(.expand) .sidebar-logo, body .wrapper #sidebar:not(.expand) .sidebar-link span {
+body .wrapper #sidebar:not(.expand) .sidebar-logo,
+body .wrapper #sidebar:not(.expand) .sidebar-link span {
   display: none;
 }
-body .wrapper #sidebar:not(.expand) .sidebar-logo .single-item-menu, body .wrapper #sidebar:not(.expand) .sidebar-link span .single-item-menu {
+body .wrapper #sidebar:not(.expand) .sidebar-logo .single-item-menu,
+body .wrapper #sidebar:not(.expand) .sidebar-link span .single-item-menu {
   margin-left: 0px;
 }
 body .wrapper #sidebar:not(.expand) button.sidebar-link {
