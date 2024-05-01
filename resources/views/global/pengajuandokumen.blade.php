@@ -26,7 +26,7 @@
                                         <option value="{{ $rt }}">{{ $rt }}</option>
                                     @endforeach
                                 </select>
-                            </div>                                                       
+                            </div>
                             <div class="form-group mb-3">
                                 <label for="nik_pengaju" class="form-label">NIK Pengaju</label>
                                 <input list="nik_pengaju_list" class="form-control" id="nik_pengaju" name="nik_pengaju"
@@ -36,7 +36,7 @@
                                         <option value="{{ $penduduk->nik }}">{{ $penduduk->nik }}</option>
                                     @endforeach
                                 </datalist>
-                            </div>      
+                            </div>
                             <div class="form-group mb-3">
                                 <label for="nama_pengaju" class="form-label">Nama Pengaju</label>
                                 <input list="nama_pengaju_list" class="form-control" id="nama_pengaju" name="nama_pengaju"
@@ -46,7 +46,7 @@
                                         <option value="{{ $penduduk->nama }}">{{ $penduduk->nama }}</option>
                                     @endforeach
                                 </datalist>
-                            </div>                            
+                            </div>
                             <div class="form-group mb-3">
                                 <label for="status_umkm" class="form-label text-start">Status Pengajuan</label>
                                 <input type="text" class="form-control" id="status_umkm" name="status_umkm"
@@ -60,7 +60,7 @@
                                         <option value="{{ $dokumen->id_dokumen }}">{{ $dokumen->jenis_dokumen }}</option>
                                     @endforeach
                                 </select>
-                            </div>                            
+                            </div>
                             <!-- Tambahkan input lainnya sesuai kebutuhan -->
                     </div>
                     <div class="modal-footer justify-content-end">
@@ -101,7 +101,37 @@
             <hr class="tabel">
             <div class="card-body">
                 <div class="table-responsive">
-                    {{-- {{ $dataTable->table() }} --}}
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>No. RT</th>
+                                <th>Jenis Dokumen</th>
+                                <th>Nama Pengaju</th>
+                                <th>Status Pengajuan</th>
+                                <th>Catatan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($pengajuanDokumens as $pengajuanDokumen)
+                                <tr>
+                                    <td>{{ $pengajuanDokumen->no_rt }}</td>
+                                    <td>{{ $pengajuanDokumen->dokumen->jenis_dokumen }}</td>
+                                    <td>{{ $pengajuanDokumen->nama_pengaju }}</td>
+                                    <td>
+                                        @if ($pengajuanDokumen->status_pengajuan == 'Baru')
+                                            <span class="badge bg-warning text-dark">{{ $pengajuanDokumen->status_pengajuan }}</span>
+                                        @elseif ($pengajuanDokumen->status_pengajuan == 'Selesai')
+                                            <span class="badge bg-success">{{ $pengajuanDokumen->status_pengajuan }}</span>
+                                        @else
+                                            <span
+                                                class="badge bg-secondary">{{ $pengajuanDokumen->status_pengajuan }}</span>
+                                        @endif
+                                    </td>
+                                    <td>{{ $pengajuanDokumen->catatan }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

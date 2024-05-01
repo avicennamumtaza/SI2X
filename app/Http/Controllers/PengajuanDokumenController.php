@@ -17,20 +17,25 @@ class PengajuanDokumenController extends Controller
      */
     public function index()
     {        
+        
         // Mengambil hanya kolom 'nik' dari model Penduduk
+        $pengajuanDokumens = PengajuanDokumen::all();
         $no_rts = Rt::pluck('no_rt');
         $penduduks = Penduduk::all();
         $dokumens = Dokumen::all();
+        
     
         // Mengirimkan data ke view
-        return view('global.pengajuandokumen', compact('no_rts', 'penduduks', 'dokumens'));
+        return view('global.pengajuandokumen', compact('pengajuanDokumens','no_rts', 'penduduks', 'dokumens'));
     }
     
 
     public function list(PengajuanDokumenDataTable $dataTable)
     {
+
         return $dataTable->render('auth.rt.pengajuandokumen');
     }
+    
 
     /**
      * Show the form for creating a new resource.
