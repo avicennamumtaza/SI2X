@@ -1,4 +1,4 @@
-@extends('layouts.rw')
+@extends('layouts.sidebar')
 
 @section('content')
     {{-- <div class="container container-keluarga col-12"> --}}

@@ -1,4 +1,4 @@
-@extends('layouts.rw')
+@extends('layouts.sidebar')
 
 @section('content')
     {{-- Edit Laporan Keuangan --}}

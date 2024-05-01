@@ -1,4 +1,4 @@
-@extends('layouts.rw')
+@extends('layouts.sidebar')
 
 @section('content')
     {{-- <div class="container container-pengumuman col-12"> --}}
@@ -38,9 +38,6 @@
                             <label for="foto_pengumuman" class="form-label">Foto Pengumuman</label>
                             <input type="file" class="form-control" id="foto_pengumuman" name="foto_pengumuman" required>
                         </div>
-
-
-                        <!-- Tambahkan input lainnya sesuai kebutuhan -->
                 </div>
                 <div class="modal-footer justify-content-end">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
