@@ -40,10 +40,11 @@
                         <i id="lni" class="lni lni-menu"></i>
                     </button>
                     <div class="sidebar-logo">
-                        <a href="#">SIRW</a>
+                        <a href="{{ route('home') }}">SIRW</a>
                     </div>
                 </div>
                 <ul class="sidebar-nav">
+                    @can('isRw')
                     <li class="sidebar-item {{ \Route::is('home') ? 'active' : '' }}">
                         <a href="{{ route('home') }}" class="sidebar-link">
                             <i class="lni lni-home"></i>
@@ -57,18 +58,27 @@
                             <span>Pengumuman</span>
                         </a>
                     </li>
-                    <li class="sidebar-item {{ \Route::is('pengajuandokumen.manage') ? 'active' : '' }}">
-                        <a href="{{ route('pengajuandokumen.manage') }}" class="sidebar-link">
-                            <i class="lni lni-printer"></i>
-                            <span>Pengajuan Dokumen</span>
-                        </a>
-                    </li>
                     <li class="sidebar-item}">
                         <a href="#" class="sidebar-link">
                             <i class="lni lni-control-panel"></i>
                             <span>Dokumen</span>
                         </a>
+                    </li>                        
+                    @endcan
+                    @can('isRt')
+                    <li class="sidebar-item {{ \Route::is('home') ? 'active' : '' }}">
+                        <a href="{{ route('home') }}" class="sidebar-link">
+                            <i class="lni lni-home"></i>
+                            <span>Dashboard</span>
+                        </a>
                     </li>
+                    <li class="sidebar-item {{ \Route::is('pengajuandokumen.manage') ? 'active' : '' }}">
+                        <a href="{{ route('pengajuandokumen.manage') }}" class="sidebar-link">
+                            <i class="lni lni-printer"></i>
+                            <span>Pengajuan Dokumen</span>
+                        </a>
+                    </li>                        
+                    @endcan
                     {{-- <li class="sidebar-item">
                         <a href="#" class="sidebar-link has-dropdown collapsed" type="button"
                             data-bs-toggle="collapse" data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
@@ -102,6 +112,7 @@
                                     <div class="single-item-menu">Keluarga</div>
                                 </a>
                             </li>
+                            @can('isRw')
                             <li class="sidebar-item">
                                 <a href="{{ route('rt.manage') }}" class="sidebar-link">
                                     <div class="single-item-menu">RT</div>
@@ -111,9 +122,11 @@
                                 <a href="{{ route('rw.manage') }}" class="sidebar-link">
                                     <div class="single-item-menu">RW</div>
                                 </a>
-                            </li>
+                            </li>                                
+                            @endcan
                         </ul>
                     </li>
+                    @can('isRw')
                     <li class="sidebar-item {{ \Route::is('laporankeuangan.manage') ? 'active' : '' }}">
                         <a href="{{ route('laporankeuangan.manage') }}" class="sidebar-link">
                             <i class="lni lni-revenue"></i>
@@ -127,6 +140,13 @@
                         <a href="{{ route('umkm.manage') }}" class="sidebar-link">
                             <i class="lni lni-shopping-basket"></i>
                             <span>UMKM</span>
+                        </a>
+                    </li>                        
+                    @endcan
+                    <li class="sidebar-item {{ \Route::is('profil') ? 'active' : '' }}">
+                        <a href="{{ route('profil') }}" class="sidebar-link">
+                            <i class="lni lni-user"></i>
+                            <span>Profil</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
