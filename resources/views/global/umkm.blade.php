@@ -33,11 +33,11 @@
                                 </datalist> --}}
                                 <input list="nik_pemilik_list" class="form-control" id="nik_pemilik" name="nik_pemilik_umkm"
                                     placeholder="Masukkan Nik Pemilik" required>
-                                <datalist id="nik_pemilik_list">
+                                {{-- <datalist id="nik_pemilik_list">
                                     @foreach ($nik_penduduks as $nik_penduduk)
                                         <option value="{{ $nik_penduduk->nik }}">{{ $nik_penduduk->nik }}</option>
                                     @endforeach
-                                </datalist>
+                                </datalist> --}}
                             </div>
                             {{-- <div class="form-group mb-3">
                                 <label for="no_rw" class="form-label text-start">No RW</label>
@@ -56,7 +56,8 @@
                             </div>
                             <div class="form-group mb-3">
                                 <label class="custom-file-label mb-2" for="foto_umkm">Foto UMKM</label>
-                                <input type="file" class="form-control" id="foto_umkm" name="foto_umkm" placeholder="Masukkan Foto Produk atau UMKM" required>
+                                <input type="file" class="form-control" id="foto_umkm" name="foto_umkm"
+                                    placeholder="Masukkan Foto Produk atau UMKM" required>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="desc_umkm" class="form-label">Deskripsi</label>
@@ -73,7 +74,7 @@
                 </div>
             </div>
         </div>
-        
+
         <script>
             document.getElementById('ajukanUmkmButton').addEventListener('click', function() {
                 var modal = new bootstrap.Modal(document.getElementById('ajukanUmkmModal'));
@@ -109,14 +110,18 @@
         <div class="card-container">
             @foreach ($umkms as $umkm)
                 <div class="card">
-                    <img src="{{ $umkm->foto_umkm }}" class="card-img-top" alt="Fissure in Sandstone" />
+                    <img src="{{ $umkm->foto_umkm ? asset('Foto UMKM/' . $umkm->foto_umkm) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
+                        class="card-img-top" alt="Foto UMKM" />
                     <div class="card-body">
-                        <h5 class="card-title">{{ $umkm->nama_umkm }}</h5>
+                        <h5 class="card-title text-start">{{ $umkm->nama_umkm }}</h5>
                         <p class="card-text">{{ $umkm->desc_umkm }}</p>
                     </div>
                     <div class="card-footer hub-umkm d-flex justify-content-end">
-                        <a href="https://wa.me/{{ substr_replace($umkm->wa_umkm, '62', 0, 1) }}" class="btn btn-primary"
-                            data-mdb-ripple-init>Hubungi</a>
+                        <a href="https://wa.me/{{ substr_replace($umkm->wa_umkm, '62', 0, 1) }}" class="btn btn-success"
+                            data-mdb-ripple-init><i class="bi bi-whatsapp"></i> Hubungi</a>
+                        {{-- <button class="btn btn-primary"
+                            href="https://wa.me/{{ substr_replace($umkm->wa_umkm, '62', 0, 1) }}"><i
+                                class="bi bi-box-arrow-in-up"></i>Hubungi</button> --}}
                     </div>
                 </div>
             @endforeach

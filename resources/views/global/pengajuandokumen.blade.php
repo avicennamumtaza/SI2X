@@ -119,12 +119,14 @@
                                     <td>{{ $pengajuanDokumen->nama_pengaju }}</td>
                                     <td>
                                         @if ($pengajuanDokumen->status_pengajuan == 'Baru')
-                                            <span class="badge bg-warning text-dark">{{ $pengajuanDokumen->status_pengajuan }}</span>
+                                            <span
+                                                class="badge bg-warning text-dark rounded-pill">{{ $pengajuanDokumen->status_pengajuan }}</span>
                                         @elseif ($pengajuanDokumen->status_pengajuan == 'Selesai')
-                                            <span class="badge bg-success">{{ $pengajuanDokumen->status_pengajuan }}</span>
+                                            <span
+                                                class="badge bg-success rounded-pill">{{ $pengajuanDokumen->status_pengajuan }}</span>
                                         @else
                                             <span
-                                                class="badge bg-secondary">{{ $pengajuanDokumen->status_pengajuan }}</span>
+                                                class="badge bg-secondary rounded-pill">{{ $pengajuanDokumen->status_pengajuan }}</span>
                                         @endif
                                     </td>
                                     <td>{{ $pengajuanDokumen->catatan }}</td>

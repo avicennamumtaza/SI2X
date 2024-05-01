@@ -57,8 +57,10 @@
                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-end">
                             <li><a class="dropdown-item" href="{{ route('pengumuman.global') }}">Pengumuman</a></li>
                             <li><a class="dropdown-item" href="{{ route('umkm.global') }}">Daftar UMKM</a></li>
-                            <li><a class="dropdown-item" href="{{ route('pengajuandokumen.global') }}">Pengajuan Surat</a></li>
-                            <li><a class="dropdown-item" href="{{ route('laporankeuangan.global') }}">Laporan Keuangan</a></li>
+                            <li><a class="dropdown-item" href="{{ route('pengajuandokumen.global') }}">Pengajuan
+                                    Surat</a></li>
+                            <li><a class="dropdown-item" href="{{ route('laporankeuangan.global') }}">Laporan
+                                    Keuangan</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -163,6 +165,14 @@
         <!-- Copyright -->
     </footer>
     {{-- </div> --}}
+
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>
