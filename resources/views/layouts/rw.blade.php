@@ -33,43 +33,43 @@
 
 <body>
     {{-- <div class=""> --}}
-        <div class="wrapper">
-            <aside id="sidebar">
-                <div class="d-flex">
-                    <button id="toggle-btn" type="button">
-                        <i id="lni" class="lni lni-menu"></i>
-                    </button>
-                    <div class="sidebar-logo">
-                        <a href="#">SIRW</a>
-                    </div>
+    <div class="wrapper">
+        <aside id="sidebar">
+            <div class="d-flex">
+                <button id="toggle-btn" type="button">
+                    <i id="lni" class="lni lni-menu"></i>
+                </button>
+                <div class="sidebar-logo">
+                    <a href="#">SIRW</a>
                 </div>
-                <ul class="sidebar-nav">
-                    <li class="sidebar-item {{ \Route::is('home') ? 'active' : '' }}">
-                        <a href="{{ route('home') }}" class="sidebar-link">
-                            <i class="lni lni-home"></i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item {{ \Route::is('pengumuman.manage') ? 'active' : '' }}">
-                        <a href="{{ route('pengumuman.manage') }}" class="sidebar-link">
-                            <i class="lni lni-notepad"></i>
-                            {{-- <i class="lni lni-license"></i> --}}
-                            <span>Pengumuman</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item {{ \Route::is('pengajuandokumen.manage') ? 'active' : '' }}">
-                        <a href="{{ route('pengajuandokumen.manage') }}" class="sidebar-link">
-                            <i class="lni lni-printer"></i>
-                            <span>Pengajuan Dokumen</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item}">
-                        <a href="#" class="sidebar-link">
-                            <i class="lni lni-control-panel"></i>
-                            <span>Dokumen</span>
-                        </a>
-                    </li>
-                    {{-- <li class="sidebar-item">
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-item {{ \Route::is('home') ? 'active' : '' }}">
+                    <a href="{{ route('home') }}" class="sidebar-link">
+                        <i class="lni lni-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="sidebar-item {{ \Route::is('pengumuman.manage') ? 'active' : '' }}">
+                    <a href="{{ route('pengumuman.manage') }}" class="sidebar-link">
+                        <i class="lni lni-notepad"></i>
+                        {{-- <i class="lni lni-license"></i> --}}
+                        <span>Pengumuman</span>
+                    </a>
+                </li>
+                <li class="sidebar-item {{ \Route::is('pengajuandokumen.manage') ? 'active' : '' }}">
+                    <a href="{{ route('pengajuandokumen.manage') }}" class="sidebar-link">
+                        <i class="lni lni-printer"></i>
+                        <span>Pengajuan Dokumen</span>
+                    </a>
+                </li>
+                <li class="sidebar-item}">
+                    <a href="#" class="sidebar-link">
+                        <i class="lni lni-control-panel"></i>
+                        <span>Dokumen</span>
+                    </a>
+                </li>
+                {{-- <li class="sidebar-item">
                         <a href="#" class="sidebar-link has-dropdown collapsed" type="button"
                             data-bs-toggle="collapse" data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
                             <i class="lni lni-protection"></i>
@@ -84,83 +84,84 @@
                             </li>
                         </ul>
                     </li> --}}
-                    <li class="sidebar-item {{ \Route::is('penduduk.manage') ? 'active' : '' }} {{ \Route::is('keluarga.manage')  ? 'active' : '' }} {{ \Route::is('rt.manage')  ? 'active' : '' }} {{ \Route::is('rw.manage')  ? 'active' : '' }}">
-                        <a href="#" class="sidebar-link has-dropdown collapsed" type="button"
-                            data-bs-toggle="collapse" data-bs-target="#multi" aria-expanded="false"
-                            aria-controls="multi">
-                            <i class="lni lni-users"></i>
-                            <span>Kependudukan</span>
-                        </a>
-                        <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                            <li class="sidebar-item">
-                                <a href="{{ route('penduduk.manage') }}" class="sidebar-link">
-                                    <div class="single-item-menu">Penduduk</div>
-                                </a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="{{ route('keluarga.manage') }}" class="sidebar-link">
-                                    <div class="single-item-menu">Keluarga</div>
-                                </a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="{{ route('rt.manage') }}" class="sidebar-link">
-                                    <div class="single-item-menu">RT</div>
-                                </a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="{{ route('rw.manage') }}" class="sidebar-link">
-                                    <div class="single-item-menu">RW</div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="sidebar-item {{ \Route::is('laporankeuangan.manage') ? 'active' : '' }}">
-                        <a href="{{ route('laporankeuangan.manage') }}" class="sidebar-link">
-                            <i class="lni lni-revenue"></i>
-                            {{-- <i class="lni lni-calculator-alt"></i> --}}
-                            {{-- <i class="lni lni-bar-chart"></i> --}}
-                            {{-- <i class="lni lni-money-protection"></i> --}}
-                            <span>Keuangan</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item {{ \Route::is('umkm.manage') ? 'active' : '' }}">
-                        <a href="{{ route('umkm.manage') }}" class="sidebar-link">
-                            <i class="lni lni-shopping-basket"></i>
-                            <span>UMKM</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <div class="sidebar-footer">
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                @csrf
-                                <button class="sidebar-link" type="submit">
-                                    {{-- <a href="{{ route('logout') }}" class="sidebar-link"> --}}
-                                        <i class="lni lni-exit"></i>
-                                        <span>Keluar</span>
-                                    {{-- </a> --}}
-                                </button>
-                            </form>
-                        </div>
-                    </li>
-                </ul>
-            </aside>
-            <div class="" style="background-color: black;
+                <li
+                    class="sidebar-item {{ \Route::is('penduduk.manage') ? 'active' : '' }} {{ \Route::is('keluarga.manage') ? 'active' : '' }} {{ \Route::is('rt.manage') ? 'active' : '' }} {{ \Route::is('rw.manage') ? 'active' : '' }}">
+                    <a href="#" class="sidebar-link has-dropdown collapsed" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
+                        <i class="lni lni-users"></i>
+                        <span>Kependudukan</span>
+                    </a>
+                    <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        <li class="sidebar-item">
+                            <a href="{{ route('penduduk.manage') }}" class="sidebar-link">
+                                <div class="single-item-menu">Penduduk</div>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{{ route('keluarga.manage') }}" class="sidebar-link">
+                                <div class="single-item-menu">Keluarga</div>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{{ route('rt.manage') }}" class="sidebar-link">
+                                <div class="single-item-menu">RT</div>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{{ route('rw.manage') }}" class="sidebar-link">
+                                <div class="single-item-menu">RW</div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="sidebar-item {{ \Route::is('laporankeuangan.manage') ? 'active' : '' }}">
+                    <a href="{{ route('laporankeuangan.manage') }}" class="sidebar-link">
+                        <i class="lni lni-revenue"></i>
+                        {{-- <i class="lni lni-calculator-alt"></i> --}}
+                        {{-- <i class="lni lni-bar-chart"></i> --}}
+                        {{-- <i class="lni lni-money-protection"></i> --}}
+                        <span>Keuangan</span>
+                    </a>
+                </li>
+                <li class="sidebar-item {{ \Route::is('umkm.manage') ? 'active' : '' }}">
+                    <a href="{{ route('umkm.manage') }}" class="sidebar-link">
+                        <i class="lni lni-shopping-basket"></i>
+                        <span>UMKM</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <div class="sidebar-footer">
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button class="sidebar-link" type="submit">
+                                {{-- <a href="{{ route('logout') }}" class="sidebar-link"> --}}
+                                <i class="lni lni-exit"></i>
+                                <span>Keluar</span>
+                                {{-- </a> --}}
+                            </button>
+                        </form>
+                    </div>
+                </li>
+            </ul>
+        </aside>
+        <div class=""
+            style="
             min-height: 100vh;
             width: 100%;
             overflow: hidden;
             ">
-                <main class="col position-relative overflow-x-hidden">
-                    <div class="row justify-content-lg-end">
-                        <div class="col-lg-12 px-2 px-lg-5 py-5" title="main">
-                            <div class="content p-lg-4 p-sm-3">
-                                @yield('content')
-                            </div>
+            <main class="col position-relative overflow-x-hidden">
+                <div class="row justify-content-lg-end">
+                    <div class="col-lg-12 px-2 px-lg-5 py-5" title="main">
+                        <div class="content p-lg-4 p-sm-3">
+                            @yield('content')
                         </div>
                     </div>
-                </main>
-            </div>
+                </div>
+            </main>
         </div>
-        <!-- End Sidebar -->
+    </div>
+    <!-- End Sidebar -->
     </div>
     {{-- </div> --}}
     {{-- <script>
