@@ -18,7 +18,30 @@
             <hr class="tabel">
             <div class="card-body">
                 <div class="table-responsive">
-                    {{-- {{ $dataTable->table() }} --}}
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Jenis Laporan</th>
+                                <th>Nominal</th>
+                                <th>Detail</th>
+                                <th>Tanggal</th>
+                                {{-- <th>Pihak Terlibat</th> --}}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($laporanKeuangans as $laporanKeuangan)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $laporanKeuangan->is_income ? 'Pemasukan' : 'Pengeluaran' }}</td>
+                                    <td>Rp {{ number_format($laporanKeuangan->nominal, 0, ',', '.') }}</td>
+                                    <td>{{ $laporanKeuangan->detail }}</td>
+                                    <td>{{ $laporanKeuangan->tanggal }}</td>
+                                    {{-- <td>{{ $laporanKeuangan->pihak_terlibat }}</td> --}}
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
