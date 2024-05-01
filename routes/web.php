@@ -85,8 +85,8 @@ Route::delete('/penduduk/{penduduk}', [PendudukController::class, 'destroy'])->n
 // manage keluarga
 Route::get('/keluarga', [KeluargaController::class, 'list'])->name('keluarga.manage');
 Route::post('/keluarga', [KeluargaController::class, 'store'])->name('keluarga.store');
-Route::get('/keluarga/{keluarga}/edit', [KeluargaController::class, 'edit'])->name('keluarga.edit');
-Route::put('/keluarga/{keluarga}', [KeluargaController::class, 'update'])->name('keluarga.update');
+Route::get('/keluarga/edit/{keluarga}', [KeluargaController::class, 'edit'])->name('keluarga.edit');
+Route::put('/keluarga/update/{keluarga}', [KeluargaController::class, 'update'])->name('keluarga.update');
 Route::delete('/keluarga/{keluarga}', [KeluargaController::class, 'destroy'])->name('keluarga.destroy');
 // manage pendataan
 Route::get('/pendataan/rt', [RTController::class, 'list'])->name('rt.manage');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\DataTables\KeluargaDataTable;
 use App\Models\Keluarga;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class KeluargaController extends Controller
 {
@@ -14,25 +15,29 @@ class KeluargaController extends Controller
     }
     public function store(Request $request)
     {
-        // Validasi input
-        $request->validate([
+        $validated = $request->validate([
             'nkk' => 'required|string|min:15|max:17',
-            'nik_kepala_keluarga' => 'required|string|min:15|max:17',
+            'nik_kepala' => 'required|string|min:15|max:17',
             'jumlah_nik' => 'required',
-
-            // Tambahkan validasi untuk input lainnya jika diperlukan
         ]);
 
-        $keluarga = new Keluarga();
-        $keluarga->nkk = $request->nkk;
-        $keluarga->nik_kepala_keluarga = $request->nik;
-        $keluarga->jumlah_nik = $request->jumlah_nik;
-        $keluarga->save();
+        try{
+            Keluarga::create([
+                'nkk' => $validated['nkk'],
+                'nik_kepala_keluarga' => $validated['nik_kepala'],
+                'jumlah_nik' => $validated['jumlah_nik'],
+            ]);
 
-        return redirect()->back()->with('success', 'Keluarga berhasil ditambahkan!');
+            return redirect()->back()->with('success', 'Data Keluarga berhasil ditambahkan!');
+
+        } catch(\Exception $e){
+            Alert::error('Error', $e->getMessage());
+            return redirect()->back();
+        }
     }
     public function edit(Keluarga $keluarga)
     {
+        $keluarga = Keluarga::findOrFail($keluarga->nkk);
         return view('keluarga.edit', compact('keluarga'));
     }
 
@@ -40,7 +45,7 @@ class KeluargaController extends Controller
     {
         $request->validate([
             'nkk' => 'required',
-            'nik' => 'required',
+            'nik_kepala' => 'string|min:15|max:17',
             'jumlah_nik' => 'required',
         ]);
 

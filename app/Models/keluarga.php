@@ -13,6 +13,7 @@ class Keluarga extends Model
     protected $table = 'keluarga';
     protected $primaryKey = 'nkk';
     protected $fillable = [
+        'nkk',
         'nik_kepala_keluarga',
         'jumlah_nik',
     ];

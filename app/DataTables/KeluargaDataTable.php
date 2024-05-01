@@ -24,11 +24,16 @@ class KeluargaDataTable extends DataTable
         return (new EloquentDataTable($query))
             ->setRowId('id')
             ->addColumn('action', function($row){
-                $editUrl = route('keluarga.edit', $row->nkk);
+
                 $deleteUrl = route('keluarga.destroy', $row->nkk);
                 $action ='
                 <div class="container-action">
-                <a href="' . $editUrl . '" class="edit btn btn-edit btn-sm">Edit</a>';
+                <button type="button"
+                data-id="' . $row->nkk . '"
+                data-nik_kepala="' . $row->nik_kepala_keluarga . '"
+                data-jumlah_nik="' . $row->jumlah_nik . '"
+                data-bs-toggle="modal" data-bs-target="#editKeluargaModal"
+                class="edit btn btn-edit btn-sm">Edit</button>';
                 $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
                 ' . csrf_field() . '
                 ' . method_field('DELETE') . '
