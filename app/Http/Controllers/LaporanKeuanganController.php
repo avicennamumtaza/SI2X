@@ -6,6 +6,8 @@ use App\DataTables\LaporanKeuanganDataTable;
 use App\Models\LaporanKeuangan;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use Carbon\Carbon;
+
 
 class LaporanKeuanganController extends Controller
 {
@@ -15,7 +17,15 @@ class LaporanKeuanganController extends Controller
     public function index()
     {
         // $this->authorize('isRt');
-        return view('global.laporankeuangan');
+        // return view('global.laporankeuangan');
+        $laporankeuangans = LaporanKeuangan::all();
+
+        foreach ($laporankeuangans as $laporankeuangan) {
+            $laporankeuangan->tanggal = Carbon::parse($laporankeuangan->tanggal)->format('d-m-Y');
+        }
+        
+        return view('global.laporankeuangan')->with('laporanKeuangans', $laporankeuangans);
+
     }
 
     public function list(LaporanKeuanganDataTable $dataTable)
