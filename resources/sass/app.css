@@ -778,6 +778,7 @@ body .wrapper #sidebar .sidebar-nav .active {
 body .wrapper #sidebar .sidebar-nav button.sidebar-link {
   background-color: #152551;
   padding-right: 162px;
+  transition: all 0.25s ease-in-out;
 }
 body .wrapper #sidebar .sidebar-nav .sidebar-link {
   padding: 0.6rem 1.5rem;

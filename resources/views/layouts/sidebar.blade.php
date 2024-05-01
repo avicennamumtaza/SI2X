@@ -169,18 +169,18 @@
             width: 100%;
             overflow: hidden;
             ">
-                <main class="col position-relative overflow-x-hidden">
-                    <div class="row justify-content-lg-end">
-                        <div class="col-lg-12 px-2 px-lg-5 py-5" title="main">
-                            <div class="content p-lg-4 p-sm-3">
-                                @yield('content')
-                            </div>
+            <main class="col position-relative overflow-x-hidden">
+                <div class="row justify-content-lg-end">
+                    <div class="col-lg-12 px-2 px-lg-5 py-5" title="main">
+                        <div class="content p-lg-4 p-sm-3">
+                            @yield('content')
                         </div>
                     </div>
-                </main>
-            </div>
+                </div>
+            </main>
         </div>
-        <!-- End Sidebar -->
+    </div>
+    <!-- End Sidebar -->
     </div>
     {{-- </div> --}}
     {{-- <script>
