@@ -119,7 +119,8 @@
                                     <td>{{ $pengajuanDokumen->nama_pengaju }}</td>
                                     <td>
                                         @if ($pengajuanDokumen->status_pengajuan == 'Baru')
-                                            <span class="badge bg-warning text-dark">{{ $pengajuanDokumen->status_pengajuan }}</span>
+                                            <span
+                                                class="badge bg-warning text-dark">{{ $pengajuanDokumen->status_pengajuan }}</span>
                                         @elseif ($pengajuanDokumen->status_pengajuan == 'Selesai')
                                             <span class="badge bg-success">{{ $pengajuanDokumen->status_pengajuan }}</span>
                                         @else
@@ -127,7 +128,17 @@
                                                 class="badge bg-secondary">{{ $pengajuanDokumen->status_pengajuan }}</span>
                                         @endif
                                     </td>
-                                    <td>{{ $pengajuanDokumen->catatan }}</td>
+                                    <td>
+                                        @if ($pengajuanDokumen->status_pengajuan == 'Baru')
+                                            Pengajuan Belum Diproses RT
+                                        @else
+                                            @if (!$pengajuanDokumen->catatan || $pengajuanDokumen->catatan == '')
+                                                Tidak Ada Catatan
+                                            @else
+                                                {{ $pengajuanDokumen->catatan }}
+                                            @endif
+                                        @endif
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
