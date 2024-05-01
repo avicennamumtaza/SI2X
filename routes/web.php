@@ -115,3 +115,7 @@ Route::get('/pendataan/rw', [RWController::class, 'list'])->name('rw.manage')->m
 Route::get('/pendataan/rw/{rw}/edit', [RWController::class, 'edit'])->name('rw.edit')->middleware('isRw');
 Route::post('/pendataan/rw', [RWController::class, 'store'])->name('rw.store')->middleware('isRw');
 Route::delete('/pendataan/rw/{rw}', [RwController::class, 'destroy'])->name('rw.destroy')->middleware('isRw');
+
+// profil
+Route::get('/profil', [UsersController::class, 'profil'])->name('profil');
+// Route::put('/profil/{user}/change_password', [UsersController::class, 'changePassword'])->name('profil.password');
