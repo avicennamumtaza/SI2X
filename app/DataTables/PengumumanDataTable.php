@@ -36,13 +36,12 @@ class PengumumanDataTable extends DataTable
                 data-desc_pengumuman="' . $row->deskripsi . '"
                 data-foto_pengumuman="' . $row->foto. '"
                 data-bs-toggle="modal" data-bs-target="#editPengumumanModal" class="edit-user edit btn btn-edit btn-sm">Edit</button>';
-
                 $action .= '
                 <form action="' . $deleteUrl . '" method="post" style="display:inline;">
                     ' . csrf_field() . '
                     ' . method_field('DELETE') . 
                     // <button type="submit" class="delete btn btn-delete btn-sm">Delete</button>
-                    '<button type="submit" class="btn btn-danger btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
+                    '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
                 </form>
                 </div>';
                 return $action;
@@ -88,23 +87,14 @@ class PengumumanDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            Column::make('id_pengumuman')->title('Id'),
-            Column::make('judul')->title('Judul'),
-            Column::make('tanggal')->title('Tanggal'),
-            Column::make('deskripsi')->title('Deskripsi'),
-            Column::make('foto')->title('Foto'),
-            // Column::computed('foto')
-            //     ->title('Foto')
-            //     ->render(function ($pengumuman) {
-            //         // Pastikan $pengumuman adalah objek yang memiliki properti "foto"
-            //         $imageUrl = isset($pengumuman->foto) ? $pengumuman->foto : '';
-            //         return '<img src="' . $imageUrl . '" width="100" height="100">';
-            //     })
-            //     ->addClass('text-center'),
+            Column::make('id_pengumuman')->title('Nomor')->width(1),
+            Column::make('judul')->title('Judul')->width(200),
+            Column::make('tanggal')->title('Tanggal')->width(10),
+            Column::make('deskripsi')->title('Deskripsi')->width(400),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
-                ->width(130)
+                ->width(141)
                 ->addClass('text-center'),
         ];
     }

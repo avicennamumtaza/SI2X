@@ -2,8 +2,9 @@
 
 namespace App\DataTables;
 
-use App\Models\PengajuanDokuman;
 use App\Models\PengajuanDokumen;
+use App\Models\Rt;
+use App\Models\Users;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -33,15 +34,15 @@ class PengajuanDokumenDataTable extends DataTable
                 data-no_rt="' . $row->no_rt . '"
                 data-id_dokumen="' . $row->id_dokumen . '"
                 data-nik_pengaju="' . $row->nik_pengaju . '"
-                data-nama_pengaju="' . $row->foto_pengajuandokumen . '"
+                data-nama_pengaju="' . $row->nama_pengaju . '"
                 data-status_pengajuan="' . $row->status_pengajuan . '"
                 data-catatan="' . $row->catatan . '"
                 data-bs-toggle="modal" data-bs-target="#editPengajuanDokumenModal" class="edit btn btn-edit btn-sm">Edit</button>';
                 $action .= 
                 '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
                 ' . csrf_field() . '
-                ' . method_field('DELETE') . '
-                <button type="submit" class="delete btn btn-delete btn-sm">Delete</button>
+                ' . method_field('DELETE') . 
+                '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
                 </form>
                 </div>';
                 return $action;
@@ -53,6 +54,14 @@ class PengajuanDokumenDataTable extends DataTable
      */
     public function query(PengajuanDokumen $model): QueryBuilder
     {
+        if (auth()->user()->role == 'Rt') {
+            // Dapatkan pengguna yang sedang login
+            $user = Users::where('id_user', auth()->user()->id_user)->first(); 
+            $nikRt = $user->nik; // Ambil nilai nik dari pengguna
+            $noRt = Rt::where('nik_rt', $nikRt)->pluck('no_rt')->first();
+    
+            return $model->newQuery()->where('no_rt', $noRt);
+        }
         return $model->newQuery();
     }
 

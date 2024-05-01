@@ -13,7 +13,7 @@
 
                     <div class="modal-body justify-content-start text-start">
                         <!-- Form untuk pengajuan UMKM -->
-                        <form action="{{ route('umkm.store') }}" method="POST">
+                        <form action="{{ route('umkm.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <!-- Tambahkan input form sesuai kebutuhan -->
                             <div class="form-group mb-3">
@@ -47,7 +47,7 @@
                             <div class="form-group mb-3">
                                 <label for="status_umkm" class="form-label text-start">Status Pengajuan</label>
                                 <input type="text" class="form-control" id="status_umkm" name="status_umkm"
-                                    placeholder="Baru" value="Baru" readonly>
+                                    placeholder="Baru" value="Baru" disabled readonly>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="wa_umkm" class="form-label">WhatsApp</label>
@@ -66,13 +66,14 @@
                             <!-- Tambahkan input lainnya sesuai kebutuhan -->
                     </div>
                     <div class="modal-footer justify-content-end">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
                         <button type="submit" class="btn btn-success">Submit</button>
                     </div>
                     </form>
                 </div>
             </div>
         </div>
+        
         <script>
             document.getElementById('ajukanUmkmButton').addEventListener('click', function() {
                 var modal = new bootstrap.Modal(document.getElementById('ajukanUmkmModal'));

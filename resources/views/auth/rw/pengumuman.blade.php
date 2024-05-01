@@ -13,7 +13,7 @@
 
                 <div class="modal-body justify-content-start text-start">
                     <!-- Form untuk pengajuan pengumuman -->
-                    <form action="{{ route('pengumuman.store') }}" method="POST">
+                    <form action="{{ route('pengumuman.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <!-- Tambahkan input form sesuai kebutuhan -->
                         <div class="form-group mb-3">
@@ -62,7 +62,7 @@
 
                 <div class="modal-body justify-content-start text-start">
                     <!-- Form untuk pengeditan pengumuman -->
-                    <form id='editPengumumanForm' method="POST">
+                    <form id='editPengumumanForm' method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <!-- Tambahkan input form sesuai kebutuhan -->
@@ -84,7 +84,9 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="foto_pengumuman" class="form-label">Foto</label>
-                            <input type="file" class="form-control" id="foto_pengumuman" name="foto_pengumuman" required>
+                            <br>
+                            {{-- <input type="file" class="form-control" id="foto_pengumuman" name="foto_pengumuman" required> --}}
+                            <img id="foto_pengumuman_preview" class="img-thumbnail" src="" width="300" height="300" alt="Foto Pengumuman">
                         </div>
 
                         <!-- Tambahkan input lainnya sesuai kebutuhan -->
@@ -98,40 +100,7 @@
         </div>
     </div>
 
-    {{-- <div class="container"> --}}
-    {{-- <table id="myTable" class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">id</th>
-                    <th scope="col">judul</th>
-                    <th scope="col">deskripsi</th>
-                    <th scope="col">tanggal Pengumuman</th>
-                    <th scope="col">aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($pengumumans as $pengumuman)
-                    <tr>
-                        {{-- <td>{{ ++$i }}</td> --}}
-    {{-- <td>{{ $pengumuman->id_pengumuman }}</td>
-                        <td>{{ $pengumuman->judul }}</td>
-                        <td>{{ $pengumuman->deskripsi }}</td>
-                        <td>{{ $pengumuman->tanggal_pengumuman }}</td>
-                        <td>
-                            <form style="display: inline-block;"
-                                action="{{ route('pengumuman.destroy', $pengumuman->id_pengumuman) }}" method="POST">
-                                <a class="btn btn-primary"
-                                    href="{{ route('pengumuman.edit', $pengumuman->id_pengumuman) }}">Edit</a>
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Delete</button>
-                            </form> --}}
-    {{-- </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table> --}}
-    <div class="card">
+    <div class="card card-tabel">
         <div class="card-header card-header-tabel p-4 mb-3">
             <h5>
                 Pengumuman
@@ -139,63 +108,14 @@
                     Data</button>
             </h5>
         </div>
-        <hr>
+        <hr class="tabel">
         <div class="card-body">
-            <div class="table-responsive">
+            <div class="table-responsive tabel">
                 {{ $dataTable->table() }}
             </div>
         </div>
     </div>
 
-
-
-    {{-- <div class="card">
-            <h5 class="card-header p-4 mb-3">Kelola Pengumuman
-                <button class="btn btn-success float-end" data-bs-toggle="modal"
-                    data-bs-target="#tambahPengumuman">Add</button>
-            </h5>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table id="myTable" class="table table-striped">
-                        <thead> --}}
-    {{-- <tr>
-                                <th scope="col">id</th>
-                                <th scope="col">judul</th>
-                                <th scope="col">deskripsi</th>
-                                <th scope="col">tanggal Pengumuman</th>
-                                <th scope="col">aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($pengumumans as $pengumuman)
-                                <tr> --}}
-    {{-- <td>{{ ++$i }}</td> --}}
-    {{-- <td>{{ $pengumuman->id_pengumuman }}</td>
-                                    <td>{{ $pengumuman->judul }}</td>
-                                    <td>{{ $pengumuman->deskripsi }}</td>
-                                    <td>{{ $pengumuman->tanggal_pengumuman }}</td> --}}
-    {{-- <td>
-                                        <form style="display: inline-block;"
-                                            action="{{  route('pengumuman.destroy', $pengumuman->id_pengumuman) }}"
-                                            method="POST">
-                                            <a class="btn btn-primary"
-                                                href="{{  route('pengumuman.edit', $pengumuman->id_pengumuman) }}">Edit</a>
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table> --}}
-    {{-- </div>
-            </div>
-        </div> --}}
-    {{-- <script>
-        let table = new DataTable('#myTable');
-        <script src="https://cdn.datatables.net/v/bs5/dt-2.0.3/datatables.min.js"></script>
-    </script> --}}
     @push('scripts')
         {{ $dataTable->scripts() }}
         <script>
@@ -213,8 +133,11 @@
                     $('#editPengumumanModal #judul_pengumuman').val(judul);
                     $('#editPengumumanModal #desc_pengumuman').val(deskripsi);
                     $('#editPengumumanModal #tanggal_pengumuman').val(tanggal);
-                    // $('#editPengumumanModal #foto_pengumuman').val(foto);
+                    $('#editPengumumanModal #foto_pengumuman').val(foto);
 
+                    // Memperbarui src gambar pratinjau
+                    let foto_pengumuman_path = "{{ asset('Foto Pengumuman/') }}/" + foto;
+                    $('#foto_pengumuman_preview').attr('src', foto_pengumuman_path);
 
                     let url = "{{ route('pengumuman.update', ':__id') }}";
                     url = url.replace(':__id', id_pengumuman);

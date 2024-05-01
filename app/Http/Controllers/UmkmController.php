@@ -8,6 +8,8 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\DataTables\UmkmDataTable;
+use Illuminate\Support\Facades\File;
+
 // use Illuminate\Console\View\Components\Alert;
 
 class UmkmController extends Controller
@@ -30,21 +32,42 @@ class UmkmController extends Controller
     {
         $validated = $request->validate([
             'nik_pemilik_umkm' => 'required|string|min:15|max:17',
-            'nama_umkm' => 'required|string|max:50',
-            'foto_umkm' => 'required|string',
+            'nama_umkm' => 'required|string|max:49',
+            'foto_umkm' => 'required|mimes:png,jpg,jpeg',
             'desc_umkm' => 'required|string',
             'wa_umkm' => 'required|string|min:10|max:14',
             // 'no_rw' => 'string',
             // 'status_umkm' => 'string',
-            // Tambahkan validasi untuk input lainnya jika diperlukan
+        ], [
+            'nik_pemilik_umkm.required' => 'NIK pemilik UMKM wajib diisi.',
+            'nik_pemilik_umkm.string' => 'NIK pemilik UMKM harus berupa teks.',
+            'nik_pemilik_umkm.min' => 'NIK pemilik UMKM harus memiliki panjang minimal :min karakter.',
+            'nik_pemilik_umkm.max' => 'NIK pemilik UMKM harus memiliki panjang maksimal :max karakter.',
+            'nama_umkm.required' => 'Nama UMKM wajib diisi.',
+            'nama_umkm.string' => 'Nama UMKM harus berupa teks.',
+            'nama_umkm.max' => 'Nama UMKM harus memiliki panjang maksimal :max karakter.',
+            'foto_umkm.required' => 'Foto UMKM wajib diunggah.',
+            'foto_umkm.mimes' => 'Format foto UMKM harus berupa PNG, JPG, atau JPEG.',
+            'desc_umkm.required' => 'Deskripsi UMKM wajib diisi.',
+            'desc_umkm.string' => 'Deskripsi UMKM harus berupa teks.',
+            'wa_umkm.required' => 'Nomor WhatsApp UMKM wajib diisi.',
+            'wa_umkm.string' => 'Nomor WhatsApp UMKM harus berupa teks.',
+            'wa_umkm.min' => 'Nomor WhatsApp UMKM harus memiliki panjang minimal :min karakter.',
+            'wa_umkm.max' => 'Nomor WhatsApp UMKM harus memiliki panjang maksimal :max karakter.',
         ]);
+
+        $foto_umkm = $request->file('foto_umkm');
+        $foto_umkm_ext = $foto_umkm->getClientOriginalExtension();;
+        $foto_umkm_filename = $validated['nama_umkm'] . date('ymdhis') . "." . $foto_umkm_ext;
+        
+        $foto_umkm->move(public_path('Foto UMKM'), $foto_umkm_filename);
 
         try {
             Umkm::create([
                 'nama_umkm' => $validated['nama_umkm'],
                 'nik_pemilik' => $validated['nik_pemilik_umkm'],
                 'wa_umkm' => $validated['wa_umkm'],
-                'foto_umkm' => $validated['foto_umkm'],
+                'foto_umkm' => $foto_umkm_filename,
                 'desc_umkm' => $validated['desc_umkm'],
                 // 'no_rw' => $validated['no_rw'],
                 'status_umkm' => 'Baru',
@@ -72,6 +95,8 @@ class UmkmController extends Controller
             // 'foto_umkm' => 'required',
             // 'desc_umkm' => 'required',
             'status_umkm' => 'required',
+        ], [
+            'status_umkm.required' => 'Status UMKM wajib diisi.',
         ]);
 
         $umkm->update($request->all());
@@ -79,11 +104,12 @@ class UmkmController extends Controller
         return redirect()->route('umkm.manage')
             ->with('success', 'Umkm berhasil diperbarui.');
     }
-    
-    public function delete($id)
-    {
+
+    public function destroy($id)
+    {        
         $umkm = Umkm::findOrFail($id);
+        File::delete(public_path('Foto UMKM') . '/' . $umkm->foto_umkm);
         $umkm->delete();
         return redirect()->back()->with('success', 'Data berhasil dihapus!');
-    }    
+    }
 }

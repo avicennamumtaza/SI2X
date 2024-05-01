@@ -19,46 +19,46 @@
             <div class="col-md-2 col-sm-4">
                 <div class="card">
                     <i class="bi bi-person-check card-icon"></i>
-                    <span class="span-count">100</span>
+                    <span class="span-count">{{ $data['jumlah_penduduk'] }}</span>
                     <span class="span-head">Penduduk Terdata</span>
                 </div>
             </div>
             <div class="col-md-2 col-sm-4">
                 <div class="card">
                     <i class="bi bi-house-door card-icon"></i>
-                    <span class="span-count">100</span>
+                    <span class="span-count">{{ $data['jumlah_keluarga'] }}</span>
                     <span class="span-head">Keluarga Terdata</span>
                 </div>
             </div>
             <div class="col-md-2 col-sm-4">
                 <div class="card">
                     <i class="bi bi-person-badge card-icon"></i>
-                    <span class="span-count">100</span>
+                    <span class="span-count">{{ $data['jumlah_rt'] }}</span>
                     <span class="span-head">Rukun Tetangga</span>
                 </div>
             </div>
             <div class="col-md-2 col-sm-4">
                 <div class="card">
                     <i class="bi bi-megaphone card-icon"></i>
-                    <span class="span-count">100</span>
+                    <span class="span-count">{{ $data['jumlah_pengumuman'] }}</span>
                     <span class="span-head">Pengumuman Diterbitkan</span>
                 </div>
             </div>
             <div class="col-md-2 col-sm-4">
                 <div class="card">
                     <i class="bi bi-shop-window card-icon"></i>
-                    <span class="span-count">100</span>
+                    <span class="span-count">{{ $data['jumlah_umkm'] }}</span>
                     <span class="span-head">UMKM Terdaftar</span>
                 </div>
             </div>
             <div class="col-md-2 col-sm-4">
                 <div class="card">
                     <i class="bi bi-file-earmark-pdf card-icon"></i>
-                    <span class="span-count">100</span>
+                    <span class="span-count">{{ $data['jumlah_pengajuan_dokumen'] }}</span>
                     <span class="span-head">Dokumen Diproses</span>
                 </div>
             </div>
-        </div>
+        </div>        
     <!-- </div> -->
 </div>
 <div id="pengumuman" class="container container-pengumuman col-10">

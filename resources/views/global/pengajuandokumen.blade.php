@@ -17,45 +17,61 @@
                             @csrf
                             <!-- Tambahkan input form sesuai kebutuhan -->
                             <div class="form-group mb-3">
-                                <label for="nama_umkm" class="form-label text-start">RT</label>
-                                <input type="text" class="form-control" id="nama_umkm" name="nama_umkm"
-                                    placeholder="Masukkan Nomor RT" required>
-                            </div>
+                                <label for="no_rt" class="form-label">RT Pengaju</label>
+                                <select class="form-select" id="no_rt" name="no_rt" required>
+                                    <option value="" selected disabled>Pilih RT Pengaju</option>
+                                    <?php $no_rts = $no_rts->toArray(); ?>
+                                    <?php sort($no_rts); ?>
+                                    @foreach ($no_rts as $rt)
+                                        <option value="{{ $rt }}">{{ $rt }}</option>
+                                    @endforeach
+                                </select>
+                            </div>                                                       
                             <div class="form-group mb-3">
-                                <label for="nik_pemilik" class="form-label">NIK Pengaju</label>
-                                <input list="nik_pemilik_list" class="form-control" id="nik_pemilik" name="nik_pemilik_umkm"
-                                    placeholder="Masukkan Nik Pengaju" required>
-                                <datalist id="nik_pemilik_list">
-                                    {{-- @foreach ($nik_penduduks as $nik_penduduk) --}}
-                                        {{-- <option value="{{ $nik_penduduk->nik }}">{{ $nik_penduduk->nik }}</option> --}}
-                                    {{-- @endforeach --}}
+                                <label for="nik_pengaju" class="form-label">NIK Pengaju</label>
+                                <input list="nik_pengaju_list" class="form-control" id="nik_pengaju" name="nik_pengaju"
+                                    placeholder="Masukkan NIK Pengaju" required>
+                                <datalist id="nik_pengaju_list">
+                                    @foreach ($penduduks as $penduduk)
+                                        <option value="{{ $penduduk->nik }}">{{ $penduduk->nik }}</option>
+                                    @endforeach
                                 </datalist>
-                            </div>
+                            </div>      
                             <div class="form-group mb-3">
-                                <label for="no_rw" class="form-label text-start">Nama Pengaju</label>
-                                <input type="text" class="form-control" id="no_rw" name="no_rw"
-                                    placeholder="Masukkan Nama Pengaju">
-                            </div>
+                                <label for="nama_pengaju" class="form-label">Nama Pengaju</label>
+                                <input list="nama_pengaju_list" class="form-control" id="nama_pengaju" name="nama_pengaju"
+                                    placeholder="Masukkan Nama Pengaju" required>
+                                <datalist id="nama_pengaju_list">
+                                    @foreach ($penduduks as $penduduk)
+                                        <option value="{{ $penduduk->nama }}">{{ $penduduk->nama }}</option>
+                                    @endforeach
+                                </datalist>
+                            </div>                            
                             <div class="form-group mb-3">
                                 <label for="status_umkm" class="form-label text-start">Status Pengajuan</label>
                                 <input type="text" class="form-control" id="status_umkm" name="status_umkm"
-                                    placeholder="Baru" value="Baru" readonly>
+                                    placeholder="Baru" value="Baru" disabled readonly>
                             </div>
                             <div class="form-group mb-3">
-                                <label for="wa_umkm" class="form-label">Dokumen</label>
-                                <input type="text" class="form-control" id="wa_umkm" name="wa_umkm"
-                                    placeholder="Masukkan Jenis Dokumen" required>
-                            </div>
+                                <label for="id_dokumen" class="form-label">Pilih Jenis Dokumen</label>
+                                <select class="form-select" id="id_dokumen" name="id_dokumen" required>
+                                    <option value="" selected disabled>Pilih Jenis Dokumen</option>
+                                    @foreach ($dokumens as $dokumen)
+                                        <option value="{{ $dokumen->id_dokumen }}">{{ $dokumen->jenis_dokumen }}</option>
+                                    @endforeach
+                                </select>
+                            </div>                            
                             <!-- Tambahkan input lainnya sesuai kebutuhan -->
                     </div>
                     <div class="modal-footer justify-content-end">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
                         <button type="submit" class="btn btn-success">Submit</button>
                     </div>
                     </form>
                 </div>
             </div>
         </div>
+
         <script>
             document.getElementById('ajukanUmkmButton').addEventListener('click', function() {
                 var modal = new bootstrap.Modal(document.getElementById('ajukanUmkmModal'));
@@ -82,7 +98,7 @@
                     {{-- <button class="btn btn-add float-end" data-bs-toggle="modal" data-bs-target="#ajukanpengumumanModal">Tambah Data</button> --}}
                 </h5>
             </div>
-            <hr>
+            <hr class="tabel">
             <div class="card-body">
                 <div class="table-responsive">
                     {{-- {{ $dataTable->table() }} --}}

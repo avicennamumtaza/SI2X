@@ -21,6 +21,7 @@
 
     {{-- Icons --}}
     <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet">
 
     {{-- DataTables --}}
     {{-- <link href="vendor\datatables.net\datatables.net-bs5\css\dataTables.bootstrap5.min.css" rel="stylesheet"></link> --}}
@@ -28,194 +29,140 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
 </head>
 
 <body>
-    <div class="">
-        <div class="row-auto flex-column flex-lg-row position-relative">
-            <!-- Start Sidebar -->
-            <div class="col-2 sidebar shadow-lg">
-                <nav class="navbar navbar-expand-lg align-items-stretch">
-                    <div class="container-fluid align-items-lg-start flex-lg-column ">
-                        <a class="navbar-brand my-3" href="#"><img src="{{ asset('assets/landing-pict.png') }}"
-                                class="d-inline-block align-text-center" alt="SIRW" width="40"
-                                height="40"></a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                            data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="navbarOffcanvasLg"
-                            aria-labelledby="navbarOffcanvasLgLabel">
-                            <div class="offcanvas-header">
-                                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="offcanvas-body flex-column">
-                                <ul
-                                    class="navbar-nav mb-2 mb-lg-0 flex-column align-items-end align-items-lg-start flex-grow-1 pe-2">
-                                    <li class="mb-2 position-relative">
-                                        <div class="content nav-item gap-2 d-flex align-items-center">
-                                            <i class="bi bi-house"></i>
-                                            <a class="nav-link" aria-current="page" {{-- href="/{{ $role }}/dashboard" --}}>Dashboard</a>
-                                        </div>
-                                    </li>
-                                    {{-- @if ($role == 'mahasiswa') --}}
-                                    {{-- <li class="mb-2 position-relative">
-                                    <div class="content nav-item gap-1 d-flex align-items-center">
-                                        <i class="bi bi-exclamation-circle"></i>
-                                        <a class="nav-link"
-                                        {{-- href="/{{ $role }}/violation-history" --}}
-                                    {{-- title="report">Violation History</a> --}}
-                                    {{-- </div>
-                                </li> --}}
-                                    {{-- @else --}}
-                                    <li class="mb-2 position-relative">
-                                        <div class="content nav-item gap-2 d-flex align-items-center">
-                                            <i class="bi bi-exclamation-circle"></i>
-                                            <a class="nav-link" href="{{ route('umkm.manage') }}"
-                                                title="report">UMKM</a>
-                                        </div>
-                                    </li>
-                                    <li class="mb-2 position-relative">
-                                        <div class="content nav-item gap-2 d-flex align-items-center">
-                                            <i class="bi bi-activity"></i>
-                                            <a class="nav-link" href="{{ route('pengumuman.manage') }}"
-                                                title="report">Pengumuman</a>
-                                        </div>
-                                    <li class="mb-2 position-relative">
-                                        <div class="content nav-item gap-2 d-flex align-items-center">
-                                            <i class="bi bi-activity"></i>
-                                            <a class="nav-link" href="{{ route('laporankeuangan.manage') }}"
-                                                title="report">Laporan Keuangan</a>
-                                        </div>
-                                    </li>
-                                    {{-- @endif --}}
-                                    {{-- <li class="mb-2 position-relative">
-                                        <div
-                                            class="content nav-item gap-1 d-flex justify-content-center align-items-center">
-                                            <i class="bi bi-bell"></i> --}}
-                                    {{-- <a class="nav-link" href="/{{ $role }}/notification">Notification --}}
-                                    {{-- @if ($role == 'mahasiswa')
-                                                @if ($newViolationCount > 0) --}}
-                                    {{-- <span
-                                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"> --}}
-                                    {{-- {{ $newViolationCount }} --}}
-                                    {{-- <span class="visually-hidden">unread messages</span> --}}
-                                    {{-- </span> --}}
-                                    {{-- @endif
-                                            @else
-                                                @if ($newReportCommentCount > 0) --}}
-                                    {{-- <span
-                                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"> --}}
-                                    {{-- {{ $newReportCommentCount }} --}}
-                                    {{-- <span class="visually-hidden">unread messages</span>
-                                                </span> --}}
-                                    {{-- @endif
-                                            @endif --}}
-                                    {{-- </a>
-                                        </div>
-                                    </li> --}}
-                                    {{-- @if ($role == 'admin') --}}
-                                    <li class="mb-2 gap-1">
-                                        <div class="col-auto position-relative content nav-item align-items-center">
-                                            <i class="bi bi-person"></i>
-                                            <button style="color: white" type="button"
-                                                class="btn dropdown-toggle shadow-none" data-bs-toggle="dropdown"
-                                                aria-expanded="false">Kelola</button>
-                                            <ul style="background-color: transparent; border: 1px solid #fff"
-                                                class="dropdown-menu position-static">
-                                                <li>
-                                                    <a class="dropdown-item"
-                                                        style="background-color: transparent; color: white"
-                                                        href="{{ route('penduduk.manage') }}">
-                                                        Penduduk
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item"
-                                                        style="background-color: transparent; color: white"
-                                                        href="{{ route('keluarga.manage') }}">Keluarga</a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item"
-                                                        style="background-color: transparent; color: white"
-                                                        href="{{ route('rt.manage') }}">
-                                                        RT
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item"
-                                                        style="background-color: transparent; color: white"
-                                                        href="{{ route('rw.manage') }}">
-                                                        RW
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item"
-                                                        style="background-color: transparent; color: white"
-                                                        href="{{ route('rw.manage') }}">
-                                                        Pengguna
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    {{-- <li class="mb-2 position-relative">
-                                        <div class="content nav-item gap-1 d-flex align-items-center">
-                                            <i class="bi bi-activity"></i>
-                                            <a class="nav-link" href="/{{ $role }}/log-activity">Log Activity</a>
-                                        </div>
-                                    </li> --}}
-                                    {{-- @endif --}}
-                                    {{-- <li class="mb-2 position-relative">
-                                        <div class="content nav-item  d-flex gap-1 align-items-center">
-                                            <i class="bi bi-person"></i> --}}
-                                    {{-- <a class="nav-link" href="/{{ $role }}/profile">Profile</a>
-                                        </div>
-                                    </li> --}}
-                                    <li class="logOut border-top mt-2 position-relative">
-                                        <div class="content nav-item gap-2 d-flex align-items-center">
-                                            <i class="bi bi-box-arrow-in-right"></i>
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                                @csrf
-                                                <button class="nav-link" type="submit">Log Out</button>
-                                            </form>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div class="row-auto mt-4">
-                                    <div class="card-user d-flex justify-content-end gap-2 align-items-center col">
-                                        <img {{-- src="{{ $user->getImageUrl() }}"  --}} alt="" class="img-profile rounded-circle">
-                                        <div class="userinfo d-flex align-items-start flex-column">
-                                            <h3 class="fs-6" style=" margin-bottom:-2px;">
-                                                {{-- {{ $user->getFirstName() }} {{ $user->getLastName() }} --}}
-                                            </h3>
-                                            <p class="text-capitalize" style="font-size:12px;margin-bottom:-5px;">
-                                                {{-- {{ $role == 'admin' ? $user->getRoleDetail()->getTitle() : $role }} --}}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-            <!-- End Sidebar -->
-
-            <main class="col position-relative overflow-x-hidden">
-                <div class="row justify-content-lg-end">
-                    <div class="col-lg-10 col px-2 px-lg-5 py-4" title="main">
-                        <div class="content p-lg-4 p-0">
-                            @yield('content')
-                        </div>
+    {{-- <div class=""> --}}
+        <div class="wrapper">
+            <aside id="sidebar">
+                <div class="d-flex">
+                    <button id="toggle-btn" type="button">
+                        <i id="lni" class="lni lni-menu"></i>
+                    </button>
+                    <div class="sidebar-logo">
+                        <a href="#">SIRW</a>
                     </div>
                 </div>
-            </main>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-item {{ \Route::is('home') ? 'active' : '' }}">
+                        <a href="{{ route('home') }}" class="sidebar-link">
+                            <i class="lni lni-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item {{ \Route::is('pengumuman.manage') ? 'active' : '' }}">
+                        <a href="{{ route('pengumuman.manage') }}" class="sidebar-link">
+                            <i class="lni lni-notepad"></i>
+                            {{-- <i class="lni lni-license"></i> --}}
+                            <span>Pengumuman</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item {{ \Route::is('pengajuandokumen.manage') ? 'active' : '' }}">
+                        <a href="{{ route('pengajuandokumen.manage') }}" class="sidebar-link">
+                            <i class="lni lni-printer"></i>
+                            <span>Pengajuan Dokumen</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item}">
+                        <a href="#" class="sidebar-link">
+                            <i class="lni lni-control-panel"></i>
+                            <span>Dokumen</span>
+                        </a>
+                    </li>
+                    {{-- <li class="sidebar-item">
+                        <a href="#" class="sidebar-link has-dropdown collapsed" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
+                            <i class="lni lni-protection"></i>
+                            <span>Auth</span>
+                        </a>
+                        <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">Login</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">Register</a>
+                            </li>
+                        </ul>
+                    </li> --}}
+                    <li class="sidebar-item {{ \Route::is('penduduk.manage') ? 'active' : '' }} {{ \Route::is('keluarga.manage')  ? 'active' : '' }} {{ \Route::is('rt.manage')  ? 'active' : '' }} {{ \Route::is('rw.manage')  ? 'active' : '' }}">
+                        <a href="#" class="sidebar-link has-dropdown collapsed" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#multi" aria-expanded="false"
+                            aria-controls="multi">
+                            <i class="lni lni-users"></i>
+                            <span>Kependudukan</span>
+                        </a>
+                        <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="{{ route('penduduk.manage') }}" class="sidebar-link">
+                                    <div class="single-item-menu">Penduduk</div>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{{ route('keluarga.manage') }}" class="sidebar-link">
+                                    <div class="single-item-menu">Keluarga</div>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{{ route('rt.manage') }}" class="sidebar-link">
+                                    <div class="single-item-menu">RT</div>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{{ route('rw.manage') }}" class="sidebar-link">
+                                    <div class="single-item-menu">RW</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item {{ \Route::is('laporankeuangan.manage') ? 'active' : '' }}">
+                        <a href="{{ route('laporankeuangan.manage') }}" class="sidebar-link">
+                            <i class="lni lni-revenue"></i>
+                            {{-- <i class="lni lni-calculator-alt"></i> --}}
+                            {{-- <i class="lni lni-bar-chart"></i> --}}
+                            {{-- <i class="lni lni-money-protection"></i> --}}
+                            <span>Keuangan</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item {{ \Route::is('umkm.manage') ? 'active' : '' }}">
+                        <a href="{{ route('umkm.manage') }}" class="sidebar-link">
+                            <i class="lni lni-shopping-basket"></i>
+                            <span>UMKM</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <div class="sidebar-footer">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button class="sidebar-link" type="submit">
+                                    {{-- <a href="{{ route('logout') }}" class="sidebar-link"> --}}
+                                        <i class="lni lni-exit"></i>
+                                        <span>Keluar</span>
+                                    {{-- </a> --}}
+                                </button>
+                            </form>
+                        </div>
+                    </li>
+                </ul>
+            </aside>
+            <div class="" style="background-color: black;
+            min-height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            ">
+                <main class="col position-relative overflow-x-hidden">
+                    <div class="row justify-content-lg-end">
+                        <div class="col-lg-12 px-2 px-lg-5 py-5" title="main">
+                            <div class="content p-lg-4 p-sm-3">
+                                @yield('content')
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
         </div>
+        <!-- End Sidebar -->
     </div>
+    {{-- </div> --}}
     {{-- <script>
         // let table = new DataTables('#myTable');
         // <script src="vendor\datatables.net\datatables.net-bs5\js\dataTables.bootstrap5.min.js"></script>
@@ -236,7 +183,7 @@
     @stack('scripts')
 
     {{-- Sweet Alert --}}
-    @include('sweetalert::alert');
+    @include('sweetalert::alert')
 
     {{-- Add common CSS customizations --}}
 
@@ -244,12 +191,13 @@
         <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.css">
         <style type="text/css">
             {{-- You can add AdminLTE customizations here --}}
-            /* .card-header {
-                                        border-bottom: none;
-                                        }
-                                        .card-title {
-                                        font-weight: 600;
-                                        } */
         </style>
     @endpush
 </body>
+<script>
+    const hamburger = document.querySelector("#toggle-btn")
+
+    hamburger.addEventListener("click", function() {
+        document.querySelector("#sidebar").classList.toggle("expand")
+    })
+</script>

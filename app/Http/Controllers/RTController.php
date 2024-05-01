@@ -30,7 +30,7 @@ class RTController extends Controller
         // Validasi data input dari form
         $request->validate([
             'no_rt' => 'required',
-            'nik_rt' => 'required',
+            'nik_rt' => 'required|min:15|max:17',
             'jumlah_keluarga_rt' => 'required',
             'jumlah_penduduk_rt' => 'required',
         ]);
@@ -60,8 +60,8 @@ class RTController extends Controller
     public function update(Request $request, Rt $rt)
     {
         $request->validate([
-            'no_rt' => 'required',
-            'nik_rt' => 'required',
+            'no_rt' => 'required', // (tidak bisa mengubah no_rt as primary key, cek view)
+            'nik_rt' => 'required|min:15|max:17',
             'jumlah_keluarga_rt' => 'required',
             'jumlah_penduduk_rt' => 'required',
         ]);

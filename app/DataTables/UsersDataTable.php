@@ -2,7 +2,8 @@
 
 namespace App\DataTables;
 
-use App\Models\RW;
+use App\Models\User;
+use App\Models\Users;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -12,7 +13,7 @@ use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class RWDataTable extends DataTable
+class UsersDataTable extends DataTable
 {
     /**
      * Build the DataTable class.
@@ -22,26 +23,34 @@ class RWDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-        ->setRowId('id')
-        ->addColumn('action', function($row){
-            $editUrl = route('rw.edit', $row->no_rw);
-            $deleteUrl = route('rw.destroy', $row->no_rw);
-            $action = '<div class="container-action">
-            <a href="' . $editUrl . '" class="edit btn btn-edit btn-sm">Edit</a>';
-            $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline-block;">
+            ->setRowId('id')
+            ->addColumn('action', function($row){
+                $deleteUrl = route('users.destroy', $row->id_user);
+                $action = '
+                <div class="container-action">
+                <button type="button"
+                data-id_user="' . $row->id_user . '"
+                data-nik="' . $row->nik . '"
+                data-username="' . $row->username . '"
+                data-role="' . $row->role . '"
+                data-email="' . $row->email . '"
+                data-bs-toggle="modal" 
+                data-bs-target="#editUsersModal" class="edit btn btn-edit btn-sm">Edit</button>';
+                $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
                 ' . csrf_field() . '
-                ' . method_field('DELETE') . 
-                '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
+                ' . method_field('DELETE') . '
+                <button type="submit" class="delete btn btn-delete btn-sm">Delete</button>
                 </form>
-            </div>';
-            return $action;
-        });
+                </div>';
+                return $action;
+            });
+            
     }
 
     /**
      * Get the query source of dataTable.
      */
-    public function query(RW $model): QueryBuilder
+    public function query(Users $model): QueryBuilder
     {
         return $model->newQuery();
     }
@@ -52,7 +61,7 @@ class RWDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-                    ->setTableId('rw-table')
+                    ->setTableId('users-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     //->dom('Bfrtip')
@@ -74,16 +83,17 @@ class RWDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            Column::make('no_rw'),
-            Column::make('nik_rw'),
-            Column::make('jumlah_rt'),
-            Column::make('jumlah_keluarga_rw'),
-            Column::make('jumlah_penduduk_rw'),
+            Column::make('id_user')->title('ID'),
+            Column::make('nik')->title('NIK'),
+            Column::make('username')->title('Username'),
+            Column::make('role')->title('Role'),
+            Column::make('email')->title('Email'),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
-                  ->width(220)
-                  ->addClass('text-center'),
+                  ->width(150)
+                  ->addClass('text-center')
+                  ->title('Aksi'),
         ];
     }
 
@@ -92,6 +102,6 @@ class RWDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'RW_' . date('YmdHis');
+        return 'Users_' . date('YmdHis');
     }
 }

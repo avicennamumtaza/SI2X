@@ -57,12 +57,12 @@
                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-end">
                             <li><a class="dropdown-item" href="{{ route('pengumuman.global') }}">Pengumuman</a></li>
                             <li><a class="dropdown-item" href="{{ route('umkm.global') }}">Daftar UMKM</a></li>
-                            <li><a class="dropdown-item" href="#">Pengajuan Surat</a></li>
-                            <li><a class="dropdown-item" href="#">Laporan Keuangan</a></li>
+                            <li><a class="dropdown-item" href="{{ route('pengajuandokumen.global') }}">Pengajuan Surat</a></li>
+                            <li><a class="dropdown-item" href="{{ route('laporankeuangan.global') }}">Laporan Keuangan</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="{{ route('login') }}">Login</a></li>
+                            <li><a class="dropdown-item" href="{{ route('login') }}">Masuk</a></li>
                         </ul>
                     </div>
                 </ul>

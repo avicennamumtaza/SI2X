@@ -1,4 +1,4 @@
-@extends('layouts.rt')
+@extends('layouts.rw')
 
 @section('content')
 
@@ -19,34 +19,38 @@
                     @csrf
                     <div class="form-group mb-3">
                         <label for="id_pengajuandokumen" class="form-label text-start">id_pengajuandokumen</label>
-                        <input type="text" readonly class="form-control" id="id_pengajuandokumen" name="id_pengajuandokumen"
+                        <input type="text" readonly disabled class="form-control" id="id_pengajuandokumen" name="id_pengajuandokumen"
                              required>
                     </div>
                     <div class="form-group mb-3">
                         <label for="id_dokumen" class="form-label text-start">id_dokumen</label>
-                        <input type="text" readonly class="form-control" id="id_dokumen" name="id_dokumen"
+                        <input type="text" readonly disabled class="form-control" id="id_dokumen" name="id_dokumen"
                              required>
                     </div>
                     <div class="form-group mb-3">
                         <label for="no_rt" class="form-label text-start">no_rt</label>
-                        <input type="text" readonly class="form-control" id="no_rt" name="no_rt"
+                        <input type="text" readonly disabled class="form-control" id="no_rt" name="no_rt"
                              required>
                     </div>
                     <div class="form-group mb-3">
                         <label for="nik_pengaju" class="form-label text-start">nik_pengaju</label>
-                        <input type="text" readonly class="form-control" id="nik_pengaju" name="nik_pengaju"
+                        <input type="text" readonly disabled class="form-control" id="nik_pengaju" name="nik_pengaju"
                              required>
                     </div>
                     <div class="form-group mb-3">
                         <label for="nama_pengaju" class="form-label text-start">nama_pengaju</label>
-                        <input type="text" readonly class="form-control" id="nama_pengaju" name="nama_pengaju"
+                        <input type="text" readonly disabled class="form-control" id="nama_pengaju" name="nama_pengaju"
                              required>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="status_pengajuan" class="form-label text-start">status_pengajuan</label>
-                        <input type="text" class="form-control" id="status_pengajuan" name="status_pengajuan"
-                             required>
-                    </div>
+                        <label for="status_pengajuan" class="form-label text-start">Status Pengajuan</label>
+                        <select class="form-select" id="status_pengajuan" name="status_pengajuan" required>
+                            <option value="" selected disabled>Pilih Status Pengajuan</option>
+                            <option value="Baru">Baru</option>
+                            <option value="Disetujui">Disetujui</option>
+                            <option value="Dibatalkan">Dibatalkan</option>
+                        </select>
+                    </div>                    
                     <div class="form-group mb-3">
                         <label for="catatan" class="form-label text-start">catatan</label>
                         <input type="text" class="form-control" id="catatan" name="catatan"
@@ -68,9 +72,9 @@
                 Pengajuan Dokumen
             </h5>
         </div>
-        <hr>
+        <hr class="tabel">
         <div class="card-body">
-            <div class="table-responsive">
+            <div class="table-responsive tabel">
                 {{ $dataTable->table() }}
             </div>
         </div>
