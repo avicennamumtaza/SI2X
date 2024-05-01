@@ -44,21 +44,21 @@
                         <a class="nav-link" aria-current="page" href="{{ route('landing') }}">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#stats">Statistik</a>
+                        <a class="nav-link" href="{{ route('pengumuman.global') }}">Pengumuman</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#pengumuman">Pengumuman</a>
+                        <a class="nav-link" href="{{ route('laporankeuangan.global') }}">Keuangan</a>
                     </li>
-                    <div class="nav-item btn-group">
+                    <div class="ms-2 nav-item btn-group">
                         <button type="button" class="fitur-btn nav-link dropdown-toggle" data-bs-toggle="dropdown"
                             data-bs-display="static" aria-expanded="false">
                             Layanan
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-end">
-                            <li><a class="dropdown-item" href="{{ route('pengumuman.global') }}">Pengumuman</a></li>
-                            <li><a class="dropdown-item" href="{{ route('umkm.global') }}">Daftar UMKM</a></li>
+                            {{-- <li><a class="dropdown-item" href="{{ route('pengumuman.global') }}">Pengumuman</a></li>
+                            <li><a class="dropdown-item" href="{{ route('umkm.global') }}">Daftar UMKM</a></li> --}}
                             <li><a class="dropdown-item" href="{{ route('pengajuandokumen.global') }}">Pengajuan Surat</a></li>
-                            <li><a class="dropdown-item" href="{{ route('laporankeuangan.global') }}">Laporan Keuangan</a></li>
+                            <li><a class="dropdown-item" href="{{ route('umkm.global') }}">Deftar UMKM</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>

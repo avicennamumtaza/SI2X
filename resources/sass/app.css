@@ -180,7 +180,7 @@ body .custom-nav #navbarSupportedContent .navbar-nav .nav-item .nav-link {
   color: #253560;
   font-weight: 400;
   font-size: 18px;
-  margin-inline: 7px;
+  margin-right: 4px;
   transition: 0.3s ease;
 }
 body .custom-nav #navbarSupportedContent .navbar-nav .nav-item .nav-link:hover {
