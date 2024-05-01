@@ -74,14 +74,14 @@ class RTDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            Column::make('no_rt')->title('RT'),
-            Column::make('nik_rt')->title('NIK RT'),
-            Column::make('jumlah_keluarga_rt')->title('Jumlah Keluarga'),
-            Column::make('jumlah_penduduk_rt')->title('Jumlah Penduduk'),
+            Column::make('no_rt')->title('RT')->width(70),
+            Column::make('nik_rt')->title('NIK RT')->width(250),
+            Column::make('jumlah_keluarga_rt')->title('Jumlah Keluarga')->width(200),
+            Column::make('jumlah_penduduk_rt')->title('Jumlah Penduduk')->width(200),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
-                  ->width(130)
+                  ->width(200)
                   ->addClass('text-center'),
         ];
     }
