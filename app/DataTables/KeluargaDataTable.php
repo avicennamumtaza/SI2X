@@ -36,7 +36,7 @@ class KeluargaDataTable extends DataTable
                 class="edit btn btn-edit btn-sm">Edit</button>';
                 $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
                 ' . csrf_field() . '
-                ' . method_field('DELETE') . 
+                ' . method_field('DELETE') .
                 '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
                 </form>
                 </div>';
@@ -90,8 +90,8 @@ class KeluargaDataTable extends DataTable
               ->printable(false)
               ->width(300)
               ->addClass('text-center'),
-            Column::make('created_at'),
-            Column::make('updated_at'),
+            // Column::make('created_at'),
+            // Column::make('updated_at'),
         ];
     }
 
