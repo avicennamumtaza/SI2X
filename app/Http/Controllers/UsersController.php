@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\DataTables\UsersDataTable;
 use App\Models\Users;
+use Illuminate\Foundation\Auth\User;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Hash;
 
@@ -90,4 +91,24 @@ class UsersController extends Controller
         return redirect()->back()
             ->with('success', 'User berhasil dihapus.');
     }
+
+    public function profil() {
+        $user = auth()->user();
+        return view('auth.rw.profil', compact('user'));
+    }
+
+    // public function changePassword(Request $request, User $user)
+    // {
+    //     // Validasi request
+    //     $request->validate([
+    //         'new_password' => 'required|min:8|confirmed', // Konfirmasi password baru
+    //     ]);
+
+    //     // Setel password baru
+    //     $user->password = Hash::make($request->new_password);
+    //     $user->save();
+
+    //     // Redirect kembali ke halaman profil dengan pesan sukses
+    //     return redirect()->route('profil')->with('success', 'Password berhasil diubah.');
+    // }
 }
