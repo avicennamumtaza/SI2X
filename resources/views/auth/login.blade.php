@@ -7,7 +7,7 @@
         </a>
         <h2>Login</h2>
     </div>
-    <img class="sirw_icon" src="{{ asset('assets/landing-pict.png') }}" alt="">
+    <img class="sirw_icon" src="{{ asset('assets/Logo.png') }}" alt="">
 
     <div class="card-body">
         @error('password')
