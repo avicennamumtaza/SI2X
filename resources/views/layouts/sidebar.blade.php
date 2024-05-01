@@ -170,8 +170,8 @@
             overflow: hidden;
             ">
             <main class="col position-relative overflow-x-hidden">
-                <div class="row justify-content-lg-end">
-                    <div class="col-lg-12 px-2 px-lg-5 py-5" title="main">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 mx-4 me-1 px-lg-5 py-5" title="main">
                         <div class="content p-lg-4 p-sm-3">
                             @yield('content')
                         </div>
