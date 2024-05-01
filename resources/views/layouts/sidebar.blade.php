@@ -164,7 +164,7 @@
                     </li>
                 </ul>
             </aside>
-            <div class="" style="background-color: black;
+            <div class="" style="
             min-height: 100vh;
             width: 100%;
             overflow: hidden;
