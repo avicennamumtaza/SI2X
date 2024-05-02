@@ -49,73 +49,113 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // global umkm
-Route::post('/umkm', [UmkmController::class, 'store'])->name('umkm.store');
-Route::get('/umkm', [UmkmController::class, 'index'])->name('umkm.global');
-// manage umkm
-Route::get('/umkmm', [UmkmController::class, 'list'])->name('umkm.manage')->middleware('isRw');
-Route::get('/umkmm/edit/{umkm}', [UmkmController::class, 'edit'])->name('umkm.edit')->middleware('isRw');
-Route::put('/umkmm/update/{umkm}', [UmkmController::class, 'update'])->name('umkm.update')->middleware('isRw');
-Route::delete('/umkmm/{umkm}', [UmkmController::class, 'destroy'])->name('umkm.destroy')->middleware('isRw');
+Route::prefix('umkm')->group(function() {
+    Route::get('/', [UmkmController::class, 'index'])->name('umkm.global');
+    Route::post('/', [UmkmController::class, 'store'])->name('umkm.store');
+});
 
 // global pengajuan dokumen
-Route::post('/pengajuandokumen', [PengajuanDokumenController::class, 'store'])->name('pengajuandokumen.store');
-Route::get('/pengajuandokumen', [PengajuanDokumenController::class, 'index'])->name('pengajuandokumen.global');
-// manage pengajuan dokumen
-Route::get('/pengajuandokumenn', [PengajuanDokumenController::class, 'list'])->name('pengajuandokumen.manage')->middleware('isRt');
-Route::get('/pengajuandokumenn/edit/{pengajuandokumen}', [PengajuanDokumenController::class, 'edit'])->name('pengajuandokumen.edit')->middleware('isRt');
-Route::put('/pengajuandokumenn/update/{pengajuandokumen}', [PengajuanDokumenController::class, 'update'])->name('pengajuandokumen.update')->middleware('isRt');
-Route::delete('/pengajuandokumenn/{pengajuandokumen}', [PengajuanDokumenController::class, 'destroy'])->name('pengajuandokumen.destroy')->middleware('isRt');
+Route::prefix('pengajuandokumen')->group(function() {
+    Route::post('/', [PengajuanDokumenController::class, 'store'])->name('pengajuandokumen.store');
+    Route::get('/', [PengajuanDokumenController::class, 'index'])->name('pengajuandokumen.global');
+});
 
 // global pengumuman
-Route::get('/pengumuman', [PengumumanController::class, 'index'])->name('pengumuman.global');
-// manage pengumuman
-Route::get('/pengumumann', [PengumumanController::class, 'list'])->name('pengumuman.manage')->middleware('isRw');
-Route::post('/pengumumann', [PengumumanController::class, 'store'])->name('pengumuman.store')->middleware('isRw');
-Route::get('/pengumumann/edit/{pengumuman}', [PengumumanController::class, 'edit'])->name('pengumuman.edit')->middleware('isRw');
-Route::put('/pengumumann/update/{pengumuman}', [PengumumanController::class, 'update'])->name('pengumuman.update')->middleware('isRw');
-Route::delete('/pengumumann/{pengumuman}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy')->middleware('isRw');
+Route::prefix('pengumuman')->group(function() {
+    Route::get('/', [PengumumanController::class, 'index'])->name('pengumuman.global');
+});
 
 // global laporan keuangan
-Route::get('/laporankeuangan', [LaporanKeuanganController::class, 'index'])->name('laporankeuangan.global');
-// manage laporan keuangan
-Route::get('/laporankeuangann', [LaporanKeuanganController::class, 'list'])->name('laporankeuangan.manage')->middleware('isRw');
-Route::post('/laporankeuangann', [LaporanKeuanganController::class, 'store'])->name('laporankeuangan.store')->middleware('isRw');
-Route::get('/laporankeuangann/edit/{laporankeuangan}', [LaporanKeuanganController::class, 'edit'])->name('laporankeuangan.edit')->middleware('isRw');
-Route::put('/laporankeuangann/update/{laporankeuangan}', [LaporanKeuanganController::class, 'update'])->name('laporankeuangan.update')->middleware('isRw');
-Route::delete('/laporankeuangann/{laporankeuangan}', [LaporanKeuanganController::class, 'destroy'])->name('laporankeuangan.destroy')->middleware('isRw');
+Route::prefix('laporankeuangan')->group(function() {
+    Route::get('/', [LaporanKeuanganController::class, 'index'])->name('laporankeuangan.global');
+});
 
-// manage penduduk
-Route::get('/penduduk', [PendudukController::class, 'list'])->name('penduduk.manage')->middleware('auth');
-Route::post('/penduduk', [PendudukController::class, 'store'])->name('penduduk.store')->middleware('auth');
-Route::get('/penduduk/edit/{penduduk}', [PendudukController::class, 'edit'])->name('penduduk.edit')->middleware('auth');
-Route::put('/penduduk/update/{penduduk}', [PendudukController::class, 'update'])->name('penduduk.update')->middleware('auth');
-Route::delete('/penduduk/{penduduk}', [PendudukController::class, 'destroy'])->name('penduduk.destroy')->middleware('auth');
+// manage feature
+Route::prefix('manage')->group(function(){
+    // manage pengumuman
+    Route::prefix('pengumuman')->group(function() {
+        Route::get('/', [PengumumanController::class, 'list'])->name('pengumuman.manage')->middleware('isRw');
+        Route::post('/', [PengumumanController::class, 'store'])->name('pengumuman.store')->middleware('isRw');
+        Route::get('/edit/{pengumuman}', [PengumumanController::class, 'edit'])->name('pengumuman.edit')->middleware('isRw');
+        Route::put('/update/{pengumuman}', [PengumumanController::class, 'update'])->name('pengumuman.update')->middleware('isRw');
+        Route::delete('/{pengumuman}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy')->middleware('isRw');
+    });
 
-// manage keluarga
-Route::get('/keluarga', [KeluargaController::class, 'list'])->name('keluarga.manage')->middleware('auth');
-Route::post('/keluarga', [KeluargaController::class, 'store'])->name('keluarga.store')->middleware('auth');
-Route::get('/keluarga/edit/{keluarga}', [KeluargaController::class, 'edit'])->name('keluarga.edit')->middleware('auth');
-Route::put('/keluarga/update/{keluarga}', [KeluargaController::class, 'update'])->name('keluarga.update')->middleware('auth');
-Route::delete('/keluarga/{keluarga}', [KeluargaController::class, 'destroy'])->name('keluarga.destroy')->middleware('auth');
+    // manage pengajuan dokumen
+    Route::prefix('pengajuandokumen')->group(function() {
+        Route::get('/', [PengajuanDokumenController::class, 'list'])->name('pengajuandokumen.manage')->middleware('isRt');
+        Route::get('/edit/{pengajuandokumen}', [PengajuanDokumenController::class, 'edit'])->name('pengajuandokumen.edit')->middleware('isRt');
+        Route::put('/update/{pengajuandokumen}', [PengajuanDokumenController::class, 'update'])->name('pengajuandokumen.update')->middleware('isRt');
+        Route::delete('/{pengajuandokumen}', [PengajuanDokumenController::class, 'destroy'])->name('pengajuandokumen.destroy')->middleware('isRt');
+});
 
-// manage user
-Route::get('/users', [UsersController::class, 'list'])->name('users.manage')->middleware('isRw');
-Route::post('/users', [UsersController::class, 'store'])->name('users.store')->middleware('isRw');
-//Route::get('/users/edit/{users}', [UsersController::class, 'edit'])->name('users.edit')->middleware('isRw');
-Route::put('/users/update/{users}', [UsersController::class, 'update'])->name('users.update')->middleware('isRw');
-Route::delete('/users/{users}', [UsersController::class, 'destroy'])->name('users.destroy')->middleware('isRw');
-// manage rt
-Route::get('/pendataan/rt', [RTController::class, 'list'])->name('rt.manage')->middleware('isRw');
-Route::get('/pendataan/rt/{rt}/edit', [RTController::class, 'edit'])->name('rt.edit')->middleware('isRw');
-Route::post('/pendataan/rt', [RTController::class, 'store'])->name('rt.store')->middleware('isRw');
-Route::delete('/pendataan/rt/{rt}', [RTController::class, 'destroy'])->name('rt.destroy')->middleware('isRw');
+    // manage laporan keuangan
+    Route::prefix('laporankeuangan')->group(function() {
+        Route::get('/', [LaporanKeuanganController::class, 'index'])->name('laporankeuangan.global');
+        Route::get('/', [LaporanKeuanganController::class, 'list'])->name('laporankeuangan.manage')->middleware('isRw');
+        Route::post('/', [LaporanKeuanganController::class, 'store'])->name('laporankeuangan.store')->middleware('isRw');
+        Route::get('/edit/{laporankeuangan}', [LaporanKeuanganController::class, 'edit'])->name('laporankeuangan.edit')->middleware('isRw');
+        Route::put('/update/{laporankeuangan}', [LaporanKeuanganController::class, 'update'])->name('laporankeuangan.update')->middleware('isRw');
+        Route::delete('/{laporankeuangan}', [LaporanKeuanganController::class, 'destroy'])->name('laporankeuangan.destroy')->middleware('isRw');
+    });
 
-// manage rw
-Route::get('/pendataan/rw', [RWController::class, 'list'])->name('rw.manage')->middleware('isRw');
-Route::get('/pendataan/rw/{rw}/edit', [RWController::class, 'edit'])->name('rw.edit')->middleware('isRw');
-Route::post('/pendataan/rw', [RWController::class, 'store'])->name('rw.store')->middleware('isRw');
-Route::delete('/pendataan/rw/{rw}', [RwController::class, 'destroy'])->name('rw.destroy')->middleware('isRw');
+    // manage umkm
+    Route::prefix('umkm')->group(function() {
+        Route::get('/', [UmkmController::class, 'list'])->name('umkm.manage')->middleware('isRw');
+        Route::get('/edit/{umkm}', [UmkmController::class, 'edit'])->name('umkm.edit')->middleware('isRw');
+        Route::put('/update/{umkm}', [UmkmController::class, 'update'])->name('umkm.update')->middleware('isRw');
+        Route::delete('/{umkm}', [UmkmController::class, 'destroy'])->name('umkm.destroy')->middleware('isRw');
+    });
+
+        // manage pendataan
+    Route::prefix('pendataan')->group(function() {
+        //manage rt
+        Route::prefix('rt')->group(function() {
+            Route::get('/', [RTController::class, 'list'])->name('rt.manage')->middleware('isRw');
+            Route::get('/{rt}/edit', [RTController::class, 'edit'])->name('rt.edit')->middleware('isRw');
+            Route::post('/', [RTController::class, 'store'])->name('rt.store')->middleware('isRw');
+            Route::delete('/{rt}', [RTController::class, 'destroy'])->name('rt.destroy')->middleware('isRw');
+        });
+        
+        //manage rw
+        Route::prefix('rw')->group(function() {
+            Route::get('/', [RWController::class, 'list'])->name('rw.manage')->middleware('isRw');
+            Route::get('/{rw}/edit', [RWController::class, 'edit'])->name('rw.edit')->middleware('isRw');
+            Route::post('/', [RWController::class, 'store'])->name('rw.store')->middleware('isRw');
+            Route::delete('/{rw}', [RwController::class, 'destroy'])->name('rw.destroy')->middleware('isRw');
+        });
+        
+        // manage penduduk
+        Route::prefix('penduduk')->group(function() {
+            Route::get('/', [PendudukController::class, 'list'])->name('penduduk.manage')->middleware('auth');
+            Route::post('/', [PendudukController::class, 'store'])->name('penduduk.store')->middleware('auth');
+            Route::get('/edit/{penduduk}', [PendudukController::class, 'edit'])->name('penduduk.edit')->middleware('auth');
+            Route::put('/update/{penduduk}', [PendudukController::class, 'update'])->name('penduduk.update')->middleware('auth');
+            Route::delete('/{penduduk}', [PendudukController::class, 'destroy'])->name('penduduk.destroy')->middleware('auth');
+        });
+
+        // manage keluarga
+        Route::prefix('keluarga')->group(function() {
+            Route::get('/', [KeluargaController::class, 'list'])->name('keluarga.manage')->middleware('auth');
+            Route::post('/', [KeluargaController::class, 'store'])->name('keluarga.store')->middleware('auth');
+            Route::get('/edit/{keluarga}', [KeluargaController::class, 'edit'])->name('keluarga.edit')->middleware('auth');
+            Route::put('/update/{keluarga}', [KeluargaController::class, 'update'])->name('keluarga.update')->middleware('auth');
+            Route::delete('/{keluarga}', [KeluargaController::class, 'destroy'])->name('keluarga.destroy')->middleware('auth');
+        });
+    });
+
+        // manage user
+    Route::prefix('users')->group(function() {
+        Route::get('/', [UsersController::class, 'list'])->name('users.manage')->middleware('isRw');
+        Route::post('/', [UsersController::class, 'store'])->name('users.store')->middleware('isRw');
+        // Route::get('/edit/{users}', [UsersController::class, 'edit'])->name('users.edit')->middleware('isRw');
+        Route::put('/update/{users}', [UsersController::class, 'update'])->name('users.update')->middleware('isRw');
+        Route::delete('/{users}', [UsersController::class, 'destroy'])->name('users.destroy')->middleware('isRw');
+    });
+});
 
 // profil
-Route::get('/profil', [UsersController::class, 'profil'])->name('profil');
-// Route::put('/profil/{user}/change_password', [UsersController::class, 'changePassword'])->name('profil.password');
+Route::prefix('profil')->group(function() {
+    Route::get('/', [UsersController::class, 'profil'])->name('profil');
+    // Route::put('/{user}/change_password', [UsersController::class, 'changePassword'])->name('profil.password');
+});
