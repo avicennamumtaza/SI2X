@@ -23,12 +23,15 @@
                                 placeholder="Masukkan Username" required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="role">Role</label>
-                            <input type="text" class="form-control" id="role" name="role"
-                                placeholder="Masukkan Role" required>
+                            <label for="role" class="form-label text-start">Role</label>
+                            <select class="form-select" id="role" name="role" required>
+                                <option value="" selected disabled>Pilih Role</option>
+                                <option value="Rt">Rt</option>
+                                <option value="Rw">Rw</option>
+                            </select>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="email">Email</label>
+                            <label for="email" class="form-label text-start">Email</label>
                             <input type="email" class="form-control" id="email" name="email"
                                 placeholder="Masukkan Email" required>
                         </div>
@@ -74,7 +77,11 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="role" class="form-label text-start">Role</label>
-                            <input type="text" class="form-control" id="role" name="role" required>
+                            <select class="form-select" id="role" name="role" required>
+                                <option value="" selected disabled>Pilih Role</option>
+                                <option value="Rt">Rt</option>
+                                <option value="Rw">Rw</option>
+                            </select>
                         </div>
                         <div class="form-group mb-3">
                             <label for="email" class="form-label text-start">Email</label>

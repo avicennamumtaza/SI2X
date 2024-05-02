@@ -64,9 +64,8 @@ class UsersDataTable extends DataTable
                     ->setTableId('users-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
-                    //->dom('Bfrtip')
-                    ->orderBy(1)
-                    ->selectStyleSingle()
+                    ->dom('Bfrtip')
+                    ->orderBy(0, 'asc')
                     ->buttons([
                         Button::make('excel'),
                         Button::make('csv'),
@@ -74,7 +73,10 @@ class UsersDataTable extends DataTable
                         Button::make('print'),
                         Button::make('reset'),
                         Button::make('reload')
-                    ]);
+                    ])
+                    ->selectStyleSingle();
+                    // ->parameters([
+                    //     'lengthChange' => false]);
     }
 
     /**
@@ -91,9 +93,9 @@ class UsersDataTable extends DataTable
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
-                  ->width(150)
+                  ->width(200)
                   ->addClass('text-center')
-                  ->title('Aksi'),
+                 // ->title('Aksi'),
         ];
     }
 

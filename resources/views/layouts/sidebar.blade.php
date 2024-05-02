@@ -149,6 +149,12 @@
                             <span>Profil</span>
                         </a>
                     </li>
+                    <li class="sidebar-item {{ \Route::is('users') ? 'active' : '' }}">
+                        <a href="{{ route('users.manage') }}" class="sidebar-link">
+                            <i class="lni lni-user"></i>
+                            <span>Kelola Users</span>
+                        </a>
+                    </li>
                     <li class="sidebar-item">
                         <div class="sidebar-footer">
                             <form id="logout-form" action="{{ route('logout') }}" method="POST">

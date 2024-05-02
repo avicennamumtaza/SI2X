@@ -21,10 +21,10 @@ class UsersController extends Controller
     {
         // Validasi input
         $validated = $request->validate([
-            'username' => 'required|string|max:20',
+            'username' => 'required|string|max:20|unique:users,username',
             'nik' => 'required|string|min:15|max:17',
             'role' => 'required|string|max:20',
-            'email' => 'required|string|email|max:50',
+            'email' => 'required|string|email|max:50|unique:users,email',
             'password' => 'required|string|min:6|confirmed',
             // Tambahkan validasi untuk input lainnya jika diperlukan
         ]);
@@ -56,12 +56,13 @@ class UsersController extends Controller
 
         // Validasi input
         $validated = $request->validate([
-            'username' => 'required|string|max:20',
+            'username' => 'required|string|max:20|unique:users,username,' . $users->id,
             'nik' => 'required|string|min:15|max:17',
             'role' => 'required|string|max:20',
-            'email' => 'required|string|email|max:50',
+            'email' => 'required|string|email|max:50|unique:users,email,' . $users->id,
             'password' => 'nullable|string|min:6|confirmed',
         ]);
+        
 
         // Update user
         try {
