@@ -59,7 +59,7 @@
                         </a>
                     </li>
                     <li class="sidebar-item}">
-                        <a href="#" class="sidebar-link">
+                        <a href="{{ route('dokumen.manage') }}" class="sidebar-link">
                             <i class="lni lni-control-panel"></i>
                             <span>Dokumen</span>
                         </a>
@@ -151,7 +151,7 @@
                     </li>
                     <li class="sidebar-item {{ \Route::is('users') ? 'active' : '' }}">
                         <a href="{{ route('users.manage') }}" class="sidebar-link">
-                            <i class="lni lni-user"></i>
+                            <i class="bi bi-people-fill"></i>
                             <span>Kelola Users</span>
                         </a>
                     </li>
