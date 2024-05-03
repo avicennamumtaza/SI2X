@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DokumenController;
 use App\Http\Controllers\KeluargaController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LaporanKeuanganController;
@@ -121,8 +122,8 @@ Route::get('/profil', [UsersController::class, 'profil'])->name('profil');
 // Route::put('/profil/{user}/change_password', [UsersController::class, 'changePassword'])->name('profil.password');
 
 //dokumen
-// Route::get('/dokumen', [DokumenController::class, 'list'])->name('dokumen.manage')->middleware('isRw');
-// Route::post('/dokumen', [DokumenController::class, 'store'])->name('dokumen.store')->middleware('isRw');
-// Route::get('/dokumen/edit/{dokumen}', [DokumenController::class, 'edit'])->name('dokumen.edit')->middleware('isRw');
-// Route::put('/dokumen/update/{dokumen}', [DokumenController::class, 'update'])->name('dokumen.update')->middleware('isRw');
-// Route::delete('/dokumen/{dokumen}', [DokumenController::class, 'destroy'])->name('dokumen.destroy')->middleware('isRw');
+Route::get('/dokumen', [DokumenController::class, 'list'])->name('dokumen.manage')->middleware('isRw');
+Route::post('/dokumen', [DokumenController::class, 'store'])->name('dokumen.store')->middleware('isRw');
+Route::get('/dokumen/edit/{dokumen}', [DokumenController::class, 'edit'])->name('dokumen.edit')->middleware('isRw');
+Route::put('/dokumen/update/{dokumen}', [DokumenController::class, 'update'])->name('dokumen.update')->middleware('isRw');
+Route::delete('/dokumen/{dokumen}', [DokumenController::class, 'destroy'])->name('dokumen.destroy')->middleware('isRw');
