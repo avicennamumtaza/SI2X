@@ -8,7 +8,7 @@
     <div class="modal-dialog modal-md">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Pengajuan Dokumen</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Edit Permintaan Dokumen</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -47,8 +47,8 @@
                         <select class="form-select" id="status_pengajuan" name="status_pengajuan" required>
                             <option value="" selected disabled>Pilih Status Pengajuan</option>
                             <option value="Baru">Baru</option>
-                            <option value="Disetujui">Disetujui</option>
-                            <option value="Dibatalkan">Dibatalkan</option>
+                            <option value="Disetujui">Setuju</option>
+                            <option value="Ditolak">Tolak</option>
                         </select>
                     </div>                    
                     <div class="form-group mb-3">
@@ -69,7 +69,7 @@
     <div class="card">
         <div class="card-header card-header-tabel p-4 mb-3">
             <h5>
-                Pengajuan Dokumen
+                Permintaan Dokumen
             </h5>
         </div>
         <hr class="tabel">

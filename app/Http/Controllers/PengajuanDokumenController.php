@@ -23,8 +23,7 @@ class PengajuanDokumenController extends Controller
         $no_rts = Rt::pluck('no_rt');
         $penduduks = Penduduk::all();
         $dokumens = Dokumen::all();
-        
-    
+            
         // Mengirimkan data ke view
         return view('global.pengajuandokumen', compact('pengajuanDokumens','no_rts', 'penduduks', 'dokumens'));
     }
@@ -32,7 +31,6 @@ class PengajuanDokumenController extends Controller
 
     public function list(PengajuanDokumenDataTable $dataTable)
     {
-
         return $dataTable->render('auth.rt.pengajuandokumen');
     }
     
@@ -128,7 +126,7 @@ class PengajuanDokumenController extends Controller
         $pengajuandokumen->update($request->all());
 
         return redirect()->route('pengajuandokumen.manage')
-            ->with('success', 'Status Pengajuan Dokumen berhasil diperbarui.');
+            ->with('success', 'Status Permintaan Dokumen berhasil diperbarui.');
     }
 
     /**
