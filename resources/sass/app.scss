@@ -26,21 +26,6 @@ $secondaryCol: #152551;
 $tertiaryCol: #7384b3;
 $fourthCol: #4461AE;
 
-// ::after, ::before {
-//     box-sizing: border-box;
-//     margin: 0;
-//     padding: 0;
-// }
-
-a {
-    text-decoration: none;
-}
-
-li {
-    list-style: none;
-}
-
-// mixin
 @mixin heading-center {
     text-align: center;
     color: $primaryCol;
@@ -123,6 +108,39 @@ li {
         color: rgb(247, 144, 34);
     }
 }
+
+.primary {
+    @include tombol();
+}
+.secondary {
+    background-color: $secondaryCol;
+    color: #fff;
+}
+.tertiary {
+    background-color: $tertiaryCol;
+}
+.fourth {
+    background-color: $fourthCol;
+}
+.orange {
+    background-color: rgb(247, 144, 34);
+}
+
+// ::after, ::before {
+//     box-sizing: border-box;
+//     margin: 0;
+//     padding: 0;
+// }
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+// mixin
 
 
 .aktif {
