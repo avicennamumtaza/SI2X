@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DokumenController;
 use App\Http\Controllers\KeluargaController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LaporanKeuanganController;
@@ -154,7 +155,17 @@ Route::prefix('manage')->group(function(){
     });
 });
 
-// profil
+//dokumen
+Route::prefix('dokumen')->group(function(){
+    Route::get('/', [DokumenController::class, 'list'])->name('dokumen.manage')->middleware('isRw');
+    Route::post('/', [DokumenController::class, 'store'])->name('dokumen.store')->middleware('isRw');
+    Route::get('/edit/{dokumen}', [DokumenController::class, 'edit'])->name('dokumen.edit')->middleware('isRw');
+    Route::put('/update/{dokumen}', [DokumenController::class, 'update'])->name('dokumen.update')->middleware('isRw');
+    Route::delete('/{dokumen}', [DokumenController::class, 'destroy'])->name('dokumen.destroy')->middleware('isRw');
+});
+
+
+
 Route::prefix('profil')->group(function() {
     Route::get('/', [UsersController::class, 'profil'])->name('profil');
     // Route::put('/{user}/change_password', [UsersController::class, 'changePassword'])->name('profil.password');

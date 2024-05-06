@@ -2,8 +2,7 @@
 
 namespace App\DataTables;
 
-use App\Models\User;
-use App\Models\Users;
+use App\Models\Dokumen;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -13,7 +12,7 @@ use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class UsersDataTable extends DataTable
+class DokumenDataTable extends DataTable
 {
     /**
      * Build the DataTable class.
@@ -25,32 +24,29 @@ class UsersDataTable extends DataTable
         return (new EloquentDataTable($query))
             ->setRowId('id')
             ->addColumn('action', function($row){
-                $deleteUrl = route('users.destroy', $row->id_user);
-                $action = '
+                $deleteUrl = route('dokumen.destroy', $row->id_dokumen);
+                $action ='
                 <div class="container-action">
                 <button type="button"
-                data-id_user="' . $row->id_user . '"
-                data-nik="' . $row->nik . '"
-                data-username="' . $row->username . '"
-                data-role="' . $row->role . '"
-                data-email="' . $row->email . '"
-                data-bs-toggle="modal" 
-                data-bs-target="#editUsersModal" class="edit btn btn-edit btn-sm">Edit</button>';
+                data-id="' . $row->id_dokumen . '"
+                data-jenis_dokumen="' . $row->jenis_dokumen . '"
+                data-deskripsi_dokumen="' . $row->deskripsi_dokumen . '"
+                data-bs-toggle="modal" data-bs-target="#editDokumenModal"
+                class="edit btn btn-edit btn-sm">Edit</button>';
                 $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
                 ' . csrf_field() . '
-                ' . method_field('DELETE') . '
-                <button type="submit" class="delete btn btn-delete btn-sm">Delete</button>
+                ' . method_field('DELETE') .
+                '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
                 </form>
                 </div>';
                 return $action;
             });
-            
     }
 
     /**
      * Get the query source of dataTable.
      */
-    public function query(Users $model): QueryBuilder
+    public function query(Dokumen $model): QueryBuilder
     {
         return $model->newQuery();
     }
@@ -61,11 +57,12 @@ class UsersDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-                    ->setTableId('users-table')
+                    ->setTableId('dokumen-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
                     ->orderBy(0, 'asc')
+                    ->selectStyleSingle()
                     ->buttons([
                         Button::make('excel'),
                         Button::make('csv'),
@@ -73,10 +70,7 @@ class UsersDataTable extends DataTable
                         Button::make('print'),
                         Button::make('reset'),
                         Button::make('reload')
-                    ])
-                    ->selectStyleSingle();
-                    // ->parameters([
-                    //     'lengthChange' => false]);
+                    ]);
     }
 
     /**
@@ -85,11 +79,9 @@ class UsersDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            Column::make('id_user')->title('ID'),
-            Column::make('nik')->title('NIK'),
-            Column::make('username')->title('Username'),
-            Column::make('role')->title('Role'),
-            Column::make('email')->title('Email'),
+            Column::make('id_dokumen')->title('ID'),
+            Column::make('jenis_dokumen')->title('Jenis Dokumen'),
+            Column::make('deskripsi_dokumen')->title('Deskripsi Dokumen'),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
@@ -104,6 +96,6 @@ class UsersDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'Users_' . date('YmdHis');
+        return 'Dokumen_' . date('YmdHis');
     }
 }
