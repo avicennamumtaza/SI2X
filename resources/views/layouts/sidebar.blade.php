@@ -75,7 +75,7 @@
                     <li class="sidebar-item {{ \Route::is('pengajuandokumen.manage') ? 'active' : '' }}">
                         <a href="{{ route('pengajuandokumen.manage') }}" class="sidebar-link">
                             <i class="lni lni-printer"></i>
-                            <span>Pengajuan Dokumen</span>
+                            <span>Permintaan Dokumen</span>
                         </a>
                     </li>                        
                     @endcan

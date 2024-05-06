@@ -135,7 +135,7 @@
                 <a href="{{ route('pengajuandokumen.global') }}" style="text-decoration: none">
                     <button class="card">
                         <i class="bi bi-file-earmark-pdf card-icon"></i>
-                        <span class="span-head">Pengajuan Dokumen</span>
+                        <span class="span-head">Permintaan Dokumen</span>
                     </button>
                 </a>
             </div>
