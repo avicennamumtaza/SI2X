@@ -923,10 +923,6 @@ body hr.tabel {
   border: orange;
   opacity: 0.99;
 }
-body .card-tabel {
-  max-width: -moz-fit-content;
-  max-width: fit-content;
-}
 body hr {
   margin-top: -20px;
   height: 10px;
