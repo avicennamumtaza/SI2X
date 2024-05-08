@@ -8,6 +8,7 @@
             ini dapat berupa berbagai hal, mulai dari pengumuman kegiatan sosial, keamanan lingkungan, pemberitahuan acara,
             hingga informasi urgent seperti perubahan kebijakan pemerintah.</p>
         @foreach ($pengumumans as $pengumuman)
+            \
             {{-- <article class="postcard light blue">
                 <a class="postcard__img_link" href="#">
                     <img class="postcard__img" src="{{ $pengumuman->foto ? asset('Foto Pengumuman/' . $pengumuman->foto) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}" alt="Foto Pengumuman" />
@@ -115,10 +116,12 @@
                 <a class="postcard__img_link" href="#" data-toggle="modal" data-target="#fotoModal{{ $pengumuman->id }}">
                     <img class="postcard__img"
                         src="{{ $pengumuman->foto ? asset('Foto Pengumuman/' . $pengumuman->foto) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
-                        alt="Foto Pengumuman" />
+                        alt="Foto Pengumuman{{ $pengumuman->id }}" data-id="{{ $pengumuman->id }}"
+                        data-target="#fotoModal{{ $pengumuman->id }}" />
                 </a>
+
                 <div class="postcard__text t-dark">
-                    <h1 class="postcard__title blue"><a href="#">{{ $pengumuman->judul }}</a></h1>
+                    <h1 class="postcard__title blue">{{ $pengumuman->judul }}</h1>
                     <div class="postcard__subtitle small">
                         <time datetime="2020-05-25 12:00:00">
                             <i class="fas fa-calendar-alt mr-2"></i>
@@ -134,32 +137,44 @@
                     </ul>
                 </div>
             </article>
-
-
-
-
-            <!-- Modal untuk menampilkan foto pengumuman secara penuh -->
-            {{-- <div class="modal fade" id="fotoModal{{ $pengumuman->id }}" tabindex="-1" role="dialog"
-                aria-labelledby="fotoModalLabel{{ $pengumuman->id }}" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <!-- Judul Modal -->
-                            <h5 class="modal-title" id="fotoModalLabel{{ $pengumuman->id }}">{{ $pengumuman->judul }}</h5>
-                            <!-- Tombol untuk Menutup Modal -->
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- Tampilkan Foto Pengumuman secara Penuh -->
-                            <img src="{{ $pengumuman->foto ? asset('Foto Pengumuman/' . $pengumuman->foto) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
-                                class="img-fluid" alt="Foto Pengumuman">
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
         @endforeach
     </div>
-    {{-- <h1>pagination</h1> --}}
+    <!-- Modals untuk menampilkan foto pengumuman secara penuh -->
+    <div class="modal fade" id="fotoModal" tabindex="-1" role="dialog" aria-labelledby="fotoModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="fotoModalLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img id="modalImg" src="" class="img-fluid" alt="Foto Pengumuman"
+                        style="max-width: 100%; height: 100%;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Pastikan jQuery dan Bootstrap dimuat dengan benar -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Mengatur modal yang akan ditampilkan ketika gambar pengumuman diklik
+        $(document).ready(function() {
+            $('.postcard__img_link').click(function() {
+                var id = $(this).find('img').data('id');
+                var modalTarget = $(this).find('img').data('target');
+                var imgUrl = $(this).find('img').attr('src');
+
+                $('#fotoModalLabel').text($('#fotoModalLabel' + id).text());
+                $('#modalImg').attr('src', imgUrl);
+                $('#fotoModal').modal('show');
+            });
+        });
+    </script>
 @endsection
