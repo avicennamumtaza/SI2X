@@ -16,7 +16,7 @@ class Pengumuman extends Model
         'judul',
         'deskripsi',
         'tanggal',
-        'foto',
+        'foto_pengumuman',
     ];
 
     // public function rw(): BelongsTo

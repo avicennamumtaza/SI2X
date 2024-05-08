@@ -40,16 +40,16 @@ class PengumumanController extends Controller
             $foto_pengumuman_ext = $foto_pengumuman->getClientOriginalExtension();;
             $foto_pengumuman_filename = $validated['judul_pengumuman'] . date('ymdhis') . "." . $foto_pengumuman_ext;
     
-            $foto_pengumuman->move(public_path('Foto Pengumuman'), $foto_pengumuman_filename);
-
+            
             try {
                 Pengumuman::create([
                     'judul' => $validated['judul_pengumuman'],
                     'deskripsi' => $validated['desc_pengumuman'],
                     'tanggal' => $validated['tanggal_pengumuman'],
                     // 'foto' => $request->foto_pengumuman,
-                    'foto' => $foto_pengumuman_filename,
+                    'foto_pengumuman' => $foto_pengumuman_filename,
                 ]);
+                $foto_pengumuman->move(public_path('Foto Pengumuman'), $foto_pengumuman_filename);
                 return redirect()->back()->with('success', 'Pengumuman berhasil dipublish!');
             } catch (\Exception $e) {
                 Alert::error('Oops!', $e->getMessage());
@@ -77,7 +77,7 @@ class PengumumanController extends Controller
             'deskripsi' => $validated['desc_pengumuman'],
             'tanggal' => $validated['tanggal_pengumuman'],
             // 'foto' => $request->foto_pengumuman,
-            'foto' => $validated['foto_pengumuman'],
+            'foto_pengumuman' => $validated['foto_pengumuman'],
         ]);
 
         return redirect()->route('pengumuman.manage')
@@ -86,7 +86,7 @@ class PengumumanController extends Controller
 
     public function destroy(Pengumuman $pengumuman)
     {
-        File::delete(public_path('Foto Pengumuman') . '/' . $pengumuman->foto);
+        File::delete(public_path('Foto Pengumuman') . '/' . $pengumuman->foto_pengumuman);
         $pengumuman->delete();
         return redirect()->back()
             ->with('success', 'Pengumuman berhasil dihapus.');

@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('judul', 50);
             $table->date('tanggal');
             $table->text('deskripsi');
-            $table->text('foto');
+            $table->text('foto_pengumuman');
+            $table->string('author', 50);
             $table->timestamps();
 
             // $table->foreign('no_rw')->references('no_rw')->on('rw')->onDelete('cascade');
