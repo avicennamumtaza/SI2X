@@ -45,20 +45,20 @@
                 </div>
                 <ul class="sidebar-nav">
                     @can('isRw')
-                    <li class="sidebar-item {{ \Route::is('home') ? 'active' : '' }}">
+                    <li class="sidebar-item {{ \Route::is('home') ? 'active' : '' }}" title="Dashboard">
                         <a href="{{ route('home') }}" class="sidebar-link">
                             <i class="lni lni-home"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>
-                    <li class="sidebar-item {{ \Route::is('pengumuman.manage') ? 'active' : '' }}">
+                    <li class="sidebar-item {{ \Route::is('pengumuman.manage') ? 'active' : '' }}" title="Pengumuman">
                         <a href="{{ route('pengumuman.manage') }}" class="sidebar-link">
                             <i class="lni lni-notepad"></i>
                             {{-- <i class="lni lni-license"></i> --}}
                             <span>Pengumuman</span>
                         </a>
                     </li>
-                    <li class="sidebar-item}">
+                    <li class="sidebar-item" title="Dokumen">
                         <a href="{{ route('dokumen.manage') }}" class="sidebar-link">
                             <i class="lni lni-control-panel"></i>
                             <span>Dokumen</span>
@@ -66,13 +66,13 @@
                     </li>                        
                     @endcan
                     @can('isRt')
-                    <li class="sidebar-item {{ \Route::is('home') ? 'active' : '' }}">
+                    <li class="sidebar-item {{ \Route::is('home') ? 'active' : '' }}" title="Dashboard">
                         <a href="{{ route('home') }}" class="sidebar-link">
                             <i class="lni lni-home"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>
-                    <li class="sidebar-item {{ \Route::is('pengajuandokumen.manage') ? 'active' : '' }}">
+                    <li class="sidebar-item {{ \Route::is('pengajuandokumen.manage') ? 'active' : '' }}" title="Permintaan Dokumen">
                         <a href="{{ route('pengajuandokumen.manage') }}" class="sidebar-link">
                             <i class="lni lni-printer"></i>
                             <span>Permintaan Dokumen</span>
@@ -94,7 +94,7 @@
                             </li>
                         </ul>
                     </li> --}}
-                    <li class="sidebar-item {{ \Route::is('penduduk.manage') ? 'active' : '' }} {{ \Route::is('keluarga.manage')  ? 'active' : '' }} {{ \Route::is('rt.manage')  ? 'active' : '' }} {{ \Route::is('rw.manage')  ? 'active' : '' }}">
+                    <li class="sidebar-item {{ \Route::is('penduduk.manage') ? 'active' : '' }} {{ \Route::is('keluarga.manage')  ? 'active' : '' }} {{ \Route::is('rt.manage')  ? 'active' : '' }} {{ \Route::is('rw.manage')  ? 'active' : '' }}"  title="Kependudukan">
                         <a href="#" class="sidebar-link has-dropdown collapsed" type="button"
                             data-bs-toggle="collapse" data-bs-target="#multi" aria-expanded="false"
                             aria-controls="multi">
@@ -102,23 +102,23 @@
                             <span>Kependudukan</span>
                         </a>
                         <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                            <li class="sidebar-item">
+                            <li class="sidebar-item" title="Penduduk">
                                 <a href="{{ route('penduduk.manage') }}" class="sidebar-link">
                                     <div class="single-item-menu">Penduduk</div>
                                 </a>
                             </li>
-                            <li class="sidebar-item">
+                            <li class="sidebar-item" title="Keluarga">
                                 <a href="{{ route('keluarga.manage') }}" class="sidebar-link">
                                     <div class="single-item-menu">Keluarga</div>
                                 </a>
                             </li>
                             @can('isRw')
-                            <li class="sidebar-item">
+                            <li class="sidebar-item" title="Rukun Tetangga">
                                 <a href="{{ route('rt.manage') }}" class="sidebar-link">
                                     <div class="single-item-menu">RT</div>
                                 </a>
                             </li>
-                            <li class="sidebar-item">
+                            <li class="sidebar-item" title="Rukun Warga">
                                 <a href="{{ route('rw.manage') }}" class="sidebar-link">
                                     <div class="single-item-menu">RW</div>
                                 </a>
@@ -127,7 +127,7 @@
                         </ul>
                     </li>
                     @can('isRw')
-                    <li class="sidebar-item {{ \Route::is('laporankeuangan.manage') ? 'active' : '' }}">
+                    <li class="sidebar-item {{ \Route::is('laporankeuangan.manage') ? 'active' : '' }}" title="Laporan Keuangan">
                         <a href="{{ route('laporankeuangan.manage') }}" class="sidebar-link">
                             <i class="lni lni-revenue"></i>
                             {{-- <i class="lni lni-calculator-alt"></i> --}}
@@ -136,23 +136,23 @@
                             <span>Keuangan</span>
                         </a>
                     </li>
-                    <li class="sidebar-item {{ \Route::is('umkm.manage') ? 'active' : '' }}">
+                    <li class="sidebar-item {{ \Route::is('umkm.manage') ? 'active' : '' }}" title="UMKM">
                         <a href="{{ route('umkm.manage') }}" class="sidebar-link">
                             <i class="lni lni-shopping-basket"></i>
                             <span>UMKM</span>
                         </a>
                     </li>                        
                     @endcan
-                    <li class="sidebar-item {{ \Route::is('profil') ? 'active' : '' }}">
+                    <li class="sidebar-item {{ \Route::is('profil') ? 'active' : '' }}" title="Profil">
                         <a href="{{ route('profil') }}" class="sidebar-link">
                             <i class="lni lni-user"></i>
                             <span>Profil</span>
                         </a>
                     </li>
-                    <li class="sidebar-item {{ \Route::is('users') ? 'active' : '' }}">
+                    <li class="sidebar-item {{ \Route::is('users') ? 'active' : '' }}" title="Kelola User">
                         <a href="{{ route('users.manage') }}" class="sidebar-link">
                             <i class="bi bi-people-fill"></i>
-                            <span>Kelola Users</span>
+                            <span>Kelola User</span>
                         </a>
                     </li>
                     <li class="sidebar-item">

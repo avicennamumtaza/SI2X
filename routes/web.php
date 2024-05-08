@@ -84,7 +84,7 @@ Route::prefix('manage')->group(function(){
 
     // manage pengajuan dokumen
     Route::prefix('pengajuandokumen')->group(function() {
-        Route::get('/', [PengajuanDokumenController::class, 'list'])->name('pengajuandokumen.manage')->middleware('isRt');
+        Route::get('/', [PengajuanDokumenController::class, 'list'])->name('pengajuandokumen.manage')->middleware('auth');
         Route::get('/edit/{pengajuandokumen}', [PengajuanDokumenController::class, 'edit'])->name('pengajuandokumen.edit')->middleware('isRt');
         Route::put('/update/{pengajuandokumen}', [PengajuanDokumenController::class, 'update'])->name('pengajuandokumen.update')->middleware('isRt');
         Route::delete('/{pengajuandokumen}', [PengajuanDokumenController::class, 'destroy'])->name('pengajuandokumen.destroy')->middleware('isRt');
