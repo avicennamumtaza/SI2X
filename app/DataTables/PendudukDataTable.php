@@ -133,7 +133,7 @@ class PendudukDataTable extends DataTable
             // Column::make('pekerjaan'),
             // Column::make('gol_darah'),
             // Column::make('is_married'),
-            Column::make('is_stranger'),
+            Column::make('is_stranger')->title('Domisili'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
