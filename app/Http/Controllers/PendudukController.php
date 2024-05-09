@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\PendudukDataTable;
+use App\Enums\GolDar as GolDar;
 use App\Models\Penduduk;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class PendudukController extends Controller
 {
     public function list(PendudukDataTable $dataTable)
     {
-        return $dataTable->render('auth.rw.penduduk');
+        return $dataTable->render('auth.rw.penduduk', ['goldar' => GolDar::cases()]);
     }
     public function store(Request $request)
     {
@@ -26,13 +28,13 @@ class PendudukController extends Controller
             'alamat' => 'required|string|min:5',
             'jenis_kelamin' => 'required|string|max:1',
             'pekerjaan' => 'required|string|min:2|max:49',
-            'gol_darah' => 'required|string|max:2',
+            'gol_darah' =>  [Rule::enum(GolDar::class)],
             'is_married' => 'required',
             'is_stranger' => 'required',
             // Tambahkan validasi untuk input lainnya jika diperlukan
         ]);
 
-        try{
+        try {
             Penduduk::create([
                 'nik' => $validated['nik'],
                 'nkk' => $validated['nkk'],
@@ -48,11 +50,10 @@ class PendudukController extends Controller
                 'is_stranger' => $validated['is_stranger'],
             ]);
             return redirect()->back()->with('success', 'Data Penduduk berhasil ditambahkan!');
-        } catch(\Exception $e){
+        } catch (\Exception $e) {
             Alert::error('Error', $e->getMessage());
             return redirect()->back();
         }
-
     }
     public function edit(Penduduk $penduduk)
     {
@@ -72,7 +73,7 @@ class PendudukController extends Controller
             'alamat' => 'required|string|min:5',
             'jenis_kelamin' => 'required|string|max:1',
             'pekerjaan' => 'required|string|min:2|max:49',
-            'gol_darah' => 'required|string|max:2',
+            'gol_darah' =>  [Rule::enum(GolDar::class)],
             'is_married' => 'required',
             'is_stranger' => 'required',
         ]);

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\GolDar;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -26,6 +27,10 @@ class Penduduk extends Model
         'gol_darah',
         'is_married',
         'is_stranger',
+    ];
+
+    protected $casts = [
+        'gol_darah' => GolDar::class,
     ];
 
     public function keluarga(): BelongsTo
