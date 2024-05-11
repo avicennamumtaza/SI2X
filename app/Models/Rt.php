@@ -24,8 +24,8 @@ class Rt extends Model
         return $this->belongsTo(Penduduk::class, 'nik_rt', 'nik');
     }
 
-    public function dokumen(): HasMany
-    {
-        return $this->hasMany(Dokumen::class, 'no_rt', 'no_rt');
-    }
+    // public function dokumen(): HasMany
+    // {
+    //     return $this->hasMany(Dokumen::class, 'no_rt', 'no_rt');
+    // }
 }

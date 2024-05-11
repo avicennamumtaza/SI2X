@@ -20,23 +20,23 @@ class Rw extends Model
         'jumlah_penduduk_rw',
     ];
 
-public function penduduk(): BelongsTo
+    public function penduduk(): BelongsTo
     {
         return $this->belongsTo(Penduduk::class, 'nik_rw', 'nik');
     }
 
-    public function umkm(): HasMany
-    {
-        return $this->hasMany(Umkm::class, 'no_rw', 'no_rw');
-    }
+    // public function umkm(): HasMany
+    // {
+    //     return $this->hasMany(Umkm::class, 'no_rw', 'no_rw');
+    // }
 
-    public function pengumuman(): HasMany
-    {
-        return $this->hasMany(Pengumuman::class, 'no_rw', 'no_rw');
-    }
+    // public function pengumuman(): HasMany
+    // {
+    //     return $this->hasMany(Pengumuman::class, 'no_rw', 'no_rw');
+    // }
 
-    public function laporan(): HasMany
-    {
-        return $this->hasMany(LaporanKeuangan::class, 'no_rw', 'no_rw');
-    }
+    // public function laporan(): HasMany
+    // {
+    //     return $this->hasMany(LaporanKeuangan::class, 'no_rw', 'no_rw');
+    // }
 }
