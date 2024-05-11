@@ -8,6 +8,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\DataTables\UmkmDataTable;
+use App\Models\Rw;
 use Illuminate\Support\Facades\File;
 
 // use Illuminate\Console\View\Components\Alert;
@@ -60,8 +61,7 @@ class UmkmController extends Controller
         $foto_umkm_ext = $foto_umkm->getClientOriginalExtension();;
         $foto_umkm_filename = $validated['nama_umkm'] . date('ymdhis') . "." . $foto_umkm_ext;
         
-        $foto_umkm->move(public_path('Foto UMKM'), $foto_umkm_filename);
-
+        
         try {
             Umkm::create([
                 'nama_umkm' => $validated['nama_umkm'],
@@ -73,11 +73,16 @@ class UmkmController extends Controller
                 'status_umkm' => 'Baru',
             ]);
             Alert::success('Data UMKM berhasil diajukan!');
+            $foto_umkm->move(public_path('Foto UMKM'), $foto_umkm_filename);
             return redirect()->back()->with('warning', 'Data UMKM yang anda ajukan akan tampil pada halaman ini jika sudah melalui proses validasi oleh Ketua RW');
+        } catch (\Illuminate\Database\QueryException $e) {
+            $no_rw = Rw::all()->pluck('nik_rw');
+            Alert::error('NIK Anda Tidak Terdata!', 'Silahkan hubungi RW anda untuk keperluan kelengkapan data kependudukan di Sistem Informasi Rukun Warga ini melalui nomor ' . $no_rw);
+            return redirect()->back();
         } catch (\Exception $e) {
             Alert::error('Oops!', $e->getMessage());
             return redirect()->back();
-        }
+        } 
     }
     public function edit(Umkm $umkm)
     {

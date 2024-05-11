@@ -7,6 +7,7 @@ use App\Models\Dokumen;
 use App\Models\Penduduk;
 use App\Models\PengajuanDokumen;
 use App\Models\Rt;
+use App\Models\Rw;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -82,10 +83,15 @@ class PengajuanDokumenController extends Controller
             ]);
             Alert::success('Permintaan Dokumen berhasil diajukan!');
             return redirect()->back()->with('warning', 'Status Permintaan Dokumen yang anda ajukan akan tampil pada halaman ini jika sudah melalui proses validasi oleh Ketua RT');
+        } catch (\Illuminate\Database\QueryException $e) {
+            $no_rw = Rw::all()->pluck('nik_rw');
+            $no_rt = Rt::where('no_rt', $validated['no_rt'])->pluck('nik_rt');
+            Alert::error('NIK Anda Tidak Terdata!', 'Silahkan hubungi RT anda untuk keperluan kelengkapan data kependudukan di Sistem Informasi Rukun Warga ini melalui nomor ' . $no_rt . ', atau hubungi RW melalui nomor ' . $no_rw);
+            return redirect()->back();
         } catch (\Exception $e) {
             Alert::error('Oops!', $e->getMessage());
             return redirect()->back();
-        }
+        } 
     }
 
     /**
