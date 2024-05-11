@@ -9,7 +9,7 @@
                 <p>Mempersembahkan solusi modern untuk kita bersama memaksimalkan optimalisasi layanan dengan pendekatan
                     yang lebih efisien melalui SIRW sebagai salah satu upaya mendorong kemajuan dan kolaborasi dalam
                     menjawab kebutuhan sehari-hari di lingkungan Rukun Warga.</p>
-                <a href="#">Selengkapnya</a>
+                <a href="#" title="Selengkapnya">Selengkapnya</a>
             </div>
         </div>
     </div>
@@ -107,7 +107,7 @@
                     </div>
                 </div>
             </div>
-            <a class="position-absolute start-50 translate-middle-x" href="{{ route('pengumuman.global') }}">Lainnya</a>
+            <a class="position-absolute start-50 translate-middle-x" href="{{ route('pengumuman.global') }}" title="Pengumuman lainnya">Lainnya</a>
         </div>
         <!-- </div> -->
     </div>
@@ -117,7 +117,7 @@
         <div class="row">
             <div class="col-md-3 col-sm-6">
                 <a href="{{ route('pengumuman.global') }}" style="text-decoration: none">
-                    <button class="card">
+                    <button class="card" title="Daftar Pengumuman">
                         <i class="bi bi-megaphone card-icon"></i>
                         <span class="span-head">Daftar Pengumuman</span>
                     </button>
@@ -125,7 +125,7 @@
             </div>
             <div class="col-md-3 col-sm-6">
                 <a href="{{ route('umkm.global') }}" style="text-decoration: none">
-                    <button class="card">
+                    <button class="card" title="Pengajuan UMKM">
                         <i class="bi bi-shop-window card-icon"></i>
                         <span class="span-head">Pengajuan UMKM</span>
                     </button>
@@ -133,7 +133,7 @@
             </div>
             <div class="col-md-3 col-sm-6">
                 <a href="{{ route('pengajuandokumen.global') }}" style="text-decoration: none">
-                    <button class="card">
+                    <button class="card" title="Permintaan Dokumen">
                         <i class="bi bi-file-earmark-pdf card-icon"></i>
                         <span class="span-head">Permintaan Dokumen</span>
                     </button>
@@ -141,7 +141,7 @@
             </div>
             <div class="col-md-3 col-sm-6">
                 <a href="{{ route('laporankeuangan.global') }}" style="text-decoration: none">
-                    <button class="card">
+                    <button class="card" title="Laporan Keuangan">
                         <i class="bi bi-receipt-cutoff card-icon"></i>
                         <span class="span-head">Laporan Keuangan</span>
                     </button>

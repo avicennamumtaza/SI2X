@@ -454,10 +454,16 @@
                                     <a href="{{ route('pengajuandokumen.manage') }}" style="text-decoration: none">
                                         <button type="button" class="mt-2 btn primary position-relative">
                                             Selengkapnya
+                                            @if ($jumlahPengajuanDokumenNew == 0)
+                                            {{-- <span class="visually-hidden">unread messages</span> --}}                                                    
+                                            @else 
                                             <span class="badge bg-danger rounded-pill position-absolute top-0 end-0"
-                                                style="margin-top: -5px; margin-right: -5px;">
-                                                {{ $jumlahPengajuanDokumenNew }}
-                                                <span class="visually-hidden">unread messages</span>
+                                            style="margin-top: -5px; margin-right: -5px;">
+                                                    {{ $jumlahPengajuanDokumenNew }}
+                                                    <span class="visually-hidden">unread messages</span>
+                                                @endif
+                                                {{-- {{ $jumlahPengajuanDokumenNew }}
+                                                <span class="visually-hidden">unread messages</span> --}}
                                             </span>
                                         </button>
                                     </a>
