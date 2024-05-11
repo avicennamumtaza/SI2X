@@ -116,9 +116,9 @@
                         <h5 class="card-title text-start">{{ $umkm->nama_umkm }}</h5>
                         <p class="card-text">{{ $umkm->desc_umkm }}</p>
                     </div>
-                    <div class="card-footer hub-umkm d-flex justify-content-end">
+                    <div class="card-footer py-3 hub-umkm d-flex justify-content-end">
                         <a href="https://wa.me/{{ substr_replace($umkm->wa_umkm, '62', 0, 1) }}" class="btn btn-success"
-                            data-mdb-ripple-init><i class="bi bi-whatsapp"></i> Hubungi</a>
+                            data-mdb-ripple-init><i class="bi bi-whatsapp"></i>&nbsp;Hubungi</a>
                         {{-- <button class="btn btn-primary"
                             href="https://wa.me/{{ substr_replace($umkm->wa_umkm, '62', 0, 1) }}"><i
                                 class="bi bi-box-arrow-in-up"></i>Hubungi</button> --}}
