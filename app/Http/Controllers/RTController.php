@@ -54,6 +54,7 @@ class RTController extends Controller
 
     public function edit(Rt $rt)
     {
+        $rt = Rt::findOrFail($rt->no_rt);
         return view('rt.edit', compact('rt'));
     }
 
