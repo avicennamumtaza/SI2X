@@ -183,7 +183,8 @@
                 <div class="row">
                     <div class="col-12 mt-3 mb-3">
                         <h2 class="">Dashboard RW</h2>
-                        <p class="h5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt unde perspiciatis sit blanditiis
+                        <p class="h5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt unde perspiciatis
+                            sit blanditiis
                             fugit, nemo deleniti quaerat? Corrupti quis culpa eum aut impedit perferendis harum maxime aperiam!
                         </p>
                         <hr class="mt-4 mb-5" style="height: 2px;">
@@ -454,16 +455,12 @@
                                     <a href="{{ route('pengajuandokumen.manage') }}" style="text-decoration: none">
                                         <button type="button" class="mt-2 btn primary position-relative">
                                             Selengkapnya
-                                            @if ($jumlahPengajuanDokumenNew == 0)
-                                            {{-- <span class="visually-hidden">unread messages</span> --}}                                                    
-                                            @else 
-                                            <span class="badge bg-danger rounded-pill position-absolute top-0 end-0"
-                                            style="margin-top: -5px; margin-right: -5px;">
+                                            @if ($jumlahPengajuanDokumenNew > 0)
+                                                <span class="badge bg-danger rounded-pill position-absolute top-0 end-0"
+                                                    style="margin-top: -5px; margin-right: -5px;">
                                                     {{ $jumlahPengajuanDokumenNew }}
                                                     <span class="visually-hidden">unread messages</span>
-                                                @endif
-                                                {{-- {{ $jumlahPengajuanDokumenNew }}
-                                                <span class="visually-hidden">unread messages</span> --}}
+                                            @endif
                                             </span>
                                         </button>
                                     </a>
@@ -544,10 +541,12 @@
                                     <a href="{{ route('umkm.manage') }}" style="text-decoration: none">
                                         <button type="button" class="mt-2 btn primary position-relative">
                                             Selengkapnya
-                                            <span class="badge bg-danger rounded-pill position-absolute top-0 end-0"
-                                                style="margin-top: -5px; margin-right: -5px;">
-                                                {{ $jumlahUmkmNew }}
-                                                <span class="visually-hidden">unread messages</span>
+                                            @if ($jumlahUmkmNew > 0)
+                                                <span class="badge bg-danger rounded-pill position-absolute top-0 end-0"
+                                                    style="margin-top: -5px; margin-right: -5px;">
+                                                    {{ $jumlahUmkmNew }}
+                                                    <span class="visually-hidden">unread messages</span>
+                                            @endif
                                             </span>
                                         </button>
                                     </a>

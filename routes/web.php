@@ -77,6 +77,7 @@ Route::prefix('manage')->group(function(){
     Route::prefix('pengumuman')->group(function() {
         Route::get('/', [PengumumanController::class, 'list'])->name('pengumuman.manage')->middleware('isRw');
         Route::post('/', [PengumumanController::class, 'store'])->name('pengumuman.store')->middleware('isRw');
+        // Route::get('/pengumuman/edit/{id}', [PengumumanController::class, 'edit'])->name('pengumuman.edit')->middleware('isRw');
         Route::get('/edit/{pengumuman}', [PengumumanController::class, 'edit'])->name('pengumuman.edit')->middleware('isRw');
         Route::put('/update/{pengumuman}', [PengumumanController::class, 'update'])->name('pengumuman.update')->middleware('isRw');
         Route::delete('/{pengumuman}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy')->middleware('isRw');
