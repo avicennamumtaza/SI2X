@@ -44,14 +44,14 @@
                     </div>
                 </div>
                 <ul class="sidebar-nav">
-                    @can('isRw')
-                    <li class="sidebar-item {{ \Route::is('home') ? 'active' : '' }}" title="Dashboard">
+                    <li class="sidebar-item {{ \Route::is('home') ? 'active' : '' }}">
                         <a href="{{ route('home') }}" class="sidebar-link">
                             <i class="lni lni-home"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>
-                    <li class="sidebar-item {{ \Route::is('pengumuman.manage') ? 'active' : '' }}" title="Pengumuman">
+                    @can('isRw')
+                    <li class="sidebar-item {{ \Route::is('pengumuman.manage') ? 'active' : '' }}">
                         <a href="{{ route('pengumuman.manage') }}" class="sidebar-link">
                             <i class="lni lni-notepad"></i>
                             {{-- <i class="lni lni-license"></i> --}}
@@ -65,20 +65,20 @@
                         </a>
                     </li>                        
                     @endcan
-                    @can('isRt')
-                    <li class="sidebar-item {{ \Route::is('home') ? 'active' : '' }}" title="Dashboard">
-                        <a href="{{ route('home') }}" class="sidebar-link">
-                            <i class="lni lni-home"></i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item {{ \Route::is('pengajuandokumen.manage') ? 'active' : '' }}" title="Permintaan Dokumen">
+                    <li class="sidebar-item {{ \Route::is('pengajuandokumen.manage') ? 'active' : '' }}">
                         <a href="{{ route('pengajuandokumen.manage') }}" class="sidebar-link">
                             <i class="lni lni-printer"></i>
                             <span>Permintaan Dokumen</span>
                         </a>
                     </li>                        
-                    @endcan
+                    {{-- @can('isRt')
+                    <li class="sidebar-item {{ \Route::is('home') ? 'active' : '' }}">
+                        <a href="{{ route('home') }}" class="sidebar-link">
+                            <i class="lni lni-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    @endcan --}}
                     {{-- <li class="sidebar-item">
                         <a href="#" class="sidebar-link has-dropdown collapsed" type="button"
                             data-bs-toggle="collapse" data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
@@ -142,17 +142,17 @@
                             <span>UMKM</span>
                         </a>
                     </li>                        
-                    @endcan
-                    <li class="sidebar-item {{ \Route::is('profil') ? 'active' : '' }}" title="Profil">
-                        <a href="{{ route('profil') }}" class="sidebar-link">
-                            <i class="lni lni-user"></i>
-                            <span>Profil</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item {{ \Route::is('users') ? 'active' : '' }}" title="Kelola User">
+                    <li class="sidebar-item {{ \Route::is('users') ? 'active' : '' }}">
                         <a href="{{ route('users.manage') }}" class="sidebar-link">
                             <i class="bi bi-people-fill"></i>
-                            <span>Kelola User</span>
+                            <span>Kelola Users</span>
+                        </a>
+                    </li>
+                    @endcan
+                    <li class="sidebar-item {{ \Route::is('profil') ? 'active' : '' }}">
+                        <a href="{{ route('profil.manage') }}" class="sidebar-link">
+                            <i class="lni lni-user"></i>
+                            <span>Profil</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
@@ -177,7 +177,7 @@
             ">
             <main class="col position-relative overflow-x-hidden">
                 <div class="row justify-content-center">
-                    <div class="col-lg-12 mx-4 me-1 px-lg-5 py-5" title="main">
+                    <div class="col-lg-12 mx-4 me-1 px-lg-5 py-5">
                         <div class="content p-lg-4 p-sm-3">
                             @yield('content')
                         </div>

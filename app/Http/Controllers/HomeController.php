@@ -75,7 +75,29 @@ class HomeController extends Controller
                 'jumlahPengajuanDokumenDec', 
                 'jumlahPengajuanDokumen'
             ));
-        }        
+        } else if (auth()->user()->role == 'Rt') {
+            # code...
+            $jumlahKeluarga = Keluarga::count();
+            $jumlahPenduduk = Penduduk::count();
+            $jumlahAnakAnak = Penduduk::whereRaw("YEAR(CURDATE()) - YEAR(tanggal_lahir) < 15")->count();
+            $jumlahUsiaProduktif = Penduduk::whereRaw("YEAR(CURDATE()) - YEAR(tanggal_lahir) >= 15 AND YEAR(CURDATE()) - YEAR(tanggal_lahir) < 65")->count();
+            $jumlahLansia = Penduduk::whereRaw("YEAR(CURDATE()) - YEAR(tanggal_lahir) >= 65")->count();
+            $jumlahPengajuanDokumenNew = PengajuanDokumen::where('status_pengajuan', 'Baru')->count();
+            $jumlahPengajuanDokumenAcc = PengajuanDokumen::where('status_pengajuan', 'Disetujui')->count();
+            $jumlahPengajuanDokumenDec = PengajuanDokumen::where('status_pengajuan', 'Ditolak')->count();
+            $jumlahPengajuanDokumen = PengajuanDokumen::count();
+            return view('layouts.dashboard', compact(
+                'jumlahKeluarga', 
+                'jumlahPenduduk', 
+                'jumlahAnakAnak', 
+                'jumlahUsiaProduktif', 
+                'jumlahLansia',
+                'jumlahPengajuanDokumenNew', 
+                'jumlahPengajuanDokumenAcc', 
+                'jumlahPengajuanDokumenDec', 
+                'jumlahPengajuanDokumen'
+            ));
+        }
         return view('layouts.dashboard');
     }
 }

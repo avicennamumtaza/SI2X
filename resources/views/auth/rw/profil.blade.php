@@ -10,7 +10,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body justify-content-start text-start">
-                    <form id="editUserPasswordForm" action="{{ route('users.update', $user->id_user) }}" method="POST">
+                    <form id="editUserPasswordForm" action="{{ route('profil.update', $user->id_user) }}" method="POST">
                         @csrf
                         @method('PUT')
 
@@ -74,7 +74,7 @@
                                     alt="">
                             </div>
                             <div class="col-md-8"> <!-- Kolom untuk form inputan -->
-                                <form method="POST" action="{{ route('users.update', $user->id_user) }}">
+                                <form method="POST" action="{{ route('profil.update', $user->id_user) }}">
                                     @csrf
                                     @method('PUT')
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\DataTables\KeluargaDataTable;
 use App\Models\Keluarga;
+use App\Models\Penduduk;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -11,7 +12,8 @@ class KeluargaController extends Controller
 {
     public function list(KeluargaDataTable $dataTable)
     {
-        return $dataTable->render('auth.rw.keluarga');
+        $niks = Penduduk::pluck('nik');
+        return $dataTable->render('auth.rw.keluarga', compact('niks'));
     }
     public function store(Request $request)
     {

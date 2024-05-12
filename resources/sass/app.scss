@@ -812,12 +812,12 @@ body {
 
                 &:nth-child(2n+1) .postcard__text::before {
                     left: -12px !important;
-                    transform: rotate(4deg);
+                    // transform: rotate(4deg);
                 }
 
                 &:nth-child(2n+0) .postcard__text::before {
                     right: -12px !important;
-                    transform: rotate(-4deg);
+                    // transform: rotate(-4deg);
                 }
             }
         }
@@ -878,9 +878,9 @@ body {
             background: $main-blue;
         }
 
-        .blue .postcard__title:hover {
-            color: $main-blue;
-        }
+        // .blue .postcard__title:hover {
+        //     color: $main-blue;
+        // }
 
         .blue .postcard__bar {
             background-color: $main-blue;
@@ -898,9 +898,9 @@ body {
             background: $main-red;
         }
 
-        .red .postcard__title:hover {
-            color: $main-red;
-        }
+        // .red .postcard__title:hover {
+        //     color: $main-red;
+        // }
 
         .red .postcard__bar {
             background-color: $main-red;
@@ -919,9 +919,9 @@ body {
             color: black;
         }
 
-        .yellow .postcard__title:hover {
-            color: $main-yellow;
-        }
+        // .yellow .postcard__title:hover {
+        //     color: $main-yellow;
+        // }
 
         .yellow .postcard__bar {
             background-color: $main-yellow;

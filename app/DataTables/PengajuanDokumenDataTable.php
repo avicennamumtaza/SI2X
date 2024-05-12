@@ -23,30 +23,37 @@ class PengajuanDokumenDataTable extends DataTable
      */
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
-        return (new EloquentDataTable($query))
-            ->setRowId('id')
-            ->addColumn('action', function ($row) {
-                $deleteUrl = route('pengajuandokumen.destroy', $row->id_pengajuandokumen);
-                $action = '
-                <div class="container-action">
-                <button type="button"
-                data-id_pengajuandokumen="' . $row->id_pengajuandokumen . '"
-                data-no_rt="' . $row->no_rt . '"
-                data-id_dokumen="' . $row->id_dokumen . '"
-                data-nik_pengaju="' . $row->nik_pengaju . '"
-                data-nama_pengaju="' . $row->nama_pengaju . '"
-                data-status_pengajuan="' . $row->status_pengajuan . '"
-                data-catatan="' . $row->catatan . '"
-                data-bs-toggle="modal" data-bs-target="#editPengajuanDokumenModal" class="edit btn btn-edit btn-sm">Edit</button>';
-                $action .= 
-                '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
-                ' . csrf_field() . '
-                ' . method_field('DELETE') . 
-                '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
-                </form>
-                </div>';
-                return $action;
-            });
+        if (auth()->user()->role == 'Rw') {
+            # code...
+            return (new EloquentDataTable($query))
+                // ->addColumn('action', 'a.action')
+                ->setRowId('id');
+        } else {
+            return (new EloquentDataTable($query))
+                ->setRowId('id')
+                ->addColumn('action', function ($row) {
+                    $deleteUrl = route('pengajuandokumen.destroy', $row->id_pengajuandokumen);
+                    $action = '
+                    <div class="container-action">
+                    <button type="button"
+                    data-id_pengajuandokumen="' . $row->id_pengajuandokumen . '"
+                    data-no_rt="' . $row->no_rt . '"
+                    data-id_dokumen="' . $row->id_dokumen . '"
+                    data-nik_pengaju="' . $row->nik_pengaju . '"
+                    data-nama_pengaju="' . $row->nama_pengaju . '"
+                    data-status_pengajuan="' . $row->status_pengajuan . '"
+                    data-catatan="' . $row->catatan . '"
+                    data-bs-toggle="modal" data-bs-target="#editPengajuanDokumenModal" class="edit btn btn-edit btn-sm">Edit</button>';
+                    $action .= 
+                    '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
+                    ' . csrf_field() . '
+                    ' . method_field('DELETE') . 
+                    '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
+                    </form>
+                    </div>';
+                    return $action;
+                });
+        }
     }
 
     /**
@@ -88,23 +95,44 @@ class PengajuanDokumenDataTable extends DataTable
      */
     public function getColumns(): array
     {
-        return [
-            Column::make('id_pengajuandokumen')->title('Id'),
-            Column::make('id_dokumen')->title('Dokumen'),
-            Column::make('no_rt')->title('RT'),
-            Column::make('nik_pengaju')->title('NIK'),
-            Column::make('nama_pengaju')->title('Nama'),
-            Column::make('status_pengajuan')->title('Status'),
-            Column::make('catatan')->title('Catatan'),
-            Column::make('created_at')->title('Tanggal'),
-            // Column::make('detail_laporan')->title('Detail Laporan'),
-            // Column::make('saldo')->title('Saldo'),
-            Column::computed('action')
-              ->exportable(false)
-              ->printable(false)
-              ->width(130) 
-              ->addClass('text-center'),
-        ];
+        if (auth()->user()->role == 'Rw') {
+            # code...
+            return [
+                Column::make('id_pengajuandokumen')->title('Id'),
+                Column::make('id_dokumen')->title('Dokumen'),
+                Column::make('no_rt')->title('RT'),
+                Column::make('nik_pengaju')->title('NIK'),
+                Column::make('nama_pengaju')->title('Nama'),
+                Column::make('status_pengajuan')->title('Status'),
+                Column::make('catatan')->title('Catatan'),
+                Column::make('created_at')->title('Tanggal'),
+                // Column::make('detail_laporan')->title('Detail Laporan'),
+                // Column::make('saldo')->title('Saldo'),
+                // Column::computed('action')
+                //   ->exportable(false)
+                //   ->printable(false)
+                //   ->width(130) 
+                //   ->addClass('text-center'),
+            ];
+        } else {
+            return [
+                Column::make('id_pengajuandokumen')->title('Id'),
+                Column::make('id_dokumen')->title('Dokumen'),
+                Column::make('no_rt')->title('RT'),
+                Column::make('nik_pengaju')->title('NIK'),
+                Column::make('nama_pengaju')->title('Nama'),
+                Column::make('status_pengajuan')->title('Status'),
+                Column::make('catatan')->title('Catatan'),
+                Column::make('created_at')->title('Tanggal'),
+                // Column::make('detail_laporan')->title('Detail Laporan'),
+                // Column::make('saldo')->title('Saldo'),
+                Column::computed('action')
+                  ->exportable(false)
+                  ->printable(false)
+                  ->width(130) 
+                  ->addClass('text-center'),
+            ];
+        }
     }
 
     /**

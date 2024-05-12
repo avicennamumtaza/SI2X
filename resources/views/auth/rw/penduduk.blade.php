@@ -17,24 +17,34 @@
                         @csrf
                         <!-- Tambahkan input form sesuai kebutuhan -->
                         <div class="form-group mb-3">
-                            <label for="nik" class="form-label text-start">Nik</label>
+                            <label for="nik" class="form-label text-start">NIK</label>
                             <input type="text" class="form-control" id="nik" name="nik"
                                 placeholder="Masukkan NIK" required>
                         </div>
 
                         <div class="form-group mb-3">
                             <label for="nkk" class="form-label text-start">NKK</label>
-                            <input type="text" class="form-control" id="nkk" name="nkk"
+                            <input list="nkk_list" type="text" class="form-control" id="nkk" name="nkk"
                                 placeholder="Masukkan NKK" required>
+                            <datalist id="nkk_list">
+                                @foreach ($nkks as $nkk)
+                                    <option value="{{ $nkk }}">{{ $nkk }}</option>
+                                @endforeach
+                            </datalist>
                         </div>
 
                         <div class="form-group mb-3">
                             <label for="no_rt" class="form-label text-start">Nomor RT</label>
-                            <input type="text" class="form-control" id="no_rt" name="no_rt" required>
+                            <select class="form-select" id="no_rt" name="no_rt" required>
+                                <option value="" selected disabled>Pilih Nomor RT</option>
+                                @foreach ($no_rts as $no_rt)
+                                    <option value="{{ $no_rt }}">{{ $no_rt }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="nama" class="form-label text-start">Nama</label>
+                            <label for="nama" class="form-label text-start">Nama Lengkap</label>
                             <input type="text" class="form-control" id="nama" name="nama"
                                 placeholder="Masukkan Nama Penduduk" required>
                         </div>
@@ -87,7 +97,7 @@
                                 <option value="" selected disabled>Pilih Status Menikah</option>
                                 <option value="1">Menikah</option>
                                 <option value="0">Belum Menikah</option>
-                            </select>    
+                            </select>
                         </div>
 
                         <div class="form-group mb-3">
@@ -163,8 +173,7 @@
 
                         <div class="form-group mb-3">
                             <label for="jenis_kelamin" class="form-label text-start">Jenis Kelamin</label>
-                            <select class="form-select" id="jenis_kelamin" name="jenis_kelamin"
-                                 required>
+                            <select class="form-select" id="jenis_kelamin" name="jenis_kelamin" required>
                                 <option value="" selected disabled>Pilih Jenis Kelamin</option>
                                 <option value="L">Laki-laki</option>
                                 <option value="P">Perempuan</option>
@@ -178,8 +187,7 @@
 
                         <div class="form-group mb-3">
                             <label for="gol_darah" class="form-label text-start">Golongan Darah</label>
-                            <select class="form-select" id="gol_darah" name="gol_darah"
-                                 required>
+                            <select class="form-select" id="gol_darah" name="gol_darah" required>
                                 <option value="" selected disabled>Pilih Golongan Darah</option>
                                 <option value="A">A</option>
                                 <option value="B">B</option>
@@ -190,18 +198,16 @@
 
                         <div class="form-group mb-3">
                             <label for="is_married" class="form-label text-start">Status Menikah</label>
-                            <select class="form-select" id="is_married" name="is_married"
-                                 required>
+                            <select class="form-select" id="is_married" name="is_married" required>
                                 <option value="" selected disabled>Pilih Status Menikah</option>
                                 <option value="1">Menikah</option>
                                 <option value="0">Belum Menikah</option>
-                            </select>    
+                            </select>
                         </div>
 
                         <div class="form-group mb-3">
                             <label for="is_stranger" class="form-label text-start">Status Domisili</label>
-                            <select type="text" class="form-select" id="is_stranger" name="is_stranger"
-                                 required>
+                            <select type="text" class="form-select" id="is_stranger" name="is_stranger" required>
                                 <option value="" selected disabled>Pilih Status Domisili</option>
                                 <option value="0">Domisili</option>
                                 <option value="1">Non Domisili</option>

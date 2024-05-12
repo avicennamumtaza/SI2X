@@ -41,28 +41,28 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{ route('landing') }}">Beranda</a>
+                        <a class="nav-link" aria-current="page" href="{{ route('landing') }}" title="Beranda website">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('pengumuman.global') }}">Pengumuman</a>
+                        <a class="nav-link" href="{{ route('pengumuman.global') }}" title="Pengumuman">Pengumuman</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('laporankeuangan.global') }}">Keuangan</a>
+                        <a class="nav-link" href="{{ route('laporankeuangan.global') }}" title="Laporan Keuangan">Keuangan</a>
                     </li>
                     <div class="ms-2 nav-item btn-group">
                         <button type="button" class="fitur-btn nav-link dropdown-toggle" data-bs-toggle="dropdown"
-                            data-bs-display="static" aria-expanded="false">
+                            data-bs-display="static" aria-expanded="false" title="Layanan Lainnya">
                             Layanan
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-end">
                             {{-- <li><a class="dropdown-item" href="{{ route('pengumuman.global') }}">Pengumuman</a></li>
                             <li><a class="dropdown-item" href="{{ route('umkm.global') }}">Daftar UMKM</a></li> --}}
-                            <li><a class="dropdown-item" href="{{ route('pengajuandokumen.global') }}">Pengajuan Surat</a></li>
-                            <li><a class="dropdown-item" href="{{ route('umkm.global') }}">Deftar UMKM</a></li>
+                            <li><a class="dropdown-item" href="{{ route('pengajuandokumen.global') }}" title="Pengajuan Surat">Pengajuan Surat</a></li>
+                            <li><a class="dropdown-item" href="{{ route('umkm.global') }}" title="Daftar UMKM">Daftar UMKM</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="{{ route('login') }}">Masuk</a></li>
+                            <li><a class="dropdown-item" href="{{ route('login') }}" title="Masuk sebagai RT/RW">Masuk</a></li>
                         </ul>
                     </div>
                 </ul>
