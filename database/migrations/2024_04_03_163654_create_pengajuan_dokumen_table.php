@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_dokumen')->index();
             $table->string('nik_pengaju', 17)->index();
             $table->string('nama_pengaju', 50);
-            $table->string('status_pengajuan', 10);
+            $table->enum('status_pengajuan', ['Baru', 'Disetujui', 'Ditolak']);
             $table->text('catatan');
             $table->timestamps();
 

@@ -30,9 +30,9 @@ class PendudukController extends Controller
             'alamat' => 'required|string|min:5',
             'jenis_kelamin' => 'required|string|max:1',
             'pekerjaan' => 'required|string|min:2|max:49',
-            'gol_darah' => 'required|string|max:2',
-            'is_married' => 'required',
-            'is_stranger' => 'required',
+            'golongan_darah' => 'required|string|max:2',
+            'status_pernikahan' => 'required',
+            'status_domisili' => 'required',
             // Tambahkan validasi untuk input lainnya jika diperlukan
         ]);
 
@@ -47,9 +47,9 @@ class PendudukController extends Controller
                 'alamat' => $validated['alamat'],
                 'jenis_kelamin' => $validated['jenis_kelamin'],
                 'pekerjaan' => $validated['pekerjaan'],
-                'gol_darah' => $validated['gol_darah'],
-                'is_married' => $validated['is_married'],
-                'is_stranger' => $validated['is_stranger'],
+                'golongan_darah' => $validated['golongan_darah'],
+                'status_pernikahan' => $validated['status_pernikahan'],
+                'status_domisili' => $validated['status_domisili'],
             ]);
             return redirect()->back()->with('success', 'Data Penduduk berhasil ditambahkan!');
         } catch(\Exception $e){
@@ -76,9 +76,9 @@ class PendudukController extends Controller
             'alamat' => 'required|string|min:5',
             'jenis_kelamin' => 'required|string|max:1',
             'pekerjaan' => 'required|string|min:2|max:49',
-            'gol_darah' => 'required|string|max:2',
-            'is_married' => 'required',
-            'is_stranger' => 'required',
+            'golongan_darah' => 'required|string|max:2',
+            'status_pernikahan' => 'required',
+            'status_domisili' => 'required',
         ]);
 
         $penduduk->update($request->all());

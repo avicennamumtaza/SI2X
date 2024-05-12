@@ -12,7 +12,7 @@ return new class extends Migration
     {
         Schema::create('laporan_keuangan', function (Blueprint $table) {
             $table->id('id_laporankeuangan');
-            $table->boolean('is_income');
+            $table->boolean('status_pemasukan');
             $table->double('nominal');
             $table->date('tanggal');
             $table->string('pihak_terlibat', 50);

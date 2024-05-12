@@ -28,7 +28,7 @@ class UsersSeeder extends Seeder
             DB::table('users')->insert([
                 'nik' => $faker->randomElement($nikUser),
                 'username' => $faker->userName(),
-                'role' => $faker->randomElement(['rw', 'rt', 'staf']),
+                'role' => $faker->randomElement(['RW', 'RT']),
                 'email' => $faker->unique()->safeEmail(),
                 'password' => Hash::make('password'), // Default password
                 'created_at' => now(),

@@ -23,9 +23,9 @@ class Penduduk extends Model
         'alamat',
         'jenis_kelamin',
         'pekerjaan',
-        'gol_darah',
-        'is_married',
-        'is_stranger',
+        'golongan_darah',
+        'status_pernikahan',
+        'status_domisili',
     ];
 
     public function keluarga(): BelongsTo

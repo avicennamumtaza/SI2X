@@ -24,6 +24,7 @@ class UsersController extends Controller
             'username' => 'required|string|max:20|unique:users,username',
             'nik' => 'required|string|min:15|max:17',
             'role' => 'required|string|max:20',
+            'foto_profil' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // 'image' untuk validasi file gambar
             'email' => 'required|string|email|max:50|unique:users,email',
             'password' => 'required|string|min:6|confirmed',
             // Tambahkan validasi untuk input lainnya jika diperlukan
@@ -34,6 +35,7 @@ class UsersController extends Controller
                 'username' => $validated['username'],
                 'nik' => $validated['nik'],
                 'role' => $validated['role'],
+                'foto_profil' => $validated['foto_profil'],
                 'email' => $validated['email'],
                 'password' => Hash::make($validated['password']),
             ]);
@@ -59,6 +61,7 @@ class UsersController extends Controller
             'username' => 'required|string|max:20|unique:users,username,' . $users->id,
             'nik' => 'required|string|min:15|max:17',
             'role' => 'required|string|max:20',
+            'foto_profil' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // 'image' untuk validasi file gambar
             'email' => 'required|string|email|max:50|unique:users,email,' . $users->id,
             'password' => 'nullable|string|min:6|confirmed',
         ]);
@@ -70,6 +73,7 @@ class UsersController extends Controller
                 'username' => $validated['username'],
                 'nik' => $validated['nik'],
                 'role' => $validated['role'],
+                'foto_profil' => $validated['foto_profil'],
                 'email' => $validated['email'],
             ]);
 
@@ -104,6 +108,7 @@ class UsersController extends Controller
         // Validasi input
         $validated = $request->validate([
             'username' => 'required|string|max:20',
+            'nik' => 'required|string|min:15|max:17',
             'email' => 'required|string|email|max:50',
             'password' => 'nullable|string|min:6|confirmed',
         ]);     
@@ -112,6 +117,7 @@ class UsersController extends Controller
         try {
             $users->update([
                 'username' => $validated['username'],
+                'foto_profil' => $validated['foto_profil'],
                 'email' => $validated['email'],
             ]);
 

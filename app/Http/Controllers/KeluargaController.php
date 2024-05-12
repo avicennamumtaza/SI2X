@@ -21,7 +21,6 @@ class KeluargaController extends Controller
         $validated = $request->validate([
             'nkk' => 'required|string|min:15|max:17|unique:keluarga,nkk', // Ganti nama_tabel dengan nama tabel sebenarnya
             'nik_kepala' => 'required|string|min:15|max:17|unique:keluarga,nik_kepala_keluarga', // Ganti nama_tabel dengan nama tabel sebenarnya
-            'jumlah_nik' => 'required',
         ], [
             'nkk.required' => 'Nomor Kartu Keluarga (NKK) wajib diisi.',
             'nkk.string' => 'Nomor Kartu Keluarga (NKK) harus berupa teks.',
@@ -33,14 +32,12 @@ class KeluargaController extends Controller
             'nik_kepala.min' => 'NIK Kepala Keluarga harus memiliki panjang minimal :min digit.',
             'nik_kepala.max' => 'NIK Kepala Keluarga harus memiliki panjang maksimal :max digit.',
             'nik_kepala.unique' => 'NIK Kepala Keluarga sudah digunakan.',
-            'jumlah_nik.required' => 'Jumlah NIK wajib diisi.',
         ]);
 
         try{
             Keluarga::create([
                 'nkk' => $validated['nkk'],
                 'nik_kepala_keluarga' => $validated['nik_kepala'],
-                'jumlah_nik' => $validated['jumlah_nik'],
             ]);
 
             return redirect()->back()->with('success', 'Data Keluarga berhasil ditambahkan!');
@@ -73,7 +70,6 @@ class KeluargaController extends Controller
             'nik_kepala.min' => 'NIK Kepala Keluarga harus memiliki panjang minimal :min digit.',
             'nik_kepala.max' => 'NIK Kepala Keluarga harus memiliki panjang maksimal :max digit.',
             // 'nik_kepala.unique' => 'NIK Kepala Keluarga sudah digunakan.',
-            'jumlah_nik.required' => 'Jumlah NIK wajib diisi.',
         ]);
 
         $keluarga->update($request->all());

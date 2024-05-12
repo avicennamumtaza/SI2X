@@ -31,8 +31,6 @@ class RTController extends Controller
         $request->validate([
             'no_rt' => 'required',
             'nik_rt' => 'required|min:15|max:17',
-            'jumlah_keluarga_rt' => 'required',
-            'jumlah_penduduk_rt' => 'required',
         ]);
 
         // Simpan data pengumuman ke dalam database
@@ -45,8 +43,6 @@ class RTController extends Controller
         $rt = new Rt();
         $rt->no_rt = $request->no_rt;
         $rt->nik_rt = $request->nik_rt;
-        $rt->jumlah_keluarga_rt = $request->jumlah_keluarga_rt;
-        $rt->jumlah_penduduk_rt = $request->jumlah_penduduk_rt;
         $rt->save();
 
         return redirect()->back()->with('success', 'Pengumuman berhasil dipublish!');
@@ -62,8 +58,6 @@ class RTController extends Controller
         $request->validate([
             'no_rt' => 'required', // (tidak bisa mengubah no_rt as primary key, cek view)
             'nik_rt' => 'required|min:15|max:17',
-            'jumlah_keluarga_rt' => 'required',
-            'jumlah_penduduk_rt' => 'required',
         ]);
 
         $rt->update($request->all());

@@ -36,8 +36,8 @@
                                 alt="Foto UMKM">
                         </div>
                         <div class="form-group mb-3">
-                            <label for="desc_umkm" class="form-label text-start">desc_umkm</label>
-                            <input type="text" readonly class="form-control" id="desc_umkm" name="desc_umkm" required>
+                            <label for="deskripsi_umkm" class="form-label text-start">deskripsi_umkm</label>
+                            <input type="text" readonly class="form-control" id="deskripsi_umkm" name="deskripsi_umkm" required>
                         </div>
                         <div class="form-group mb-3">
                             <label for="status_umkm" class="form-label text-start">status_umkm</label>
@@ -86,7 +86,7 @@
                     let nama_umkm = target.data('nama_umkm');
                     let wa_umkm = target.data('wa_umkm');
                     let foto_umkm = target.data('foto_umkm');
-                    let desc_umkm = target.data('desc_umkm');
+                    let deskripsi_umkm = target.data('deskripsi_umkm');
                     let status_umkm = target.data('status_umkm');
 
                     // Mengisi nilai input dengan data yang sesuai
@@ -95,7 +95,7 @@
                     $('#editUmkmModal #nama_umkm').val(nama_umkm);
                     $('#editUmkmModal #wa_umkm').val(wa_umkm);
                     $('#editUmkmModal #foto_umkm').val(foto_umkm);
-                    $('#editUmkmModal #desc_umkm').val(desc_umkm);
+                    $('#editUmkmModal #deskripsi_umkm').val(deskripsi_umkm);
                     $('#editUmkmModal #status_umkm').val(status_umkm);
 
                     // Memperbarui src gambar pratinjau

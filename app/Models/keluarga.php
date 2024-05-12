@@ -15,7 +15,6 @@ class Keluarga extends Model
     protected $fillable = [
         'nkk',
         'nik_kepala_keluarga',
-        'jumlah_nik',
     ];
 
     public function penduduk(): HasMany

@@ -23,8 +23,8 @@
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="desc_pengumuman" class="form-label">Deskripsi</label>
-                            <textarea class="form-control" id="desc_pengumuman" name="desc_pengumuman" rows="3"
+                            <label for="deskripsi" class="form-label">Deskripsi</label>
+                            <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3"
                                 placeholder="Masukkan Deskripsi pengumuman" required></textarea>
                         </div>
 
@@ -70,8 +70,8 @@
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="desc_pengumuman" class="form-label">Deskripsi</label>
-                            <textarea class="form-control" id="desc_pengumuman" name="desc_pengumuman" rows="3" required></textarea>
+                            <label for="deskripsi" class="form-label">Deskripsi</label>
+                            <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3" required></textarea>
                         </div>
 
                         <div class="form-group mb-3">
@@ -122,13 +122,13 @@
                     var target = $(event.relatedTarget);
                     let id_pengumuman = target.data('id')
                     let judul = target.data('judul_pengumuman')
-                    let deskripsi = target.data('desc_pengumuman')
+                    let deskripsi = target.data('deskripsi')
                     let tanggal = target.data('tanggal_pengumuman')
                     let foto = target.data('foto_pengumuman')
 
 
                     $('#editPengumumanModal #judul_pengumuman').val(judul);
-                    $('#editPengumumanModal #desc_pengumuman').val(deskripsi);
+                    $('#editPengumumanModal #deskripsi').val(deskripsi);
                     $('#editPengumumanModal #tanggal_pengumuman').val(tanggal);
                     $('#editPengumumanModal #foto_pengumuman').val(foto);
 

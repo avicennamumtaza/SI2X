@@ -7,7 +7,7 @@
         <div class="modal-dialog modal-md">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Tambah Keluarga</h5>
+                    <h5 class="modal-title" id="exampleModalLabel" title="Tambah Keluarga">Tambah Keluarga</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
@@ -17,13 +17,13 @@
                         @csrf
                         <!-- Tambahkan input form sesuai kebutuhan -->
 
-                        <div class="form-group mb-3">
+                        <div class="form-group mb-3" title="Masukkan NKK">
                             <label for="nkk" class="form-label text-start">NKK</label>
                             <input type="text" class="form-control" id="nkk" name="nkk"
                                 placeholder="Masukkan NKK" required>
                         </div>
 
-                        <div class="form-group mb-3">
+                        <div class="form-group mb-3" title="Masukkan NIK Kepala Keluarga">
                             <label for="nik_kepala" class="form-label text-start">NIK Kepala Keluarga</label>
                             <input list="nik_list" type="text" class="form-control" id="nik_kepala" name="nik_kepala"
                                 placeholder="Masukkan NIK Kepala Keluarga" required>
@@ -33,18 +33,10 @@
                                 @endforeach
                             </datalist>
                         </div>
-
-                        <div class="form-group mb-3">
-                            <label for="jumlah_nik" class="form-label text-start">Jumlah Anggota</label>
-                            <input type="number" class="form-control" id="jumlah_nik" name="jumlah_nik"
-                                placeholder="Masukkan Jumlah Anggota" required>
-                        </div>
-
-                        <!-- Tambahkan input lainnya sesuai kebutuhan -->
                 </div>
                 <div class="modal-footer justify-content-end">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" title="Batal">Batal</button>
+                    <button type="submit" class="btn btn-success" title="Submit">Submit</button>
                 </div>
                 </form>
             </div>
@@ -56,7 +48,7 @@
         <div class="modal-dialog modal-md">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit Keluarga</h5>
+                    <h5 class="modal-title" id="exampleModalLabel" title="Edit Keluarga">Edit Keluarga</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
@@ -76,12 +68,6 @@
                             <label for="nik_kepala" class="form-label text-start">NIK Kepala Keluarga</label>
                             <input type="text" class="form-control" id="nik_kepala" name="nik_kepala"
                                 placeholder="Masukkan NIK Kepala Keluarga" required>
-                        </div>
-
-                        <div class="form-group mb-3">
-                            <label for="jumlah_nik" class="form-label text-start">Jumlah Anggota</label>
-                            <input type="number" class="form-control" id="jumlah_nik" name="jumlah_nik"
-                                placeholder="Masukkan Jumlah Anggota" required>
                         </div>
 
                         <div class="modal-footer justify-content-end">

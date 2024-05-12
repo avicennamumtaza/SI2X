@@ -33,7 +33,7 @@ class PengumumanDataTable extends DataTable
                 data-id="' . $row->id_pengumuman . '"
                 data-judul_pengumuman="' . $row->judul . '"
                 data-tanggal_pengumuman="' . $row->tanggal . '"
-                data-desc_pengumuman="' . $row->deskripsi . '"
+                data-deskripsi="' . $row->deskripsi . '"
                 data-foto_pengumuman="' . $row->foto_pengumuman. '"
                 data-bs-toggle="modal" data-bs-target="#editPengumumanModal" class="edit-user edit btn btn-edit btn-sm">Edit</button>';
                 $action .= '

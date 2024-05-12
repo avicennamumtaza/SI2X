@@ -22,8 +22,8 @@
                         </div>
 
                         {{-- <div class="form-group mb-3">
-                            <label for="is_income" class="form-label">Jenis Laporan</label>
-                            <select class="form-select" id="is_income" name="is_income" required>
+                            <label for="status_pemasukan" class="form-label">Jenis Laporan</label>
+                            <select class="form-select" id="status_pemasukan" name="status_pemasukan" required>
                                 <option value="" selected disabled>Pilih Jenis Laporan Keuangan</option>
                                 <option value="1">Pemasukan</option>
                                 <option value="0">Pengeluaran</option>
@@ -84,8 +84,8 @@
                         @csrf
 
                         <div class="form-group mb-3">
-                            <label for="is_income" class="form-label">Jenis Laporan</label>
-                            <select class="form-select" id="is_income" name="is_income" required>
+                            <label for="status_pemasukan" class="form-label">Jenis Laporan</label>
+                            <select class="form-select" id="status_pemasukan" name="status_pemasukan" required>
                                 <option value="" selected disabled>Pilih Jenis Laporan Keuangan</option>
                                 <option value="1">Pemasukan</option>
                                 <option value="0">Pengeluaran</option>
@@ -160,7 +160,7 @@
                     let tanggal = target.data('tanggal')
                     let pihak_terlibat = target.data('pihak_terlibat')
                     let saldo = target.data('saldo')
-                    let is_income = target.data('is_income')
+                    let status_pemasukan = target.data('status_pemasukan')
 
                     $('#editLaporanKeuanganModal #id_laporankeuangan').val(id_laporankeuangan);
                     $('#editLaporanKeuanganModal #nominal').val(nominal);
@@ -168,7 +168,7 @@
                     $('#editLaporanKeuanganModal #tanggal').val(tanggal);
                     $('#editLaporanKeuanganModal #pihak_terlibat').val(pihak_terlibat);
                     $('#editLaporanKeuanganModal #saldo').val(saldo);
-                    $('#editLaporanKeuanganModal #is_income').val(is_income);
+                    $('#editLaporanKeuanganModal #status_pemasukan').val(status_pemasukan);
 
                     let url = "{{route('laporankeuangan.update',':__id')}}";
                     url = url.replace(':__id', id_laporankeuangan);

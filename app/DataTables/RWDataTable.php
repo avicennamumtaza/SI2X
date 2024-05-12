@@ -74,15 +74,12 @@ class RWDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            Column::make('no_rw'),
+            Column::make('no_rw')->width(100),
             Column::make('nik_rw')->width(200),
-            Column::make('jumlah_rt')->width(150),
-            Column::make('jumlah_keluarga_rw')->width(150),
-            Column::make('jumlah_penduduk_rw')->width(150),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
-                  ->width(200)
+                  ->width(100)
                   ->addClass('text-center'),
         ];
     }

@@ -21,7 +21,7 @@ class UmkmSeeder extends Seeder
         //         'nik_pemilik' => 3573011233455985,
         //         'nama_umkm' => 'Risol Dea',
         //         'foto_umkm' => 'disini/yaaaa',
-        //         'desc_umkm' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        //         'deskripsi_umkm' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
         //         'status_umkm' => 'Diterima'
         //     ]
         // ];
@@ -39,8 +39,8 @@ class UmkmSeeder extends Seeder
                 'nama_umkm' => $faker->company(),
                 'wa_umkm' => $faker->numerify('08##########'),
                 'foto_umkm' => $faker->imageUrl(),
-                'desc_umkm' => $faker->paragraph(2),
-                'status_umkm' => $faker->randomElement(['Diterima', 'Ditolak', 'Baru']),
+                'deskripsi_umkm' => $faker->paragraph(2),
+                'status_umkm' => $faker->randomElement(['Disetujui', 'Ditolak', 'Baru']),
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

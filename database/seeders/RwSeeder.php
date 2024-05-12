@@ -32,9 +32,7 @@ class RwSeeder extends Seeder
             DB::table('rw')->insert([
                 'no_rw' => 6,
                 'nik_rw' => $faker->randomElement($nikRw),
-                'jumlah_rt' => 16,
-                'jumlah_keluarga_rw' => $faker->numberBetween(50, 100),
-                'jumlah_penduduk_rw' => $faker->numberBetween(200, 300),
+                'wa_rw' => $faker->unique()->numerify('08##########'),
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

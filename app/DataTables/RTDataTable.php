@@ -75,9 +75,7 @@ class RTDataTable extends DataTable
     {
         return [
             Column::make('no_rt')->title('RT')->width(70),
-            Column::make('nik_rt')->title('NIK RT')->width(250),
-            Column::make('jumlah_keluarga_rt')->title('Jumlah Keluarga')->width(200),
-            Column::make('jumlah_penduduk_rt')->title('Jumlah Penduduk')->width(200),
+            Column::make('nik_rt')->title('NIK RT')->width(200),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
