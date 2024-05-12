@@ -48,7 +48,7 @@
                 </div>
                 <div class="modal-body">
                     <img id="modalImg" src="" class="img-fluid" alt="Foto Pengumuman"
-                        style="max-width: 100%; height: 100%;">
+                        style="min-width: 100%; max-height: auto;">
                 </div>
             </div>
         </div>
