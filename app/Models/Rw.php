@@ -15,6 +15,7 @@ class Rw extends Model
     protected $primaryKey = 'no_rw';
     protected $fillable = [
         'nik_rw',
+        'wa_rw',
     ];
 
     public function penduduk(): BelongsTo
