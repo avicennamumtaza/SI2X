@@ -80,8 +80,8 @@ class DokumenDataTable extends DataTable
     {
         return [
             Column::make('id_dokumen')->title('ID'),
-            Column::make('jenis_dokumen')->title('Jenis Dokumen'),
-            Column::make('deskripsi')->title('Deskripsi Dokumen'),
+            Column::make('jenis_dokumen')->title('Jenis'),
+            Column::make('deskripsi')->title('Deskripsi'),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
