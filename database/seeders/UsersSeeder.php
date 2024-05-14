@@ -20,13 +20,14 @@ class UsersSeeder extends Seeder
         $faker = Faker::create();
 
         // Ambil semua nik yang ada
-        $nikUser = DB::table('penduduk')->pluck('nik')->toArray();
+        $nikRt = DB::table('rt')->pluck('nik_rt')->toArray();
+        $nikRw = DB::table('rw')->pluck('nik_rw')->toArray();
 
         // Loop untuk mengisi data sebanyak yang diinginkan
         foreach (range(1, 20) as $index) {
             // Insert data baru ke tabel users
             DB::table('users')->insert([
-                'nik' => $faker->randomElement($nikUser),
+                'nik' => $faker->randomElement($nikRt,$nikRw),
                 'username' => $faker->userName(),
                 'role' => $faker->randomElement(['RW', 'RT']),
                 'email' => $faker->unique()->safeEmail(),

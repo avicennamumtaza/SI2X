@@ -30,7 +30,7 @@ class PendudukSeeder extends Seeder
                 'tanggal_lahir' => $faker->date(),
                 'alamat' => $faker->address(),
                 'jenis_kelamin' => $faker->randomElement(['L', 'P']),
-                'agama' => $faker->randomElement(['Islam', 'Kristen', 'Katolik', 'Hindu', 'Budha', 'Konghucu']),
+                'agama' => $faker->randomElement(['Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha', 'Konghucu']),
                 'pendidikan' => $faker->randomElement([
                     'Tidak/Belum Sekolah', 'Belum Tamat SD/Sederajat', 'Tamat SD/Sederajat', 'SLTP/Sederajat', 'SLTA/Sederajat', 'Diploma I/II', 'Akademi/Diploma III/S. Muda', 'Diploma IV/Strata I', 'Strata II', 'Strata III'
                 ]),
