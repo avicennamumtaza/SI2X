@@ -25,8 +25,13 @@
 
                         <div class="form-group mb-3">
                             <label for="nik_kepala" class="form-label text-start">NIK Kepala Keluarga</label>
-                            <input type="text" class="form-control" id="nik_kepala" name="nik_kepala"
+                            <input list="nik_list" type="text" class="form-control" id="nik_kepala" name="nik_kepala"
                                 placeholder="Masukkan NIK Kepala Keluarga" required>
+                            <datalist id="nik_list">
+                                @foreach ($niks as $nik)
+                                    <option value="{{ $nik }}">{{ $nik }}</option>
+                                @endforeach
+                            </datalist>
                         </div>
 
                         <div class="form-group mb-3">

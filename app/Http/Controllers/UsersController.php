@@ -45,11 +45,11 @@ class UsersController extends Controller
 
     }
 
-    public function edit(Users $users)
-    {
-        $users = Users::findOrFail($users->id_user);
-        return view('users', compact('users'));
-    }
+    // public function edit(Users $users)
+    // {
+    //     $users = Users::findOrFail($users->id_user);
+    //     return view('users', compact('users'));
+    // }
 
     public function update(Request $request, Users $users)
     {
@@ -84,32 +84,61 @@ class UsersController extends Controller
             return redirect()->back()->with('error', 'Update gagal: ' . $e->getMessage());
         }
     }
-
+    
     public function destroy(Users $users)
     {
         $users->delete();
 
         return redirect()->back()
-            ->with('success', 'User berhasil dihapus.');
+        ->with('success', 'User berhasil dihapus.');
     }
 
     public function profil() {
         $user = auth()->user();
         return view('auth.rw.profil', compact('user'));
     }
+    
+    public function updateProfil(Request $request, Users $users)
+    {
 
-    // public function changePassword(Request $request, User $user)
-    // {
-    //     // Validasi request
-    //     $request->validate([
-    //         'new_password' => 'required|min:8|confirmed', // Konfirmasi password baru
-    //     ]);
+        // Validasi input
+        $validated = $request->validate([
+            'username' => 'required|string|max:20',
+            'email' => 'required|string|email|max:50',
+            'password' => 'nullable|string|min:6|confirmed',
+        ]);     
 
-    //     // Setel password baru
-    //     $user->password = Hash::make($request->new_password);
-    //     $user->save();
+        // Update user
+        try {
+            $users->update([
+                'username' => $validated['username'],
+                'email' => $validated['email'],
+            ]);
 
-    //     // Redirect kembali ke halaman profil dengan pesan sukses
-    //     return redirect()->route('profil')->with('success', 'Password berhasil diubah.');
-    // }
+            // Hanya update password jika field tersebut diisi
+            if (!empty($validated['password'])) {
+                $users->password = Hash::make($validated['password']);
+                $users->save();
+            }
+
+            return redirect()->back()->with('success', 'User berhasil diupdate!');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Update gagal: ' . $e->getMessage());
+        }
+    }
+    
+    public function changePassword(Request $request, User $user)
+    {
+        // Validasi request
+        $request->validate([
+            'new_password' => 'required|min:8|confirmed', // Konfirmasi password baru
+        ]);
+
+        // Setel password baru
+        $user->password = Hash::make($request->new_password);
+        $user->save();
+
+        // Redirect kembali ke halaman profil dengan pesan sukses
+        return redirect()->route('profil')->with('success', 'Password berhasil diubah.');
+    }
 }

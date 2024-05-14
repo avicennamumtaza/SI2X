@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\DataTables\PendudukDataTable;
 use App\Enums\GolDar as GolDar;
+use App\Models\Keluarga;
 use App\Models\Penduduk;
+use App\Models\Rt;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -13,7 +15,11 @@ class PendudukController extends Controller
 {
     public function list(PendudukDataTable $dataTable)
     {
-        return $dataTable->render('auth.rw.penduduk', ['goldar' => GolDar::cases()]);
+        $no_rts = Rt::pluck('no_rt');
+        $nkks = Keluarga::pluck('nkk');
+        $goldar = GolDar::cases();
+        return $dataTable->render('auth.rw.penduduk', compact('no_rts', 'nkks', 'goldar'));
+        // return $dataTable->render('auth.rw.penduduk', ['goldar' => GolDar::cases()]);
     }
     public function store(Request $request)
     {

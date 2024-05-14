@@ -79,11 +79,20 @@
                             <input type="date" class="form-control" id="tanggal_pengumuman" name="tanggal_pengumuman"
                                 required>
                         </div>
+                        {{-- @if ($pengumumans->foto_pengumuman)
+                            <div class="form-group mb-3">
+                                <img id="foto_pengumuman_preview" class="img-thumbnail" src="" width="300"
+                                    height="300" alt="Foto Pengumuman">
+                            </div>
+                        @endif --}}
+
                         <div class="form-group mb-3">
-                            <label for="foto_pengumuman" class="form-label">Foto</label>
+                            <label for="foto_pengumuman_edit" class="form-label">Foto</label>
                             <br>
-                            {{-- <input type="file" class="form-control" id="foto_pengumuman" name="foto_pengumuman" required> --}}
-                            <img id="foto_pengumuman_preview" class="img-thumbnail" src="" width="300" height="300" alt="Foto Pengumuman">
+                            <input type="file" class="form-control" id="foto_pengumuman_edit" name="foto_pengumuman">
+                            <br>
+                            <img id="foto_pengumuman_preview" class="img-thumbnail" src="" width="300"
+                                height="300" alt="Foto Pengumuman">
                         </div>
 
                         <!-- Tambahkan input lainnya sesuai kebutuhan -->
@@ -117,6 +126,7 @@
         {{ $dataTable->scripts() }}
         <script>
             $('#pengumuman-table').ready(function() {
+
                 $("#editPengumumanModal").on("show.bs.modal", function(event) {
 
                     var target = $(event.relatedTarget);
@@ -130,16 +140,22 @@
                     $('#editPengumumanModal #judul_pengumuman').val(judul);
                     $('#editPengumumanModal #desc_pengumuman').val(deskripsi);
                     $('#editPengumumanModal #tanggal_pengumuman').val(tanggal);
-                    $('#editPengumumanModal #foto_pengumuman').val(foto);
+                    // $('#editPengumumanModal #foto_pengumuman').val(foto);
 
                     // Memperbarui src gambar pratinjau
                     let foto_pengumuman_path = "{{ asset('Foto Pengumuman/') }}/" + foto;
                     $('#foto_pengumuman_preview').attr('src', foto_pengumuman_path);
 
+                    // Menghapus gambar pratinjau jika tidak ada gambar baru yang dipilih
+                    if (foto === null) {
+                        $('#foto_pengumuman_preview').attr('src', ''); // Mengosongkan src gambar
+                    }
+
                     let url = "{{ route('pengumuman.update', ':__id') }}";
                     url = url.replace(':__id', id_pengumuman);
                     $('#editPengumumanForm').attr('action', url)
                 });
+
             });
         </script>
     @endpush

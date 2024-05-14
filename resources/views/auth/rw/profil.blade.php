@@ -10,26 +10,26 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body justify-content-start text-start">
-                    <form id="editUserPasswordForm" action="{{ route('users.update', $user->id_user) }}" method="POST">
+                    <form id="editUserPasswordForm" action="{{ route('profil.update', $user->id_user) }}" method="POST">
                         @csrf
                         @method('PUT')
 
-                        <div class="form-group mb-3">
+                        <div class="form-group mb-3" style="display: none;">
                             <label for="nik" class="form-label text-start">NIK</label>
                             <input type="text" class="form-control" id="nik" name="nik"
                                 value="{{ $user->nik }}" required readonly>
                         </div>
-                        <div class="form-group mb-3">
+                        <div class="form-group mb-3" style="display: none;">
                             <label for="username" class="form-label text-start">Username</label>
                             <input type="text" class="form-control" id="username"
                                 value="{{ $user->username }}" name="username" required>
                         </div>
-                        <div class="form-group mb-3">
+                        <div class="form-group mb-3" style="display: none;">
                             <label for="role" class="form-label text-start">Role</label>
                             <input type="text" class="form-control" id="role"
                                 value="{{ $user->role }}" name="role" required readonly>
                         </div>
-                        <div class="form-group mb-3">
+                        <div class="form-group mb-3" style="display: none;">
                             <label for="email" class="form-label text-start">Email</label>
                             <input type="email" class="form-control" id="email"
                                 value="{{ $user->email }}" name="email" required>
@@ -74,16 +74,16 @@
                                     alt="">
                             </div>
                             <div class="col-md-8"> <!-- Kolom untuk form inputan -->
-                                <form method="POST" action="{{ route('users.update', $user->id_user) }}">
+                                <form method="POST" action="{{ route('profil.update', $user->id_user) }}">
                                     @csrf
                                     @method('PUT')
 
-                                    <div class="form-group mb-3">
+                                    <div class="form-group mb-3" style="display: none;">
                                         <label for="nik" class="form-label text-start">NIK</label>
                                         <input type="text" class="form-control" id="nik" name="nik"
                                             value="{{ $user->nik }}" required readonly>
                                     </div>
-                                    <div class="form-group mb-3">
+                                    <div class="form-group mb-3" style="display: none;">
                                         <label for="username" class="form-label text-start">Username</label>
                                         <input type="text" class="form-control" id="username"
                                             value="{{ $user->username }}" name="username" required>
