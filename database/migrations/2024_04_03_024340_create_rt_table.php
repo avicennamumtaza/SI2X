@@ -16,7 +16,9 @@ class CreateRtTable extends Migration
         Schema::create('rt', function (Blueprint $table) {
             $table->string('no_rt')->primary();
             $table->string('nik_rt', 17)->index();
-            $table->string('wa_rt', 14);
+            // $table->integer('jumlah_keluarga_rt');
+            // $table->integer('jumlah_penduduk_rt');
+            ;$table->string('wa_rt', 14);
             $table->timestamps();
 
             $table->foreign('nik_rt')->references('nik')->on('penduduk')->onDelete('cascade');
