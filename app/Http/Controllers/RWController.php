@@ -32,17 +32,13 @@ class RWController extends Controller
         $request->validate([
             'no_rw' => 'required',
             'nik_rw' => 'required|min:15|max:17',
-            'jumlah_rt' => 'required',
-            'jumlah_keluarga_rw' => 'required',
-            'jumlah_penduduk_rw' => 'required',
+            'wa_rt' => 'required|min:11|max:14',
         ]);
 
         $rw = new Rw();
         $rw->no_rw = $request->no_rw;
         $rw->nik_rw = $request->nik_rw;
-        $rw->jumlah_rt = $request->jumlah_rt;
-        $rw->jumlah_keluarga_rw = $request->jumlah_keluarga_rw;
-        $rw->jumlah_penduduk_rw = $request->jumlah_penduduk_rw;
+        $rw->wa_rw = $request->wa_rw;
         $rw->save();
 
         return redirect()->back()->with('success', 'Pengumuman berhasil dipublish!');
@@ -58,9 +54,7 @@ class RWController extends Controller
         $request->validate([
             'no_rw' => 'required', // (tidak bisa mengubah no_rw as primary key, cek view)
             'nik_rw' => 'required|min:15|max:17',
-            'jumlah_rt' => 'required',
-            'jumlah_keluarga_rw' => 'required',
-            'jumlah_penduduk_rw' => 'required',
+            'wa_rt' => 'required|min:11|max:14',
         ]);
 
         $rw->update($request->all());

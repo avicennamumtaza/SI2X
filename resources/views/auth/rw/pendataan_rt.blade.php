@@ -29,18 +29,6 @@
                                 placeholder="Masukkan NIK RT" required>
                         </div>
 
-                        <div class="form-group mb-3">
-                            <label for="jumlah_keluarga_rt" class="form-label">Jumlah Keluarga RT</label>
-                            <input type="text" class="form-control" id="jumlah_keluarga_rt" name="jumlah_keluarga_rt"
-                                placeholder="Masukkan Jumlah Keluarga RT" required></textarea>
-                        </div>
-
-                        <div class="form-group mb-3">
-                            <label for="jumlah_penduduk_rt" class="form-label">Jumlah Penduduk RT</label>
-                            <input type="text" class="form-control" id="jumlah_penduduk_rt" name="jumlah_penduduk_rt"
-                                placeholder="Masukkan Jumlah Penduduk RT" required>
-                        </div>
-
                         <!-- Tambahkan input lainnya sesuai kebutuhan -->
                 </div>
                 <div class="modal-footer justify-content-end">

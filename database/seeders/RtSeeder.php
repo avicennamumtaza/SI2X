@@ -27,8 +27,7 @@ class RtSeeder extends Seeder
             DB::table('rt')->insert([
                 'no_rt' => $faker->unique()->numberBetween(1, 16),
                 'nik_rt' => $faker->randomElement($nikRt),
-                'jumlah_keluarga_rt' => $faker->numberBetween(10, 20),
-                'jumlah_penduduk_rt' => $faker->numberBetween(20, 40),
+                'wa_rt' => $faker->unique()->numerify('08##########'),
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

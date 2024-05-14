@@ -23,24 +23,31 @@ class Penduduk extends Model
         'tanggal_lahir',
         'alamat',
         'jenis_kelamin',
+        'agama',
+        'pendidikan',
         'pekerjaan',
-        'gol_darah',
-        'is_married',
-        'is_stranger',
+        'golongan_darah',
+        'status_pernikahan',
+        'status_pendatang',
     ];
 
     protected $casts = [
         'gol_darah' => GolDar::class,
     ];
 
-    public function keluarga(): BelongsTo
+    // public function keluarga(): BelongsTo
+    // {
+    //     return $this->belongsTo(Keluarga::class, 'nkk', 'nkk');
+    // }
+
+    public function rw(): HasOne
     {
-        return $this->belongsTo(Keluarga::class, 'nkk', 'nkk');
+        return $this->hasOne(Rw::class, 'nik_rw', 'nik');
     }
 
-    public function umkm(): HasMany
+    public function rt(): HasOne
     {
-        return $this->hasMany(Umkm::class, 'nik_pemilik', 'nik');
+        return $this->hasOne(Rt::class, 'nik_rt', 'nik');
     }
 
     public function users(): HasOne
@@ -48,18 +55,13 @@ class Penduduk extends Model
         return $this->hasOne(Users::class, 'nik', 'nik');
     }
 
-    public function rw(): HasOne
+    public function umkm(): HasMany
     {
-        return $this->hasOne(Rw::class, 'nik_rw', 'nik');
+        return $this->hasMany(Umkm::class, 'nik_pemilik', 'nik');
     }
 
     public function pengajuan(): HasMany
     {
         return $this->hasMany(PengajuanDokumen::class, 'nik', 'nik');
-    }
-
-    public function rt(): HasOne
-    {
-        return $this->hasOne(Rt::class, 'nik_rt', 'nik');
     }
 }

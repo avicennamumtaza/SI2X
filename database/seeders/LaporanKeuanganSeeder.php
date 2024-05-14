@@ -22,7 +22,7 @@ class LaporanKeuanganSeeder extends Seeder
         foreach (range(1, 20) as $index) {
             // Insert data baru ke tabel laporan_keuangan
             DB::table('laporan_keuangan')->insert([
-                'is_income' => $faker->boolean(),
+                'status_pemasukan' => $faker->boolean(),
                 'nominal' => $faker->numberBetween(1000, 100000000),
                 'tanggal' => $faker->date(),
                 'pihak_terlibat' => $faker->name(),

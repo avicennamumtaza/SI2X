@@ -2,6 +2,7 @@
 
 namespace App\DataTables;
 
+use App\Models\Dokumen;
 use App\Models\PengajuanDokumen;
 use App\Models\Rt;
 use App\Models\Users;
@@ -27,10 +28,18 @@ class PengajuanDokumenDataTable extends DataTable
             # code...
             return (new EloquentDataTable($query))
                 // ->addColumn('action', 'a.action')
-                ->setRowId('id');
+                ->setRowId('id')
+                ->addColumn('dokumen', function($row) {
+                    $namaDokumen = Dokumen::where('id_dokumen', $row->id_dokumen)->first();
+                    return $namaDokumen->jenis_dokumen;
+                });
         } else {
             return (new EloquentDataTable($query))
                 ->setRowId('id')
+                ->addColumn('dokumen', function($row) {
+                    $namaDokumen = Dokumen::where('id_dokumen', $row->id_dokumen)->first();
+                    return $namaDokumen->jenis_dokumen;
+                })
                 ->addColumn('action', function ($row) {
                     $deleteUrl = route('pengajuandokumen.destroy', $row->id_pengajuandokumen);
                     $action = '
@@ -99,7 +108,7 @@ class PengajuanDokumenDataTable extends DataTable
             # code...
             return [
                 Column::make('id_pengajuandokumen')->title('Id'),
-                Column::make('id_dokumen')->title('Dokumen'),
+                Column::make('dokumen')->title('Dokumen'),
                 Column::make('no_rt')->title('RT'),
                 Column::make('nik_pengaju')->title('NIK'),
                 Column::make('nama_pengaju')->title('Nama'),
@@ -117,7 +126,7 @@ class PengajuanDokumenDataTable extends DataTable
         } else {
             return [
                 Column::make('id_pengajuandokumen')->title('Id'),
-                Column::make('id_dokumen')->title('Dokumen'),
+                Column::make('dokumen')->title('Dokumen'),
                 Column::make('no_rt')->title('RT'),
                 Column::make('nik_pengaju')->title('NIK'),
                 Column::make('nama_pengaju')->title('Nama'),

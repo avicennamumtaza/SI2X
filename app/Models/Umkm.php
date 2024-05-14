@@ -17,7 +17,7 @@ class Umkm extends Model
         'nama_umkm',
         'wa_umkm',
         'foto_umkm',
-        'desc_umkm',
+        'deskripsi_umkm',
         'status_umkm',
     ];
 

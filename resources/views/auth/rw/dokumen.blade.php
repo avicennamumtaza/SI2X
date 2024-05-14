@@ -18,8 +18,8 @@
                                 placeholder="Masukkan Jenis Dokumen" required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="deskripsi_dokumen">Deskripsi Dokumen</label>
-                            <input type="text" class="form-control" id="deskripsi_dokumen" name="deskripsi_dokumen"
+                            <label for="deskripsi">Deskripsi Dokumen</label>
+                            <input type="text" class="form-control" id="deskripsi" name="deskripsi"
                                 placeholder="Masukkan Deskripsi Dokumen" required>
                         </div>
                         <div class="modal-footer justify-content-end">
@@ -49,8 +49,8 @@
                             <input type="text" class="form-control" id="jenis_dokumen" name="jenis_dokumen" required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="deskripsi_dokumen" class="form-label text-start">Deskripsi Dokumen</label>
-                            <input type="text" class="form-control" id="deskripsi_dokumen" name="deskripsi_dokumen" required>
+                            <label for="deskripsi" class="form-label text-start">Deskripsi Dokumen</label>
+                            <input type="text" class="form-control" id="deskripsi" name="deskripsi" required>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
@@ -89,10 +89,10 @@
                     var target = $(event.relatedTarget);
                     let id_dokumen = target.data('id')
                     let jenis_dokumen = target.data('jenis_dokumen')
-                    let deskripsi_dokumen = target.data('deskripsi_dokumen')
+                    let deskripsi = target.data('deskripsi')
 
                     $('#editDokumenModal #jenis_dokumen').val(jenis_dokumen);
-                    $('#editDokumenModal #deskripsi_dokumen').val(deskripsi_dokumen);
+                    $('#editDokumenModal #deskripsi').val(deskripsi);
 
                     let url = "{{ route('dokumen.update', ':__id') }}";
                     url = url.replace(':__id', id_dokumen);

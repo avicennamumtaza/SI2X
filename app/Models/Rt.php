@@ -15,8 +15,7 @@ class Rt extends Model
     protected $primaryKey = 'no_rt';
     protected $fillable = [
         'nik_rt',
-        'jumlah_keluarga_rt',
-        'jumlah_penduduk_rt',
+        'wa_rt',
     ];
 
     public function penduduk(): BelongsTo

@@ -19,13 +19,13 @@ class DokumenController extends Controller
         // Validasi input
         $validated = $request->validate([
             'jenis_dokumen' => 'required|string|max:50',
-            'deskripsi_dokumen' => 'required|string',
+            'deskripsi' => 'required|string',
         ]);
 
         try{
             Dokumen::create([
                 'jenis_dokumen' => $validated['jenis_dokumen'],
-                'deskripsi_dokumen' => $validated['deskripsi_dokumen'],
+                'deskripsi' => $validated['deskripsi'],
             ]);
             return redirect()->back()->with('success', 'Data Dokumen berhasil ditambahkan!');
         } catch(\Exception $e){
@@ -46,15 +46,15 @@ class DokumenController extends Controller
 
         // Validasi input
         $validated = $request->validate([
-            'jenis_dokumen' => 'required|string|max:50',
-            'deskripsi_dokumen' => 'required|string',
+            'jenis_dokumen' => 'required|string|max:50|unique:dokumen,jenis_dokumen,' . $dokumen->id_dokumen . ',id_dokumen',
+            'deskripsi' => 'required|string',
         ]);
 
         // Update dokumen
         try {
             $dokumen->update([
                 'jenis_dokumen' => $validated['jenis_dokumen'],
-                'deskripsi_dokumen' => $validated['deskripsi_dokumen'],
+                'deskripsi' => $validated['deskripsi'],
             ]);
 
             return redirect()->route('dokumen.manage')->with('success', 'Dokumen berhasil diupdate!');
