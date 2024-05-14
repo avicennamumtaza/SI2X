@@ -29,23 +29,23 @@
                             </div>
                             <div class="form-group mb-3">
                                 <label for="nik_pengaju" class="form-label">NIK Pengaju</label>
-                                <input list="nik_pengaju_list" class="form-control" id="nik_pengaju" name="nik_pengaju"
+                                <input class="form-control" id="nik_pengaju" name="nik_pengaju"
                                     placeholder="Masukkan NIK Pengaju" required>
-                                <datalist id="nik_pengaju_list">
+                                {{-- <datalist id="nik_pengaju_list">
                                     @foreach ($penduduks as $penduduk)
                                         <option value="{{ $penduduk->nik }}">{{ $penduduk->nik }}</option>
                                     @endforeach
-                                </datalist>
+                                </datalist> --}}
                             </div>
                             <div class="form-group mb-3">
                                 <label for="nama_pengaju" class="form-label">Nama Pengaju</label>
-                                <input list="nama_pengaju_list" class="form-control" id="nama_pengaju" name="nama_pengaju"
+                                <input class="form-control" id="nama_pengaju" name="nama_pengaju"
                                     placeholder="Masukkan Nama Pengaju" required>
-                                <datalist id="nama_pengaju_list">
+                                {{-- <datalist id="nama_pengaju_list">
                                     @foreach ($penduduks as $penduduk)
                                         <option value="{{ $penduduk->nama }}">{{ $penduduk->nama }}</option>
                                     @endforeach
-                                </datalist>
+                                </datalist> --}}
                             </div>
                             <div class="form-group mb-3">
                                 <label for="status_umkm" class="form-label text-start">Status Pengajuan</label>
@@ -100,36 +100,36 @@
             </div>
             <hr class="tabel">
             <div class="card-body">
-                <div class="table-responsive">
+                {{-- <div class="table-responsive"> --}}
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>No. RT</th>
-                                <th>Jenis Dokumen</th>
-                                <th>Nama Pengaju</th>
-                                <th>Status Pengajuan</th>
+                                <th>RT</th>
+                                <th>Dokumen</th>
+                                <th>Pengaju</th>
+                                <th>Status</th>
                                 <th>Catatan</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($pengajuanDokumens as $pengajuanDokumen)
                                 <tr>
-                                    <td>{{ $pengajuanDokumen->no_rt }}</td>
-                                    <td>{{ $pengajuanDokumen->dokumen->jenis_dokumen }}</td>
-                                    <td>{{ $pengajuanDokumen->nama_pengaju }}</td>
-                                    <td>
+                                    <td style="width: 5%">{{ $pengajuanDokumen->no_rt }}</td>
+                                    <td style="width: 15%">{{ $pengajuanDokumen->dokumen->jenis_dokumen }}</td>
+                                    <td style="width: 25%">{{ $pengajuanDokumen->nama_pengaju }}</td>
+                                    <td style="width: 5%">
                                         @if ($pengajuanDokumen->status_pengajuan == 'Baru')
                                             <span
-                                                class="badge bg-warning text-dark rounded-pill">{{ $pengajuanDokumen->status_pengajuan }}</span>
-                                        @elseif ($pengajuanDokumen->status_pengajuan == 'Selesai')
+                                                style="background-color: darkgoldenrod" class="badge rounded-pill">{{ $pengajuanDokumen->status_pengajuan }}</span>
+                                        @elseif ($pengajuanDokumen->status_pengajuan == 'Disetujui')
                                             <span
-                                                class="badge bg-success rounded-pill">{{ $pengajuanDokumen->status_pengajuan }}</span>
+                                                style="background-color: green" class="badge rounded-pill">{{ $pengajuanDokumen->status_pengajuan }}</span>
                                         @else
                                             <span
-                                                class="badge bg-secondary rounded-pill">{{ $pengajuanDokumen->status_pengajuan }}</span>
+                                                style="background-color: red" class="badge rounded-pill">{{ $pengajuanDokumen->status_pengajuan }}</span>
                                         @endif
                                     </td>
-                                    <td>
+                                    <td style="width: 40%">
                                         @if ($pengajuanDokumen->status_pengajuan == 'Baru')
                                             Pengajuan Belum Diproses RT
                                         @else
@@ -144,7 +144,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                </div>
+                {{-- </div> --}}
             </div>
         </div>
     </div>
