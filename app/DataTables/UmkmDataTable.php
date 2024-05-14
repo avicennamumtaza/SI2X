@@ -33,7 +33,7 @@ class UmkmDataTable extends DataTable
                 data-nama_umkm="' . $row->nama_umkm . '"
                 data-wa_umkm="' . $row->wa_umkm . '"
                 data-foto_umkm="' . $row->foto_umkm . '"
-                data-desc_umkm="' . $row->deskripsi_umkm . '"
+                data-deskripsi_umkm="' . $row->deskripsi_umkm . '"
                 data-status_umkm="' . $row->status_umkm . '"
                 data-bs-toggle="modal" data-bs-target="#editUmkmModal" class="edit btn btn-edit btn-sm">Edit</button>';
                 $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">

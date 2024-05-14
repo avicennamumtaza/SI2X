@@ -18,8 +18,10 @@ return new class extends Migration
             $table->string('nama_umkm', 50);
             $table->string('wa_umkm', 14);
             $table->text('foto_umkm');
-            $table->text('deskripsi_umkm');
-            $table->enum('status_umkm', ['Baru', 'Disetujui', 'Ditolak']);
+            // $table->text('desc_umkm');
+            ;$table->text('deskripsi_umkm');
+            // $table->string('status_umkm', 10);
+            ;$table->enum('status_umkm', ['Baru', 'Disetujui', 'Ditolak']);
             $table->timestamps();
 
             $table->foreign('nik_pemilik')->references('nik')->on('penduduk')->onDelete('cascade');

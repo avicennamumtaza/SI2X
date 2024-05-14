@@ -60,8 +60,8 @@
                                     placeholder="Masukkan Foto Produk atau UMKM" required>
                             </div>
                             <div class="form-group mb-3">
-                                <label for="desc_umkm" class="form-label">Deskripsi</label>
-                                <textarea class="form-control" id="desc_umkm" name="desc_umkm" rows="3" placeholder="Masukkan Deskripsi UMKM"
+                                <label for="deskripsi_umkm" class="form-label">Deskripsi</label>
+                                <textarea class="form-control" id="deskripsi_umkm" name="deskripsi_umkm" rows="3" placeholder="Masukkan Deskripsi UMKM"
                                     required></textarea>
                             </div>
                             <!-- Tambahkan input lainnya sesuai kebutuhan -->
@@ -114,7 +114,7 @@
                         class="card-img-top" alt="Foto UMKM" />
                     <div class="card-body">
                         <h5 class="card-title text-start">{{ $umkm->nama_umkm }}</h5>
-                        <p class="card-text">{{ $umkm->desc_umkm }}</p>
+                        <p class="card-text">{{ $umkm->deskripsi_umkm }}</p>
                     </div>
                     <div class="card-footer py-3 hub-umkm d-flex justify-content-end">
                         <a href="https://wa.me/{{ substr_replace($umkm->wa_umkm, '62', 0, 1) }}" class="btn btn-success"
