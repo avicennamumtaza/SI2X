@@ -21,7 +21,7 @@ class PendudukController extends Controller
     {
         // Validasi input
         $validated = $request->validate([
-            'nik' => 'required|string|min:15|max:17',
+            'nik' => 'required|string|min:15|max:17|unique:penduduk,nik',
             'nkk' => 'required|string|min:15|max:17',
             'no_rt' => 'required|string|max:2',
             'nama' => 'required|string|max:49',
@@ -29,10 +29,12 @@ class PendudukController extends Controller
             'tanggal_lahir' => 'required|date',
             'alamat' => 'required|string|min:5',
             'jenis_kelamin' => 'required|string|max:1',
-            'pekerjaan' => 'required|string|min:2|max:49',
+            'agama' => 'required|string|max:10',
+            'pendidikan' => 'required|string|max:28',
+            'pekerjaan' => 'required|string|min:2|max:30',
             'golongan_darah' => 'required|string|max:2',
-            'status_pernikahan' => 'required',
-            'status_domisili' => 'required',
+            'status_pernikahan' => 'required|max:12',
+            'status_pendatang' => 'required',
             // Tambahkan validasi untuk input lainnya jika diperlukan
         ]);
 
@@ -46,10 +48,12 @@ class PendudukController extends Controller
                 'tanggal_lahir' => $validated['tanggal_lahir'],
                 'alamat' => $validated['alamat'],
                 'jenis_kelamin' => $validated['jenis_kelamin'],
+                'agama' => $validated['agama'],
+                'pendidikan' => $validated['pendidikan'],
                 'pekerjaan' => $validated['pekerjaan'],
                 'golongan_darah' => $validated['golongan_darah'],
                 'status_pernikahan' => $validated['status_pernikahan'],
-                'status_domisili' => $validated['status_domisili'],
+                'status_pendatang' => $validated['status_pendatang'],
             ]);
             return redirect()->back()->with('success', 'Data Penduduk berhasil ditambahkan!');
         } catch(\Exception $e){
@@ -67,7 +71,7 @@ class PendudukController extends Controller
     {
 
         $request->validate([
-            'nik' => 'required|string|min:15|max:17', // (tidak bisa mengedit nik as primary key, cek view)
+            'nik' => 'required|string|min:15|max:17|unique:penduduk,nik,' . $penduduk->nik, // gbisa edit primary key
             'nkk' => 'required|string|min:15|max:17',
             'no_rt' => 'required|string|max:2',
             'nama' => 'required|string|max:49',
@@ -75,10 +79,12 @@ class PendudukController extends Controller
             'tanggal_lahir' => 'required|date',
             'alamat' => 'required|string|min:5',
             'jenis_kelamin' => 'required|string|max:1',
-            'pekerjaan' => 'required|string|min:2|max:49',
+            'agama' => 'required|string|max:10',
+            'pendidikan' => 'required|string|max:28',
+            'pekerjaan' => 'required|string|min:2|max:30',
             'golongan_darah' => 'required|string|max:2',
-            'status_pernikahan' => 'required',
-            'status_domisili' => 'required',
+            'status_pernikahan' => 'required|max:12',
+            'status_pendatang' => 'required',
         ]);
 
         $penduduk->update($request->all());
