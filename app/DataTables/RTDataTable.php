@@ -22,19 +22,25 @@ class RTDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->setRowId('id')
-            ->addColumn('action', function($row){
-                $editUrl = route('rt.edit', $row->no_rt);
-                $deleteUrl = route('rt.destroy', $row->no_rt);
-                $action = '<div class="container-action">
-                <a href="' . $editUrl . '" class="edit btn btn-edit btn-sm">Edit</a>';
-                $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline-block;">
-                    ' . csrf_field() . '
-                    ' . method_field('DELETE') . 
-                    '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
+        ->setRowId('id')
+        ->addColumn('action', function($row){
+            // $editUrl = route('rt.edit', $row->no_rt);
+            $deleteUrl = route('rt.destroy', $row->no_rt);
+            $action = '
+            <div class="container-action">
+            <button type="button"
+            data-id="' . $row->no_rt . '"
+            data-nik_rt="' . $row->nik_rt . '"
+            data-wa_rt="' . $row->wa_rt . '"
+            data-bs-toggle="modal" data-bs-target="#editRtModal" class="edit-user edit btn btn-edit btn-sm">Edit</button>';
+            $action .= '
+            <form action="' . $deleteUrl . '" method="post" style="display:inline;">
+                ' . csrf_field() . '
+                ' . method_field('DELETE') . 
+                '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
                 </form>
-                </div>';
-                return $action;
+            </div>';
+            return $action;
             });
     }
 

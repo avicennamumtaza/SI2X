@@ -24,11 +24,17 @@ class RWDataTable extends DataTable
         return (new EloquentDataTable($query))
         ->setRowId('id')
         ->addColumn('action', function($row){
-            $editUrl = route('rw.edit', $row->no_rw);
+            // $editUrl = route('rw.edit', $row->no_rw);
             $deleteUrl = route('rw.destroy', $row->no_rw);
-            $action = '<div class="container-action">
-            <a href="' . $editUrl . '" class="edit btn btn-edit btn-sm">Edit</a>';
-            $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline-block;">
+            $action = '
+            <div class="container-action">
+            <button type="button"
+            data-id="' . $row->no_rw . '"
+            data-nik_rw="' . $row->nik_rw . '"
+            data-wa_rw="' . $row->wa_rw . '"
+            data-bs-toggle="modal" data-bs-target="#editRwModal" class="edit-user edit btn btn-edit btn-sm">Edit</button>';
+            $action .= '
+            <form action="' . $deleteUrl . '" method="post" style="display:inline;">
                 ' . csrf_field() . '
                 ' . method_field('DELETE') . 
                 '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>

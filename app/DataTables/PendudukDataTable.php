@@ -36,8 +36,8 @@ class PendudukDataTable extends DataTable
             ->editColumn('status_pernikahan', function ($row) {
                 return $row->status_pernikahan ? 'Menikah' : 'Belum Menikah';
             })
-            ->editColumn('status_domisili', function ($row) {
-                return $row->status_domisili ? 'Non Domisili' : 'Domisili';
+            ->editColumn('status_pendatang', function ($row) {
+                return $row->status_domisili ? 'Pendatang' : 'Asli';
             })
             // ->addColumn('umur', function ($row) {
             //     // Menghitung umur berdasarkan tanggal lahir
@@ -60,10 +60,12 @@ class PendudukDataTable extends DataTable
                 data-tanggal_lahir="' . $row->tanggal_lahir . '"
                 data-alamat="' . $row->alamat . '"
                 data-jenis_kelamin="' . $row->jenis_kelamin . '"
+                data-jenis_kelamin="' . $row->agama . '"
+                data-jenis_kelamin="' . $row->pendidikan . '"
                 data-pekerjaan="' . $row->pekerjaan . '"
                 data-gol_darah="' . $row->golongan_darah . '"
                 data-is_married="' . $row->status_pernikahan . '"
-                data-is_stranger="' . $row->status_domisili . '"
+                data-is_stranger="' . $row->status_pendatang . '"
                 data-bs-toggle="modal" data-bs-target="#editPendudukModal" class="edit-user edit btn btn-edit btn-sm">Edit</button>';
                 $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
                 ' . csrf_field() . '
@@ -128,12 +130,12 @@ class PendudukDataTable extends DataTable
             // Column::make('tempat_lahir'),
             Column::make('tanggal_lahir'),
             // Column::make('umur'),
-            Column::make('alamat')->width(170),
+            // Column::make('alamat')->width(170),
             // Column::make('jenis_kelamin'),
-            // Column::make('pekerjaan'),
+            Column::make('pekerjaan'),
             // Column::make('golongan_darah'),
             // Column::make('is_married'),
-            Column::make('status_domisili')->title('Domisili'),
+            Column::make('status_pendatang')->title('Status'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
