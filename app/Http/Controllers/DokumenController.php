@@ -18,7 +18,7 @@ class DokumenController extends Controller
     {
         // Validasi input
         $validated = $request->validate([
-            'jenis_dokumen' => 'required|string|max:50',
+            'jenis_dokumen' => 'required|string|max:50|unique:dokumen,jenis_dokumen',
             'deskripsi' => 'required|string',
         ]);
 
