@@ -103,8 +103,17 @@ class PendudukDataTable extends DataTable
             //->dom('Bfrtip')
             ->orderBy(0, 'asc')
             ->parameters([
+                'language' => [
+                    'search' => '', // Menghilangkan teks "Search:"
+                    'searchPlaceholder' => 'Cari Pengumuman', // Placeholder untuk kolom pencarian
+                    'paginate' => [
+                        'previous' => 'Kembali', // Mengubah teks "Previous"
+                        'next' => 'Lanjut', // Mengubah teks "Next"
+                    ],
+                    'info' => 'Menampilkan _START_ hingga _END_ dari _TOTAL_ entri', // Ubah teks sesuai keinginan Anda
+                ],
                 'dom' => 'Bfrtip', // Menambahkan tombol
-                'buttons' => ['excel', 'csv', 'pdf', 'print', 'reset', 'reload'], // Menambahkan tombol ekspor dan lainnya
+                'buttons' => [], // Menambahkan tombol ekspor dan lainnya
                 'order' => [], // Mengaktifkan order by untuk setiap kolom
             ])
             ->selectStyleSingle();
