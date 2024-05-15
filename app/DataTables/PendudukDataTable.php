@@ -39,13 +39,16 @@ class PendudukDataTable extends DataTable
             ->editColumn('is_stranger', function ($row) {
                 return $row->is_stranger ? 'Non Domisili' : 'Domisili';
             })
+            ->editColumn('gol_darah', function ($row) {
+                return $row->gol_darah->value;
+            })
             // ->addColumn('umur', function ($row) {
             //     // Menghitung umur berdasarkan tanggal lahir
             //     $tanggal_lahir = new DateTime($row->tanggal_lahir);
             //     $waktu_sekarang = new DateTime();
             //     $selisih = $tanggal_lahir->diff($waktu_sekarang);
             //     return $selisih->y;
-            // })            
+            // })
             ->addColumn('action', function ($row) {
 
                 $deleteUrl = route('penduduk.destroy', $row->nik);
@@ -61,13 +64,13 @@ class PendudukDataTable extends DataTable
                 data-alamat="' . $row->alamat . '"
                 data-jenis_kelamin="' . $row->jenis_kelamin . '"
                 data-pekerjaan="' . $row->pekerjaan . '"
-                data-gol_darah="' . $row->gol_darah . '"
+                data-gol_darah="' . $row->gol_darah->value . '"
                 data-is_married="' . $row->is_married . '"
                 data-is_stranger="' . $row->is_stranger . '"
                 data-bs-toggle="modal" data-bs-target="#editPendudukModal" class="edit-user edit btn btn-edit btn-sm">Edit</button>';
                 $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
                 ' . csrf_field() . '
-                ' . method_field('DELETE') . 
+                ' . method_field('DELETE') .
                 '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
                 </form>
                 </div>';
@@ -82,10 +85,10 @@ class PendudukDataTable extends DataTable
     {
         if (auth()->user()->role == 'Rt') {
             // Dapatkan pengguna yang sedang login
-            $user = Users::where('id_user', auth()->user()->id_user)->first(); 
+            $user = Users::where('id_user', auth()->user()->id_user)->first();
             $nikRt = $user->nik; // Ambil nilai nik dari pengguna
             $noRt = Rt::where('nik_rt', $nikRt)->pluck('no_rt')->first();
-    
+
             return $model->newQuery()->where('no_rt', $noRt);
         }
         return $model->newQuery();
@@ -140,7 +143,7 @@ class PendudukDataTable extends DataTable
             Column::make('alamat')->width(170),
             // Column::make('jenis_kelamin'),
             // Column::make('pekerjaan'),
-            // Column::make('gol_darah'),
+            Column::make('gol_darah'),
             // Column::make('is_married'),
             Column::make('is_stranger')->title('Domisili'),
             Column::computed('action')

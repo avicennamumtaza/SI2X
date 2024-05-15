@@ -45,11 +45,11 @@ class UsersController extends Controller
 
     }
 
-    public function edit(Users $users)
-    {
-        $users = Users::findOrFail($users->id_user);
-        return view('users', compact('users'));
-    }
+    // public function edit(Users $users)
+    // {
+    //     $users = Users::findOrFail($users->id_user);
+    //     return view('users', compact('users'));
+    // }
 
     public function update(Request $request, Users $users)
     {
@@ -121,23 +121,24 @@ class UsersController extends Controller
                 $users->save();
             }
 
-            return redirect()->route('profil.update')->with('success', 'User berhasil diupdate!');
+            return redirect()->back()->with('success', 'User berhasil diupdate!');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Update gagal: ' . $e->getMessage());
         }
     }
-    // public function changePassword(Request $request, User $user)
-    // {
-    //     // Validasi request
-    //     $request->validate([
-    //         'new_password' => 'required|min:8|confirmed', // Konfirmasi password baru
-    //     ]);
+    
+    public function changePassword(Request $request, User $user)
+    {
+        // Validasi request
+        $request->validate([
+            'new_password' => 'required|min:8|confirmed', // Konfirmasi password baru
+        ]);
 
-    //     // Setel password baru
-    //     $user->password = Hash::make($request->new_password);
-    //     $user->save();
+        // Setel password baru
+        $user->password = Hash::make($request->new_password);
+        $user->save();
 
-    //     // Redirect kembali ke halaman profil dengan pesan sukses
-    //     return redirect()->route('profil')->with('success', 'Password berhasil diubah.');
-    // }
+        // Redirect kembali ke halaman profil dengan pesan sukses
+        return redirect()->route('profil')->with('success', 'Password berhasil diubah.');
+    }
 }
