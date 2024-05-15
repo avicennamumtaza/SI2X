@@ -24,7 +24,7 @@ return new class extends Migration
             $table->text('catatan');
             $table->timestamps();
 
-            $table->foreign('no_rt')->references('no_rt')->on('rt')->onDelete('cascade');
+            // $table->foreign('no_rt')->references('no_rt')->on('rt')->onDelete('cascade');
             $table->foreign('id_dokumen')->references('id_dokumen')->on('dokumen')->onDelete('cascade');
             $table->foreign('nik_pengaju')->references('nik')->on('penduduk')->onDelete('cascade');
         });
