@@ -16,31 +16,31 @@
                         @method('PUT')
                         @csrf
                         <div class="form-group mb-3">
-                            <label for="nik_pemilik" class="form-label text-start">nik_pemilik</label>
+                            <label for="nik_pemilik" class="form-label text-start">Nik Pemilik</label>
                             <input type="text" readonly class="form-control" id="nik_pemilik" name="nik_pemilik"
                                 required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="nama_umkm" class="form-label text-start">nama_umkm</label>
+                            <label for="nama_umkm" class="form-label text-start">Nama Pemilik</label>
                             <input type="text" readonly class="form-control" id="nama_umkm" name="nama_umkm" required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="wa_umkm" class="form-label text-start">wa_umkm</label>
+                            <label for="wa_umkm" class="form-label text-start">WhatsApp UMKM</label>
                             <input type="text" readonly class="form-control" id="wa_umkm" name="wa_umkm" required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="foto_umkm" class="form-label text-start">foto_umkm</label>
+                            <label for="foto_umkm" class="form-label text-start">Foto UMKM</label>
                             <br>
                             {{-- <input type="hidden" id="foto_umkm" name="foto_umkm" required> --}}
                             <img id="foto_umkm_preview" class="img-thumbnail" src="" width="300" height="300"
                                 alt="Foto UMKM">
                         </div>
                         <div class="form-group mb-3">
-                            <label for="desc_umkm" class="form-label text-start">desc_umkm</label>
+                            <label for="desc_umkm" class="form-label text-start">Deskripsi UMKM</label>
                             <input type="text" readonly class="form-control" id="desc_umkm" name="desc_umkm" required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="status_umkm" class="form-label text-start">status_umkm</label>
+                            <label for="status_umkm" class="form-label text-start">Status UMKM</label>
 
                             <select class="form-select" id="status_umkm" name="status_umkm" required>
                                 <option value="" selected disabled>Pilih Status UMKM</option>

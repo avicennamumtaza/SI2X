@@ -600,6 +600,16 @@ body {
         .f2 {
             background-color: $secondaryCol;
         }
+        .no-footer {
+            color: white; /* Warna teks normal */
+            // text-decoration: underline;
+            // transition: color 0.3s;
+            font-style: none;
+        }
+
+        .no-footer:hover {
+            color: #c0c0c0; /* Warna teks saat di hover */
+        }
     }
 
 

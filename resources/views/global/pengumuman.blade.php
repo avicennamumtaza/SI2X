@@ -1,3 +1,7 @@
+@php
+    use Carbon\Carbon;
+    Carbon::setLocale('id');
+@endphp
 @extends('layouts.app')
 
 @section('content')
@@ -18,18 +22,20 @@
 
                 <div class="postcard__text t-dark">
                     <h1 class="postcard__title blue">{{ $pengumuman->judul }}</h1>
-                    <div class="postcard__subtitle small">
+                    {{-- <div class="postcard__subtitle small">
                         <time datetime="2020-05-25 12:00:00">
                             <i class="fas fa-calendar-alt mr-2"></i>
                             {{ $pengumuman->tanggal_pengumuman }}
                         </time>
-                    </div>
+                    </div> --}}
                     <div class="postcard__bar"></div>
                     <div class="postcard__preview-txt">
                         {{ $pengumuman->deskripsi }}
                     </div>
                     <ul class="postcard__tagbox">
-                        <li class="tag__item"><i class="fas fa-tag mr-2"></i>{{ $pengumuman->tanggal }}</li>
+                        <li class="tag__item"><i
+                                class="fas fa-tag mr-2"></i>{{ Carbon::parse($pengumuman->tanggal)->translatedFormat('d F Y') }}
+                        </li>
                     </ul>
                 </div>
             </article>
@@ -40,11 +46,10 @@
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header d-flex justify-content-between">
                     <h5 class="modal-title" id="fotoModalLabel"></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <i class="bi bi-x-lg text-danger" data-dismiss="modal" aria-label="Close"
+                        style="font-size: 1,5 rem;"></i>
                 </div>
                 <div class="modal-body">
                     <img id="modalImg" src="" class="img-fluid" alt="Foto Pengumuman"
@@ -53,6 +58,7 @@
             </div>
         </div>
     </div>
+
 
 
     <!-- Pastikan jQuery dan Bootstrap dimuat dengan benar -->
