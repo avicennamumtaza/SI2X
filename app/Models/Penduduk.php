@@ -31,12 +31,16 @@ class Penduduk extends Model
         'status_pendatang',
     ];
 
+    protected $casts = [
+        'gol_darah' => GolDar::class,
+    ];
+
     // public function keluarga(): BelongsTo
     // {
     //     return $this->belongsTo(Keluarga::class, 'nkk', 'nkk');
     // }
 
-    public function rw(): HasOne
+    public function umkm(): HasMany
     {
         return $this->hasOne(Rw::class, 'nik_rw', 'nik');
     }

@@ -36,8 +36,8 @@ class PendudukDataTable extends DataTable
             ->editColumn('status_pernikahan', function ($row) {
                 return $row->status_pernikahan ? 'Menikah' : 'Belum Menikah';
             })
-            ->editColumn('status_pendatang', function ($row) {
-                return $row->status_domisili ? 'Pendatang' : 'Asli';
+            ->editColumn('is_stranger', function ($row) {
+                return $row->is_stranger ? 'Non Domisili' : 'Domisili';
             })
             // ->addColumn('umur', function ($row) {
             //     // Menghitung umur berdasarkan tanggal lahir
@@ -45,7 +45,7 @@ class PendudukDataTable extends DataTable
             //     $waktu_sekarang = new DateTime();
             //     $selisih = $tanggal_lahir->diff($waktu_sekarang);
             //     return $selisih->y;
-            // })
+            // })            
             ->addColumn('action', function ($row) {
 
                 $deleteUrl = route('penduduk.destroy', $row->nik);
@@ -87,7 +87,7 @@ class PendudukDataTable extends DataTable
             $user = Users::where('id_user', auth()->user()->id_user)->first();
             $nikRt = $user->nik; // Ambil nilai nik dari pengguna
             $noRt = Rt::where('nik_rt', $nikRt)->pluck('no_rt')->first();
-
+    
             return $model->newQuery()->where('no_rt', $noRt);
         }
         return $model->newQuery();
