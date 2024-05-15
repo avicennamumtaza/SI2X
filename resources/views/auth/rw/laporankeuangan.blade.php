@@ -141,6 +141,9 @@
         </div>
         <hr class="tabel">
         <div class="card-body">
+            <div class="card" style="border: none">
+                <h1>Saldo: {{ $latestRow->saldo }}</h1>
+            </div>
             <div class="table-responsive tabel">
                 {{ $dataTable->table() }}
             </div>

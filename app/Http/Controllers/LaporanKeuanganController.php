@@ -32,7 +32,8 @@ class LaporanKeuanganController extends Controller
 
     public function list(LaporanKeuanganDataTable $dataTable)
     {
-        return $dataTable->render('auth.rw.laporankeuangan');
+        $latestRow = LaporanKeuangan::latest()->first();
+        return $dataTable->render('auth.rw.laporankeuangan', compact('latestRow'));
     }
 
     /**

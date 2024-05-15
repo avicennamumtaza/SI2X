@@ -18,22 +18,22 @@
             <hr class="tabel">
             {{-- <div class="card-body"> --}}
                 <div class="col-xl-5 mx-3 col-md-12">
-                    <div class="card" style="border: none;">
+                    {{-- <div class="card" style="border: none;"> --}}
                         <div class="card-body">
-                            <div class="d-flex justify-content-between p-md-1">
-                                <div class="d-flex flex-row">
+                            {{-- <div class="d-flex justify-content-start p-md-1"> --}}
+                                <div class="text-start">
                                     <div class="align-self-center">
                                         <h3>Kas RW</h3>
                                     </div>
                                     <div class="align-self-center">
                                         <h2 class="">
-                                            <b>&nbsp; Rp&nbsp;{{ number_format($saldo, 0, ',', '.') }}</b>
+                                            <b>Rp&nbsp;{{ number_format($saldo, 0, ',', '.') }}</b>
                                         </h2>
                                     </div>
                                 </div>
-                            </div>
+                            {{-- </div> --}}
                         </div>
-                    </div>
+                    {{-- </div> --}}
                 </div>
                 <div class="table-responsive px-4">
                     <table class="table table-bordered">
