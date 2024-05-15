@@ -27,7 +27,17 @@
                                     </div>
                                     <div class="align-self-center">
                                         <h2 class="">
-                                            <b>Rp&nbsp;{{ number_format($saldo, 0, ',', '.') }}</b>
+                                            <?php
+                                                $saldo = 0;
+                                                foreach ($laporanKeuangans as $laporanKeuangan) {
+                                                    if ($laporanKeuangan->status_pemasukan) {
+                                                        $saldo += $laporanKeuangan->nominal;
+                                                    } else {
+                                                        $saldo -= $laporanKeuangan->nominal;
+                                                    }
+                                                }
+                                            ?>
+                                            <b>&nbsp; Rp&nbsp;{{ number_format($saldo, 0, ',', '.') }}</b>
                                         </h2>
                                     </div>
                                 </div>
@@ -51,7 +61,7 @@
                             @foreach ($laporanKeuangans as $laporanKeuangan)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $laporanKeuangan->is_income ? 'Pemasukan' : 'Pengeluaran' }}</td>
+                                    <td>{{ $laporanKeuangan->status_pemasukan ? 'Pemasukan' : 'Pengeluaran' }}</td>
                                     <td>Rp {{ number_format($laporanKeuangan->nominal, 0, ',', '.') }}</td>
                                     <td>{{ $laporanKeuangan->detail }}</td>
                                     <td>{{ $laporanKeuangan->tanggal }}</td>
