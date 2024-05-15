@@ -13,11 +13,11 @@ class PengajuanDokumen extends Model
     protected $table = 'pengajuan_dokumen';
     protected $primaryKey = 'id_pengajuandokumen';
     protected $fillable = [
-        'no_rt',
+        // 'no_rt',
         'id_dokumen',
         'nik_pengaju',
-        'nama_pengaju',
         'status_pengajuan',
+        'keperluan',
         'catatan',
     ];
 
