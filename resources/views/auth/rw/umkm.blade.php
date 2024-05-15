@@ -21,6 +21,16 @@
                                 required>
                         </div>
                         <div class="form-group mb-3">
+                            <label for="nama_pemilik" class="form-label text-start">Nama Pemilik</label>
+                            <input type="text" readonly class="form-control" id="nama_pemilik" name="nama_pemilik"
+                                required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="alamat_pemilik" class="form-label text-start">Alamat Pemilik</label>
+                            <input type="text" readonly class="form-control" id="alamat_pemilik" name="alamat_pemilik"
+                                required>
+                        </div>
+                        <div class="form-group mb-3">
                             <label for="nama_umkm" class="form-label text-start">Nama UMKM</label>
                             <input type="text" readonly class="form-control" id="nama_umkm" name="nama_umkm" required>
                         </div>
@@ -83,6 +93,8 @@
                     var target = $(event.relatedTarget);
                     let id_umkm = target.data('id_umkm');
                     let nik_pemilik = target.data('nik_pemilik');
+                    let nama_pemilik = target.data('nama_pemilik');
+                    let alamat_pemilik = target.data('alamat_pemilik');
                     let nama_umkm = target.data('nama_umkm');
                     let wa_umkm = target.data('wa_umkm');
                     let foto_umkm = target.data('foto_umkm');
@@ -92,6 +104,8 @@
                     // Mengisi nilai input dengan data yang sesuai
                     $('#editUmkmModal #id_umkm').val(id_umkm);
                     $('#editUmkmModal #nik_pemilik').val(nik_pemilik);
+                    $('#editUmkmModal #nama_pemilik').val(nama_pemilik);
+                    $('#editUmkmModal #alamat_pemilik').val(alamat_pemilik);
                     $('#editUmkmModal #nama_umkm').val(nama_umkm);
                     $('#editUmkmModal #wa_umkm').val(wa_umkm);
                     $('#editUmkmModal #foto_umkm').val(foto_umkm);

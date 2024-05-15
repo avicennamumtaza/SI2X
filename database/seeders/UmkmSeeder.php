@@ -39,6 +39,7 @@ class UmkmSeeder extends Seeder
                 'nama_umkm' => $faker->company(),
                 'wa_umkm' => $faker->numerify('08##########'),
                 'foto_umkm' => $faker->imageUrl(),
+                // 'alamat_umkm' => $faker->address(),
                 'deskripsi_umkm' => $faker->paragraph(2),
                 'status_umkm' => $faker->randomElement(['Disetujui', 'Ditolak', 'Baru']),
                 'created_at' => now(),
