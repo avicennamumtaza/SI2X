@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('nik_pemilik', 17)->index();
             $table->string('nama_umkm', 50);
             $table->string('wa_umkm', 14);
+            // ;$table->text('alamat_umkm');
             $table->text('foto_umkm');
             // $table->text('desc_umkm');
             ;$table->text('deskripsi_umkm');

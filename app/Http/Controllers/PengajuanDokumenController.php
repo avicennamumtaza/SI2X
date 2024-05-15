@@ -17,24 +17,24 @@ class PengajuanDokumenController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {        
-        
+    {
+
         // Mengambil hanya kolom 'nik' dari model Penduduk
         $pengajuanDokumens = PengajuanDokumen::all();
         $no_rts = Rt::pluck('no_rt');
         // $penduduks = Penduduk::all();
         $dokumens = Dokumen::all();
-            
+
         // Mengirimkan data ke view
-        return view('global.pengajuandokumen', compact('pengajuanDokumens','no_rts', 'dokumens'));
+        return view('global.pengajuandokumen', compact('pengajuanDokumens', 'no_rts', 'dokumens'));
     }
-    
+
 
     public function list(PengajuanDokumenDataTable $dataTable)
     {
         return $dataTable->render('auth.rt.pengajuandokumen');
     }
-    
+
 
     /**
      * Show the form for creating a new resource.
@@ -51,47 +51,64 @@ class PengajuanDokumenController extends Controller
     {
         // dd($request->all());
         // Validasi input
+
         $validated = $request->validate([
             // 'id_pengajuandokumen' => 'required', // (tidak bisa mengedit id as primary key, cek view)
-            'no_rt' => 'required|max:2',
+            // 'no_rt' => 'required|max:2',
             'id_dokumen' => 'required',
-            'nik_pengaju' => 'required|min:15|max:17',
-            'nama_pengaju' => 'required|min:3|max:49',
+            'nik_pengaju' => 'required|min:15|max:17|exists:penduduk,nik',
+            // 'nama_pengaju' => 'required|min:3|max:49',
             // 'no_rw' => 'string',
             // 'status_umkm' => 'string',
         ], [
-            'no_rt.required' => 'Nomor RT wajib diisi.',
-            'no_rt.max' => 'Nomor RT tidak boleh lebih dari :max karakter.',
+            // 'no_rt.required' => 'Nomor RT wajib diisi.',
+            // 'no_rt.max' => 'Nomor RT tidak boleh lebih dari :max karakter.',
             'id_dokumen.required' => 'Jenis Dokumen wajib dipilih.',
             'nik_pengaju.required' => 'NIK Pengaju wajib diisi.',
             'nik_pengaju.min' => 'NIK Pengaju harus memiliki panjang minimal :min karakter.',
             'nik_pengaju.max' => 'NIK Pengaju harus memiliki panjang maksimal :max karakter.',
-            'nama_pengaju.required' => 'Nama Pengaju wajib diisi.',
-            'nama_pengaju.min' => 'Nama Pengaju harus memiliki panjang minimal :min karakter.',
-            'nama_pengaju.max' => 'Nama Pengaju harus memiliki panjang maksimal :max karakter.',
+            'nik_pengaju.exists' => 'NIK Anda Tidak Terdata, silahkan hubungi Ketua RT atau Ketua RW anda untuk keperluan kelengkapan data kependudukan di Sistem Informasi Rukun Warga ini',
+            // 'nama_pengaju.required' => 'Nama Pengaju wajib diisi.',
+            // 'nama_pengaju.min' => 'Nama Pengaju harus memiliki panjang minimal :min karakter.',
+            // 'nama_pengaju.max' => 'Nama Pengaju harus memiliki panjang maksimal :max karakter.',
         ]);
+
+        $rt = Penduduk::where('nik', $validated['nik_pengaju'])->first();
+        
+        // Cek apakah ada pengajuan dokumen dengan nik_pengaju yang sama dan status "Baru"
+        $existingPengajuan = PengajuanDokumen::where('nik_pengaju', $validated['nik_pengaju'])
+            ->where('status_pengajuan', 'Baru')
+            ->first();
+
+        if ($existingPengajuan) {
+            $wa_rt = Rt::where('no_rt', $rt->no_rt)->first();
+            Alert::error('Permintaan Dokumen sebelumnya belum diproses!', 'Silahkan tunggu permintaan dokumen yang anda ajukan sebelumnya diproses oleh Ketua RT atau hubungi Ketua RT melalui nomor ' . $wa_rt->wa_rt);
+            return redirect()->back();
+        }
+
+        $pengaju = Penduduk::where('nik', $validated['nik_pengaju'])->first();
 
         try {
             PengajuanDokumen::create([
                 // 'id_pengajuandokumen' => $validated['id_pengajuandokumen'],
-                'no_rt' => $validated['no_rt'],
+                'no_rt' => $rt->no_rt,
                 'id_dokumen' => $validated['id_dokumen'],
                 'nik_pengaju' => $validated['nik_pengaju'],
-                'nama_pengaju' => $validated['nama_pengaju'],
+                'nama_pengaju' => $pengaju->nama,
                 'status_pengajuan' => 'Baru',
                 'catatan' => '',
             ]);
             Alert::success('Permintaan Dokumen berhasil diajukan!');
             return redirect()->back()->with('warning', 'Status Permintaan Dokumen yang anda ajukan akan tampil pada halaman ini jika sudah melalui proses validasi oleh Ketua RT');
         } catch (\Illuminate\Database\QueryException $e) {
-            $no_rw = Rw::all()->pluck('nik_rw');
-            $no_rt = Rt::where('no_rt', $validated['no_rt'])->pluck('nik_rt');
-            Alert::error('NIK Anda Tidak Terdata!', 'Silahkan hubungi RT anda untuk keperluan kelengkapan data kependudukan di Sistem Informasi Rukun Warga ini melalui nomor ' . $no_rt . ', atau hubungi RW melalui nomor ' . $no_rw);
+            $rw = Rw::all()->first();
+            $rt = Rt::where('no_rt', $rt->no_rt)->first();
+            Alert::error('NIK Anda Tidak Terdata!', 'Silahkan hubungi RT anda untuk keperluan kelengkapan data kependudukan di Sistem Informasi Rukun Warga ini melalui nomor ' . $rt->wa_rt . ', atau hubungi RW melalui nomor ' . $rw->wa_rw);
             return redirect()->back();
         } catch (\Exception $e) {
             Alert::error('Oops!', $e->getMessage());
             return redirect()->back();
-        } 
+        }
     }
 
     /**
