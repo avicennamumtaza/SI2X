@@ -31,7 +31,7 @@ class PengumumanDataTable extends DataTable
                 <div class="container-action">
                 <button type="button"
                 data-id="' . $row->id_pengumuman . '"
-                data-judul_pengumuman="' . $row->judul . '"
+                data-judul="' . $row->judul . '"
                 data-tanggal_pengumuman="' . $row->tanggal . '"
                 data-deskripsi="' . $row->deskripsi . '"
                 data-foto_pengumuman="' . $row->foto_pengumuman. '"
