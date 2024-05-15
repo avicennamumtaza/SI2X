@@ -58,7 +58,7 @@ class PengumumanController extends Controller
 
     public function edit(Pengumuman $pengumuman)
     {
-        $pengumuman = Pengumuman::findOrFail($pengumuman->id_pengumuman);
+        // $pengumuman = Pengumuman::findOrFail($pengumuman->id_pengumuman);
         return view('pengumuman.edit', compact('pengumuman'));
     }
 
@@ -68,19 +68,33 @@ class PengumumanController extends Controller
             'judul_pengumuman' => 'required|min:5|max:49',
             'deskripsi' => 'required',
             'tanggal_pengumuman' => 'required|date',
-            'foto_pengumuman' => 'required|image',
-        ]);
+            'foto_pengumuman' => 'image|mimes:jpeg,jpg,png',
+         ]);
 
-        Pengumuman::find($pengumuman->id_pengumuman)->update([
+        $pengumuman->update([
             'judul' => $validated['judul_pengumuman'],
             'deskripsi' => $validated['deskripsi'],
             'tanggal' => $validated['tanggal_pengumuman'],
             // 'foto' => $request->foto_pengumuman,
-            'foto_pengumuman' => $validated['foto_pengumuman'],
+            // 'foto_pengumuman' => $validated['foto_pengumuman'],
         ]);
 
-        return redirect()->route('pengumuman.manage')
-            ->with('success', 'Pengumuman berhasil dipublish.');
+        if($request->hasFile('foto_pengumuman') ){         
+            $foto_pengumuman = $request->file('foto_pengumuman');
+            $foto_pengumuman_ext = $foto_pengumuman->getClientOriginalExtension();;
+            $foto_pengumuman_filename = $validated['judul_pengumuman'] . date('ymdhis') . "." . $foto_pengumuman_ext;
+            
+            // Hapus foto lama dari sistem penyimpanan
+        if ($pengumuman->foto_pengumuman) {
+            File::delete(public_path('Foto Pengumuman') . '/' . $pengumuman->foto_pengumuman);
+        }
+         // Simpan foto baru ke sistem penyimpanan
+         $foto_pengumuman->move(public_path('Foto Pengumuman'), $foto_pengumuman_filename);
+         $pengumuman->update(['foto_pengumuman' => $foto_pengumuman_filename]);
+        
+        }
+
+        return redirect()->route('pengumuman.manage')->with('success', 'Pengumuman berhasil dipublish.');
     }
 
     public function destroy(Pengumuman $pengumuman)

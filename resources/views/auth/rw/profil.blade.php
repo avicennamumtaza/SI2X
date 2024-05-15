@@ -14,22 +14,22 @@
                         @csrf
                         @method('PUT')
 
-                        <div class="form-group mb-3">
+                        <div class="form-group mb-3" style="display: none;">
                             <label for="nik" class="form-label text-start">NIK</label>
                             <input type="text" class="form-control" id="nik" name="nik"
                                 value="{{ $user->nik }}" required readonly>
                         </div>
-                        <div class="form-group mb-3">
+                        <div class="form-group mb-3" style="display: none;">
                             <label for="username" class="form-label text-start">Username</label>
                             <input type="text" class="form-control" id="username"
                                 value="{{ $user->username }}" name="username" required>
                         </div>
-                        <div class="form-group mb-3">
+                        <div class="form-group mb-3" style="display: none;">
                             <label for="role" class="form-label text-start">Role</label>
                             <input type="text" class="form-control" id="role"
                                 value="{{ $user->role }}" name="role" required readonly>
                         </div>
-                        <div class="form-group mb-3">
+                        <div class="form-group mb-3" style="display: none;">
                             <label for="email" class="form-label text-start">Email</label>
                             <input type="email" class="form-control" id="email"
                                 value="{{ $user->email }}" name="email" required>
@@ -78,12 +78,12 @@
                                     @csrf
                                     @method('PUT')
 
-                                    <div class="form-group mb-3">
+                                    <div class="form-group mb-3" style="display: none;">
                                         <label for="nik" class="form-label text-start">NIK</label>
                                         <input type="text" class="form-control" id="nik" name="nik"
                                             value="{{ $user->nik }}" required readonly>
                                     </div>
-                                    <div class="form-group mb-3">
+                                    <div class="form-group mb-3" style="display: none;">
                                         <label for="username" class="form-label text-start">Username</label>
                                         <input type="text" class="form-control" id="username"
                                             value="{{ $user->username }}" name="username" required>

@@ -69,17 +69,27 @@ class PengumumanDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-                    ->setTableId('pengumuman-table')
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->orderBy(0, 'asc') // Set default order by column 0 (id_pengumuman)
-                    ->parameters([
-                        'dom' => 'Bfrtip', // Menambahkan tombol
-                        'buttons' => ['excel', 'csv', 'pdf', 'print', 'reset', 'reload'], // Menambahkan tombol ekspor dan lainnya
-                        'order' => [], // Mengaktifkan order by untuk setiap kolom
-                    ])
-                    ->selectStyleSingle();
+            ->setTableId('pengumuman-table')
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            ->orderBy(0, 'asc') // Set default order by column 0 (id_pengumuman)
+            ->parameters([
+                'language' => [
+                    'search' => '', // Menghilangkan teks "Search:"
+                    'searchPlaceholder' => 'Cari Pengumuman', // Placeholder untuk kolom pencarian
+                    'paginate' => [
+                        'previous' => 'Kembali', // Mengubah teks "Previous"
+                        'next' => 'Lanjut', // Mengubah teks "Next"
+                    ],
+                    'info' => 'Menampilkan _START_ hingga _END_ dari _TOTAL_ entri', // Ubah teks sesuai keinginan Anda
+                ],
+                'dom' => 'Bfrtip', // Menambahkan tombol
+                'buttons' => ['excel', 'csv', 'pdf', 'print', 'reset', 'reload'], // Menambahkan tombol ekspor dan lainnya
+                'order' => [], // Mengaktifkan order by untuk setiap kolom
+            ])
+            ->selectStyleSingle();
     }
+    
 
     /**
      * Get the dataTable columns definition.
@@ -91,7 +101,7 @@ class PengumumanDataTable extends DataTable
             Column::make('judul')->title('Judul')->width(200),
             Column::make('tanggal')->title('Tanggal')->width(10),
             Column::make('deskripsi')->title('Deskripsi')->width(400),
-            Column::computed('action')
+            Column::computed('action')->title('Aksi')
                 ->exportable(false)
                 ->printable(false)
                 ->width(141)

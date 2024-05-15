@@ -32,9 +32,11 @@
                                 <input class="form-control" id="nik_pengaju" name="nik_pengaju"
                                     placeholder="Masukkan NIK Pengaju" required>
                                 {{-- <datalist id="nik_pengaju_list">
+                                {{-- <datalist id="nik_pengaju_list">
                                     @foreach ($penduduks as $penduduk)
                                         <option value="{{ $penduduk->nik }}">{{ $penduduk->nik }}</option>
                                     @endforeach
+                                </datalist> --}}
                                 </datalist> --}}
                             </div>
                             <div class="form-group mb-3">
@@ -42,9 +44,11 @@
                                 <input class="form-control" id="nama_pengaju" name="nama_pengaju"
                                     placeholder="Masukkan Nama Pengaju" required>
                                 {{-- <datalist id="nama_pengaju_list">
+                                {{-- <datalist id="nama_pengaju_list">
                                     @foreach ($penduduks as $penduduk)
                                         <option value="{{ $penduduk->nama }}">{{ $penduduk->nama }}</option>
                                     @endforeach
+                                </datalist> --}}
                                 </datalist> --}}
                             </div>
                             <div class="form-group mb-3">
@@ -73,13 +77,13 @@
         </div>
 
         <script>
-            document.getElementById('ajukanUmkmButton').addEventListener('click', function() {
+            document.getElementById('ajukanDokumenButton').addEventListener('click', function() {
                 var modal = new bootstrap.Modal(document.getElementById('ajukanUmkmModal'));
                 modal.show();
             });
         </script>
 
-        <a class="fixedButton" id="ajukanUmkmButton" data-bs-toggle="modal" data-bs-target="#ajukanUmkmModal">
+        <a class="fixedButton" id="ajukanDokumenButton" data-bs-toggle="modal" data-bs-target="#ajukanUmkmModal">
             <div class="roundedFixedBtn">
                 <button><i class="bi bi-box-arrow-in-up"></i>Ajukan Dokumen</button>
             </div>

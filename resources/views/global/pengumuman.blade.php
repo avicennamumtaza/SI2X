@@ -29,7 +29,7 @@
                         {{ $pengumuman->deskripsi }}
                     </div>
                     <ul class="postcard__tagbox">
-                        <li class="tag__item"><i class="fas fa-tag mr-2"></i>{{ $pengumuman->id_pengumuman }}</li>
+                        <li class="tag__item"><i class="fas fa-tag mr-2"></i>{{ $pengumuman->tanggal }}</li>
                     </ul>
                 </div>
             </article>
@@ -48,7 +48,7 @@
                 </div>
                 <div class="modal-body">
                     <img id="modalImg" src="" class="img-fluid" alt="Foto Pengumuman"
-                        style="max-width: 100%; height: 100%;">
+                        style="min-width: 100%; max-height: auto;">
                 </div>
             </div>
         </div>

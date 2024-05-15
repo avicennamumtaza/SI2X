@@ -84,10 +84,9 @@
                             <label for="golongan_darah" class="form-label text-start">Golongan Darah</label>
                             <select class="form-select" id="golongan_darah" name="golongan_darah" required>
                                 <option value="" selected disabled>Pilih Golongan Darah</option>
-                                <option value="A">A</option>
-                                <option value="B">B</option>
-                                <option value="AB">AB</option>
-                                <option value="O">O</option>
+                                @foreach ($goldar as $item)
+                                    <option value={{ $item->value }}>{{ $item->name }}</option>
+                                @endforeach
                             </select>
                         </div>
 
@@ -189,10 +188,9 @@
                             <label for="golongan_darah" class="form-label text-start">Golongan Darah</label>
                             <select class="form-select" id="golongan_darah" name="golongan_darah" required>
                                 <option value="" selected disabled>Pilih Golongan Darah</option>
-                                <option value="A">A</option>
-                                <option value="B">B</option>
-                                <option value="AB">AB</option>
-                                <option value="O">O</option>
+                                @foreach ($goldar as $item)
+                                    <option value={{ $item->value }}>{{ $item->name }}</option>
+                                @endforeach
                             </select>
                         </div>
 
