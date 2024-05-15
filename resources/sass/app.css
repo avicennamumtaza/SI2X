@@ -497,6 +497,13 @@ body footer .f1 {
 body footer .f2 {
   background-color: #152551;
 }
+body footer .no-footer {
+  color: white; /* Warna teks normal */
+  font-style: none;
+}
+body footer .no-footer:hover {
+  color: #c0c0c0; /* Warna teks saat di hover */
+}
 body .container-p {
   background-color: transparent;
   margin-top: 6rem;

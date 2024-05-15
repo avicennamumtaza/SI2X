@@ -18,6 +18,7 @@ class Umkm extends Model
         'wa_umkm',
         'foto_umkm',
         'desc_umkm',
+        'alamat',
         'status_umkm',
     ];
 
