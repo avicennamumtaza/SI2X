@@ -3,7 +3,7 @@
 @section('content')
     <div class="container container-p col-10">
         <!-- Modal -->
-        <div class="modal fade" id="ajukanUmkmModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="ajukanDokumenModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-md">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -15,18 +15,6 @@
                         <!-- Form untuk pengajuan UMKM -->
                         <form action="{{ route('pengajuandokumen.store') }}" method="POST">
                             @csrf
-                            <!-- Tambahkan input form sesuai kebutuhan -->
-                            <div class="form-group mb-3">
-                                <label for="no_rt" class="form-label">RT Pengaju</label>
-                                <select class="form-select" id="no_rt" name="no_rt" required>
-                                    <option value="" selected disabled>Pilih RT Pengaju</option>
-                                    <?php $no_rts = $no_rts->toArray(); ?>
-                                    <?php sort($no_rts); ?>
-                                    @foreach ($no_rts as $rt)
-                                        <option value="{{ $rt }}">{{ $rt }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
                             <div class="form-group mb-3">
                                 <label for="nik_pengaju" class="form-label">NIK Pengaju</label>
                                 <input class="form-control" id="nik_pengaju" name="nik_pengaju"
@@ -37,20 +25,12 @@
                                         <option value="{{ $penduduk->nik }}">{{ $penduduk->nik }}</option>
                                     @endforeach
                                 </datalist> --}}
-                                </datalist> --}}
                             </div>
-                            <div class="form-group mb-3">
+                            {{-- <div class="form-group mb-3">
                                 <label for="nama_pengaju" class="form-label">Nama Pengaju</label>
-                                <input class="form-control" id="nama_pengaju" name="nama_pengaju"
-                                    placeholder="Masukkan Nama Pengaju" required>
-                                {{-- <datalist id="nama_pengaju_list">
-                                {{-- <datalist id="nama_pengaju_list">
-                                    @foreach ($penduduks as $penduduk)
-                                        <option value="{{ $penduduk->nama }}">{{ $penduduk->nama }}</option>
-                                    @endforeach
-                                </datalist> --}}
-                                </datalist> --}}
-                            </div>
+                                <input class="form-control mb-1" id="nama_pengaju" name="nama_pengaju" placeholder="Masukkan Nama Pengaju" required>
+                                <small class="form-text text-muted">Guna menjaga privasi data, anda dapat mengisi ini dengan nama samaran seperti nama hewan peliharaan atau nama karakter game favorit anda, nama tersebut akan ditampilkan di riwayat pengajuan dokumen pada halaman ini.</small>
+                            </div>                             --}}
                             <div class="form-group mb-3">
                                 <label for="status_umkm" class="form-label text-start">Status Pengajuan</label>
                                 <input type="text" class="form-control" id="status_umkm" name="status_umkm"
@@ -61,7 +41,10 @@
                                 <select class="form-select" id="id_dokumen" name="id_dokumen" required>
                                     <option value="" selected disabled>Pilih Jenis Dokumen</option>
                                     @foreach ($dokumens as $dokumen)
-                                        <option value="{{ $dokumen->id_dokumen }}">{{ $dokumen->jenis_dokumen }}</option>
+                                        <option value="{{ $dokumen->id_dokumen }}">
+                                            {{ $dokumen->jenis_dokumen }}
+                                            {{-- <br>{{ $dokumen->deskripsi }} --}}
+                                        </option>
                                     @endforeach
                                 </select>
                             </div>
@@ -76,22 +59,23 @@
             </div>
         </div>
 
-        <script>
-            document.getElementById('ajukanDokumenButton').addEventListener('click', function() {
-                var modal = new bootstrap.Modal(document.getElementById('ajukanUmkmModal'));
-                modal.show();
-            });
-        </script>
-
-        <a class="fixedButton" id="ajukanDokumenButton" data-bs-toggle="modal" data-bs-target="#ajukanUmkmModal">
+        <a class="fixedButton" id="ajukanDokumenButton" data-bs-toggle="modal" data-bs-target="#ajukanDokumenModal">
             <div class="roundedFixedBtn">
                 <button><i class="bi bi-box-arrow-in-up"></i>Ajukan Dokumen</button>
             </div>
         </a>
 
+        <script>
+            document.getElementById('ajukanDokumenButton').addEventListener('click', function() {
+                var modal = new bootstrap.Modal(document.getElementById('ajukanDokumenModal'));
+                modal.show();
+            });
+        </script>
+
         <h1 class="heading-center">Permintaan Dokumen</h1>
         <!-- <div class="container"> -->
-        <p>Fitur permintaan dokumen/surat dalam SIRW memberikan kemudahan bagi warga untuk mengajukan dokumen atau surat yang
+        <p>Fitur permintaan dokumen/surat dalam SIRW memberikan kemudahan bagi warga untuk mengajukan dokumen atau surat
+            yang
             diperlukan melalui platform website. Selama proses ini berlangsung, warga dapat memantau status pengajuan
             mereka, sehingga memungkinkan sistem yang lebih transparan.</p>
 
@@ -105,49 +89,49 @@
             <hr class="tabel">
             <div class="card-body">
                 {{-- <div class="table-responsive"> --}}
-                    <table class="table">
-                        <thead>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>RT</th>
+                            <th>Dokumen</th>
+                            <th>Pengaju</th>
+                            <th>Status</th>
+                            <th>Catatan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($pengajuanDokumens as $pengajuanDokumen)
                             <tr>
-                                <th>RT</th>
-                                <th>Dokumen</th>
-                                <th>Pengaju</th>
-                                <th>Status</th>
-                                <th>Catatan</th>
+                                <td style="width: 5%">{{ $pengajuanDokumen->no_rt }}</td>
+                                <td style="width: 15%">{{ $pengajuanDokumen->dokumen->jenis_dokumen }}</td>
+                                <td style="width: 25%">{{ $pengajuanDokumen->nama_pengaju }}</td>
+                                <td style="width: 5%">
+                                    @if ($pengajuanDokumen->status_pengajuan == 'Baru')
+                                        <span style="background-color: darkgoldenrod"
+                                            class="badge rounded-pill">{{ $pengajuanDokumen->status_pengajuan }}</span>
+                                    @elseif ($pengajuanDokumen->status_pengajuan == 'Disetujui')
+                                        <span style="background-color: green"
+                                            class="badge rounded-pill">{{ $pengajuanDokumen->status_pengajuan }}</span>
+                                    @else
+                                        <span style="background-color: red"
+                                            class="badge rounded-pill">{{ $pengajuanDokumen->status_pengajuan }}</span>
+                                    @endif
+                                </td>
+                                <td style="width: 40%">
+                                    @if ($pengajuanDokumen->status_pengajuan == 'Baru')
+                                        Pengajuan Belum Diproses RT
+                                    @else
+                                        @if (!$pengajuanDokumen->catatan || $pengajuanDokumen->catatan == '')
+                                            Tidak Ada Catatan
+                                        @else
+                                            {{ $pengajuanDokumen->catatan }}
+                                        @endif
+                                    @endif
+                                </td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($pengajuanDokumens as $pengajuanDokumen)
-                                <tr>
-                                    <td style="width: 5%">{{ $pengajuanDokumen->no_rt }}</td>
-                                    <td style="width: 15%">{{ $pengajuanDokumen->dokumen->jenis_dokumen }}</td>
-                                    <td style="width: 25%">{{ $pengajuanDokumen->nama_pengaju }}</td>
-                                    <td style="width: 5%">
-                                        @if ($pengajuanDokumen->status_pengajuan == 'Baru')
-                                            <span
-                                                style="background-color: darkgoldenrod" class="badge rounded-pill">{{ $pengajuanDokumen->status_pengajuan }}</span>
-                                        @elseif ($pengajuanDokumen->status_pengajuan == 'Disetujui')
-                                            <span
-                                                style="background-color: green" class="badge rounded-pill">{{ $pengajuanDokumen->status_pengajuan }}</span>
-                                        @else
-                                            <span
-                                                style="background-color: red" class="badge rounded-pill">{{ $pengajuanDokumen->status_pengajuan }}</span>
-                                        @endif
-                                    </td>
-                                    <td style="width: 40%">
-                                        @if ($pengajuanDokumen->status_pengajuan == 'Baru')
-                                            Pengajuan Belum Diproses RT
-                                        @else
-                                            @if (!$pengajuanDokumen->catatan || $pengajuanDokumen->catatan == '')
-                                                Tidak Ada Catatan
-                                            @else
-                                                {{ $pengajuanDokumen->catatan }}
-                                            @endif
-                                        @endif
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                        @endforeach
+                    </tbody>
+                </table>
                 {{-- </div> --}}
             </div>
         </div>
