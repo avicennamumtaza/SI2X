@@ -29,6 +29,12 @@
                                 placeholder="Masukkan NIK RT" required>
                         </div>
 
+                        <div class="form-group mb-3">
+                            <label for="wa_rt" class="form-label text-start">NIK RT</label>
+                            <input type="text" class="form-control" id="wa_rt" name="wa_rt"
+                                placeholder="Masukkan Nomor WA RT" required>
+                        </div>
+
                         <!-- Tambahkan input lainnya sesuai kebutuhan -->
                 </div>
                 <div class="modal-footer justify-content-end">
@@ -115,10 +121,9 @@
                     var target = $(event.relatedTarget);
                     let no_rt = target.data('no_rt')
                     let nik_rt = target.data('nik_rt')
-                    // let wa_rt = target.data('wa_rt')
+                    let wa_rt = target.data('wa_rt')
                     let jumlah_keluarga_rt = target.data('jumlah_keluarga_rt')
                     let jumlah_penduduk_rt = target.data('jumlah_penduduk_rt')
-                    // let wa_rt = target.data('wa_rt')
 
 
                     $('#editRtModal #no_rt').val(judul);
