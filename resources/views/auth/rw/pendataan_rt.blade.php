@@ -30,7 +30,7 @@
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="wa_rt" class="form-label text-start">WA RT</label>
+                            <label for="wa_rt" class="form-label text-start">Nomor WA RT</label>
                             <input type="text" class="form-control" id="wa_rt" name="wa_rt"
                                 placeholder="Masukkan Nomor WA RT" required>
                         </div>
@@ -62,27 +62,19 @@
                         @method('PUT')
                         <!-- Tambahkan input form sesuai kebutuhan -->
                         <div class="form-group mb-3">
-                            <label for="no_rt" class="form-label text-start">Judul</label>
-                            <input type="text" class="form-control" id="no_rt" name="no_rt"
-                                required>
+                            <label for="no_rt" class="form-label text-start">Nomor RT</label>
+                            <input type="text" class="form-control" id="no_rt" name="no_rt" required>
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="nik_rt" class="form-label">Deskripsi</label>
-                            <textarea class="form-control" id="nik_rt" name="nik_rt" rows="3" required></textarea>
+                            <label for="nik_rt" class="form-label">NIK RT</label>
+                            <input type="text" class="form-control" id="nik_rt" name="nik_rt" rows="3"
+                                required></input>
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="tanggal_Rt" class="form-label">Tanggal Rt</label>
-                            <input type="date" class="form-control" id="tanggal_Rt" name="tanggal_Rt"
-                                required>
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="foto_Rt" class="form-label">Foto</label>
-                            <br>
-                            {{-- <input type="file" class="form-control" id="foto_Rt" name="foto_Rt" required> --}}
-                            <img id="foto_Rt_preview" class="img-thumbnail" src="" width="300"
-                                height="300" alt="Foto Rt">
+                            <label for="wa_rt" class="form-label">Nomor WA RT</label>
+                            <input type="text" class="form-control" id="wa_rt" name="wa_rt" required>
                         </div>
 
                         <!-- Tambahkan input lainnya sesuai kebutuhan -->
@@ -122,14 +114,11 @@
                     let no_rt = target.data('id')
                     let nik_rt = target.data('nik_rt')
                     let wa_rt = target.data('wa_rt')
-                    let jumlah_keluarga_rt = target.data('jumlah_keluarga_rt')
-                    let jumlah_penduduk_rt = target.data('jumlah_penduduk_rt')
 
 
-                    $('#editRtModal #no_rt').val(judul);
-                    $('#editRtModal #nik_rt').val(deskripsi);
-                    $('#editRtModal #jumlah_keluarga_rt').val(tanggal);
-                    $('#editRtModal #jumlah_penduduk_rt').val(foto);
+                    $('#editRtModal #no_rt').val(no_rt);
+                    $('#editRtModal #nik_rt').val(nik_rt);
+                    $('#editRtModal #wa_rt').val(wa_rt);
 
                     // // Memperbarui src gambar pratinjau
                     // let foto_pengumuman_path = "{{ asset('Foto Pengumuman/') }}/" + foto;
