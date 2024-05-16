@@ -110,7 +110,7 @@ class PendudukDataTable extends DataTable
             ->parameters([
                 'language' => [
                     'search' => '', // Menghilangkan teks "Search:"
-                    'searchPlaceholder' => 'Cari Pengumuman', // Placeholder untuk kolom pencarian
+                    'searchPlaceholder' => 'Cari Data Penduduk', // Placeholder untuk kolom pencarian
                     'paginate' => [
                         'previous' => 'Kembali', // Mengubah teks "Previous"
                         'next' => 'Lanjut', // Mengubah teks "Next"
