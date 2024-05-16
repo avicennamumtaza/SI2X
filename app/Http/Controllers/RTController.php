@@ -67,7 +67,7 @@ class RTController extends Controller
         $rt->update($request->all());
 
         return redirect()->route('rt.manage')
-            ->with('success', 'Pengumuman berhasil diperbarui.');
+            ->with('success', 'Data RT Berhasil diperbarui.');
     }
 
     public function destroy(Rt $rt)
@@ -75,6 +75,6 @@ class RTController extends Controller
         $rt->delete();
 
         return redirect()->back()
-            ->with('success', 'Pengumuman berhasil dihapus.');
+            ->with('success', 'Data RT Berhasil dihapus.');
     }
 }
