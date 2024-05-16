@@ -36,7 +36,7 @@ class RWDataTable extends DataTable
             $action .= '
             <form action="' . $deleteUrl . '" method="post" style="display:inline;">
                 ' . csrf_field() . '
-                ' . method_field('DELETE') . 
+                ' . method_field('DELETE') .
                 '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
                 </form>
             </div>';
@@ -82,6 +82,7 @@ class RWDataTable extends DataTable
         return [
             Column::make('no_rw')->width(100),
             Column::make('nik_rw')->width(200),
+            Column::make('wa_rw')->width(200),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
