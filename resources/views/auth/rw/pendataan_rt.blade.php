@@ -119,7 +119,7 @@
                 $("#editRtModal").on("show.bs.modal", function(event) {
 
                     var target = $(event.relatedTarget);
-                    let no_rt = target.data('no_rt')
+                    let no_rt = target.data('id')
                     let nik_rt = target.data('nik_rt')
                     let wa_rt = target.data('wa_rt')
                     let jumlah_keluarga_rt = target.data('jumlah_keluarga_rt')
