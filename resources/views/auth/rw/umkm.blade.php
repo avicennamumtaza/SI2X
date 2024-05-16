@@ -16,7 +16,7 @@
                         @method('PUT')
                         @csrf
                         <div class="form-group mb-3">
-                            <label for="nik_pemilik" class="form-label text-start">Nik Pemilik</label>
+                            <label for="nik_pemilik" class="form-label text-start">NIK Pemilik</label>
                             <input type="text" readonly class="form-control" id="nik_pemilik" name="nik_pemilik"
                                 required>
                         </div>
@@ -43,8 +43,8 @@
                             <label for="status_umkm" class="form-label text-start">Status UMKM</label>
 
                             <select class="form-select" id="status_umkm" name="status_umkm" required>
-                                <option value="" selected disabled>Pilih Status UMKM</option>
-                                <option value="Baru">Baru</option>
+                                <option value="Baru" selected disabled>Baru</option>
+                                {{-- <option value="Baru" disabled>Baru</option> --}}
                                 <option value="Disetujui">Setujui</option>
                                 <option value="Ditolak">Tolak</option>
                             </select>
@@ -86,7 +86,7 @@
                     let nama_umkm = target.data('nama_umkm');
                     let wa_umkm = target.data('wa_umkm');
                     let foto_umkm = target.data('foto_umkm');
-                    let desc_umkm = target.data('desc_umkm');
+                    let deskripsi_umkm = target.data('deskripsi_umkm');
                     let status_umkm = target.data('status_umkm');
 
                     // Mengisi nilai input dengan data yang sesuai
@@ -95,7 +95,7 @@
                     $('#editUmkmModal #nama_umkm').val(nama_umkm);
                     $('#editUmkmModal #wa_umkm').val(wa_umkm);
                     $('#editUmkmModal #foto_umkm').val(foto_umkm);
-                    $('#editUmkmModal #desc_umkm').val(desc_umkm);
+                    $('#editUmkmModal #deskripsi_umkm').val(deskripsi_umkm);
                     $('#editUmkmModal #status_umkm').val(status_umkm);
 
                     // Memperbarui src gambar pratinjau

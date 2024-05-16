@@ -21,13 +21,18 @@ class PengajuanDokumen extends Model
         'catatan',
     ];
 
-    public function penduduk(): BelongsTo
+    public function rt(): BelongsTo
     {
-        return $this->belongsTo(Penduduk::class, 'nik', 'nik');
+        return $this->belongsTo(Rt::class, 'no_rt', 'no_rt');
     }
 
     public function dokumen(): BelongsTo
     {
         return $this->belongsTo(Dokumen::class, 'id_dokumen', 'id_dokumen');
+    }
+
+    public function penduduk(): BelongsTo
+    {
+        return $this->belongsTo(Penduduk::class, 'nik_pengaju', 'nik');
     }
 }

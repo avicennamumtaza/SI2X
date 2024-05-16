@@ -75,14 +75,27 @@
                         </div>
 
                         <div class="form-group mb-3">
+                            <label for="agama" class="form-label text-start">Agama</label>
+                            <select class="form-select" id="jenis_kelamin" name="jenis_kelamin" required>
+                                <option value="" selected disabled>Pilih Agama</option>
+                                <option value="Islam">Islam</option>
+                                <option value="Kristen">Kristen</option>
+                                <option value="Katolik">Katolik</option>
+                                <option value="Hindu">Hindu</option>
+                                <option value="Buddha">Buddha</option>
+                                <option value="Konghucu">Konghucu</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group mb-3">
                             <label for="pekerjaan" class="form-label text-start">Pekerjaan</label>
                             <input type="text" class="form-control" id="pekerjaan" name="pekerjaan"
                                 placeholder="Masukkan Pekerjaan" required>
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="gol_darah" class="form-label text-start">Golongan Darah</label>
-                            <select class="form-select" id="gol_darah" name="gol_darah" required>
+                            <label for="golongan_darah" class="form-label text-start">Golongan Darah</label>
+                            <select class="form-select" id="golongan_darah" name="golongan_darah" required>
                                 <option value="" selected disabled>Pilih Golongan Darah</option>
                                 @foreach ($goldar as $item)
                                     <option value={{ $item->value }}>{{ $item->name }}</option>
@@ -91,8 +104,8 @@
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="is_married" class="form-label text-start">Status Menikah</label>
-                            <select class="form-select" id="is_married" name="is_married" required>
+                            <label for="status_pernikahan" class="form-label text-start">Status Menikah</label>
+                            <select class="form-select" id="status_pernikahan" name="status_pernikahan" required>
                                 <option value="" selected disabled>Pilih Status Menikah</option>
                                 <option value="1">Menikah</option>
                                 <option value="0">Belum Menikah</option>
@@ -100,8 +113,8 @@
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="is_stranger" class="form-label text-start">Status Domisili</label>
-                            <select class="form-select" id="is_stranger" name="is_stranger" required>
+                            <label for="status_domisili" class="form-label text-start">Status Domisili</label>
+                            <select class="form-select" id="status_domisili" name="status_domisili" required>
                                 <option value="" selected disabled>Pilih Status Domisili</option>
                                 <option value="0">Domisili</option>
                                 <option value="1">Non Domisili</option>
@@ -185,8 +198,8 @@
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="gol_darah" class="form-label text-start">Golongan Darah</label>
-                            <select class="form-select" id="gol_darah" name="gol_darah" required>
+                            <label for="golongan_darah" class="form-label text-start">Golongan Darah</label>
+                            <select class="form-select" id="golongan_darah" name="golongan_darah" required>
                                 <option value="" selected disabled>Pilih Golongan Darah</option>
                                 @foreach ($goldar as $item)
                                     <option value={{ $item->value }}>{{ $item->name }}</option>
@@ -195,8 +208,8 @@
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="is_married" class="form-label text-start">Status Menikah</label>
-                            <select class="form-select" id="is_married" name="is_married" required>
+                            <label for="status_pernikahan" class="form-label text-start">Status Menikah</label>
+                            <select class="form-select" id="status_pernikahan" name="status_pernikahan" required>
                                 <option value="" selected disabled>Pilih Status Menikah</option>
                                 <option value="1">Menikah</option>
                                 <option value="0">Belum Menikah</option>
@@ -204,8 +217,8 @@
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="is_stranger" class="form-label text-start">Status Domisili</label>
-                            <select type="text" class="form-select" id="is_stranger" name="is_stranger" required>
+                            <label for="status_domisili" class="form-label text-start">Status Domisili</label>
+                            <select type="text" class="form-select" id="status_domisili" name="status_domisili" required>
                                 <option value="" selected disabled>Pilih Status Domisili</option>
                                 <option value="0">Domisili</option>
                                 <option value="1">Non Domisili</option>
@@ -255,9 +268,9 @@
                     let alamat = target.data('alamat')
                     let jenis_kelamin = target.data('jenis_kelamin')
                     let pekerjaan = target.data('pekerjaan')
-                    let gol_darah = target.data('gol_darah')
-                    let is_married = target.data('is_married')
-                    let is_stranger = target.data('is_stranger')
+                    let golongan_darah = target.data('golongan_darah')
+                    let status_pernikahan = target.data('status_pernikahan')
+                    let status_domisili = target.data('status_domisili')
 
                     $('#editPendudukModal #nik').val(nik);
                     $('#editPendudukModal #nkk').val(nkk);
@@ -268,9 +281,9 @@
                     $('#editPendudukModal #alamat').val(alamat);
                     $('#editPendudukModal #jenis_kelamin').val(jenis_kelamin);
                     $('#editPendudukModal #pekerjaan').val(pekerjaan);
-                    $('#editPendudukModal #gol_darah').val(gol_darah);
-                    $('#editPendudukModal #is_married').val(is_married);
-                    $('#editPendudukModal #is_stranger').val(is_stranger);
+                    $('#editPendudukModal #golongan_darah').val(golongan_darah);
+                    $('#editPendudukModal #status_pernikahan').val(status_pernikahan);
+                    $('#editPendudukModal #status_domisili').val(status_domisili);
 
                     let url = "{{ route('penduduk.update', ':__id') }}";
                     url = url.replace(':__id', nik);

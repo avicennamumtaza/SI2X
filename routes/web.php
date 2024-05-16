@@ -115,10 +115,10 @@ Route::prefix('manage')->group(function(){
             Route::get('/', [RTController::class, 'list'])->name('rt.manage')->middleware('isRw');
             Route::post('/', [RTController::class, 'store'])->name('rt.store')->middleware('isRw');
             Route::get('/edit/{rt}', [RTController::class, 'edit'])->name('rt.edit')->middleware('isRw');
-            Route::get('/update/{rt}', [RTController::class, 'update'])->name('rt.update')->middleware('isRw');
+            Route::put('/update/{rt}', [RTController::class, 'update'])->name('rt.update')->middleware('isRw');
             Route::delete('/{rt}', [RTController::class, 'destroy'])->name('rt.destroy')->middleware('isRw');
         });
-        
+
         //manage rw
         Route::prefix('rw')->group(function() {
             Route::get('/', [RWController::class, 'list'])->name('rw.manage')->middleware('isRw');
@@ -126,7 +126,7 @@ Route::prefix('manage')->group(function(){
             Route::post('/', [RWController::class, 'store'])->name('rw.store')->middleware('isRw');
             Route::delete('/{rw}', [RwController::class, 'destroy'])->name('rw.destroy')->middleware('isRw');
         });
-        
+
         // manage penduduk
         Route::prefix('penduduk')->group(function() {
             Route::get('/', [PendudukController::class, 'list'])->name('penduduk.manage')->middleware('auth');
@@ -168,7 +168,7 @@ Route::prefix('dokumen')->group(function(){
 
 
 Route::prefix('profil')->group(function() {
-    Route::get('/', [UsersController::class, 'profil'])->name('profil.manage')->middleware('auth');
-    Route::put('/update/{users}', [UsersController::class, 'updateProfil'])->name('profil.update')->middleware('auth');
+    Route::get('/', [UsersController::class, 'profil'])->name('profil.manage');
+    Route::put('/{user}', [UsersController::class, 'update'])->name('profil.update');
     // Route::put('/{user}/change_password', [UsersController::class, 'changePassword'])->name('profil.password');
 });

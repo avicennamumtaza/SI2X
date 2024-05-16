@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id('id_user');
             $table->string('nik', 17)->index();
             $table->string('username', 20);
-            $table->string('role', 20);
+            $table->enum('role', ['Rt', 'Rw']);
+            $table->text('foto_profil')->nullable();
             $table->string('email', 50);
             $table->text('password');
             $table->timestamps();

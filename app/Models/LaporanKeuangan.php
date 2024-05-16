@@ -18,7 +18,7 @@ class LaporanKeuangan extends Model
         'tanggal',
         'pihak_terlibat',
         'saldo',
-        'is_income',
+        'status_pemasukan',
     ];
 
     // public function rw(): BelongsTo

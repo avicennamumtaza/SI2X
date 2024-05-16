@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('dokumen', function (Blueprint $table) {
             $table->id('id_dokumen');
             $table->string('jenis_dokumen', 50);
+            ;$table->text('deskripsi');
             $table->timestamps();
 
             // $table->foreign('no_rt')->references('no_rt')->on('rt')->onDelete('cascade');

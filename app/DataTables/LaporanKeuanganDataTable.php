@@ -23,8 +23,8 @@ class LaporanKeuanganDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->setRowId('id')
-            ->editColumn('is_income', function ($row) {
-                return $row->is_income ? 'Pemasukkan' : 'Pengeluaran';
+            ->editColumn('status_pemasukan', function ($row) {
+                return $row->status_pemasukan ? 'Pemasukkan' : 'Pengeluaran';
             })
             ->addColumn('action', function ($row) {
                 $deleteUrl = route('laporankeuangan.destroy', $row->id_laporankeuangan);
@@ -37,7 +37,7 @@ class LaporanKeuanganDataTable extends DataTable
                 data-tanggal="' . $row->tanggal . '"
                 data-pihak_terlibat="' . $row->pihak_terlibat . '"
                 data-saldo="' . $row->saldo . '"
-                data-is_income="' . $row->is_income . '"
+                data-is_income="' . $row->status_pemasukan . '"
                 data-bs-toggle="modal" data-bs-target="#editLaporanKeuanganModal" class="edit btn btn-edit btn-sm">Edit</button>';
                 $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
                 ' . csrf_field() . '
@@ -92,7 +92,7 @@ class LaporanKeuanganDataTable extends DataTable
         return [
             Column::make('id_laporankeuangan')->title('Nomor')->width(1),
             Column::make('tanggal')->title('Tanggal')->width(10),
-            Column::make('is_income')->title('Jenis')->width(10),
+            Column::make('status_pemasukan')->title('Jenis')->width(10),
             Column::make('nominal')->title('Nominal')->width(10),
             Column::make('pihak_terlibat')->title('Pihak Terlibat')->width(111),
             Column::make('detail')->title('Detail Laporan')->width(172), // Mengatur lebar kolom "Detail"

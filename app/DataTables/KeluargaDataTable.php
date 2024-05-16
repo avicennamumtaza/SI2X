@@ -3,6 +3,8 @@
 namespace App\DataTables;
 
 use App\Models\Keluarga;
+use App\Models\Rt;
+use App\Models\Users;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -31,7 +33,7 @@ class KeluargaDataTable extends DataTable
                 <button type="button"
                 data-id="' . $row->nkk . '"
                 data-nik_kepala="' . $row->nik_kepala_keluarga . '"
-                data-jumlah_nik="' . $row->jumlah_nik . '"
+                data-no_rt="' . $row->no_rt . '"
                 data-bs-toggle="modal" data-bs-target="#editKeluargaModal"
                 class="edit btn btn-edit btn-sm">Edit</button>';
                 $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
@@ -49,6 +51,14 @@ class KeluargaDataTable extends DataTable
      */
     public function query(Keluarga $model): QueryBuilder
     {
+        if (auth()->user()->role == 'Rt') {
+            // Dapatkan pengguna yang sedang login
+            $user = Users::where('id_user', auth()->user()->id_user)->first();
+            $nikRt = $user->nik; // Ambil nilai nik dari pengguna
+            $noRt = Rt::where('nik_rt', $nikRt)->pluck('no_rt')->first();
+
+            return $model->newQuery()->where('no_rt', $noRt);
+        }
         return $model->newQuery();
     }
 
@@ -92,8 +102,8 @@ class KeluargaDataTable extends DataTable
             //     ->width(60)
             //     ->addClass('text-center'),
             Column::make('nkk')->width(300),
+            Column::make('no_rt')->width(100),
             Column::make('nik_kepala_keluarga')->title('Kepala Keluarga')->width(300),
-            Column::make('jumlah_nik')->title('Jumlah Anggota')->width(170),
             Column::computed('action')
               ->exportable(false)
               ->printable(false)

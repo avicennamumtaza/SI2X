@@ -29,24 +29,6 @@
                                 placeholder="Masukkan NIK RW" required>
                         </div>
 
-                        <div class="form-group mb-3">
-                            <label for="jumlah_rt" class="form-label text-start">Jumlah RT</label>
-                            <input type="text" class="form-control" id="jumlah_rt" name="jumlah_rt"
-                                placeholder="Masukkan Jumlah RT" required>
-                        </div>
-
-                        <div class="form-group mb-3">
-                            <label for="jumlah_keluarga_rw" class="form-label">Jumlah Keluarga RW</label>
-                            <input type="text" class="form-control" id="jumlah_keluarga_rw" name="jumlah_keluarga_rw"
-                                placeholder="Masukkan Jumlah Keluarga RW" required></textarea>
-                        </div>
-
-                        <div class="form-group mb-3">
-                            <label for="jumlah_penduduk_rw" class="form-label">Jumlah Penduduk RW</label>
-                            <input type="text" class="form-control" id="jumlah_penduduk_rw" name="jumlah_penduduk_rw"
-                            placeholder="Masukkan Jumlah Penduduk RW" required>
-                        </div>
-
                         <!-- Tambahkan input lainnya sesuai kebutuhan -->
                 </div>
                 <div class="modal-footer justify-content-end">

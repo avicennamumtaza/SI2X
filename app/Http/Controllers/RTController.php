@@ -15,7 +15,7 @@ class RTController extends Controller
         // $pengumumans = Pengumuman::all();
         // return view('auth.rw.pengumuman', compact('pengumumans'));
     }
-    
+
     public function list(RTDataTable $dataTable) {
         return $dataTable->render('auth.rw.pendataan_rt');
     }
@@ -31,8 +31,7 @@ class RTController extends Controller
         $request->validate([
             'no_rt' => 'required',
             'nik_rt' => 'required|min:15|max:17',
-            'jumlah_keluarga_rt' => 'required',
-            'jumlah_penduduk_rt' => 'required',
+            'wa_rt' => 'required|min:11|max:14',
         ]);
 
         // Simpan data pengumuman ke dalam database
@@ -45,11 +44,10 @@ class RTController extends Controller
         $rt = new Rt();
         $rt->no_rt = $request->no_rt;
         $rt->nik_rt = $request->nik_rt;
-        $rt->jumlah_keluarga_rt = $request->jumlah_keluarga_rt;
-        $rt->jumlah_penduduk_rt = $request->jumlah_penduduk_rt;
+        $rt->wa_rt = $request->wa_rt;
         $rt->save();
 
-        return redirect()->back()->with('success', 'Pengumuman berhasil dipublish!');
+        return redirect()->back()->with('success', 'Data RT Berhasil ditambahkan!');
     }
 
     public function edit(Rt $rt)
@@ -63,14 +61,13 @@ class RTController extends Controller
         $request->validate([
             'no_rt' => 'required', // (tidak bisa mengubah no_rt as primary key, cek view)
             'nik_rt' => 'required|min:15|max:17',
-            'jumlah_keluarga_rt' => 'required',
-            'jumlah_penduduk_rt' => 'required',
+            'wa_rt' => 'required|min:11|max:14',
         ]);
 
         $rt->update($request->all());
 
         return redirect()->route('rt.manage')
-            ->with('success', 'Pengumuman berhasil diperbarui.');
+            ->with('success', 'Data RT Berhasil diperbarui.');
     }
 
     public function destroy(Rt $rt)
@@ -78,6 +75,6 @@ class RTController extends Controller
         $rt->delete();
 
         return redirect()->back()
-            ->with('success', 'Pengumuman berhasil dihapus.');
+            ->with('success', 'Data RT Berhasil dihapus.');
     }
 }

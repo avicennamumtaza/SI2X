@@ -33,14 +33,14 @@ class PendudukDataTable extends DataTable
                 } elseif ($row->jenis_kelamin === 'P') {
                     return 'Perempuan';}
             })
-            ->editColumn('is_married', function ($row) {
-                return $row->is_married ? 'Menikah' : 'Belum Menikah';
+            ->editColumn('status_pernikahan', function ($row) {
+                return $row->status_pernikahan ? 'Menikah' : 'Belum Menikah';
             })
-            ->editColumn('is_stranger', function ($row) {
-                return $row->is_stranger ? 'Non Domisili' : 'Domisili';
+            ->editColumn('status_pendatang', function ($row) {
+                return $row->status_domisili ? 'Pendatang' : 'Asli';
             })
-            ->editColumn('gol_darah', function ($row) {
-                return $row->gol_darah->value;
+            ->editColumn('golongan_darah', function ($row) {
+                return $row->golongan_darah;
             })
             // ->addColumn('umur', function ($row) {
             //     // Menghitung umur berdasarkan tanggal lahir
@@ -63,10 +63,12 @@ class PendudukDataTable extends DataTable
                 data-tanggal_lahir="' . $row->tanggal_lahir . '"
                 data-alamat="' . $row->alamat . '"
                 data-jenis_kelamin="' . $row->jenis_kelamin . '"
+                data-jenis_kelamin="' . $row->agama . '"
+                data-jenis_kelamin="' . $row->pendidikan . '"
                 data-pekerjaan="' . $row->pekerjaan . '"
-                data-gol_darah="' . $row->gol_darah->value . '"
-                data-is_married="' . $row->is_married . '"
-                data-is_stranger="' . $row->is_stranger . '"
+                data-golongan_darah="' . $row->golongan_darah. '"
+                data-is_married="' . $row->status_pernikahan . '"
+                data-is_stranger="' . $row->status_pendatang . '"
                 data-bs-toggle="modal" data-bs-target="#editPendudukModal" class="edit-user edit btn btn-edit btn-sm">Edit</button>';
                 $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
                 ' . csrf_field() . '
@@ -141,11 +143,11 @@ class PendudukDataTable extends DataTable
             Column::make('tanggal_lahir'),
             // Column::make('umur'),
             Column::make('alamat')->width(170),
-            // Column::make('jenis_kelamin'),
-            // Column::make('pekerjaan'),
-            Column::make('gol_darah'),
-            // Column::make('is_married'),
-            Column::make('is_stranger')->title('Domisili'),
+            Column::make('jenis_kelamin'),
+            Column::make('pekerjaan'),
+            // Column::make('golongan_darah'),
+            Column::make('status_pernikahan'),
+            Column::make('status_pendatang')->title('Status'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

@@ -30,7 +30,7 @@ class DokumenDataTable extends DataTable
                 <button type="button"
                 data-id="' . $row->id_dokumen . '"
                 data-jenis_dokumen="' . $row->jenis_dokumen . '"
-                data-deskripsi_dokumen="' . $row->deskripsi_dokumen . '"
+                data-deskripsi="' . $row->deskripsi . '"
                 data-bs-toggle="modal" data-bs-target="#editDokumenModal"
                 class="edit btn btn-edit btn-sm">Edit</button>';
                 $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
@@ -85,8 +85,8 @@ class DokumenDataTable extends DataTable
     {
         return [
             Column::make('id_dokumen')->title('ID'),
-            Column::make('jenis_dokumen')->title('Jenis Dokumen'),
-            Column::make('deskripsi_dokumen')->title('Deskripsi Dokumen'),
+            Column::make('jenis_dokumen')->title('Jenis'),
+            Column::make('deskripsi')->title('Deskripsi'),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)

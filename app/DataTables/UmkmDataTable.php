@@ -33,7 +33,7 @@ class UmkmDataTable extends DataTable
                 data-nama_umkm="' . $row->nama_umkm . '"
                 data-wa_umkm="' . $row->wa_umkm . '"
                 data-foto_umkm="' . $row->foto_umkm . '"
-                data-desc_umkm="' . $row->desc_umkm . '"
+                data-deskripsi_umkm="' . $row->deskripsi_umkm . '"
                 data-status_umkm="' . $row->status_umkm . '"
                 data-bs-toggle="modal" data-bs-target="#editUmkmModal" class="edit btn btn-edit btn-sm">Edit</button>';
                 $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
@@ -91,7 +91,7 @@ class UmkmDataTable extends DataTable
             Column::make('id_umkm')->title('Nomor')->width(1),
             Column::make('nik_pemilik')->title('Pemilik')->width(50),
             Column::make('nama_umkm')->title('Nama UMKM')->width(100),
-            Column::make('desc_umkm')->title('Deskripsi')->width(400),
+            Column::make('deskripsi_umkm')->title('Deskripsi')->width(400),
             Column::make('status_umkm')->title('Status')->width(20),
             Column::computed('action')
                 ->exportable(false)

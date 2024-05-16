@@ -31,7 +31,7 @@ class PengumumanController extends Controller
     {
             $validated = $request->validate([
                 'judul_pengumuman' => 'required|min:5|max:49',
-                'desc_pengumuman' => 'required',
+                'deskripsi' => 'required',
                 'tanggal_pengumuman' => 'required|date',
                 'foto_pengumuman' => 'required|mimes:png,jpg,jpeg',
             ]);
@@ -44,9 +44,8 @@ class PengumumanController extends Controller
             try {
                 Pengumuman::create([
                     'judul' => $validated['judul_pengumuman'],
-                    'deskripsi' => $validated['desc_pengumuman'],
+                    'deskripsi' => $validated['deskripsi'],
                     'tanggal' => $validated['tanggal_pengumuman'],
-                    // 'foto' => $request->foto_pengumuman,
                     'foto_pengumuman' => $foto_pengumuman_filename,
                 ]);
                 $foto_pengumuman->move(public_path('Foto Pengumuman'), $foto_pengumuman_filename);
@@ -67,14 +66,14 @@ class PengumumanController extends Controller
     {
         $validated = $request->validate([
             'judul_pengumuman' => 'required|min:5|max:49',
-            'desc_pengumuman' => 'required',
+            'deskripsi' => 'required',
             'tanggal_pengumuman' => 'required|date',
             'foto_pengumuman' => 'image|mimes:jpeg,jpg,png',
          ]);
 
         $pengumuman->update([
             'judul' => $validated['judul_pengumuman'],
-            'deskripsi' => $validated['desc_pengumuman'],
+            'deskripsi' => $validated['deskripsi'],
             'tanggal' => $validated['tanggal_pengumuman'],
             // 'foto' => $request->foto_pengumuman,
             // 'foto_pengumuman' => $validated['foto_pengumuman'],

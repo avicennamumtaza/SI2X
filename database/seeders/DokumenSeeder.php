@@ -23,6 +23,7 @@ class DokumenSeeder extends Seeder
             // Insert data baru ke tabel dokumen
             DB::table('dokumen')->insert([
                 'jenis_dokumen' => $faker->unique()->randomElement(['SKTM', 'Surat Kematian', 'Surat Pengantar']),
+                'deskripsi' => $faker->sentence(5),
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
