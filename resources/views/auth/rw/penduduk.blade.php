@@ -75,6 +75,19 @@
                         </div>
 
                         <div class="form-group mb-3">
+                            <label for="agama" class="form-label text-start">Agama</label>
+                            <select class="form-select" id="jenis_kelamin" name="jenis_kelamin" required>
+                                <option value="" selected disabled>Pilih Agama</option>
+                                <option value="Islam">Islam</option>
+                                <option value="Kristen">Kristen</option>
+                                <option value="Katolik">Katolik</option>
+                                <option value="Hindu">Hindu</option>
+                                <option value="Buddha">Buddha</option>
+                                <option value="Konghucu">Konghucu</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group mb-3">
                             <label for="pekerjaan" class="form-label text-start">Pekerjaan</label>
                             <input type="text" class="form-control" id="pekerjaan" name="pekerjaan"
                                 placeholder="Masukkan Pekerjaan" required>
