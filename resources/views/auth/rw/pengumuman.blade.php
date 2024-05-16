@@ -17,8 +17,8 @@
                         @csrf
                         <!-- Tambahkan input form sesuai kebutuhan -->
                         <div class="form-group mb-3">
-                            <label for="judul_pengumuman" class="form-label text-start">Judul</label>
-                            <input type="text" class="form-control" id="juduk_pengumuman" name="judul_pengumuman"
+                            <label for="judul" class="form-label text-start">Judul</label>
+                            <input type="text" class="form-control" id="judul" name="judul"
                                 placeholder="Masukkan Nama pengumuman" required>
                         </div>
 
@@ -64,8 +64,8 @@
                         @method('PUT')
                         <!-- Tambahkan input form sesuai kebutuhan -->
                         <div class="form-group mb-3">
-                            <label for="judul_pengumuman" class="form-label text-start">Judul</label>
-                            <input type="text" class="form-control" id="judul_pengumuman" name="judul_pengumuman"
+                            <label for="judul" class="form-label text-start">Judul</label>
+                            <input type="text" class="form-control" id="judul" name="judul"
                                 required>
                         </div>
 
@@ -131,13 +131,13 @@
 
                     var target = $(event.relatedTarget);
                     let id_pengumuman = target.data('id')
-                    let judul = target.data('judul_pengumuman')
+                    let judul = target.data('judul')
                     let deskripsi = target.data('deskripsi')
                     let tanggal = target.data('tanggal_pengumuman')
                     let foto = target.data('foto_pengumuman')
 
 
-                    $('#editPengumumanModal #judul_pengumuman').val(judul);
+                    $('#editPengumumanModal #judul').val(judul);
                     $('#editPengumumanModal #deskripsi').val(deskripsi);
                     $('#editPengumumanModal #tanggal_pengumuman').val(tanggal);
                     // $('#editPengumumanModal #foto_pengumuman').val(foto);

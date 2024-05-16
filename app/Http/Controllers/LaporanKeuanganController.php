@@ -20,7 +20,11 @@ class LaporanKeuanganController extends Controller
         // return view('global.laporankeuangan');
         $laporankeuangans = LaporanKeuangan::all();
         $latestLaporanKeuangan = LaporanKeuangan::latest()->first();
-        $saldo = $latestLaporanKeuangan->saldo;
+        if ($latestLaporanKeuangan == null) {
+            $saldo = 0;
+        } else {
+            $saldo = $latestLaporanKeuangan->saldo;
+        }
 
         foreach ($laporankeuangans as $laporankeuangan) {
             $laporankeuangan->tanggal = Carbon::parse($laporankeuangan->tanggal)->format('d-m-Y');
@@ -32,7 +36,8 @@ class LaporanKeuanganController extends Controller
 
     public function list(LaporanKeuanganDataTable $dataTable)
     {
-        return $dataTable->render('auth.rw.laporankeuangan');
+        $latestRow = LaporanKeuangan::latest()->first();
+        return $dataTable->render('auth.rw.laporankeuangan', compact('latestRow'));
     }
 
     /**

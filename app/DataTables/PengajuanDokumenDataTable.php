@@ -3,9 +3,11 @@
 namespace App\DataTables;
 
 use App\Models\Dokumen;
+use App\Models\Penduduk;
 use App\Models\PengajuanDokumen;
 use App\Models\Rt;
 use App\Models\Users;
+use DateTime;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -29,35 +31,47 @@ class PengajuanDokumenDataTable extends DataTable
             return (new EloquentDataTable($query))
                 // ->addColumn('action', 'a.action')
                 ->setRowId('id')
-                ->addColumn('dokumen', function($row) {
+                ->addColumn('dokumen', function ($row) {
                     $namaDokumen = Dokumen::where('id_dokumen', $row->id_dokumen)->first();
                     return $namaDokumen->jenis_dokumen;
                 });
         } else {
             return (new EloquentDataTable($query))
                 ->setRowId('id')
-                ->addColumn('dokumen', function($row) {
+                ->addColumn('dokumen', function ($row) {
                     $namaDokumen = Dokumen::where('id_dokumen', $row->id_dokumen)->first();
                     return $namaDokumen->jenis_dokumen;
                 })
                 ->addColumn('action', function ($row) {
+                    $pengaju = Penduduk::where('nik', $row->nik_pengaju)->first();
+                    $dokumen = Dokumen::where('id_dokumen', $row->id_dokumen)->first();
                     $deleteUrl = route('pengajuandokumen.destroy', $row->id_pengajuandokumen);
+
+                    // Menghitung usia
+                    $birthDate = new DateTime($pengaju->tanggal_lahir);
+                    $currentDate = new DateTime();
+                    $age = $currentDate->diff($birthDate)->y;
+
                     $action = '
                     <div class="container-action">
                     <button type="button"
                     data-id_pengajuandokumen="' . $row->id_pengajuandokumen . '"
-                    data-no_rt="' . $row->no_rt . '"
-                    data-id_dokumen="' . $row->id_dokumen . '"
-                    data-nik_pengaju="' . $row->nik_pengaju . '"
                     data-nama_pengaju="' . $row->nama_pengaju . '"
+                    data-no_rt="' . $row->no_rt . '"
+                    data-nik_pengaju="' . $row->nik_pengaju . '"
+                    data-nama_asli_pengaju="' . $pengaju->nama . '"
+                    data-usia_pengaju="' . $age . '"
+                    data-pekerjaan_pengaju="' . $pengaju->pekerjaan . '"
+                    data-id_dokumen="' . $row->id_dokumen . '"
+                    data-jenis_dokumen="' . $dokumen->jenis_dokumen . '"
                     data-status_pengajuan="' . $row->status_pengajuan . '"
                     data-catatan="' . $row->catatan . '"
                     data-bs-toggle="modal" data-bs-target="#editPengajuanDokumenModal" class="edit btn btn-edit btn-sm">Edit</button>';
-                    $action .= 
-                    '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
+                    $action .=
+                        '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
                     ' . csrf_field() . '
-                    ' . method_field('DELETE') . 
-                    '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
+                    ' . method_field('DELETE') .
+                        '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
                     </form>
                     </div>';
                     return $action;
@@ -72,10 +86,10 @@ class PengajuanDokumenDataTable extends DataTable
     {
         if (auth()->user()->role == 'Rt') {
             // Dapatkan pengguna yang sedang login
-            $user = Users::where('id_user', auth()->user()->id_user)->first(); 
+            $user = Users::where('id_user', auth()->user()->id_user)->first();
             $nikRt = $user->nik; // Ambil nilai nik dari pengguna
             $noRt = Rt::where('nik_rt', $nikRt)->pluck('no_rt')->first();
-    
+
             return $model->newQuery()->where('no_rt', $noRt);
         }
         return $model->newQuery();
@@ -145,10 +159,10 @@ class PengajuanDokumenDataTable extends DataTable
                 // Column::make('detail_laporan')->title('Detail Laporan'),
                 // Column::make('saldo')->title('Saldo'),
                 Column::computed('action')
-                  ->exportable(false)
-                  ->printable(false)
-                  ->width(130) 
-                  ->addClass('text-center'),
+                    ->exportable(false)
+                    ->printable(false)
+                    ->width(130)
+                    ->addClass('text-center'),
             ];
         }
     }

@@ -168,7 +168,7 @@ Route::prefix('dokumen')->group(function(){
 
 
 Route::prefix('profil')->group(function() {
-    Route::get('/', [UsersController::class, 'profil'])->name('profil.manage');
-    Route::put('/{user}', [UsersController::class, 'update'])->name('profil.update');
+    Route::get('/', [UsersController::class, 'profil'])->name('profil.manage')->middleware('auth');
+    Route::put('/update/{users}', [UsersController::class, 'updateProfil'])->name('profil.update')->middleware('auth');
     // Route::put('/{user}/change_password', [UsersController::class, 'changePassword'])->name('profil.password');
 });

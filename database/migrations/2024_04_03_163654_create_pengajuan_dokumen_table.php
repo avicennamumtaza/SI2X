@@ -14,16 +14,17 @@ return new class extends Migration
         Schema::create('pengajuan_dokumen', function (Blueprint $table) {
             //pake id karena tidak direkomendasikan tanpa id
             $table->id('id_pengajuandokumen');
-            $table->string('no_rt')->index();
+            // $table->string('no_rt')->index();
             $table->unsignedBigInteger('id_dokumen')->index();
             $table->string('nik_pengaju', 17)->index();
-            $table->string('nama_pengaju', 50);
+            // $table->string('nama_pengaju', 50);
             // $table->string('status_pengajuan', 10);
             ;$table->enum('status_pengajuan', ['Baru', 'Disetujui', 'Ditolak']);
+            ;$table->text('keperluan');
             $table->text('catatan');
             $table->timestamps();
 
-            $table->foreign('no_rt')->references('no_rt')->on('rt')->onDelete('cascade');
+            // $table->foreign('no_rt')->references('no_rt')->on('rt')->onDelete('cascade');
             $table->foreign('id_dokumen')->references('id_dokumen')->on('dokumen')->onDelete('cascade');
             $table->foreign('nik_pengaju')->references('nik')->on('penduduk')->onDelete('cascade');
         });

@@ -23,6 +23,7 @@ class Users extends Authenticatable
         'nik',
         'username',
         'role',
+        'foto_profil',
         'email',
         'password',
         'confirm_password',

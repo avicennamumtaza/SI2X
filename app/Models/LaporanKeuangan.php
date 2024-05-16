@@ -13,12 +13,12 @@ class LaporanKeuangan extends Model
     protected $table = 'laporan_keuangan';
     protected $primaryKey = 'id_laporankeuangan';
     protected $fillable = [
+        'status_pemasukan',
         'nominal',
-        'detail',
         'tanggal',
         'pihak_terlibat',
+        'detail',
         'saldo',
-        'status_pemasukan',
     ];
 
     // public function rw(): BelongsTo

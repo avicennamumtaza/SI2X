@@ -60,8 +60,8 @@
                                     placeholder="Masukkan Foto Produk atau UMKM" required>
                             </div>
                             <div class="form-group mb-3">
-                                <label for="desc_umkm" class="form-label">Deskripsi UMKM</label>
-                                <textarea class="form-control" id="desc_umkm" name="desc_umkm" rows="3" placeholder="Masukkan Deskripsi UMKM"
+                                <label for="deskripsi_umkm" class="form-label">Deskripsi UMKM</label>
+                                <textarea class="form-control" id="deskripsi_umkm" name="deskripsi_umkm" rows="3" placeholder="Masukkan Deskripsi UMKM"
                                     required></textarea>
                             </div>
                             <div class="form-group mb-3">
@@ -118,11 +118,11 @@
                     <img src="{{ $umkm->foto_umkm ? asset('Foto UMKM/' . $umkm->foto_umkm) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
                         class="card-img-top" alt="Foto UMKM" />
                     <div class="card-body">
-                        <h4 class="card-title text-start">{{ $umkm->nama_umkm }}</h4>
-                        <p class="card-title text-start" style="font-size: 13px;">{{ $umkm->alamat }}</p>
+                        <h5 class="card-title text-start">{{ $umkm->nama_umkm }}</h5>
+                        <p class="card-title text-start" style="font-size: 13px;">{{ $umkm->alamat_umkm }}</p>
                         <br>
                         <hr style="height: 2px; background-color: black;">
-                        <p class="card-text">{{ $umkm->desc_umkm }}</p>
+                        <p class="card-text">{{ $umkm->deskripsi_umkm }}</p>
                     </div>
                     <div class="card-footer py-3 hub-umkm d-flex justify-content-end">
                         <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($umkm->alamat) }}"

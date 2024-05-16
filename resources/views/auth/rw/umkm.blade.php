@@ -21,26 +21,36 @@
                                 required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="nama_umkm" class="form-label text-start">Nama Pemilik</label>
+                            <label for="nama_pemilik" class="form-label text-start">Nama Pemilik</label>
+                            <input type="text" readonly class="form-control" id="nama_pemilik" name="nama_pemilik"
+                                required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="alamat_pemilik" class="form-label text-start">Alamat Pemilik</label>
+                            <input type="text" readonly class="form-control" id="alamat_pemilik" name="alamat_pemilik"
+                                required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="nama_umkm" class="form-label text-start">Nama UMKM</label>
                             <input type="text" readonly class="form-control" id="nama_umkm" name="nama_umkm" required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="wa_umkm" class="form-label text-start">WhatsApp UMKM</label>
+                            <label for="wa_umkm" class="form-label text-start">WhatsApp</label>
                             <input type="text" readonly class="form-control" id="wa_umkm" name="wa_umkm" required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="foto_umkm" class="form-label text-start">Foto UMKM</label>
+                            <label for="foto_umkm" class="form-label text-start">Foto</label>
                             <br>
                             {{-- <input type="hidden" id="foto_umkm" name="foto_umkm" required> --}}
                             <img id="foto_umkm_preview" class="img-thumbnail" src="" width="300" height="300"
                                 alt="Foto UMKM">
                         </div>
                         <div class="form-group mb-3">
-                            <label for="desc_umkm" class="form-label text-start">Deskripsi UMKM</label>
-                            <input type="text" readonly class="form-control" id="desc_umkm" name="desc_umkm" required>
+                            <label for="deskripsi_umkm" class="form-label text-start">Deskripsi</label>
+                            <input type="text" readonly class="form-control" id="deskripsi_umkm" name="deskripsi_umkm" required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="status_umkm" class="form-label text-start">Status UMKM</label>
+                            <label for="status_umkm" class="form-label text-start">Status Pengajuan</label>
 
                             <select class="form-select" id="status_umkm" name="status_umkm" required>
                                 <option value="Baru" selected disabled>Baru</option>
@@ -83,6 +93,8 @@
                     var target = $(event.relatedTarget);
                     let id_umkm = target.data('id_umkm');
                     let nik_pemilik = target.data('nik_pemilik');
+                    let nama_pemilik = target.data('nama_pemilik');
+                    let alamat_pemilik = target.data('alamat_pemilik');
                     let nama_umkm = target.data('nama_umkm');
                     let wa_umkm = target.data('wa_umkm');
                     let foto_umkm = target.data('foto_umkm');
@@ -92,6 +104,8 @@
                     // Mengisi nilai input dengan data yang sesuai
                     $('#editUmkmModal #id_umkm').val(id_umkm);
                     $('#editUmkmModal #nik_pemilik').val(nik_pemilik);
+                    $('#editUmkmModal #nama_pemilik').val(nama_pemilik);
+                    $('#editUmkmModal #alamat_pemilik').val(alamat_pemilik);
                     $('#editUmkmModal #nama_umkm').val(nama_umkm);
                     $('#editUmkmModal #wa_umkm').val(wa_umkm);
                     $('#editUmkmModal #foto_umkm').val(foto_umkm);

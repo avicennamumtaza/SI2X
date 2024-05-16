@@ -21,7 +21,7 @@
                                  required readonly disabled>
                         </div>
 
-                        {{-- <div class="form-group mb-3">
+                        <div class="form-group mb-3">
                             <label for="status_pemasukan" class="form-label">Jenis Laporan</label>
                             <select class="form-select" id="status_pemasukan" name="status_pemasukan" required>
                                 <option value="" selected disabled>Pilih Jenis Laporan Keuangan</option>
@@ -34,7 +34,7 @@
                             <label for="nominal" class="form-label text-start">Nominal</label>
                             <input type="text" class="form-control" id="nominal" name="nominal"
                                  required>
-                        </div> --}}
+                        </div>
 
                         <div class="form-group mb-3">
                             <label for="detail" class="form-label text-start">Detail</label>
@@ -159,7 +159,7 @@
                     let detail = target.data('detail')
                     let tanggal = target.data('tanggal')
                     let pihak_terlibat = target.data('pihak_terlibat')
-                    let saldo = target.data('saldo')
+                    // let saldo = target.data('saldo')
                     let status_pemasukan = target.data('status_pemasukan')
 
                     $('#editLaporanKeuanganModal #id_laporankeuangan').val(id_laporankeuangan);
@@ -167,7 +167,7 @@
                     $('#editLaporanKeuanganModal #detail').val(detail);
                     $('#editLaporanKeuanganModal #tanggal').val(tanggal);
                     $('#editLaporanKeuanganModal #pihak_terlibat').val(pihak_terlibat);
-                    $('#editLaporanKeuanganModal #saldo').val(saldo);
+                    // $('#editLaporanKeuanganModal #saldo').val(saldo);
                     $('#editLaporanKeuanganModal #status_pemasukan').val(status_pemasukan);
 
                     let url = "{{route('laporankeuangan.update',':__id')}}";

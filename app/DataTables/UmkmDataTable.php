@@ -2,6 +2,7 @@
 
 namespace App\DataTables;
 
+use App\Models\Penduduk;
 use App\Models\Umkm;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
@@ -24,12 +25,15 @@ class UmkmDataTable extends DataTable
         return (new EloquentDataTable($query))
             ->setRowId('id')
             ->addColumn('action', function ($row) {
+                $pemilik = Penduduk::where('nik', $row->nik_pemilik)->first();
                 $deleteUrl = route('umkm.destroy', $row->id_umkm);
                 $action = '
                 <div class="container-action">
                 <button type="button"
                 data-id_umkm="' . $row->id_umkm . '"
                 data-nik_pemilik="' . $row->nik_pemilik . '"
+                data-nama_pemilik="' . $pemilik->nama . '"
+                data-alamat_pemilik="' . $pemilik->alamat . '"
                 data-nama_umkm="' . $row->nama_umkm . '"
                 data-wa_umkm="' . $row->wa_umkm . '"
                 data-foto_umkm="' . $row->foto_umkm . '"

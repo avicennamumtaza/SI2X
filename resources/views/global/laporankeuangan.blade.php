@@ -18,22 +18,32 @@
             <hr class="tabel">
             {{-- <div class="card-body"> --}}
                 <div class="col-xl-5 mx-3 col-md-12">
-                    <div class="card" style="border: none;">
+                    {{-- <div class="card" style="border: none;"> --}}
                         <div class="card-body">
-                            <div class="d-flex justify-content-between p-md-1">
-                                <div class="d-flex flex-row">
+                            {{-- <div class="d-flex justify-content-start p-md-1"> --}}
+                                <div class="text-start">
                                     <div class="align-self-center">
                                         <h3>Kas RW</h3>
                                     </div>
                                     <div class="align-self-center">
                                         <h2 class="">
+                                            <?php
+                                                $saldo = 0;
+                                                foreach ($laporanKeuangans as $laporanKeuangan) {
+                                                    if ($laporanKeuangan->status_pemasukan) {
+                                                        $saldo += $laporanKeuangan->nominal;
+                                                    } else {
+                                                        $saldo -= $laporanKeuangan->nominal;
+                                                    }
+                                                }
+                                            ?>
                                             <b>&nbsp; Rp&nbsp;{{ number_format($saldo, 0, ',', '.') }}</b>
                                         </h2>
                                     </div>
                                 </div>
-                            </div>
+                            {{-- </div> --}}
                         </div>
-                    </div>
+                    {{-- </div> --}}
                 </div>
                 <div class="table-responsive px-4">
                     <table class="table table-bordered">
@@ -51,7 +61,7 @@
                             @foreach ($laporanKeuangans as $laporanKeuangan)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $laporanKeuangan->is_income ? 'Pemasukan' : 'Pengeluaran' }}</td>
+                                    <td>{{ $laporanKeuangan->status_pemasukan ? 'Pemasukan' : 'Pengeluaran' }}</td>
                                     <td>Rp {{ number_format($laporanKeuangan->nominal, 0, ',', '.') }}</td>
                                     <td>{{ $laporanKeuangan->detail }}</td>
                                     <td>{{ $laporanKeuangan->tanggal }}</td>

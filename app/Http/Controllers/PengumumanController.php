@@ -30,7 +30,7 @@ class PengumumanController extends Controller
     public function store(Request $request)
     {
             $validated = $request->validate([
-                'judul_pengumuman' => 'required|min:5|max:49',
+                'judul' => 'required|min:5|max:49',
                 'deskripsi' => 'required',
                 'tanggal_pengumuman' => 'required|date',
                 'foto_pengumuman' => 'required|mimes:png,jpg,jpeg',
@@ -38,12 +38,12 @@ class PengumumanController extends Controller
 
             $foto_pengumuman = $request->file('foto_pengumuman');
             $foto_pengumuman_ext = $foto_pengumuman->getClientOriginalExtension();;
-            $foto_pengumuman_filename = $validated['judul_pengumuman'] . date('ymdhis') . "." . $foto_pengumuman_ext;
+            $foto_pengumuman_filename = $validated['judul'] . date('ymdhis') . "." . $foto_pengumuman_ext;
     
             
             try {
                 Pengumuman::create([
-                    'judul' => $validated['judul_pengumuman'],
+                    'judul' => $validated['judul'],
                     'deskripsi' => $validated['deskripsi'],
                     'tanggal' => $validated['tanggal_pengumuman'],
                     'foto_pengumuman' => $foto_pengumuman_filename,
@@ -65,14 +65,14 @@ class PengumumanController extends Controller
     public function update(Request $request, Pengumuman $pengumuman)
     {
         $validated = $request->validate([
-            'judul_pengumuman' => 'required|min:5|max:49',
+            'judul' => 'required|min:5|max:49',
             'deskripsi' => 'required',
             'tanggal_pengumuman' => 'required|date',
             'foto_pengumuman' => 'image|mimes:jpeg,jpg,png',
          ]);
 
-        $pengumuman->update([
-            'judul' => $validated['judul_pengumuman'],
+        Pengumuman::find($pengumuman->id_pengumuman)->update([
+            'judul' => $validated['judul'],
             'deskripsi' => $validated['deskripsi'],
             'tanggal' => $validated['tanggal_pengumuman'],
             // 'foto' => $request->foto_pengumuman,
@@ -82,7 +82,7 @@ class PengumumanController extends Controller
         if($request->hasFile('foto_pengumuman') ){         
             $foto_pengumuman = $request->file('foto_pengumuman');
             $foto_pengumuman_ext = $foto_pengumuman->getClientOriginalExtension();;
-            $foto_pengumuman_filename = $validated['judul_pengumuman'] . date('ymdhis') . "." . $foto_pengumuman_ext;
+            $foto_pengumuman_filename = $validated['judul'] . date('ymdhis') . "." . $foto_pengumuman_ext;
             
             // Hapus foto lama dari sistem penyimpanan
         if ($pengumuman->foto_pengumuman) {
