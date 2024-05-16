@@ -61,17 +61,22 @@ class RWDataTable extends DataTable
                     ->setTableId('rw-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
-                    //->dom('Bfrtip')
-                    ->orderBy(1)
-                    ->selectStyleSingle()
-                    ->buttons([
-                        Button::make('excel'),
-                        Button::make('csv'),
-                        Button::make('pdf'),
-                        Button::make('print'),
-                        Button::make('reset'),
-                        Button::make('reload')
-                    ]);
+                    ->orderBy(0, 'asc') // Set default order by column 0 (id_pengumuman)
+                    ->parameters([
+                        'language' => [
+                            'search' => '', // Menghilangkan teks "Search:"
+                            'searchPlaceholder' => 'Cari Pengumuman', // Placeholder untuk kolom pencarian
+                            'paginate' => [
+                                'previous' => 'Kembali', // Mengubah teks "Previous"
+                                'next' => 'Lanjut', // Mengubah teks "Next"
+                            ],
+                            'info' => 'Menampilkan _START_ hingga _END_ dari _TOTAL_ entri', // Ubah teks sesuai keinginan Anda
+                        ],
+                        'dom' => 'Bfrtip', // Menambahkan tombol
+                        'buttons' => [], // Menambahkan tombol ekspor dan lainnya
+                        'order' => [], // Mengaktifkan order by untuk setiap kolom
+                    ])
+                    ->selectStyleSingle();
     }
 
     /**

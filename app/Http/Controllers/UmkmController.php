@@ -71,6 +71,7 @@ class UmkmController extends Controller
                 'deskripsi_umkm' => $validated['deskripsi_umkm'],
                 // 'no_rw' => $validated['no_rw'],
                 'status_umkm' => 'Baru',
+                'alamat' => $request->alamat_umkm,
             ]);
             Alert::success('Data UMKM berhasil diajukan!');
             $foto_umkm->move(public_path('Foto UMKM'), $foto_umkm_filename);
@@ -107,7 +108,7 @@ class UmkmController extends Controller
         $umkm->update($request->all());
 
         return redirect()->route('umkm.manage')
-            ->with('success', 'Umkm berhasil diperbarui.');
+            ->with('success', 'Status umkm berhasil diperbarui.');
     }
 
     public function destroy($id)
