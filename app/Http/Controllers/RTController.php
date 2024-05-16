@@ -15,7 +15,7 @@ class RTController extends Controller
         // $pengumumans = Pengumuman::all();
         // return view('auth.rw.pengumuman', compact('pengumumans'));
     }
-    
+
     public function list(RTDataTable $dataTable) {
         return $dataTable->render('auth.rw.pendataan_rt');
     }
@@ -47,7 +47,7 @@ class RTController extends Controller
         $rt->wa_rt = $request->wa_rt;
         $rt->save();
 
-        return redirect()->back()->with('success', 'Pengumuman berhasil dipublish!');
+        return redirect()->back()->with('success', 'Data RT Berhasil ditambahkan!');
     }
 
     public function edit(Rt $rt)
