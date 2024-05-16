@@ -30,7 +30,7 @@
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="wa_rt" class="form-label text-start">NIK RT</label>
+                            <label for="wa_rt" class="form-label text-start">WA RT</label>
                             <input type="text" class="form-control" id="wa_rt" name="wa_rt"
                                 placeholder="Masukkan Nomor WA RT" required>
                         </div>
