@@ -94,6 +94,11 @@
                         </div>
 
                         <div class="form-group mb-3">
+                            <label for="pendidikan" class="form-label text-start">Pendidikan</label>
+                            <input type="text" class="form-control" id="pendidikan" name="pendidikan" required placeholder="Masukkan Pendidikan">
+                        </div>
+
+                        <div class="form-group mb-3">
                             <label for="golongan_darah" class="form-label text-start">Golongan Darah</label>
                             <select class="form-select" id="golongan_darah" name="golongan_darah" required>
                                 <option value="" selected disabled>Pilih Golongan Darah</option>
