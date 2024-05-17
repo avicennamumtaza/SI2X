@@ -8,6 +8,7 @@ use App\Models\Users;
 use Illuminate\Foundation\Auth\User;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\File;
 
 class UsersController extends Controller
 {
@@ -24,12 +25,38 @@ class UsersController extends Controller
             'username' => 'required|string|max:20|unique:users,username',
             'nik' => 'required|string|min:15|max:17',
             'role' => 'required|string|max:20',
-            'foto_profil' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // 'image' untuk validasi file gambar
+            'foto_profil' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // 'image' untuk validasi file gambar
             'email' => 'required|string|email|max:50|unique:users,email',
             'password' => 'required|string|min:6|confirmed',
             // Tambahkan validasi untuk input lainnya jika diperlukan
+        ],[
+            'username.required' => 'Username wajib diisi.',
+            'username.string' => 'Username harus berupa teks.',
+            'username.max' => 'Username harus memiliki panjang maksimal :max karakter.',
+            'username.unique' => 'Username harus unik',
+            'nik.required' => 'NIK wajib diisi.',
+            'nik.string' => 'NIK harus berupa teks.',
+            'nik.min' => 'NIK harus memiliki panjang minimal :min karakter.',
+            'nik.max' => 'NIK harus memiliki panjang maksimal :max karakter.',
+            'role.required' => 'Role wajib diisi.',
+            'role.string' => 'Role harus berupa teks.',
+            'role.max' => 'Role harus memiliki panjang maksimal :max karakter.',
+            'foto_profil.required' => 'Foto profil wajib diisi.',
+            'foto_profil.image' => 'Foto profil harus berupa gambar.',
+            'foto_profil.mimes' => 'Foto profil harus berupa JPEG, PNG, JPG, GIV, SVG.',
+            'foto_profil.max' => 'Foto profil harus berukuran maksimal :max.',
+            'email.required' => 'Email wajib diisi.',
+            'email.string' => 'Email harus berupa teks.',
+            'email.max' => 'Email harus memiliki panjang maksimal :max karakter.',
+            'password.required' => 'password wajib diisi.',
+            'password.string' => 'password harus berupa teks.',
+            'password.min' => 'password harus memiliki panjang minimal :min.', 
         ]);
 
+        $foto_users = $request->file('foto_users');
+        $foto_users_ext = $foto_users->getClientOriginalExtension();;
+        $foto_users_filename = $validated['nama_umkm'] . date('ymdhis') . "." . $foto_users_ext;
+        
         try{
             Users::create([
                 'username' => $validated['username'],
@@ -61,7 +88,7 @@ class UsersController extends Controller
             'username' => 'required|string|max:20|unique:users,username,' . $users->id,
             'nik' => 'required|string|min:15|max:17',
             'role' => 'required|string|max:20',
-            'foto_profil' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // 'image' untuk validasi file gambar
+            'foto_profil' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // 'image' untuk validasi file gambar
             'email' => 'required|string|email|max:50|unique:users,email,' . $users->id,
             'password' => 'nullable|string|min:6|confirmed',
         ]);
