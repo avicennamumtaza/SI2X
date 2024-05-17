@@ -87,12 +87,34 @@ class UsersController extends Controller
 
         // Validasi input
         $validated = $request->validate([
-            'username' => 'required|string|max:20|unique:users,username,' . $users->id,
+            'username' => 'required|string|max:20|unique:users,username,' . $users->id_user,
             'nik' => 'required|string|min:15|max:17',
             'role' => 'required|string|max:20',
             'foto_profil' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // 'image' untuk validasi file gambar
-            'email' => 'required|string|email|max:50|unique:users,email,' . $users->id,
+            'email' => 'required|string|email|max:50|unique:users,email,' . $users->id_user,
             'password' => 'nullable|string|min:6|confirmed',
+        ],[
+            'username.required' => 'Username wajib diisi.',
+            'username.string' => 'Username harus berupa teks.',
+            'username.max' => 'Username harus memiliki panjang maksimal :max karakter.',
+            'username.unique' => 'Username harus unik',
+            'nik.required' => 'NIK wajib diisi.',
+            'nik.string' => 'NIK harus berupa teks.',
+            'nik.min' => 'NIK harus memiliki panjang minimal :min karakter.',
+            'nik.max' => 'NIK harus memiliki panjang maksimal :max karakter.',
+            'role.required' => 'Role wajib diisi.',
+            'role.string' => 'Role harus berupa teks.',
+            'role.max' => 'Role harus memiliki panjang maksimal :max karakter.',
+            'foto_profil.required' => 'Foto profil wajib diisi.',
+            'foto_profil.image' => 'Foto profil harus berupa gambar.',
+            'foto_profil.mimes' => 'Foto profil harus berupa JPEG, PNG, JPG, GIV, SVG.',
+            'foto_profil.max' => 'Foto profil harus berukuran maksimal :max.',
+            'email.required' => 'Email wajib diisi.',
+            'email.string' => 'Email harus berupa teks.',
+            'email.max' => 'Email harus memiliki panjang maksimal :max karakter.',
+            'password.required' => 'password wajib diisi.',
+            'password.string' => 'password harus berupa teks.',
+            'password.min' => 'password harus memiliki panjang minimal :min.', 
         ]);
         
 
