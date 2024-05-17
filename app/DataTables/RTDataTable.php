@@ -37,7 +37,7 @@ class RTDataTable extends DataTable
             <form action="' . $deleteUrl . '" method="post" style="display:inline;">
                 ' . csrf_field() . '
                 ' . method_field('DELETE') .
-                '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
+                '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini? Data-data lain yang memiliki keterkaitan dengan data RT ini juga akan dihapus!\');">Hapus</button>
                 </form>
             </div>';
             return $action;
