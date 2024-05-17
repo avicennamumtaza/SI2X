@@ -35,6 +35,10 @@ class Penduduk extends Model
         'gol_darah' => GolDar::class,
     ];
 
+    protected $casts = [
+        'gol_darah' => GolDar::class,
+    ];
+
     // public function keluarga(): BelongsTo
     // {
     //     return $this->belongsTo(Keluarga::class, 'nkk', 'nkk');

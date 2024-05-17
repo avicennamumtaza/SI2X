@@ -36,7 +36,8 @@ class PendudukController extends Controller
             'agama' => 'required|string|max:10',
             'pendidikan' => 'required|string|max:28',
             'pekerjaan' => 'required|string|min:2|max:30',
-            'golongan_darah' => 'required|string|max:2',
+            // 'golongan_darah' => 'required|string|max:2',
+            'golongan_darah' =>  [Rule::enum(GolDar::class)],
             'status_pernikahan' => 'required|max:12',
             'status_pendatang' => 'required',
             // Tambahkan validasi untuk input lainnya jika diperlukan
@@ -85,7 +86,8 @@ class PendudukController extends Controller
             'agama' => 'required|string|max:10',
             'pendidikan' => 'required|string|max:28',
             'pekerjaan' => 'required|string|min:2|max:30',
-            'golongan_darah' => 'required|string|max:2',
+            // 'golongan_darah' => 'required|string|max:2',
+            'golongan_darah' =>  [Rule::enum(GolDar::class)],
             'status_pernikahan' => 'required|max:12',
             'status_pendatang' => 'required',
         ]);

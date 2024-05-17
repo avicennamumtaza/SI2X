@@ -46,11 +46,19 @@
                                 alt="Foto UMKM">
                         </div>
                         <div class="form-group mb-3">
+<<<<<<<<< Temporary merge branch 1
                             <label for="deskripsi_umkm" class="form-label text-start">Deskripsi</label>
                             <input type="text" readonly class="form-control" id="deskripsi_umkm" name="deskripsi_umkm" required>
                         </div>
                         <div class="form-group mb-3">
                             <label for="status_umkm" class="form-label text-start">Status Pengajuan</label>
+=========
+                            <label for="desc_umkm" class="form-label text-start">Deskripsi UMKM</label>
+                            <input type="text" readonly class="form-control" id="desc_umkm" name="desc_umkm" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="status_umkm" class="form-label text-start">Status UMKM</label>
+>>>>>>>>> Temporary merge branch 2
 
                             <select class="form-select" id="status_umkm" name="status_umkm" required>
                                 <option value="Baru" selected disabled>Baru</option>

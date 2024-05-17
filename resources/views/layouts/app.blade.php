@@ -43,13 +43,15 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{ route('landing') }}" title="Beranda website">Beranda</a>
+                        <a class="nav-link" aria-current="page" href="{{ route('landing') }}"
+                            title="Beranda website">Beranda</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('pengumuman.global') }}" title="Pengumuman">Pengumuman</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('laporankeuangan.global') }}" title="Laporan Keuangan">Keuangan</a>
+                        <a class="nav-link" href="{{ route('laporankeuangan.global') }}"
+                            title="Laporan Keuangan">Keuangan</a>
                     </li>
                     <div class="ms-2 nav-item btn-group">
                         <button type="button" class="fitur-btn nav-link dropdown-toggle" data-bs-toggle="dropdown"
@@ -59,12 +61,15 @@
                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-end">
                             {{-- <li><a class="dropdown-item" href="{{ route('pengumuman.global') }}">Pengumuman</a></li>
                             <li><a class="dropdown-item" href="{{ route('umkm.global') }}">Daftar UMKM</a></li> --}}
-                            <li><a class="dropdown-item" href="{{ route('pengajuandokumen.global') }}" title="Pengajuan Surat">Pengajuan Surat</a></li>
-                            <li><a class="dropdown-item" href="{{ route('umkm.global') }}" title="Daftar UMKM">Daftar UMKM</a></li>
+                            <li><a class="dropdown-item" href="{{ route('pengajuandokumen.global') }}"
+                                    title="Pengajuan Surat">Pengajuan Surat</a></li>
+                            <li><a class="dropdown-item" href="{{ route('umkm.global') }}" title="Daftar UMKM">Daftar
+                                    UMKM</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="{{ route('login') }}" title="Masuk sebagai RT/RW">Masuk</a></li>
+                            <li><a class="dropdown-item" href="{{ route('login') }}"
+                                    title="Masuk sebagai RT/RW">Masuk</a></li>
                         </ul>
                     </div>
                 </ul>
@@ -155,6 +160,19 @@
                         Jalan Jodipan Wetan Gang 3, RW 06, Kelurahan Jodipan, Kecamatan Blimbing, Kota Malang.
                         Kode Pos 65137.
                     </p>
+                    @php
+                        $rw = \App\Models\Rw::first();
+                    @endphp
+                    {{-- substr_replace($umkm->wa_umkm, '62', 0, 1) --}}
+                    @if ($rw)
+                        <a href="https://wa.me/{{ $rw->wa_rw }}" target="_blank" data-mdb-ripple-init
+                            class="no-footer">
+                            <i class="bi bi-whatsapp me-2"></i>RW {{ substr_replace($rw->wa_rw, '+62', 0, 1) }}
+                        </a>
+                    @endif
+                    {{-- <a href="https://wa.me/{{ $rw->wa_rw }}" target="_blank" data-mdb-ripple-init class="no-footer">
+                    <i class="bi bi-whatsapp"></i> RW {{ $rw->wa_rw }}
+                </a> --}}
                 </div>
             </div>
         </div>

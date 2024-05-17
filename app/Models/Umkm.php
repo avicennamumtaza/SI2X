@@ -18,7 +18,12 @@ class Umkm extends Model
         'alamat_umkm',
         'wa_umkm',
         'foto_umkm',
+<<<<<<<<< Temporary merge branch 1
         'deskripsi_umkm',
+=========
+        'desc_umkm',
+        'alamat',
+>>>>>>>>> Temporary merge branch 2
         'status_umkm',
     ];
 

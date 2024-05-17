@@ -53,10 +53,10 @@ class KeluargaDataTable extends DataTable
     {
         if (auth()->user()->role == 'Rt') {
             // Dapatkan pengguna yang sedang login
-            $user = Users::where('id_user', auth()->user()->id_user)->first(); 
+            $user = Users::where('id_user', auth()->user()->id_user)->first();
             $nikRt = $user->nik; // Ambil nilai nik dari pengguna
             $noRt = Rt::where('nik_rt', $nikRt)->pluck('no_rt')->first();
-    
+
             return $model->newQuery()->where('no_rt', $noRt);
         }
         return $model->newQuery();
@@ -102,7 +102,7 @@ class KeluargaDataTable extends DataTable
             //     ->width(60)
             //     ->addClass('text-center'),
             Column::make('nkk')->width(300),
-            Column::make('no_rt')->width(300),
+            Column::make('no_rt')->width(100),
             Column::make('nik_kepala_keluarga')->title('Kepala Keluarga')->width(300),
             Column::computed('action')
               ->exportable(false)
