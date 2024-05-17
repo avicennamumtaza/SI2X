@@ -26,19 +26,21 @@ class Penduduk extends Model
         'agama',
         'pendidikan',
         'pekerjaan',
-        'golongan_darah',
+        // 'golongan_darah',
         'status_pernikahan',
         'status_pendatang',
     ];
 
     protected $casts = [
-        'gol_darah' => GolDar::class,
+        'golongan_darah' => GolDar::class,
     ];
 
     // public function keluarga(): BelongsTo
     // {
     //     return $this->belongsTo(Keluarga::class, 'nkk', 'nkk');
     // }
+
+    // public function keluarga(): BelongsTo
     public function rw(): HasOne
     {
         return $this->hasOne(Rw::class, 'nik_rw', 'nik');

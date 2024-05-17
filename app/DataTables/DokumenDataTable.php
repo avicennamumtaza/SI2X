@@ -36,7 +36,7 @@ class DokumenDataTable extends DataTable
                 $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
                 ' . csrf_field() . '
                 ' . method_field('DELETE') .
-                '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
+                '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini? Proses ini akan menyebabkan data pengajuan dokumen yang menggunakan jenis dokumen terkait juga dihapus!\');">Hapus</button>
                 </form>
                 </div>';
                 return $action;

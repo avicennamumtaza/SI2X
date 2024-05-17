@@ -25,7 +25,7 @@ class RtSeeder extends Seeder
         foreach (range(1, 16) as $index) {
             // Insert data baru ke tabel rt
             DB::table('rt')->insert([
-                'no_rt' => $faker->unique()->numberBetween(1, 16),
+                'no_rt' => $index,
                 'nik_rt' => $faker->randomElement($nikRt),
                 'wa_rt' => $faker->unique()->numerify('08##########'),
                 'created_at' => now(),
