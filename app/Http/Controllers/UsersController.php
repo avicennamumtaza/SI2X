@@ -53,21 +53,21 @@ class UsersController extends Controller
             'password.min' => 'password harus memiliki panjang minimal :min.', 
         ]);
 
-        $foto_users = $request->file('foto_users');
-        $foto_users_ext = $foto_users->getClientOriginalExtension();;
-        $foto_users_filename = $validated['nama_umkm'] . date('ymdhis') . "." . $foto_users_ext;
+        $foto_profil = $request->file('foto_profil');
+        $foto_profil_ext = $foto_profil->getClientOriginalExtension();;
+        $foto_profil_filename = $validated['nama_umkm'] . date('ymdhis') . "." . $foto_profil_ext;
         
         try{
             Users::create([
                 'username' => $validated['username'],
                 'nik' => $validated['nik'],
                 'role' => $validated['role'],
-                'foto_profil' => $foto_users_filename,
+                'foto_profil' => $foto_profil_filename,
                 'email' => $validated['email'],
                 'password' => Hash::make($validated['password']),
             ]);
             Alert::success('Registrasi Berhasil', 'Akun Anda telah berhasil dibuat!');
-            $foto_users->move(public_path('Foto Users'), $foto_users_filename);
+            $foto_profil->move(public_path('Foto Users'), $foto_profil_filename);
             return redirect()->back()->with('success', 'Data User berhasil ditambahkan!');
         } catch(\Exception $e){
             Alert::error('Error', $e->getMessage());
@@ -87,11 +87,11 @@ class UsersController extends Controller
 
         // Validasi input
         $validated = $request->validate([
-            'username' => 'required|string|max:20|unique:users,username,' . $users->id_user,
+            'username' => 'required|string|max:20|unique:users,username,' . $users->getKey(),
             'nik' => 'required|string|min:15|max:17',
             'role' => 'required|string|max:20',
             'foto_profil' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // 'image' untuk validasi file gambar
-            'email' => 'required|string|email|max:50|unique:users,email,' . $users->id_user,
+            'email' => 'required|string|email|max:50|unique:users,email,',
             'password' => 'nullable|string|min:6|confirmed',
         ],[
             'username.required' => 'Username wajib diisi.',
@@ -134,18 +134,18 @@ class UsersController extends Controller
                 $users->save();
             }
 
-            return redirect()->route('users.manage')->with('success', 'User berhasil diupdate!');
+            return redirect()->route('users.manage')->with('success', 'Data user berhasil diperbarui!');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Update gagal: ' . $e->getMessage());
         }
     }
     
-    public function destroy(Users $users)
+    public function destroy($id)
     {
-        $users->delete();
-
-        return redirect()->back()
-        ->with('success', 'User berhasil dihapus.');
+        $user = Users::findOrFail($id);
+        File::delete(public_path('Foto Users') . '/' . $user->foto_profil);
+        $user->delete();
+        return redirect()->back()->with('success', 'Data berhasil dihapus!');
     }
 
     public function profil() {
