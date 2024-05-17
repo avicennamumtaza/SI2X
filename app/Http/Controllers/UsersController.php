@@ -62,10 +62,12 @@ class UsersController extends Controller
                 'username' => $validated['username'],
                 'nik' => $validated['nik'],
                 'role' => $validated['role'],
-                'foto_profil' => $validated['foto_profil'],
+                'foto_profil' => $foto_users_filename,
                 'email' => $validated['email'],
                 'password' => Hash::make($validated['password']),
             ]);
+            Alert::success('Registrasi Berhasil', 'Akun Anda telah berhasil dibuat!');
+            $foto_users->move(public_path('Foto Users'), $foto_users_filename);
             return redirect()->back()->with('success', 'Data User berhasil ditambahkan!');
         } catch(\Exception $e){
             Alert::error('Error', $e->getMessage());
