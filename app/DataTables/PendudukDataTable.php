@@ -48,7 +48,7 @@ class PendudukDataTable extends DataTable
             //     $waktu_sekarang = new DateTime();
             //     $selisih = $tanggal_lahir->diff($waktu_sekarang);
             //     return $selisih->y;
-            // })            
+            // })
             ->addColumn('action', function ($row) {
 
                 $deleteUrl = route('penduduk.destroy', $row->nik);
@@ -90,7 +90,7 @@ class PendudukDataTable extends DataTable
             $user = Users::where('id_user', auth()->user()->id_user)->first();
             $nikRt = $user->nik; // Ambil nilai nik dari pengguna
             $noRt = Rt::where('nik_rt', $nikRt)->pluck('no_rt')->first();
-    
+
             return $model->newQuery()->where('no_rt', $noRt);
         }
         return $model->newQuery();
@@ -110,7 +110,7 @@ class PendudukDataTable extends DataTable
             ->parameters([
                 'language' => [
                     'search' => '', // Menghilangkan teks "Search:"
-                    'searchPlaceholder' => 'Cari Penduduk', // Placeholder untuk kolom pencarian
+                    'searchPlaceholder' => 'Cari Data Penduduk', // Placeholder untuk kolom pencarian
                     'paginate' => [
                         'previous' => 'Kembali', // Mengubah teks "Previous"
                         'next' => 'Lanjut', // Mengubah teks "Next"

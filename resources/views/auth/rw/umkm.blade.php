@@ -50,7 +50,8 @@
                             <input type="text" readonly class="form-control" id="deskripsi_umkm" name="deskripsi_umkm" required>
                         </div>
                         <div class="form-group mb-3">
-                        <label for="status_umkm" class="form-label text-start">Status Pengajuan</label>
+                            <label for="status_umkm" class="form-label text-start">Status Pengajuan</label>
+
                             <select class="form-select" id="status_umkm" name="status_umkm" required>
                                 <option value="Baru" selected disabled>Baru</option>
                                 {{-- <option value="Baru" disabled>Baru</option> --}}

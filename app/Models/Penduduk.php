@@ -39,8 +39,6 @@ class Penduduk extends Model
     // {
     //     return $this->belongsTo(Keluarga::class, 'nkk', 'nkk');
     // }
-    
-    // public function keluarga(): BelongsTo
     public function rw(): HasOne
     {
         return $this->hasOne(Rw::class, 'nik_rw', 'nik');
