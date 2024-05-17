@@ -19,7 +19,7 @@ class PendudukSeeder extends Seeder
         $faker = Faker::create();
 
         // Loop untuk mengisi data sebanyak yang diinginkan
-        foreach (range(1, 40) as $index) {
+        foreach (range(1, 1000) as $index) {
             // Insert data baru ke tabel penduduk
             DB::table('penduduk')->insert([
                 'nik' => $faker->unique()->numerify('################'),
