@@ -26,6 +26,7 @@ class UsersController extends Controller
             'nik' => 'required|string|min:15|max:17',
             'role' => 'required|string|max:20',
             'foto_profil' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // 'image' untuk validasi file gambar
+            // 'foto_profil' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // 'image' untuk validasi file gambar
             'email' => 'required|string|email|max:50|unique:users,email',
             'password' => 'required|string|min:6|confirmed',
             // Tambahkan validasi untuk input lainnya jika diperlukan
@@ -63,6 +64,7 @@ class UsersController extends Controller
                 'nik' => $validated['nik'],
                 'role' => $validated['role'],
                 'foto_profil' => $foto_profil_filename,
+                //'foto_profil' => $validated['foto_profil'],
                 'email' => $validated['email'],
                 'password' => Hash::make($validated['password']),
             ]);
@@ -92,6 +94,8 @@ class UsersController extends Controller
             'role' => 'required|string|max:20',
             'foto_profil' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // 'image' untuk validasi file gambar
             'email' => 'required|string|email|max:50|unique:users,email,',
+            //'foto_profil' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // 'image' untuk validasi file gambar
+            //'email' => 'required|string|email|max:50|unique:users,email,' . $users->id,
             'password' => 'nullable|string|min:6|confirmed',
         ],[
             'username.required' => 'Username wajib diisi.',
@@ -162,6 +166,7 @@ class UsersController extends Controller
             'nik' => 'required|string|min:15|max:17',
             'email' => 'required|string|email|max:50',
             'password' => 'nullable|string|min:6|confirmed',
+            //'password' => 'nullable|string|min:6|confirmed'
         ]);     
 
         // Update user
