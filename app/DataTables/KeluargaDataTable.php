@@ -76,7 +76,7 @@ class KeluargaDataTable extends DataTable
             ->parameters([
                 'language' => [
                     'search' => '', // Menghilangkan teks "Search:"
-                    'searchPlaceholder' => 'Cari Keluarga', // Placeholder untuk kolom pencarian
+                    'searchPlaceholder' => 'Cari Data Keluarga', // Placeholder untuk kolom pencarian
                     'paginate' => [
                         'previous' => 'Kembali', // Mengubah teks "Previous"
                         'next' => 'Lanjut', // Mengubah teks "Next"
