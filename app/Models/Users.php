@@ -19,6 +19,9 @@ class Users extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    protected $primaryKey = 'id_user';
+    
     protected $fillable = [
         'nik',
         'username',
@@ -28,6 +31,7 @@ class Users extends Authenticatable
         'password',
         'confirm_password',
     ];
+
 
     public function penduduk(): BelongsTo
     {
@@ -58,5 +62,5 @@ class Users extends Authenticatable
      *
      * @var string
      */
-    protected $primaryKey = 'id_user';
+    
 }

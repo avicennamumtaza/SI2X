@@ -25,11 +25,9 @@ class UsersController extends Controller
             'username' => 'required|string|max:20|unique:users,username',
             'nik' => 'required|string|min:15|max:17',
             'role' => 'required|string|max:20',
-            'foto_profil' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // 'image' untuk validasi file gambar
-            // 'foto_profil' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // 'image' untuk validasi file gambar
+            'foto_profil' => 'required|mimes:jpeg,png,jpg,gif,svg',
             'email' => 'required|string|email|max:50|unique:users,email',
             'password' => 'required|string|min:6|confirmed',
-            // Tambahkan validasi untuk input lainnya jika diperlukan
         ],[
             'username.required' => 'Username wajib diisi.',
             'username.string' => 'Username harus berupa teks.',
@@ -43,9 +41,9 @@ class UsersController extends Controller
             'role.string' => 'Role harus berupa teks.',
             'role.max' => 'Role harus memiliki panjang maksimal :max karakter.',
             'foto_profil.required' => 'Foto profil wajib diisi.',
-            'foto_profil.image' => 'Foto profil harus berupa gambar.',
+            // 'foto_profil.image' => 'Foto profil harus berupa gambar.',
             'foto_profil.mimes' => 'Foto profil harus berupa JPEG, PNG, JPG, GIV, SVG.',
-            'foto_profil.max' => 'Foto profil harus berukuran maksimal :max.',
+            // 'foto_profil.max' => 'Foto profil harus berukuran maksimal :max.',
             'email.required' => 'Email wajib diisi.',
             'email.string' => 'Email harus berupa teks.',
             'email.max' => 'Email harus memiliki panjang maksimal :max karakter.',
@@ -56,7 +54,7 @@ class UsersController extends Controller
 
         $foto_profil = $request->file('foto_profil');
         $foto_profil_ext = $foto_profil->getClientOriginalExtension();;
-        $foto_profil_filename = $validated['nama_umkm'] . date('ymdhis') . "." . $foto_profil_ext;
+        $foto_profil_filename = $validated['username'] . date('ymdhis') . "." . $foto_profil_ext;
         
         try{
             Users::create([
@@ -64,7 +62,6 @@ class UsersController extends Controller
                 'nik' => $validated['nik'],
                 'role' => $validated['role'],
                 'foto_profil' => $foto_profil_filename,
-                //'foto_profil' => $validated['foto_profil'],
                 'email' => $validated['email'],
                 'password' => Hash::make($validated['password']),
             ]);
@@ -77,6 +74,75 @@ class UsersController extends Controller
         }
 
     }
+//     public function store(Request $request)
+// {
+//     // Validasi input
+//     $validated = $request->validate([
+//         'username' => 'required|string|max:20|unique:users,username',
+//         'nik' => 'required|string|min:15|max:17',
+//         'role' => 'required|string|max:20',
+//         'foto_profil' => 'required|image|mimes:jpeg,png,jpg',
+//         'email' => 'required|string|email|max:50|unique:users,email',
+//         'password' => 'required|string|min:6|confirmed',
+//     ],[
+//         'username.required' => 'Username wajib diisi.',
+//         'username.string' => 'Username harus berupa teks.',
+//         'username.max' => 'Username harus memiliki panjang maksimal :max karakter.',
+//         'username.unique' => 'Username harus unik',
+//         'nik.required' => 'NIK wajib diisi.',
+//         'nik.string' => 'NIK harus berupa teks.',
+//         'nik.min' => 'NIK harus memiliki panjang minimal :min karakter.',
+//         'nik.max' => 'NIK harus memiliki panjang maksimal :max karakter.',
+//         'role.required' => 'Role wajib diisi.',
+//         'role.string' => 'Role harus berupa teks.',
+//         'role.max' => 'Role harus memiliki panjang maksimal :max karakter.',
+//         'foto_profil.required' => 'Foto profil wajib diisi.',
+//         'foto_profil.image' => 'Foto profil harus berupa gambar.',
+//         'foto_profil.mimes' => 'Foto profil harus berupa JPEG, PNG, JPG, GIV, SVG.',
+//         // 'foto_profil.max' => 'Foto profil harus berukuran maksimal :max.',
+//         'email.required' => 'Email wajib diisi.',
+//         'email.string' => 'Email harus berupa teks.',
+//         'email.max' => 'Email harus memiliki panjang maksimal :max karakter.',
+//         'password.required' => 'password wajib diisi.',
+//         'password.string' => 'password harus berupa teks.',
+//         'password.min' => 'password harus memiliki panjang minimal :min.', 
+//     ]);
+
+//     // Debugging: Check if the file is being received
+//     if ($request->hasFile('foto_profil')) {
+//         $foto_profil = $request->file('foto_profil');
+//         $foto_profil_ext = $foto_profil->getClientOriginalExtension();
+//         $foto_profil_filename = $validated['username'] . date('ymdhis') . "." . $foto_profil_ext;
+
+//         // Debugging: Check the file extension and type
+//         logger()->info('Received file extension: ' . $foto_profil_ext);
+//         logger()->info('Received file MIME type: ' . $foto_profil->getMimeType());
+
+//         try {
+//             // Store the file
+//             $foto_profil->move(public_path('Foto Users'), $foto_profil_filename);
+
+//             // Create the user record
+//             Users::create([
+//                 'username' => $validated['username'],
+//                 'nik' => $validated['nik'],
+//                 'role' => $validated['role'],
+//                 'foto_profil' => $foto_profil_filename,
+//                 'email' => $validated['email'],
+//                 'password' => Hash::make($validated['password']),
+//             ]);
+
+//             Alert::success('Registrasi Berhasil', 'Akun Anda telah berhasil dibuat!');
+//             return redirect()->back()->with('success', 'Data User berhasil ditambahkan!');
+//         } catch(\Exception $e) {
+//             Alert::error('Error', $e->getMessage());
+//             return redirect()->back();
+//         }
+//     } else {
+//         return redirect()->back()->with('error', 'Foto profil tidak ditemukan.');
+//     }
+// }
+
 
     // public function edit(Users $users)
     // {
@@ -89,11 +155,11 @@ class UsersController extends Controller
 
         // Validasi input
         $validated = $request->validate([
-            'username' => 'required|string|max:20|unique:users,username,' . $users->getKey(),
+            'username' => 'required|string|max:20|unique:users,username,' . $users->id_user,
             'nik' => 'required|string|min:15|max:17',
             'role' => 'required|string|max:20',
             'foto_profil' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // 'image' untuk validasi file gambar
-            'email' => 'required|string|email|max:50|unique:users,email,',
+            'email' => 'required|string|email|max:50|unique:users,email,' .$users->id_user,
             //'foto_profil' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // 'image' untuk validasi file gambar
             //'email' => 'required|string|email|max:50|unique:users,email,' . $users->id,
             'password' => 'nullable|string|min:6|confirmed',

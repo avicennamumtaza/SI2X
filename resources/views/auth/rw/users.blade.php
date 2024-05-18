@@ -36,6 +36,11 @@
                                 placeholder="Masukkan Email" required>
                         </div>
                         <div class="form-group mb-3">
+                            <label class="custom-file-label mb-2" for="foto_profil">Foto Profil</label>
+                            <input type="file" class="form-control" id="foto_profil" name="foto_profil"
+                                placeholder="Masukkan Foto Profil" required>
+                        </div>
+                        <div class="form-group mb-3">
                             <label for="password">Password</label>
                             <input type="password" class="form-control" id="password" name="password"
                                 placeholder="Masukkan Password" required>
@@ -86,6 +91,10 @@
                         <div class="form-group mb-3">
                             <label for="email" class="form-label text-start">Email</label>
                             <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="custom-file-label mb-2" for="foto_profil">Foto Profil</label>
+                            <input type="file" class="form-control" id="foto_profil" name="foto_profil">
                         </div>
                         <div class="form-group mb-3">
                             <label for="password" class="form-label text-start">Password (Leave blank to not
