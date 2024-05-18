@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\DataTables\PendudukDataTable;
 use App\Enums\GolDar as GolDar;
+use App\Enums\Pekerjaan as Pekerjaan;
 use App\Models\Keluarga;
 use App\Models\Penduduk;
 use App\Models\Rt;
@@ -18,6 +19,7 @@ class PendudukController extends Controller
         $no_rts = Rt::pluck('no_rt');
         $nkks = Keluarga::pluck('nkk');
         $goldar = GolDar::cases();
+        $pekerjaans = Pekerjaan::cases();
         return $dataTable->render('auth.rw.penduduk', compact('no_rts', 'nkks', 'goldar', 'pekerjaans'));
         // return $dataTable->render('auth.rw.penduduk', ['goldar' => GolDar::cases()]);
     }

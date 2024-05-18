@@ -94,6 +94,7 @@
                                 @foreach ($pekerjaans as $pekerjaan)
                                     <option value={{ $pekerjaan->value }}>{{ $pekerjaan->name }}</option>
                                 @endforeach
+                            </select>
                         </div>
 
                         <div class="form-group mb-3">
@@ -202,7 +203,12 @@
 
                         <div class="form-group mb-3">
                             <label for="pekerjaan" class="form-label text-start">Pekerjaan</label>
-                            <input type="text" class="form-control" id="pekerjaan" name="pekerjaan" required>
+                            <select class="form-select" id="pekerjaan" name="pekerjaan" required>
+                                <option value="" selected disabled>Pilih Pekerjaan</option>
+                                @foreach ($pekerjaans as $pekerjaan)
+                                    <option value={{ $pekerjaan->value }}>{{ $pekerjaan->name }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="form-group mb-3">
