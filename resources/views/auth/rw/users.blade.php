@@ -69,7 +69,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body justify-content-start text-start">
-                    <form id="editUsersForm" method="POST">
+                    <form id="editUsersForm" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="form-group mb-3">
@@ -97,8 +97,7 @@
                             <input type="file" class="form-control" id="foto_profil" name="foto_profil">
                         </div>
                         <div class="form-group mb-3">
-                            <label for="password" class="form-label text-start">Password (Leave blank to not
-                                change)</label>
+                            <label for="password" class="form-label text-start">Password (Biarkan Kosong Jika Tidak Ada Perubahan)</label>
                             <input type="password" class="form-control" id="password" name="password">
                         </div>
                         <div class="form-group mb-3">
