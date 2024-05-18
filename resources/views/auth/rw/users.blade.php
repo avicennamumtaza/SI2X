@@ -145,6 +145,7 @@
                     let username = target.data('username')
                     let role = target.data('role')
                     let email = target.data('email')
+                    //let foto_profil = target.data('foto_profil')
                     let password = target.data('password')
                     let password_conformation = target.data('password_conformation')
 
@@ -152,6 +153,7 @@
                     $('#editUsersModal #username').val(username);
                     $('#editUsersModal #role').val(role);
                     $('#editUsersModal #email').val(email);
+                    //$('#editUsersModal #foto_profil').val(foto_profil);
                     $('#editUsersModal #password').val(password);
                     // $('#editUsersModal #password_c onfirmation').val(password_confirmation);
 

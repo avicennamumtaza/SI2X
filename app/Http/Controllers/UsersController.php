@@ -82,27 +82,22 @@ class UsersController extends Controller
 
         // Validasi input
         $validated = $request->validate([
-            'username' => 'required|string|max:20|unique:users,username,' . $users->id_user,
+            'username' => 'required|string|max:20',
             'nik' => 'required|string|min:15|max:17',
             'role' => 'required',
-            'foto_profil' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // 'image' untuk validasi file gambar
-            'email' => 'required|string|email|max:50|unique:users,email,' .$users->id_user,
-            //'foto_profil' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // 'image' untuk validasi file gambar
-            //'email' => 'required|string|email|max:50|unique:users,email,' . $users->id,
+            'foto_profil' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // 'image' untuk validasi file gambar
+            'email' => 'required|string|email|max:50',
             'password' => 'nullable|string|min:6|confirmed',
         ],[
             'username.required' => 'Username wajib diisi.',
             'username.string' => 'Username harus berupa teks.',
             'username.max' => 'Username harus memiliki panjang maksimal :max karakter.',
-            'username.unique' => 'Username harus unik',
             'nik.required' => 'NIK wajib diisi.',
             'nik.string' => 'NIK harus berupa teks.',
             'nik.min' => 'NIK harus memiliki panjang minimal :min karakter.',
             'nik.max' => 'NIK harus memiliki panjang maksimal :max karakter.',
             'role.required' => 'Role wajib diisi.',
-            //'role.string' => 'Role harus berupa teks.',
-            //'role.max' => 'Role harus memiliki panjang maksimal :max karakter.',
-            'foto_profil.required' => 'Foto profil wajib diisi.',
+            //'foto_profil.required' => 'Foto profil wajib diisi.',
             'foto_profil.image' => 'Foto profil harus berupa gambar.',
             'foto_profil.mimes' => 'Foto profil harus berupa JPEG, PNG, JPG, GIV, SVG.',
             'foto_profil.max' => 'Foto profil harus berukuran maksimal :max.',
@@ -114,14 +109,31 @@ class UsersController extends Controller
             'password.min' => 'password harus memiliki panjang minimal :min.', 
         ]);
         
+        // Mendapatkan file foto baru yang diunggah
+        $foto_profil = $request->file('foto_profil');
 
+        // Cek apakah ada file foto baru yang diunggah
+        if ($foto_profil) {
+        // Hapus foto profil yang saat ini tersimpan di server
+        $this->hapusFotoProfil($users);
+
+        // Menyimpan foto baru yang diunggah
+        $foto_profil_ext = $foto_profil->getClientOriginalExtension();
+        $foto_profil_filename = $validated['username'] . date('ymdhis') . "." . $foto_profil_ext;
+        $foto_profil->move(public_path('Foto Users'), $foto_profil_filename);
+
+        // Update data pengguna dengan nama file foto baru
+        $users->update([
+            'foto_profil' => $foto_profil_filename,
+        ]);
+    }
         // Update user
         try {
             $users->update([
                 'username' => $validated['username'],
                 'nik' => $validated['nik'],
                 'role' => $validated['role'],
-                'foto_profil' => $validated['foto_profil'],
+                //'foto_profil' => $foto_profil_filename,
                 'email' => $validated['email'],
             ]);
 
@@ -130,13 +142,22 @@ class UsersController extends Controller
                 $users->password = Hash::make($validated['password']);
                 $users->save();
             }
-
+            Alert::success('Perubahan data Berhasil', 'Akun Anda telah berhasil diubah!');
+            //$foto_profil->move(public_path('Foto Users'), $foto_profil_filename);
             return redirect()->route('users.manage')->with('success', 'Data user berhasil diperbarui!');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Update gagal: ' . $e->getMessage());
         }
     }
     
+    private function hapusFotoProfil($users)
+    {
+        $foto_profil_path = public_path('Foto Users') . '/' . $users->foto_profil;
+        if (File::exists($foto_profil_path)) {
+            File::delete($foto_profil_path);
+        }
+    }
+
     public function destroy($id)
     {
         $user = Users::findOrFail($id);
@@ -145,6 +166,7 @@ class UsersController extends Controller
         return redirect()->back()->with('success', 'Data berhasil dihapus!');
     }
 
+    
     public function profil() {
         $user = auth()->user();
         return view('auth.rw.profil', compact('user'));

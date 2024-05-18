@@ -94,6 +94,7 @@ class UsersDataTable extends DataTable
             Column::make('username')->title('Username'),
             Column::make('role')->title('Role'),
             Column::make('email')->title('Email'),
+            //Column::make('foto_profil')->title('Foto Profil'),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
