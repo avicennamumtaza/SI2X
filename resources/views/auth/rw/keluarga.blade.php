@@ -36,7 +36,7 @@
                 </div>
                 <div class="modal-footer justify-content-end">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal" title="Batal">Batal</button>
-                    <button type="submit" class="btn btn-success" title="Submit">Submit</button>
+                    <button type="submit" class="btn btn-success" title="Kirim">Kirim</button>
                 </div>
                 </form>
             </div>

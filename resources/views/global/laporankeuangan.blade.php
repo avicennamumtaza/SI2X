@@ -49,7 +49,7 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>No.</th>
+                                <th>Nomor</th>
                                 <th>Jenis Laporan</th>
                                 <th>Nominal</th>
                                 <th>Detail</th>

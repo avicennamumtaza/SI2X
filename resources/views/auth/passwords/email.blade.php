@@ -5,7 +5,7 @@
         <a href="{{ route('login') }}">
             <i class="bi bi-arrow-left"></i>
         </a>
-        <h2>Forgot Password</h2>
+        <h2>Lupa Password</h2>
     </div>
 
     <img class="sirw_icon" src="{{ asset('assets/Logo.png') }}" alt="">
@@ -31,7 +31,7 @@
                 required autocomplete="email" autofocus>
 
             <button type="submit" class="btn btn-primary">
-                Send Link
+                Kirim Link
             </button>
 
         </form>

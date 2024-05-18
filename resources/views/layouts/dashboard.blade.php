@@ -24,7 +24,7 @@
                                             <i class="bi bi-house text-info fa-3x"></i>
                                         </div>
                                         <div class="mx-4">
-                                            <h4>Total Posts</h4>
+                                            <h4>Total Postingan</h4>
                                             <p class="mb-0">Monthly blog posts</p>
                                         </div>
                                     </div>
@@ -44,7 +44,7 @@
                                             <i class="bi bi-house text-warning fa-3x"></i>
                                         </div>
                                         <div class="mx-4">
-                                            <h4>Total Comments</h4>
+                                            <h4>Total Komentar</h4>
                                             <p class="mb-0">Monthly blog posts</p>
                                         </div>
                                     </div>

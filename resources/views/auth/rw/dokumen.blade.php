@@ -24,7 +24,7 @@
                         </div>
                         <div class="modal-footer justify-content-end">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                            <button type="submit" class="btn btn-success">Submit</button>
+                            <button type="submit" class="btn btn-success">Kirim</button>
                         </div>
                     </form>
                 </div>

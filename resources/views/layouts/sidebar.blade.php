@@ -145,7 +145,7 @@
                     <li class="sidebar-item {{ \Route::is('users') ? 'active' : '' }}">
                         <a href="{{ route('users.manage') }}" class="sidebar-link">
                             <i class="bi bi-people-fill"></i>
-                            <span>Kelola Users</span>
+                            <span>Kelola Pengguna</span>
                         </a>
                     </li>
                     @endcan

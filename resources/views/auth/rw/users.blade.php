@@ -6,7 +6,7 @@
         <div class="modal-dialog modal-md">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Tambah Users</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Tambah Pengguna</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body justify-content-start text-start">
@@ -18,14 +18,14 @@
                                 placeholder="Masukkan NIK" required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="username">Username</label>
+                            <label for="username">Nama Pengguna</label>
                             <input type="text" class="form-control" id="username" name="username"
                                 placeholder="Masukkan Username" required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="role" class="form-label text-start">Role</label>
+                            <label for="role" class="form-label text-start">Peran</label>
                             <select class="form-select" id="role" name="role" required>
-                                <option value="" selected disabled>Pilih Role</option>
+                                <option value="" selected disabled>Pilih Peran</option>
                                 <option value="Rt">RT</option>
                                 <option value="Rw">RW</option>
                             </select>
@@ -46,13 +46,13 @@
                                 placeholder="Masukkan Password" required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="password_confirmation">Confirm Password</label>
+                            <label for="password_confirmation">Konfirmasi Password</label>
                             <input type="password" class="form-control" id="password_confirmation"
                                 name="password_confirmation" placeholder="Konfirmasi Password" required>
                         </div>
                         <div class="modal-footer justify-content-end">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                            <button type="submit" class="btn btn-success">Submit</button>
+                            <button type="submit" class="btn btn-success">Kirim</button>
                         </div>
                     </form>
                 </div>
@@ -81,9 +81,9 @@
                             <input type="text" class="form-control" id="username" name="username" required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="role" class="form-label text-start">Role</label>
+                            <label for="role" class="form-label text-start">Peran</label>
                             <select class="form-select" id="role" name="role" required>
-                                <option value="" selected disabled>Pilih Role</option>
+                                <option value="" selected disabled>Pilih Peran</option>
                                 <option value="Rt">RT</option>
                                 <option value="Rw">RW</option>
                             </select>
@@ -93,15 +93,11 @@
                             <input type="email" class="form-control" id="email" name="email" required>
                         </div>
                         <div class="form-group mb-3">
-                            <label class="custom-file-label mb-2" for="foto_profil">Foto Profil</label>
-                            <input type="file" class="form-control" id="foto_profil" name="foto_profil">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="password" class="form-label text-start">Password (Biarkan Kosong Jika Tidak Ada Perubahan)</label>
+                            <label for="password" class="form-label text-start">Password (Biarkan kosong jika tidak diubah)</label>
                             <input type="password" class="form-control" id="password" name="password">
                         </div>
                         <div class="form-group mb-3">
-                            <label for="password_confirmation" class="form-label text-start">Confirm Password</label>
+                            <label for="password_confirmation" class="form-label text-start">Konfirmasi Password</label>
                             <input type="password" class="form-control" id="password_confirmation"
                                 name="password_confirmation">
                         </div>

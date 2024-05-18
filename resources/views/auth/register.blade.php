@@ -50,7 +50,7 @@
                                     <select id="role" class="form-control @error('role') is-invalid @enderror" name="role" required autofocus>
                                         <option value="Rt" {{ old('role') == 'Rt' ? 'selected' : '' }}>Rt</option>
                                         <option value="Rw" {{ old('role') == 'Rw' ? 'selected' : '' }}>Rw</option>
-                                        <option value="Staf" {{ old('role') == 'Staf' ? 'selected' : '' }}>Staf</option>
+                                        {{-- <option value="Staf" {{ old('role') == 'Staf' ? 'selected' : '' }}>Staf</option> --}}
                                     </select>
                                     @error('role')
                                         <span class="invalid-feedback" role="alert">

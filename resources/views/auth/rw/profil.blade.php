@@ -20,12 +20,12 @@
                                 value="{{ $user->nik }}" required readonly>
                         </div>
                         <div class="form-group mb-3" style="display: none;">
-                            <label for="username" class="form-label text-start">Username</label>
+                            <label for="username" class="form-label text-start">Nama Pengguna</label>
                             <input type="text" class="form-control" id="username"
                                 value="{{ $user->username }}" name="username" required>
                         </div>
                         <div class="form-group mb-3" style="display: none;">
-                            <label for="role" class="form-label text-start">Role</label>
+                            <label for="role" class="form-label text-start">Peran</label>
                             <input type="text" class="form-control" id="role"
                                 value="{{ $user->role }}" name="role" required readonly>
                         </div>
@@ -35,12 +35,11 @@
                                 value="{{ $user->email }}" name="email" required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="password" class="form-label text-start">Password (Leave blank to not
-                                change)</label>
+                            <label for="password" class="form-label text-start">Password (Biarkan kosong jika tidak diubah)</label>
                             <input type="password" class="form-control" id="password" name="password">
                         </div>
                         <div class="form-group mb-3">
-                            <label for="password_confirmation" class="form-label text-start">Confirm Password</label>
+                            <label for="password_confirmation" class="form-label text-start">Konfirmasi Password</label>
                             <input type="password" class="form-control" id="password_confirmation"
                                 name="password_confirmation">
                         </div>
@@ -84,12 +83,12 @@
                                             value="{{ $user->nik }}" required readonly>
                                     </div>
                                     <div class="form-group mb-3" style="display: none;">
-                                        <label for="username" class="form-label text-start">Username</label>
+                                        <label for="username" class="form-label text-start">Nama Pengguna</label>
                                         <input type="text" class="form-control" id="username"
                                             value="{{ $user->username }}" name="username" required>
                                     </div>
                                     <div class="form-group mb-3">
-                                        <label for="role" class="form-label text-start">Role</label>
+                                        <label for="role" class="form-label text-start">Peran</label>
                                         <input type="text" class="form-control" id="role"
                                             value="{{ $user->role }}" name="role" required readonly>
                                     </div>

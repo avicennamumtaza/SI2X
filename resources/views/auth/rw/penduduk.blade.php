@@ -89,8 +89,11 @@
 
                         <div class="form-group mb-3">
                             <label for="pekerjaan" class="form-label text-start">Pekerjaan</label>
-                            <input type="text" class="form-control" id="pekerjaan" name="pekerjaan"
-                                placeholder="Masukkan Pekerjaan" required>
+                            <select class="form-select" id="pekerjaan" name="pekerjaan" required>
+                                <option value="" selected disabled>Pilih Pekerjaan</option>
+                                @foreach ($pekerjaans as $pekerjaan)
+                                    <option value={{ $pekerjaan->value }}>{{ $pekerjaan->name }}</option>
+                                @endforeach
                         </div>
 
                         <div class="form-group mb-3">
@@ -109,7 +112,7 @@
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="status_pernikahan" class="form-label text-start">Status Menikah</label>
+                            <label for="status_pernikahan" class="form-label text-start">Status Pernikahan</label>
                             <select class="form-select" id="status_pernikahan" name="status_pernikahan" required>
                                 <option value="" selected disabled>Pilih Status Menikah</option>
                                 <option value="1">Menikah</option>
@@ -118,9 +121,9 @@
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="status_domisili" class="form-label text-start">Status Domisili</label>
+                            <label for="status_domisili" class="form-label text-start">Status Pendatang</label>
                             <select class="form-select" id="status_domisili" name="status_domisili" required>
-                                <option value="" selected disabled>Pilih Status Domisili</option>
+                                <option value="" selected disabled>Pilih Status Pendatang</option>
                                 <option value="0">Domisili</option>
                                 <option value="1">Non Domisili</option>
                             </select>
@@ -130,7 +133,7 @@
                 </div>
                 <div class="modal-footer justify-content-end">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" class="btn btn-success">Kirim</button>
                 </div>
                 </form>
             </div>
@@ -154,7 +157,7 @@
                         @csrf
                         <!-- Tambahkan input form sesuai kebutuhan -->
                         <div class="form-group mb-3">
-                            <label for="nik" class="form-label text-start">Nik</label>
+                            <label for="nik" class="form-label text-start">NIK</label>
                             <input type="text" class="form-control" id="nik" name="nik" required>
                         </div>
 
@@ -218,18 +221,18 @@
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="status_pernikahan" class="form-label text-start">Status Menikah</label>
+                            <label for="status_pernikahan" class="form-label text-start">Status Pernikahan</label>
                             <select class="form-select" id="status_pernikahan" name="status_pernikahan" required>
-                                <option value="" selected disabled>Pilih Status Menikah</option>
+                                <option value="" selected disabled>Pilih Status Pernikahan</option>
                                 <option value="1">Menikah</option>
                                 <option value="0">Belum Menikah</option>
                             </select>
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="status_domisili" class="form-label text-start">Status Domisili</label>
+                            <label for="status_domisili" class="form-label text-start">Status Pendatang</label>
                             <select type="text" class="form-select" id="status_domisili" name="status_domisili" required>
-                                <option value="" selected disabled>Pilih Status Domisili</option>
+                                <option value="" selected disabled>Pilih Status Pendatang</option>
                                 <option value="0">Domisili</option>
                                 <option value="1">Non Domisili</option>
                             </select>

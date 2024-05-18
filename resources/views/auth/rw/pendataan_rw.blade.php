@@ -29,11 +29,18 @@
                                 placeholder="Masukkan NIK RW" required>
                         </div>
 
+                        
+                        <div class="form-group mb-3">
+                            <label for="wa_rw" class="form-label text-start">Nomor WhatsApp RW</label>
+                            <input type="text" class="form-control" id="wa_rw" name="wa_rw"
+                                placeholder="Masukkan Nomor WhatsApp RT" required>
+                        </div>
+
                         <!-- Tambahkan input lainnya sesuai kebutuhan -->
                 </div>
                 <div class="modal-footer justify-content-end">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" class="btn btn-success">Kirim</button>
                 </div>
                 </form>
             </div>

@@ -18,7 +18,7 @@ class PendudukController extends Controller
         $no_rts = Rt::pluck('no_rt');
         $nkks = Keluarga::pluck('nkk');
         $goldar = GolDar::cases();
-        return $dataTable->render('auth.rw.penduduk', compact('no_rts', 'nkks', 'goldar'));
+        return $dataTable->render('auth.rw.penduduk', compact('no_rts', 'nkks', 'goldar', 'pekerjaans'));
         // return $dataTable->render('auth.rw.penduduk', ['goldar' => GolDar::cases()]);
     }
     public function store(Request $request)

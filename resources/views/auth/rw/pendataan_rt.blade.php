@@ -30,7 +30,7 @@
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="wa_rt" class="form-label text-start">Nomor WA RT</label>
+                            <label for="wa_rt" class="form-label text-start">Nomor WhatsApp RT</label>
                             <input type="text" class="form-control" id="wa_rt" name="wa_rt"
                                 placeholder="Masukkan Nomor WA RT" required>
                         </div>
@@ -39,14 +39,14 @@
                 </div>
                 <div class="modal-footer justify-content-end">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" class="btn btn-success">Kirim</button>
                 </div>
                 </form>
             </div>
         </div>
     </div>
 
-    {{-- {{-- Edit Pengumuman --}}
+    {{-- {{-- Edit RT --}}
     <div class="modal fade" id="editRtModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-md">
             <div class="modal-content">
@@ -73,7 +73,7 @@
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="wa_rt" class="form-label">Nomor WA RT</label>
+                            <label for="wa_rt" class="form-label">Nomor WhatsApp RT</label>
                             <input type="text" class="form-control" id="wa_rt" name="wa_rt" required>
                         </div>
 

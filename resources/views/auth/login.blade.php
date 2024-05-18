@@ -5,7 +5,7 @@
         <a href="#">
             <i class="bi bi-arrow-left"></i>
         </a>
-        <h2>Login</h2>
+        <h2>Masuk</h2>
     </div>
     <img class="sirw_icon" src="{{ asset('assets/Logo.png') }}" alt="">
 
@@ -31,13 +31,13 @@
             autocomplete="current-password">
 
         @if (Route::has('password.request'))
-            <a class="btn btn-link" href="{{ route('password.request') }}">
-                Forgot Your Password?
+            <a class="btn btn-link" title="Klik jika lupa password." href="{{ route('password.request') }}">
+                Lupa Password?
             </a>
         @endif
 
-        <button type="submit" class="btn btn-primary">
-            Login
+        <button type="submit" class="btn btn-primary" title="Login">
+            Masuk
         </button>
 
     </form>
