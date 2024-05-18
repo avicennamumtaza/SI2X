@@ -72,7 +72,7 @@ class UmkmDataTable extends DataTable
             ->parameters([
                 'language' => [
                     'search' => '', // Menghilangkan teks "Search:"
-                    'searchPlaceholder' => 'Cari Pengumuman', // Placeholder untuk kolom pencarian
+                    'searchPlaceholder' => 'Cari Data UMKM', // Placeholder untuk kolom pencarian
                     'paginate' => [
                         'previous' => 'Kembali', // Mengubah teks "Previous"
                         'next' => 'Lanjut', // Mengubah teks "Next"
