@@ -8,6 +8,7 @@ use App\Http\Controllers\PendudukController;
 use App\Http\Controllers\PengajuanDokumenController;
 use App\Http\Controllers\UmkmController;
 use App\Http\Controllers\PengumumanController;
+use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\RWController;
 use App\Http\Controllers\RTController;
 use App\Http\Controllers\UsersController;
@@ -88,7 +89,7 @@ Route::prefix('manage')->group(function(){
         Route::get('/edit/{pengajuandokumen}', [PengajuanDokumenController::class, 'edit'])->name('pengajuandokumen.edit')->middleware('isRt');
         Route::put('/update/{pengajuandokumen}', [PengajuanDokumenController::class, 'update'])->name('pengajuandokumen.update')->middleware('isRt');
         Route::delete('/{pengajuandokumen}', [PengajuanDokumenController::class, 'destroy'])->name('pengajuandokumen.destroy')->middleware('isRt');
-});
+    });
 
     // manage laporan keuangan
     Route::prefix('laporankeuangan')->group(function() {
@@ -154,6 +155,7 @@ Route::prefix('manage')->group(function(){
         Route::put('/update/{users}', [UsersController::class, 'update'])->name('users.update')->middleware('isRw');
         Route::delete('/{users}', [UsersController::class, 'destroy'])->name('users.destroy')->middleware('isRw');
     });
+
 });
 
 //dokumen
@@ -168,7 +170,7 @@ Route::prefix('dokumen')->group(function(){
 
 
 Route::prefix('profil')->group(function() {
-    Route::get('/', [UsersController::class, 'profil'])->name('profil.manage')->middleware('auth');
-    Route::put('/update/{users}', [UsersController::class, 'updateProfil'])->name('profil.update')->middleware('auth');
-    // Route::put('/{user}/change_password', [UsersController::class, 'changePassword'])->name('profil.password');
+    Route::get('/', [ProfilController::class, 'profil'])->name('profil.manage')->middleware('auth');
+    Route::put('/update/{users}', [ProfilController::class, 'updateProfil'])->name('profil.update')->middleware('auth');
+    // Route::put('/{user}/change_password', [ProfilController::class, 'changePassword'])->name('profil.password');
 });
