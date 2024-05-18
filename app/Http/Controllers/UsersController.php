@@ -86,7 +86,7 @@ class UsersController extends Controller
             'nik' => 'required|string|min:15|max:17',
             'role' => 'required',
             'foto_profil' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // 'image' untuk validasi file gambar
-            'email' => 'required|string|email|max:50',
+            'email' => 'nullable|string|email|max:50',
             'password' => 'nullable|string|min:6|confirmed',
         ],[
             'username.required' => 'Username wajib diisi.',
@@ -101,7 +101,7 @@ class UsersController extends Controller
             'foto_profil.image' => 'Foto profil harus berupa gambar.',
             'foto_profil.mimes' => 'Foto profil harus berupa JPEG, PNG, JPG, GIV, SVG.',
             'foto_profil.max' => 'Foto profil harus berukuran maksimal :max.',
-            'email.required' => 'Email wajib diisi.',
+            //'email.required' => 'Email wajib diisi.',
             'email.string' => 'Email harus berupa teks.',
             'email.max' => 'Email harus memiliki panjang maksimal :max karakter.',
             'password.required' => 'password wajib diisi.',
@@ -134,7 +134,7 @@ class UsersController extends Controller
                 'nik' => $validated['nik'],
                 'role' => $validated['role'],
                 //'foto_profil' => $foto_profil_filename,
-                'email' => $validated['email'],
+                //'email' => $validated['email'],
             ]);
 
             // Hanya update password jika field tersebut diisi
@@ -167,55 +167,5 @@ class UsersController extends Controller
     }
 
     
-    public function profil() {
-        $user = auth()->user();
-        return view('auth.rw.profil', compact('user'));
-    }
-    
-    public function updateProfil(Request $request, Users $users)
-    {
 
-        // Validasi input
-        $validated = $request->validate([
-            'username' => 'required|string|max:20',
-            'nik' => 'required|string|min:15|max:17',
-            'email' => 'required|string|email|max:50',
-            'password' => 'nullable|string|min:6|confirmed',
-            //'password' => 'nullable|string|min:6|confirmed'
-        ]);     
-
-        // Update user
-        try {
-            $users->update([
-                'username' => $validated['username'],
-                'foto_profil' => $validated['foto_profil'],
-                'email' => $validated['email'],
-            ]);
-
-            // Hanya update password jika field tersebut diisi
-            if (!empty($validated['password'])) {
-                $users->password = Hash::make($validated['password']);
-                $users->save();
-            }
-
-            return redirect()->back()->with('success', 'User berhasil diupdate!');
-        } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Update gagal: ' . $e->getMessage());
-        }
-    }
-    
-    public function changePassword(Request $request, Users $user)
-    {
-        // Validasi request
-        $request->validate([
-            'new_password' => 'required|min:8|confirmed', // Konfirmasi password baru
-        ]);
-
-        // Setel password baru
-        $user->password = Hash::make($request->new_password);
-        $user->save();
-
-        // Redirect kembali ke halaman profil dengan pesan sukses
-        return redirect()->route('profil')->with('success', 'Password berhasil diubah.');
-    }
 }
