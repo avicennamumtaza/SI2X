@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\DataTables\PendudukDataTable;
 use App\Enums\GolDar as GolDar;
+use App\Enums\StatusPernikahan as StatusPernikahan;
+use App\Enums\JenisKelamin as JenisKelamin;
+use App\Enums\Agama as Agama;
 use App\Enums\Pekerjaan as Pekerjaan;
+use App\Enums\Pendidikan as Pendidikan;
 use App\Models\Keluarga;
 use App\Models\Penduduk;
 use App\Models\Rt;
@@ -19,8 +23,13 @@ class PendudukController extends Controller
         $no_rts = Rt::pluck('no_rt');
         $nkks = Keluarga::pluck('nkk');
         $goldar = GolDar::cases();
+        $sp = StatusPernikahan::cases();
+        $agama = Agama::cases();
+        $jk = JenisKelamin::cases();
         $pekerjaans = Pekerjaan::cases();
-        return $dataTable->render('auth.rw.penduduk', compact('no_rts', 'nkks', 'goldar', 'pekerjaans'));
+        $pendidikans = Pendidikan::cases();
+        
+        return $dataTable->render('auth.rw.penduduk', compact('no_rts', 'nkks', 'goldar', 'pekerjaans', 'pendidikans', 'sp','jk','agama'));
         // return $dataTable->render('auth.rw.penduduk', ['goldar' => GolDar::cases()]);
     }
     public function store(Request $request)
@@ -34,13 +43,13 @@ class PendudukController extends Controller
             'tempat_lahir' => 'required|string|min:2|max:49',
             'tanggal_lahir' => 'required|date',
             'alamat' => 'required|string|min:5',
-            'jenis_kelamin' => 'required|string|max:1',
-            'agama' => 'required|string|max:10',
-            'pendidikan' => 'required|string|max:28',
-            'pekerjaan' => 'required|string|min:2|max:30',
+            'jenis_kelamin' => [Rule::enum(JenisKelamin::class)],
+            'agama' => [Rule::enum(Agama::class)],
+            'pendidikan' => [Rule::enum(Pendidikan::class)],
+            'pekerjaan' => [Rule::enum(Pekerjaan::class)],
             // 'golongan_darah' => 'required|string|max:2',
             'golongan_darah' =>  [Rule::enum(GolDar::class)],
-            'status_pernikahan' => 'required|max:12',
+            'status_pernikahan' => [Rule::enum(StatusPernikahan::class)],
             'status_pendatang' => 'required',
             // Tambahkan validasi untuk input lainnya jika diperlukan
         ]);
@@ -84,13 +93,13 @@ class PendudukController extends Controller
             'tempat_lahir' => 'required|string|min:2|max:49',
             'tanggal_lahir' => 'required|date',
             'alamat' => 'required|string|min:5',
-            'jenis_kelamin' => 'required|string|max:1',
-            'agama' => 'required|string|max:10',
-            'pendidikan' => 'required|string|max:28',
-            'pekerjaan' => 'required|string|min:2|max:30',
+            'jenis_kelamin' => [Rule::enum(JenisKelamin::class)],
+            'agama' => [Rule::enum(Agama::class)],
+            'pendidikan' => [Rule::enum(Pendidikan::class)],
+            'pekerjaan' => [Rule::enum(Pekerjaan::class)],
             // 'golongan_darah' => 'required|string|max:2',
             'golongan_darah' =>  [Rule::enum(GolDar::class)],
-            'status_pernikahan' => 'required|max:12',
+            'status_pernikahan' => [Rule::enum(StatusPernikahan::class)],
             'status_pendatang' => 'required',
         ]);
 
