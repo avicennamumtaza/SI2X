@@ -69,37 +69,53 @@
                             <label for="jenis_kelamin" class="form-label text-start">Jenis Kelamin</label>
                             <select class="form-select" id="jenis_kelamin" name="jenis_kelamin" required>
                                 <option value="" selected disabled>Pilih Jenis Kelamin</option>
-                                <option value="L">Laki-laki</option>
-                                <option value="P">Perempuan</option>
+                                @foreach ($jk as $jenisKelamin)
+                                    <option value={{ $jenisKelamin->name }}>{{ $jenisKelamin->value }}</option>
+                                @endforeach
                             </select>
                         </div>
 
+                
                         <div class="form-group mb-3">
                             <label for="agama" class="form-label text-start">Agama</label>
-                            <select class="form-select" id="jenis_kelamin" name="jenis_kelamin" required>
+                            <select class="form-select" id="agama" name="agama" required>
                                 <option value="" selected disabled>Pilih Agama</option>
-                                <option value="Islam">Islam</option>
-                                <option value="Kristen">Kristen</option>
-                                <option value="Katolik">Katolik</option>
-                                <option value="Hindu">Hindu</option>
-                                <option value="Buddha">Buddha</option>
-                                <option value="Konghucu">Konghucu</option>
+                                @foreach ($agama as $agama)
+                                    <option value={{ $agama->name }}>{{ $agama->value }}</option>
+                                @endforeach
                             </select>
                         </div>
+
+
 
                         <div class="form-group mb-3">
                             <label for="pekerjaan" class="form-label text-start">Pekerjaan</label>
                             <select class="form-select" id="pekerjaan" name="pekerjaan" required>
                                 <option value="" selected disabled>Pilih Pekerjaan</option>
                                 @foreach ($pekerjaans as $pekerjaan)
-                                    <option value={{ $pekerjaan->value }}>{{ $pekerjaan->name }}</option>
+                                    <option value={{ $pekerjaan->name }}>{{ $pekerjaan->value }}</option>
                                 @endforeach
                             </select>
                         </div>
 
+                        {{-- <div class="form-group mb-3">
+                            <label for="pekerjaan" class="form-label text-start">Pekerjaan</label>
+                            <input list="pekerjaan-list" class="form-control" id="pekerjaan" name="pekerjaan" required placeholder="Pilih atau ketik pekerjaan">
+                            <datalist id="pekerjaan-list">
+                                @foreach ($pekerjaans as $pekerjaan)
+                                    <option value="{{ $pekerjaan->name }}">{{ $pekerjaan->value }}</option>
+                                @endforeach
+                            </datalist>
+                        </div> --}}
+
                         <div class="form-group mb-3">
                             <label for="pendidikan" class="form-label text-start">Pendidikan</label>
-                            <input type="text" class="form-control" id="pendidikan" name="pendidikan" required placeholder="Masukkan Pendidikan">
+                            <select class="form-select" id="pendidikan" name="pendidikan" required>
+                                <option value="" selected disabled>Pilih Pendidikan</option>
+                                @foreach ($pendidikans as $pendidikan)
+                                    <option value={{ $pendidikan->name }}>{{ $pendidikan->value }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="form-group mb-3">
@@ -112,12 +128,14 @@
                             </select>
                         </div>
 
+                        
                         <div class="form-group mb-3">
-                            <label for="status_pernikahan" class="form-label text-start">Status Pernikahan</label>
+                            <label for="status_pernikahan" class="form-label text-start">Jenis Kelamin</label>
                             <select class="form-select" id="status_pernikahan" name="status_pernikahan" required>
-                                <option value="" selected disabled>Pilih Status Menikah</option>
-                                <option value="1">Menikah</option>
-                                <option value="0">Belum Menikah</option>
+                                <option value="" selected disabled>Pilih Status Pernikahan</option>
+                                @foreach ($sp as $statusPernikahan)
+                                    <option value={{ $statusPernikahan->name }}>{{ $statusPernikahan->value }}</option>
+                                @endforeach
                             </select>
                         </div>
 
@@ -237,7 +255,8 @@
 
                         <div class="form-group mb-3">
                             <label for="status_domisili" class="form-label text-start">Status Pendatang</label>
-                            <select type="text" class="form-select" id="status_domisili" name="status_domisili" required>
+                            <select type="text" class="form-select" id="status_domisili" name="status_domisili"
+                                required>
                                 <option value="" selected disabled>Pilih Status Pendatang</option>
                                 <option value="0">Domisili</option>
                                 <option value="1">Non Domisili</option>
