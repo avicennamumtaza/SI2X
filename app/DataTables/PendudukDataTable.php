@@ -40,7 +40,7 @@ class PendudukDataTable extends DataTable
                 return $row->status_domisili ? 'Pendatang' : 'Asli';
             })
             ->editColumn('golongan_darah', function ($row) {
-                return $row->golongan_darah;
+                return $row->golongan_darah->value;
             })
             // ->addColumn('umur', function ($row) {
             //     // Menghitung umur berdasarkan tanggal lahir
@@ -66,7 +66,6 @@ class PendudukDataTable extends DataTable
                 data-agama="' . $row->agama . '"
                 data-pekerjaan="' . $row->pekerjaan . '"
                 data-pendidikan="' . $row->pendidikan . '"
-                data-golongan_darah="' . $row->golongan_darah. '"
                 data-is_married="' . $row->status_pernikahan . '"
                 data-is_stranger="' . $row->status_pendatang . '"
                 data-bs-toggle="modal" data-bs-target="#editPendudukModal" class="edit-user edit btn btn-edit btn-sm">Edit</button>';
@@ -145,7 +144,7 @@ class PendudukDataTable extends DataTable
             Column::make('alamat')->width(170),
             Column::make('jenis_kelamin'),
             Column::make('pekerjaan'),
-            // Column::make('golongan_darah'),
+            Column::make('golongan_darah'),
             Column::make('status_pernikahan'),
             Column::make('status_pendatang')->title('Status'),
             Column::computed('action')
