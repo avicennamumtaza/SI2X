@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Enums\Agama;
 use App\Enums\GolDar;
 use App\Enums\JenisKelamin;
+use App\Enums\Pekerjaan;
 use App\Enums\Pendidikan;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -39,6 +40,7 @@ class Penduduk extends Model
         'jenis_kelamin' => JenisKelamin::class,
         'agama' => Agama::class,
         'pendidikan' => Pendidikan::class,
+        'pekerjaan' => Pekerjaan::class,
     ];
 
     // public function keluarga(): BelongsTo
