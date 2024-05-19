@@ -12,7 +12,7 @@ enum Pekerjaan: string
     case TNI_POLRI = 'TNI/POLRI';
     case PERDAGANGAN = 'Perdagangan';
     case PETANI_PEKEBUN = 'Petani/Pekebun';
-    case PETERNAAK = 'Peternak';
+    case PETERNAK = 'Peternak';
     case NELAYAN_PERIKANAN = 'Nelayan/Perikanan';
     case INDUSTRI = 'Industri';
     case KONSTRUKSI = 'Konstruksi';
