@@ -9,7 +9,7 @@
                 <p>Mempersembahkan solusi modern untuk kita bersama memaksimalkan optimalisasi layanan dengan pendekatan
                     yang lebih efisien melalui SIRW sebagai salah satu upaya mendorong kemajuan dan kolaborasi dalam
                     menjawab kebutuhan sehari-hari di lingkungan Rukun Warga.</p>
-                <a href="#" title="Selengkapnya">Selengkapnya</a>
+                <a href="#stats" title="Selengkapnya">Selengkapnya</a>
             </div>
         </div>
     </div>
