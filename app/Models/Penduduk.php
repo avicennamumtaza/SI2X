@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Agama;
 use App\Enums\GolDar;
 use App\Enums\JenisKelamin;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -35,6 +36,7 @@ class Penduduk extends Model
     protected $casts = [
         'golongan_darah' => GolDar::class,
         'jenis_kelamin' => JenisKelamin::class,
+        'agama' => Agama::class,
     ];
 
     // public function keluarga(): BelongsTo
