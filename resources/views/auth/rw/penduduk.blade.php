@@ -113,7 +113,7 @@
                             <select class="form-select" id="pendidikan" name="pendidikan" required>
                                 <option value="" selected disabled>Pilih Pendidikan</option>
                                 @foreach ($pendidikans as $pendidikan)
-                                    <option value={{ $pendidikan->name }}>{{ $pendidikan->value }}</option>
+                                    <option value="{{ $pendidikan->value }}">{{ $pendidikan->value }}</option>
                                 @endforeach
                             </select>
                         </div>
