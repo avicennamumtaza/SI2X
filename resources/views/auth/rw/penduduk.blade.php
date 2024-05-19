@@ -75,7 +75,7 @@
                             </select>
                         </div>
 
-                
+
                         <div class="form-group mb-3">
                             <label for="agama" class="form-label text-start">Agama</label>
                             <select class="form-select" id="agama" name="agama" required>
@@ -128,7 +128,7 @@
                             </select>
                         </div>
 
-                        
+
                         <div class="form-group mb-3">
                             <label for="status_pernikahan" class="form-label text-start">Jenis Kelamin</label>
                             <select class="form-select" id="status_pernikahan" name="status_pernikahan" required>
@@ -140,8 +140,8 @@
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="status_domisili" class="form-label text-start">Status Pendatang</label>
-                            <select class="form-select" id="status_domisili" name="status_domisili" required>
+                            <label for="status_pendatang" class="form-label text-start">Status Pendatang</label>
+                            <select class="form-select" id="status_pendatang" name="status_pendatang" required>
                                 <option value="" selected disabled>Pilih Status Pendatang</option>
                                 <option value="0">Domisili</option>
                                 <option value="1">Non Domisili</option>
