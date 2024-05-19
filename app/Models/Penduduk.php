@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Enums\Agama;
 use App\Enums\GolDar;
 use App\Enums\JenisKelamin;
+use App\Enums\Pendidikan;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -37,6 +38,7 @@ class Penduduk extends Model
         'golongan_darah' => GolDar::class,
         'jenis_kelamin' => JenisKelamin::class,
         'agama' => Agama::class,
+        'pendidikan' => Pendidikan::class,
     ];
 
     // public function keluarga(): BelongsTo

@@ -65,9 +65,7 @@ class PendudukDataTable extends DataTable
                 data-tempat_lahir="' . $row->tempat_lahir . '"
                 data-tanggal_lahir="' . $row->tanggal_lahir . '"
                 data-alamat="' . $row->alamat . '"
-                data-agama="' . $row->agama . '"
                 data-pekerjaan="' . $row->pekerjaan . '"
-                data-pendidikan="' . $row->pendidikan . '"
                 data-is_married="' . $row->status_pernikahan . '"
                 data-is_stranger="' . $row->status_pendatang . '"
                 data-bs-toggle="modal" data-bs-target="#editPendudukModal" class="edit-user edit btn btn-edit btn-sm">Edit</button>';
@@ -145,6 +143,7 @@ class PendudukDataTable extends DataTable
             // Column::make('umur'),
             Column::make('alamat')->width(170),
             Column::make('jenis_kelamin'),
+            Column::make('pendidikan'),
             Column::make('pekerjaan'),
             Column::make('golongan_darah'),
             Column::make('status_pernikahan'),
