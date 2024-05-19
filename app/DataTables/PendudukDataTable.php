@@ -27,11 +27,14 @@ class PendudukDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->setRowId('id')
+            // ->editColumn('jenis_kelamin', function ($row) {
+            //     if ($row->jenis_kelamin === 'L') {
+            //         return 'Laki-laki';
+            //     } elseif ($row->jenis_kelamin === 'P') {
+            //         return 'Perempuan';}
+            // })
             ->editColumn('jenis_kelamin', function ($row) {
-                if ($row->jenis_kelamin === 'L') {
-                    return 'Laki-laki';
-                } elseif ($row->jenis_kelamin === 'P') {
-                    return 'Perempuan';}
+                return $row->jenis_kelamin->getDescription();
             })
             ->editColumn('status_pernikahan', function ($row) {
                 return $row->status_pernikahan ? 'Menikah' : 'Belum Menikah';
@@ -62,7 +65,6 @@ class PendudukDataTable extends DataTable
                 data-tempat_lahir="' . $row->tempat_lahir . '"
                 data-tanggal_lahir="' . $row->tanggal_lahir . '"
                 data-alamat="' . $row->alamat . '"
-                data-jenis_kelamin="' . $row->jenis_kelamin . '"
                 data-agama="' . $row->agama . '"
                 data-pekerjaan="' . $row->pekerjaan . '"
                 data-pendidikan="' . $row->pendidikan . '"
