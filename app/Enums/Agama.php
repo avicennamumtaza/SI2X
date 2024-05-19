@@ -8,6 +8,6 @@ enum Agama: string
     case KRISTEN = "Kristen";
     case KATOLIK = "Katolik";
     case HINDU = "Hindu";
-    case BUDHA = "Budha";
+    case BUDDHA = "Buddha";
     case KONGHUCU = "Konghucu";
 }
