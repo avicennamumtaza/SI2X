@@ -70,7 +70,7 @@
                             <select class="form-select" id="jenis_kelamin" name="jenis_kelamin" required>
                                 <option value="" selected disabled>Pilih Jenis Kelamin</option>
                                 @foreach ($jk as $jenisKelamin)
-                                    <option value={{ $jenisKelamin->name }}>{{ $jenisKelamin->value }}</option>
+                                    <option value={{ $jenisKelamin->name }}>{{ $jenisKelamin->getDescription() }}</option>
                                 @endforeach
                             </select>
                         </div>
