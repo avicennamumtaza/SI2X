@@ -93,7 +93,7 @@
                             <select class="form-select" id="pekerjaan" name="pekerjaan" required>
                                 <option value="" selected disabled>Pilih Pekerjaan</option>
                                 @foreach ($pekerjaans as $pekerjaan)
-                                    <option value={{ $pekerjaan->value }}>{{ $pekerjaan->value }}</option>
+                                    <option value="{{ $pekerjaan->value }}">{{ $pekerjaan->value }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -134,7 +134,7 @@
                             <select class="form-select" id="status_pernikahan" name="status_pernikahan" required>
                                 <option value="" selected disabled>Pilih Status Pernikahan</option>
                                 @foreach ($sp as $statusPernikahan)
-                                    <option value={{ $statusPernikahan->value }}>{{ $statusPernikahan->value }}</option>
+                                    <option value="{{ $statusPernikahan->value }}">{{ $statusPernikahan->value }}</option>
                                 @endforeach
                             </select>
                         </div>
