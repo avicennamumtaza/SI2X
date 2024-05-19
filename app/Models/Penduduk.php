@@ -7,6 +7,7 @@ use App\Enums\GolDar;
 use App\Enums\JenisKelamin;
 use App\Enums\Pekerjaan;
 use App\Enums\Pendidikan;
+use App\Enums\StatusPernikahan;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -41,6 +42,7 @@ class Penduduk extends Model
         'agama' => Agama::class,
         'pendidikan' => Pendidikan::class,
         'pekerjaan' => Pekerjaan::class,
+        'status_pernikahan' => StatusPernikahan::class,
     ];
 
     // public function keluarga(): BelongsTo
