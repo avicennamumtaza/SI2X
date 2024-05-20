@@ -171,7 +171,12 @@
                 </li>
             </ul>
         </aside>
-        <div>
+        <div class=""
+            style="
+            min-height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            ">
             <main class="col position-relative overflow-x-hidden">
                 <div class="row justify-content-center">
                     <div class="col-lg-12 mx-4 me-1 px-lg-5 py-5">
@@ -223,7 +228,6 @@
     hamburger.addEventListener("click", function() {
         document.querySelector("#sidebar").classList.toggle("expand")
     })
-
     document.addEventListener("DOMContentLoaded", function() {
         const dropdownTriggers = document.querySelectorAll(".has-dropdown");
 
