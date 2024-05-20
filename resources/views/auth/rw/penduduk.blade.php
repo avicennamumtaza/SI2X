@@ -322,6 +322,8 @@
                     let tanggal_lahir = target.data('tanggal_lahir')
                     let alamat = target.data('alamat')
                     let jenis_kelamin = target.data('jenis_kelamin')
+                    let agama = target.data('agama')
+                    let pendidikan = target.data('pendidikan')
                     let pekerjaan = target.data('pekerjaan')
                     let golongan_darah = target.data('golongan_darah')
                     let status_pernikahan = target.data('status_pernikahan')
@@ -335,6 +337,8 @@
                     $('#editPendudukModal #tanggal_lahir').val(tanggal_lahir);
                     $('#editPendudukModal #alamat').val(alamat);
                     $('#editPendudukModal #jenis_kelamin').val(jenis_kelamin);
+                    $('#editPendudukModal #agama').val(agama);
+                    $('#editPendudukModal #pendidikan').val(pendidikan);
                     $('#editPendudukModal #pekerjaan').val(pekerjaan);
                     $('#editPendudukModal #golongan_darah').val(golongan_darah);
                     $('#editPendudukModal #status_pernikahan').val(status_pernikahan);

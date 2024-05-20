@@ -36,9 +36,9 @@ class PendudukDataTable extends DataTable
             ->editColumn('jenis_kelamin', function ($row) {
                 return $row->jenis_kelamin->getDescription();
             })
-            ->editColumn('status_pernikahan', function ($row) {
-                return $row->status_pernikahan ? 'Menikah' : 'Belum Menikah';
-            })
+            // ->editColumn('status_pernikahan', function ($row) {
+            //     return $row->status_pernikahan ? 'Menikah' : 'Belum Menikah';
+            // })
             ->editColumn('status_pendatang', function ($row) {
                 return $row->status_domisili ? 'Pendatang' : 'Asli';
             })
@@ -65,11 +65,13 @@ class PendudukDataTable extends DataTable
                 data-tempat_lahir="' . $row->tempat_lahir . '"
                 data-tanggal_lahir="' . $row->tanggal_lahir . '"
                 data-alamat="' . $row->alamat . '"
-                data-agama="' . $row->agama . '"
-                data-pekerjaan="' . $row->pekerjaan . '"
-                data-pendidikan="' . $row->pendidikan . '"
-                data-is_married="' . $row->status_pernikahan . '"
-                data-is_stranger="' . $row->status_pendatang . '"
+                data-jenis_kelamin="' . $row->jenis_kelamin->value . '"
+                data-pendidikan="' . $row->pendidikan->value . '"
+                data-agama="' . $row->agama->value . '"
+                data-pekerjaan="' . $row->pekerjaan->value . '"
+                data-golongan_darah="' . $row->golongan_darah->value . '"
+                data-status_pernikahan="' . $row->status_pernikahan->value . '"
+                data-status_pendatang="' . $row->status_pendatang . '"
                 data-bs-toggle="modal" data-bs-target="#editPendudukModal" class="edit-user edit btn btn-edit btn-sm">Edit</button>';
                 $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
                 ' . csrf_field() . '
@@ -140,11 +142,13 @@ class PendudukDataTable extends DataTable
             Column::make('nkk'),
             Column::make('no_rt'),
             Column::make('nama'),
-            // Column::make('tempat_lahir'),
+            Column::make('tempat_lahir'),
             Column::make('tanggal_lahir'),
             // Column::make('umur'),
             Column::make('alamat')->width(170),
             Column::make('jenis_kelamin'),
+            Column::make('agama'),
+            Column::make('pendidikan'),
             Column::make('pekerjaan'),
             Column::make('golongan_darah'),
             Column::make('status_pernikahan'),
