@@ -221,6 +221,16 @@
                         </div>
 
                         <div class="form-group mb-3">
+                            <label for="agama" class="form-label text-start">Agama</label>
+                            <select class="form-select" id="agama" name="agama" required>
+                                <option value="" selected disabled>Pilih Agama</option>
+                                @foreach ($agama as $agama)
+                                    <option value={{ $agama->value }}>{{ $agama->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group mb-3">
                             <label for="pekerjaan" class="form-label text-start">Pekerjaan</label>
                             <select class="form-select" id="pekerjaan" name="pekerjaan" required>
                                 <option value="" selected disabled>Pilih Pekerjaan</option>
