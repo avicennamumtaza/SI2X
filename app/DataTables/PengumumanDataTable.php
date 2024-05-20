@@ -105,7 +105,8 @@ class PengumumanDataTable extends DataTable
                 ->exportable(false)
                 ->printable(false)
                 ->width(141)
-                ->addClass('text-center'),
+                ->addClass('text-center')
+                ->title('Aksi'),
         ];
     }
 

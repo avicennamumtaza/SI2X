@@ -138,9 +138,9 @@ class PendudukDataTable extends DataTable
             //     ->printable(false)
             //     ->width(60)
             //     ->addClass('text-center'),
-            Column::make('nik')->type('string'),
-            Column::make('nkk'),
-            Column::make('no_rt'),
+            Column::make('nik')->type('string')->title('NIK'),
+            Column::make('nkk')->title('NKK'),
+            Column::make('no_rt')->title('Nomor RT'),
             Column::make('nama'),
             Column::make('tempat_lahir'),
             Column::make('tanggal_lahir'),
@@ -157,7 +157,8 @@ class PendudukDataTable extends DataTable
                 ->exportable(false)
                 ->printable(false)
                 ->width(300)
-                ->addClass('text-center'),
+                ->addClass('text-center')
+                ->title('Aksi'),
             // Column::make('created_at'),
             // Column::make('updated_at'),
         ];

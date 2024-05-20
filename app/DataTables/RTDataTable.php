@@ -85,14 +85,15 @@ class RTDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            Column::make('no_rt')->title('RT')->width(70),
+            Column::make('no_rt')->title('Nomor RT')->width(70),
             Column::make('nik_rt')->title('NIK RT')->width(200),
-            Column::make('wa_rt')->title('Nomor WA RT')->width(200),
+            Column::make('wa_rt')->title('Nomor WhatsApp RT')->width(200),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
                   ->width(200)
-                  ->addClass('text-center'),
+                  ->addClass('text-center')
+                  ->title('Aksi'),
         ];
     }
 

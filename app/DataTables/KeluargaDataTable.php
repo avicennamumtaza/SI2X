@@ -101,14 +101,15 @@ class KeluargaDataTable extends DataTable
             //     ->printable(false)
             //     ->width(60)
             //     ->addClass('text-center'),
-            Column::make('nkk')->width(300),
-            Column::make('no_rt')->width(100),
+            Column::make('nkk')->width(300)->title('Nomor KK'),
+            Column::make('no_rt')->width(100)->title('Nomor RT'),
             Column::make('nik_kepala_keluarga')->title('Kepala Keluarga')->width(300),
             Column::computed('action')
               ->exportable(false)
               ->printable(false)
               ->width(200)
-              ->addClass('text-center'),
+              ->addClass('text-center')
+              ->title('Aksi'),
             // Column::make('created_at'),
             // Column::make('updated_at'),
         ];

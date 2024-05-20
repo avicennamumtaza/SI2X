@@ -101,7 +101,8 @@ class LaporanKeuanganDataTable extends DataTable
                   ->exportable(false)
                   ->printable(false)
                   ->width(190) 
-                  ->addClass('text-center'),
+                  ->addClass('text-center')
+                  ->title('Aksi'),
         ];
     }
 
