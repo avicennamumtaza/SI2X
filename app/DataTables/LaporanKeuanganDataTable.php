@@ -90,7 +90,7 @@ class LaporanKeuanganDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            Column::make('id_laporankeuangan')->title('Nomor')->width(1),
+            Column::make('id_laporankeuangan')->title('ID')->width(1),
             Column::make('tanggal')->title('Tanggal')->width(10),
             Column::make('status_pemasukan')->title('Jenis')->width(10),
             Column::make('nominal')->title('Nominal')->width(10),
