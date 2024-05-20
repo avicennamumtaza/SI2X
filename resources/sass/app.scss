@@ -1123,7 +1123,7 @@ body {
         //     opacity: 1;
         // }
 
-        // untuk sidebar ketika di close dan di klik muncul menu dropdownnya
+     
         #sidebar:not(.expand) .sidebar-dropdown {
             display: none;
         }
@@ -1212,16 +1212,15 @@ body {
     }
 }
 
-.rjl {
+.auth {
     background-color: $secondaryCol;
-    height: 90vh;
+    height: 100vh; /* Menggunakan tinggi viewport */
 
-    .container-rjl {
-        margin-top: 50px;
-        width: 100%;
+    .container-auth {
         display: flex;
         justify-content: center;
         align-items: center;
+        height: 100%; /* Menggunakan tinggi viewport */
     }
 
     .login-form {
@@ -1235,32 +1234,27 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
-        /* Menengahkan secara vertikal */
-
+        justify-content: center; /* Menengahkan secara vertikal */
+        /* Menengahkan secara horizontal */
+        margin: auto; /* Menengahkan secara horizontal */
+        
         .form-header {
             display: inline;
             align-items: center;
             justify-content: space-between;
-            /* Menengahkan secara horizontal */
             margin-bottom: 20px;
             padding-inline: 20px;
-            /* Tambahkan padding agar tidak terlalu rapat dengan tepi */
             width: 100%;
-            /* Mengisi lebar agar elemen lainnya tidak tumpang tindih */
 
             h2 {
                 text-align: center;
                 color: #ffffff;
                 margin: 0;
-                /* Menghapus margin bawaan */
             }
 
             a {
                 align-self: flex-start;
-                /* Memposisikan elemen <a> di pojok kiri atas */
-                // background-color: #253560;
                 color: #fff;
-                // padding: 5px 10px; /* Sesuaikan padding sesuai kebutuhan */
                 border-radius: 4px;
                 text-decoration: none;
 
@@ -1277,18 +1271,13 @@ body {
             margin-bottom: 15px;
             justify-items: center;
             align-self: center;
-            /* Menengahkan vertikal */
         }
 
         form {
             display: flex;
-            /* Menggunakan flexbox */
             flex-direction: column;
-            /* Menjadikan flex-direction menjadi column */
             align-items: center;
-            /* Menengahkan secara vertikal */
             justify-content: center;
-            /* Menengahkan secara horizontal */
             margin-inline: 20px;
             margin-block: 13px;
 
@@ -1302,7 +1291,6 @@ body {
             }
 
             button {
-                // margin-top: 20px;
                 @include tombol();
 
                 &:hover {
@@ -1319,7 +1307,6 @@ body {
             a {
                 color: #fff;
                 display: block;
-                /* Mengubah elemen <a> menjadi blok agar bisa mendapatkan ruang secara penuh */
                 margin-bottom: 10px;
             }
         }
@@ -1330,6 +1317,7 @@ body {
         }
     }
 }
+
 
 
 

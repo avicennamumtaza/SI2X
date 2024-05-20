@@ -27,8 +27,8 @@
 
 </head>
 
-<body class="rjl">
-    <div class="container-rjl">
+<body class="auth">
+    <div class="container-auth">
         <div class="login-form">
             @yield('content')
         </div>

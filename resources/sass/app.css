@@ -932,18 +932,17 @@ body hr {
   opacity: 0.99;
 }
 
-.rjl {
+.auth {
   background-color: #152551;
-  height: 90vh;
+  height: 100vh; /* Menggunakan tinggi viewport */
 }
-.rjl .container-rjl {
-  margin-top: 50px;
-  width: 100%;
+.auth .container-auth {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%; /* Menggunakan tinggi viewport */
 }
-.rjl .login-form {
+.auth .login-form {
   background-color: #4461AE;
   width: 400px;
   padding: 20px;
@@ -954,57 +953,49 @@ body hr {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Menengahkan secara vertikal */
+  justify-content: center; /* Menengahkan secara vertikal */
+  /* Menengahkan secara horizontal */
+  margin: auto; /* Menengahkan secara horizontal */
 }
-.rjl .login-form .form-header {
+.auth .login-form .form-header {
   display: inline;
   align-items: center;
   justify-content: space-between;
-  /* Menengahkan secara horizontal */
   margin-bottom: 20px;
   padding-inline: 20px;
-  /* Tambahkan padding agar tidak terlalu rapat dengan tepi */
   width: 100%;
-  /* Mengisi lebar agar elemen lainnya tidak tumpang tindih */
 }
-.rjl .login-form .form-header h2 {
+.auth .login-form .form-header h2 {
   text-align: center;
   color: #ffffff;
   margin: 0;
-  /* Menghapus margin bawaan */
 }
-.rjl .login-form .form-header a {
+.auth .login-form .form-header a {
   align-self: flex-start;
-  /* Memposisikan elemen <a> di pojok kiri atas */
   color: #fff;
   border-radius: 4px;
   text-decoration: none;
 }
-.rjl .login-form .form-header a i {
+.auth .login-form .form-header a i {
   font-size: 150%;
 }
-.rjl .login-form .sirw_icon {
+.auth .login-form .sirw_icon {
   width: auto;
   height: 100px;
   display: flex;
   margin-bottom: 15px;
   justify-items: center;
   align-self: center;
-  /* Menengahkan vertikal */
 }
-.rjl .login-form form {
+.auth .login-form form {
   display: flex;
-  /* Menggunakan flexbox */
   flex-direction: column;
-  /* Menjadikan flex-direction menjadi column */
   align-items: center;
-  /* Menengahkan secara vertikal */
   justify-content: center;
-  /* Menengahkan secara horizontal */
   margin-inline: 20px;
   margin-block: 13px;
 }
-.rjl .login-form form input {
+.auth .login-form form input {
   margin-bottom: 15px;
   padding-inline: 20px;
   padding-block: 10px;
@@ -1012,7 +1003,7 @@ body hr {
   border: 1px solid #ddd;
   border-radius: 25px;
 }
-.rjl .login-form form button {
+.auth .login-form form button {
   background-color: #253560;
   border-radius: 2em;
   padding-inline: 20px;
@@ -1025,23 +1016,22 @@ body hr {
   padding-inline: 60px;
   cursor: pointer;
 }
-.rjl .login-form form button:hover {
+.auth .login-form form button:hover {
   background-color: #ffffff;
   border: 1px solid black;
   font-weight: 700;
   color: #253560;
 }
-.rjl .login-form form button:hover {
+.auth .login-form form button:hover {
   background-color: #0d193f;
   color: #fff;
 }
-.rjl .login-form form a {
+.auth .login-form form a {
   color: #fff;
   display: block;
-  /* Mengubah elemen <a> menjadi blok agar bisa mendapatkan ruang secara penuh */
   margin-bottom: 10px;
 }
-.rjl .login-form strong {
+.auth .login-form strong {
   color: rgb(224, 33, 33);
   font-size: smaller;
 }
