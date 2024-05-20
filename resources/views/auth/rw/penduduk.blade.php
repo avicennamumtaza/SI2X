@@ -130,7 +130,7 @@
 
 
                         <div class="form-group mb-3">
-                            <label for="status_pernikahan" class="form-label text-start">Jenis Kelamin</label>
+                            <label for="status_pernikahan" class="form-label text-start">Status Pernikahan</label>
                             <select class="form-select" id="status_pernikahan" name="status_pernikahan" required>
                                 <option value="" selected disabled>Pilih Status Pernikahan</option>
                                 @foreach ($sp as $statusPernikahan)
