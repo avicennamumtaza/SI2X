@@ -59,7 +59,7 @@ enum Pekerjaan: string
     case WAKIL_BUPATI = 'Wakil Bupati';
     case WALIKOTA = 'Walikota';
     case WAKIL_WALIKOTA = 'Wakil Walikota';
-    case ANGGOTA_DPRD_PROPINSI = 'Anggota DPRD Provinsi';
+    case ANGGOTA_DPRD_PROVINSI = 'Anggota DPRD Provinsi';
     case ANGGOTA_DPRD_KABUPATEN_KOTA = 'Anggota DPRD Kabupaten/Kota';
     case DOSEN = 'Dosen';
     case GURU = 'Guru';
