@@ -261,8 +261,8 @@
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="status_domisili" class="form-label text-start">Status Pendatang</label>
-                            <select type="text" class="form-select" id="status_domisili" name="status_domisili"
+                            <label for="status_pendatang" class="form-label text-start">Status Pendatang</label>
+                            <select type="text" class="form-select" id="status_pendatang" name="status_pendatang"
                                 required>
                                 <option value="" selected disabled>Pilih Status Pendatang</option>
                                 <option value="0">Domisili</option>
@@ -315,7 +315,7 @@
                     let pekerjaan = target.data('pekerjaan')
                     let golongan_darah = target.data('golongan_darah')
                     let status_pernikahan = target.data('status_pernikahan')
-                    let status_domisili = target.data('status_domisili')
+                    let status_pendatang = target.data('status_pendatang')
 
                     $('#editPendudukModal #nik').val(nik);
                     $('#editPendudukModal #nkk').val(nkk);
@@ -328,7 +328,7 @@
                     $('#editPendudukModal #pekerjaan').val(pekerjaan);
                     $('#editPendudukModal #golongan_darah').val(golongan_darah);
                     $('#editPendudukModal #status_pernikahan').val(status_pernikahan);
-                    $('#editPendudukModal #status_domisili').val(status_domisili);
+                    $('#editPendudukModal #status_pendatang').val(status_pendatang);
 
                     let url = "{{ route('penduduk.update', ':__id') }}";
                     url = url.replace(':__id', nik);
