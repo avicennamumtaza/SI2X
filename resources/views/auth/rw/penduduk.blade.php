@@ -254,8 +254,9 @@
                             <label for="status_pernikahan" class="form-label text-start">Status Pernikahan</label>
                             <select class="form-select" id="status_pernikahan" name="status_pernikahan" required>
                                 <option value="" selected disabled>Pilih Status Pernikahan</option>
-                                <option value="1">Menikah</option>
-                                <option value="0">Belum Menikah</option>
+                                @foreach ($sp as $statusPernikahan)
+                                    <option value="{{ $statusPernikahan->value }}">{{ $statusPernikahan->value }}</option>
+                                @endforeach
                             </select>
                         </div>
 
