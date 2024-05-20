@@ -214,8 +214,9 @@
                             <label for="jenis_kelamin" class="form-label text-start">Jenis Kelamin</label>
                             <select class="form-select" id="jenis_kelamin" name="jenis_kelamin" required>
                                 <option value="" selected disabled>Pilih Jenis Kelamin</option>
-                                <option value="L">Laki-laki</option>
-                                <option value="P">Perempuan</option>
+                                @foreach ($jk as $jenisKelamin)
+                                    <option value={{ $jenisKelamin->name }}>{{ $jenisKelamin->getDescription() }}</option>
+                                @endforeach
                             </select>
                         </div>
 
