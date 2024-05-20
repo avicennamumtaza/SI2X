@@ -43,7 +43,7 @@ class PengajuanDokumenDataTable extends DataTable
                     return $namaDokumen->jenis_dokumen;
                 })
                 ->addColumn('action', function ($row) {
-                    $pengaju = Penduduk::where('nik', $row->nik_pengaju)->first();
+                    $pengaju = Penduduk::where('nik', $row->nik_pemohon)->first();
                     $dokumen = Dokumen::where('id_dokumen', $row->id_dokumen)->first();
                     $deleteUrl = route('pengajuandokumen.destroy', $row->id_pengajuandokumen);
 
@@ -56,9 +56,9 @@ class PengajuanDokumenDataTable extends DataTable
                     <div class="container-action">
                     <button type="button"
                     data-id_pengajuandokumen="' . $row->id_pengajuandokumen . '"
-                    data-nama_pengaju="' . $row->nama_pengaju . '"
+                    data-nama_pemohon="' . $row->nama_pemohon . '"
                     data-no_rt="' . $row->no_rt . '"
-                    data-nik_pengaju="' . $row->nik_pengaju . '"
+                    data-nik_pemohon="' . $row->nik_pemohon . '"
                     data-nama_asli_pengaju="' . $pengaju->nama . '"
                     data-usia_pengaju="' . $age . '"
                     data-pekerjaan_pengaju="' . $pengaju->pekerjaan . '"
@@ -133,8 +133,8 @@ class PengajuanDokumenDataTable extends DataTable
                 Column::make('id_pengajuandokumen')->title('ID'),
                 Column::make('dokumen')->title('Dokumen'),
                 Column::make('no_rt')->title('Nomor RT'),
-                Column::make('nik_pengaju')->title('NIK'),
-                Column::make('nama_pengaju')->title('Nama'),
+                Column::make('nik_pemohon')->title('NIK'),
+                Column::make('nama_pemohon')->title('Nama'),
                 Column::make('status_pengajuan')->title('Status'),
                 Column::make('catatan')->title('Catatan'),
                 Column::make('created_at')->title('Tanggal'),
@@ -151,8 +151,8 @@ class PengajuanDokumenDataTable extends DataTable
                 Column::make('id_pengajuandokumen')->title('ID'),
                 Column::make('dokumen')->title('Dokumen'),
                 Column::make('no_rt')->title('Nomor RT'),
-                Column::make('nik_pengaju')->title('NIK'),
-                Column::make('nama_pengaju')->title('Nama'),
+                Column::make('nik_pemohon')->title('NIK'),
+                Column::make('nama_pemohon')->title('Nama'),
                 Column::make('status_pengajuan')->title('Status'),
                 Column::make('catatan')->title('Catatan'),
                 Column::make('created_at')->title('Tanggal'),

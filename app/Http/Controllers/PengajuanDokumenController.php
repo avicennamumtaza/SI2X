@@ -56,27 +56,27 @@ class PengajuanDokumenController extends Controller
             // 'id_pengajuandokumen' => 'required', // (tidak bisa mengedit id as primary key, cek view)
             // 'no_rt' => 'required|max:2',
             'id_dokumen' => 'required',
-            'nik_pengaju' => 'required|min:15|max:17|exists:penduduk,nik',
-            // 'nama_pengaju' => 'required|min:3|max:49',
+            'nik_pemohon' => 'required|min:15|max:17|exists:penduduk,nik',
+            // 'nama_pemohon' => 'required|min:3|max:49',
             // 'no_rw' => 'string',
             // 'status_umkm' => 'string',
         ], [
             // 'no_rt.required' => 'Nomor RT wajib diisi.',
             // 'no_rt.max' => 'Nomor RT tidak boleh lebih dari :max karakter.',
             'id_dokumen.required' => 'Jenis Dokumen wajib dipilih.',
-            'nik_pengaju.required' => 'NIK Pengaju wajib diisi.',
-            'nik_pengaju.min' => 'NIK Pengaju harus memiliki panjang minimal :min karakter.',
-            'nik_pengaju.max' => 'NIK Pengaju harus memiliki panjang maksimal :max karakter.',
-            'nik_pengaju.exists' => 'NIK Anda Tidak Terdata, silahkan hubungi Ketua RT atau Ketua RW anda untuk keperluan kelengkapan data kependudukan di Sistem Informasi Rukun Warga ini',
-            // 'nama_pengaju.required' => 'Nama Pengaju wajib diisi.',
-            // 'nama_pengaju.min' => 'Nama Pengaju harus memiliki panjang minimal :min karakter.',
-            // 'nama_pengaju.max' => 'Nama Pengaju harus memiliki panjang maksimal :max karakter.',
+            'nik_pemohon.required' => 'NIK Pengaju wajib diisi.',
+            'nik_pemohon.min' => 'NIK Pengaju harus memiliki panjang minimal :min karakter.',
+            'nik_pemohon.max' => 'NIK Pengaju harus memiliki panjang maksimal :max karakter.',
+            'nik_pemohon.exists' => 'NIK Anda Tidak Terdata, silahkan hubungi Ketua RT atau Ketua RW anda untuk keperluan kelengkapan data kependudukan di Sistem Informasi Rukun Warga ini',
+            // 'nama_pemohon.required' => 'Nama Pengaju wajib diisi.',
+            // 'nama_pemohon.min' => 'Nama Pengaju harus memiliki panjang minimal :min karakter.',
+            // 'nama_pemohon.max' => 'Nama Pengaju harus memiliki panjang maksimal :max karakter.',
         ]);
 
-        $rt = Penduduk::where('nik', $validated['nik_pengaju'])->first();
+        $rt = Penduduk::where('nik', $validated['nik_pemohon'])->first();
         
-        // Cek apakah ada pengajuan dokumen dengan nik_pengaju yang sama dan status "Baru"
-        $existingPengajuan = PengajuanDokumen::where('nik_pengaju', $validated['nik_pengaju'])
+        // Cek apakah ada pengajuan dokumen dengan nik_pemohon yang sama dan status "Baru"
+        $existingPengajuan = PengajuanDokumen::where('nik_pemohon', $validated['nik_pemohon'])
             ->where('status_pengajuan', 'Baru')
             ->first();
 
@@ -86,15 +86,15 @@ class PengajuanDokumenController extends Controller
             return redirect()->back();
         }
 
-        $pengaju = Penduduk::where('nik', $validated['nik_pengaju'])->first();
+        $pengaju = Penduduk::where('nik', $validated['nik_pemohon'])->first();
 
         try {
             PengajuanDokumen::create([
                 // 'id_pengajuandokumen' => $validated['id_pengajuandokumen'],
                 'no_rt' => $rt->no_rt,
                 'id_dokumen' => $validated['id_dokumen'],
-                'nik_pengaju' => $validated['nik_pengaju'],
-                'nama_pengaju' => $pengaju->nama,
+                'nik_pemohon' => $validated['nik_pemohon'],
+                'nama_pemohon' => $pengaju->nama,
                 'status_pengajuan' => 'Baru',
                 'catatan' => '',
             ]);
@@ -135,8 +135,8 @@ class PengajuanDokumenController extends Controller
             // 'id_pengajuandokumen' => 'required',
             // 'id_dokumen' => 'required',
             // 'no_rt' => 'required',
-            // 'nik_pengaju' => 'required',
-            // 'nama_pengaju' => 'required',
+            // 'nik_pemohon' => 'required',
+            // 'nama_pemohon' => 'required',
             // 'desc_umkm' => 'required',
             'status_pengajuan' => 'required|max:10',
             'catatan' => 'required',

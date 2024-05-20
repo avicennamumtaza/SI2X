@@ -21,9 +21,9 @@
                                 name="id_pengajuandokumen" required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="nama_pengaju" class="form-label text-start">nama_pengaju</label>
-                            <input type="text" readonly disabled class="form-control" id="nama_pengaju"
-                                name="nama_pengaju" required>
+                            <label for="nama_pemohon" class="form-label text-start">nama_pemohon</label>
+                            <input type="text" readonly disabled class="form-control" id="nama_pemohon"
+                                name="nama_pemohon" required>
                         </div>
                         <div class="form-group mb-3">
                             <label for="no_rt" class="form-label text-start">no_rt</label>
@@ -31,8 +31,8 @@
                                 required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="nik_pengaju" class="form-label text-start">nik_pengaju</label>
-                            <input type="text" readonly disabled class="form-control" id="nik_pengaju" name="nik_pengaju"
+                            <label for="nik_pemohon" class="form-label text-start">nik_pemohon</label>
+                            <input type="text" readonly disabled class="form-control" id="nik_pemohon" name="nik_pemohon"
                                 required>
                         </div>
                         <div class="form-group mb-3">
@@ -106,9 +106,9 @@
 
                     var target = $(event.relatedTarget);
                     let id_pengajuandokumen = target.data('id_pengajuandokumen')
-                    let nama_pengaju = target.data('nama_pengaju')
+                    let nama_pemohon = target.data('nama_pemohon')
                     let no_rt = target.data('no_rt')
-                    let nik_pengaju = target.data('nik_pengaju')
+                    let nik_pemohon = target.data('nik_pemohon')
                     let nama_asli_pengaju = target.data('nama_asli_pengaju')
                     let pekerjaan_pengaju = target.data('pekerjaan_pengaju')
                     let usia_pengaju = target.data('usia_pengaju')
@@ -118,9 +118,9 @@
                     let catatan = target.data('catatan')
 
                     $('#editPengajuanDokumenModal #id_pengajuandokumen').val(id_pengajuandokumen);
-                    $('#editPengajuanDokumenModal #nama_pengaju').val(nama_pengaju);
+                    $('#editPengajuanDokumenModal #nama_pemohon').val(nama_pemohon);
                     $('#editPengajuanDokumenModal #no_rt').val(no_rt);
-                    $('#editPengajuanDokumenModal #nik_pengaju').val(nik_pengaju);
+                    $('#editPengajuanDokumenModal #nik_pemohon').val(nik_pemohon);
                     $('#editPengajuanDokumenModal #nama_asli_pengaju').val(nama_asli_pengaju);
                     $('#editPengajuanDokumenModal #pekerjaan_pengaju').val(pekerjaan_pengaju);
                     $('#editPengajuanDokumenModal #usia_pengaju').val(usia_pengaju);

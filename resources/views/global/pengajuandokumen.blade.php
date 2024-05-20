@@ -16,19 +16,19 @@
                         <form action="{{ route('pengajuandokumen.store') }}" method="POST">
                             @csrf
                             <div class="form-group mb-3">
-                                <label for="nik_pengaju" class="form-label">NIK Pengaju</label>
-                                <input class="form-control" id="nik_pengaju" name="nik_pengaju"
+                                <label for="nik_pemohon" class="form-label">NIK Pengaju</label>
+                                <input class="form-control" id="nik_pemohon" name="nik_pemohon"
                                     placeholder="Masukkan NIK Pengaju" required>
-                                {{-- <datalist id="nik_pengaju_list">
-                                {{-- <datalist id="nik_pengaju_list">
+                                {{-- <datalist id="nik_pemohon_list">
+                                {{-- <datalist id="nik_pemohon_list">
                                     @foreach ($penduduks as $penduduk)
                                         <option value="{{ $penduduk->nik }}">{{ $penduduk->nik }}</option>
                                     @endforeach
                                 </datalist> --}}
                             </div>
                             {{-- <div class="form-group mb-3">
-                                <label for="nama_pengaju" class="form-label">Nama Pengaju</label>
-                                <input class="form-control mb-1" id="nama_pengaju" name="nama_pengaju" placeholder="Masukkan Nama Pengaju" required>
+                                <label for="nama_pemohon" class="form-label">Nama Pengaju</label>
+                                <input class="form-control mb-1" id="nama_pemohon" name="nama_pemohon" placeholder="Masukkan Nama Pengaju" required>
                                 <small class="form-text text-muted">Guna menjaga privasi data, anda dapat mengisi ini dengan nama samaran seperti nama hewan peliharaan atau nama karakter game favorit anda, nama tersebut akan ditampilkan di riwayat pengajuan dokumen pada halaman ini.</small>
                             </div>                             --}}
                             <div class="form-group mb-3">
@@ -104,7 +104,7 @@
                             <tr>
                                 <td style="width: 5%">{{ $pengajuanDokumen->no_rt }}</td>
                                 <td style="width: 15%">{{ $pengajuanDokumen->dokumen->jenis_dokumen }}</td>
-                                <td style="width: 25%">{{ $pengajuanDokumen->nama_pengaju }}</td>
+                                <td style="width: 25%">{{ $pengajuanDokumen->nama_pemohon }}</td>
                                 <td style="width: 5%">
                                     @if ($pengajuanDokumen->status_pengajuan == 'Baru')
                                         <span style="background-color: darkgoldenrod"
