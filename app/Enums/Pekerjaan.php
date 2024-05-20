@@ -5,18 +5,16 @@ namespace App\Enums;
 enum Pekerjaan: string
 {
     case BELUM_TIDAK_BEKERJA = 'Belum/Tidak Bekerja';
-    case MENGURUS_RUMAH_TANGGA = 'Mengurus Rumah Tangga';
+    case IBU_RUMAH_TANGGA = 'Ibu Rumah Tangga';
     case PELAJAR_MAHASISWA = 'Pelajar/Mahasiswa';
     case PENSIUNAN = 'Pensiunan';
     case PEGAWAI_NEGERI_SIPIL = 'Pegawai Negeri Sipil';
     case TNI_POLRI = 'TNI/POLRI';
-    case PERDAGANGAN = 'Perdagangan';
+    case PERDAGANGAN = 'Pedagang';
     case PETANI_PEKEBUN = 'Petani/Pekebun';
     case PETERNAK = 'Peternak';
     case NELAYAN_PERIKANAN = 'Nelayan/Perikanan';
-    case INDUSTRI = 'Industri';
-    case KONSTRUKSI = 'Konstruksi';
-    case TRANSPORTASI = 'Transportasi';
+    case KONSTRUKSI = 'Pegawai Konstruksi';
     case KARYAWAN_SWASTA = 'Karyawan Swasta';
     case KARYAWAN_BUMN = 'Karyawan BUMN';
     case KARYAWAN_BUMD = 'Karyawan BUMD';
@@ -25,8 +23,7 @@ enum Pekerjaan: string
     case BURUH_TANI_PERKEBUNAN = 'Buruh Tani/Perkebunan';
     case BURUH_NELAYAN_PERIKANAN = 'Buruh Nelayan/Perikanan';
     case BURUH_PETERNAKAN = 'Buruh Peternakan';
-    case PEMBANTU_RUMAH_TANGGA = 'Pembantu Rumah Tangga';
-    case TUKANG_CUKUR = 'Tukang Cukur';
+    case ASISTEN_RUMAH_TANGGA = 'Asisten Rumah Tangga';
     case TUKANG_LISTRIK = 'Tukang Listrik';
     case TUKANG_BATU = 'Tukang Batu';
     case TUKANG_KAYU = 'Tukang Kayu';
@@ -39,17 +36,15 @@ enum Pekerjaan: string
     case MEKANIK = 'Mekanik';
     case TUKANG_GIGI = 'Tukang Gigi';
     case SENIMAN = 'Seniman';
-    case TABIB = 'Tabib';
-    case PARAJI = 'Paraji';
+    case DOKTER = 'Dokter';
     case PERANCANG_BUSANA = 'Perancang Busana';
     case PENTERJEMAH = 'Penterjemah';
     case IMAM_MASJID = 'Imam Masjid';
     case PENDETA = 'Pendeta';
     case PASTOR = 'Pastor';
     case WARTAWAN = 'Wartawan';
-    case USTADZ_MUBALIGH = 'Ustadz/Mubaligh';
+    case PEMUKA_AGAMA = 'Pemuka Agama';
     case JURU_MASAK = 'Juru Masak';
-    case PROMOTOR_ACARA = 'Promotor Acara';
     case ANGGOTA_DPR_RI = 'Anggota DPR-RI';
     case ANGGOTA_DPD = 'Anggota DPD';
     case ANGGOTA_BPK = 'Anggota BPK';
@@ -64,7 +59,7 @@ enum Pekerjaan: string
     case WAKIL_BUPATI = 'Wakil Bupati';
     case WALIKOTA = 'Walikota';
     case WAKIL_WALIKOTA = 'Wakil Walikota';
-    case ANGGOTA_DPRD_PROPINSI = 'Anggota DPRD Propinsi';
+    case ANGGOTA_DPRD_PROPINSI = 'Anggota DPRD Provinsi';
     case ANGGOTA_DPRD_KABUPATEN_KOTA = 'Anggota DPRD Kabupaten/Kota';
     case DOSEN = 'Dosen';
     case GURU = 'Guru';
@@ -78,12 +73,9 @@ enum Pekerjaan: string
     case PELAUT = 'Pelaut';
     case PENELITI = 'Peneliti';
     case SOPIR = 'Sopir';
-    case PIALANG = 'Pialang';
-    case PARANORMAL = 'Paranormal';
     case PEDAGANG = 'Pedagang';
     case PERANGKAT_DESA = 'Perangkat Desa';
     case KEPALA_DESA = 'Kepala Desa';
-    case BIARAWATI = 'Biarawati';
     case WIRASWASTA = 'Wiraswasta';
     case ANGGOTA_LEMBAGA_TINGGI = 'Anggota Lembaga Tinggi';
     case ARTIS = 'Artis';
@@ -97,4 +89,3 @@ enum Pekerjaan: string
     case ASISTEN_AHLI = 'Asisten Ahli';
     case LAINNYA = 'Lainnya';
 }
-
