@@ -232,7 +232,12 @@
 
                         <div class="form-group mb-3">
                             <label for="pendidikan" class="form-label text-start">Pendidikan</label>
-                            <input type="text" class="form-control" id="pendidikan" name="pendidikan" required>
+                            <select class="form-select" id="pendidikan" name="pendidikan" required>
+                                <option value="" selected disabled>Pilih Pendidikan</option>
+                                @foreach ($pendidikans as $pendidikan)
+                                    <option value="{{ $pendidikan->value }}">{{ $pendidikan->value }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="form-group mb-3">
