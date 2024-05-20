@@ -191,7 +191,7 @@
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="nama" class="form-label text-start">Nama</label>
+                            <label for="nama" class="form-label text-start">Nama Lengkap</label>
                             <input type="text" class="form-control" id="nama" name="nama" required>
                         </div>
 
