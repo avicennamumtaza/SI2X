@@ -33,24 +33,24 @@
 
 <body>
     {{-- <div class=""> --}}
-        <div class="wrapper">
-            <aside id="sidebar">
-                <div class="d-flex">
-                    <button id="toggle-btn" type="button">
-                        <i id="lni" class="lni lni-menu"></i>
-                    </button>
-                    <div class="sidebar-logo">
-                        <a href="{{ route('home') }}">SIRW</a>
-                    </div>
+    <div class="wrapper">
+        <aside id="sidebar">
+            <div class="d-flex">
+                <button id="toggle-btn" type="button">
+                    <i id="lni" class="lni lni-menu"></i>
+                </button>
+                <div class="sidebar-logo">
+                    <a href="{{ route('home') }}">SIRW</a>
                 </div>
-                <ul class="sidebar-nav">
-                    <li class="sidebar-item {{ \Route::is('home') ? 'active' : '' }}">
-                        <a href="{{ route('home') }}" class="sidebar-link">
-                            <i class="lni lni-home"></i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-                    @can('isRw')
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-item {{ \Route::is('home') ? 'active' : '' }}">
+                    <a href="{{ route('home') }}" class="sidebar-link">
+                        <i class="lni lni-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                @can('isRw')
                     <li class="sidebar-item {{ \Route::is('pengumuman.manage') ? 'active' : '' }}">
                         <a href="{{ route('pengumuman.manage') }}" class="sidebar-link">
                             <i class="lni lni-notepad"></i>
@@ -63,15 +63,15 @@
                             <i class="lni lni-control-panel"></i>
                             <span>Dokumen</span>
                         </a>
-                    </li>                        
-                    @endcan
-                    <li class="sidebar-item {{ \Route::is('pengajuandokumen.manage') ? 'active' : '' }}">
-                        <a href="{{ route('pengajuandokumen.manage') }}" class="sidebar-link">
-                            <i class="lni lni-printer"></i>
-                            <span>Permintaan Dokumen</span>
-                        </a>
-                    </li>                        
-                    {{-- @can('isRt')
+                    </li>
+                @endcan
+                <li class="sidebar-item {{ \Route::is('pengajuandokumen.manage') ? 'active' : '' }}">
+                    <a href="{{ route('pengajuandokumen.manage') }}" class="sidebar-link">
+                        <i class="lni lni-printer"></i>
+                        <span>Permintaan Dokumen</span>
+                    </a>
+                </li>
+                {{-- @can('isRt')
                     <li class="sidebar-item {{ \Route::is('home') ? 'active' : '' }}">
                         <a href="{{ route('home') }}" class="sidebar-link">
                             <i class="lni lni-home"></i>
@@ -79,7 +79,7 @@
                         </a>
                     </li>
                     @endcan --}}
-                    {{-- <li class="sidebar-item">
+                {{-- <li class="sidebar-item">
                         <a href="#" class="sidebar-link has-dropdown collapsed" type="button"
                             data-bs-toggle="collapse" data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
                             <i class="lni lni-protection"></i>
@@ -95,24 +95,24 @@
                         </ul>
                     </li> --}}
                     <li class="sidebar-item {{ \Route::is('penduduk.manage') ? 'active' : '' }} {{ \Route::is('keluarga.manage')  ? 'active' : '' }} {{ \Route::is('rt.manage')  ? 'active' : '' }} {{ \Route::is('rw.manage')  ? 'active' : '' }}"  title="Kependudukan">
-                        <a href="#" class="sidebar-link has-dropdown collapsed" type="button"
+                    <a href="#" class="sidebar-link has-dropdown collapsed" type="button"
                             data-bs-toggle="collapse" data-bs-target="#multi" aria-expanded="false"
                             aria-controls="multi">
-                            <i class="lni lni-users"></i>
-                            <span>Kependudukan</span>
-                        </a>
-                        <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                            <li class="sidebar-item" title="Penduduk">
-                                <a href="{{ route('penduduk.manage') }}" class="sidebar-link">
-                                    <div class="single-item-menu">Penduduk</div>
-                                </a>
-                            </li>
-                            <li class="sidebar-item" title="Keluarga">
-                                <a href="{{ route('keluarga.manage') }}" class="sidebar-link">
-                                    <div class="single-item-menu">Keluarga</div>
-                                </a>
-                            </li>
-                            @can('isRw')
+                        <i class="lni lni-users"></i>
+                        <span>Kependudukan</span>
+                    </a>
+                    <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        <li class="sidebar-item" title="Penduduk">
+                            <a href="{{ route('penduduk.manage') }}" class="sidebar-link">
+                                <div class="single-item-menu">Penduduk</div>
+                            </a>
+                        </li>
+                        <li class="sidebar-item" title="Keluarga">
+                            <a href="{{ route('keluarga.manage') }}" class="sidebar-link">
+                                <div class="single-item-menu">Keluarga</div>
+                            </a>
+                        </li>
+                        @can('isRw')
                             <li class="sidebar-item" title="Rukun Tetangga">
                                 <a href="{{ route('rt.manage') }}" class="sidebar-link">
                                     <div class="single-item-menu">RT</div>
@@ -122,11 +122,11 @@
                                 <a href="{{ route('rw.manage') }}" class="sidebar-link">
                                     <div class="single-item-menu">RW</div>
                                 </a>
-                            </li>                                
-                            @endcan
-                        </ul>
-                    </li>
-                    @can('isRw')
+                            </li>
+                        @endcan
+                    </ul>
+                </li>
+                @can('isRw')
                     <li class="sidebar-item {{ \Route::is('laporankeuangan.manage') ? 'active' : '' }}" title="Laporan Keuangan">
                         <a href="{{ route('laporankeuangan.manage') }}" class="sidebar-link">
                             <i class="lni lni-revenue"></i>
@@ -141,35 +141,35 @@
                             <i class="lni lni-shopping-basket"></i>
                             <span>UMKM</span>
                         </a>
-                    </li>                        
+                    </li>
                     <li class="sidebar-item {{ \Route::is('users') ? 'active' : '' }}">
                         <a href="{{ route('users.manage') }}" class="sidebar-link">
                             <i class="bi bi-people-fill"></i>
                             <span>Kelola Pengguna</span>
                         </a>
                     </li>
-                    @endcan
-                    <li class="sidebar-item {{ \Route::is('profil') ? 'active' : '' }}">
-                        <a href="{{ route('profil.manage') }}" class="sidebar-link">
-                            <i class="lni lni-user"></i>
-                            <span>Profil</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <div class="sidebar-footer">
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                @csrf
-                                <button class="sidebar-link" type="submit">
-                                    {{-- <a href="{{ route('logout') }}" class="sidebar-link"> --}}
-                                        <i class="lni lni-exit"></i>
-                                        <span>Keluar</span>
-                                    {{-- </a> --}}
-                                </button>
-                            </form>
-                        </div>
-                    </li>
-                </ul>
-            </aside>
+                @endcan
+                <li class="sidebar-item {{ \Route::is('profil') ? 'active' : '' }}">
+                    <a href="{{ route('profil.manage') }}" class="sidebar-link">
+                        <i class="lni lni-user"></i>
+                        <span>Profil</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <div class="sidebar-footer">
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button class="sidebar-link" type="submit">
+                                {{-- <a href="{{ route('logout') }}" class="sidebar-link"> --}}
+                                <i class="lni lni-exit"></i>
+                                <span>Keluar</span>
+                                {{-- </a> --}}
+                            </button>
+                        </form>
+                    </div>
+                </li>
+            </ul>
+        </aside>
             <div class="" style="
             min-height: 100vh;
             width: 100%;
@@ -226,4 +226,14 @@
     hamburger.addEventListener("click", function() {
         document.querySelector("#sidebar").classList.toggle("expand")
     })
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const dropdownTriggers = document.querySelectorAll(".has-dropdown");
+
+        dropdownTriggers.forEach(trigger => {
+            trigger.addEventListener("click", function() {
+                this.querySelector(".sidebar-dropdown").classList.toggle("show");
+            });
+        });
+    });
 </script>
