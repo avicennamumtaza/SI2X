@@ -183,15 +183,14 @@
                 <div class="row">
                     <div class="col-12 mt-3 mb-3">
                         <h2 class="">Dashboard RW</h2>
-                        <p class="h5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt unde perspiciatis
+                        {{-- <p class="h5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt unde perspiciatis
                             sit blanditiis
                             fugit, nemo deleniti quaerat? Corrupti quis culpa eum aut impedit perferendis harum maxime aperiam!
-                        </p>
+                        </p> --}}
                         <hr class="mt-4 mb-5" style="height: 2px;">
                         <h4>Statistik Penggunaan Layanan</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt unde perspiciatis sit blanditiis
-                            fugit, nemo deleniti quaerat? Corrupti quis culpa eum aut impedit perferendis harum maxime aperiam!
-                        </p>
+                        <p>Statistik Penggunaan Layanan adalah fitur yang memberikan data menyeluruh 
+                            mengenai pemanfaatan berbagai layanan oleh warga di lingkungan Rukun Warga (RW). </p>
                     </div>
                 </div>
 
@@ -292,8 +291,8 @@
                 <div class="row">
                     <div class="col-12 mt-3 mb-3">
                         <h4>Statistik Pendataan Penduduk Secara Keseluruhan dan Klasifikasi Berdasarkan Usia</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati illo excepturi atque qui, corrupti
-                            quis beatae maiores laudantium error enim, ratione eaque hic, ab unde.</p>
+                        <p>Statistik Pendataan Penduduk Secara Keseluruhan dan Klasifikasi Berdasarkan Usia adalah fitur yang memberikan gambaran lengkap mengenai 
+                            demografi penduduk dalam wilayah Rukun Warga (RW).</p>
                     </div>
                 </div>
 
@@ -429,8 +428,8 @@
                 <div class="row">
                     <div class="col-12 mt-3 mb-3">
                         <h4>Statistik Permintaan Dokumen</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati illo excepturi atque qui, corrupti
-                            quis beatae maiores laudantium error enim, ratione eaque hic, ab unde.</p>
+                        <p>Statistik Permintaan Dokumen adalah fitur yang menyajikan data terperinci mengenai
+                             permintaan dokumen di lingkungan Rukun Warga (RW).</p>
                     </div>
                 </div>
 
@@ -519,8 +518,8 @@
                 <div class="row">
                     <div class="col-12 mt-3 mb-3">
                         <h4>Statistik Pendataan UMKM</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati illo excepturi atque qui, corrupti
-                            quis beatae maiores laudantium error enim, ratione eaque hic, ab unde.</p>
+                        <p>Statistik Pendataan UMKM adalah sebuah fitur yang menyediakan data komprehensif 
+                            mengenai Usaha Mikro, Kecil, dan Menengah (UMKM) dalam wilayah RW (Rukun Warga).</p>
                     </div>
                 </div>
 
