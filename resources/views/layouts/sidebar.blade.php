@@ -157,24 +157,20 @@
                 </li>
                 <li class="sidebar-item">
                     <div class="sidebar-footer">
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
-                            <button class="sidebar-link" type="submit">
-                                {{-- <a href="{{ route('logout') }}" class="sidebar-link"> --}}
-                                <i class="lni lni-exit"></i>
-                                <span>Keluar</span>
-                                {{-- </a> --}}
-                            </button>
                         </form>
+                        <a href="#" class="sidebar-link"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <i class="lni lni-exit"></i>
+                            <span>Keluar</span>
+                        </a>
                     </div>
                 </li>
+
             </ul>
         </aside>
-            <div class="" style="
-            min-height: 100vh;
-            width: 100%;
-            overflow: hidden;
-            ">
+        <div>
             <main class="col position-relative overflow-x-hidden">
                 <div class="row justify-content-center">
                     <div class="col-lg-12 mx-4 me-1 px-lg-5 py-5">
