@@ -91,8 +91,8 @@ class UsersDataTable extends DataTable
         return [
             Column::make('id_user')->title('ID'),
             Column::make('nik')->title('NIK'),
-            Column::make('username')->title('Username'),
-            Column::make('role')->title('Role'),
+            Column::make('username')->title('Nama Pengguna'),
+            Column::make('role')->title('Peran'),
             //Column::make('email')->title('Email'),
             //Column::make('foto_profil')->title('Foto Profil'),
             Column::computed('action')
@@ -100,7 +100,7 @@ class UsersDataTable extends DataTable
                   ->printable(false)
                   ->width(200)
                   ->addClass('text-center')
-                 // ->title('Aksi'),
+                  ->title('Aksi'),
         ];
     }
 

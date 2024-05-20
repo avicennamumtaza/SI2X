@@ -272,8 +272,7 @@
 
                         <div class="form-group mb-3">
                             <label for="status_pendatang" class="form-label text-start">Status Pendatang</label>
-                            <select type="text" class="form-select" id="status_pendatang" name="status_pendatang"
-                                required>
+                            <select type="text" class="form-select" id="status_pendatang" name="status_pendatang" required>
                                 <option value="" selected disabled>Pilih Status Pendatang</option>
                                 <option value="0">Domisili</option>
                                 <option value="1">Non Domisili</option>
@@ -321,6 +320,7 @@
                     let tempat_lahir = target.data('tempat_lahir')
                     let tanggal_lahir = target.data('tanggal_lahir')
                     let alamat = target.data('alamat')
+                    let agama = target.data('agama')
                     let jenis_kelamin = target.data('jenis_kelamin')
                     let agama = target.data('agama')
                     let pendidikan = target.data('pendidikan')
@@ -336,6 +336,7 @@
                     $('#editPendudukModal #tempat_lahir').val(tempat_lahir);
                     $('#editPendudukModal #tanggal_lahir').val(tanggal_lahir);
                     $('#editPendudukModal #alamat').val(alamat);
+                    $('#editPendudukModal #agama').val(agama);
                     $('#editPendudukModal #jenis_kelamin').val(jenis_kelamin);
                     $('#editPendudukModal #agama').val(agama);
                     $('#editPendudukModal #pendidikan').val(pendidikan);

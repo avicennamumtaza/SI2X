@@ -92,7 +92,7 @@ class DokumenDataTable extends DataTable
                   ->printable(false)
                   ->width(200)
                   ->addClass('text-center')
-                 // ->title('Aksi'),
+                  ->title('Aksi'),
         ];
     }
 
