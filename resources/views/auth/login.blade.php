@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="form-header">
-        <a href="#">
+        <a href="#"onclick="goBack()">
             <i class="bi bi-arrow-left"></i>
         </a>
         <h2>Masuk</h2>
@@ -42,4 +42,9 @@
 
     </form>
     </div>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 @endsection
