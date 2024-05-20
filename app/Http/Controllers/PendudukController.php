@@ -86,7 +86,7 @@ class PendudukController extends Controller
     {
 
         $request->validate([
-            'nik' => 'required|string|min:15|max:17|unique:penduduk,nik,' . $penduduk->nik, // gbisa edit primary key
+            'nik' => 'required|string|min:15|max:17|unique:penduduk,nik,' . $penduduk->nik. ',nik', // gbisa edit primary key
             'nkk' => 'required|string|min:15|max:17',
             'no_rt' => 'required|string|max:2',
             'nama' => 'required|string|max:49',
