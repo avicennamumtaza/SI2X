@@ -3,7 +3,7 @@
 namespace App\DataTables;
 
 use App\Models\Penduduk;
-use App\Models\Rt;
+use App\Models\RT;
 use App\Models\Users;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Illuminate\Support\Facades\Auth;
@@ -88,11 +88,11 @@ class PendudukDataTable extends DataTable
      */
     public function query(Penduduk $model): QueryBuilder
     {
-        if (auth()->user()->role == 'Rt') {
+        if (auth()->user()->role == 'RT') {
             // Dapatkan pengguna yang sedang login
             $user = Users::where('id_user', auth()->user()->id_user)->first();
             $nikRt = $user->nik; // Ambil nilai nik dari pengguna
-            $noRt = Rt::where('nik_rt', $nikRt)->pluck('no_rt')->first();
+            $noRt = RT::where('nik_rt', $nikRt)->pluck('no_rt')->first();
 
             return $model->newQuery()->where('no_rt', $noRt);
         }

@@ -5,7 +5,7 @@ namespace App\DataTables;
 use App\Models\Dokumen;
 use App\Models\Penduduk;
 use App\Models\PengajuanDokumen;
-use App\Models\Rt;
+use App\Models\RT;
 use App\Models\Users;
 use DateTime;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
@@ -26,7 +26,7 @@ class PengajuanDokumenDataTable extends DataTable
      */
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
-        if (auth()->user()->role == 'Rw') {
+        if (auth()->user()->role == 'RW') {
             # code...
             return (new EloquentDataTable($query))
                 // ->addColumn('action', 'a.action')
@@ -84,11 +84,11 @@ class PengajuanDokumenDataTable extends DataTable
      */
     public function query(PengajuanDokumen $model): QueryBuilder
     {
-        if (auth()->user()->role == 'Rt') {
+        if (auth()->user()->role == 'RT') {
             // Dapatkan pengguna yang sedang login
             $user = Users::where('id_user', auth()->user()->id_user)->first();
             $nikRt = $user->nik; // Ambil nilai nik dari pengguna
-            $noRt = Rt::where('nik_rt', $nikRt)->pluck('no_rt')->first();
+            $noRt = RT::where('nik_rt', $nikRt)->pluck('no_rt')->first();
 
             return $model->newQuery()->where('no_rt', $noRt);
         }
@@ -127,7 +127,7 @@ class PengajuanDokumenDataTable extends DataTable
      */
     public function getColumns(): array
     {
-        if (auth()->user()->role == 'Rw') {
+        if (auth()->user()->role == 'RW') {
             # code...
             return [
                 Column::make('id_pengajuandokumen')->title('ID'),

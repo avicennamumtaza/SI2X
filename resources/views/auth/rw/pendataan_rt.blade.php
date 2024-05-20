@@ -51,12 +51,12 @@
         <div class="modal-dialog modal-md">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit Rt</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Edit RT</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
                 <div class="modal-body justify-content-start text-start">
-                    <!-- Form untuk pengeditan Rt -->
+                    <!-- Form untuk pengeditan RT -->
                     <form id='editRtForm' method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')

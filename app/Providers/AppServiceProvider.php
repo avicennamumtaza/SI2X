@@ -26,11 +26,11 @@ class AppServiceProvider extends ServiceProvider
         Builder::useVite();
 
         Gate::define('isRt', function (Users $user) {
-            return $user->role === 'Rt';
+            return $user->role === 'RT';
         });
         
         Gate::define('isRw', function (Users $user) {
-            return $user->role === 'Rw';
+            return $user->role === 'RW';
         });
     }
 }

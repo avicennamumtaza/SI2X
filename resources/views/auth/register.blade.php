@@ -48,8 +48,8 @@
                                 <label for="role" class="col-md-4 col-form-label text-md-end">{{ __('Role') }}</label>
                                 <div class="col-md-6">
                                     <select id="role" class="form-control @error('role') is-invalid @enderror" name="role" required autofocus>
-                                        <option value="Rt" {{ old('role') == 'Rt' ? 'selected' : '' }}>Rt</option>
-                                        <option value="Rw" {{ old('role') == 'Rw' ? 'selected' : '' }}>Rw</option>
+                                        <option value="RT" {{ old('role') == 'RT' ? 'selected' : '' }}>RT</option>
+                                        <option value="RW" {{ old('role') == 'RW' ? 'selected' : '' }}>RW</option>
                                         {{-- <option value="Staf" {{ old('role') == 'Staf' ? 'selected' : '' }}>Staf</option> --}}
                                     </select>
                                     @error('role')

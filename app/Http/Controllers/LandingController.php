@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Keluarga;
 use App\Models\Penduduk;
-use App\Models\Rt;
+use App\Models\RT;
 use App\Models\Pengumuman;
 use App\Models\Umkm;
 use App\Models\PengajuanDokumen;
@@ -16,7 +16,7 @@ class LandingController extends Controller
         // Mengambil jumlah baris data dari masing-masing model
         $jumlah_keluarga = Keluarga::count();
         $jumlah_penduduk = Penduduk::count();
-        $jumlah_rt = Rt::count();
+        $jumlah_rt = RT::count();
         $jumlah_pengumuman = Pengumuman::count();
         $jumlah_umkm = Umkm::count();
         $jumlah_pengajuan_dokumen = PengajuanDokumen::count();

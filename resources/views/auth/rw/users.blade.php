@@ -26,8 +26,8 @@
                             <label for="role" class="form-label text-start">Peran</label>
                             <select class="form-select" id="role" name="role" required>
                                 <option value="" selected disabled>Pilih Peran</option>
-                                <option value="Rt">RT</option>
-                                <option value="Rw">RW</option>
+                                <option value="RT">RT</option>
+                                <option value="RW">RW</option>
                             </select>
                         </div>
                         <div class="form-group mb-3">
@@ -84,8 +84,8 @@
                             <label for="role" class="form-label text-start">Peran</label>
                             <select class="form-select" id="role" name="role" required>
                                 <option value="" selected disabled>Pilih Peran</option>
-                                <option value="Rt">RT</option>
-                                <option value="Rw">RW</option>
+                                <option value="RT">RT</option>
+                                <option value="RW">RW</option>
                             </select>
                         </div>
                         {{-- <div class="form-group mb-3">

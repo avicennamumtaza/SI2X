@@ -8,8 +8,8 @@ use App\Models\LaporanKeuangan;
 use App\Models\Penduduk;
 use App\Models\PengajuanDokumen;
 use App\Models\Pengumuman;
-use App\Models\Rt;
-use App\Models\Rw;
+use App\Models\RT;
+use App\Models\RW;
 use App\Models\Umkm;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -33,11 +33,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if (auth()->user()->role == 'Rw') {
+        if (auth()->user()->role == 'RW') {
             // $tahunSekarang = Carbon::now()->year;
     
-            // $jumlahRw = Rw::count();
-            $jumlahRt = Rt::count();
+            // $jumlahRw = RW::count();
+            $jumlahRt = RT::count();
             $jumlahKeluarga = Keluarga::count();
             $jumlahPenduduk = Penduduk::count();
             $jumlahAnakAnak = Penduduk::whereRaw("YEAR(CURDATE()) - YEAR(tanggal_lahir) < 15")->count();
@@ -75,7 +75,7 @@ class HomeController extends Controller
                 'jumlahPengajuanDokumenDec', 
                 'jumlahPengajuanDokumen'
             ));
-        } else if (auth()->user()->role == 'Rt') {
+        } else if (auth()->user()->role == 'RT') {
             # code...
             $jumlahKeluarga = Keluarga::count();
             $jumlahPenduduk = Penduduk::count();

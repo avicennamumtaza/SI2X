@@ -27,6 +27,6 @@ class Keluarga extends Model
 
     public function rt(): BelongsTo
     {
-        return $this->belongsTo(Rt::class, 'no_rt', 'no_rt');
+        return $this->belongsTo(RT::class, 'no_rt', 'no_rt');
     }
 }

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Rw;
+use App\Models\RW;
 use App\DataTables\RWDataTable;
 
 
@@ -11,7 +11,7 @@ class RWController extends Controller
 {
     public function index()
     {
-        $rws = Rw::all();
+        $rws = RW::all();
         return view('global.rw')->with('rws', $rws);
         // $pengumumans = Pengumuman::all();
         // return view('auth.rw.pengumuman', compact('pengumumans'));
@@ -35,7 +35,7 @@ class RWController extends Controller
             'wa_rt' => 'required|min:11|max:14',
         ]);
 
-        $rw = new Rw();
+        $rw = new RW();
         $rw->no_rw = $request->no_rw;
         $rw->nik_rw = $request->nik_rw;
         $rw->wa_rw = $request->wa_rw;
@@ -44,12 +44,12 @@ class RWController extends Controller
         return redirect()->back()->with('success', 'Pengumuman berhasil dipublish!');
     }
 
-    public function edit(Rw $rw)
+    public function edit(RW $rw)
     {
         return view('rw.edit', compact('rw'));
     }
 
-    public function update(Request $request, Rw $rw)
+    public function update(Request $request, RW $rw)
     {
         $request->validate([
             'no_rw' => 'required', // (tidak bisa mengubah no_rw as primary key, cek view)
@@ -63,7 +63,7 @@ class RWController extends Controller
             ->with('success', 'Pengumuman berhasil diperbarui.');
     }
 
-    public function destroy(Rw $rw)
+    public function destroy(RW $rw)
     {
         $rw->delete();
 

@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Rt;
+use App\Models\RT;
 use App\DataTables\RTDataTable;
 
 class RTController extends Controller
 {
     public function index()
     {
-        $rts = Rt::all();
+        $rts = RT::all();
         return view('global.rt')->with('rts', $rts);
         // $pengumumans = Pengumuman::all();
         // return view('auth.rw.pengumuman', compact('pengumumans'));
@@ -41,7 +41,7 @@ class RTController extends Controller
         //     'tanggal_pengumuman' => $request->tanggal_pengumuman,
         // ]);
 
-        $rt = new Rt();
+        $rt = new RT();
         $rt->no_rt = $request->no_rt;
         $rt->nik_rt = $request->nik_rt;
         $rt->wa_rt = $request->wa_rt;
@@ -50,13 +50,13 @@ class RTController extends Controller
         return redirect()->back()->with('success', 'Data RT Berhasil ditambahkan!');
     }
 
-    public function edit(Rt $rt)
+    public function edit(RT $rt)
     {
-        $rt = Rt::findOrFail($rt->no_rt);
+        $rt = RT::findOrFail($rt->no_rt);
         return view('rt.edit', compact('rt'));
     }
 
-    public function update(Request $request, Rt $rt)
+    public function update(Request $request, RT $rt)
     {
         $request->validate([
             'no_rt' => 'required|unique:rt,no_rt,'. $rt->no_rt .',no_rt', // (tidak bisa mengubah no_rt as primary key, cek view)
@@ -70,7 +70,7 @@ class RTController extends Controller
             ->with('success', 'Data RT Berhasil diperbarui.');
     }
 
-    public function destroy(Rt $rt)
+    public function destroy(RT $rt)
     {
         $rt->delete();
 

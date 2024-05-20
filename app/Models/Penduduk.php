@@ -53,12 +53,12 @@ class Penduduk extends Model
     // public function keluarga(): BelongsTo
     public function rw(): HasOne
     {
-        return $this->hasOne(Rw::class, 'nik_rw', 'nik');
+        return $this->hasOne(RW::class, 'nik_rw', 'nik');
     }
 
     public function rt(): HasOne
     {
-        return $this->hasOne(Rt::class, 'nik_rt', 'nik');
+        return $this->hasOne(RT::class, 'nik_rt', 'nik');
     }
 
     public function users(): HasOne

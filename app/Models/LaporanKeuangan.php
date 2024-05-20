@@ -23,6 +23,6 @@ class LaporanKeuangan extends Model
 
     // public function rw(): BelongsTo
     // {
-    //     return $this->belongsTo(Rw::class, 'nik_rw', 'nik_rw');
+    //     return $this->belongsTo(RW::class, 'nik_rw', 'nik_rw');
     // }
 }
