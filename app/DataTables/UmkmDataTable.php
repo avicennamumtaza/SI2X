@@ -92,7 +92,7 @@ class UmkmDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            Column::make('id_umkm')->title('Nomor')->width(1),
+            Column::make('id_umkm')->title('ID')->width(1),
             Column::make('nik_pemilik')->title('Pemilik')->width(50),
             Column::make('nama_umkm')->title('Nama UMKM')->width(100),
             Column::make('deskripsi_umkm')->title('Deskripsi')->width(400),
