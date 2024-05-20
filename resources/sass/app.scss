@@ -1116,13 +1116,26 @@ body {
             display: none;
         }
 
-        #sidebar:not(.expand) .sidebar-item:hover .has-dropdown+.sidebar-dropdown {
+        // #sidebar:not(.expand) .sidebar-item:hover .has-dropdown+.sidebar-dropdown {
+        //     display: block;
+        //     max-height: 15rem;
+        //     width: 100%;
+        //     opacity: 1;
+        // }
+
+     
+        #sidebar:not(.expand) .sidebar-dropdown {
+            display: none;
+        }
+
+        #sidebar:not(.expand) .sidebar-dropdown.show {
             display: block;
             max-height: 15rem;
             width: 100%;
             opacity: 1;
         }
 
+        
         #sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
             border: solid;
             border-width: 0 .075rem .075rem 0;

@@ -873,7 +873,10 @@ body .wrapper #sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
   min-width: 10rem;
   display: none;
 }
-body .wrapper #sidebar:not(.expand) .sidebar-item:hover .has-dropdown + .sidebar-dropdown {
+body .wrapper #sidebar:not(.expand) .sidebar-dropdown {
+  display: none;
+}
+body .wrapper #sidebar:not(.expand) .sidebar-dropdown.show {
   display: block;
   max-height: 15rem;
   width: 100%;
