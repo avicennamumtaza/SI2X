@@ -24,12 +24,12 @@ class PendudukController extends Controller
         $nkks = Keluarga::pluck('nkk');
         $goldar = GolDar::cases();
         $sp = StatusPernikahan::cases();
-        $agama = Agama::cases();
+        $agamas = Agama::cases();
         $jk = JenisKelamin::cases();
         $pekerjaans = Pekerjaan::cases();
         $pendidikans = Pendidikan::cases();
-        
-        return $dataTable->render('auth.rw.penduduk', compact('no_rts', 'nkks', 'goldar', 'pekerjaans', 'pendidikans', 'sp','jk','agama'));
+
+        return $dataTable->render('auth.rw.penduduk', compact('no_rts', 'nkks', 'goldar', 'pekerjaans', 'pendidikans', 'sp','jk','agamas'));
         // return $dataTable->render('auth.rw.penduduk', ['goldar' => GolDar::cases()]);
     }
     public function store(Request $request)

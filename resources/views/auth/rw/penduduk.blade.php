@@ -80,7 +80,7 @@
                             <label for="agama" class="form-label text-start">Agama</label>
                             <select class="form-select" id="agama" name="agama" required>
                                 <option value="" selected disabled>Pilih Agama</option>
-                                @foreach ($agama as $agama)
+                                @foreach ($agamas as $agama)
                                     <option value={{ $agama->value }}>{{ $agama->name }}</option>
                                 @endforeach
                             </select>
@@ -224,7 +224,7 @@
                             <label for="agama" class="form-label text-start">Agama</label>
                             <select class="form-select" id="agama" name="agama" required>
                                 <option value="" selected disabled>Pilih Agama</option>
-                                @foreach ($agama as $agama)
+                                @foreach ($agamas as $agama)
                                     <option value={{ $agama->value }}>{{ $agama->name }}</option>
                                 @endforeach
                             </select>
