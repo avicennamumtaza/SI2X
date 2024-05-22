@@ -138,7 +138,7 @@
     </main>
 
     {{-- Sweet Alert --}}
-    @include('sweetalert::alert');
+    @include('sweetalert::alert')
 
     <footer class="text-center text-lg-start">
         <!-- Grid container -->

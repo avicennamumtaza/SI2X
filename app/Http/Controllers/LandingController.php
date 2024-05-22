@@ -20,6 +20,11 @@ class LandingController extends Controller
         $jumlah_pengumuman = Pengumuman::count();
         $jumlah_umkm = Umkm::count();
         $jumlah_pengajuan_dokumen = PengajuanDokumen::count();
+        // $pengumuman = Pengumuman::where('id_pengumuman', 8)->first();
+        $pengumuman = Pengumuman::orderBy('created_at', 'desc')->take(2)->get();
+        $pengumuman1 = $pengumuman[0];
+        $pengumuman2 = $pengumuman[1];
+        // dd($pengumuman2);
         
         // Membuat array dengan nama variabel dan nilai untuk setiap jumlah data
         $data = [
@@ -30,9 +35,9 @@ class LandingController extends Controller
             'jumlah_umkm' => $jumlah_umkm,
             'jumlah_pengajuan_dokumen' => $jumlah_pengajuan_dokumen,
         ];
+        // 'pengumumans' => $pengumumans,
     
         // Mengirimkan data ke view dalam bentuk array
-        return view('landing', compact('data'));
+        return view('landing', compact('data', 'pengumuman1', 'pengumuman2'));
     }    
 }
-

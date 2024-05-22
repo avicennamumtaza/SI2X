@@ -351,14 +351,9 @@ body .container-pengumuman {
   background-color: transparent;
   text-align: center;
 }
-body .container-pengumuman .row {
-  margin-top: 10px;
-}
 body .container-pengumuman .row .card {
-  margin-top: 25px;
   background-color: transparent;
   text-align: center;
-  padding: 20px;
 }
 body .container-pengumuman a {
   width: -moz-fit-content;

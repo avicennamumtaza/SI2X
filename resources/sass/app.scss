@@ -470,18 +470,19 @@ body {
         text-align: center;
 
         .row {
-            margin-top: 10px;
+            // margin-top: 10px;
 
             .card {
-                margin-top: 25px;
+                // margin-top: 25px;
                 background-color: transparent;
                 text-align: center;
-                padding: 20px;
+                // padding: 20px;
+               
             }
 
-            @media screen and (max-width: 992px) {
-                // margin-block: 5rem;
-            }
+            // @media screen and (max-width: 992px) {
+            //     // margin-block: 5rem;
+            // }
         }
 
         a {
