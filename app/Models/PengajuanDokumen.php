@@ -15,7 +15,7 @@ class PengajuanDokumen extends Model
     protected $fillable = [
         // 'no_rt',
         'id_dokumen',
-        'nik_pengaju',
+        'nik_pemohon',
         'status_pengajuan',
         'keperluan',
         'catatan',
@@ -28,6 +28,6 @@ class PengajuanDokumen extends Model
 
     public function penduduk(): BelongsTo
     {
-        return $this->belongsTo(Penduduk::class, 'nik_pengaju', 'nik');
+        return $this->belongsTo(Penduduk::class, 'nik_pemohon', 'nik');
     }
 }

@@ -29,8 +29,8 @@ class PengajuanDokumenSeeder extends Seeder
             DB::table('pengajuan_dokumen')->insert([
                 'no_rt' => $faker->randomElement($noRt),
                 'id_dokumen' => $faker->randomElement($idDokumen),
-                'nik_pengaju' => $faker->randomElement($nikPengaju),
-                'nama_pengaju' => $faker->name(),
+                'nik_pemohon' => $faker->randomElement($nikPengaju),
+                'nama_pemohon' => $faker->name(),
                 'status_pengajuan' => $faker->randomElement(['Baru', 'Disetujui', 'Ditolak']),
                 'catatan' => $faker->sentence(5),
                 'created_at' => now(),
