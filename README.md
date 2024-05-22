@@ -9,7 +9,7 @@
 
 <h1 align="center">Sistem Informasi Rukun Warga</h1>
 <p align="center">
-    Sistem Informasi Berbasis Website Untuk Rukun Warga 6 Kelurahan Jodipan Malang
+    Perancangan dan Pengembangan Sistem Informasi Berbasis Website untuk Rukun Warga 6 Kelurahan Jodipan Kota Malang
 </p>
 
 ## About Laravel
