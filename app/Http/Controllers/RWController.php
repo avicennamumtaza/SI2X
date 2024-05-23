@@ -16,7 +16,7 @@ class RWController extends Controller
         // $pengumumans = Pengumuman::all();
         // return view('auth.rw.pengumuman', compact('pengumumans'));
     }
-    
+
     public function list(RWDataTable $dataTable) {
         return $dataTable->render('auth.rw.pendataan_rw');
     }
@@ -52,9 +52,9 @@ class RWController extends Controller
     public function update(Request $request, RW $rw)
     {
         $request->validate([
-            'no_rw' => 'required', // (tidak bisa mengubah no_rw as primary key, cek view)
-            'nik_rw' => 'required|min:15|max:17',
-            'wa_rt' => 'required|min:11|max:14',
+            'no_rw' => 'required|unique:rw,no_rw,'.$rw->no_rw.',no_rw', // (tidak bisa mengubah no_rw as primary key, cek view)
+            'nik_rw' => 'required|min:15|max:17|unique:rw,nik_rw,'. $rw->no_rw .',no_rw',
+            'wa_rw' => 'required|min:11|max:14',
         ]);
 
         $rw->update($request->all());
