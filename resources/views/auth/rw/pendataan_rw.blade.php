@@ -106,6 +106,26 @@
 
     @push('scripts')
         {{ $dataTable->scripts() }}
+        <script>
+            $('#rw-table').ready(function() {
+                $("#editRwModal").on("show.bs.modal", function(event) {
+
+                    var target = $(event.relatedTarget);
+                    let no_rw = target.data('id')
+                    let nik_rw = target.data('nik_rw')
+                    let wa_rw = target.data('wa_rw')
+
+
+                    $('#editRwModal #no_rw').val(no_rw);
+                    $('#editRwModal #nik_rw').val(nik_rw);
+                    $('#editRwModal #wa_rw').val(wa_rw);
+
+                    let url = "{{ route('rw.update', ':__id') }}";
+                    url = url.replace(':__id', no_rw);
+                    $('#editRwForm').attr('action', url)
+                });
+            });
+        </script>
     @endpush
 @endsection
 
