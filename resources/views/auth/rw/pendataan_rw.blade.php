@@ -29,11 +29,11 @@
                                 placeholder="Masukkan NIK RW" required>
                         </div>
 
-                        
+
                         <div class="form-group mb-3">
                             <label for="wa_rw" class="form-label text-start">Nomor WhatsApp RW</label>
                             <input type="text" class="form-control" id="wa_rw" name="wa_rw"
-                                placeholder="Masukkan Nomor WhatsApp RT" required>
+                                placeholder="Masukkan Nomor WhatsApp RW" required>
                         </div>
 
                         <!-- Tambahkan input lainnya sesuai kebutuhan -->
@@ -41,6 +41,48 @@
                 <div class="modal-footer justify-content-end">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
                     <button type="submit" class="btn btn-success">Kirim</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {{-- {{-- Edit RW --}}
+    <div class="modal fade" id="editRwModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit RW</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body justify-content-start text-start">
+                    <!-- Form untuk pengeditan RW -->
+                    <form id='editRwForm' method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('PUT')
+                        <!-- Tambahkan input form sesuai kebutuhan -->
+                        <div class="form-group mb-3">
+                            <label for="no_rw" class="form-label text-start">Nomor RW</label>
+                            <input type="text" class="form-control" id="no_rw" name="no_rw" required>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="nik_rw" class="form-label">NIK RW</label>
+                            <input type="text" class="form-control" id="nik_rw" name="nik_rw" rows="3"
+                                required></input>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="wa_rw" class="form-label">Nomor WhatsApp RW</label>
+                            <input type="text" class="form-control" id="wa_rw" name="wa_rw" required>
+                        </div>
+
+                        <!-- Tambahkan input lainnya sesuai kebutuhan -->
+                </div>
+                <div class="modal-footer justify-content-end">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-success">Simpan Perubahan</button>
                 </div>
                 </form>
             </div>
@@ -65,7 +107,6 @@
     @push('scripts')
         {{ $dataTable->scripts() }}
     @endpush
-
 @endsection
 
 @push('css')
