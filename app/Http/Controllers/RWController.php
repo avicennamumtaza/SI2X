@@ -41,7 +41,7 @@ class RWController extends Controller
         $rw->wa_rw = $request->wa_rw;
         $rw->save();
 
-        return redirect()->back()->with('success', 'Pengumuman berhasil dipublish!');
+        return redirect()->back()->with('success', 'Data RW berhasil ditambahkan!');
     }
 
     public function edit(RW $rw)
@@ -60,7 +60,7 @@ class RWController extends Controller
         $rw->update($request->all());
 
         return redirect()->route('rw.manage')
-            ->with('success', 'Pengumuman berhasil diperbarui.');
+            ->with('success', 'Data RW berhasil diperbarui.');
     }
 
     public function destroy(RW $rw)
@@ -68,6 +68,6 @@ class RWController extends Controller
         $rw->delete();
 
         return redirect()->back()
-            ->with('success', 'Pengumuman berhasil dihapus.');
+            ->with('success', 'Data RW berhasil dihapus.');
     }
 }
