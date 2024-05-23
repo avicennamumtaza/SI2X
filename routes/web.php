@@ -124,6 +124,7 @@ Route::prefix('manage')->group(function(){
         Route::prefix('rw')->group(function() {
             Route::get('/', [RWController::class, 'list'])->name('rw.manage')->middleware('isRw');
             Route::get('/{rw}/edit', [RWController::class, 'edit'])->name('rw.edit')->middleware('isRw');
+            Route::put('/update/{rw}', [RTController::class, 'update'])->name('rw.update')->middleware('isRw');
             Route::post('/', [RWController::class, 'store'])->name('rw.store')->middleware('isRw');
             Route::delete('/{rw}', [RwController::class, 'destroy'])->name('rw.destroy')->middleware('isRw');
         });
