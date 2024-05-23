@@ -33,13 +33,13 @@ class RWDataTable extends DataTable
             data-nik_rw="' . $row->nik_rw . '"
             data-wa_rw="' . $row->wa_rw . '"
             data-bs-toggle="modal" data-bs-target="#editRwModal" class="edit-user edit btn btn-edit btn-sm">Edit</button>';
-            $action .= '
-            <form action="' . $deleteUrl . '" method="post" style="display:inline;">
-                ' . csrf_field() . '
-                ' . method_field('DELETE') .
-                '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
-                </form>
-            </div>';
+            // $action .= '
+            // <form action="' . $deleteUrl . '" method="post" style="display:inline;">
+            //     ' . csrf_field() . '
+            //     ' . method_field('DELETE') .
+            //     '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
+            //     </form>
+            // </div>';
             return $action;
         });
     }
