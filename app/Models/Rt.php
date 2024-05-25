@@ -14,6 +14,7 @@ class RT extends Model
     protected $table = 'rt';
     protected $primaryKey = 'no_rt';
     protected $fillable = [
+        'no_rt',
         'nik_rt',
         'wa_rt',
     ];

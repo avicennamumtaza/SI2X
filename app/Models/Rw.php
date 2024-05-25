@@ -14,6 +14,7 @@ class RW extends Model
     protected $table = 'rw';
     protected $primaryKey = 'no_rw';
     protected $fillable = [
+        'no_rw',
         'nik_rw',
         'wa_rw',
     ];
