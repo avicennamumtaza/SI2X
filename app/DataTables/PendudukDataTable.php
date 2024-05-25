@@ -42,9 +42,9 @@ class PendudukDataTable extends DataTable
             ->editColumn('status_pendatang', function ($row) {
                 return $row->status_domisili ? 'Pendatang' : 'Asli';
             })
-            ->editColumn('golongan_darah', function ($row) {
-                return $row->golongan_darah->value;
-            })
+            // ->editColumn('golongan_darah', function ($row) {
+            //     return $row->golongan_darah->value;
+            // })
             // ->addColumn('umur', function ($row) {
             //     // Menghitung umur berdasarkan tanggal lahir
             //     $tanggal_lahir = new DateTime($row->tanggal_lahir);
