@@ -4,15 +4,24 @@
     <div class="container-fluid">
         @can('isRt')
             <section>
+                @if (auth()->user()->updated_at == auth()->user()->created_at)
+                <div class="alert alert-danger" role="alert">
+                    <h4 class="alert-heading">Perhatian!</h4>
+                    <p>Demi keamanan akun anda, harap perbarui password dengan segera. Password yang saat ini anda gunakan merupakan password ketika akun pertama kali dibuat dan perlu diperbarui. Pastikan untuk menggunakan password baru yang kuat dan unik untuk menjaga akun anda tetap aman.</p>
+                    <hr>
+                    <p class="mb-0">Anda bisa klik <a style="text-decoration: underline" href="{{ route('profil.manage') }}">link ini</a> untuk menggunakan fitur ubah password.</p>
+                </div>
+            @endif            
                 <div class="row">
                     <div class="col-12 mt-3 mb-3">
                         <h2 class="">Dashboard RT</h2>
                         {{-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt unde perspiciatis sit blanditiis
                             fugit, nemo deleniti quaerat? Corrupti quis culpa eum aut impedit perferendis harum maxime aperiam!
                         </p> --}}
-                        <hr class="mt-4 mb-5" style="height: 2px;">
+                        <hr class="hrmain mt-4 mb-5" style="height: 2px;">
                         <h4>Statistik Pendataan Penduduk &amp; Klasifikasi Berdasarkan Usia</h4>
-                        <p>Statistik Pendataan Penduduk &amp; Klasifikasi Berdasarkan Usia adalah fitur yang memberikan data mengenai 
+                        <p>Statistik Pendataan Penduduk &amp; Klasifikasi Berdasarkan Usia adalah fitur yang memberikan data
+                            mengenai
                             demografi penduduk dalam wilayah Rukun Warga (RW).</p>
 
                     </div>
@@ -121,10 +130,9 @@
                     <div class="col-12 mt-3 mb-3">
                         <h4>Statistik Permintaan Dokumen</h4>
                         <p>Statistik Permintaan Dokumen adalah fitur yang menyajikan data terperinci mengenai
-                             permintaan dokumen di lingkungan Rukun Warga (RW).</p>
+                            permintaan dokumen di lingkungan Rukun Warga (RW).</p>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-xl-12 col-md-12 col-sm-12 mb-4">
                         <div class="card">
@@ -160,7 +168,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-xl-6 col-md-6 col-sm-6 mb-4">
                         <div class="card">
@@ -203,7 +210,6 @@
                         </div>
                     </div>
                 </div>
-
             </section>
         @endcan
 
@@ -221,9 +227,9 @@
                             sit blanditiis
                             fugit, nemo deleniti quaerat? Corrupti quis culpa eum aut impedit perferendis harum maxime aperiam!
                         </p> --}}
-                        <hr class="mt-4 mb-5" style="height: 2px;">
+                        <hr class="hrmain mt-4 mb-5" style="height: 2px;">
                         <h4>Statistik Penggunaan Layanan</h4>
-                        <p>Statistik Penggunaan Layanan adalah fitur yang memberikan data menyeluruh 
+                        <p>Statistik Penggunaan Layanan adalah fitur yang memberikan data menyeluruh
                             mengenai pemanfaatan berbagai layanan oleh warga di lingkungan Rukun Warga (RW). </p>
                     </div>
                 </div>
@@ -325,7 +331,8 @@
                 <div class="row">
                     <div class="col-12 mt-3 mb-3">
                         <h4>Statistik Pendataan Penduduk &amp; Klasifikasi Berdasarkan Usia</h4>
-                        <p>Statistik Pendataan Penduduk &amp; Klasifikasi Berdasarkan Usia adalah fitur yang memberikan data mengenai 
+                        <p>Statistik Pendataan Penduduk &amp; Klasifikasi Berdasarkan Usia adalah fitur yang memberikan data
+                            mengenai
                             demografi penduduk dalam wilayah Rukun Warga (RW).</p>
                     </div>
                 </div>
@@ -463,7 +470,7 @@
                     <div class="col-12 mt-3 mb-3">
                         <h4>Statistik Permintaan Dokumen</h4>
                         <p>Statistik Permintaan Dokumen adalah fitur yang menyajikan data terperinci mengenai
-                             permintaan dokumen di lingkungan Rukun Warga (RW).</p>
+                            permintaan dokumen di lingkungan Rukun Warga (RW).</p>
                     </div>
                 </div>
 
@@ -552,7 +559,7 @@
                 <div class="row">
                     <div class="col-12 mt-3 mb-3">
                         <h4>Statistik Pendataan UMKM</h4>
-                        <p>Statistik Pendataan UMKM adalah sebuah fitur yang menyediakan data komprehensif 
+                        <p>Statistik Pendataan UMKM adalah sebuah fitur yang menyediakan data komprehensif
                             mengenai Usaha Mikro, Kecil, dan Menengah (UMKM) dalam wilayah RW (Rukun Warga).</p>
                     </div>
                 </div>
