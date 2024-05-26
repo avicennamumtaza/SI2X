@@ -143,14 +143,14 @@
                             <span>UMKM</span>
                         </a>
                     </li>
-                    <li class="sidebar-item {{ \Route::is('users') ? 'active' : '' }}">
+                    <li class="sidebar-item {{ \Route::is('users.manage') ? 'active' : '' }}">
                         <a href="{{ route('users.manage') }}" class="sidebar-link">
                             <i class="bi bi-people-fill"></i>
                             <span>Kelola Pengguna</span>
                         </a>
                     </li>
                 @endcan
-                <li class="sidebar-item {{ \Route::is('profil') ? 'active' : '' }}">
+                <li class="sidebar-item {{ \Route::is('profil.manage') ? 'active' : '' }}">
                     <a href="{{ route('profil.manage') }}" class="sidebar-link">
                         <i class="lni lni-user"></i>
                         <span>Profil</span>
