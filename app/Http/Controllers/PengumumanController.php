@@ -17,8 +17,9 @@ class PengumumanController extends Controller
         // $pengumumans = Pengumuman::all();
         // return view('auth.rw.pengumuman', compact('pengumumans'));
     }
-    
-    public function list(PengumumanDataTable $dataTable) {
+
+    public function list(PengumumanDataTable $dataTable)
+    {
         return $dataTable->render('auth.rw.pengumuman');
     }
 
@@ -29,32 +30,36 @@ class PengumumanController extends Controller
 
     public function store(Request $request)
     {
-            $validated = $request->validate([
-                'judul' => 'required|min:5|max:49',
-                'deskripsi' => 'required',
-                'tanggal_pengumuman' => 'required|date',
-                'foto_pengumuman' => 'required|mimes:png,jpg,jpeg',
-            ]);
-
-            $foto_pengumuman = $request->file('foto_pengumuman');
-            $foto_pengumuman_ext = $foto_pengumuman->getClientOriginalExtension();;
-            $foto_pengumuman_filename = $validated['judul'] . date('ymdhis') . "." . $foto_pengumuman_ext;
+        $validated = $request->validate([
+            'judul' => 'required|min:5|max:49',
+            'deskripsi' => 'required',
+            'tanggal_pengumuman' => 'required|date',
+            'foto_pengumuman' => 'nullable|mimes:png,jpg,jpeg',
+        ]);
     
-            
-            try {
-                Pengumuman::create([
-                    'judul' => $validated['judul'],
-                    'deskripsi' => $validated['deskripsi'],
-                    'tanggal' => $validated['tanggal_pengumuman'],
-                    'foto_pengumuman' => $foto_pengumuman_filename,
-                ]);
+        try {
+            $pengumumanData = [
+                'judul' => $validated['judul'],
+                'deskripsi' => $validated['deskripsi'],
+                'tanggal' => $validated['tanggal_pengumuman'],
+            ];
+    
+            if (isset($validated['foto_pengumuman'])) {
+                $foto_pengumuman = $request->file('foto_pengumuman');
+                $foto_pengumuman_ext = $foto_pengumuman->getClientOriginalExtension();
+                $foto_pengumuman_filename = $validated['judul'] . date('ymdhis') . "." . $foto_pengumuman_ext;
                 $foto_pengumuman->move(public_path('Foto Pengumuman'), $foto_pengumuman_filename);
-                return redirect()->back()->with('success', 'Pengumuman berhasil dipublish!');
-            } catch (\Exception $e) {
-                Alert::error('Oops!', $e->getMessage());
-                return redirect()->back();
+    
+                $pengumumanData['foto_pengumuman'] = $foto_pengumuman_filename;
             }
-    }
+    
+            Pengumuman::create($pengumumanData);
+            return redirect()->back()->with('success', 'Pengumuman berhasil dipublish!');
+        } catch (\Exception $e) {
+            Alert::error('Oops!', $e->getMessage());
+            return redirect()->back();
+        }
+    }    
 
     public function edit(Pengumuman $pengumuman)
     {
@@ -69,7 +74,7 @@ class PengumumanController extends Controller
             'deskripsi' => 'required',
             'tanggal_pengumuman' => 'required|date',
             'foto_pengumuman' => 'image|mimes:jpeg,jpg,png',
-         ]);
+        ]);
 
         Pengumuman::find($pengumuman->id_pengumuman)->update([
             'judul' => $validated['judul'],
@@ -79,19 +84,18 @@ class PengumumanController extends Controller
             // 'foto_pengumuman' => $validated['foto_pengumuman'],
         ]);
 
-        if($request->hasFile('foto_pengumuman') ){         
+        if ($request->hasFile('foto_pengumuman')) {
             $foto_pengumuman = $request->file('foto_pengumuman');
             $foto_pengumuman_ext = $foto_pengumuman->getClientOriginalExtension();;
             $foto_pengumuman_filename = $validated['judul'] . date('ymdhis') . "." . $foto_pengumuman_ext;
-            
+
             // Hapus foto lama dari sistem penyimpanan
-        if ($pengumuman->foto_pengumuman) {
-            File::delete(public_path('Foto Pengumuman') . '/' . $pengumuman->foto_pengumuman);
-        }
-         // Simpan foto baru ke sistem penyimpanan
-         $foto_pengumuman->move(public_path('Foto Pengumuman'), $foto_pengumuman_filename);
-         $pengumuman->update(['foto_pengumuman' => $foto_pengumuman_filename]);
-        
+            if ($pengumuman->foto_pengumuman) {
+                File::delete(public_path('Foto Pengumuman') . '/' . $pengumuman->foto_pengumuman);
+            }
+            // Simpan foto baru ke sistem penyimpanan
+            $foto_pengumuman->move(public_path('Foto Pengumuman'), $foto_pengumuman_filename);
+            $pengumuman->update(['foto_pengumuman' => $foto_pengumuman_filename]);
         }
 
         return redirect()->route('pengumuman.manage')->with('success', 'Pengumuman berhasil dipublish.');

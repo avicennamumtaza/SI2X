@@ -36,7 +36,7 @@
 
                         <div class="form-group mb-3">
                             <label for="foto_pengumuman" class="form-label">Foto Pengumuman</label>
-                            <input type="file" class="form-control" id="foto_pengumuman" name="foto_pengumuman" required>
+                            <input type="file" class="form-control" id="foto_pengumuman" name="foto_pengumuman">
                         </div>
                 </div>
                 <div class="modal-footer justify-content-end">
