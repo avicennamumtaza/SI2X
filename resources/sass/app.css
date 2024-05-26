@@ -134,44 +134,37 @@ body .container-fluid-nav {
   padding-right: 15px;
   padding-left: 15px;
 }
-body .background-image {
+body .main-image {
   position: absolute;
-  top: 110px;
+  top: 130px;
   left: 710px;
   width: 32%;
   height: auto;
-  background-color: transparent;
+  /* Warna latar belakang jika gambar tidak tersedia */
   /* Warna latar belakang jika gambar tidak tersedia */
 }
-@media screen and (max-width: 991px) {
-  body .background-image {
-    position: relative;
+@media screen and (min-width: 1500px) {
+  body .main-image {
     /* Mengubah posisi menjadi relatif untuk menempatkan di bawah container */
-    top: auto;
-    left: 300px;
-    padding-top: 90px;
+    top: 50px;
+    left: 230px;
+    width: 0%; /* Mengisi lebar container penuh */
     /* Atur jarak antara gambar dan container */
   }
 }
-@media screen and (max-width: 500px) {
-  body .background-image {
-    position: relative;
+@media screen and (max-width: 991px) {
+  body .main-image {
     /* Mengubah posisi menjadi relatif untuk menempatkan di bawah container */
-    top: auto;
-    left: 145px;
-    padding-top: 90px;
+    top: 50px;
+    left: 230px;
+    width: 0%; /* Mengisi lebar container penuh */
+    /* Atur jarak antara gambar dan container */
   }
 }
 body h1 {
   text-align: center;
   color: #253560;
   font-weight: 600;
-}
-@media screen and (max-width: 992px) {
-  body {
-    background-position-y: 70vh;
-    background-position-x: 50vh;
-  }
 }
 body .custom-nav {
   background-color: #ffffff;
@@ -248,7 +241,6 @@ body .container-landing {
 }
 body .container-landing .custom-section {
   color: #253560;
-  padding-inline: 140px;
 }
 body .container-landing .custom-section h2 {
   font-weight: 600;
@@ -279,7 +271,8 @@ body .container-landing .custom-section a:hover {
 }
 @media screen and (max-width: 992px) {
   body .container-landing .custom-section {
-    margin-inline: -7px;
+    margin: 0px;
+    padding-inline-end: 40px;
     font-size: smaller;
   }
   body .container-landing .custom-section h2 {
@@ -287,34 +280,38 @@ body .container-landing .custom-section a:hover {
     font-size: 2.89rem;
   }
 }
-body .container-stats {
+body .container-statsngal {
   background-color: transparent;
-  margin-top: 10rem;
-  margin-bottom: 4rem;
+  margin-top: 7.5rem;
+  margin-bottom: -5rem;
 }
-body .container-stats .card {
+body .container-statsngal .carousel-caption {
+  background-color: rgba(0, 0, 0, 0.5); /* Hitam dengan 50% opacity */
+  border: 1px solid #152551;
+}
+body .container-statsngal .card {
   background-color: transparent;
   text-align: center;
   padding-block: 25px;
   width: 150px;
   border: none;
 }
-body .container-stats .card .card-icon {
+body .container-statsngal .card .card-icon {
   font-size: 4rem;
   /* Ukuran ikon diperbesar */
   margin-bottom: 5px;
   /* Jarak antara ikon dan angka */
 }
-body .container-stats .card .span-head {
+body .container-statsngal .card .span-head {
   font-size: 125%;
   font-weight: 600;
 }
-body .container-stats .card .span-count {
+body .container-statsngal .card .span-count {
   font-weight: 600;
   font-size: 45px;
 }
 @media screen and (max-width: 992px) {
-  body .container-stats {
+  body .container-statsngal {
     margin-top: 7rem;
   }
 }
@@ -352,7 +349,7 @@ body .container-pengumuman {
   text-align: center;
 }
 body .container-pengumuman .row .card {
-  background-color: transparent;
+  background-color: #253560;
   text-align: center;
 }
 body .container-pengumuman a {
@@ -377,7 +374,7 @@ body .container-pengumuman a:hover {
 }
 body .container-layanan {
   background-color: transparent;
-  margin-top: 7rem;
+  margin-top: 9rem;
 }
 body .container-layanan .card {
   width: 225px;
@@ -918,7 +915,7 @@ body hr.tabel {
   border: orange;
   opacity: 0.99;
 }
-body hr {
+body hr.hrmain {
   margin-top: -20px;
   height: 10px;
   color: #152551;

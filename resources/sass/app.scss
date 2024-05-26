@@ -164,6 +164,7 @@ li {
 
 // style
 body {
+    // margin: 0;
     .btn-add {
         @include tombolAdd();
     }
@@ -208,36 +209,47 @@ body {
         padding-left: 15px; // Tambahkan sedikit padding kiri agar konten tidak menempel langsung ke tepi layar
     }
 
-    .background-image {
+    .main-image {
         position: absolute;
-        top: 110px;
+        top: 130px;
         left: 710px;
         width: 32%;
         height: auto;
         // z-index: -1;
         // object-fit: cover;
         // object-position: 50vh 0vh; /* Sesuaikan dengan posisi yang diinginkan */
-        background-color: transparent;
+        // background-color: transparent;
 
         /* Warna latar belakang jika gambar tidak tersedia */
-        @media screen and (max-width: 991px) {
-            position: relative;
+        @media screen and (min-width: 1500px) {
+            // position: relative;
             /* Mengubah posisi menjadi relatif untuk menempatkan di bawah container */
-            top: auto;
-            left: 300px;
-            // width: 70%; /* Mengisi lebar container penuh */
-            padding-top: 90px;
+            top: 50px;
+            left: 230px;
+            width: 00%; /* Mengisi lebar container penuh */
+            // padding-top: 90px;
             /* Atur jarak antara gambar dan container */
         }
 
-        @media screen and (max-width:500px) {
-            position: relative;
+        /* Warna latar belakang jika gambar tidak tersedia */
+        @media screen and (max-width: 991px) {
+            // position: relative;
             /* Mengubah posisi menjadi relatif untuk menempatkan di bawah container */
-            top: auto;
-            left: 145px;
-            // width: 70%; /* Mengisi lebar container penuh */
-            padding-top: 90px;
+            top: 50px;
+            left: 230px;
+            width: 00%; /* Mengisi lebar container penuh */
+            // padding-top: 90px;
+            /* Atur jarak antara gambar dan container */
         }
+
+        // @media screen and (max-width:500px) {
+        //     // position: relative;
+        //     /* Mengubah posisi menjadi relatif untuk menempatkan di bawah container */
+        //     top: auto;
+        //     left: 110px;
+        //     // width: 70%; /* Mengisi lebar container penuh */
+        //     // padding-top: 90px;
+        // }
     }
 
     h1 {
@@ -250,10 +262,10 @@ body {
     background-color: #E9E9E9;
     height: 100vh;
 
-    @media screen and (max-width: 992px) {
-        background-position-y: 70vh;
-        background-position-x: 50vh;
-    }
+    // @media screen and (max-width: 992px) {
+    //     background-position-y: 70vh;
+    //     background-position-x: 50vh;
+    // }
 
     // navbar
     .custom-nav {
@@ -351,7 +363,7 @@ body {
             color: $primaryCol;
             // margin-top: 50px;
             // margin-inline-start: 100px;
-            padding-inline: 140px;
+            // padding-inline: 140px;
 
             h2 {
                 // text-align: right;
@@ -375,10 +387,10 @@ body {
             }
 
             @media screen and (max-width: 992px) {
-                margin-inline: -7px;
-                // padding-inline: -97px;
+                margin: 0px;
+                padding-inline-end: 40px;
                 font-size: smaller;
-
+        
                 // padding-top: 2.5rem;
                 h2 {
                     font-weight: 600;
@@ -389,10 +401,15 @@ body {
     }
 
     // stats
-    .container-stats {
+    .container-statsngal {
         background-color: transparent;
-        margin-top: 10rem;
-        margin-bottom: 4rem;
+        margin-top: 7.5rem;
+        margin-bottom: -5rem;
+
+        .carousel-caption {
+            background-color: rgba(0, 0, 0, 0.5); /* Hitam dengan 50% opacity */
+            border: 1px solid $secondaryCol;
+        }
 
         .card {
             background-color: transparent;
@@ -474,7 +491,7 @@ body {
 
             .card {
                 // margin-top: 25px;
-                background-color: transparent;
+                background-color: $primaryCol;
                 text-align: center;
                 // padding: 20px;
                
@@ -497,7 +514,7 @@ body {
     // layanan
     .container-layanan {
         background-color: transparent;
-        margin-top: 7rem;
+        margin-top: 9rem;
 
         // margin-bottom: 4rem;
         .card {
@@ -1203,7 +1220,7 @@ body {
     //     max-width: fit-content;
     // }
 
-    hr {
+    hr.hrmain {
         margin-top: -20px;
         height: 10px;
         color: $secondaryCol;
