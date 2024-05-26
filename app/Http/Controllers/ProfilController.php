@@ -40,7 +40,7 @@ class ProfilController extends Controller
                 $users->save();
             }
 
-            return redirect()->back()->with('success', 'User berhasil diupdate!');
+            return redirect()->back()->with('success', 'Profil berhasil diperbarui!');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Update gagal: ' . $e->getMessage());
         }
