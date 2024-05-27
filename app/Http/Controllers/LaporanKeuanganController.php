@@ -18,7 +18,7 @@ class LaporanKeuanganController extends Controller
     {
         // $this->authorize('isRt');
         // return view('global.laporankeuangan');
-        $laporankeuangans = LaporanKeuangan::all();
+        $laporankeuangans = LaporanKeuangan::all()->sortByDesc('tanggal');
         $latestLaporanKeuangan = LaporanKeuangan::latest()->first();
         if ($latestLaporanKeuangan == null) {
             $saldo = 0;

@@ -37,7 +37,7 @@
                                                     }
                                                 }
                                             ?>
-                                            <b>&nbsp; Rp&nbsp;{{ number_format($saldo, 0, ',', '.') }}</b>
+                                            <b>Rp {{ number_format($saldo, 0, ',', '.') }}</b>
                                         </h2>
                                     </div>
                                 </div>
@@ -54,6 +54,7 @@
                                 <th>Nominal</th>
                                 <th>Detail</th>
                                 <th>Tanggal</th>
+                                {{-- <th>Saldo</th> --}}
                                 {{-- <th>Pihak Terlibat</th> --}}
                             </tr>
                         </thead>
@@ -65,6 +66,7 @@
                                     <td>Rp {{ number_format($laporanKeuangan->nominal, 0, ',', '.') }}</td>
                                     <td>{{ $laporanKeuangan->detail }}</td>
                                     <td>{{ $laporanKeuangan->tanggal }}</td>
+                                    {{-- <td>{{ $laporanKeuangan->saldo }}</td> --}}
                                     {{-- <td>{{ $laporanKeuangan->pihak_terlibat }}</td> --}}
                                 </tr>
                             @endforeach
