@@ -184,7 +184,7 @@
                 <a href="{{ route('pengumuman.global') }}" style="text-decoration: none">
                     <button class="card" title="Daftar Pengumuman">
                         <i class="bi bi-megaphone card-icon"></i>
-                        <span class="span-head">Publikasi Pengumuman</span>
+                        <span class="span-head">Pengumuman Terkini</span>
                     </button>
                 </a>
             </div>
