@@ -149,4 +149,55 @@ class PendudukController extends Controller
 
     return redirect()->back()->with('success', 'CSV berhasil diimpor.');
 }
+public function export()
+{
+    $penduduk = Penduduk::all();
+    $filename = 'penduduk.csv';
+    $handle = fopen($filename, 'w+');
+    fputcsv($handle, [
+        'nik',
+        'nkk',
+        'no_rt',
+        'nama',
+        'tempat_lahir',
+        'tanggal_lahir',
+        'alamat',
+        'jenis_kelamin',
+        'agama',
+        'pendidikan',
+        'pekerjaan',
+        'golongan_darah',
+        'status_pernikahan',
+        'status_pendatang'
+        // Tambahkan kolom lagi jika diperlukan
+    ]);
+
+    foreach ($penduduk as $row) {
+        fputcsv($handle, [
+            $row->nik,
+            $row->nkk,
+            $row->no_rt,
+            $row->nama,
+            $row->tempat_lahir,
+            $row->tanggal_lahir,
+            $row->alamat,
+            $row->jenis_kelamin->getDescription(),
+            $row->agama->getDescription(),
+            $row->pendidikan->getDescription(),
+            $row->pekerjaan->getDescription(),
+            $row->golongan_darah->getDescription(),
+            $row->status_pernikahan->getDescription(),
+            $row->status_pendatang
+            // Tambahkan kolom lagi jika diperlukan
+        ]);
+    }
+
+    fclose($handle);
+
+    $headers = [
+        'Content-Type' => 'text/csv',
+    ];
+
+    return Response::download($filename, 'penduduk.csv', $headers);
+}
 }

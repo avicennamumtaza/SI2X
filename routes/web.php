@@ -137,6 +137,7 @@ Route::prefix('manage')->group(function(){
             Route::put('/update/{penduduk}', [PendudukController::class, 'update'])->name('penduduk.update')->middleware('auth');
             Route::delete('/{penduduk}', [PendudukController::class, 'destroy'])->name('penduduk.destroy')->middleware('auth');
             Route::post('/import', [PendudukController::class, 'import'])->name('penduduk.import')->middleware('auth');
+            Route::post('/export', [PendudukController::class, 'export'])->name('penduduk.export');
         });
 
         // manage keluarga

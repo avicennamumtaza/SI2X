@@ -319,10 +319,34 @@
         </div>
     </div>
 
+    <div class="modal fade" id="exportPenduduk" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Export Penduduk</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body justify-content-start text-start">
+                    <form action="{{ route('penduduk.export') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group mb-3">
+                            <p>Anda akan mengunduh data penduduk dengan format file csv.<p>
+                        </div>
+                </div>
+                <div class="modal-footer justify-content-end">
+                    <button type="submit" class="btn btn-success">Unduh</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div class="card card-tabel">
         <div class="card-header card-header-tabel p-4 mb-3">
             <h5>
                 Penduduk
+                <button class="btn btn-add float-end" data-bs-toggle="modal" data-bs-target="#exportPenduduk">Export
+                    Data</button>
                 <button class="btn btn-add float-end" data-bs-toggle="modal" data-bs-target="#tambahPenduduk">Tambah
                     Data</button>
             </h5>

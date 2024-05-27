@@ -9,4 +9,13 @@ enum StatusPernikahan: string
     case CERAI_HIDUP = "Cerai Hidup";
     case CERAI_MATI = "Cerai Mati";
 
+    public function getDescription(): string
+    {
+        return match($this) {
+            self::KAWIN => "Kawin",
+            self::BELUM_KAWIN => "Belum Kawin",
+            self::CERAI_HIDUP => "Cerai Hidup",
+            self::CERAI_MATI => "Cerai Mati",
+        };
+    }
 }
