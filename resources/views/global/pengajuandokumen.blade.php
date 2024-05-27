@@ -93,8 +93,8 @@
                     <thead>
                         <tr>
                             <th>RT</th>
+                            <th>NIK Pemohon</th>
                             <th>Dokumen</th>
-                            <th>Pengaju</th>
                             <th>Status</th>
                             <th>Catatan</th>
                         </tr>
@@ -102,9 +102,11 @@
                     <tbody>
                         @foreach ($pengajuanDokumens as $pengajuanDokumen)
                             <tr>
-                                <td style="width: 5%">{{ $pengajuanDokumen->no_rt }}</td>
+                                <td style="width: 5%">{{ $pengajuanDokumen->penduduk->no_rt }}</td>
+                                <td style="width: 25%">
+                                    {{ substr($pengajuanDokumen->nik_pemohon, 0, 3) . str_repeat('*', strlen($pengajuanDokumen->nik_pemohon) - 7) . substr($pengajuanDokumen->nik_pemohon, -4) }}
+                                </td>                                
                                 <td style="width: 15%">{{ $pengajuanDokumen->dokumen->jenis_dokumen }}</td>
-                                <td style="width: 25%">{{ $pengajuanDokumen->nama_pemohon }}</td>
                                 <td style="width: 5%">
                                     @if ($pengajuanDokumen->status_pengajuan == 'Baru')
                                         <span style="background-color: darkgoldenrod"
