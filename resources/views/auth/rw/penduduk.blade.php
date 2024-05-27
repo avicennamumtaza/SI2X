@@ -11,10 +11,9 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
-                <div>
-                    <button class="btn-add" data-bs-toggle="modal" data-bs-target="#importPenduduk">Impor
-                        Data</button>
-                </div>
+                {{-- <div>
+                    <button class="btn-add" data-bs-toggle="modal" data-bs-target="#importPenduduk">Impor Data</button>
+                </div> --}}
 
                 <div class="modal-body justify-content-start text-start">
                     <!-- Form untuk tambah penduduk -->
@@ -323,14 +322,15 @@
         <div class="modal-dialog modal-md">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Export Penduduk</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Ekspor Data</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body justify-content-start text-start">
                     <form action="{{ route('penduduk.export') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group mb-3">
-                            <p>Anda akan mengunduh data penduduk dengan format file csv.<p>
+                            <p>Anda akan mengunduh data penduduk dengan format file csv.
+                            <p>
                         </div>
                 </div>
                 <div class="modal-footer justify-content-end">
@@ -345,10 +345,13 @@
         <div class="card-header card-header-tabel p-4 mb-3">
             <h5>
                 Penduduk
-                <button class="btn btn-add float-end" data-bs-toggle="modal" data-bs-target="#exportPenduduk">Export
-                    Data</button>
-                <button class="btn btn-add float-end" data-bs-toggle="modal" data-bs-target="#tambahPenduduk">Tambah
-                    Data</button>
+                <span>
+                    <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#exportPenduduk">Ekspor
+                        Data</button>
+                    <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#importPenduduk">Impor Data</button>
+                    <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#tambahPenduduk">Tambah
+                        Data</button>
+                </span>
             </h5>
         </div>
         <hr class="tabel">
