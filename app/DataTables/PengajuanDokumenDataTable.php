@@ -32,8 +32,14 @@ class PengajuanDokumenDataTable extends DataTable
                 // ->addColumn('action', 'a.action')
                 ->setRowId('id')
                 ->addColumn('dokumen', function ($row) {
-                    $namaDokumen = Dokumen::where('id_dokumen', $row->id_dokumen)->first();
-                    return $namaDokumen->jenis_dokumen;
+                    // $namaDokumen = Dokumen::where('id_dokumen', $row->id_dokumen)->first();
+                    // return $namaDokumen->jenis_dokumen;
+                    return $row->dokumen->jenis_dokumen;
+                })
+                ->addColumn('no_rt', function ($row) {
+                    // $penduduks = Penduduk::where('nik', $row->nik_pemohon)->first();
+                    // return $penduduks->no_rt;
+                    return $row->penduduk->no_rt;
                 });
         } else {
             return (new EloquentDataTable($query))
@@ -56,12 +62,11 @@ class PengajuanDokumenDataTable extends DataTable
                     <div class="container-action">
                     <button type="button"
                     data-id_pengajuandokumen="' . $row->id_pengajuandokumen . '"
-                    data-nama_pemohon="' . $row->nama_pemohon . '"
-                    data-no_rt="' . $row->no_rt . '"
+                    data-no_rt="' . $pengaju->no_rt . '"
                     data-nik_pemohon="' . $row->nik_pemohon . '"
                     data-nama_asli_pengaju="' . $pengaju->nama . '"
                     data-usia_pengaju="' . $age . '"
-                    data-pekerjaan_pengaju="' . $pengaju->pekerjaan . '"
+                    data-pekerjaan_pengaju="' . $pengaju->pekerjaan->value . '"
                     data-id_dokumen="' . $row->id_dokumen . '"
                     data-jenis_dokumen="' . $dokumen->jenis_dokumen . '"
                     data-status_pengajuan="' . $row->status_pengajuan . '"
@@ -84,13 +89,21 @@ class PengajuanDokumenDataTable extends DataTable
      */
     public function query(PengajuanDokumen $model): QueryBuilder
     {
-        if (auth()->user()->role == 'RT') {
-            // Dapatkan pengguna yang sedang login
-            $user = Users::where('id_user', auth()->user()->id_user)->first();
-            $nikRt = $user->nik; // Ambil nilai nik dari pengguna
-            $noRt = RT::where('nik_rt', $nikRt)->pluck('no_rt')->first();
+        // if (auth()->user()->role == 'RT') {
+        //     // Dapatkan pengguna yang sedang login
+        //     $user = Users::where('id_user', auth()->user()->id_user)->first();
+        //     $nikRt = $user->nik; // Ambil nilai nik dari pengguna
+        //     $noRt = RT::where('nik_rt', $nikRt)->pluck('no_rt')->first();
+        //     $pendudukRt = Penduduk::where('no_rt', $noRt)->pluck('nik');
 
-            return $model->newQuery()->where('no_rt', $noRt);
+        //     return $model->newQuery()->where('nik_pemohon', $pendudukRt);
+        // }
+        if (auth()->user()->role == 'RT') {
+            $nikRt = auth()->user()->nik;
+            $noRt = RT::where('nik_rt', $nikRt)->pluck('no_rt')->first();
+            $pendudukRt = Penduduk::where('no_rt', $noRt)->pluck('nik');
+
+            return $model->newQuery()->whereIn('nik_pemohon', $pendudukRt);
         }
         return $model->newQuery();
     }
@@ -101,25 +114,25 @@ class PengajuanDokumenDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-                    ->setTableId('pengajuandokumen-table')
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->orderBy(0, 'asc') // Set default order by column 0 (id_pengumuman)
-                    ->parameters([
-                        'language' => [
-                            'search' => '', // Menghilangkan teks "Search:"
-                            'searchPlaceholder' => 'Cari Pengajuan Dokumen', // Placeholder untuk kolom pencarian
-                            'paginate' => [
-                                'previous' => 'Kembali', // Mengubah teks "Previous"
-                                'next' => 'Lanjut', // Mengubah teks "Next"
-                            ],
-                            'info' => 'Menampilkan _START_ hingga _END_ dari _TOTAL_ entri', // Ubah teks sesuai keinginan Anda
-                        ],
-                        'dom' => 'Bfrtip', // Menambahkan tombol
-                        'buttons' => [], // Menambahkan tombol ekspor dan lainnya
-                        'order' => [], // Mengaktifkan order by untuk setiap kolom
-                    ])
-                    ->selectStyleSingle();
+            ->setTableId('pengajuandokumen-table')
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            ->orderBy(0, 'asc') // Set default order by column 0 (id_pengumuman)
+            ->parameters([
+                'language' => [
+                    'search' => '', // Menghilangkan teks "Search:"
+                    'searchPlaceholder' => 'Cari Pengajuan Dokumen', // Placeholder untuk kolom pencarian
+                    'paginate' => [
+                        'previous' => 'Kembali', // Mengubah teks "Previous"
+                        'next' => 'Lanjut', // Mengubah teks "Next"
+                    ],
+                    'info' => 'Menampilkan _START_ hingga _END_ dari _TOTAL_ entri', // Ubah teks sesuai keinginan Anda
+                ],
+                'dom' => 'Bfrtip', // Menambahkan tombol
+                'buttons' => [], // Menambahkan tombol ekspor dan lainnya
+                'order' => [], // Mengaktifkan order by untuk setiap kolom
+            ])
+            ->selectStyleSingle();
     }
 
     /**
@@ -132,9 +145,9 @@ class PengajuanDokumenDataTable extends DataTable
             return [
                 Column::make('id_pengajuandokumen')->title('ID'),
                 Column::make('dokumen')->title('Dokumen'),
-                Column::make('no_rt')->title('Nomor RT'),
+                Column::make('no_rt')->title('RT'),
                 Column::make('nik_pemohon')->title('NIK'),
-                Column::make('nama_pemohon')->title('Nama'),
+                // Column::make('nama_pemohon')->title('Nama'),
                 Column::make('status_pengajuan')->title('Status'),
                 Column::make('catatan')->title('Catatan'),
                 Column::make('created_at')->title('Tanggal'),
@@ -150,9 +163,9 @@ class PengajuanDokumenDataTable extends DataTable
             return [
                 Column::make('id_pengajuandokumen')->title('ID'),
                 Column::make('dokumen')->title('Dokumen'),
-                Column::make('no_rt')->title('Nomor RT'),
+                // Column::make('no_rt')->title('Nomor RT'),
                 Column::make('nik_pemohon')->title('NIK'),
-                Column::make('nama_pemohon')->title('Nama'),
+                // Column::make('nama_pemohon')->title('Nama'),
                 Column::make('status_pengajuan')->title('Status'),
                 Column::make('catatan')->title('Catatan'),
                 Column::make('created_at')->title('Tanggal'),
