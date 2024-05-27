@@ -520,11 +520,23 @@ body {
         .card {
             width: 225px;
             margin-top: 30px;
-            background-color: transparent;
-            @include tombol();
+            background-color: $primaryCol;
+            border-radius: 2em;
+            padding-inline: 20px;
+            // padding-block: 7px;
+            color: #ffffff;
+            text-decoration: none;
+            transition: 0.3s ease-in-out;
             text-align: center;
             align-items: center;
             padding-block: 25px;
+            &:hover {
+                background-color: #ffffff;
+                border: 1px solid black;
+                border-radius: 50%;
+                font-weight: 700;
+                color: $primaryCol;
+            }
 
             // border: none;
             .card-icon {

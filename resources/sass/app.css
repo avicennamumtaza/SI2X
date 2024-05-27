@@ -379,11 +379,9 @@ body .container-layanan {
 body .container-layanan .card {
   width: 225px;
   margin-top: 30px;
-  background-color: transparent;
   background-color: #253560;
   border-radius: 2em;
   padding-inline: 20px;
-  padding-block: 7px;
   color: #ffffff;
   text-decoration: none;
   transition: 0.3s ease-in-out;
@@ -394,6 +392,7 @@ body .container-layanan .card {
 body .container-layanan .card:hover {
   background-color: #ffffff;
   border: 1px solid black;
+  border-radius: 50%;
   font-weight: 700;
   color: #253560;
 }
