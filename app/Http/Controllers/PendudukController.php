@@ -15,6 +15,7 @@ use App\Models\RT;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Response;
 
 class PendudukController extends Controller
 {
@@ -97,7 +98,6 @@ class PendudukController extends Controller
             'agama' => [Rule::enum(Agama::class)],
             'pendidikan' => [Rule::enum(Pendidikan::class)],
             'pekerjaan' => [Rule::enum(Pekerjaan::class)],
-            // 'golongan_darah' => 'required|string|max:2',
             'golongan_darah' =>  [Rule::enum(GolDar::class)],
             'status_pernikahan' => [Rule::enum(StatusPernikahan::class)],
             'status_pendatang' => 'required',
@@ -116,4 +116,37 @@ class PendudukController extends Controller
         return redirect()->back()
             ->with('success', 'Penduduk berhasil dihapus.');
     }
+
+    //impor csv
+    public function import(Request $request)
+{
+    $file = $request->file('file');
+    $fileContents = file($file->getPathname());
+
+    foreach ($fileContents as $line) {
+        $data = str_getcsv($line);
+        Penduduk::create([
+            'nik' => $data[0] ?? null,
+            'nkk' => $data[1] ?? null,
+            'no_rt' => $data[2] ?? null,
+            'nama' => $data[3] ?? null,
+            'tempat_lahir' => $data[4] ?? null,
+            'tanggal_lahir' => $data[5] ?? null,
+            'alamat' => $data[6] ?? null,
+            'jenis_kelamin' => $data[7] ?? null,
+            'agama' => $data[8] ?? null,
+            'pendidikan' => $data[9] ?? null,
+            'pekerjaan' => $data[10] ?? null,
+            'golongan_darah' => $data[11] ?? null,
+            'status_pernikahan' => $data[12] ?? null,
+            'status_pendatang' => $data[13] ?? null
+            // Tambahkan kolom lagi jika diperlukan
+        ]);
+        if (count($data) !== 14) {
+            return redirect()->back()->with('error', 'CSV tidak valid.');
+        }
+    }
+
+    return redirect()->back()->with('success', 'CSV berhasil diimpor.');
+}
 }

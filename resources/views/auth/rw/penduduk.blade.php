@@ -11,6 +11,11 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
+                <div>
+                    <button class="btn-add" data-bs-toggle="modal" data-bs-target="#importPenduduk">Impor
+                        Data</button>
+                </div>
+
                 <div class="modal-body justify-content-start text-start">
                     <!-- Form untuk tambah penduduk -->
                     <form action="{{ route('penduduk.store') }}" method="POST">
@@ -134,7 +139,8 @@
                             <select class="form-select" id="status_pernikahan" name="status_pernikahan" required>
                                 <option value="" selected disabled>Pilih Status Pernikahan</option>
                                 @foreach ($sp as $statusPernikahan)
-                                    <option value="{{ $statusPernikahan->value }}">{{ $statusPernikahan->value }}</option>
+                                    <option value="{{ $statusPernikahan->value }}">{{ $statusPernikahan->value }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
@@ -168,7 +174,6 @@
                     <h5 class="modal-title" id="exampleModalLabel">Edit Penduduk</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-
                 <div class="modal-body justify-content-start text-start">
                     <!-- Form untuk pengeditan pengumuman -->
                     <form id='editPendudukForm' method="POST">
@@ -265,14 +270,16 @@
                             <select class="form-select" id="status_pernikahan" name="status_pernikahan" required>
                                 <option value="" selected disabled>Pilih Status Pernikahan</option>
                                 @foreach ($sp as $statusPernikahan)
-                                    <option value="{{ $statusPernikahan->value }}">{{ $statusPernikahan->value }}</option>
+                                    <option value="{{ $statusPernikahan->value }}">{{ $statusPernikahan->value }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
 
                         <div class="form-group mb-3">
                             <label for="status_pendatang" class="form-label text-start">Status Pendatang</label>
-                            <select type="text" class="form-select" id="status_pendatang" name="status_pendatang" required>
+                            <select type="text" class="form-select" id="status_pendatang" name="status_pendatang"
+                                required>
                                 <option value="" selected disabled>Pilih Status Pendatang</option>
                                 <option value="0">Domisili</option>
                                 <option value="1">Non Domisili</option>
@@ -286,6 +293,28 @@
                         </div>
                     </form>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="importPenduduk" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Impor Penduduk</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body justify-content-start text-start">
+                    <form action="{{ route('penduduk.import') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group mb-3">
+                            <input type="file" class="form-control" name="file" accept=".csv">
+                        </div>
+                </div>
+                <div class="modal-footer justify-content-end">
+                    <button type="submit" class="btn btn-success">Impor</button>
+                </div>
+                </form>
             </div>
         </div>
     </div>
