@@ -143,21 +143,23 @@ body .main-image {
   /* Warna latar belakang jika gambar tidak tersedia */
   /* Warna latar belakang jika gambar tidak tersedia */
 }
-@media screen and (min-width: 1500px) {
+@media screen and (min-width: 1370px) {
   body .main-image {
     /* Mengubah posisi menjadi relatif untuk menempatkan di bawah container */
-    top: 50px;
-    left: 230px;
-    width: 0%; /* Mengisi lebar container penuh */
+    top: 100px;
+    left: 350px;
+    opacity: 20%;
+    width: 50%; /* Mengisi lebar container penuh */
     /* Atur jarak antara gambar dan container */
   }
 }
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 992px) {
   body .main-image {
     /* Mengubah posisi menjadi relatif untuk menempatkan di bawah container */
-    top: 50px;
-    left: 230px;
-    width: 0%; /* Mengisi lebar container penuh */
+    top: 100px;
+    left: 200px;
+    opacity: 20%;
+    width: 50%; /* Mengisi lebar container penuh */
     /* Atur jarak antara gambar dan container */
   }
 }
@@ -241,6 +243,7 @@ body .container-landing {
 }
 body .container-landing .custom-section {
   color: #253560;
+  /* Warna latar belakang jika gambar tidak tersedia */
 }
 body .container-landing .custom-section h2 {
   font-weight: 600;
@@ -269,15 +272,44 @@ body .container-landing .custom-section a:hover {
   font-weight: 700;
   color: #253560;
 }
-@media screen and (max-width: 992px) {
+@media screen and (min-width: 1370px) {
   body .container-landing .custom-section {
-    margin: 0px;
-    padding-inline-end: 40px;
-    font-size: smaller;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  body .container-landing .custom-section p {
+    width: 100%;
+    font-weight: 500;
+  }
+  body .container-landing .custom-section h5 {
+    font-weight: 650;
+    font-size: 150%;
   }
   body .container-landing .custom-section h2 {
+    font-weight: 650;
+    font-size: 320%;
+  }
+}
+@media screen and (max-width: 992px) {
+  body .container-landing .custom-section {
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  body .container-landing .custom-section p {
+    width: 100%;
     font-weight: 600;
-    font-size: 2.89rem;
+  }
+  body .container-landing .custom-section h5 {
+    font-weight: 650;
+    font-size: 150%;
+  }
+  body .container-landing .custom-section h2 {
+    font-weight: 650;
+    font-size: 350%;
   }
 }
 body .container-statsngal {
@@ -346,10 +378,12 @@ body .container-head .card .span-count {
 }
 body .container-pengumuman {
   background-color: transparent;
+  margin-top: 8rem;
   text-align: center;
 }
 body .container-pengumuman .row .card {
   background-color: #253560;
+  color: rgba(255, 255, 255, 0.8745098039);
   text-align: center;
 }
 body .container-pengumuman a {

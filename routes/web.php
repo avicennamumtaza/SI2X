@@ -136,8 +136,8 @@ Route::prefix('manage')->group(function(){
             Route::get('/edit/{penduduk}', [PendudukController::class, 'edit'])->name('penduduk.edit')->middleware('auth');
             Route::put('/update/{penduduk}', [PendudukController::class, 'update'])->name('penduduk.update')->middleware('auth');
             Route::delete('/{penduduk}', [PendudukController::class, 'destroy'])->name('penduduk.destroy')->middleware('auth');
-            Route::post('/import', [PendudukController::class, 'import'])->name('penduduk.import')->middleware('auth');
-            Route::post('/export', [PendudukController::class, 'export'])->name('penduduk.export');
+            Route::post('/export', [PendudukController::class, 'export'])->name('penduduk.export')->middleware('auth');
+            Route::post('/import', [PendudukController::class, 'import'])->name('penduduk.import');
         });
 
         // manage keluarga
@@ -177,3 +177,12 @@ Route::prefix('profil')->group(function() {
     Route::put('/update/{users}', [ProfilController::class, 'updateProfil'])->name('profil.update')->middleware('auth');
     // Route::put('/{user}/change_password', [ProfilController::class, 'changePassword'])->name('profil.password');
 });
+
+// routes/web.php
+
+// use App\Http\Controllers\CriteriaController;
+// use App\Http\Controllers\AlternativeController;
+
+// Route::resource('criterias', CriteriaController::class);
+// Route::resource('alternatives', AlternativeController::class)->except(['show']);
+// Route::get('alternatives/calculate-scores', [AlternativeController::class, 'calculateScores'])->name('alternatives.calculateScores');

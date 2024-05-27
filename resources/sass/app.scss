@@ -221,23 +221,25 @@ body {
         // background-color: transparent;
 
         /* Warna latar belakang jika gambar tidak tersedia */
-        @media screen and (min-width: 1500px) {
+        @media screen and (min-width: 1370px) {
             // position: relative;
             /* Mengubah posisi menjadi relatif untuk menempatkan di bawah container */
-            top: 50px;
-            left: 230px;
-            width: 00%; /* Mengisi lebar container penuh */
+            top: 100px;
+            left: 350px;
+            opacity: 20%;
+            width: 50%; /* Mengisi lebar container penuh */
             // padding-top: 90px;
             /* Atur jarak antara gambar dan container */
         }
 
         /* Warna latar belakang jika gambar tidak tersedia */
-        @media screen and (max-width: 991px) {
+        @media screen and (max-width: 992px) {
             // position: relative;
             /* Mengubah posisi menjadi relatif untuk menempatkan di bawah container */
-            top: 50px;
-            left: 230px;
-            width: 00%; /* Mengisi lebar container penuh */
+            top: 100px;
+            left: 200px;
+            opacity: 20%;
+            width: 50%; /* Mengisi lebar container penuh */
             // padding-top: 90px;
             /* Atur jarak antara gambar dan container */
         }
@@ -386,15 +388,42 @@ body {
                 @include tombol();
             }
 
-            @media screen and (max-width: 992px) {
-                margin: 0px;
-                padding-inline-end: 40px;
-                font-size: smaller;
-        
-                // padding-top: 2.5rem;
+            /* Warna latar belakang jika gambar tidak tersedia */
+            @media screen and (min-width: 1370px) {
+                justify-content: center;
+                margin: 0;
+                padding: 0;
+                text-align: center;
+                p {
+                    width: 100%;
+                    font-weight: 500;
+                }
+                h5 {
+                    font-weight: 650;
+                    font-size: 150%;
+                }
                 h2 {
+                    font-weight: 650;
+                    font-size: 320%;
+                }
+            }
+
+            @media screen and (max-width: 992px) {
+                justify-content: center;
+                margin: 0;
+                padding: 0;
+                text-align: center;
+                p {
+                    width: 100%;
                     font-weight: 600;
-                    font-size: 2.89rem;
+                }
+                h5 {
+                    font-weight: 650;
+                    font-size: 150%;
+                }
+                h2 {
+                    font-weight: 650;
+                    font-size: 350%;
                 }
             }
         }
@@ -483,7 +512,7 @@ body {
     // pengumuman
     .container-pengumuman {
         background-color: transparent;
-        // margin-block: 10rem;
+        margin-top: 8rem;
         text-align: center;
 
         .row {
@@ -492,6 +521,7 @@ body {
             .card {
                 // margin-top: 25px;
                 background-color: $primaryCol;
+                color: #ffffffdf;
                 text-align: center;
                 // padding: 20px;
                

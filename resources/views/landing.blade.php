@@ -2,7 +2,7 @@
 
 @section('content')
     <div id="beranda" class="container container-landing col-10">
-        <div class="row custom-section justify-content-start">
+        <div class="row custom-section">
             <div class="col-12 col-lg-5">
                 <h2>Selamat Datang</h2>
                 <h5>Pendaratan yang sempurna!</h5>
@@ -90,7 +90,7 @@
                         <h5 class="mt-3">{{ $pengumuman2['judul'] }}</h5>
                         <p class="">{{ $pengumuman2['deskripsi'] }}</p>
                         <p class="">
-                            <small class="text-body-secondary">
+                            <small class="">
                                 {{ \Carbon\Carbon::parse($pengumuman2['tanggal'])->translatedFormat('d F Y') }}
                             </small>
                         </p>
