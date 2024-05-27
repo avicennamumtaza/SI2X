@@ -1,4 +1,4 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<!-- <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
 <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
@@ -68,4 +68,54 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT). -->
+
+
+![Logo](./public/assets/Logo.png)
+
+
+# Project
+
+Perancangan dan Pengembangan Sistem Informasi Berbasis Website untuk Rukun Warga 6 Kelurahan Jodipan Kota Malang
+
+
+## Features
+
+- Manajemen Data Kependudukan
+- Pengajuan Dokumen di Setiap RT
+- Laporan Keuangan RW
+- Usaha Mikro Kecil & Menengah RW
+- Publikasi Pengumuman RW
+
+
+## Screenshots
+
+Halaman Beranda :
+
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+Halaman Pengumuman :
+
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+Halaman UMKM :
+
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+Halaman Pengajuan Dokumen :
+
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+
+## Authors
+
+- [@Avicenna](https://www.github.com/avicennamumtaza)
+- [@Anabellatus](https://www.github.com/anabellatus)
+- [@Afrizal](https://www.github.com/AfrizalDS)
+- [@Deaputri](https://www.github.com/DeaPutri17)
+- [@Indrawan](https://www.github.com/radeonaru)
+
+
+## Feedback
+
+If you have any feedback, please reach out to us at database.no7@gmail.com
