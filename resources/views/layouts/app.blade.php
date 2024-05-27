@@ -29,7 +29,7 @@
 <body>
     <div class="container-fluid-nav">
         <nav class="navbar fixed-top my-3 mx-5 custom-nav navbar-expand-lg">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{ route('landing') }}">
                 <img src="{{ asset('assets/Logo.png') }}" alt="tes">
                 <span class="navbar-brand mb-0 h1">
                     {{ config('app.name') }}

@@ -57,7 +57,7 @@ class DokumenController extends Controller
                 'deskripsi' => $validated['deskripsi'],
             ]);
 
-            return redirect()->route('dokumen.manage')->with('success', 'Dokumen berhasil diupdate!');
+            return redirect()->route('dokumen.manage')->with('success', 'Dokumen berhasil diperbarui!');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Update gagal: ' . $e->getMessage());
         }

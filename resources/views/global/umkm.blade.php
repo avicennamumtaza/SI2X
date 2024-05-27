@@ -121,7 +121,7 @@
                         <h5 class="card-title text-start">{{ $umkm->nama_umkm }}</h5>
                         <p class="card-title text-start" style="font-size: 13px;">{{ $umkm->alamat_umkm }}</p>
                         <br>
-                        <hr style="height: 2px; background-color: black;">
+                        <hr class="main" style="height: 2px; background-color: black;">
                         <p class="card-text">{{ $umkm->deskripsi_umkm }}</p>
                     </div>
                     <div class="card-footer py-3 hub-umkm d-flex justify-content-end">
