@@ -20,11 +20,11 @@
                             <input type="text" readonly disabled class="form-control" id="id_pengajuandokumen"
                                 name="id_pengajuandokumen" required>
                         </div>
-                        <div class="form-group mb-3">
+                        {{-- <div class="form-group mb-3">
                             <label for="nama_pemohon" class="form-label text-start">nama_pemohon</label>
                             <input type="text" readonly disabled class="form-control" id="nama_pemohon"
                                 name="nama_pemohon" required>
-                        </div>
+                        </div> --}}
                         <div class="form-group mb-3">
                             <label for="no_rt" class="form-label text-start">no_rt</label>
                             <input type="text" readonly disabled class="form-control" id="no_rt" name="no_rt"
