@@ -69,6 +69,26 @@ $fourthCol: #4461AE;
     }
 }
 
+@mixin tombolShow {
+    background-color: rgb(100, 136, 234);
+    border-radius: 0.7em;
+    padding-inline: 18px;
+    padding-block: 7px;
+    color: #ffffff;
+    text-decoration: none;
+    border: none;
+    transition: 0.1s ease-in-out;
+
+    &:hover {
+        padding-inline: 17px;
+        padding-block: 6px;
+        background-color: #ffffff;
+        // border: 1px solid rgb(247, 144, 34);
+        font-weight: 700;
+        color: rgb(100, 136, 234);
+    }
+}
+
 @mixin tombolDelete {
     background-color: rgb(195, 8, 8);
     border-radius: 0.7em;
@@ -189,8 +209,32 @@ body {
         }
     }
 
+    .btn-show {
+        background-color: rgb(100, 136, 234);
+        border-radius: 0.7em;
+        padding-inline: 18px;
+        padding-block: 7px;
+        color: #ffffff;
+        text-decoration: none;
+        border: none;
+        transition: 0.1s;
+    
+        &:hover {
+            // padding-inline: 17px;
+            // padding-block: 6px;
+            background-color: rgb(174, 234, 249);
+            // border: 1px solid rgb(100, 136, 234)
+            font-weight: 700;
+            color: rgb(100, 136, 234)
+        }
+    }
+
     .container-action {
         display: inline-block;
+
+        .btn-show{
+            @include tombolShow();
+        }
 
         .btn-edit {
             @include tombolEdit();
