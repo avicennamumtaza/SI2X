@@ -34,6 +34,17 @@ class PendudukController extends Controller
         return $dataTable->render('auth.rw.penduduk', compact('no_rts', 'nkks', 'goldar', 'pekerjaans', 'pendidikans', 'sp', 'jk', 'agamas'));
         // return $dataTable->render('auth.rw.penduduk', ['goldar' => GolDar::cases()]);
     }
+    // public function edit(Penduduk $penduduk)
+    // {
+    //     $penduduk = Penduduk::findOrFail($penduduk->nik);
+    //     return view('penduduk.edit', compact('penduduk'));
+    // }
+    public function show(Penduduk $penduduk)
+    {
+    $penduduk = Penduduk::find($penduduk->nik);
+    return view('penduduk.show', compact('penduduk'));
+    }
+
     public function store(Request $request)
     {
         // Validasi input
@@ -84,6 +95,7 @@ class PendudukController extends Controller
         $penduduk = Penduduk::findOrFail($penduduk->nik);
         return view('penduduk.edit', compact('penduduk'));
     }
+
     public function update(Request $request, Penduduk $penduduk)
     {
 
