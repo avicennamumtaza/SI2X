@@ -12,25 +12,14 @@
                     </div>
 
                     <div class="modal-body justify-content-start text-start">
-                        <!-- Form untuk pengajuan UMKM -->
+                        <!-- Form untuk pengajuan dokumen -->
                         <form action="{{ route('pengajuandokumen.store') }}" method="POST">
                             @csrf
                             <div class="form-group mb-3">
                                 <label for="nik_pemohon" class="form-label">NIK Pengaju</label>
                                 <input class="form-control" id="nik_pemohon" name="nik_pemohon"
                                     placeholder="Masukkan NIK Pengaju" required>
-                                {{-- <datalist id="nik_pemohon_list">
-                                {{-- <datalist id="nik_pemohon_list">
-                                    @foreach ($penduduks as $penduduk)
-                                        <option value="{{ $penduduk->nik }}">{{ $penduduk->nik }}</option>
-                                    @endforeach
-                                </datalist> --}}
                             </div>
-                            {{-- <div class="form-group mb-3">
-                                <label for="nama_pemohon" class="form-label">Nama Pengaju</label>
-                                <input class="form-control mb-1" id="nama_pemohon" name="nama_pemohon" placeholder="Masukkan Nama Pengaju" required>
-                                <small class="form-text text-muted">Guna menjaga privasi data, anda dapat mengisi ini dengan nama samaran seperti nama hewan peliharaan atau nama karakter game favorit anda, nama tersebut akan ditampilkan di riwayat pengajuan dokumen pada halaman ini.</small>
-                            </div>                             --}}
                             <div class="form-group mb-3">
                                 <label for="status_umkm" class="form-label text-start">Status Pengajuan</label>
                                 <input type="text" class="form-control" id="status_umkm" name="status_umkm"
@@ -59,18 +48,18 @@
             </div>
         </div>
 
-        <a class="fixedButton" id="ajukanDokumenButton" data-bs-toggle="modal" data-bs-target="#ajukanDokumenModal">
-            <div class="roundedFixedBtn">
-                <button><i class="bi bi-box-arrow-in-up"></i>Ajukan Dokumen</button>
-            </div>
-        </a>
-
         <script>
             document.getElementById('ajukanDokumenButton').addEventListener('click', function() {
                 var modal = new bootstrap.Modal(document.getElementById('ajukanDokumenModal'));
                 modal.show();
             });
         </script>
+
+        <a class="fixedButton" id="ajukanDokumenButton" data-bs-toggle="modal" data-bs-target="#ajukanDokumenModal">
+            <div class="roundedFixedBtn">
+                <button><i class="bi bi-box-arrow-in-up"></i>Ajukan Dokumen</button>
+            </div>
+        </a>
 
         <h1 class="heading-center">Permintaan Dokumen</h1>
         <!-- <div class="container"> -->
@@ -105,7 +94,7 @@
                                 <td style="width: 5%">{{ $pengajuanDokumen->penduduk->no_rt }}</td>
                                 <td style="width: 25%">
                                     {{ substr($pengajuanDokumen->nik_pemohon, 0, 3) . str_repeat('*', strlen($pengajuanDokumen->nik_pemohon) - 7) . substr($pengajuanDokumen->nik_pemohon, -4) }}
-                                </td>                                
+                                </td>
                                 <td style="width: 15%">{{ $pengajuanDokumen->dokumen->jenis_dokumen }}</td>
                                 <td style="width: 5%">
                                     @if ($pengajuanDokumen->status_pengajuan == 'Baru')
