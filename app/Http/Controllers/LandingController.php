@@ -8,30 +8,51 @@ use App\Models\RT;
 use App\Models\Pengumuman;
 use App\Models\Umkm;
 use App\Models\PengajuanDokumen;
+use Illuminate\Support\Facades\Cache;
 
 class LandingController extends Controller
 {
     public function index()
     {
         // Mengambil jumlah baris data dari masing-masing model
-        $jumlah_keluarga = Keluarga::count();
-        $jumlah_penduduk = Penduduk::count();
-        $jumlah_rt = RT::count();
-        $jumlah_pengumuman = Pengumuman::count();
-        $jumlah_umkm = Umkm::count();
-        $jumlah_pengajuan_dokumen = PengajuanDokumen::count();
-        // $pengumuman = Pengumuman::where('id_pengumuman', 8)->first();
-        $pengumuman = Pengumuman::orderBy('created_at', 'desc')->take(2)->get();
-        
+        $jumlah_keluarga = Cache::remember('jumlah_keluarga', 600, function () {
+            return Keluarga::count();
+        });
+
+        $jumlah_penduduk = Cache::remember('jumlah_penduduk', 600, function () {
+            return Penduduk::count();
+        });
+
+        $jumlah_rt = Cache::remember('jumlah_rt', 600, function () {
+            return RT::count();
+        });
+
+        $jumlah_pengumuman = Cache::remember('jumlah_pengumuman', 600, function () {
+            return Pengumuman::count();
+        });
+
+        $jumlah_umkm = Cache::remember('jumlah_umkm', 600, function () {
+            return Umkm::count();
+        });
+
+        $jumlah_pengajuan_dokumen = Cache::remember('jumlah_pengajuan_dokumen', 600, function () {
+            return PengajuanDokumen::count();
+        });
+
+        // Mengambil dua pengumuman terbaru
+        $pengumuman = Cache::remember('pengumuman_terbaru', 600, function () {
+            return Pengumuman::orderBy('created_at', 'desc')->take(2)->get();
+        });
+
         $pengumuman1 = null;
         $pengumuman2 = null;
-    
+
         // Memeriksa apakah $pengumuman tidak kosong sebelum mengakses elemen array
         if (!$pengumuman->isEmpty()) {
             $pengumuman1 = $pengumuman->first();
             $pengumuman2 = $pengumuman->count() > 1 ? $pengumuman->skip(1)->first() : null;
         }
-        
+
         // Membuat array dengan nama variabel dan nilai untuk setiap jumlah data
         $data = [
             'jumlah_keluarga' => $jumlah_keluarga,
@@ -41,8 +62,8 @@ class LandingController extends Controller
             'jumlah_umkm' => $jumlah_umkm,
             'jumlah_pengajuan_dokumen' => $jumlah_pengajuan_dokumen,
         ];
-    
+
         // Mengirimkan data ke view dalam bentuk array
         return view('landing', compact('data', 'pengumuman1', 'pengumuman2'));
-    }     
+    }    
 }

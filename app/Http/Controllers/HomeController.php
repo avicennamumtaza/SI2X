@@ -13,6 +13,7 @@ use App\Models\RW;
 use App\Models\Umkm;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class HomeController extends Controller
 {
@@ -34,71 +35,143 @@ class HomeController extends Controller
     public function index()
     {
         if (auth()->user()->role == 'RW') {
-            // $tahunSekarang = Carbon::now()->year;
-    
-            // $jumlahRw = RW::count();
-            $jumlahRt = RT::count();
-            $jumlahKeluarga = Keluarga::count();
-            $jumlahPenduduk = Penduduk::count();
-            $jumlahAnakAnak = Penduduk::whereRaw("YEAR(CURDATE()) - YEAR(tanggal_lahir) < 15")->count();
-            $jumlahUsiaProduktif = Penduduk::whereRaw("YEAR(CURDATE()) - YEAR(tanggal_lahir) >= 15 AND YEAR(CURDATE()) - YEAR(tanggal_lahir) < 65")->count();
-            $jumlahLansia = Penduduk::whereRaw("YEAR(CURDATE()) - YEAR(tanggal_lahir) >= 65")->count();
-            $jumlahUmkmNew = Umkm::where('status_umkm', 'Baru')->count();
-            $jumlahUmkmAcc = Umkm::where('status_umkm', 'Disetujui')->count();
-            $jumlahUmkmDec = Umkm::where('status_umkm', 'Ditolak')->count();
-            $jumlahUmkm = Umkm::count();
-            $jumlahPengumuman = Pengumuman::count();
-            $jumlahLaporanKeuangan = LaporanKeuangan::count();
-            $jumlahDokumen = Dokumen::count();
-            $jumlahPengajuanDokumenNew = PengajuanDokumen::where('status_pengajuan', 'Baru')->count();
-            $jumlahPengajuanDokumenAcc = PengajuanDokumen::where('status_pengajuan', 'Disetujui')->count();
-            $jumlahPengajuanDokumenDec = PengajuanDokumen::where('status_pengajuan', 'Ditolak')->count();
-            $jumlahPengajuanDokumen = PengajuanDokumen::count();
-            
+            $jumlahRt = Cache::remember('jumlahRt', 600, function () {
+                return RT::count();
+            });
+
+            $jumlahKeluarga = Cache::remember('jumlahKeluarga', 600, function () {
+                return Keluarga::count();
+            });
+
+            $jumlahPenduduk = Cache::remember('jumlahPenduduk', 600, function () {
+                return Penduduk::count();
+            });
+
+            $jumlahAnakAnak = Cache::remember('jumlahAnakAnak', 600, function () {
+                return Penduduk::whereRaw("YEAR(CURDATE()) - YEAR(tanggal_lahir) < 15")->count();
+            });
+
+            $jumlahUsiaProduktif = Cache::remember('jumlahUsiaProduktif', 600, function () {
+                return Penduduk::whereRaw("YEAR(CURDATE()) - YEAR(tanggal_lahir) >= 15 AND YEAR(CURDATE()) - YEAR(tanggal_lahir) < 65")->count();
+            });
+
+            $jumlahLansia = Cache::remember('jumlahLansia', 600, function () {
+                return Penduduk::whereRaw("YEAR(CURDATE()) - YEAR(tanggal_lahir) >= 65")->count();
+            });
+
+            $jumlahUmkmNew = Cache::remember('jumlahUmkmNew', 600, function () {
+                return Umkm::where('status_umkm', 'Baru')->count();
+            });
+
+            $jumlahUmkmAcc = Cache::remember('jumlahUmkmAcc', 600, function () {
+                return Umkm::where('status_umkm', 'Disetujui')->count();
+            });
+
+            $jumlahUmkmDec = Cache::remember('jumlahUmkmDec', 600, function () {
+                return Umkm::where('status_umkm', 'Ditolak')->count();
+            });
+
+            $jumlahUmkm = Cache::remember('jumlahUmkm', 600, function () {
+                return Umkm::count();
+            });
+
+            $jumlahPengumuman = Cache::remember('jumlahPengumuman', 600, function () {
+                return Pengumuman::count();
+            });
+
+            $jumlahLaporanKeuangan = Cache::remember('jumlahLaporanKeuangan', 600, function () {
+                return LaporanKeuangan::count();
+            });
+
+            $jumlahDokumen = Cache::remember('jumlahDokumen', 600, function () {
+                return Dokumen::count();
+            });
+
+            $jumlahPengajuanDokumenNew = Cache::remember('jumlahPengajuanDokumenNew', 600, function () {
+                return PengajuanDokumen::where('status_pengajuan', 'Baru')->count();
+            });
+
+            $jumlahPengajuanDokumenAcc = Cache::remember('jumlahPengajuanDokumenAcc', 600, function () {
+                return PengajuanDokumen::where('status_pengajuan', 'Disetujui')->count();
+            });
+
+            $jumlahPengajuanDokumenDec = Cache::remember('jumlahPengajuanDokumenDec', 600, function () {
+                return PengajuanDokumen::where('status_pengajuan', 'Ditolak')->count();
+            });
+
+            $jumlahPengajuanDokumen = Cache::remember('jumlahPengajuanDokumen', 600, function () {
+                return PengajuanDokumen::count();
+            });
+
             return view('layouts.dashboard', compact(
-                // 'jumlahRw', 
-                'jumlahRt', 
-                'jumlahKeluarga', 
-                'jumlahPenduduk', 
-                'jumlahAnakAnak', 
-                'jumlahUsiaProduktif', 
-                'jumlahLansia', 
-                'jumlahUmkmNew', 
-                'jumlahUmkmAcc', 
-                'jumlahUmkmDec', 
-                'jumlahUmkm', 
-                'jumlahPengumuman', 
-                'jumlahLaporanKeuangan', 
-                'jumlahDokumen', 
-                'jumlahPengajuanDokumenNew', 
-                'jumlahPengajuanDokumenAcc', 
-                'jumlahPengajuanDokumenDec', 
+                'jumlahRt',
+                'jumlahKeluarga',
+                'jumlahPenduduk',
+                'jumlahAnakAnak',
+                'jumlahUsiaProduktif',
+                'jumlahLansia',
+                'jumlahUmkmNew',
+                'jumlahUmkmAcc',
+                'jumlahUmkmDec',
+                'jumlahUmkm',
+                'jumlahPengumuman',
+                'jumlahLaporanKeuangan',
+                'jumlahDokumen',
+                'jumlahPengajuanDokumenNew',
+                'jumlahPengajuanDokumenAcc',
+                'jumlahPengajuanDokumenDec',
                 'jumlahPengajuanDokumen'
             ));
         } else if (auth()->user()->role == 'RT') {
-            # code...
-            $jumlahKeluarga = Keluarga::count();
-            $jumlahPenduduk = Penduduk::count();
-            $jumlahAnakAnak = Penduduk::whereRaw("YEAR(CURDATE()) - YEAR(tanggal_lahir) < 15")->count();
-            $jumlahUsiaProduktif = Penduduk::whereRaw("YEAR(CURDATE()) - YEAR(tanggal_lahir) >= 15 AND YEAR(CURDATE()) - YEAR(tanggal_lahir) < 65")->count();
-            $jumlahLansia = Penduduk::whereRaw("YEAR(CURDATE()) - YEAR(tanggal_lahir) >= 65")->count();
-            $jumlahPengajuanDokumenNew = PengajuanDokumen::where('status_pengajuan', 'Baru')->count();
-            $jumlahPengajuanDokumenAcc = PengajuanDokumen::where('status_pengajuan', 'Disetujui')->count();
-            $jumlahPengajuanDokumenDec = PengajuanDokumen::where('status_pengajuan', 'Ditolak')->count();
-            $jumlahPengajuanDokumen = PengajuanDokumen::count();
+            $jumlahKeluarga = Cache::remember('jumlahKeluarga', 600, function () {
+                return Keluarga::count();
+            });
+
+            $jumlahPenduduk = Cache::remember('jumlahPenduduk', 600, function () {
+                return Penduduk::count();
+            });
+
+            $jumlahAnakAnak = Cache::remember('jumlahAnakAnak', 600, function () {
+                return Penduduk::whereRaw("YEAR(CURDATE()) - YEAR(tanggal_lahir) < 15")->count();
+            });
+
+            $jumlahUsiaProduktif = Cache::remember('jumlahUsiaProduktif', 600, function () {
+                return Penduduk::whereRaw("YEAR(CURDATE()) - YEAR(tanggal_lahir) >= 15 AND YEAR(CURDATE()) - YEAR(tanggal_lahir) < 65")->count();
+            });
+
+            $jumlahLansia = Cache::remember('jumlahLansia', 600, function () {
+                return Penduduk::whereRaw("YEAR(CURDATE()) - YEAR(tanggal_lahir) >= 65")->count();
+            });
+
+            $jumlahPengajuanDokumenNew = Cache::remember('jumlahPengajuanDokumenNew', 600, function () {
+                return PengajuanDokumen::where('status_pengajuan', 'Baru')->count();
+            });
+
+            $jumlahPengajuanDokumenAcc = Cache::remember('jumlahPengajuanDokumenAcc', 600, function () {
+                return PengajuanDokumen::where('status_pengajuan', 'Disetujui')->count();
+            });
+
+            $jumlahPengajuanDokumenDec = Cache::remember('jumlahPengajuanDokumenDec', 600, function () {
+                return PengajuanDokumen::where('status_pengajuan', 'Ditolak')->count();
+            });
+
+            $jumlahPengajuanDokumen = Cache::remember('jumlahPengajuanDokumen', 600, function () {
+                return PengajuanDokumen::count();
+            });
+
             return view('layouts.dashboard', compact(
-                'jumlahKeluarga', 
-                'jumlahPenduduk', 
-                'jumlahAnakAnak', 
-                'jumlahUsiaProduktif', 
+                'jumlahKeluarga',
+                'jumlahPenduduk',
+                'jumlahAnakAnak',
+                'jumlahUsiaProduktif',
                 'jumlahLansia',
-                'jumlahPengajuanDokumenNew', 
-                'jumlahPengajuanDokumenAcc', 
-                'jumlahPengajuanDokumenDec', 
+                'jumlahPengajuanDokumenNew',
+                'jumlahPengajuanDokumenAcc',
+                'jumlahPengajuanDokumenDec',
                 'jumlahPengajuanDokumen'
             ));
         }
+
         return view('layouts.dashboard');
     }
-    
 }
