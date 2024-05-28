@@ -22,12 +22,6 @@
 
                 <div class="postcard__text t-dark">
                     <h1 class="postcard__title blue">{{ $pengumuman->judul }}</h1>
-                    {{-- <div class="postcard__subtitle small">
-                        <time datetime="2020-05-25 12:00:00">
-                            <i class="fas fa-calendar-alt mr-2"></i>
-                            {{ $pengumuman->tanggal_pengumuman }}
-                        </time>
-                    </div> --}}
                     <div class="postcard__bar"></div>
                     <div class="postcard__preview-txt">
                         {{ $pengumuman->deskripsi }}
@@ -62,8 +56,8 @@
 
 
     <!-- Pastikan jQuery dan Bootstrap dimuat dengan benar -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
 
     <script>
         // Mengatur modal yang akan ditampilkan ketika gambar pengumuman diklik

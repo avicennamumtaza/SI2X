@@ -82,8 +82,13 @@
         <div class="card-container">
             @foreach ($umkms as $umkm)
                 <div class="card">
-                    <img src="{{ $umkm->foto_umkm ? asset('Foto UMKM/' . $umkm->foto_umkm) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
-                        class="card-img-top" alt="Foto UMKM" />
+
+                    <a class="postcard__img_link" href="#" data-toggle="modal"
+                        data-target="#fotoModal{{ $umkm->id_umkm }}">
+                        <img src="{{ $umkm->foto_umkm ? asset('Foto UMKM/' . $umkm->foto_umkm) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
+                            class="card-img-top" alt="Foto UMKM" data-id="{{ $umkm->id_umkm }}"
+                            data-target="#fotoModal{{ $umkm->id_umkm }}" />
+                    </a>
                     <div class="card-body">
                         <h5 class="card-title text-start">{{ $umkm->nama_umkm }}</h5>
                         <p class="card-title text-start" style="font-size: 13px;">{{ $umkm->alamat_umkm }}</p>
@@ -117,6 +122,41 @@
                 </div>
             @endforeach
         </div>
+
+        <!-- Modals untuk menampilkan foto pengumuman secara penuh -->
+        <div class="modal fade" id="fotoModal" tabindex="-1" role="dialog" aria-labelledby="fotoModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header d-flex justify-content-between">
+                        <h5 class="modal-title" id="fotoModalLabel"></h5>
+                        <i class="bi bi-x-lg text-danger" data-dismiss="modal" aria-label="Close"
+                            style="font-size: 1,5 rem;"></i>
+                    </div>
+                    <div class="modal-body">
+                        <img id="modalImg" src="" class="img-fluid" alt="Foto UMKM"
+                            style="min-width: 100%; max-height: auto;">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    
+    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
+    <script>
+        // Mengatur modal yang akan ditampilkan ketika gambar pengumuman diklik
+        $(document).ready(function() {
+            $('.postcard__img_link').click(function() {
+                var id = $(this).find('img').data('id');
+                var modalTarget = $(this).find('img').data('target');
+                var imgUrl = $(this).find('img').attr('src');
+
+                $('#fotoModalLabel').text($('#fotoModalLabel' + id).text());
+                $('#modalImg').attr('src', imgUrl);
+                $('#fotoModal').modal('show');
+            });
+        });
+    </script>
     {{-- <h1>pagination</h1> --}}
 @endsection
