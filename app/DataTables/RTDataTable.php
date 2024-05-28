@@ -3,6 +3,7 @@
 namespace App\DataTables;
 
 use App\Models\RT;
+use App\Models\Penduduk;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -25,9 +26,23 @@ class RTDataTable extends DataTable
         ->setRowId('id')
         ->addColumn('action', function($row){
             // $editUrl = route('rt.edit', $row->no_rt);
+            $penduduk = Penduduk::where('nik', $row->nik_rt)->first();
+            $nama_penduduk = $penduduk ? $penduduk->nama : '-'; // Jika penduduk ditemukan, ambil namanya; jika tidak, tampilkan tanda strip -
+
+
             $deleteUrl = route('rt.destroy', $row->no_rt);
             $action = '
-            <div class="container-action">
+            <div class="container-action">';
+
+            $action .= '
+                <button type="button"
+                data-id="' . $row->no_rt . '"
+                data-nik_rt="' . $row->nik_rt . '"
+                data-nama="' . $nama_penduduk . '"
+                data-wa_rt="' . $row->wa_rt . '"
+                data-bs-toggle="modal" data-bs-target="#showRtModal" class="show-user show btn btn-show btn-sm">Tampil</button>';
+
+            $action .='
             <button type="button"
             data-id="' . $row->no_rt . '"
             data-nik_rt="' . $row->nik_rt . '"
