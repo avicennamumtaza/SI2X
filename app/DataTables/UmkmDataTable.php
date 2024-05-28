@@ -24,6 +24,16 @@ class UmkmDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->setRowId('id')
+            ->addColumn('status_umkm', function ($row) {
+                $status = $row->status_umkm;
+                $badgeColor = '#FFC107 '; // Default color for 'Baru'
+                if ($status == 'Disetujui') {
+                    $badgeColor = 'green';
+                } elseif ($status == 'Ditolak') {
+                    $badgeColor = 'red';
+                }
+                return '<span style="background-color: ' . $badgeColor . '; display: inline-block; text-align: center; width: 100%;" class="badge rounded-pill">' . $status . '</span>';            })
+            ->rawColumns(['status_umkm', 'action']) // Make sure to include 'status_umkm' in rawColumns
             ->addColumn('action', function ($row) {
                 $pemilik = Penduduk::where('nik', $row->nik_pemilik)->first();
                 $deleteUrl = route('umkm.destroy', $row->id_umkm);
