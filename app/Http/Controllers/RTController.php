@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\RT;
 use App\DataTables\RTDataTable;
+use App\Models\Penduduk;
 
 class RTController extends Controller
 {
@@ -24,6 +25,19 @@ class RTController extends Controller
     // {
     //     return view('auth.rw.pengumuman.create');
     // }
+
+    public function show(RT $rt)
+{
+    // Temukan data RT berdasarkan nomor RT
+    $rt = RT::find($rt->no_rt);
+
+    // Temukan data penduduk berdasarkan NIK RT
+    $penduduk = Penduduk::where('nik', $rt->nik_rt)->first();
+
+    // Kirim data RT dan data penduduk ke tampilan
+    return view('rt.show', compact('rt', 'penduduk'));
+}
+
 
     public function store(Request $request)
     {
