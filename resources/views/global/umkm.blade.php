@@ -91,8 +91,8 @@
                     </a>
                     <div class="card-body">
                         <h5 class="card-title text-start">{{ $umkm->nama_umkm }}</h5>
-                        <p class="card-title text-start" style="font-size: 13px;">{{ $umkm->alamat_umkm }}</p>
-                        <br>
+                        <p class="card-title text-start" style="font-size: 13px;">Alamat :&nbsp;{{ $umkm->alamat_umkm }}</p>
+                        {{-- <br> --}}
                         <hr class="main" style="height: 2px; background-color: black;">
                         <p class="card-text">{{ $umkm->deskripsi_umkm }}</p>
                     </div>
@@ -114,7 +114,7 @@
                             </svg>
                             &nbsp;Lokasi</a>
                         <a href="https://wa.me/{{ substr_replace($umkm->wa_umkm, '62', 0, 1) }}" class="btn btn-success"
-                            data-mdb-ripple-init><i class="bi bi-whatsapp"></i>&nbsp;Hubungi</a>
+                            data-mdb-ripple-init><i class="bi bi-whatsapp"></i>&nbsp; Hubungi</a>
                         {{-- <button class="btn btn-primary"
                             href="https://wa.me/{{ substr_replace($umkm->wa_umkm, '62', 0, 1) }}"><i
                                 class="bi bi-box-arrow-in-up"></i>Hubungi</button> --}}
