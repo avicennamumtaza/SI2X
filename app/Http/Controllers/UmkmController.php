@@ -8,6 +8,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\DataTables\UmkmDataTable;
+use App\Models\RT;
 use App\Models\RW;
 use Illuminate\Support\Facades\File;
 
@@ -57,10 +58,20 @@ class UmkmController extends Controller
             'wa_umkm.max' => 'Nomor WhatsApp UMKM harus memiliki panjang maksimal :max karakter.',
         ]);
 
+        // Cek apakah ada pengajuan dokumen dengan nik_pemohon yang sama dan status "Baru"
+        $existingPengajuan = Umkm::where('nik_pemilik', $validated['nik_pemilik_umkm'])
+            ->where('status_umkm', 'Baru')
+            ->first();
+
+        if ($existingPengajuan) {
+            $rw = RW::first();
+            Alert::error('Pengajuan UMKM sebelumnya belum diproses!', 'Silahkan tunggu UMKM yang anda ajukan sebelumnya diproses oleh Ketua RW atau hubungi Ketua RW melalui nomor ' . $rw->wa_rw);
+            return redirect()->back();
+        }
+
         $foto_umkm = $request->file('foto_umkm');
         $foto_umkm_ext = $foto_umkm->getClientOriginalExtension();;
         $foto_umkm_filename = $validated['nama_umkm'] . date('ymdhis') . "." . $foto_umkm_ext;
-
 
         try {
             Umkm::create([
@@ -111,9 +122,9 @@ class UmkmController extends Controller
             ->with('success', 'Status umkm berhasil diperbarui.');
     }
 
-    public function destroy($id)
+    public function destroy(Umkm $umkm)
     {
-        $umkm = Umkm::findOrFail($id);
+        // $umkm = Umkm::findOrFail($id);
         File::delete(public_path('Foto UMKM') . '/' . $umkm->foto_umkm);
         $umkm->delete();
         return redirect()->back()->with('success', 'Data berhasil dihapus!');
