@@ -60,8 +60,8 @@ class UmkmController extends Controller
         $foto_umkm = $request->file('foto_umkm');
         $foto_umkm_ext = $foto_umkm->getClientOriginalExtension();;
         $foto_umkm_filename = $validated['nama_umkm'] . date('ymdhis') . "." . $foto_umkm_ext;
-        
-        
+
+
         try {
             Umkm::create([
                 'nama_umkm' => $validated['nama_umkm'],
@@ -71,7 +71,7 @@ class UmkmController extends Controller
                 'deskripsi_umkm' => $validated['deskripsi_umkm'],
                 // 'no_rw' => $validated['no_rw'],
                 'status_umkm' => 'Baru',
-                'alamat' => $request->alamat_umkm,
+                'alamat_umkm' => $request->alamat_umkm,
             ]);
             Alert::success('Data UMKM berhasil diajukan!');
             $foto_umkm->move(public_path('Foto UMKM'), $foto_umkm_filename);
@@ -83,7 +83,7 @@ class UmkmController extends Controller
         } catch (\Exception $e) {
             Alert::error('Oops!', $e->getMessage());
             return redirect()->back();
-        } 
+        }
     }
     public function edit(Umkm $umkm)
     {
@@ -112,7 +112,7 @@ class UmkmController extends Controller
     }
 
     public function destroy($id)
-    {        
+    {
         $umkm = Umkm::findOrFail($id);
         File::delete(public_path('Foto UMKM') . '/' . $umkm->foto_umkm);
         $umkm->delete();

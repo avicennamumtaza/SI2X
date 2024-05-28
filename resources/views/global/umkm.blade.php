@@ -80,18 +80,18 @@
             </div>
         </div>
 
+        <a class="fixedButton" id="ajukanUmkmButton" data-bs-toggle="modal" data-bs-target="#ajukanUmkmModal">
+            <div class="roundedFixedBtn">
+                <button><i class="bi bi-box-arrow-in-up"></i>Ajukan UMKM</button>
+            </div>
+        </a>
+
         <script>
             document.getElementById('ajukanUmkmButton').addEventListener('click', function() {
                 var modal = new bootstrap.Modal(document.getElementById('ajukanUmkmModal'));
                 modal.show();
             });
         </script>
-
-        <a class="fixedButton" id="ajukanUmkmButton" data-bs-toggle="modal" data-bs-target="#ajukanUmkmModal">
-            <div class="roundedFixedBtn">
-                <button><i class="bi bi-box-arrow-in-up"></i>Ajukan UMKM</button>
-            </div>
-        </a>
 
         <!-- Tambahkan di mana pun Anda ingin menampilkan pesan -->
         {{-- @if ($errors->any())
