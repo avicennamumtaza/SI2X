@@ -378,7 +378,6 @@
                     let alamat = target.data('alamat')
                     let agama = target.data('agama')
                     let jenis_kelamin = target.data('jenis_kelamin')
-                    let agama = target.data('agama')
                     let pendidikan = target.data('pendidikan')
                     let pekerjaan = target.data('pekerjaan')
                     let golongan_darah = target.data('golongan_darah')
@@ -394,7 +393,6 @@
                     $('#editPendudukModal #alamat').val(alamat);
                     $('#editPendudukModal #agama').val(agama);
                     $('#editPendudukModal #jenis_kelamin').val(jenis_kelamin);
-                    $('#editPendudukModal #agama').val(agama);
                     $('#editPendudukModal #pendidikan').val(pendidikan);
                     $('#editPendudukModal #pekerjaan').val(pekerjaan);
                     $('#editPendudukModal #golongan_darah').val(golongan_darah);
