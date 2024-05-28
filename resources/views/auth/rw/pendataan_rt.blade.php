@@ -46,6 +46,51 @@
         </div>
     </div>
 
+    {{--show RT--}}
+    <div class="modal fade" id="showRtModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Detail RT</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+    
+                <div class="modal-body justify-content-start text-start">
+                    <!-- Tampilkan nama penduduk berdasarkan nik_rt -->
+                    <div class="form-group mb-3">
+                        <label for="nama_penduduk" class="form-label text-start">Nama RT</label>
+                        <input type="text" class="form-control" id="nama_penduduk" value="{{ isset($penduduk) ? $penduduk->nama : '-' }}" readonly>
+                    </div>
+                
+                    <!-- Tampilkan nomor RT -->
+                    <div class="form-group mb-3">
+                        <label for="no_rt" class="form-label text-start">Nomor RT</label>
+                        <input type="text" class="form-control" id="no_rt" readonly>
+                    </div>
+                
+                    <!-- Tampilkan NIK RT -->
+                    <div class="form-group mb-3">
+                        <label for="nik_rt" class="form-label text-start">NIK RT</label>
+                        <input type="text" class="form-control" id="nik_rt"  readonly>
+                    </div>
+                
+                    <!-- Tampilkan nomor WhatsApp RT -->
+                    <div class="form-group mb-3">
+                        <label for="wa_rt" class="form-label text-start">Nomor WhatsApp RT</label>
+                        <input type="text" class="form-control" id="wa_rt" readonly>
+                    </div>
+                    <!-- Tampilkan data RT lainnya sesuai kebutuhan -->
+                </div>
+                
+                
+                <div class="modal-footer justify-content-end">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
     {{-- {{-- Edit RT --}}
     <div class="modal fade" id="editRtModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-md">
@@ -108,6 +153,25 @@
         {{ $dataTable->scripts() }}
         <script>
             $('#rt-table').ready(function() {
+                $("#showRtModal").on("show.bs.modal", function(event) {
+
+                    var target = $(event.relatedTarget);
+                    let no_rt = target.data('id')
+                    let nik_rt = target.data('nik_rt')
+                    let wa_rt = target.data('wa_rt')
+                    let nama_penduduk = target.data('penduduk.nama');
+
+
+                    $('#showRtModal #no_rt').val(no_rt);
+                    $('#showRtModal #nik_rt').val(nik_rt);
+                    $('#showRtModal #wa_rt').val(wa_rt);
+                    $('showRtModal #nama_penduduk').val(nama_penduduk);
+
+                    let url = "{{ route('rt.show', ':__id') }}";
+                    url = url.replace(':__id', no_rt);
+                    $('#showRtForm').attr('action', url)
+                })
+
                 $("#editRtModal").on("show.bs.modal", function(event) {
 
                     var target = $(event.relatedTarget);
