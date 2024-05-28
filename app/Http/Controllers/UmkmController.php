@@ -122,9 +122,9 @@ class UmkmController extends Controller
             ->with('success', 'Status umkm berhasil diperbarui.');
     }
 
-    public function destroy($id)
+    public function destroy(Umkm $umkm)
     {
-        $umkm = Umkm::findOrFail($id);
+        // $umkm = Umkm::findOrFail($id);
         File::delete(public_path('Foto UMKM') . '/' . $umkm->foto_umkm);
         $umkm->delete();
         return redirect()->back()->with('success', 'Data berhasil dihapus!');
