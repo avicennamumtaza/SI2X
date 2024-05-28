@@ -2,8 +2,10 @@
 
 @section('content')
     {{-- Edit Laporan Keuangan --}}
-    <div class="modal fade" id="editLaporanKeuanganModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <?php
+    use Carbon\Carbon;
+    ?>
+    <div class="modal fade" id="editLaporanKeuanganModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-md">
             <div class="modal-content">
                 <div class="modal-header">
@@ -18,7 +20,7 @@
                         <div class="form-group mb-3">
                             <label for="id_laporankeuangan" class="form-label text-start">id_laporankeuangan</label>
                             <input type="text" class="form-control" id="id_laporankeuangan" name="id_laporankeuangan"
-                                 required readonly disabled>
+                                required readonly disabled>
                         </div>
 
                         <div class="form-group mb-3">
@@ -32,26 +34,24 @@
 
                         <div class="form-group mb-3">
                             <label for="nominal" class="form-label text-start">Nominal</label>
-                            <input type="text" class="form-control" id="nominal" name="nominal"
-                                 required>
+                            <input type="text" class="form-control" id="nominal" name="nominal" required>
                         </div>
 
                         <div class="form-group mb-3">
                             <label for="detail" class="form-label text-start">Detail</label>
-                            <input type="text" class="form-control" id="detail" name="detail"
-                                 required>
+                            <textarea class="form-control" id="detail" name="detail" rows="3" required></textarea>
+                            {{-- <input type="text" class="form-control" id="detail" name="detail" required> --}}
                         </div>
 
                         <div class="form-group mb-3">
                             <label for="tanggal" class="form-label text-start">Tanggal</label>
                             <input type="text" class="form-control" id="tanggal" name="tanggal"
-                                 required>
+                                value="{{ Carbon::now()->format('Y-m-d'); }}" required readonly>
                         </div>
 
                         <div class="form-group mb-3">
                             <label for="pihak_terlibat" class="form-label text-start">Pihak Terlibat</label>
-                            <input type="text" class="form-control" id="pihak_terlibat" name="pihak_terlibat"
-                                 required>
+                            <input type="text" class="form-control" id="pihak_terlibat" name="pihak_terlibat" required>
                         </div>
 
                         {{-- <div class="form-group mb-3">
@@ -62,7 +62,8 @@
 
                         <div class="modal-footer justify-content-end">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                            <button type="submit" class="btn btn-success" name="submit" value="Submit">Simpan Perubahan</button>
+                            <button type="submit" class="btn btn-success" name="submit" value="Submit">Simpan
+                                Perubahan</button>
                         </div>
                     </form>
                 </div>
@@ -71,7 +72,8 @@
     </div>
 
     <!-- Tambah Laporan Keuangan -->
-    <div class="modal fade" id="tambahLaporanKeuangan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="tambahLaporanKeuangan" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-md">
             <div class="modal-content">
                 <div class="modal-header">
@@ -91,7 +93,7 @@
                                 <option value="0">Pengeluaran</option>
                             </select>
                         </div>
-                        
+
                         <div class="form-group mb-3">
                             <label for="nominal" class="form-label text-start">Nominal</label>
                             <input type="number" class="form-control" id="nominal" name="nominal"
@@ -105,7 +107,8 @@
 
                         <div class="form-group mb-3">
                             <label for="tanggal" class="form-label">Tanggal</label>
-                            <input type="date" class="form-control" id="tanggal" name="tanggal" required>
+                            <input type="date" class="form-control" id="tanggal" name="tanggal"
+                                value="{{ Carbon::now()->format('Y-m-d'); }}" required readonly>
                         </div>
 
                         <div class="form-group mb-3">
@@ -135,7 +138,8 @@
         <div class="card-header card-header-tabel p-4 mb-3">
             <h5>
                 Laporan Keuangan
-                <button class="btn btn-add float-end" data-bs-toggle="modal" data-bs-target="#tambahLaporanKeuangan">Tambah
+                <button class="btn btn-add float-end" data-bs-toggle="modal"
+                    data-bs-target="#tambahLaporanKeuangan">Tambah
                     Data</button>
             </h5>
         </div>
@@ -170,7 +174,7 @@
                     // $('#editLaporanKeuanganModal #saldo').val(saldo);
                     $('#editLaporanKeuanganModal #status_pemasukan').val(status_pemasukan);
 
-                    let url = "{{route('laporankeuangan.update',':__id')}}";
+                    let url = "{{ route('laporankeuangan.update', ':__id') }}";
                     url = url.replace(':__id', id_laporankeuangan);
                     $('#editLaporanKeuanganForm').attr('action', url)
                 });

@@ -78,7 +78,9 @@ class LaporanKeuanganController extends Controller
         ]);
 
         // Mengambil data terbaru kolom saldo
-        $latestSaldo = LaporanKeuangan::latest()->value('saldo');
+        $latestRow = LaporanKeuangan::orderBy('tanggal', 'desc')->take(1)->get();
+        $latestSaldo = $latestRow->value('saldo');
+        // dd($latestSaldo);
 
         try {
             $laporanKeuangan = new LaporanKeuangan();
@@ -162,13 +164,8 @@ class LaporanKeuanganController extends Controller
 
     public function update(Request $request, LaporanKeuangan $laporankeuangan)
     {
-
         $request->validate([
-            // 'id_laporankeuangan' => 'required', // (tidak bisa mengedit id as primary key, cek view)
             'pihak_terlibat' => 'required|string|min:2|max:49',
-            // 'saldo' => 'required', // (tidak bisa mengedit saldo, cek view)
-            // 'status_pemasukan' => 'required',
-            // 'nominal' => 'required|integer|min_digits:3|max_digits:10',
             'detail' => 'required|string',
             'tanggal' => 'required|date',
         ], [
@@ -176,19 +173,33 @@ class LaporanKeuanganController extends Controller
             'pihak_terlibat.string' => 'Pihak terlibat harus berupa teks.',
             'pihak_terlibat.min' => 'Pihak terlibat harus memiliki panjang minimal :min karakter.',
             'pihak_terlibat.max' => 'Pihak terlibat harus memiliki panjang maksimal :max karakter.',
-            // 'status_pemasukan.required' => 'Status pendapatan/wyidrawajib diisi.',
-            // 'nominal.required' => 'Nominal wajib diisi.',
-            // 'nominal.integer' => 'Nominal harus berupa bilangan bulat.',
-            // 'nominal.min_digits' => 'Nominal harus memiliki panjang minimal :min digit.',
-            // 'nominal.max_digits' => 'Nominal harus memiliki panjang maksimal :max digit.',
             'detail.required' => 'Detail wajib diisi.',
             'detail.string' => 'Detail harus berupa teks.',
             'tanggal.required' => 'Tanggal wajib diisi.',
             'tanggal.date' => 'Tanggal harus dalam format tanggal yang benar.',
         ]);
-
+    
         try {
+            // Mengambil data terbaru kolom saldo
+            $latestRow = LaporanKeuangan::orderBy('tanggal', 'desc')->take(2)->get();
+            // dd($latestRow);
+            $latestSaldo = $latestRow->skip(1)->value('saldo');
+            // dd($latestSaldo);
+    
+            // Menghitung perubahan saldo berdasarkan perubahan nominal
+            $perubahanSaldo = $request->nominal;
+    
+            // Update entri laporan keuangan
             $laporankeuangan->update($request->all());
+    
+            // Update saldo berdasarkan perubahan nominal
+            if ($laporankeuangan->status_pemasukan == 0) {
+                $laporankeuangan->saldo = $latestSaldo - $perubahanSaldo;
+            } else {
+                $laporankeuangan->saldo = $latestSaldo + $perubahanSaldo;
+            }
+            $laporankeuangan->save();
+    
             return redirect()->route('laporankeuangan.manage')
                 ->with('success', 'Laporan Keuangan berhasil diperbarui.');
         } catch (\Exception $e) {
@@ -196,7 +207,7 @@ class LaporanKeuanganController extends Controller
             return redirect()->back();
         }
     }
-
+    
     /**
      * Remove the specified resource from storage.
      */

@@ -19,6 +19,46 @@ class LaporanKeuanganDataTable extends DataTable
      *
      * @param QueryBuilder $query Results from query() method.
      */
+    // public function dataTable(QueryBuilder $query): EloquentDataTable
+    // {
+    //     // Query the latest entry ID directly from the database
+    //     $latestEntryId = $query->latest()->first()->id;
+
+    //     $eloquentDataTable = new EloquentDataTable($query);
+
+    //     return $eloquentDataTable
+    //         ->setRowId('id')
+    //         ->editColumn('status_pemasukan', function ($row) {
+    //             return $row->status_pemasukan ? 'Pemasukkan' : 'Pengeluaran';
+    //         })
+    //         ->addColumn('action', function ($row) use ($latestEntryId) {
+    //             $action = '';
+
+    //             if ($row->id == $latestEntryId) {
+    //                 $deleteUrl = route('laporankeuangan.destroy', $row->id_laporankeuangan);
+    //                 $action = '
+    //             <div class="container-action">
+    //             <button type="button"
+    //             data-id_laporankeuangan="' . $row->id_laporankeuangan . '"
+    //             data-nominal="' . $row->nominal . '"
+    //             data-detail="' . $row->detail . '"
+    //             data-tanggal="' . $row->tanggal . '"
+    //             data-pihak_terlibat="' . $row->pihak_terlibat . '"
+    //             data-saldo="' . $row->saldo . '"
+    //             data-is_income="' . $row->status_pemasukan . '"
+    //             data-bs-toggle="modal" data-bs-target="#editLaporanKeuanganModal" class="edit btn btn-edit btn-sm">Edit</button>';
+    //                 $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
+    //             ' . csrf_field() . '
+    //             ' . method_field('DELETE') . '
+    //             <button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Delete</button>
+    //             </form>
+    //             </div>';
+    //             }
+
+    //             return $action;
+    //         });
+    // }
+
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
@@ -27,24 +67,33 @@ class LaporanKeuanganDataTable extends DataTable
                 return $row->status_pemasukan ? 'Pemasukkan' : 'Pengeluaran';
             })
             ->addColumn('action', function ($row) {
-                $deleteUrl = route('laporankeuangan.destroy', $row->id_laporankeuangan);
-                $action = '
-                <div class="container-action">
-                <button type="button"
-                data-id_laporankeuangan="' . $row->id_laporankeuangan . '"
-                data-nominal="' . $row->nominal . '"
-                data-detail="' . $row->detail . '"
-                data-tanggal="' . $row->tanggal . '"
-                data-pihak_terlibat="' . $row->pihak_terlibat . '"
-                data-saldo="' . $row->saldo . '"
-                data-is_income="' . $row->status_pemasukan . '"
-                data-bs-toggle="modal" data-bs-target="#editLaporanKeuanganModal" class="edit btn btn-edit btn-sm">Edit</button>';
-                $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
-                ' . csrf_field() . '
-                ' . method_field('DELETE') . '
-                <button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Delete</button>
-                </form>
-                </div>';
+                $latestTanggal = LaporanKeuangan::orderBy('tanggal', 'desc')->take(1)->get()->value('tanggal');
+                if ($row->tanggal == $latestTanggal) {
+                    $deleteUrl = route('laporankeuangan.destroy', $row->id_laporankeuangan);
+                    $action = '
+                    <div class="container-action">
+                    <button type="button"
+                    data-id_laporankeuangan="' . $row->id_laporankeuangan . '"
+                    data-nominal="' . $row->nominal . '"
+                    data-detail="' . $row->detail . '"
+                    data-tanggal="' . $row->tanggal . '"
+                    data-pihak_terlibat="' . $row->pihak_terlibat . '"
+                    data-saldo="' . $row->saldo . '"
+                    data-is_income="' . $row->status_pemasukan . '"
+                    data-bs-toggle="modal" data-bs-target="#editLaporanKeuanganModal" class="edit btn btn-edit btn-sm">Edit</button>';
+                    $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
+                    ' . csrf_field() . '
+                    ' . method_field('DELETE') . '
+                    <button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Delete</button>
+                    </form>
+                    </div>';
+                } else {
+                    $action = '
+                    <div class="container-action">
+                    <p>Hanya data terbaru yang dapat diubah atau dihapus</p>
+                    </div>
+                    ';
+                }
                 return $action;
             });
     }
@@ -54,7 +103,7 @@ class LaporanKeuanganDataTable extends DataTable
      */
     public function query(LaporanKeuangan $model): QueryBuilder
     {
-        return $model->newQuery();
+        return $model->newQuery()->orderBy('tanggal', 'desc');
     }
 
     /**
@@ -63,29 +112,29 @@ class LaporanKeuanganDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-                    ->setTableId('laporankeuangan-table')
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    // ->orderBy(0, 'asc')
-                    ->parameters([
-                        'language' => [
-                            'search' => '', // Menghilangkan teks "Search:"
-                            'searchPlaceholder' => 'Cari Laporan Keuangan', // Placeholder untuk kolom pencarian
-                            'paginate' => [
-                                'previous' => 'Kembali', // Mengubah teks "Previous"
-                                'next' => 'Lanjut', // Mengubah teks "Next"
-                            ],
-                            'info' => 'Menampilkan _START_ hingga _END_ dari _TOTAL_ entri', // Ubah teks sesuai keinginan Anda
-                        ],
-                        'dom' => 'Bfrtip', // Menambahkan tombol
-                        'buttons' => [], // Menambahkan tombol ekspor dan lainnya
-                        'order' => [], // Mengaktifkan order by untuk setiap kolom
-                        'columnDefs' => [
-                            // Disable sorting and searching for all columns
-                            ['targets' => -1, 'searchable' => false, 'orderable' => false] // Perhatikan 'targets' disini
-                        ]
-                    ])
-                    ->selectStyleSingle();
+            ->setTableId('laporankeuangan-table')
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            // ->orderBy(0, 'asc')
+            ->parameters([
+                'language' => [
+                    'search' => '', // Menghilangkan teks "Search:"
+                    'searchPlaceholder' => 'Cari Laporan Keuangan', // Placeholder untuk kolom pencarian
+                    'paginate' => [
+                        'previous' => 'Kembali', // Mengubah teks "Previous"
+                        'next' => 'Lanjut', // Mengubah teks "Next"
+                    ],
+                    'info' => 'Menampilkan _START_ hingga _END_ dari _TOTAL_ entri', // Ubah teks sesuai keinginan Anda
+                ],
+                'dom' => 'Bfrtip', // Menambahkan tombol
+                'buttons' => [], // Menambahkan tombol ekspor dan lainnya
+                'order' => [], // Mengaktifkan order by untuk setiap kolom
+                'columnDefs' => [
+                    // Disable sorting and searching for all columns
+                    ['targets' => -1, 'searchable' => false, 'orderable' => false] // Perhatikan 'targets' disini
+                ]
+            ])
+            ->selectStyleSingle();
     }
 
     // /**
@@ -109,9 +158,9 @@ class LaporanKeuanganDataTable extends DataTable
     //               ->title('Aksi'),
     //     ];
     // }
-    
-    
-    
+
+
+
     public function getColumns(): array
     {
         return [
