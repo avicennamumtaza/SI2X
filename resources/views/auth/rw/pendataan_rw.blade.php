@@ -57,20 +57,20 @@
                 </div>
 
                 <div class="modal-body justify-content-start text-start">
-                        <div class="form-group mb-3">
-                            <label for="no_rw" class="form-label text-start">Nomor RW</label>
-                            <input type="text" class="form-control" id="no_rw" name="no_rw" readonly>
-                        </div>
+                    <div class="form-group mb-3">
+                        <label for="no_rw" class="form-label text-start">Nomor RW</label>
+                        <input type="text" class="form-control" id="no_rw" name="no_rw" readonly>
+                    </div>
 
-                        <div class="form-group mb-3">
-                            <label for="nik_rw" class="form-label">NIK RW</label>
-                            <input type="text" class="form-control" id="nik_rw" name="nik_rw" readonly></input>
-                        </div>
+                    <div class="form-group mb-3">
+                        <label for="nik_rw" class="form-label">NIK RW</label>
+                        <input type="text" class="form-control" id="nik_rw" name="nik_rw" readonly></input>
+                    </div>
 
-                        <div class="form-group mb-3">
-                            <label for="wa_rw" class="form-label">Nomor WhatsApp RW</label>
-                            <input type="text" class="form-control" id="wa_rw" name="wa_rw" readonly>
-                        </div>
+                    <div class="form-group mb-3">
+                        <label for="wa_rw" class="form-label">Nomor WhatsApp RW</label>
+                        <input type="text" class="form-control" id="wa_rw" name="wa_rw" readonly>
+                    </div>
                 </div>
                 <div class="modal-footer justify-content-end">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
@@ -125,7 +125,8 @@
         <div class="card-header card-header-tabel p-4 mb-3">
             <h5>
                 Pendataan RW
-                <button class="btn btn-add float-end" data-bs-toggle="modal" data-bs-target="#tambahRW">Tambah Data</button>
+                <button class="btn btn-add float-end" data-bs-toggle="modal" data-bs-target="#tambahRW">Tambah
+                    Data</button>
             </h5>
         </div>
         <hr class="tabel">
@@ -140,6 +141,18 @@
         {{ $dataTable->scripts() }}
         <script>
             $('#rw-table').ready(function() {
+                $("#showRwModal").on("show.bs.modal", function(event) {
+
+                    var target = $(event.relatedTarget);
+                    let no_rw = target.data('id')
+                    let nik_rw = target.data('nik_rw')
+                    let wa_rw = target.data('wa_rw')
+
+                    $('#showRwModal #no_rw').val(no_rw);
+                    $('#showRwModal #nik_rw').val(nik_rw);
+                    $('#showRwModal #wa_rw').val(wa_rw);
+                });
+
                 $("#editRwModal").on("show.bs.modal", function(event) {
 
                     var target = $(event.relatedTarget);
