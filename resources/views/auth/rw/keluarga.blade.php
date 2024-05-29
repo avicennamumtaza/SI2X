@@ -43,7 +43,7 @@
         </div>
     </div>
 
-    {{-- Edit Keluarga --}}
+    {{-- Show Keluarga --}}
     <div class="modal fade" id="showKeluargaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-md">
             <div class="modal-content">
@@ -134,6 +134,18 @@
         {{ $dataTable->scripts() }}
         <script>
             $('#keluarga-table').ready(function() {
+                $("#showKeluargaModal").on("show.bs.modal", function(event) {
+
+                    var target = $(event.relatedTarget);
+                    let nkk = target.data('id')
+                    let no_rt = target.data('no_rt')
+                    let nik_kepala = target.data('nik_kepala')
+
+                    $('#showKeluargaModal #nkk').val(nkk);
+                    $('#showKeluargaModal #no_rt').val(no_rt);
+                    $('#showKeluargaModal #nik_kepala').val(nik_kepala);
+                });
+
                 $("#editKeluargaModal").on("show.bs.modal", function(event) {
 
                     var target = $(event.relatedTarget);
