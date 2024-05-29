@@ -206,6 +206,11 @@
                     </div>
     
                     <div class="form-group mb-3">
+                        <label for="umur" class="form-label">Umur</label>
+                        <input type="text" class="form-control" id="umur" readonly>
+                    </div>
+                    
+                    <div class="form-group mb-3">
                         <label for="alamat" class="form-label">Alamat</label>
                         <textarea class="form-control" id="alamat" rows="3" readonly></textarea>
                     </div>
@@ -465,6 +470,7 @@
                     let nama = target.data('nama')
                     let tempat_lahir = target.data('tempat_lahir')
                     let tanggal_lahir = target.data('tanggal_lahir')
+                    let umur = target.data('umur');
                     let alamat = target.data('alamat')
                     let agama = target.data('agama')
                     let jenis_kelamin = target.data('jenis_kelamin')
@@ -481,6 +487,7 @@
                     $('#showPendudukModal #nama').val(nama);
                     $('#showPendudukModal #tempat_lahir').val(tempat_lahir);
                     $('#showPendudukModal #tanggal_lahir').val(tanggal_lahir);
+                    $('#showPendudukModal #umur').val(umur);
                     $('#showPendudukModal #alamat').val(alamat);
                     $('#showPendudukModal #agama').val(agama);
                     $('#showPendudukModal #jenis_kelamin').val(jenis_kelamin);
