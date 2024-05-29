@@ -58,6 +58,11 @@
 
                 <div class="modal-body justify-content-start text-start">
                     <div class="form-group mb-3">
+                        <label for="nama_rw" class="form-label text-start">Nama RW</label>
+                        <input type="text" class="form-control" id="nama_rw" name="nama_rw" readonly>
+                    </div>
+                    
+                    <div class="form-group mb-3">
                         <label for="no_rw" class="form-label text-start">Nomor RW</label>
                         <input type="text" class="form-control" id="no_rw" name="no_rw" readonly>
                     </div>
