@@ -27,12 +27,20 @@ class RWDataTable extends DataTable
             // $editUrl = route('rw.edit', $row->no_rw);
             $deleteUrl = route('rw.destroy', $row->no_rw);
             $action = '
+            <div class="container-action">';
+
+            $action .= '
             <div class="container-action">
+            <button type="button"
+            data-bs-toggle="modal" data-bs-target="#showRwModal" class="show-user show btn btn-show btn-sm">Tampil</button>';
+
+            $action .= '
             <button type="button"
             data-id="' . $row->no_rw . '"
             data-nik_rw="' . $row->nik_rw . '"
             data-wa_rw="' . $row->wa_rw . '"
-            data-bs-toggle="modal" data-bs-target="#editRwModal" class="edit-user edit btn btn-edit btn-sm">Edit</button>';
+            data-bs-toggle="modal" data-bs-target="#editRwModal" class="edit-user edit btn btn-edit btn-sm">Edit</button>
+            </div>';
             // $action .= '
             // <form action="' . $deleteUrl . '" method="post" style="display:inline;">
             //     ' . csrf_field() . '
