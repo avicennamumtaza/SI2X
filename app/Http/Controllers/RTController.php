@@ -27,16 +27,22 @@ class RTController extends Controller
     // }
 
     public function show(RT $rt)
-{
-    // Temukan data RT berdasarkan nomor RT
-    $rt = RT::find($rt->no_rt);
+    {
+        // Temukan data RT berdasarkan nomor RT
+        $rt = RT::find($rt->no_rt);
 
-    // Temukan data penduduk berdasarkan NIK RT
-    $penduduk = Penduduk::where('nik', $rt->nik_rt)->first();
+        // Temukan data penduduk berdasarkan NIK RT
+        $penduduk = Penduduk::where('nik', $rt->nik_rt)->first();
 
-    // Kirim data RT dan data penduduk ke tampilan
-    return view('rt.show', compact('rt', 'penduduk'));
-}
+        // Hitung jumlah keluarga dalam RT ini
+        $jumlah_keluarga = $rt->keluarga()->count();
+
+        dd($jumlah_keluarga);
+
+        // Kirim data RT, data penduduk, dan jumlah keluarga ke tampilan
+        return view('rt.show', compact('rt', 'penduduk', 'jumlah_keluarga'));
+    }
+
 
 
     public function store(Request $request)
