@@ -2,6 +2,7 @@
 
 namespace App\DataTables;
 
+use App\Models\Penduduk;
 use App\Models\RW;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
@@ -26,6 +27,9 @@ class RWDataTable extends DataTable
         ->addColumn('action', function($row){
             // $editUrl = route('rw.edit', $row->no_rw);
             $deleteUrl = route('rw.destroy', $row->no_rw);
+
+            $nama_rw = Penduduk::where('nik', $row->nik_rw)->value('nama');
+
             $action = '
             <div class="container-action">';
 
@@ -35,6 +39,7 @@ class RWDataTable extends DataTable
             data-id="' . $row->no_rw . '"
             data-nik_rw="' . $row->nik_rw . '"
             data-wa_rw="' . $row->wa_rw . '"
+            data-nama_rw="' . $nama_rw . '"
             data-bs-toggle="modal" data-bs-target="#showRwModal" class="show-user show btn btn-show btn-sm">Tampil</button>';
 
             $action .= '
