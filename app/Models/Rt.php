@@ -28,4 +28,11 @@ class RT extends Model
     // {
     //     return $this->hasMany(Dokumen::class, 'no_rt', 'no_rt');
     // }
+
+    // RT Model
+    public function keluarga()
+    {
+        return $this->hasMany(Keluarga::class, 'no_rt', 'no_rt');
+    }
+
 }
