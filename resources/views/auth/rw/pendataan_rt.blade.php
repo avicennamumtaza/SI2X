@@ -59,7 +59,7 @@
                     <!-- Tampilkan nama penduduk berdasarkan nik_rt -->
                     <div class="form-group mb-3">
                         <label for="nama_penduduk" class="form-label text-start">Nama RT</label>
-                        <input type="text" class="form-control" id="nama_penduduk" value="{{ isset($penduduk) ? $penduduk->nama : '-' }}" readonly>
+                        <input type="text" class="form-control" id="nama_penduduk"  readonly>
                     </div>
                 
                     <!-- Tampilkan nomor RT -->
