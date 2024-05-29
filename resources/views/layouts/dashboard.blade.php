@@ -244,7 +244,7 @@
                                             <h2 class="h3 mb-0 me-3">{{ $jumlahLaporanKeuangan }}</h2>
                                         </div>
                                         <div>
-                                            <h5 style="margin-bottom: 0px;">Laporan Keuangan</h5>
+                                            <h5 style="margin-bottom: 0px; font-size: 1rem;">Laporan Keuangan</h5>
                                             {{-- <p class="mb-0">0-14 tahun</p> --}}
                                         </div>
                                     </div>
@@ -266,7 +266,7 @@
                                             <h2 class="h3 mb-0 me-3">{{ $jumlahPengumuman }}</h2>
                                         </div>
                                         <div>
-                                            <h5 style="margin-bottom: 0px;">Publikasi Pengumuman</h5>
+                                            <h5 style="margin-bottom: 0px; font-size: 1rem;">Publikasi Pengumuman</h5>
                                             {{-- <p class="mb-0">15-64 tahun</p> --}}
                                         </div>
                                     </div>
@@ -288,7 +288,7 @@
                                             <h2 class="h3 mb-0 me-3">{{ $jumlahUmkm }}</h2>
                                         </div>
                                         <div>
-                                            <h5 style="margin-bottom: 0px;">Pengajuan UMKM</h5>
+                                            <h5 style="margin-bottom: 0px; font-size: 1rem;">Pengajuan <br> UMKM</h5>
                                             {{-- <p class="mb-0">Pengajuan Ditolak</p> --}}
                                         </div>
                                     </div>
@@ -310,7 +310,7 @@
                                             <h2 class="h3 mb-0 me-3">{{ $jumlahPengajuanDokumen }}</h2>
                                         </div>
                                         <div>
-                                            <h5 style="margin-bottom: 0px;">Permintaan Dokumen</h5>
+                                            <h5 style="margin-bottom: 0px; font-size: 1rem;">Permintaan Dokumen</h5>
                                             {{-- <p class="mb-0">Pengajuan Ditolak</p> --}}
                                         </div>
                                     </div>
