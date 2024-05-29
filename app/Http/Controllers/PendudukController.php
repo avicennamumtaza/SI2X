@@ -142,6 +142,7 @@ class PendudukController extends Controller
     //impor csv
     public function import(Request $request)
     {
+
         $file = $request->file('file');
 
         if (!$file) {
@@ -155,9 +156,9 @@ class PendudukController extends Controller
             try {
                 $data = str_getcsv($line);
 
-                if (count($data) !== 14) {
-                    throw new \Exception('CSV tidak valid. Setiap baris harus memiliki 14 kolom.');
-                }
+                // if (count($data) !== 14) {
+                //     throw new \Exception('CSV tidak valid. Setiap baris harus memiliki 14 kolom.');
+                // }
 
                 // Validasi input per baris
                 $validated = Validator::make([
@@ -254,9 +255,9 @@ class PendudukController extends Controller
 
         fclose($handle);
 
-        $headers = [
-            'Content-Type' => 'text/csv',
-        ];
+    $headers = [
+        'Content-Type' => 'text/csv',
+    ];
 
         return Response::download($filename, 'penduduk.csv', $headers);
     }
