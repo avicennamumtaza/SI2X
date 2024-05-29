@@ -102,8 +102,9 @@ class RTDataTable extends DataTable
     {
         return [
             Column::make('no_rt')->title('Nomor RT')->width(70),
+            //Column::make('nama')->title('Nama RT')->width(200),
             Column::make('nik_rt')->title('NIK RT')->width(200),
-            Column::make('wa_rt')->title('Nomor WhatsApp RT')->width(200),
+            //Column::make('wa_rt')->title('Nomor WhatsApp RT')->width(200),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)

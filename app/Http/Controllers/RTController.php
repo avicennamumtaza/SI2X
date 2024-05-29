@@ -43,7 +43,17 @@ class RTController extends Controller
         return view('rt.show', compact('rt', 'penduduk', 'jumlah_keluarga'));
     }
 
+    // public function getRTData()
+    // {
+    //     // Menggunakan eager loading untuk mendapatkan data nama penduduk
+    //     $rts = RT::with('penduduk')->get();
 
+    //     return datatables()->of($rts)
+    //         ->addColumn('nama', function (RT $rt) {
+    //             return $rt->penduduk ? $rt->penduduk->nama : 'Nama tidak tersedia';
+    //         })
+    //         ->make(true);
+    // }
 
     public function store(Request $request)
     {
