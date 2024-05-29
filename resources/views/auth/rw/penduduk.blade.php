@@ -458,7 +458,6 @@
         <script>
             $('#penduduk-table').ready(function() {
                 $("#showPendudukModal").on("show.bs.modal", function(event) {
-
                     var target = $(event.relatedTarget);
                     let nik = target.data('id')
                     let nkk = target.data('nkk')
@@ -473,7 +472,8 @@
                     let pekerjaan = target.data('pekerjaan')
                     let golongan_darah = target.data('golongan_darah')
                     let status_pernikahan = target.data('status_pernikahan')
-                    let status_pendatang = target.data('status_pendatang')
+                    let status_pendatang = target.data('status_pendatang');  
+
 
                     $('#showPendudukModal #nik').val(nik);
                     $('#showPendudukModal #nkk').val(nkk);
@@ -494,6 +494,7 @@
                     url = url.replace(':__id', nik);
                     $('#showPendudukForm').attr('action', url)
                 });
+
             
        
                 $("#editPendudukModal").on("show.bs.modal", function(event) {

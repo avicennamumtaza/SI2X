@@ -90,7 +90,7 @@ class PendudukDataTable extends DataTable
                 data-pekerjaan="' . $row->pekerjaan->value . '"
                 data-golongan_darah="' . $row->golongan_darah->value . '"
                 data-status_pernikahan="' . $row->status_pernikahan->value . '"
-                data-status_pendatang="' . $row->status_pendatang . '"
+                data-status_pendatang="' . ($row->status_pendatang == 0 ? 'domisili' : 'non domisili') . '"
                 data-bs-toggle="modal" data-bs-target="#editPendudukModal" class="edit-user edit btn btn-edit btn-sm">Edit</button>';
                 
                 $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">

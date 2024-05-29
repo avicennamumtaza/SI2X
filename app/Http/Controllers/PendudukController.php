@@ -42,6 +42,10 @@ class PendudukController extends Controller
     public function show(Penduduk $penduduk)
     {
     $penduduk = Penduduk::find($penduduk->nik);
+
+    //ubah nilai status_pendatang
+    $penduduk->status_pendatang = $penduduk->status_pendatang == 0 ? 'domisili' : 'non domisili';
+
     return view('penduduk.show', compact('penduduk'));
     }
 
