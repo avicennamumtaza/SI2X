@@ -149,7 +149,8 @@ body .main-image {
     top: 100px;
     left: 350px;
     opacity: 20%;
-    width: 50%; /* Mengisi lebar container penuh */
+    width: 50%;
+    /* Mengisi lebar container penuh */
     /* Atur jarak antara gambar dan container */
   }
 }
@@ -159,7 +160,8 @@ body .main-image {
     top: 100px;
     left: 200px;
     opacity: 20%;
-    width: 50%; /* Mengisi lebar container penuh */
+    width: 50%;
+    /* Mengisi lebar container penuh */
     /* Atur jarak antara gambar dan container */
   }
 }
@@ -172,7 +174,8 @@ body .custom-nav {
   background-color: #ffffff;
   padding-inline: 17px;
   border-radius: 4em;
-  box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.3); /* Penambahan bayangan */
+  box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.3);
+  /* Penambahan bayangan */
 }
 body .custom-nav .navbar-brand img {
   width: auto;
@@ -312,13 +315,135 @@ body .container-landing .custom-section a:hover {
     font-size: 350%;
   }
 }
+body .container-rtrw {
+  background-color: transparent;
+  margin-block: 7.5rem;
+}
+body .container-rtrw .wrapper {
+  background: linear-gradient(60deg, #420285, #08BDBD);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 13rem;
+  margin-bottom: 15rem;
+}
+body .container-rtrw .carousel {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+body .container-rtrw .carousel__item {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  padding: 0 12px;
+  opacity: 0;
+  filter: drop-shadow(0 2px 2px #555);
+  will-change: transform, opacity;
+  animation: carousel-animate-vertical 27s linear infinite;
+}
+body .container-rtrw .carousel__item:nth-child(1) {
+  animation-delay: -3s;
+}
+body .container-rtrw .carousel__item:nth-child(2) {
+  animation-delay: 0s;
+}
+body .container-rtrw .carousel__item:nth-child(3) {
+  animation-delay: 3s;
+}
+body .container-rtrw .carousel__item:nth-child(4) {
+  animation-delay: 6s;
+}
+body .container-rtrw .carousel__item:nth-child(5) {
+  animation-delay: 9s;
+}
+body .container-rtrw .carousel__item:nth-child(6) {
+  animation-delay: 12s;
+}
+body .container-rtrw .carousel__item:nth-child(7) {
+  animation-delay: 15s;
+}
+body .container-rtrw .carousel__item:nth-child(8) {
+  animation-delay: 18s;
+}
+body .container-rtrw .carousel__item:last-child {
+  animation-delay: -6s;
+}
+body .container-rtrw .carousel__item-head {
+  border-radius: 50%;
+  background-color: #d7f7fc;
+  width: 90px;
+  height: 90px;
+  padding: 14px;
+  position: relative;
+  margin-right: -45px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+}
+body .container-rtrw .carousel__item-body {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 16px 20px 16px 70px;
+}
+body .container-rtrw .title {
+  text-transform: uppercase;
+  font-size: 20px;
+  margin-top: 10px;
+}
+@keyframes carousel-animate-vertical {
+  0% {
+    transform: translateY(100%) scale(0.5);
+    opacity: 0;
+    visibility: hidden;
+  }
+  3%, 11.1111111111% {
+    transform: translateY(100%) scale(0.7);
+    opacity: 0.4;
+    visibility: visible;
+  }
+  14.1111111111%, 22.2222222222% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    visibility: visible;
+  }
+  25.2222222222%, 33.3333333333% {
+    transform: translateY(-100%) scale(0.7);
+    opacity: 0.4;
+    visibility: visible;
+  }
+  36.3333333333% {
+    transform: translateY(-100%) scale(0.5);
+    opacity: 0;
+    visibility: visible;
+  }
+  100% {
+    transform: translateY(-100%) scale(0.5);
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@media screen and (max-width: 992px) {
+  body .container-rtrw {
+    margin-top: 7rem;
+  }
+}
 body .container-statsngal {
   background-color: transparent;
   margin-top: 7.5rem;
   margin-bottom: -5rem;
 }
 body .container-statsngal .carousel-caption {
-  background-color: rgba(0, 0, 0, 0.5); /* Hitam dengan 50% opacity */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Hitam dengan 50% opacity */
   border: 1px solid #152551;
 }
 body .container-statsngal .card {
@@ -524,11 +649,13 @@ body footer .f2 {
   background-color: #152551;
 }
 body footer .no-footer {
-  color: white; /* Warna teks normal */
+  color: white;
+  /* Warna teks normal */
   font-style: none;
 }
 body footer .no-footer:hover {
-  color: #c0c0c0; /* Warna teks saat di hover */
+  color: #c0c0c0;
+  /* Warna teks saat di hover */
 }
 body .container-p {
   background-color: transparent;
@@ -959,13 +1086,15 @@ body hr.hrmain {
 
 .auth {
   background-color: #152551;
-  height: 100vh; /* Menggunakan tinggi viewport */
+  height: 100vh;
+  /* Menggunakan tinggi viewport */
 }
 .auth .container-auth {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%; /* Menggunakan tinggi viewport */
+  height: 100%;
+  /* Menggunakan tinggi viewport */
 }
 .auth .login-form {
   background-color: #4461AE;
@@ -978,9 +1107,11 @@ body hr.hrmain {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Menengahkan secara vertikal */
+  justify-content: center;
+  /* Menengahkan secara vertikal */
   /* Menengahkan secara horizontal */
-  margin: auto; /* Menengahkan secara horizontal */
+  margin: auto;
+  /* Menengahkan secara horizontal */
 }
 .auth .login-form .form-header {
   display: inline;
