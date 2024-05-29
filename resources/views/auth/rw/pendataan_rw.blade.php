@@ -47,6 +47,38 @@
         </div>
     </div>
 
+    {{-- {{-- Show RW --}}
+    <div class="modal fade" id="showRwModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Detail RW</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body justify-content-start text-start">
+                        <div class="form-group mb-3">
+                            <label for="no_rw" class="form-label text-start">Nomor RW</label>
+                            <input type="text" class="form-control" id="no_rw" name="no_rw" readonly>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="nik_rw" class="form-label">NIK RW</label>
+                            <input type="text" class="form-control" id="nik_rw" name="nik_rw" readonly></input>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="wa_rw" class="form-label">Nomor WhatsApp RW</label>
+                            <input type="text" class="form-control" id="wa_rw" name="wa_rw" readonly>
+                        </div>
+                </div>
+                <div class="modal-footer justify-content-end">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     {{-- {{-- Edit RW --}}
     <div class="modal fade" id="editRwModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-md">
