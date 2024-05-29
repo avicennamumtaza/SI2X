@@ -32,6 +32,9 @@ class RWDataTable extends DataTable
             $action .= '
             <div class="container-action">
             <button type="button"
+            data-id="' . $row->no_rw . '"
+            data-nik_rw="' . $row->nik_rw . '"
+            data-wa_rw="' . $row->wa_rw . '"
             data-bs-toggle="modal" data-bs-target="#showRwModal" class="show-user show btn btn-show btn-sm">Tampil</button>';
 
             $action .= '
