@@ -44,6 +44,39 @@
     </div>
 
     {{-- Edit Keluarga --}}
+    <div class="modal fade" id="showKeluargaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel" title="Edit Keluarga">Detail Keluarga</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body justify-content-start text-start">
+                    <div class="form-group mb-3">
+                        <label for="nkk" class="form-label text-start">NKK</label>
+                        <input type="text" class="form-control" id="nkk" name="nkk" readonly>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="no_rt" class="form-label text-start">Nomor RT</label>
+                        <input type="text" class="form-control" id="no_rt" name="no_rt" readonly>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="nik_kepala" class="form-label text-start">NIK Kepala Keluarga</label>
+                        <input type="text" class="form-control" id="nik_kepala" name="nik_kepala" readonly>
+                    </div>
+
+                    <div class="modal-footer justify-content-end">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- Edit Keluarga --}}
     <div class="modal fade" id="editKeluargaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-md">
             <div class="modal-content">
