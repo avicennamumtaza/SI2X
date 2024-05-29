@@ -40,6 +40,7 @@ class RTDataTable extends DataTable
                 data-nik_rt="' . $row->nik_rt . '"
                 data-nama="' . $nama_penduduk . '"
                 data-wa_rt="' . $row->wa_rt . '"
+                data-jumlah_keluarga="' . $row->keluarga()->count() . '"
                 data-bs-toggle="modal" data-bs-target="#showRtModal" class="show-user show btn btn-show btn-sm">Tampil</button>';
 
             $action .='
