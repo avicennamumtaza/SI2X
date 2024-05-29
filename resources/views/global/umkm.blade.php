@@ -83,10 +83,10 @@
             @foreach ($umkms as $umkm)
                 <div class="card">
 
-                    <a class="postcard__img_link" href="#" data-toggle="modal"
+                    <a class="umkm_img_link" href="#" data-toggle="modal"
                         data-target="#fotoModal{{ $umkm->id_umkm }}">
                         <img src="{{ $umkm->foto_umkm ? asset('Foto UMKM/' . $umkm->foto_umkm) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
-                            class="card-img-top" alt="Foto UMKM" data-id="{{ $umkm->id_umkm }}"
+                            class="card-img-top" alt="Foto UMKM{{ $umkm->id_umkm }}" data-id_umkm="{{ $umkm->id_umkm }}"
                             data-target="#fotoModal{{ $umkm->id_umkm }}" />
                     </a>
                     <div class="card-body">
@@ -120,41 +120,47 @@
                                 class="bi bi-box-arrow-in-up"></i>Hubungi</button> --}}
                     </div>
                 </div>
+                <!-- Modal untuk setiap UMKM -->
+                <div class="modal fade" id="fotoModal{{ $umkm->id_umkm }}" tabindex="-1" role="dialog"
+                    aria-labelledby="fotoModalLabel{{ $umkm->id_umkm }}" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header d-flex justify-content-between">
+                                <h5 class="modal-title" id="fotoModalLabel{{ $umkm->id_umkm }}">
+                                    {{ $umkm->nama_umkm }}</h5>
+                                <i class="bi bi-x-lg text-danger" data-dismiss="modal" aria-label="Close"
+                                    style="font-size: 1.5rem;"></i>
+                            </div>
+                            <div class="modal-body">
+                                <img id="modalImg{{ $umkm->id_umkm }}"
+                                    src="{{ $umkm->foto_umkm ? asset('Foto UMKM/' . $umkm->foto_umkm) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
+                                    class="img-fluid" alt="Foto UMKM{{ $umkm->id_umkm }}"
+                                    style="min-width: 100%; max-height: auto;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             @endforeach
         </div>
 
-        <!-- Modals untuk menampilkan foto pengumuman secara penuh -->
-        <div class="modal fade" id="fotoModal" tabindex="-1" role="dialog" aria-labelledby="fotoModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header d-flex justify-content-between">
-                        <h5 class="modal-title" id="fotoModalLabel"></h5>
-                        <i class="bi bi-x-lg text-danger" data-dismiss="modal" aria-label="Close"
-                            style="font-size: 1,5 rem;"></i>
-                    </div>
-                    <div class="modal-body">
-                        <img id="modalImg" src="" class="img-fluid" alt="Foto UMKM"
-                            style="min-width: 100%; max-height: auto;">
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
-    
-    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         // Mengatur modal yang akan ditampilkan ketika gambar pengumuman diklik
         $(document).ready(function() {
-            $('.postcard__img_link').click(function() {
-                var id = $(this).find('img').data('id');
-                var modalTarget = $(this).find('img').data('target');
-                var imgUrl = $(this).find('img').attr('src');
+            $('.umkm_img_link').click(function(event) {
+                event.preventDefault(); // Prevent default link behavior
+                var modalTarget = $(this).attr('data-target');
+                var imgUrl = $(this).find('.modal_img').attr('src');
+                var id_umkm = $(this).find('.modal_img').data('id_umkm');
 
-                $('#fotoModalLabel').text($('#fotoModalLabel' + id).text());
+                $('#fotoModalLabel').text('Modal ID: ' + id_umkm); // Example, modify as needed
                 $('#modalImg').attr('src', imgUrl);
-                $('#fotoModal').modal('show');
+                $(modalTarget).modal('show');
             });
         });
     </script>

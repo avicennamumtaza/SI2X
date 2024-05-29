@@ -118,6 +118,9 @@ Route::prefix('manage')->group(function(){
             Route::get('/edit/{rt}', [RTController::class, 'edit'])->name('rt.edit')->middleware('isRw');
             Route::put('/update/{rt}', [RTController::class, 'update'])->name('rt.update')->middleware('isRw');
             Route::delete('/{rt}', [RTController::class, 'destroy'])->name('rt.destroy')->middleware('isRw');
+            Route::get('/show/{rt}', [RTController::class, 'show'])->name('rt.show')->middleware('isRw');
+            //Route::get('/get-penduduk-by-nik-rt', 'PendudukController@getPendudukByNikRt')->name('getPendudukByNikRt');
+
         });
 
         //manage rw
@@ -138,6 +141,7 @@ Route::prefix('manage')->group(function(){
             Route::delete('/{penduduk}', [PendudukController::class, 'destroy'])->name('penduduk.destroy')->middleware('auth');
             Route::post('/export', [PendudukController::class, 'export'])->name('penduduk.export')->middleware('auth');
             Route::post('/import', [PendudukController::class, 'import'])->name('penduduk.import');
+            Route::get('/show/{penduduk}', [PendudukController::class, 'show'])->name('penduduk.show')->middleware('auth');
         });
 
         // manage keluarga
@@ -175,6 +179,8 @@ Route::prefix('dokumen')->group(function(){
 Route::prefix('profil')->group(function() {
     Route::get('/', [ProfilController::class, 'profil'])->name('profil.manage')->middleware('auth');
     Route::put('/update/{users}', [ProfilController::class, 'updateProfil'])->name('profil.update')->middleware('auth');
+    Route::put('/update/foto/{users}', [ProfilController::class, 'updateFotoProfil'])->name('profil.foto');
+
     // Route::put('/{user}/change_password', [ProfilController::class, 'changePassword'])->name('profil.password');
 });
 

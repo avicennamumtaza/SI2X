@@ -2,7 +2,8 @@
 
 @section('content')
     <!-- Modal for Editing Users -->
-    <div class="modal fade" id="editUserPasswordModal" tabindex="-1" aria-labelledby="editUserPasswordModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editUserPasswordModal" tabindex="-1" aria-labelledby="editUserPasswordModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-md">
             <div class="modal-content">
                 <div class="modal-header">
@@ -21,26 +22,27 @@
                         </div>
                         <div class="form-group mb-3" style="display: none;">
                             <label for="username" class="form-label text-start">Nama Pengguna</label>
-                            <input type="text" class="form-control" id="username"
-                                value="{{ $users->username }}" name="username" required>
+                            <input type="text" class="form-control" id="username" value="{{ $users->username }}"
+                                name="username" required>
                         </div>
                         <div class="form-group mb-3" style="display: none;">
                             <label for="role" class="form-label text-start">Peran</label>
-                            <input type="text" class="form-control" id="role"
-                                value="{{ $users->role }}" name="role" required readonly>
-                        </div>
-                        <div class="form-group mb-3" >
-                            <label for="email" class="form-label text-start">Email</label>
-                            <input type="email" class="form-control" id="email"
-                                value="{{ $users->email }}" name="email" required>
-                        </div>
-                        <div class="form-group mb-3" style="display: none;">
-                            <label class="custom-file-label mb-2" for="foto_profil">Foto Profil</label>
-                            <input type="file" class="form-control" id="foto_profil" 
-                            value="{{ $users->foto_profil }}"name="foto_profil">
+                            <input type="text" class="form-control" id="role" value="{{ $users->role }}"
+                                name="role" required readonly>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="password" class="form-label text-start">Password (Biarkan Kosong Jika Tidak Ada Perubahan)</label>
+                            <label for="email" class="form-label text-start">Email</label>
+                            <input type="email" class="form-control" id="email" value="{{ $users->email }}"
+                                name="email" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="custom-file-label mb-2" for="foto_profil">Foto Profil</label>
+                            <input type="file" class="form-control" id="foto_profil"
+                                value="{{ $users->foto_profil }}"name="foto_profil">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="password" class="form-label text-start">Password (Biarkan Kosong Jika Tidak Ada
+                                Perubahan)</label>
                             <input type="password" class="form-control" id="password" name="password">
                         </div>
                         <div class="form-group mb-3">
@@ -57,7 +59,42 @@
             </div>
         </div>
     </div>
-    
+
+        {{-- Edit Foto Profil --}}
+    <div class="modal fade" id="editPicture" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ganti Foto Profil</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body justify-content-start text-start">
+                    <form action="{{ route('profil.foto', $users->id_user) }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('PUT')
+
+                        <div class="form-group mb-3" style="display: none;">
+                            <label for="username" class="form-label text-start">Nama Pengguna</label>
+                            <input type="text" class="form-control" id="username" value="{{ $users->username }}"
+                                name="username" required>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="custom-file-label mb-2" for="foto_profil">Foto Profil</label>
+                            <input type="file" class="form-control" id="foto_profil" name="foto_profil" onchange="previewImage(event)">
+                            <div class="d-flex justify-content-center pt-4">
+                                <img id="image_preview" src="{{ asset($users->foto_profil ? 'Foto Users/' . $users->foto_profil : 'Foto Users/default.jpg') }}" class="img-fluid mt-2 border border-1" style="height: 250px; width: 200px;" alt="Foto Profil">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-end">
+                    <button type="submit" class="btn btn-success">Perbarui</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12"> <!-- Mengurangi lebar kolom agar lebih sesuai dengan gambar -->
@@ -74,15 +111,21 @@
                                     $hash = md5(strtolower(trim($users->email)));
                                     //$gravatar_url = "https://www.gravatar.com/avatar/$hash?s=200&d=mp";
                                 @endphp
-                                <img src="{{ asset('Foto Users/' . $users->foto_profil) }}" class="img-thumbnail" style="height: 250px; width: 200px;"
-                                    alt="">
+                                <img src="{{ asset('Foto Users/' . $users->foto_profil) }}" class="img-thumbnail"
+                                    style="height: 250px; width: 200px;" alt="">
+                                <div class="pt-4 mx-4">
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#editPicture"
+                                        class="edit btn btn-edit btn-sm">
+                                        Ganti Foto Profil
+                                    </button>
+                                </div>
                             </div>
                             <div class="col-md-8"> <!-- Kolom untuk form inputan -->
                                 <form method="POST" action="{{ route('profil.update', $users->id_user) }}">
                                     @csrf
                                     @method('PUT')
 
-                                    <div class="form-group mb-3" >
+                                    <div class="form-group mb-3">
                                         <label for="nik" class="form-label text-start">NIK</label>
                                         <input type="text" class="form-control" id="nik" name="nik"
                                             value="{{ $users->nik }}" required readonly>
@@ -104,11 +147,12 @@
                                     </div>
 
                                     <div class="form-group row pe-5 py-2">
-                                        <div class="offset-lg-10 offset-md-5">
-                                            <button type="button" data-bs-toggle="modal" data-bs-target="#editUserPasswordModal"
-                                                class="edit btn btn-edit btn-sm" >
+                                        <div class="offset-lg-11 offset-md-5">
+                                            <button type="button" data-bs-toggle="modal"
+                                                data-bs-target="#editUserPasswordModal" class="edit btn btn-edit btn-sm">
                                                 Edit
                                             </button>
+
                                             {{-- <button type="submit" class="edit btn btn-edit btn-sm">
                                                 {{ __('Simpan') }}
                                             </button> --}}
@@ -122,4 +166,16 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function(){
+                const output = document.getElementById('image_preview');
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+
 @endsection

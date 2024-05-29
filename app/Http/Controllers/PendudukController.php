@@ -34,6 +34,17 @@ class PendudukController extends Controller
         return $dataTable->render('auth.rw.penduduk', compact('no_rts', 'nkks', 'goldar', 'pekerjaans', 'pendidikans', 'sp', 'jk', 'agamas'));
         // return $dataTable->render('auth.rw.penduduk', ['goldar' => GolDar::cases()]);
     }
+    // public function edit(Penduduk $penduduk)
+    // {
+    //     $penduduk = Penduduk::findOrFail($penduduk->nik);
+    //     return view('penduduk.edit', compact('penduduk'));
+    // }
+    public function show(Penduduk $penduduk)
+    {
+    $penduduk = Penduduk::find($penduduk->nik);
+    return view('penduduk.show', compact('penduduk'));
+    }
+
     public function store(Request $request)
     {
         // Validasi input
@@ -84,6 +95,7 @@ class PendudukController extends Controller
         $penduduk = Penduduk::findOrFail($penduduk->nik);
         return view('penduduk.edit', compact('penduduk'));
     }
+
     public function update(Request $request, Penduduk $penduduk)
     {
 
@@ -121,6 +133,7 @@ class PendudukController extends Controller
     //impor csv
     public function import(Request $request)
     {
+
         $file = $request->file('file');
 
         if (!$file) {
@@ -134,9 +147,9 @@ class PendudukController extends Controller
             try {
                 $data = str_getcsv($line);
 
-                if (count($data) !== 14) {
-                    throw new \Exception('CSV tidak valid. Setiap baris harus memiliki 14 kolom.');
-                }
+                // if (count($data) !== 14) {
+                //     throw new \Exception('CSV tidak valid. Setiap baris harus memiliki 14 kolom.');
+                // }
 
                 // Validasi input per baris
                 $validated = Validator::make([
@@ -233,9 +246,9 @@ class PendudukController extends Controller
 
         fclose($handle);
 
-        $headers = [
-            'Content-Type' => 'text/csv',
-        ];
+    $headers = [
+        'Content-Type' => 'text/csv',
+    ];
 
         return Response::download($filename, 'penduduk.csv', $headers);
     }

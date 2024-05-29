@@ -164,6 +164,97 @@
         </div>
     </div>
 
+    {{--show penduduk--}}
+    <div class="modal fade" id="showPendudukModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Detail Penduduk</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+    
+                <div class="modal-body justify-content-start text-start">
+                    <!-- Tempat untuk menampilkan data penduduk -->
+                    <div class="form-group mb-3">
+                        <label for="nik" class="form-label">NIK</label>
+                        <input type="text" class="form-control" id="nik" readonly>
+                    </div>
+    
+                    <div class="form-group mb-3">
+                        <label for="nkk" class="form-label">NKK</label>
+                        <input type="text" class="form-control" id="nkk" readonly>
+                    </div>
+    
+                    <div class="form-group mb-3">
+                        <label for="no_rt" class="form-label">Nomor RT</label>
+                        <input type="text" class="form-control" id="no_rt" readonly>
+                    </div>
+    
+                    <div class="form-group mb-3">
+                        <label for="nama" class="form-label">Nama Lengkap</label>
+                        <input type="text" class="form-control" id="nama" readonly>
+                    </div>
+    
+                    <div class="form-group mb-3">
+                        <label for="tempat_lahir" class="form-label">Tempat Lahir</label>
+                        <input type="text" class="form-control" id="tempat_lahir" readonly>
+                    </div>
+    
+                    <div class="form-group mb-3">
+                        <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
+                        <input type="date" class="form-control" id="tanggal_lahir" readonly>
+                    </div>
+    
+                    <div class="form-group mb-3">
+                        <label for="alamat" class="form-label">Alamat</label>
+                        <textarea class="form-control" id="alamat" rows="3" readonly></textarea>
+                    </div>
+    
+                    <div class="form-group mb-3">
+                        <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
+                        <input type="text" class="form-control" id="jenis_kelamin" readonly>
+                    </div>
+    
+                    <div class="form-group mb-3">
+                        <label for="agama" class="form-label">Agama</label>
+                        <input type="text" class="form-control" id="agama" readonly>
+                    </div>
+    
+                    <div class="form-group mb-3">
+                        <label for="pekerjaan" class="form-label">Pekerjaan</label>
+                        <input type="text" class="form-control" id="pekerjaan" readonly>
+                    </div>
+    
+                    <div class="form-group mb-3">
+                        <label for="pendidikan" class="form-label">Pendidikan</label>
+                        <input type="text" class="form-control" id="pendidikan" readonly>
+                    </div>
+    
+                    <div class="form-group mb-3">
+                        <label for="golongan_darah" class="form-label">Golongan Darah</label>
+                        <input type="text" class="form-control" id="golongan_darah" readonly>
+                    </div>
+    
+                    <div class="form-group mb-3">
+                        <label for="status_pernikahan" class="form-label">Status Pernikahan</label>
+                        <input type="text" class="form-control" id="status_pernikahan" readonly>
+                    </div>
+    
+                    <div class="form-group mb-3">
+                        <label for="status_pendatang" class="form-label">Status Pendatang</label>
+                        <input type="text" class="form-control" id="status_pendatang" readonly>
+                    </div>
+    
+                </div>
+                <div class="modal-footer justify-content-end">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+
     {{-- Edit Penduduk --}}
     <div class="modal fade" id="editPendudukModal" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -366,6 +457,45 @@
         {{ $dataTable->scripts() }}
         <script>
             $('#penduduk-table').ready(function() {
+                $("#showPendudukModal").on("show.bs.modal", function(event) {
+
+                    var target = $(event.relatedTarget);
+                    let nik = target.data('id')
+                    let nkk = target.data('nkk')
+                    let no_rt = target.data('no_rt')
+                    let nama = target.data('nama')
+                    let tempat_lahir = target.data('tempat_lahir')
+                    let tanggal_lahir = target.data('tanggal_lahir')
+                    let alamat = target.data('alamat')
+                    let agama = target.data('agama')
+                    let jenis_kelamin = target.data('jenis_kelamin')
+                    let pendidikan = target.data('pendidikan')
+                    let pekerjaan = target.data('pekerjaan')
+                    let golongan_darah = target.data('golongan_darah')
+                    let status_pernikahan = target.data('status_pernikahan')
+                    let status_pendatang = target.data('status_pendatang')
+
+                    $('#showPendudukModal #nik').val(nik);
+                    $('#showPendudukModal #nkk').val(nkk);
+                    $('#showPendudukModal #no_rt').val(no_rt);
+                    $('#showPendudukModal #nama').val(nama);
+                    $('#showPendudukModal #tempat_lahir').val(tempat_lahir);
+                    $('#showPendudukModal #tanggal_lahir').val(tanggal_lahir);
+                    $('#showPendudukModal #alamat').val(alamat);
+                    $('#showPendudukModal #agama').val(agama);
+                    $('#showPendudukModal #jenis_kelamin').val(jenis_kelamin);
+                    $('#showPendudukModal #pendidikan').val(pendidikan);
+                    $('#showPendudukModal #pekerjaan').val(pekerjaan);
+                    $('#showPendudukModal #golongan_darah').val(golongan_darah);
+                    $('#showPendudukModal #status_pernikahan').val(status_pernikahan);
+                    $('#showPendudukModal #status_pendatang').val(status_pendatang);
+
+                    let url = "{{ route('penduduk.show', ':__id') }}";
+                    url = url.replace(':__id', nik);
+                    $('#showPendudukForm').attr('action', url)
+                });
+            
+       
                 $("#editPendudukModal").on("show.bs.modal", function(event) {
 
                     var target = $(event.relatedTarget);

@@ -77,6 +77,38 @@ body .btn-add:hover {
   font-weight: 700;
   color: rgb(7, 165, 83);
 }
+body .btn-show {
+  background-color: rgb(34, 204, 247);
+  border-radius: 0.7em;
+  padding-inline: 18px;
+  padding-block: 7px;
+  color: #ffffff;
+  text-decoration: none;
+  border: none;
+  transition: 0.1s;
+}
+body .btn-show:hover {
+  background-color: rgb(174, 234, 249);
+  font-weight: 700;
+  color: rgb(34, 204, 247);
+}
+body .container-action .btn-show {
+  background-color:  rgb(34, 204, 247);
+  border-radius: 0.7em;
+  padding-inline: 18px;
+  padding-block: 7px;
+  color: #ffffff;
+  text-decoration: none;
+  border: none;
+  transition: 0.1s;
+}
+body .container-action .btn-show:hover {
+  padding-inline: 17px;
+  padding-block: 6px;
+  background-color: #ffffff;
+  font-weight: 700;
+  color: rgb(34, 204, 247);
+}
 body .btn-edit {
   background-color: rgb(247, 144, 34);
   border-radius: 0.7em;

@@ -56,7 +56,9 @@ class PendudukDataTable extends DataTable
 
                 $deleteUrl = route('penduduk.destroy', $row->nik);
                 $action = '
-                <div class="container-action">
+                <div class="container-action">';
+
+                $action .= '
                 <button type="button"
                 data-id="' . $row->nik . '"
                 data-nkk="' . $row->nkk . '"
@@ -72,12 +74,31 @@ class PendudukDataTable extends DataTable
                 data-golongan_darah="' . $row->golongan_darah->value . '"
                 data-status_pernikahan="' . $row->status_pernikahan->value . '"
                 data-status_pendatang="' . $row->status_pendatang . '"
+                data-bs-toggle="modal" data-bs-target="#showPendudukModal" class="show-user show btn btn-show btn-sm">Tampil</button>';
+
+                $action .= '<button type="button"
+                data-id="' . $row->nik . '"
+                data-nkk="' . $row->nkk . '"
+                data-no_rt="' . $row->no_rt . '"
+                data-nama="' . $row->nama . '"
+                data-tempat_lahir="' . $row->tempat_lahir . '"
+                data-tanggal_lahir="' . $row->tanggal_lahir . '"
+                data-alamat="' . $row->alamat . '"
+                data-jenis_kelamin="' . $row->jenis_kelamin->value . '"
+                data-pendidikan="' . $row->pendidikan->value . '"
+                data-agama="' . $row->agama->value . '"
+                data-pekerjaan="' . $row->pekerjaan->value . '"
+                data-golongan_darah="' . $row->golongan_darah->value . '"
+                data-status_pernikahan="' . $row->status_pernikahan->value . '"
+                data-status_pendatang="' . $row->status_pendatang . '"
                 data-bs-toggle="modal" data-bs-target="#editPendudukModal" class="edit-user edit btn btn-edit btn-sm">Edit</button>';
+                
                 $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
                 ' . csrf_field() . '
                 ' . method_field('DELETE') .
                 '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
                 </form>
+                
                 </div>';
                 return $action;
             });
@@ -139,20 +160,20 @@ class PendudukDataTable extends DataTable
             //     ->width(60)
             //     ->addClass('text-center'),
             Column::make('nik')->type('string')->title('NIK'),
-            Column::make('nkk')->title('NKK'),
-            Column::make('no_rt')->title('Nomor RT'),
+            //Column::make('nkk')->title('NKK'),
+            //Column::make('no_rt')->title('Nomor RT'),
             Column::make('nama'),
-            Column::make('tempat_lahir'),
-            Column::make('tanggal_lahir'),
+            //Column::make('tempat_lahir'),
+            //Column::make('tanggal_lahir'),
             // Column::make('umur'),
-            Column::make('alamat')->width(170),
-            Column::make('jenis_kelamin'),
-            Column::make('agama'),
-            Column::make('pendidikan'),
-            Column::make('pekerjaan'),
-            Column::make('golongan_darah'),
-            Column::make('status_pernikahan'),
-            Column::make('status_pendatang')->title('Status'),
+            Column::make('alamat')->width(350),
+            //Column::make('jenis_kelamin'),
+            //Column::make('agama'),
+            //Column::make('pendidikan'),
+            //Column::make('pekerjaan'),
+            //Column::make('golongan_darah'),
+            //Column::make('status_pernikahan'),
+            //Column::make('status_pendatang')->title('Status'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
