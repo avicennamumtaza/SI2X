@@ -31,6 +31,9 @@ class KeluargaDataTable extends DataTable
                 $action = '
                 <div class="container-action">
                 <button type="button"
+                data-id="' . $row->nkk . '"
+                data-no_rt="' . $row->no_rt . '"
+                data-nik_kepala="' . $row->nik_kepala_keluarga . '"
                 data-bs-toggle="modal" data-bs-target="#showKeluargaModal" class="show-user show btn btn-show btn-sm">Tampil</button>';
 
                 $action .= '
