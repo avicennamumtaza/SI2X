@@ -20,6 +20,28 @@ use Illuminate\Support\Facades\Validator;
 
 class PendudukController extends Controller
 {
+    public function getLansia()
+    {
+        $date = \Carbon\Carbon::now()->subYears(66)->format('Y-m-d');
+        $penduduk = Penduduk::where('tanggal_lahir', '<=', $date)->get(['nik', 'nama', 'tempat_lahir', 'tanggal_lahir']);
+        return view('auth.rw.ulansia', compact('penduduk'));
+    }
+
+    public function getProduktif()
+    {
+        $dateMin = \Carbon\Carbon::now()->subYears(65)->format('Y-m-d');
+        $dateMax = \Carbon\Carbon::now()->subYears(15)->format('Y-m-d');
+        $penduduk = Penduduk::whereBetween('tanggal_lahir', [$dateMin, $dateMax])->get(['nik', 'nama', 'tempat_lahir', 'tanggal_lahir']);
+        return view('auth.rw.uprod', compact('penduduk'));
+    }
+
+    public function getAnak()
+    {
+        $date = \Carbon\Carbon::now()->subYears(15)->format('Y-m-d');
+        $penduduk = Penduduk::where('tanggal_lahir', '>', $date)->get(['nik', 'nama', 'tempat_lahir', 'tanggal_lahir']);
+        return view('auth.rw.uanak', compact('penduduk'));
+    }
+
     public function list(PendudukDataTable $dataTable)
     {
         $no_rts = RT::pluck('no_rt');
@@ -41,8 +63,8 @@ class PendudukController extends Controller
     // }
     public function show(Penduduk $penduduk)
     {
-    $penduduk = Penduduk::find($penduduk->nik);
-    return view('penduduk.show', compact('penduduk'));
+        $penduduk = Penduduk::find($penduduk->nik);
+        return view('penduduk.show', compact('penduduk'));
     }
 
     public function store(Request $request)
@@ -188,7 +210,7 @@ class PendudukController extends Controller
                 Penduduk::create($validated);
             } catch (\Exception $e) {
                 // Alert::error('Error', '. Pesan: ' . $e->getMessage());
-                Alert::error('Kesalahan pada baris ' . $key+1 , '' . $e->getMessage());
+                Alert::error('Kesalahan pada baris ' . $key + 1, '' . $e->getMessage());
                 // Alert::error('Kesalahan pada baris ' . $key+1 , '' . function () {
                 //     foreach ($e->getMessage() as $singleE) {
                 //         $singleE;
@@ -246,9 +268,9 @@ class PendudukController extends Controller
 
         fclose($handle);
 
-    $headers = [
-        'Content-Type' => 'text/csv',
-    ];
+        $headers = [
+            'Content-Type' => 'text/csv',
+        ];
 
         return Response::download($filename, 'penduduk.csv', $headers);
     }

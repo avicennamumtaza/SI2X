@@ -12,7 +12,6 @@ use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\RWController;
 use App\Http\Controllers\RTController;
 use App\Http\Controllers\UsersController;
-use App\Models\PengajuanDokumen;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -174,7 +173,11 @@ Route::prefix('dokumen')->group(function(){
     Route::delete('/{dokumen}', [DokumenController::class, 'destroy'])->name('dokumen.destroy')->middleware('isRw');
 });
 
-
+Route::prefix('usia')->group(function() {
+    Route::get('/lansia', [PendudukController::class, 'getLansia'])->name('lansia')->middleware('isRw');
+    Route::get('/produktif', [PendudukController::class, 'getProduktif'])->name('produktif')->middleware('isRw');
+    Route::get('/anak', [PendudukController::class, 'getAnak'])->name('anak')->middleware('isRw');
+});
 
 Route::prefix('profil')->group(function() {
     Route::get('/', [ProfilController::class, 'profil'])->name('profil.manage')->middleware('auth');
