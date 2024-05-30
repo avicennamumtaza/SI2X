@@ -26,17 +26,24 @@ class UmkmDataTable extends DataTable
             ->setRowId('id')
             ->addColumn('status_umkm', function ($row) {
                 $status = $row->status_umkm;
-                $badgeColor = '#FFC107 '; // Default color for 'Baru'
+                $badgeColor = 'darkgoldenrod'; // Default color for 'Baru'
                 if ($status == 'Disetujui') {
                     $badgeColor = 'green';
                 } elseif ($status == 'Ditolak') {
                     $badgeColor = 'red';
                 }
-                return '<span style="background-color: ' . $badgeColor . '; display: inline-block; text-align: center; width: 100%;" class="badge rounded-pill">' . $status . '</span>';            })
+                return '
+                <div style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding-block: 10px;">
+                <span style="background-color: ' . $badgeColor . '; display: flex; font-weight: 600; padding-inline: 10px; padding-block: 5px; width: fit-content; text-align: center;" class="badge rounded-pill">' . $status . '</span>
+                </div>';
+            })
             ->rawColumns(['status_umkm', 'action']) // Make sure to include 'status_umkm' in rawColumns
             ->addColumn('action', function ($row) {
                 $pemilik = Penduduk::where('nik', $row->nik_pemilik)->first();
-                $deleteUrl = route('umkm.destroy', $row->id_umkm);
                 $action = '
                 <div class="container-action">
                 <button type="button"
@@ -50,12 +57,17 @@ class UmkmDataTable extends DataTable
                 data-deskripsi_umkm="' . $row->deskripsi_umkm . '"
                 data-status_umkm="' . $row->status_umkm . '"
                 data-bs-toggle="modal" data-bs-target="#editUmkmModal" class="edit btn btn-edit btn-sm">Edit</button>';
-                $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
-                ' . csrf_field() . '
-                ' . method_field('DELETE') .
-                    '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
-                </form>
-                </div>';
+                $action .= '
+                <button
+                type="button" 
+                class="delete btn btn-delete btn-sm" 
+                data-bs-target="#deleteUmkmModal" 
+                data-bs-toggle="modal"
+                data-nama="' . $row->nama_umkm . '"
+                data-status="' . $row->status_umkm . '"
+                data-id="' . $row->id_umkm . '"
+                >Hapus</button>
+            </div>';
                 return $action;
             });
     }

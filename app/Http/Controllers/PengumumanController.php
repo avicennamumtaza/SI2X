@@ -103,6 +103,7 @@ class PengumumanController extends Controller
 
     public function destroy(Pengumuman $pengumuman)
     {
+        // Pengumuman::find($pengumuman->id_pengumuman)->delete();
         File::delete(public_path('Foto Pengumuman') . '/' . $pengumuman->foto_pengumuman);
         $pengumuman->delete();
         return redirect()->back()
