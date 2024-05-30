@@ -65,8 +65,7 @@
                         <!-- Tambahkan input form sesuai kebutuhan -->
                         <div class="form-group mb-3">
                             <label for="judul" class="form-label text-start">Judul</label>
-                            <input type="text" class="form-control" id="judul" name="judul"
-                                required>
+                            <input type="text" class="form-control" id="judul" name="judul" required>
                         </div>
 
                         <div class="form-group mb-3">
@@ -106,6 +105,47 @@
         </div>
     </div>
 
+    {{-- {{-- Delete Pengumuman --}}
+    <div class="modal fade" id="deletePengumumanModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Konfirmasi Penghapusan</h5>
+                    {{-- <h5 class="modal-title" id="exampleModalLabel">Delete pengumuman</h5> --}}
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <!-- Form untuk penghapusan pengumuman -->
+                    <form id="deletePengumumanForm" method="POST">
+                        {{-- @csrf
+                        @method('DELETE')
+                        <div class="text-center mb-4">
+                            <p>Apakah Anda yakin ingin menghapus pengumuman dengan judul:</p>
+                            <h6 class="text-danger"><strong id="judulDisplay"></strong></h6>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            <button type="submit" class="btn btn-danger">Hapus</button>
+                        </div> --}}
+                        @csrf
+                        @method('DELETE')
+                        <div class="text-center mb-4">
+                            <p>Apakah anda yakin akan menghapus pengumuman berikut? Sebagai informasi, anda tidak bisa memulihkan data yang telah dihapus.</p>
+                            <h5 class="text-danger"><strong id="judulDisplay"></strong></h5>
+                            <p class="">(Pengumuman Tanggal <strong id="tanggalDisplay"></strong>)</p>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            <button type="submit" class="btn btn-danger">Hapus</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="card card-tabel">
         <div class="card-header card-header-tabel p-4 mb-3">
             <h5>
@@ -127,6 +167,32 @@
         <script>
             $('#pengumuman-table').ready(function() {
 
+                $('#deletePengumumanModal').on('show.bs.modal', function(event) {
+                    var target = $(event.relatedTarget);
+                    let id_pengumuman = target.data('id');
+                    let judul_pengumuman = target.data('judul');
+                    let tanggal_pengumuman = target.data('tanggal');
+
+                    // Set judul pengumuman di elemen teks
+                    $('#deletePengumumanModal #judulDisplay').text(judul_pengumuman);
+                    $('#deletePengumumanModal #tanggalDisplay').text(tanggal_pengumuman);
+
+                    // Generate URL untuk form action
+                    let url = "{{ route('pengumuman.destroy', ':__id') }}";
+                    url = url.replace(':__id', id_pengumuman);
+
+                    // Set form action attribute
+                    $('#deletePengumumanForm').attr('action', url);
+                });
+
+
+                // $(document).on('click', '.btn-delete', function() {
+                //     // var id = $(this).val();
+                //     // alert(id);
+                //     $('#deletePengumumanModal').modal('show');
+                //     // $('#deleting_id').val(id);
+                // });
+
                 $("#editPengumumanModal").on("show.bs.modal", function(event) {
 
                     var target = $(event.relatedTarget);
@@ -135,7 +201,6 @@
                     let deskripsi = target.data('deskripsi')
                     let tanggal = target.data('tanggal_pengumuman')
                     let foto = target.data('foto_pengumuman')
-
 
                     $('#editPengumumanModal #judul').val(judul);
                     $('#editPengumumanModal #deskripsi').val(deskripsi);

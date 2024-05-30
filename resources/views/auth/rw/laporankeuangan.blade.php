@@ -46,7 +46,7 @@
                         <div class="form-group mb-3">
                             <label for="tanggal" class="form-label text-start">Tanggal</label>
                             <input type="text" class="form-control" id="tanggal" name="tanggal"
-                                value="{{ Carbon::now()->format('Y-m-d'); }}" required readonly>
+                                value="{{ Carbon::now()->format('Y-m-d') }}" required readonly>
                         </div>
 
                         <div class="form-group mb-3">
@@ -108,7 +108,7 @@
                         <div class="form-group mb-3">
                             <label for="tanggal" class="form-label">Tanggal</label>
                             <input type="date" class="form-control" id="tanggal" name="tanggal"
-                                value="{{ Carbon::now()->format('Y-m-d'); }}" required readonly>
+                                value="{{ Carbon::now()->format('Y-m-d') }}" required readonly>
                         </div>
 
                         <div class="form-group mb-3">
@@ -134,6 +134,36 @@
         </div>
     </div>
 
+    <div class="modal fade" id="deleteLaporanKeuanganModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Konfirmasi Penghapusan</h5>
+                    {{-- <h5 class="modal-title" id="exampleModalLabel">Delete pengumuman</h5> --}}
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <!-- Form untuk penghapusan pengumuman -->
+                    <form id="deleteLaporanKeuanganForm" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <div class="text-center mb-4">
+                            <p>Apakah anda yakin akan menghapus laporan keuangan berikut? Sebagai informasi, anda tidak bisa memulihkan data yang telah dihapus.</p>
+                            <h5 class="text-danger"><strong id="detailDisplay"></strong></h5>
+                            <p class="">(Laporan Tanggal <strong id="tanggalDisplay"></strong>)</p>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            <button type="submit" class="btn btn-danger">Hapus</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="card card-tabel">
         <div class="card-header card-header-tabel p-4 mb-3">
             <h5>
@@ -155,6 +185,25 @@
         {{ $dataTable->scripts() }}
         <script>
             $('#laporankeuangan-table').ready(function() {
+
+                $('#deleteLaporanKeuanganModal').on('show.bs.modal', function(event) {
+                    var target = $(event.relatedTarget);
+                    let id_laporankeuangan = target.data('id');
+                    let detail_laporankeuangan = target.data('detail');
+                    let tanggal_laporankeuangan = target.data('tanggal');
+
+                    // Set detail pengumuman di elemen teks
+                    $('#deleteLaporanKeuanganModal #detailDisplay').text(detail_laporankeuangan);
+                    $('#deleteLaporanKeuanganModal #tanggalDisplay').text(tanggal_laporankeuangan);
+
+                    // Generate URL untuk form action
+                    let url = "{{ route('laporankeuangan.destroy', ':__id') }}";
+                    url = url.replace(':__id', id_laporankeuangan);
+
+                    // Set form action attribute
+                    $('#deleteLaporanKeuanganForm').attr('action', url);
+                });
+
                 $("#editLaporanKeuanganModal").on("show.bs.modal", function(event) {
 
                     var target = $(event.relatedTarget);

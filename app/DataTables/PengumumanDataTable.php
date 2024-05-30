@@ -23,8 +23,8 @@ class PengumumanDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->setRowId('id')
-            ->addColumn('action', function($row){
-                $deleteUrl = route('pengumuman.destroy', $row->id_pengumuman);
+            ->addColumn('action', function ($row) {
+                // $deleteUrl = route('pengumuman.destroy', $row->id_pengumuman);
 
                 // $editUrl = route('pengumuman.edit', $row->id_pengumuman);
                 $action = '
@@ -34,25 +34,47 @@ class PengumumanDataTable extends DataTable
                 data-judul="' . $row->judul . '"
                 data-tanggal_pengumuman="' . $row->tanggal . '"
                 data-deskripsi="' . $row->deskripsi . '"
-                data-foto_pengumuman="' . $row->foto_pengumuman. '"
+                data-foto_pengumuman="' . $row->foto_pengumuman . '"
                 data-bs-toggle="modal" data-bs-target="#editPengumumanModal" class="edit-user edit btn btn-edit btn-sm">Edit</button>';
                 $action .= '
-                <form action="' . $deleteUrl . '" method="post" style="display:inline;">
-                    ' . csrf_field() . '
-                    ' . method_field('DELETE') . 
-                    // <button type="submit" class="delete btn btn-delete btn-sm">Delete</button>
-                    '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
-                </form>
+                    <button
+                    type="button" 
+                    class="delete btn btn-delete btn-sm" 
+                    data-bs-target="#deletePengumumanModal" 
+                    data-bs-toggle="modal"
+                    data-judul="' . $row->judul . '"
+                    data-tanggal="' . $row->tanggal . '"
+                    data-id="' . $row->id_pengumuman . '"
+                    >Hapus</button>
                 </div>';
                 return $action;
             });
-            // Menambahkan kolom "foto" ke tabel
-            // ->addColumn('foto', function($row) {
-            //     // Pastikan $row adalah objek yang memiliki properti "foto"
-            //     $imageUrl = isset($row->foto) ? $row->foto : '';
-            //     $foto = '<img src="' . $imageUrl . '" width="100" height="100">';
-            //     return $foto;
-            // });
+        // $action = '
+        // <div class="container-action">
+        // <button type="button"
+        // data-id="' . $row->id_pengumuman . '"
+        // data-judul="' . $row->judul . '"
+        // data-tanggal_pengumuman="' . $row->tanggal . '"
+        // data-deskripsi="' . $row->deskripsi . '"
+        // data-foto_pengumuman="' . $row->foto_pengumuman. '"
+        // data-bs-toggle="modal" data-bs-target="#editPengumumanModal" class="edit-user edit btn btn-edit btn-sm">Edit</button>';
+        // $action .= '
+        // <form action="' . $deleteUrl . '" method="post" style="display:inline;">
+        //     ' . csrf_field() . '
+        //     ' . method_field('DELETE') . 
+        //     // <button type="submit" class="delete btn btn-delete btn-sm">Delete</button>
+        //     '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
+        // </form>
+        // </div>';
+        // return $action;
+
+        // Menambahkan kolom "foto" ke tabel
+        // ->addColumn('foto', function($row) {
+        //     // Pastikan $row adalah objek yang memiliki properti "foto"
+        //     $imageUrl = isset($row->foto) ? $row->foto : '';
+        //     $foto = '<img src="' . $imageUrl . '" width="100" height="100">';
+        //     return $foto;
+        // });
     }
 
     /**
@@ -89,7 +111,7 @@ class PengumumanDataTable extends DataTable
             ])
             ->selectStyleSingle();
     }
-    
+
 
     /**
      * Get the dataTable columns definition.
