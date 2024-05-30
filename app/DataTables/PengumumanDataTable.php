@@ -84,7 +84,7 @@ class PengumumanDataTable extends DataTable
                     'info' => 'Menampilkan _START_ hingga _END_ dari _TOTAL_ entri', // Ubah teks sesuai keinginan Anda
                 ],
                 'dom' => 'Bfrtip', // Menambahkan tombol
-                'buttons' => ['excel', 'csv', 'pdf', 'print', 'reset', 'reload'], // Menambahkan tombol ekspor dan lainnya
+                'buttons' => [], // Menambahkan tombol ekspor dan lainnya
                 'order' => [], // Mengaktifkan order by untuk setiap kolom
             ])
             ->selectStyleSingle();
