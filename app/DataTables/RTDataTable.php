@@ -40,6 +40,7 @@ class RTDataTable extends DataTable
                 data-nik_rt="' . $row->nik_rt . '"
                 data-nama="' . $nama_penduduk . '"
                 data-wa_rt="' . $row->wa_rt . '"
+                data-jumlah_keluarga="' . $row->keluarga()->count() . '"
                 data-bs-toggle="modal" data-bs-target="#showRtModal" class="show-user show btn btn-show btn-sm">Tampil</button>';
 
             $action .='
@@ -64,7 +65,9 @@ class RTDataTable extends DataTable
      */
     public function query(RT $model): QueryBuilder
     {
-        return $model->newQuery();
+        return $model->newQuery()
+        ->select('rt.*', 'penduduk.nama as nama_rt')
+        ->leftjoin('penduduk', 'rt.nik_rt', '=', 'penduduk.nik');
     }
 
     /**
@@ -101,8 +104,9 @@ class RTDataTable extends DataTable
     {
         return [
             Column::make('no_rt')->title('Nomor RT')->width(70),
-            Column::make('nik_rt')->title('NIK RT')->width(200),
-            Column::make('wa_rt')->title('Nomor WhatsApp RT')->width(200),
+            Column::make('nama_rt')->title('Nama RT')->width(200),
+            //Column::make('nik_rt')->title('NIK RT')->width(200),
+            //Column::make('wa_rt')->title('Nomor WhatsApp RT')->width(200),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)

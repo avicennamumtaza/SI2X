@@ -15,6 +15,7 @@ use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 use DateTime;
+use Carbon\Carbon;
 
 class PendudukDataTable extends DataTable
 {
@@ -66,6 +67,7 @@ class PendudukDataTable extends DataTable
                 data-nama="' . $row->nama . '"
                 data-tempat_lahir="' . $row->tempat_lahir . '"
                 data-tanggal_lahir="' . $row->tanggal_lahir . '"
+                data-umur="' . Carbon::parse($row->tanggal_lahir)->age . '"
                 data-alamat="' . $row->alamat . '"
                 data-jenis_kelamin="' . $row->jenis_kelamin->value . '"
                 data-pendidikan="' . $row->pendidikan->value . '"
@@ -73,7 +75,7 @@ class PendudukDataTable extends DataTable
                 data-pekerjaan="' . $row->pekerjaan->value . '"
                 data-golongan_darah="' . $row->golongan_darah->value . '"
                 data-status_pernikahan="' . $row->status_pernikahan->value . '"
-                data-status_pendatang="' . $row->status_pendatang . '"
+                data-status_pendatang="' . ($row->status_pendatang == 0 ? 'domisili' : 'non domisili') . '"
                 data-bs-toggle="modal" data-bs-target="#showPendudukModal" class="show-user show btn btn-show btn-sm">Tampil</button>';
 
                 $action .= '<button type="button"
