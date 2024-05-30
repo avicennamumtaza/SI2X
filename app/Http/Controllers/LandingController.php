@@ -8,6 +8,8 @@ use App\Models\RT;
 use App\Models\Pengumuman;
 use App\Models\Umkm;
 use App\Models\PengajuanDokumen;
+use App\Models\RW;
+use App\Models\Users;
 use Illuminate\Support\Facades\Cache;
 
 class LandingController extends Controller
@@ -39,6 +41,20 @@ class LandingController extends Controller
             return PengajuanDokumen::count();
         });
 
+
+        // START DATA UNTUK CONTAINER KENALAN
+        $fotoUsers = Users::all()->pluck('foto_profil');
+        $nikUsers = Users::all()->pluck('nik');
+        foreach ($nikUsers as $nikUser) {
+            $pendudukUser = Penduduk::where('nik', $nikUser);
+            $namaUsers[] = $pendudukUser->pluck('nama');
+            $titleUsers[] = Users::where('nik', $nikUser)->pluck('role');
+            $rtUsers[] = $pendudukUser->pluck('no_rt');
+        }
+        dd($fotoUsers, $nikUsers, $namaUsers, $titleUsers, $rtUsers);
+        // END DATA UNTUK CONTAINER KENALAN
+        
+
         // Mengambil dua pengumuman terbaru
         $pengumuman = Cache::remember('pengumuman_terbaru', 600, function () {
             return Pengumuman::orderBy('created_at', 'desc')->take(2)->get();
@@ -65,5 +81,5 @@ class LandingController extends Controller
 
         // Mengirimkan data ke view dalam bentuk array
         return view('landing', compact('data', 'pengumuman1', 'pengumuman2'));
-    }    
+    }
 }

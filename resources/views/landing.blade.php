@@ -101,42 +101,97 @@
             </div>
             <a class="position-absolute start-50 translate-middle-x" href="{{ route('pengumuman.global') }}"
                 title="Pengumuman lainnya">Lainnya</a>
-        </div>
-        {{-- <h1 class="heading-center">Pengumuman</h1> --}}
-        <!-- <div class="container"> -->
-        {{-- <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
-        <!-- </div> -->        
+        </div>     
     </div>
     @endif
-    <div id="layanan" class="container container-statsngal col-10">
-        <h1 class="heading-center">Galeri RW</h1>
+    <div id="" class="container container-rtrw col-10">
+      <h1 class="heading-center">Kenalan</h1>
+        <div class='row wrapper'>
+            <div class='carousel'>
+              <div class='carousel__item'>
+                <div class='carousel__item-head'>
+                  🐳
+                </div>
+                <div class='carousel__item-body'>
+                  <p class='title'>spouting whale</p>
+                  <p>Unicode: U+1F433</p>
+                </div>
+              </div>
+              <div class='carousel__item'>
+                <div class='carousel__item-head'>
+                  🐋
+                </div>
+                <div class='carousel__item-body'>
+                  <p class='title'>whale</p>
+                  <p>Unicode: U+1F40B</p>
+                </div>
+              </div>
+              <div class='carousel__item'>
+                <div class='carousel__item-head'>
+                  🐬
+                </div>
+                <div class='carousel__item-body'>
+                  <p class='title'>dolphin</p>
+                  <p>Unicode: U+1F42C</p>
+                </div>
+              </div>
+              <div class='carousel__item'>
+                <div class='carousel__item-head'>
+                  🐟
+                </div>
+                <div class='carousel__item-body'>
+                  <p class='title'>fish</p>
+                  <p>Unicode: U+1F41F</p>
+                </div>
+              </div>
+              <div class='carousel__item'>
+                <div class='carousel__item-head'>
+                  🐠
+                </div>
+                <div class='carousel__item-body'>
+                  <p class='title'>tropical fish</p>
+                  <p>Unicode: U+1F420</p>
+                </div>
+              </div>
+              <div class='carousel__item'>
+                <div class='carousel__item-head'>
+                  🐡
+                </div>
+                <div class='carousel__item-body'>
+                  <p class='title'>blowfish</p>
+                  <p>Unicode: U+1F421</p>
+                </div>
+              </div>
+              <div class='carousel__item'>
+                <div class='carousel__item-head'>
+                  🦈
+                </div>
+                <div class='carousel__item-body'>
+                  <p class='title'>shark</p>
+                  <p>Unicode: U+1F988</p>
+                </div>
+              </div>
+              <div class='carousel__item'>
+                <div class='carousel__item-head'>
+                  🐙
+                </div>
+                <div class='carousel__item-body'>
+                  <p class='title'>octopus</p>
+                  <p>Unicode: U+1F419</p>
+                </div>
+              </div>
+              <div class='carousel__item'>
+                <div class='carousel__item-head'>
+                  🐚
+                </div>
+                <div class='carousel__item-body'>
+                  <p class='title'>spiral shell</p>
+                  <p>Unicode: U+1F41A</p>
+                </div>
+              </div>
+            </div>
+          </div>          
+        {{-- <h1 class="heading-center">Galeri RW</h1>
         <div id="carouselExampleCaptions" class="carousel slide mt-1 px-3">
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -174,7 +229,7 @@
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Next</span>
             </button>
-          </div>
+          </div> --}}
     </div>
     <div id="layanan" class="container container-layanan col-10">
         <h1 class="heading-center">Layanan</h1>
