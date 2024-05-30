@@ -65,7 +65,9 @@ class RTDataTable extends DataTable
      */
     public function query(RT $model): QueryBuilder
     {
-        return $model->newQuery();
+        return $model->newQuery()
+        ->select('rt.*', 'penduduk.nama as nama_rt')
+        ->leftjoin('penduduk', 'rt.nik_rt', '=', 'penduduk.nik');
     }
 
     /**
@@ -102,8 +104,8 @@ class RTDataTable extends DataTable
     {
         return [
             Column::make('no_rt')->title('Nomor RT')->width(70),
-            //Column::make('nama')->title('Nama RT')->width(200),
-            Column::make('nik_rt')->title('NIK RT')->width(200),
+            Column::make('nama_rt')->title('Nama RT')->width(200),
+            //Column::make('nik_rt')->title('NIK RT')->width(200),
             //Column::make('wa_rt')->title('Nomor WhatsApp RT')->width(200),
             Column::computed('action')
                   ->exportable(false)
