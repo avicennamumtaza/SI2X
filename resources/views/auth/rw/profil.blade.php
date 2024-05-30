@@ -79,7 +79,7 @@
                                 name="username" required>
                         </div>
 
-                        <div class="form-group mb-3">
+                        <div class="form-group mb-3" style="display: none;">
                             <label class="custom-file-label mb-2" for="foto_profil">Foto Profil</label>
                             <input type="file" class="form-control" id="foto_profil" name="foto_profil" onchange="previewImage(event)">
                             <div class="d-flex justify-content-center pt-4">

@@ -59,7 +59,7 @@
                     <!-- Tampilkan nama penduduk berdasarkan nik_rt -->
                     <div class="form-group mb-3">
                         <label for="nama_penduduk" class="form-label text-start">Nama RT</label>
-                        <input type="text" class="form-control" id="nama_penduduk" value="{{ isset($penduduk) ? $penduduk->nama : '-' }}" readonly>
+                        <input type="text" class="form-control" id="nama_penduduk"  readonly>
                     </div>
                 
                     <!-- Tampilkan nomor RT -->
@@ -79,7 +79,12 @@
                         <label for="wa_rt" class="form-label text-start">Nomor WhatsApp RT</label>
                         <input type="text" class="form-control" id="wa_rt" readonly>
                     </div>
-                    <!-- Tampilkan data RT lainnya sesuai kebutuhan -->
+                    
+                    <div class="form-group mb-3">
+                        <label for="jumlah_keluarga" class="form-label text-start">Jumlah Keluarga</label>
+                        <input type="text" class="form-control" id="jumlah_keluarga"  readonly>
+                    </div>
+                    
                 </div>
                 
                 
@@ -154,23 +159,24 @@
         <script>
             $('#rt-table').ready(function() {
                 $("#showRtModal").on("show.bs.modal", function(event) {
-
                     var target = $(event.relatedTarget);
-                    let no_rt = target.data('id')
-                    let nik_rt = target.data('nik_rt')
-                    let wa_rt = target.data('wa_rt')
-                    let nama_penduduk = target.data('penduduk.nama');
-
+                    let no_rt = target.data('id');
+                    let nik_rt = target.data('nik_rt');
+                    let wa_rt = target.data('wa_rt');
+                    let nama_penduduk = target.data('nama');
+                    let jumlah_keluarga = target.data('jumlah_keluarga');
 
                     $('#showRtModal #no_rt').val(no_rt);
                     $('#showRtModal #nik_rt').val(nik_rt);
                     $('#showRtModal #wa_rt').val(wa_rt);
-                    $('showRtModal #nama_penduduk').val(nama_penduduk);
+                    $('#showRtModal #nama_penduduk').val(nama_penduduk);
+                    $('#showRtModal #jumlah_keluarga').val(jumlah_keluarga);
 
                     let url = "{{ route('rt.show', ':__id') }}";
                     url = url.replace(':__id', no_rt);
-                    $('#showRtForm').attr('action', url)
-                })
+                    $('#showRtForm').attr('action', url);
+                });
+
 
                 $("#editRtModal").on("show.bs.modal", function(event) {
 

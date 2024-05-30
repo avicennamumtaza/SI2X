@@ -58,12 +58,18 @@
                             <span>Pengumuman</span>
                         </a>
                     </li>
-                    <li class="sidebar-item" title="Dokumen">
+                    <li class="sidebar-item {{ \Route::is('dokumen.manage') ? 'active' : '' }}">
                         <a href="{{ route('dokumen.manage') }}" class="sidebar-link">
                             <i class="lni lni-control-panel"></i>
                             <span>Dokumen</span>
                         </a>
                     </li>
+                    {{-- <li class="sidebar-item" title="Dokumen">
+                        <a href="{{ route('dokumen.manage') }}" class="sidebar-link">
+                            <i class="lni lni-control-panel"></i>
+                            <span>Dokumen</span>
+                        </a>
+                    </li> --}}
                 @endcan
                 <li class="sidebar-item {{ \Route::is('pengajuandokumen.manage') ? 'active' : '' }}">
                     <a href="{{ route('pengajuandokumen.manage') }}" class="sidebar-link">
@@ -167,7 +173,16 @@
                                 {{-- </a> --}}
                             </button>
                         </form>
+                        {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                        <a href="#" class="sidebar-link"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <i class="lni lni-exit"></i>
+                            <span>Keluar</span>
+                        </a> --}}
                     </div>
+
                 </li>
             </ul>
         </aside>

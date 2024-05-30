@@ -17,6 +17,7 @@ use Illuminate\Validation\Rule;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
+use Carbon\Carbon;
 
 class PendudukController extends Controller
 {
@@ -42,7 +43,15 @@ class PendudukController extends Controller
     public function show(Penduduk $penduduk)
     {
     $penduduk = Penduduk::find($penduduk->nik);
-    return view('penduduk.show', compact('penduduk'));
+
+    //ubah nilai status_pendatang
+    $penduduk->status_pendatang = $penduduk->status_pendatang == 0 ? 'domisili' : 'non domisili';
+
+    // Hitung umur
+    $tanggal_lahir = Carbon::parse($penduduk->tanggal_lahir);
+    $umur = $tanggal_lahir->age;
+
+    return view('penduduk.show', compact('penduduk', 'umur'));
     }
 
     public function store(Request $request)

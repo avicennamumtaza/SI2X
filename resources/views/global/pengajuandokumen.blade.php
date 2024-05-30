@@ -37,7 +37,12 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <!-- Tambahkan input lainnya sesuai kebutuhan -->
+
+                            <div class="form-group mb-3">
+                                <label for="keperluan" class="form-label">Keperluan</label>
+                                <textarea class="form-control" id="keperluan" name="keperluan" rows="3"
+                                    placeholder="Contoh : Untuk Pendaftaran Kuliah" required></textarea>
+                            </div>
                     </div>
                     <div class="modal-footer justify-content-end">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>

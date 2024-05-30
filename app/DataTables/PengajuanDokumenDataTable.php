@@ -40,7 +40,17 @@ class PengajuanDokumenDataTable extends DataTable
                     // $penduduks = Penduduk::where('nik', $row->nik_pemohon)->first();
                     // return $penduduks->no_rt;
                     return $row->penduduk->no_rt;
-                });
+                })
+                ->addColumn('status_pengajuan', function ($row) {
+                    $status = $row->status_pengajuan;
+                    $badgeColor = '#FFC107 '; // Default color for 'Baru'
+                    if ($status == 'Disetujui') {
+                        $badgeColor = 'green';
+                    } elseif ($status == 'Ditolak') {
+                        $badgeColor = 'red';
+                    }
+                    return '<span style="background-color: ' . $badgeColor . '; display: inline-block; text-align: center; width: 100%;" class="badge rounded-pill">' . $status . '</span>';            })
+                ->rawColumns(['status_pengajuan', 'action']); // Make sure to include 'status_pengajuan'
         } else {
             return (new EloquentDataTable($query))
                 ->setRowId('id')
@@ -48,6 +58,16 @@ class PengajuanDokumenDataTable extends DataTable
                     $namaDokumen = Dokumen::where('id_dokumen', $row->id_dokumen)->first();
                     return $namaDokumen->jenis_dokumen;
                 })
+                ->addColumn('status_pengajuan', function ($row) {
+                    $status = $row->status_pengajuan;
+                    $badgeColor = '#FFC107 '; // Default color for 'Baru'
+                    if ($status == 'Disetujui') {
+                        $badgeColor = 'green';
+                    } elseif ($status == 'Ditolak') {
+                        $badgeColor = 'red';
+                    }
+                    return '<span style="background-color: ' . $badgeColor . '; display: inline-block; text-align: center; width: 100%;" class="badge rounded-pill">' . $status . '</span>';            })
+                ->rawColumns(['status_pengajuan', 'action']) // Make sure to include 'status_pengajuan' in rawColumns
                 ->addColumn('action', function ($row) {
                     $pengaju = Penduduk::where('nik', $row->nik_pemohon)->first();
                     $dokumen = Dokumen::where('id_dokumen', $row->id_dokumen)->first();
