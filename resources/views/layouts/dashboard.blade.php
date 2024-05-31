@@ -337,7 +337,7 @@
                 <div class="row">
                     <div class="col-xl-12 col-md-12 col-sm-12 mb-4">
                         <div class="card">
-                            <div class="card-body" title="Total penduduk yang terdaftar">
+                            <div class="card-body" title="Jumlah penduduk yang terdaftar">
                                 <div class="d-flex justify-content-between p-md-1">
                                     <div class="d-flex flex-row">
                                         <div class="align-self-center">
@@ -362,7 +362,7 @@
                 <div class="row">
                     <div class="col-xl-6 col-md-6 col-sm-6 mb-4">
                         <div class="card">
-                            <div class="card-body" title="Total keluarga yang terdaftar">
+                            <div class="card-body" title="Jumlah keluarga yang terdaftar">
                                 <div class="d-flex justify-content-between p-md-1">
                                     <div class="d-flex flex-row">
                                         <div class="align-self-center">
