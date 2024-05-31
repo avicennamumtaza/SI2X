@@ -163,23 +163,23 @@
                 </li>
                 <li class="sidebar-item">
                     <div class="sidebar-footer">
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST">
                             @csrf
                             <button class="sidebar-link" type="submit">
                                 {{-- <a href="{{ route('logout') }}" class="sidebar-link"> --}}
-                                <i class="lni lni-exit"></i>
-                                <span>Keluar</span>
+                                {{-- <i class="lni lni-exit"></i> --}}
+                                {{-- <span>Keluar</span> --}}
                                 {{-- </a> --}}
-                            </button>
-                        </form>
-                        {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{-- </button> --}}
+                        {{-- </form> --}}
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
                         <a href="#" class="sidebar-link"
                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <i class="lni lni-exit"></i>
                             <span>Keluar</span>
-                        </a> --}}
+                        </a>
                     </div>
 
                 </li>
