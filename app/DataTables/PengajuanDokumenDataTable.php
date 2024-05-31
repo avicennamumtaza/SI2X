@@ -54,6 +54,8 @@ class PengajuanDokumenDataTable extends DataTable
                     }
                     return '<span style="background-color: ' . $badgeColor . '; display: inline-block; text-align: center; width: 100%;" class="badge rounded-pill">' . $status . '</span>';            })
                 ->rawColumns(['status_pengajuan', 'action']); // Make sure to include 'status_pengajuan'
+             
+                
         } else {
             return (new EloquentDataTable($query))
                 ->setRowId('id')
@@ -172,6 +174,7 @@ class PengajuanDokumenDataTable extends DataTable
                 Column::make('nik_pemohon')->title('NIK'),
                 // Column::make('nama_pemohon')->title('Nama'),
                 Column::make('status_pengajuan')->title('Status'),
+                Column::make('keperluan')->title('Keperluan'),
                 Column::make('catatan')->title('Catatan'),
                 Column::make('created_at')->title('Tanggal'),
                 // Column::make('detail_laporan')->title('Detail Laporan'),
