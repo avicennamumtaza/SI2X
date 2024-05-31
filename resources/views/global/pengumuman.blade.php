@@ -12,8 +12,8 @@
             ini dapat berupa berbagai hal, mulai dari pengumuman kegiatan sosial, keamanan lingkungan, pemberitahuan acara,
             hingga informasi urgent seperti perubahan kebijakan pemerintah.</p>
         @foreach ($pengumumans as $pengumuman)
-            <article class="postcard light blue">
-                <a class="postcard__img_link" href="#" data-toggle="modal" data-target="#fotoModal{{ $pengumuman->id }}">
+            <article class="postcard light blue" title="Pengumuman">
+                <a class="postcard__img_link" href="#" data-toggle="modal" data-target="#fotoModal{{ $pengumuman->id }}" title="Foto Pengumuman">
                     <img class="postcard__img"
                         src="{{ $pengumuman->foto_pengumuman ? asset('Foto Pengumuman/' . $pengumuman->foto_pengumuman) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
                         alt="Foto Pengumuman{{ $pengumuman->id }}" data-id="{{ $pengumuman->id }}"
@@ -21,7 +21,7 @@
                 </a>
 
                 <div class="postcard__text t-dark">
-                    <h1 class="postcard__title blue">{{ $pengumuman->judul }}</h1>
+                    <h1 class="postcard__title blue"  title="Judul Pengumuman">{{ $pengumuman->judul }}</h1>
                     {{-- <div class="postcard__subtitle small">
                         <time datetime="2020-05-25 12:00:00">
                             <i class="fas fa-calendar-alt mr-2"></i>
@@ -29,11 +29,11 @@
                         </time>
                     </div> --}}
                     <div class="postcard__bar"></div>
-                    <div class="postcard__preview-txt">
+                    <div class="postcard__preview-txt"  title="Deskripsi Pengumuman">
                         {{ $pengumuman->deskripsi }}
                     </div>
                     <ul class="postcard__tagbox">
-                        <li class="tag__item"><i
+                        <li class="tag__item"  title="Tanggal Pengumuman"><i
                                 class="fas fa-tag mr-2"></i>{{ Carbon::parse($pengumuman->tanggal)->translatedFormat('d F Y') }}
                         </li>
                     </ul>
