@@ -65,7 +65,9 @@ class RWDataTable extends DataTable
      */
     public function query(RW $model): QueryBuilder
     {
-        return $model->newQuery();
+        return $model->newQuery()
+        ->select('rw.*', 'penduduk.nama as nama_rw')
+        ->leftjoin('penduduk', 'rw.nik_rw', '=', 'penduduk.nik');
     }
 
     /**
