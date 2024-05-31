@@ -158,11 +158,13 @@
                     let nik_rw = target.data('nik_rw')
                     let wa_rw = target.data('wa_rw')
                     let nama_rw = target.data('nama_rw')
+                    let jumlah_penduduk = target.data('jumlah_penduduk')
 
                     $('#showRwModal #no_rw').val(no_rw);
                     $('#showRwModal #nik_rw').val(nik_rw);
                     $('#showRwModal #wa_rw').val(wa_rw);
                     $('#showRwModal #nama_rw').val(nama_rw);
+                    $('#showRwModal #jumlah_penduduk').val(jumlah_penduduk);
                 });
 
                 $("#editRwModal").on("show.bs.modal", function(event) {
