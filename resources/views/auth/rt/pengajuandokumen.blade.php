@@ -37,18 +37,18 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="nama_asli_pengaju" class="form-label text-start">nama_asli_pengaju</label>
-                            <input type="text" readonly disabled class="form-control" id="nama_asli_pengaju" name="nama_asli_pengaju"
-                                required>
+                            <input type="text" readonly disabled class="form-control" id="nama_asli_pengaju"
+                                name="nama_asli_pengaju" required>
                         </div>
                         <div class="form-group mb-3">
                             <label for="pekerjaan_pengaju" class="form-label text-start">pekerjaan_pengaju</label>
-                            <input type="text" readonly disabled class="form-control" id="pekerjaan_pengaju" name="pekerjaan_pengaju"
-                                required>
+                            <input type="text" readonly disabled class="form-control" id="pekerjaan_pengaju"
+                                name="pekerjaan_pengaju" required>
                         </div>
                         <div class="form-group mb-3">
                             <label for="usia_pengaju" class="form-label text-start">usia_pengaju</label>
-                            <input type="text" readonly disabled class="form-control" id="usia_pengaju" name="usia_pengaju"
-                                required>
+                            <input type="text" readonly disabled class="form-control" id="usia_pengaju"
+                                name="usia_pengaju" required>
                         </div>
                         <div class="form-group mb-3">
                             <label for="id_dokumen" class="form-label text-start">id_dokumen</label>
@@ -57,8 +57,8 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="jenis_dokumen" class="form-label text-start">jenis_dokumen</label>
-                            <input type="text" readonly disabled class="form-control" id="jenis_dokumen" name="jenis_dokumen"
-                                required>
+                            <input type="text" readonly disabled class="form-control" id="jenis_dokumen"
+                                name="jenis_dokumen" required>
                         </div>
                         <div class="form-group mb-3">
                             <label for="status_pengajuan" class="form-label text-start">Status Pengajuan</label>
@@ -69,6 +69,13 @@
                                 <option value="Ditolak">Tolak</option>
                             </select>
                         </div>
+
+                        <div class="form-group mb-3">
+                            <label for="keperluan" class="form-label text-start">Keperluan</label>
+                            <input type="text" readonly disabled class="form-control" id="keperluan" name="keperluan"
+                                required>
+                        </div>
+
                         <div class="form-group mb-3">
                             <label for="catatan" class="form-label text-start">catatan</label>
                             <input type="text" class="form-control" id="catatan" name="catatan" required>
