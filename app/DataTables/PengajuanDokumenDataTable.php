@@ -163,7 +163,7 @@ class PengajuanDokumenDataTable extends DataTable
         if (auth()->user()->role == 'RW') {
             # code...
             return [
-                Column::make('id_pengajuandokumen')->title('ID'),
+                // Column::make('id_pengajuandokumen')->title('ID'),
                 Column::make('dokumen')->title('Dokumen'),
                 Column::make('no_rt')->title('RT'),
                 Column::make('nik_pemohon')->title('NIK'),
@@ -181,7 +181,7 @@ class PengajuanDokumenDataTable extends DataTable
             ];
         } else {
             return [
-                Column::make('id_pengajuandokumen')->title('ID'),
+                // Column::make('id_pengajuandokumen')->title('ID'),
                 Column::make('dokumen')->title('Dokumen'),
                 // Column::make('no_rt')->title('Nomor RT'),
                 Column::make('nik_pemohon')->title('NIK'),
