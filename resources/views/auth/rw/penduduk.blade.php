@@ -422,7 +422,7 @@
                     <form action="{{ route('penduduk.export') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group mb-3">
-                            <p>Anda akan mengunduh data penduduk dengan format file csv.
+                            <p>Anda akan mengunduh data penduduk dengan format file xlsx.
                             <p>
                         </div>
                 </div>

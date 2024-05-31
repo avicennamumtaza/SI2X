@@ -69,7 +69,6 @@ class LaporanKeuanganDataTable extends DataTable
             ->addColumn('action', function ($row) {
                 $latestTanggal = LaporanKeuangan::orderBy('tanggal', 'desc')->take(1)->get()->value('tanggal');
                 if ($row->tanggal == $latestTanggal) {
-                    $deleteUrl = route('laporankeuangan.destroy', $row->id_laporankeuangan);
                     $action = '
                     <div class="container-action">
                     <button type="button"
@@ -81,12 +80,17 @@ class LaporanKeuanganDataTable extends DataTable
                     data-saldo="' . $row->saldo . '"
                     data-is_income="' . $row->status_pemasukan . '"
                     data-bs-toggle="modal" data-bs-target="#editLaporanKeuanganModal" class="edit btn btn-edit btn-sm">Edit</button>';
-                    $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
-                    ' . csrf_field() . '
-                    ' . method_field('DELETE') . '
-                    <button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Delete</button>
-                    </form>
-                    </div>';
+                    $action .= '
+                    <button
+                    type="button" 
+                    class="delete btn btn-delete btn-sm" 
+                    data-bs-target="#deleteLaporanKeuanganModal" 
+                    data-bs-toggle="modal"
+                    data-detail="' . $row->detail . '"
+                    data-tanggal="' . $row->tanggal . '"
+                    data-id="' . $row->id_laporankeuangan . '"
+                    >Hapus</button>
+                </div>';
                 } else {
                     $action = '
                     <div class="container-action">
@@ -164,7 +168,7 @@ class LaporanKeuanganDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            ['data' => 'id_laporankeuangan', 'name' => 'id', 'searchable' => false, 'orderable' => false, 'title' => 'ID'],
+            // ['data' => 'id_laporankeuangan', 'name' => 'id', 'searchable' => false, 'orderable' => false, 'title' => 'ID'],
             ['data' => 'tanggal', 'name' => 'tanggal', 'searchable' => true, 'orderable' => true, 'title' => 'Tanggal'],
             ['data' => 'status_pemasukan', 'name' => 'status_pemasukan', 'searchable' => false, 'orderable' => false, 'title' => 'Jenis'],
             ['data' => 'detail', 'name' => 'detail', 'searchable' => false, 'orderable' => false, 'title' => 'Detail'],

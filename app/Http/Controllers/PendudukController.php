@@ -14,13 +14,39 @@ use App\Models\Penduduk;
 use App\Models\RT;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Log;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Response;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
 
 class PendudukController extends Controller
 {
+    public function getLansia()
+    {
+        $date = \Carbon\Carbon::now()->subYears(66)->format('Y-m-d');
+        $penduduk = Penduduk::where('tanggal_lahir', '<=', $date)->get(['nik', 'nama', 'tempat_lahir', 'tanggal_lahir']);
+        return view('auth.rw.ulansia', compact('penduduk'));
+    }
+
+    public function getProduktif()
+    {
+        $dateMin = \Carbon\Carbon::now()->subYears(65)->format('Y-m-d');
+        $dateMax = \Carbon\Carbon::now()->subYears(15)->format('Y-m-d');
+        $penduduk = Penduduk::whereBetween('tanggal_lahir', [$dateMin, $dateMax])->get(['nik', 'nama', 'tempat_lahir', 'tanggal_lahir']);
+        return view('auth.rw.uprod', compact('penduduk'));
+    }
+
+    public function getAnak()
+    {
+        $date = \Carbon\Carbon::now()->subYears(15)->format('Y-m-d');
+        $penduduk = Penduduk::where('tanggal_lahir', '>', $date)->get(['nik', 'nama', 'tempat_lahir', 'tanggal_lahir']);
+        return view('auth.rw.uanak', compact('penduduk'));
+    }
+
     public function list(PendudukDataTable $dataTable)
     {
         $no_rts = RT::pluck('no_rt');
@@ -139,132 +165,125 @@ class PendudukController extends Controller
             ->with('success', 'Penduduk berhasil dihapus.');
     }
 
-    //impor csv
     public function import(Request $request)
-    {
+{
+    $file = $request->file('file');
 
-        $file = $request->file('file');
+    if (!$file) {
+        Alert::error('Error', 'File tidak ditemukan.');
+        return redirect()->back();
+    }
 
-        if (!$file) {
-            Alert::error('Error', 'File tidak ditemukan.');
+    // Membaca file yang diupload
+    $spreadsheet = IOFactory::load($file->getPathname());
+    $sheet = $spreadsheet->getActiveSheet();
+    $highestRow = $sheet->getHighestRow();
+    $highestColumn = $sheet->getHighestColumn();
+
+    for ($row = 2; $row <= $highestRow; $row++) {
+        $data = [];
+        for ($col = 'A'; $col <= $highestColumn; $col++) {
+            $data[] = $sheet->getCell($col . $row)->getValue();
+        }
+
+        try {
+            // Validasi input per baris
+            $validated = Validator::make([
+                'nik' => $data[0],
+                'nkk' => $data[1],
+                'no_rt' => $data[2],
+                'nama' => $data[3],
+                'tempat_lahir' => $data[4],
+                'tanggal_lahir' => $data[5],
+                'alamat' => $data[6],
+                'jenis_kelamin' => $data[7],
+                'agama' => $data[8],
+                'pendidikan' => $data[9],
+                'pekerjaan' => $data[10],
+                'golongan_darah' => $data[11],
+                'status_pernikahan' => $data[12],
+                'status_pendatang' => $data[13]
+            ], [
+                'nik' => 'required|min:15|max:17|unique:penduduk,nik',
+                'nkk' => 'required|min:15|max:17',
+                'no_rt' => 'required|max:2',
+                'nama' => 'required|max:49',
+                'tempat_lahir' => 'required|min:2|max:49',
+                'tanggal_lahir' => 'required|date',
+                'alamat' => 'required|min:5',
+                'jenis_kelamin' => [Rule::enum(JenisKelamin::class)],
+                'agama' => [Rule::enum(Agama::class)],
+                'pendidikan' => [Rule::enum(Pendidikan::class)],
+                'pekerjaan' => [Rule::enum(Pekerjaan::class)],
+                'golongan_darah' => [Rule::enum(GolDar::class)],
+                'status_pernikahan' => [Rule::enum(StatusPernikahan::class)],
+                'status_pendatang' => 'required',
+            ])->validate();
+
+            // Log data yang valid
+            Log::info('Data valid:', $validated);
+
+            // Jika validasi berhasil, buat entri baru di database
+            Penduduk::create($validated);
+        } catch (\Exception $e) {
+            Log::error('Kesalahan pada baris ' . ($row - 1) . ': ' . $e->getMessage());
+            Alert::error('Kesalahan pada baris ' . ($row - 1), $e->getMessage());
             return redirect()->back();
         }
-
-        $fileContents = file($file->getPathname());
-
-        foreach ($fileContents as $key => $line) {
-            try {
-                $data = str_getcsv($line);
-
-                // if (count($data) !== 14) {
-                //     throw new \Exception('CSV tidak valid. Setiap baris harus memiliki 14 kolom.');
-                // }
-
-                // Validasi input per baris
-                $validated = Validator::make([
-                    'nik' => $data[0],
-                    'nkk' => $data[1],
-                    'no_rt' => $data[2],
-                    'nama' => $data[3],
-                    'tempat_lahir' => $data[4],
-                    'tanggal_lahir' => $data[5],
-                    'alamat' => $data[6],
-                    'jenis_kelamin' => $data[7],
-                    'agama' => $data[8],
-                    'pendidikan' => $data[9],
-                    'pekerjaan' => $data[10],
-                    'golongan_darah' => $data[11],
-                    'status_pernikahan' => $data[12],
-                    'status_pendatang' => $data[13]
-                ], [
-                    'nik' => 'required|string|min:15|max:17|unique:penduduk,nik',
-                    'nkk' => 'required|string|min:15|max:17',
-                    'no_rt' => 'required|string|max:2',
-                    'nama' => 'required|string|max:49',
-                    'tempat_lahir' => 'required|string|min:2|max:49',
-                    'tanggal_lahir' => 'required|date',
-                    'alamat' => 'required|string|min:5',
-                    'jenis_kelamin' => [Rule::enum(JenisKelamin::class)],
-                    'agama' => [Rule::enum(Agama::class)],
-                    'pendidikan' => [Rule::enum(Pendidikan::class)],
-                    'pekerjaan' => [Rule::enum(Pekerjaan::class)],
-                    'golongan_darah' => [Rule::enum(GolDar::class)],
-                    'status_pernikahan' => [Rule::enum(StatusPernikahan::class)],
-                    'status_pendatang' => 'required',
-                ])->validate();
-
-                // Jika validasi berhasil, buat entri baru di database
-                Penduduk::create($validated);
-            } catch (\Exception $e) {
-                // Alert::error('Error', '. Pesan: ' . $e->getMessage());
-                Alert::error('Kesalahan pada baris ' . $key+1 , '' . $e->getMessage());
-                // Alert::error('Kesalahan pada baris ' . $key+1 , '' . function () {
-                //     foreach ($e->getMessage() as $singleE) {
-                //         $singleE;
-                //     }
-                // });
-                return redirect()->back();
-            }
-        }
-
-        return redirect()->back()->with('success', 'CSV berhasil diimpor.');
     }
+
+    return redirect()->back()->with('success', 'Excel berhasil diimpor.');
+}
 
     public function export()
     {
         $penduduk = Penduduk::all();
-        $filename = 'penduduk.csv';
-        $handle = fopen($filename, 'w+');
-        fputcsv($handle, [
-            'nik',
-            'nkk',
-            'no_rt',
-            'nama',
-            'tempat_lahir',
-            'tanggal_lahir',
-            'alamat',
-            'jenis_kelamin',
-            'agama',
-            'pendidikan',
-            'pekerjaan',
-            'golongan_darah',
-            'status_pernikahan',
-            'status_pendatang'
-            // Tambahkan kolom lagi jika diperlukan
-        ]);
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
 
+        // Menulis header
+        $sheet->setCellValue('A1', 'NIK');
+        $sheet->setCellValue('B1', 'Nomor KK');
+        $sheet->setCellValue('C1', 'Nomor RT');
+        $sheet->setCellValue('D1', 'Nama Lengkap');
+        $sheet->setCellValue('E1', 'Tempat Lahir');
+        $sheet->setCellValue('F1', 'Tanggal Lahir');
+        $sheet->setCellValue('G1', 'Alamat');
+        $sheet->setCellValue('H1', 'Jenis Kelamin');
+        $sheet->setCellValue('I1', 'Agama');
+        $sheet->setCellValue('J1', 'Pendidikan');
+        $sheet->setCellValue('K1', 'Pekerjaan');
+        $sheet->setCellValue('L1', 'Golongan Darah');
+        $sheet->setCellValue('M1', 'Status Pernikahan');
+        $sheet->setCellValue('N1', 'Status Pendatang');
+
+        $rowNumber = 2;
         foreach ($penduduk as $row) {
-            fputcsv($handle, [
-                $row->nik,
-                $row->nkk,
-                $row->no_rt,
-                $row->nama,
-                $row->tempat_lahir,
-                $row->tanggal_lahir,
-                $row->alamat,
-                $row->jenis_kelamin->getDescription(),
-                $row->agama->getDescription(),
-                $row->pendidikan->getDescription(),
-                $row->pekerjaan->getDescription(),
-                $row->golongan_darah->getDescription(),
-                $row->status_pernikahan->getDescription(),
-                $row->status_pendatang
-                // Tambahkan kolom lagi jika diperlukan
-            ]);
+            $sheet->setCellValue('A' . $rowNumber, $row->nik);
+            $sheet->setCellValue('B' . $rowNumber, $row->nkk);
+            $sheet->setCellValue('C' . $rowNumber, $row->no_rt);
+            $sheet->setCellValue('D' . $rowNumber, $row->nama);
+            $sheet->setCellValue('E' . $rowNumber, $row->tempat_lahir);
+            $sheet->setCellValue('F' . $rowNumber, $row->tanggal_lahir);
+            $sheet->setCellValue('G' . $rowNumber, $row->alamat);
+            $sheet->setCellValue('H' . $rowNumber, $row->jenis_kelamin->getDescription());
+            $sheet->setCellValue('I' . $rowNumber, $row->agama->getDescription());
+            $sheet->setCellValue('J' . $rowNumber, $row->pendidikan->getDescription());
+            $sheet->setCellValue('K' . $rowNumber, $row->pekerjaan->getDescription());
+            $sheet->setCellValue('L' . $rowNumber, $row->golongan_darah->getDescription());
+            $sheet->setCellValue('M' . $rowNumber, $row->status_pernikahan->getDescription());
+            $sheet->setCellValue('N' . $rowNumber, $row->status_pendatang ? 'Pendatang' : 'Asli');
+            $rowNumber++;
         }
 
-        fclose($handle);
+        $writer = new Xlsx($spreadsheet);
+        $fileName = 'penduduk.xlsx';
+        $temp_file = tempnam(sys_get_temp_dir(), $fileName);
+        $writer->save($temp_file);
 
-    $headers = [
-        'Content-Type' => 'text/csv',
-    ];
-
-        return Response::download($filename, 'penduduk.csv', $headers);
+        return response()->download($temp_file, $fileName)->deleteFileAfterSend(true);
     }
 }
-
-
-
 
 
     // //impor csv

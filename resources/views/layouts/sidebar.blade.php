@@ -100,31 +100,30 @@
                             </li>
                         </ul>
                     </li> --}}
-                <li class="sidebar-item {{ \Route::is('penduduk.manage') ? 'active' : '' }} {{ \Route::is('keluarga.manage') ? 'active' : '' }} {{ \Route::is('rt.manage') ? 'active' : '' }} {{ \Route::is('rw.manage') ? 'active' : '' }}"
-                    title="Kependudukan">
-                    <a href="#" class="sidebar-link has-dropdown collapsed" type="button"
+                <li class="sidebar-item" title="Kependudukan">
+                    <a href="#" class="sidebar-link has-dropdown collapsed {{ \Route::is('penduduk.manage') ? 'active' : '' }} {{ \Route::is('keluarga.manage') ? 'active' : '' }} {{ \Route::is('rt.manage') ? 'active' : '' }} {{ \Route::is('rw.manage') ? 'active' : '' }}" type="button"
                         data-bs-toggle="collapse" data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
                         <i class="lni lni-users"></i>
                         <span>Kependudukan</span>
                     </a>
                     <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                        <li class="sidebar-item" title="Penduduk">
+                        <li class="sidebar-item {{ \Route::is('penduduk.manage') ? 'active' : '' }}" title="Penduduk">
                             <a href="{{ route('penduduk.manage') }}" class="sidebar-link">
                                 <div class="single-item-menu">Penduduk</div>
                             </a>
                         </li>
-                        <li class="sidebar-item" title="Keluarga">
+                        <li class="sidebar-item {{ \Route::is('keluarga.manage') ? 'active' : '' }}" title="Keluarga">
                             <a href="{{ route('keluarga.manage') }}" class="sidebar-link">
                                 <div class="single-item-menu">Keluarga</div>
                             </a>
                         </li>
                         @can('isRw')
-                            <li class="sidebar-item" title="Rukun Tetangga">
+                            <li class="sidebar-item {{ \Route::is('rt.manage') ? 'active' : '' }}" title="Rukun Tetangga">
                                 <a href="{{ route('rt.manage') }}" class="sidebar-link">
                                     <div class="single-item-menu">RT</div>
                                 </a>
                             </li>
-                            <li class="sidebar-item" title="Rukun Warga">
+                            <li class="sidebar-item {{ \Route::is('rw.manage') ? 'active' : '' }}" title="Rukun Warga">
                                 <a href="{{ route('rw.manage') }}" class="sidebar-link">
                                     <div class="single-item-menu">RW</div>
                                 </a>
@@ -164,23 +163,23 @@
                 </li>
                 <li class="sidebar-item">
                     <div class="sidebar-footer">
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST">
                             @csrf
                             <button class="sidebar-link" type="submit">
                                 {{-- <a href="{{ route('logout') }}" class="sidebar-link"> --}}
-                                <i class="lni lni-exit"></i>
-                                <span>Keluar</span>
+                                {{-- <i class="lni lni-exit"></i> --}}
+                                {{-- <span>Keluar</span> --}}
                                 {{-- </a> --}}
-                            </button>
-                        </form>
-                        {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{-- </button> --}}
+                        {{-- </form> --}}
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
                         <a href="#" class="sidebar-link"
                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <i class="lni lni-exit"></i>
                             <span>Keluar</span>
-                        </a> --}}
+                        </a>
                     </div>
 
                 </li>

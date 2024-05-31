@@ -31,6 +31,9 @@ class PengajuanDokumenDataTable extends DataTable
             return (new EloquentDataTable($query))
                 // ->addColumn('action', 'a.action')
                 ->setRowId('id')
+                ->editColumn('created_at', function ($row) {
+                    return $row->created_at->format('d-m-Y');
+                })
                 ->addColumn('dokumen', function ($row) {
                     // $namaDokumen = Dokumen::where('id_dokumen', $row->id_dokumen)->first();
                     // return $namaDokumen->jenis_dokumen;
@@ -165,7 +168,7 @@ class PengajuanDokumenDataTable extends DataTable
         if (auth()->user()->role == 'RW') {
             # code...
             return [
-                Column::make('id_pengajuandokumen')->title('ID'),
+                // Column::make('id_pengajuandokumen')->title('ID'),
                 Column::make('dokumen')->title('Dokumen'),
                 Column::make('no_rt')->title('RT'),
                 Column::make('nik_pemohon')->title('NIK'),
@@ -184,7 +187,7 @@ class PengajuanDokumenDataTable extends DataTable
             ];
         } else {
             return [
-                Column::make('id_pengajuandokumen')->title('ID'),
+                // Column::make('id_pengajuandokumen')->title('ID'),
                 Column::make('dokumen')->title('Dokumen'),
                 // Column::make('no_rt')->title('Nomor RT'),
                 Column::make('nik_pemohon')->title('NIK'),

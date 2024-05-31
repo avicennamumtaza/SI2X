@@ -47,10 +47,11 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="deskripsi_umkm" class="form-label text-start">Deskripsi</label>
-                            <input type="text" readonly class="form-control" id="deskripsi_umkm" name="deskripsi_umkm" required>
+                            <input type="text" readonly class="form-control" id="deskripsi_umkm" name="deskripsi_umkm"
+                                required>
                         </div>
                         <div class="form-group mb-3">
-                        <label for="status_umkm" class="form-label text-start">Status Pengajuan</label>
+                            <label for="status_umkm" class="form-label text-start">Status Pengajuan</label>
                             <select class="form-select" id="status_umkm" name="status_umkm" required>
                                 <option value="Baru" selected disabled>Baru</option>
                                 {{-- <option value="Baru" disabled>Baru</option> --}}
@@ -63,6 +64,35 @@
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
                             <button type="submit" class="btn btn-success" name="submit" value="Submit">Simpan
                                 Perubahan</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteUmkmModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Konfirmasi Penghapusan</h5>
+                    {{-- <h5 class="modal-title" id="exampleModalLabel">Delete pengumuman</h5> --}}
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <!-- Form untuk penghapusan pengumuman -->
+                    <form id="deleteUmkmForm" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <div class="text-center mb-4">
+                            <p>Apakah anda yakin ingin menghapus UMKM berikut? Sebagai informasi, anda tidak bisa memulihkan data yang telah dihapus.</p>
+                            <h5 class="text-danger"><strong id="namaDisplay"></strong></h5>
+                            <p class="">(UMKM Berstatus <strong id="statusDisplay"></strong>)</p>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                            <button type="submit" class="btn btn-danger">Hapus</button>
                         </div>
                     </form>
                 </div>
@@ -88,6 +118,29 @@
         {{ $dataTable->scripts() }}
         <script>
             $('#umkm-table').ready(function() {
+
+                $('#deleteUmkmModal').on('show.bs.modal', function(event) {
+                    var target = $(event.relatedTarget);
+                    let id_umkm = target.data('id');
+                    let nama_umkm = target.data('nama');
+                    let status_umkm = target.data('status');
+
+                    if (status_umkm == 'Baru') {
+                        status_umkm = 'Belum Diproses'
+                    }
+
+                    // Set detail pengumuman di elemen teks
+                    $('#deleteUmkmModal #namaDisplay').text(nama_umkm);
+                    $('#deleteUmkmModal #statusDisplay').text(status_umkm);
+
+                    // Generate URL untuk form action
+                    let url = "{{ route('umkm.destroy', ':__id') }}";
+                    url = url.replace(':__id', id_umkm);
+
+                    // Set form action attribute
+                    $('#deleteUmkmForm').attr('action', url);
+                });
+
                 $("#editUmkmModal").on("show.bs.modal", function(event) {
                     var target = $(event.relatedTarget);
                     let id_umkm = target.data('id_umkm');
