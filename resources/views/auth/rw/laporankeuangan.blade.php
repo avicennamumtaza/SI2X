@@ -193,8 +193,7 @@
                 Laporan Keuangan
                 <span>
                 <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#exportLaporanKeuangan">Ekspor Data</button>
-                <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#tambahLaporanKeuangan">Tambah
-                    Data</button>
+                <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#tambahLaporanKeuangan">Tambah Data</button>
                 </span>
             </h5>
         </div>

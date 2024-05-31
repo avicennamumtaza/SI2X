@@ -44,21 +44,21 @@
                 </div>
             </div>
             <ul class="sidebar-nav">
-                <li class="sidebar-item {{ \Route::is('home') ? 'active' : '' }}">
+                <li class="sidebar-item {{ \Route::is('home') ? 'active' : '' }}" title="Dashboard">
                     <a href="{{ route('home') }}" class="sidebar-link">
                         <i class="lni lni-home"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 @can('isRw')
-                    <li class="sidebar-item {{ \Route::is('pengumuman.manage') ? 'active' : '' }}">
+                    <li class="sidebar-item {{ \Route::is('pengumuman.manage') ? 'active' : '' }}" title="Pengumuman">
                         <a href="{{ route('pengumuman.manage') }}" class="sidebar-link">
                             <i class="lni lni-notepad"></i>
                             {{-- <i class="lni lni-license"></i> --}}
                             <span>Pengumuman</span>
                         </a>
                     </li>
-                    <li class="sidebar-item {{ \Route::is('dokumen.manage') ? 'active' : '' }}">
+                    <li class="sidebar-item {{ \Route::is('dokumen.manage') ? 'active' : '' }}" title="Dokumen">
                         <a href="{{ route('dokumen.manage') }}" class="sidebar-link">
                             <i class="lni lni-control-panel"></i>
                             <span>Dokumen</span>
@@ -71,7 +71,7 @@
                         </a>
                     </li> --}}
                 @endcan
-                <li class="sidebar-item {{ \Route::is('pengajuandokumen.manage') ? 'active' : '' }}">
+                <li class="sidebar-item {{ \Route::is('pengajuandokumen.manage') ? 'active' : '' }}" title="Permintaan Dokumen">
                     <a href="{{ route('pengajuandokumen.manage') }}" class="sidebar-link">
                         <i class="lni lni-printer"></i>
                         <span>Permintaan Dokumen</span>
@@ -132,8 +132,7 @@
                     </ul>
                 </li>
                 @can('isRw')
-                    <li class="sidebar-item {{ \Route::is('laporankeuangan.manage') ? 'active' : '' }}"
-                        title="Laporan Keuangan">
+                    <li class="sidebar-item {{ \Route::is('laporankeuangan.manage') ? 'active' : '' }}" title="Laporan Keuangan">
                         <a href="{{ route('laporankeuangan.manage') }}" class="sidebar-link">
                             <i class="lni lni-revenue"></i>
                             {{-- <i class="lni lni-calculator-alt"></i> --}}
@@ -148,14 +147,14 @@
                             <span>UMKM</span>
                         </a>
                     </li>
-                    <li class="sidebar-item {{ \Route::is('users.manage') ? 'active' : '' }}">
+                    <li class="sidebar-item {{ \Route::is('users.manage') ? 'active' : '' }}" title="Kelola Pengguna">
                         <a href="{{ route('users.manage') }}" class="sidebar-link">
                             <i class="bi bi-people-fill"></i>
                             <span>Kelola Pengguna</span>
                         </a>
                     </li>
                 @endcan
-                <li class="sidebar-item {{ \Route::is('profil.manage') ? 'active' : '' }}">
+                <li class="sidebar-item {{ \Route::is('profil.manage') ? 'active' : '' }}" title="Profil">
                     <a href="{{ route('profil.manage') }}" class="sidebar-link">
                         <i class="lni lni-user"></i>
                         <span>Profil</span>
@@ -176,7 +175,7 @@
                             @csrf
                         </form>
                         <a href="#" class="sidebar-link"
-                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();" title="Keluar">
                             <i class="lni lni-exit"></i>
                             <span>Keluar</span>
                         </a>
