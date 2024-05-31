@@ -69,7 +69,7 @@
             });
         </script>
 
-        <a class="fixedButton" id="ajukanUmkmButton" data-bs-toggle="modal" data-bs-target="#ajukanUmkmModal">
+        <a class="fixedButton" id="ajukanUmkmButton" data-bs-toggle="modal" data-bs-target="#ajukanUmkmModal"  title="Ajukan UMKM">
             <div class="roundedFixedBtn">
                 <button><i class="bi bi-box-arrow-in-up"></i>Ajukan UMKM</button>
             </div>
@@ -83,21 +83,21 @@
             @foreach ($umkms as $umkm)
                 <div class="card">
 
-                    <a class="umkm_img_link" href="#" data-toggle="modal"
+                    <a class="umkm_img_link" href="#" data-toggle="modal" title="Foto UMKM"
                         data-target="#fotoModal{{ $umkm->id_umkm }}">
                         <img src="{{ $umkm->foto_umkm ? asset('Foto UMKM/' . $umkm->foto_umkm) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
                             class="card-img-top" alt="Foto UMKM{{ $umkm->id_umkm }}" data-id_umkm="{{ $umkm->id_umkm }}"
                             data-target="#fotoModal{{ $umkm->id_umkm }}" />
                     </a>
                     <div class="card-body">
-                        <h5 class="card-title text-start">{{ $umkm->nama_umkm }}</h5>
-                        <p class="card-title text-start" style="font-size: 13px;">Alamat :&nbsp;{{ $umkm->alamat_umkm }}</p>
+                        <h5 class="card-title text-start" title="Nama UMKM">{{ $umkm->nama_umkm }}</h5>
+                        <p class="card-title text-start" style="font-size: 13px;" title="Alamat UMKM">Alamat :&nbsp;{{ $umkm->alamat_umkm }}</p>
                         {{-- <br> --}}
                         <hr class="main" style="height: 2px; background-color: black;">
-                        <p class="card-text">{{ $umkm->deskripsi_umkm }}</p>
+                        <p class="card-text" title="Deskripsi UMKM">{{ $umkm->deskripsi_umkm }}</p>
                     </div>
                     <div class="card-footer py-3 hub-umkm d-flex justify-content-end">
-                        <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($umkm->alamat_umkm) }}"
+                        <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($umkm->alamat_umkm) }}" title="Lokasi UMKM"
                             class="btn btn-warning me-2" data-mdb-ripple-init><svg xmlns="http://www.w3.org/2000/svg"
                                 width="0.7em" height="1em" viewBox="0 0 256 367"
                                 style="stroke: black; stroke-width: 10px;">
@@ -113,7 +113,7 @@
                                     d="M12.612 188.892S0 164.194 0 128.414c0-33.817 13.146-63.377 30.015-82.649l60.318 50.759z" />
                             </svg>
                             &nbsp;Lokasi</a>
-                        <a href="https://wa.me/{{ substr_replace($umkm->wa_umkm, '62', 0, 1) }}" class="btn btn-success"
+                        <a href="https://wa.me/{{ substr_replace($umkm->wa_umkm, '62', 0, 1) }}" title="WhatsApp UMKM" class="btn btn-success"
                             data-mdb-ripple-init><i class="bi bi-whatsapp"></i>&nbsp; Hubungi</a>
                         {{-- <button class="btn btn-primary"
                             href="https://wa.me/{{ substr_replace($umkm->wa_umkm, '62', 0, 1) }}"><i

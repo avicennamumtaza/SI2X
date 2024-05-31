@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="form-header">
-        <a href="{{ route('login') }}">
+        <a href="{{ route('login') }}" title="Kembali">
             <i class="bi bi-arrow-left"></i>
         </a>
         <h2>Lupa Password</h2>
@@ -30,7 +30,7 @@
                 class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"
                 required autocomplete="email" autofocus>
 
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-primary" title="Kirim link ke email di atas">
                 Kirim Link
             </button>
 

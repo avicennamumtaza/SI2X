@@ -8,7 +8,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Tambah Pengumuman</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" title="Tutup"></button>
                 </div>
 
                 <div class="modal-body justify-content-start text-start">
@@ -40,8 +40,8 @@
                         </div>
                 </div>
                 <div class="modal-footer justify-content-end">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-success">Kirim</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" title="Batal tambah pengumuman">Batal</button>
+                    <button type="submit" class="btn btn-success" title="Tambah pengumuman">Kirim</button>
                 </div>
                 </form>
             </div>
@@ -54,7 +54,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Edit pengumuman</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" title="Tutup"></button>
                 </div>
 
                 <div class="modal-body justify-content-start text-start">
@@ -97,8 +97,8 @@
                         <!-- Tambahkan input lainnya sesuai kebutuhan -->
                 </div>
                 <div class="modal-footer justify-content-end">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-success">Simpan Perubahan</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" title="Batal ubah pengumuman">Batal</button>
+                    <button type="submit" class="btn btn-success" title="Ubah pengumuman">Simpan Perubahan</button>
                 </div>
                 </form>
             </div>
@@ -137,8 +137,8 @@
                             <p class="">(Pengumuman Tanggal <strong id="tanggalDisplay"></strong>)</p>
                         </div>
                         <div class="modal-footer justify-content-center">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                            <button type="submit" class="btn btn-danger">Hapus</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" title="Batal hapus pengumuman">Batal</button>
+                            <button type="submit" class="btn btn-danger" title="Hapus pengumuman">Hapus</button>
                         </div>
                     </form>
                 </div>
@@ -150,7 +150,7 @@
         <div class="card-header card-header-tabel p-4 mb-3">
             <h5>
                 Pengumuman
-                <button class="btn btn-add float-end" data-bs-toggle="modal" data-bs-target="#tambahPengumuman">Tambah
+                <button class="btn btn-add float-end" data-bs-toggle="modal" data-bs-target="#tambahPengumuman" title="Tambah pengumuman">Tambah
                     Data</button>
             </h5>
         </div>

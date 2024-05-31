@@ -60,7 +60,7 @@
             });
         </script>
 
-        <a class="fixedButton" id="ajukanDokumenButton" data-bs-toggle="modal" data-bs-target="#ajukanDokumenModal">
+        <a class="fixedButton" id="ajukanDokumenButton" data-bs-toggle="modal" data-bs-target="#ajukanDokumenModal" title="Ajukan Dokumen">
             <div class="roundedFixedBtn">
                 <button><i class="bi bi-box-arrow-in-up"></i>Ajukan Dokumen</button>
             </div>
@@ -86,22 +86,22 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>RT</th>
-                            <th>NIK Pemohon</th>
-                            <th>Dokumen</th>
-                            <th>Status</th>
-                            <th>Catatan</th>
+                            <th title="Nomor RT">RT</th>
+                            <th title="NIK yang mengajukan dokumen.">NIK Pemohon</th>
+                            <th title="Dokumen yang diajukan">Dokumen</th>
+                            <th title="Status pengajuan">Status</th>
+                            <th title="Catatan">Catatan</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($pengajuanDokumens as $pengajuanDokumen)
                             <tr>
-                                <td style="width: 5%">{{ $pengajuanDokumen->penduduk->no_rt }}</td>
-                                <td style="width: 25%">
+                                <td style="width: 5%" title="Nomor RT">{{ $pengajuanDokumen->penduduk->no_rt }}</td>
+                                <td style="width: 25%" title="NIK yang mengajukan dokumen">
                                     {{ substr($pengajuanDokumen->nik_pemohon, 0, 3) . str_repeat('*', strlen($pengajuanDokumen->nik_pemohon) - 7) . substr($pengajuanDokumen->nik_pemohon, -4) }}
                                 </td>
-                                <td style="width: 15%">{{ $pengajuanDokumen->dokumen->jenis_dokumen }}</td>
-                                <td style="width: 5%">
+                                <td style="width: 15%" title="Dokumen yang diajukan">{{ $pengajuanDokumen->dokumen->jenis_dokumen }}</td>
+                                <td style="width: 5%" title="Status pengajuan">
                                     @if ($pengajuanDokumen->status_pengajuan == 'Baru')
                                         <span style="background-color: darkgoldenrod"
                                             class="badge rounded-pill">{{ $pengajuanDokumen->status_pengajuan }}</span>
@@ -113,7 +113,7 @@
                                             class="badge rounded-pill">{{ $pengajuanDokumen->status_pengajuan }}</span>
                                     @endif
                                 </td>
-                                <td style="width: 40%">
+                                <td style="width: 40%" title="Catatan">
                                     @if ($pengajuanDokumen->status_pengajuan == 'Baru')
                                         Pengajuan Belum Diproses RT
                                     @else

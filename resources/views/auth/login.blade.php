@@ -3,7 +3,7 @@
 @section('content')
     <div class="form-header">
         <a href="#"onclick="goBack()">
-            <i class="bi bi-arrow-left"></i>
+            <i class="bi bi-arrow-left" title="Kembali"></i>
         </a>
         <h2>Masuk</h2>
     </div>
@@ -36,7 +36,7 @@
             </a>
         @endif
 
-        <button type="submit" class="btn btn-primary" title="Login">
+        <button type="submit" class="btn btn-primary" title="Masuk">
             Masuk
         </button>
 
