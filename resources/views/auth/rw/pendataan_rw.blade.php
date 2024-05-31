@@ -61,7 +61,7 @@
                         <label for="nama_rw" class="form-label text-start">Nama RW</label>
                         <input type="text" class="form-control" id="nama_rw" name="nama_rw" readonly>
                     </div>
-                    
+
                     <div class="form-group mb-3">
                         <label for="no_rw" class="form-label text-start">Nomor RW</label>
                         <input type="text" class="form-control" id="no_rw" name="no_rw" readonly>
@@ -75,6 +75,11 @@
                     <div class="form-group mb-3">
                         <label for="wa_rw" class="form-label">Nomor WhatsApp RW</label>
                         <input type="text" class="form-control" id="wa_rw" name="wa_rw" readonly>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="jumlah_penduduk" class="form-label">Jumlah Penduduk</label>
+                        <input type="text" class="form-control" id="jumlah_penduduk" name="jumlah_penduduk" readonly>
                     </div>
                 </div>
                 <div class="modal-footer justify-content-end">
