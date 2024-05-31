@@ -103,7 +103,7 @@ class HomeController extends Controller
                 return PengajuanDokumen::count();
             });
 
-            return view('layouts.dashboard', compact(
+            return view('auth.dashboard', compact(
                 'jumlahRt',
                 'jumlahKeluarga',
                 'jumlahPenduduk',
@@ -159,7 +159,7 @@ class HomeController extends Controller
                 return PengajuanDokumen::count();
             });
 
-            return view('layouts.dashboard', compact(
+            return view('auth.dashboard', compact(
                 'jumlahKeluarga',
                 'jumlahPenduduk',
                 'jumlahAnakAnak',
@@ -172,6 +172,6 @@ class HomeController extends Controller
             ));
         }
 
-        return view('layouts.dashboard');
+        return view('auth.dashboard');
     }
 }
