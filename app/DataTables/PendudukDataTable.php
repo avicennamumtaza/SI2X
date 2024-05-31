@@ -76,7 +76,7 @@ class PendudukDataTable extends DataTable
                 data-golongan_darah="' . $row->golongan_darah->value . '"
                 data-status_pernikahan="' . $row->status_pernikahan->value . '"
                 data-status_pendatang="' . ($row->status_pendatang == 0 ? 'domisili' : 'non domisili') . '"
-                data-bs-toggle="modal" data-bs-target="#showPendudukModal" class="show-user show btn btn-show btn-sm">Tampil</button>';
+                data-bs-toggle="modal" data-bs-target="#showPendudukModal" class="show-user show btn btn-show btn-sm me-1">Tampil</button>';
 
                 $action .= '<button type="button"
                 data-id="' . $row->nik . '"

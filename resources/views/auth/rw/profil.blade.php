@@ -79,11 +79,11 @@
                                 name="username" required>
                         </div>
 
-                        <div class="form-group mb-3" style="display: none;">
+                        <div class="form-group mb-3">
                             <label class="custom-file-label mb-2" for="foto_profil">Foto Profil</label>
                             <input type="file" class="form-control" id="foto_profil" name="foto_profil" onchange="previewImage(event)">
                             <div class="d-flex justify-content-center pt-4">
-                                <img id="image_preview" src="{{ asset($users->foto_profil ? 'Foto Users/' . $users->foto_profil : 'Foto Users/default.jpg') }}" class="img-fluid mt-2 border border-1" style="height: 250px; width: 200px;" alt="Foto Profil">
+                                <img id="image_preview" src="{{ asset($users->foto_profil ? 'Foto Users/' . $users->foto_profil : 'Foto Users/default.jpg') }}" class="img-thumbnail" style="height: 250px; width: 200px;" alt="Foto Profil">
                         </div>
                     </div>
                 </div>

@@ -45,28 +45,28 @@
                         </div>
                     {{-- </div> --}}
                 </div>
-                <div class="table-responsive px-4">
+                <div class="table-responsive px-2">
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>Nomor</th>
+                                {{-- <th>Nomor</th> --}}
+                                <th>Tanggal</th>
                                 <th>Jenis Laporan</th>
                                 <th>Nominal</th>
                                 <th>Detail</th>
-                                <th>Tanggal</th>
-                                {{-- <th>Saldo</th> --}}
+                                <th>Saldo</th>
                                 {{-- <th>Pihak Terlibat</th> --}}
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($laporanKeuangans as $laporanKeuangan)
                                 <tr>
-                                    <td>{{ $loop->iteration }}</td>
+                                    {{-- <td>{{ $loop->iteration }}</td> --}}
+                                    <td>{{ $laporanKeuangan->tanggal }}</td>
                                     <td>{{ $laporanKeuangan->status_pemasukan ? 'Pemasukan' : 'Pengeluaran' }}</td>
                                     <td>Rp {{ number_format($laporanKeuangan->nominal, 0, ',', '.') }}</td>
                                     <td>{{ $laporanKeuangan->detail }}</td>
-                                    <td>{{ $laporanKeuangan->tanggal }}</td>
-                                    {{-- <td>{{ $laporanKeuangan->saldo }}</td> --}}
+                                    <td>Rp {{ number_format($laporanKeuangan->saldo, 0, ',', '.') }}</td>
                                     {{-- <td>{{ $laporanKeuangan->pihak_terlibat }}</td> --}}
                                 </tr>
                             @endforeach

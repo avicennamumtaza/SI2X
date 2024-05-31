@@ -31,6 +31,9 @@ class PengajuanDokumenDataTable extends DataTable
             return (new EloquentDataTable($query))
                 // ->addColumn('action', 'a.action')
                 ->setRowId('id')
+                ->editColumn('created_at', function ($row) {
+                    return $row->created_at->format('d-m-Y');
+                })
                 ->addColumn('dokumen', function ($row) {
                     // $namaDokumen = Dokumen::where('id_dokumen', $row->id_dokumen)->first();
                     // return $namaDokumen->jenis_dokumen;
@@ -51,6 +54,8 @@ class PengajuanDokumenDataTable extends DataTable
                     }
                     return '<span style="background-color: ' . $badgeColor . '; display: inline-block; text-align: center; width: 100%;" class="badge rounded-pill">' . $status . '</span>';            })
                 ->rawColumns(['status_pengajuan', 'action']); // Make sure to include 'status_pengajuan'
+             
+                
         } else {
             return (new EloquentDataTable($query))
                 ->setRowId('id')
@@ -163,12 +168,13 @@ class PengajuanDokumenDataTable extends DataTable
         if (auth()->user()->role == 'RW') {
             # code...
             return [
-                Column::make('id_pengajuandokumen')->title('ID'),
+                // Column::make('id_pengajuandokumen')->title('ID'),
                 Column::make('dokumen')->title('Dokumen'),
                 Column::make('no_rt')->title('RT'),
                 Column::make('nik_pemohon')->title('NIK'),
                 // Column::make('nama_pemohon')->title('Nama'),
                 Column::make('status_pengajuan')->title('Status'),
+                Column::make('keperluan')->title('Keperluan'),
                 Column::make('catatan')->title('Catatan'),
                 Column::make('created_at')->title('Tanggal'),
                 // Column::make('detail_laporan')->title('Detail Laporan'),
@@ -181,7 +187,7 @@ class PengajuanDokumenDataTable extends DataTable
             ];
         } else {
             return [
-                Column::make('id_pengajuandokumen')->title('ID'),
+                // Column::make('id_pengajuandokumen')->title('ID'),
                 Column::make('dokumen')->title('Dokumen'),
                 // Column::make('no_rt')->title('Nomor RT'),
                 Column::make('nik_pemohon')->title('NIK'),

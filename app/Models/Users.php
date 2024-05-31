@@ -34,6 +34,10 @@ class Users extends Authenticatable
         'confirm_password',
     ];
 
+    // public function getRole() {
+    //     return $this->role;
+    // }
+
 
     public function penduduk(): BelongsTo
     {

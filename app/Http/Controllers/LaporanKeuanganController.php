@@ -6,6 +6,8 @@ use App\DataTables\LaporanKeuanganDataTable;
 use App\Models\LaporanKeuangan;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use Carbon\Carbon;
 
 
@@ -29,15 +31,25 @@ class LaporanKeuanganController extends Controller
         foreach ($laporankeuangans as $laporankeuangan) {
             $laporankeuangan->tanggal = Carbon::parse($laporankeuangan->tanggal)->format('d-m-Y');
         }
-        
-        return view('global.laporankeuangan')->with('laporanKeuangans', $laporankeuangans)->with('saldo', $saldo);
 
+        return view('global.laporankeuangan')->with('laporanKeuangans', $laporankeuangans)->with('saldo', $saldo);
     }
 
     public function list(LaporanKeuanganDataTable $dataTable)
     {
         $latestRow = LaporanKeuangan::latest()->first();
-        return $dataTable->render('auth.rw.laporankeuangan', compact('latestRow'));
+        // Menghitung saldo
+        $laporanKeuangans = LaporanKeuangan::all();
+        $saldo = 0;
+        foreach ($laporanKeuangans as $laporanKeuangan) {
+            if ($laporanKeuangan->status_pemasukan) {
+                $saldo += $laporanKeuangan->nominal;
+            } else {
+                $saldo -= $laporanKeuangan->nominal;
+            }
+        }
+
+        return $dataTable->render('auth.rw.laporankeuangan', compact('latestRow', 'saldo', 'laporanKeuangans'));
     }
 
     /**
@@ -178,20 +190,20 @@ class LaporanKeuanganController extends Controller
             'tanggal.required' => 'Tanggal wajib diisi.',
             'tanggal.date' => 'Tanggal harus dalam format tanggal yang benar.',
         ]);
-    
+
         try {
             // Mengambil data terbaru kolom saldo
             $latestRow = LaporanKeuangan::orderBy('tanggal', 'desc')->take(2)->get();
             // dd($latestRow);
             $latestSaldo = $latestRow->skip(1)->value('saldo');
             // dd($latestSaldo);
-    
+
             // Menghitung perubahan saldo berdasarkan perubahan nominal
             $perubahanSaldo = $request->nominal;
-    
+
             // Update entri laporan keuangan
             $laporankeuangan->update($request->all());
-    
+
             // Update saldo berdasarkan perubahan nominal
             if ($laporankeuangan->status_pemasukan == 0) {
                 $laporankeuangan->saldo = $latestSaldo - $perubahanSaldo;
@@ -199,7 +211,7 @@ class LaporanKeuanganController extends Controller
                 $laporankeuangan->saldo = $latestSaldo + $perubahanSaldo;
             }
             $laporankeuangan->save();
-    
+
             return redirect()->route('laporankeuangan.manage')
                 ->with('success', 'Laporan Keuangan berhasil diperbarui.');
         } catch (\Exception $e) {
@@ -207,7 +219,7 @@ class LaporanKeuanganController extends Controller
             return redirect()->back();
         }
     }
-    
+
     /**
      * Remove the specified resource from storage.
      */
@@ -226,5 +238,39 @@ class LaporanKeuanganController extends Controller
             Alert::error('Error', $e->getMessage());
             return redirect()->back();
         }
+    }
+
+    public function export()
+    {
+        $penduduk = LaporanKeuangan::all()->sortByDesc('tanggal');;
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+
+        // Menulis header
+        $sheet->setCellValue('A1', 'Tanggal');
+        $sheet->setCellValue('B1', 'Jenis');
+        $sheet->setCellValue('C1', 'Pihak terlibat');
+        $sheet->setCellValue('D1', 'Detail');
+        $sheet->setCellValue('E1', 'Nominal');
+        $sheet->setCellValue('F1', 'Saldo Akhir');
+
+        $rowNumber = 2;
+        foreach ($penduduk as $row) {
+            $sheet->setCellValue('A' . $rowNumber, $row->tanggal);
+            $sheet->setCellValue('B' . $rowNumber, $row->status_pemasukan ? 'Pemasukan' : 'Pengeluaran');
+            $sheet->setCellValue('C' . $rowNumber, $row->pihak_terlibat);
+            $sheet->setCellValue('D' . $rowNumber, $row->detail);
+            $sheet->setCellValue('E' . $rowNumber, $row->nominal);
+            $sheet->setCellValue('F' . $rowNumber, $row->saldo);
+            $sheet->setCellValue('G' . $rowNumber, $row->alamat);
+            $rowNumber++;
+        }
+
+        $writer = new Xlsx($spreadsheet);
+        $fileName = 'laporanKeuangan.xlsx';
+        $temp_file = tempnam(sys_get_temp_dir(), $fileName);
+        $writer->save($temp_file);
+
+        return response()->download($temp_file, $fileName)->deleteFileAfterSend(true);
     }
 }
