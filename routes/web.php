@@ -98,6 +98,7 @@ Route::prefix('manage')->group(function(){
         Route::get('/edit/{laporankeuangan}', [LaporanKeuanganController::class, 'edit'])->name('laporankeuangan.edit')->middleware('isRw');
         Route::put('/update/{laporankeuangan}', [LaporanKeuanganController::class, 'update'])->name('laporankeuangan.update')->middleware('isRw');
         Route::delete('/{laporankeuangan}', [LaporanKeuanganController::class, 'destroy'])->name('laporankeuangan.destroy')->middleware('isRw');
+        Route::post('/export', [LaporanKeuanganController::class, 'export'])->name('laporankeuangan.export')->middleware('isRw');
     });
 
     // manage umkm

@@ -6,6 +6,8 @@ use App\DataTables\LaporanKeuanganDataTable;
 use App\Models\LaporanKeuangan;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use Carbon\Carbon;
 
 
@@ -226,5 +228,39 @@ class LaporanKeuanganController extends Controller
             Alert::error('Error', $e->getMessage());
             return redirect()->back();
         }
+    }
+
+    public function export()
+    {
+        $penduduk = LaporanKeuangan::all()->sortByDesc('tanggal');;
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+
+        // Menulis header
+        $sheet->setCellValue('A1', 'Tanggal');
+        $sheet->setCellValue('B1', 'Jenis');
+        $sheet->setCellValue('C1', 'Pihak terlibat');
+        $sheet->setCellValue('D1', 'Detail');
+        $sheet->setCellValue('E1', 'Nominal');
+        $sheet->setCellValue('F1', 'Saldo Akhir');
+
+        $rowNumber = 2;
+        foreach ($penduduk as $row) {
+            $sheet->setCellValue('A' . $rowNumber, $row->tanggal);
+            $sheet->setCellValue('B' . $rowNumber, $row->status_pemasukan ? 'Pemasukan' : 'Pengeluaran');
+            $sheet->setCellValue('C' . $rowNumber, $row->pihak_terlibat);
+            $sheet->setCellValue('D' . $rowNumber, $row->detail);
+            $sheet->setCellValue('E' . $rowNumber, $row->nominal);
+            $sheet->setCellValue('F' . $rowNumber, $row->saldo);
+            $sheet->setCellValue('G' . $rowNumber, $row->alamat);
+            $rowNumber++;
+        }
+
+        $writer = new Xlsx($spreadsheet);
+        $fileName = 'laporanKeuangan.xlsx';
+        $temp_file = tempnam(sys_get_temp_dir(), $fileName);
+        $writer->save($temp_file);
+
+        return response()->download($temp_file, $fileName)->deleteFileAfterSend(true);
     }
 }
