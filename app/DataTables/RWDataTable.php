@@ -104,6 +104,7 @@ class RWDataTable extends DataTable
             Column::make('no_rw')->width(100)->title('Nomor RW'),
             // Column::make('nik_rw')->width(200)->title('NIK RW'),
             // Column::make('wa_rw')->width(200)->title('Nomor WhatsApp RW'),
+            Column::make('nama_rw')->title('Nama RW'),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
