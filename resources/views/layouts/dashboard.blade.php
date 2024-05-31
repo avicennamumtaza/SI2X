@@ -32,7 +32,7 @@
                 <div class="row">
                     <div class="col-xl-6 col-md-6 col-sm-6 mb-4">
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-body" title="Jumlah penduduk yang terdaftar">
                                 <div class="d-flex justify-content-between p-md-1">
                                     <div class="d-flex flex-row">
                                         <div class="align-self-center">
@@ -54,7 +54,7 @@
                     </div>
                     <div class="col-xl-6 col-md-6 col-sm-6 mb-4">
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-body" title="Jumlah keluarga yang terdaftar">
                                 <div class="d-flex justify-content-between p-md-1">
                                     <div class="d-flex flex-row">
                                         <div class="align-self-center">
@@ -78,7 +78,7 @@
                 <div class="row">
                     <div class="col-xl-4 col-md-4 col-sm-12 mb-4">
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-body" title="Jumlah anak-anak">
                                 <div class="d-flex justify-content-between p-md-1">
                                     <div class="d-flex flex-row">
                                         <div class="align-self-center">
@@ -95,7 +95,7 @@
                     </div>
                     <div class="col-xl-4 col-md-4 col-sm-12 mb-4">
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-body" title="Jumlah penduduk berusia produktif">
                                 <div class="d-flex justify-content-between p-md-1">
                                     <div class="d-flex flex-row">
                                         <div class="align-self-center">
@@ -112,7 +112,7 @@
                     </div>
                     <div class="col-xl-4 col-md-4 col-sm-12 mb-4">
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-body" title="Jumlah penduduk lansia">
                                 <div class="d-flex justify-content-between p-md-1">
                                     <div class="d-flex flex-row">
                                         <div class="align-self-center">
@@ -139,7 +139,7 @@
                 <div class="row">
                     <div class="col-xl-12 col-md-12 col-sm-12 mb-4">
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-body" title="Jumlah permintaan dokumen">
                                 <div class="d-flex justify-content-between p-md-1">
                                     <div class="d-flex flex-row">
                                         {{-- <span class="position-absolute top-0 me-5 start-50 translate-middle badge rounded-pill bg-warning">
@@ -154,7 +154,7 @@
                                             <p class="mb-0">Jumlah Permintaan Dokumen Secara Keseluruhan</p>
                                         </div>
                                     </div>
-                                    <a href="{{ route('pengajuandokumen.manage') }}" style="text-decoration: none">
+                                    <a href="{{ route('pengajuandokumen.manage') }}" style="text-decoration: none" title="Kelola pengajuan dokumen">
                                         <button type="button" class="mt-2 btn primary position-relative">
                                             Selengkapnya
                                             @if ($jumlahPengajuanDokumenNew > 0)
@@ -174,7 +174,7 @@
                 <div class="row">
                     <div class="col-xl-6 col-md-6 col-sm-6 mb-4">
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-body" title="Jumlah permintaan dokumen yang disetujui">
                                 <div class="d-flex justify-content-between p-md-1">
                                     <div class="d-flex flex-row">
                                         <div class="align-self-center">
@@ -194,7 +194,7 @@
                     </div>
                     <div class="col-xl-6 col-md-6 col-sm-6 mb-4">
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-body" title="Jumlah permintaan dokumen yang ditolak">
                                 <div class="d-flex justify-content-between p-md-1">
                                     <div class="d-flex flex-row">
                                         <div class="align-self-center">
