@@ -201,6 +201,14 @@
         <hr class="tabel">
         <div class="card-body">
             <div class="table-responsive tabel">
+                <div class="align-self-center">
+                    <h3>
+                        Total Saldo
+                    </h3>
+                    <h3 class="">
+                        <b>Rp {{ number_format($saldo, 0, ',', '.') }}</b>
+                    </h3>
+                </div>
                 {{ $dataTable->table() }}
             </div>
         </div>
