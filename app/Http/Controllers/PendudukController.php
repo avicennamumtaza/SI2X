@@ -242,20 +242,20 @@ class PendudukController extends Controller
         $sheet = $spreadsheet->getActiveSheet();
 
         // Menulis header
-        $sheet->setCellValue('A1', 'nik');
-        $sheet->setCellValue('B1', 'nkk');
-        $sheet->setCellValue('C1', 'no_rt');
-        $sheet->setCellValue('D1', 'nama');
-        $sheet->setCellValue('E1', 'tempat_lahir');
-        $sheet->setCellValue('F1', 'tanggal_lahir');
-        $sheet->setCellValue('G1', 'alamat');
-        $sheet->setCellValue('H1', 'jenis_kelamin');
-        $sheet->setCellValue('I1', 'agama');
-        $sheet->setCellValue('J1', 'pendidikan');
-        $sheet->setCellValue('K1', 'pekerjaan');
-        $sheet->setCellValue('L1', 'golongan_darah');
-        $sheet->setCellValue('M1', 'status_pernikahan');
-        $sheet->setCellValue('N1', 'status_pendatang');
+        $sheet->setCellValue('A1', 'NIK');
+        $sheet->setCellValue('B1', 'Nomor KK');
+        $sheet->setCellValue('C1', 'Nomor RT');
+        $sheet->setCellValue('D1', 'Nama Lengkap');
+        $sheet->setCellValue('E1', 'Tempat Lahir');
+        $sheet->setCellValue('F1', 'Tanggal Lahir');
+        $sheet->setCellValue('G1', 'Alamat');
+        $sheet->setCellValue('H1', 'Jenis Kelamin');
+        $sheet->setCellValue('I1', 'Agama');
+        $sheet->setCellValue('J1', 'Pendidikan');
+        $sheet->setCellValue('K1', 'Pekerjaan');
+        $sheet->setCellValue('L1', 'Golongan Darah');
+        $sheet->setCellValue('M1', 'Status Pernikahan');
+        $sheet->setCellValue('N1', 'Status Pendatang');
 
         $rowNumber = 2;
         foreach ($penduduk as $row) {
@@ -272,7 +272,7 @@ class PendudukController extends Controller
             $sheet->setCellValue('K' . $rowNumber, $row->pekerjaan->getDescription());
             $sheet->setCellValue('L' . $rowNumber, $row->golongan_darah->getDescription());
             $sheet->setCellValue('M' . $rowNumber, $row->status_pernikahan->getDescription());
-            $sheet->setCellValue('N' . $rowNumber, $row->status_pendatang);
+            $sheet->setCellValue('N' . $rowNumber, $row->status_pendatang ? 'Pendatang' : 'Asli');
             $rowNumber++;
         }
 

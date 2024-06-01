@@ -10,7 +10,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Edit Laporan Keuangan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" title="Tutup"></button>
                 </div>
 
                 <div class="modal-body justify-content-start text-start">
@@ -61,8 +61,8 @@
                         </div> --}}
 
                         <div class="modal-footer justify-content-end">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                            <button type="submit" class="btn btn-success" name="submit" value="Submit">Simpan
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" title="Batal ubah laporan keuangan">Batal</button>
+                            <button type="submit" class="btn btn-success" name="submit" value="Submit" title="Ubah laporan keuangan">Simpan
                                 Perubahan</button>
                         </div>
                     </form>
@@ -78,7 +78,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Tambah Laporan Keuangan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" title="Tutup"></button>
                 </div>
 
                 <div class="modal-body justify-content-start text-start">
@@ -126,8 +126,8 @@
                         <!-- Tambahkan input lainnya sesuai kebutuhan -->
                 </div>
                 <div class="modal-footer justify-content-end">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-success">Kirim</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" title="Batal tambah laporan keuangan">Batal</button>
+                    <button type="submit" class="btn btn-success" title="Tambah laporan keuangan">Kirim</button>
                 </div>
                 </form>
             </div>
@@ -155,11 +155,34 @@
                             <p class="">(Laporan Tanggal <strong id="tanggalDisplay"></strong>)</p>
                         </div>
                         <div class="modal-footer justify-content-center">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                            <button type="submit" class="btn btn-danger">Hapus</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" title="Batal hapus laporan keuangan">Batal</button>
+                            <button type="submit" class="btn btn-danger" title="Hapus laporan keuangan">Hapus</button>
                         </div>
                     </form>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exportLaporanKeuangan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ekspor Data</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body justify-content-start text-start">
+                    <form action="{{ route('laporankeuangan.export') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group mb-3">
+                            <p>Anda akan mengunduh data laporan keuangan dengan format file xlsx.
+                            <p>
+                        </div>
+                </div>
+                <div class="modal-footer justify-content-end">
+                    <button type="submit" class="btn btn-success" title="Unduh laporanKeuangan.xlsx">Unduh</button>
+                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -168,14 +191,23 @@
         <div class="card-header card-header-tabel p-4 mb-3">
             <h5>
                 Laporan Keuangan
-                <button class="btn btn-add float-end" data-bs-toggle="modal"
-                    data-bs-target="#tambahLaporanKeuangan">Tambah
-                    Data</button>
+                <span>
+                <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#exportLaporanKeuangan" title="Ekspor laporan keuangan">Ekspor Data</button>
+                <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#tambahLaporanKeuangan" title="Tambah laporan keuangan">Tambah Data</button>
+                </span>
             </h5>
         </div>
         <hr class="tabel">
         <div class="card-body">
             <div class="table-responsive tabel">
+                <div class="align-self-center">
+                    <h3>
+                        Total Saldo
+                    </h3>
+                    <h3 class="">
+                        <b>Rp {{ number_format($saldo, 0, ',', '.') }}</b>
+                    </h3>
+                </div>
                 {{ $dataTable->table() }}
             </div>
         </div>

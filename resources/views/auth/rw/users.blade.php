@@ -7,7 +7,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Tambah Pengguna</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" title="Tutup"></button>
                 </div>
                 <div class="modal-body justify-content-start text-start">
                     <form action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data">
@@ -51,8 +51,8 @@
                                 name="password_confirmation" placeholder="Konfirmasi Password" required>
                         </div>
                         <div class="modal-footer justify-content-end">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                            <button type="submit" class="btn btn-success">Kirim</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" title="Batal tambah pengguna">Batal</button>
+                            <button type="submit" class="btn btn-success" title="Tambah pengguna">Kirim</button>
                         </div>
                     </form>
                 </div>
@@ -66,7 +66,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="editUsersModalLabel">Edit User</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" title="Tutup"></button>
                 </div>
                 <div class="modal-body justify-content-start text-start">
                     <form id="editUsersForm" method="POST" enctype="multipart/form-data">
@@ -106,8 +106,8 @@
                                 name="password_confirmation">
                         </div> --}}
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                            <button type="submit" class="btn btn-success">Simpan Perubahan</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" title="Batal ubah pengguna">Batal</button>
+                            <button type="submit" class="btn btn-success" title="Ubah pengguna">Simpan Perubahan</button>
                         </div>
                     </form>
                 </div>
@@ -118,7 +118,7 @@
         <div class="card-header card-header-tabel p-4 mb-3">
             <h5>
                 Kelola Users
-                <button class="btn btn-add float-end" data-bs-toggle="modal" data-bs-target="#tambahUsers">Tambah
+                <button class="btn btn-add float-end" data-bs-toggle="modal" data-bs-target="#tambahUsers" title="Tambah data pengguna">Tambah
                     Data</button>
             </h5>
         </div>

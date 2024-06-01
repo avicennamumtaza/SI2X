@@ -168,7 +168,7 @@ class LaporanKeuanganDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            ['data' => 'id_laporankeuangan', 'name' => 'id', 'searchable' => false, 'orderable' => false, 'title' => 'ID'],
+            // ['data' => 'id_laporankeuangan', 'name' => 'id', 'searchable' => false, 'orderable' => false, 'title' => 'ID'],
             ['data' => 'tanggal', 'name' => 'tanggal', 'searchable' => true, 'orderable' => true, 'title' => 'Tanggal'],
             ['data' => 'status_pemasukan', 'name' => 'status_pemasukan', 'searchable' => false, 'orderable' => false, 'title' => 'Jenis'],
             ['data' => 'detail', 'name' => 'detail', 'searchable' => false, 'orderable' => false, 'title' => 'Detail'],

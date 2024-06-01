@@ -51,7 +51,7 @@ class LandingController extends Controller
             $namaUsers[] = $pendudukUser->pluck('nama');
             $rtUsers[] = $pendudukUser->pluck('no_rt');
         }
-        dd($fotoUsers, $nikUsers, $namaUsers, $titleUsers, $rtUsers);
+        // dd($fotoUsers, $nikUsers, $namaUsers, $titleUsers, $rtUsers);
         // END DATA UNTUK CONTAINER KENALAN
         
 
