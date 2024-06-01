@@ -208,3 +208,4 @@ Route::prefix('profil')->group(function() {
 Route::get('bansos', [AlternatifController::class, 'list'])->middleware('isRw')->name('bansos.manage');
 Route::delete('/{alternatif}', [AlternatifController::class, 'destroy'])->name('bansos.destroy')->middleware('isRw');
 Route::get('spk', [AlternatifController::class, 'spk'])->middleware('isRw')->name('spk.result');
+Route::get('spkk', [AlternatifController::class, 'spkk'])->middleware('isRw')->name('spkk.result');
