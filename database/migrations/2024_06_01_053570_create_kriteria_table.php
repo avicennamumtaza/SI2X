@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('kriteria', function (Blueprint $table) {
             $table->id('id_ktr');
             $table->string('nama_ktr', 50);
-            $table->integer('bobot_ktr');
+            $table->float('bobot_ktr');
             $table->boolean('isBenefit');
             $table->timestamps();
         });

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\DataTables\AlternatifDataTable;
 use App\DataTables\BansosDataTable;
 use App\Models\Alternatif;
+use App\Models\Kriteria;
 use Illuminate\Http\Request;
 
 class AlternatifController extends Controller
@@ -42,6 +43,26 @@ class AlternatifController extends Controller
      */
     public function spk()
     {
+        // 1. Hitung total bobot dari semua kriteria
+        $sumBobot = 0;
+        $bobots = Kriteria::all()->pluck('bobot_ktr');
+        foreach ($bobots as $bobot) {
+            $sumBobot += $bobot;
+        }
+
+        // 2. Normalisasi setiap bobot kriteria
+        $normalizedBobot = [];
+        foreach ($bobots as $bobot) {
+            $normalizedBobot[] = $bobot / $sumBobot;
+        };
+        // dd(array_sum($normalizedBobot));
+
+        // 3. Update kolom bobot_ktr pada setiap record kriteria
+        $kriterias = Kriteria::all();
+        foreach ($kriterias as $index => $kriteria) {
+            $kriteria->update(['bobot_ktr' => $normalizedBobot[$index]]);
+        }
+
         return view('auth.rw.spk');
     }
 
