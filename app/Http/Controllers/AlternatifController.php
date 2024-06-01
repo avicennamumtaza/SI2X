@@ -46,6 +46,7 @@ class AlternatifController extends Controller
      */
     public function spk()
     {
+        $ktr = Kriteria::all();
         $sumBobot = 0;
         $bobots = Kriteria::all()->pluck('bobot_ktr');
         foreach ($bobots as $bobot) {
@@ -133,11 +134,12 @@ class AlternatifController extends Controller
             );
         }
 
-        return view('auth.rw.spk');
+        return view('auth.rw.spk', compact('ktr', 'alternatifs', 'normalizedAlternatifs', 'finalAlternatifs', 'ranks'));
     }
 
     public function spkk()
     {
+        $ktr = Kriteria::all();
         $sumBobot = 0;
         $bobots = Kriteria::all()->pluck('bobot_ktr');
         foreach ($bobots as $bobot) {
@@ -185,13 +187,13 @@ class AlternatifController extends Controller
         // dd($ranks);
 
         foreach ($ranks as $rank => $value) {
-            SkorMethodB::create([
+            SkorMethodB::updateOrCreate([
                 'nkk' => $ranks[$rank]['nkk'],
                 'skor' => $ranks[$rank]['skor'],
             ]);
         }
 
-        return view('auth.rw.spk');
+        return view('auth.rw.spkk', compact('ktr', 'alternatifs', 'normalizedAlternatifs', 'ranks'));
     }
 
     /**

@@ -24,7 +24,7 @@ class AlternatifSeeder extends Seeder
                 'tanggungan' => rand(1, 5), // Random value for example
                 'pajak_bumibangunan' => rand(50000, 500000), // Random value for example
                 'pajak_kendaraan' => rand(100000, 1000000), // Random value for example
-                'daya_listrik' => $faker->randomElement([450, 900, 1300, 2200, 3500]),
+                'daya_listrik' => $faker->randomElement([0, 450, 900, 1300, 2200, 3500]),
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
