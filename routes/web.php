@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AlternativeController;
+use App\Http\Controllers\CriteriaController;
 use App\Http\Controllers\DokumenController;
 use App\Http\Controllers\KeluargaController;
 use App\Http\Controllers\LandingController;
@@ -53,6 +55,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::prefix('umkm')->group(function() {
     Route::get('/', [UmkmController::class, 'index'])->name('umkm.global');
     Route::post('/', [UmkmController::class, 'store'])->name('umkm.store');
+});
+
+// global umkm
+Route::prefix('bansos')->group(function() {
+    Route::get('/', [UmkmController::class, 'index'])->name('bansos.global');
+    Route::post('/', [UmkmController::class, 'store'])->name('bansos.store');
 });
 
 // global pengajuan dokumen
@@ -192,6 +200,6 @@ Route::prefix('profil')->group(function() {
 // use App\Http\Controllers\CriteriaController;
 // use App\Http\Controllers\AlternativeController;
 
-// Route::resource('criterias', CriteriaController::class);
-// Route::resource('alternatives', AlternativeController::class)->except(['show']);
-// Route::get('alternatives/calculate-scores', [AlternativeController::class, 'calculateScores'])->name('alternatives.calculateScores');
+Route::resource('criterias', CriteriaController::class);
+Route::resource('alternatives', AlternativeController::class)->except(['show']);
+Route::get('alternatives/calculate-scores', [AlternativeController::class, 'calculateScores'])->name('alternatives.calculateScores');

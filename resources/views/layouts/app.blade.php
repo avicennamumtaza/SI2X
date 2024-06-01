@@ -66,6 +66,9 @@
                             <li><a class="dropdown-item" href="{{ route('umkm.global') }}" title="Daftar UMKM">Daftar
                                     UMKM</a></li>
                             <li>
+                            <li><a class="dropdown-item" href="{{ route('umkm.global') }}" title="Daftar UMKM">Bantuan
+                                    Sosial</a></li>
+                            <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <li><a class="dropdown-item" href="{{ route('login') }}"
