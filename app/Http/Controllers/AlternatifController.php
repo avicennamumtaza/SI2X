@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\DataTables\AlternatifDataTable;
 use App\DataTables\BansosDataTable;
 use App\Models\Alternatif;
+use App\Models\Keluarga;
 use App\Models\Kriteria;
+use App\Models\SkorMethodA;
 use Illuminate\Http\Request;
 
 class AlternatifController extends Controller
@@ -43,24 +45,86 @@ class AlternatifController extends Controller
      */
     public function spk()
     {
-        // 1. Hitung total bobot dari semua kriteria
         $sumBobot = 0;
         $bobots = Kriteria::all()->pluck('bobot_ktr');
         foreach ($bobots as $bobot) {
             $sumBobot += $bobot;
         }
 
-        // 2. Normalisasi setiap bobot kriteria
         $normalizedBobot = [];
         foreach ($bobots as $bobot) {
             $normalizedBobot[] = $bobot / $sumBobot;
         };
-        // dd(array_sum($normalizedBobot));
 
-        // 3. Update kolom bobot_ktr pada setiap record kriteria
         $kriterias = Kriteria::all();
         foreach ($kriterias as $index => $kriteria) {
             $kriteria->update(['bobot_ktr' => $normalizedBobot[$index]]);
+        }
+
+        $alternatifs = Alternatif::all()->toArray();
+        // Menghapus kolom 'nkk' dari setiap item dalam array
+        // foreach ($alternatifs as &$alternatif) {
+        //     unset($alternatif['nkk']);
+        // }
+        $normalizedAlternatifs = [];
+        $allValues = [];
+        $allValues['penghasilan'] = Alternatif::all()->pluck('penghasilan')->toArray();
+        $allValues['tanggungan'] = Alternatif::all()->pluck('tanggungan')->toArray();
+        $allValues['pajak_bumibangunan'] = Alternatif::all()->pluck('pajak_bumibangunan')->toArray();
+        $allValues['pajak_kendaraan'] = Alternatif::all()->pluck('pajak_kendaraan')->toArray();
+        $allValues['daya_listrik'] = Alternatif::all()->pluck('daya_listrik')->toArray();
+        // dd($alternatifs);
+        // Normalisasi setiap atribut
+        foreach ($alternatifs as $index => $alternatif) {
+            foreach ($alternatif as $key => $value) {
+                if (isset($allValues[$key])) {
+                    $minValue = min($allValues[$key]);
+                    $maxValue = max($allValues[$key]);
+                    if ($maxValue - $minValue == 0) {
+                        $normalizedAlternatifs[$index][$key] = 0; // atau beberapa nilai default
+                    } else {
+                        $normalizedAlternatifs[$index][$key] = ($value - $minValue) / ($maxValue - $minValue);
+                    }
+                } else {
+                    $normalizedAlternatifs[$index][$key] = $value; // Menjaga nilai non-numeric apa adanya
+                }
+            }
+        }
+
+        $finalAlternatifs = $normalizedAlternatifs;
+        // foreach ($finalAlternatifs as $index => $value) {
+        //     unset($finalAlternatifs[$index]['nkk']);
+        // }
+        // dd($finalAlternatifs);
+        $bobotKriterias = Kriteria::all()->pluck('bobot_ktr', 'nama_ktr')->toArray();
+        // dd($bobotKriterias);
+        foreach ($finalAlternatifs as $index => $alternatif) {
+            foreach ($alternatif as $key => $value) {
+                if (isset($bobotKriterias[$key])) {
+                    $bobotKriteria = $bobotKriterias[$key];
+                    $finalAlternatifs[$index][$key] *= $bobotKriteria;
+                } else {
+                    $finalAlternatifs[$index][$key] = $value; // Menjaga nilai non-numeric apa adanya
+                }
+            }
+        }
+        // dd($finalAlternatifs);
+
+        $calculateAlternatifs = $finalAlternatifs;
+        $keluargas = Alternatif::all()->pluck('nkk')->toArray();
+        $ranks = [];
+        // $ranks['nkk'] = $keluargas;
+        foreach ($calculateAlternatifs as $index => $alternatif) {
+            $ranks[$index]['nkk'] = $keluargas[$index];
+            $ranks[$index]['skor'] = $alternatif['penghasilan'] + $alternatif['tanggungan'] + $alternatif['pajak_bumibangunan'] + $alternatif['pajak_kendaraan'] + $alternatif['daya_listrik'];
+        }
+        // dd($ranks);
+
+        foreach ($ranks as $rank => $value) {
+            SkorMethodA::create([
+                'nkk' => $ranks[$rank]['nkk'],
+                'skor' => $ranks[$rank]['skor'],
+            ]);
         }
 
         return view('auth.rw.spk');
