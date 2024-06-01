@@ -8,7 +8,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Tambah Penduduk</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" title="Tutup"></button>
                 </div>
 
                 <div class="modal-body justify-content-start text-start">
@@ -149,8 +149,8 @@
                         <!-- Tambahkan input lainnya sesuai kebutuhan -->
                 </div>
                 <div class="modal-footer justify-content-end">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-success">Kirim</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" title="Batal tambah penduduk">Batal</button>
+                    <button type="submit" class="btn btn-success" title="Tambah penduduk">Kirim</button>
                 </div>
                 </form>
             </div>
@@ -394,7 +394,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Impor Penduduk</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" title="Tutup"></button>
                 </div>
                 <div class="modal-body justify-content-start text-start">
                     <form action="{{ route('penduduk.import') }}" method="POST" enctype="multipart/form-data">
@@ -404,7 +404,7 @@
                         </div>
                 </div>
                 <div class="modal-footer justify-content-end">
-                    <button type="submit" class="btn btn-success">Impor</button>
+                    <button type="submit" class="btn btn-success" title="Impor data penduduk">Impor</button>
                 </div>
                 </form>
             </div>
@@ -416,7 +416,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Ekspor Data</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" title="Tutup"></button>
                 </div>
                 <div class="modal-body justify-content-start text-start">
                     <form action="{{ route('penduduk.export') }}" method="POST" enctype="multipart/form-data">
@@ -427,7 +427,7 @@
                         </div>
                 </div>
                 <div class="modal-footer justify-content-end">
-                    <button type="submit" class="btn btn-success">Unduh</button>
+                    <button type="submit" class="btn btn-success" title="Unduh data penduduk">Unduh</button>
                 </div>
                 </form>
             </div>
@@ -439,11 +439,11 @@
             <h5>
                 Penduduk
                 <span>
-                    <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#exportPenduduk">Ekspor
+                    <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#exportPenduduk" title="Ekspor data penduduk">Ekspor
                         Data</button>
-                    <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#importPenduduk">Impor
+                    <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#importPenduduk" title="Impor data penduduk">Impor
                         Data</button>
-                    <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#tambahPenduduk">Tambah
+                    <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#tambahPenduduk" title="Tambah data penduduk">Tambah
                         Data</button>
                 </span>
             </h5>
