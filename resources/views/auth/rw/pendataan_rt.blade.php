@@ -8,7 +8,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Tambah RT</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" title="Tutup"></button>
                 </div>
 
                 <div class="modal-body justify-content-start text-start">
@@ -38,8 +38,8 @@
                         <!-- Tambahkan input lainnya sesuai kebutuhan -->
                 </div>
                 <div class="modal-footer justify-content-end">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-success">Kirim</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" title="Batal tambah RT">Batal</button>
+                    <button type="submit" class="btn btn-success" title="Tambah RT">Kirim</button>
                 </div>
                 </form>
             </div>
@@ -52,7 +52,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Detail RT</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" title="Tutup"></button>
                 </div>
     
                 <div class="modal-body justify-content-start text-start">
@@ -89,7 +89,7 @@
                 
                 
                 <div class="modal-footer justify-content-end">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" title="Tutup">Tutup</button>
                 </div>
             </div>
         </div>
@@ -102,7 +102,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Edit RT</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" title="Tutup"></button>
                 </div>
 
                 <div class="modal-body justify-content-start text-start">
@@ -130,8 +130,8 @@
                         <!-- Tambahkan input lainnya sesuai kebutuhan -->
                 </div>
                 <div class="modal-footer justify-content-end">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-success">Simpan Perubahan</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" title="Batal ubah RT">Batal</button>
+                    <button type="submit" class="btn btn-success" title="Ubah RT">Simpan Perubahan</button>
                 </div>
                 </form>
             </div>
@@ -142,7 +142,7 @@
         <div class="card-header card-header-tabel p-4 mb-3">
             <h5>
                 Pendataan RT
-                <button class="btn btn-add float-end" data-bs-toggle="modal" data-bs-target="#tambahRT">Tambah
+                <button class="btn btn-add float-end" data-bs-toggle="modal" data-bs-target="#tambahRT" title="Tambah data RT">Tambah
                     Data</button>
             </h5>
         </div>

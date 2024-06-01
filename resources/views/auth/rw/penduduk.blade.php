@@ -167,7 +167,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Detail Penduduk</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" title="Tutup"></button>
                 </div>
 
                 <div class="modal-body justify-content-start text-start">
@@ -249,7 +249,7 @@
 
                 </div>
                 <div class="modal-footer justify-content-end">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" title="Tutup">Tutup</button>
                 </div>
             </div>
         </div>
@@ -264,7 +264,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Edit Penduduk</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" title="Tutup"></button>
                 </div>
                 <div class="modal-body justify-content-start text-start">
                     <!-- Form untuk pengeditan pengumuman -->
@@ -379,8 +379,8 @@
                         </div>
 
                         <div class="modal-footer justify-content-end">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                            <button type="submit" class="btn btn-success" name="submit" value="Submit">Simpan
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" title="Batal ubah penduduk">Batal</button>
+                            <button type="submit" class="btn btn-success" name="submit" value="Submit" title="Ubah penduduk">Simpan
                                 Perubahan</button>
                         </div>
                     </form>
