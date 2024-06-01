@@ -68,16 +68,16 @@ class PendudukController extends Controller
     // }
     public function show(Penduduk $penduduk)
     {
-    $penduduk = Penduduk::find($penduduk->nik);
+        $penduduk = Penduduk::find($penduduk->nik);
 
-    //ubah nilai status_pendatang
-    $penduduk->status_pendatang = $penduduk->status_pendatang == 0 ? 'domisili' : 'non domisili';
+        //ubah nilai status_pendatang
+        $penduduk->status_pendatang = $penduduk->status_pendatang == 0 ? 'domisili' : 'non domisili';
 
-    // Hitung umur
-    $tanggal_lahir = Carbon::parse($penduduk->tanggal_lahir);
-    $umur = $tanggal_lahir->age;
+        // Hitung umur
+        $tanggal_lahir = Carbon::parse($penduduk->tanggal_lahir);
+        $umur = $tanggal_lahir->age;
 
-    return view('penduduk.show', compact('penduduk', 'umur'));
+        return view('penduduk.show', compact('penduduk', 'umur'));
     }
 
     public function store(Request $request)
@@ -166,74 +166,74 @@ class PendudukController extends Controller
     }
 
     public function import(Request $request)
-{
-    $file = $request->file('file');
+    {
+        $file = $request->file('file');
 
-    if (!$file) {
-        Alert::error('Error', 'File tidak ditemukan.');
-        return redirect()->back();
-    }
-
-    // Membaca file yang diupload
-    $spreadsheet = IOFactory::load($file->getPathname());
-    $sheet = $spreadsheet->getActiveSheet();
-    $highestRow = $sheet->getHighestRow();
-    $highestColumn = $sheet->getHighestColumn();
-
-    for ($row = 2; $row <= $highestRow; $row++) {
-        $data = [];
-        for ($col = 'A'; $col <= $highestColumn; $col++) {
-            $data[] = $sheet->getCell($col . $row)->getValue();
-        }
-
-        try {
-            // Validasi input per baris
-            $validated = Validator::make([
-                'nik' => $data[0],
-                'nkk' => $data[1],
-                'no_rt' => $data[2],
-                'nama' => $data[3],
-                'tempat_lahir' => $data[4],
-                'tanggal_lahir' => $data[5],
-                'alamat' => $data[6],
-                'jenis_kelamin' => $data[7],
-                'agama' => $data[8],
-                'pendidikan' => $data[9],
-                'pekerjaan' => $data[10],
-                'golongan_darah' => $data[11],
-                'status_pernikahan' => $data[12],
-                'status_pendatang' => $data[13]
-            ], [
-                'nik' => 'required|min:15|max:17|unique:penduduk,nik',
-                'nkk' => 'required|min:15|max:17',
-                'no_rt' => 'required|max:2',
-                'nama' => 'required|max:49',
-                'tempat_lahir' => 'required|min:2|max:49',
-                'tanggal_lahir' => 'required|date',
-                'alamat' => 'required|min:5',
-                'jenis_kelamin' => [Rule::enum(JenisKelamin::class)],
-                'agama' => [Rule::enum(Agama::class)],
-                'pendidikan' => [Rule::enum(Pendidikan::class)],
-                'pekerjaan' => [Rule::enum(Pekerjaan::class)],
-                'golongan_darah' => [Rule::enum(GolDar::class)],
-                'status_pernikahan' => [Rule::enum(StatusPernikahan::class)],
-                'status_pendatang' => 'required',
-            ])->validate();
-
-            // Log data yang valid
-            Log::info('Data valid:', $validated);
-
-            // Jika validasi berhasil, buat entri baru di database
-            Penduduk::create($validated);
-        } catch (\Exception $e) {
-            Log::error('Kesalahan pada baris ' . ($row - 1) . ': ' . $e->getMessage());
-            Alert::error('Kesalahan pada baris ' . ($row - 1), $e->getMessage());
+        if (!$file) {
+            Alert::error('Error', 'File tidak ditemukan.');
             return redirect()->back();
         }
-    }
 
-    return redirect()->back()->with('success', 'Excel berhasil diimpor.');
-}
+        // Membaca file yang diupload
+        $spreadsheet = IOFactory::load($file->getPathname());
+        $sheet = $spreadsheet->getActiveSheet();
+        $highestRow = $sheet->getHighestRow();
+        $highestColumn = $sheet->getHighestColumn();
+
+        for ($row = 2; $row <= $highestRow; $row++) {
+            $data = [];
+            for ($col = 'A'; $col <= $highestColumn; $col++) {
+                $data[] = $sheet->getCell($col . $row)->getValue();
+            }
+
+            try {
+                // Validasi input per baris
+                $validated = Validator::make([
+                    'nik' => $data[0],
+                    'nkk' => $data[1],
+                    'no_rt' => $data[2],
+                    'nama' => $data[3],
+                    'tempat_lahir' => $data[4],
+                    'tanggal_lahir' => $data[5],
+                    'alamat' => $data[6],
+                    'jenis_kelamin' => $data[7],
+                    'agama' => $data[8],
+                    'pendidikan' => $data[9],
+                    'pekerjaan' => $data[10],
+                    'golongan_darah' => $data[11],
+                    'status_pernikahan' => $data[12],
+                    'status_pendatang' => $data[13]
+                ], [
+                    'nik' => 'required|min:15|max:17|unique:penduduk,nik',
+                    'nkk' => 'required|min:15|max:17',
+                    'no_rt' => 'required|max:2',
+                    'nama' => 'required|max:49',
+                    'tempat_lahir' => 'required|min:2|max:49',
+                    'tanggal_lahir' => 'required|date',
+                    'alamat' => 'required|min:5',
+                    'jenis_kelamin' => [Rule::enum(JenisKelamin::class)],
+                    'agama' => [Rule::enum(Agama::class)],
+                    'pendidikan' => [Rule::enum(Pendidikan::class)],
+                    'pekerjaan' => [Rule::enum(Pekerjaan::class)],
+                    'golongan_darah' => [Rule::enum(GolDar::class)],
+                    'status_pernikahan' => [Rule::enum(StatusPernikahan::class)],
+                    'status_pendatang' => 'required',
+                ])->validate();
+
+                // Log data yang valid
+                Log::info('Data valid:', $validated);
+
+                // Jika validasi berhasil, buat entri baru di database
+                Penduduk::create($validated);
+            } catch (\Exception $e) {
+                Log::error('Kesalahan pada baris ' . ($row - 1) . ': ' . $e->getMessage());
+                Alert::error('Kesalahan pada baris ' . ($row - 1), $e->getMessage());
+                return redirect()->back();
+            }
+        }
+
+        return redirect()->back()->with('success', 'Excel berhasil diimpor.');
+    }
 
     public function export()
     {

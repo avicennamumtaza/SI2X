@@ -58,6 +58,13 @@
                             <span>Pengumuman</span>
                         </a>
                     </li>
+                    <li class="sidebar-item {{ \Route::is('bansos.manage') ? 'active' : '' }}" title="Bantuan Sosial">
+                        <a href="{{ route('bansos.manage') }}" class="sidebar-link">
+                            <i class="lni lni-target-customer"></i>
+                            {{-- <i class="lni lni-license"></i> --}}
+                            <span>Bantuan Sosial</span>
+                        </a>
+                    </li>
                     <li class="sidebar-item {{ \Route::is('dokumen.manage') ? 'active' : '' }}" title="Dokumen">
                         <a href="{{ route('dokumen.manage') }}" class="sidebar-link">
                             <i class="lni lni-control-panel"></i>
