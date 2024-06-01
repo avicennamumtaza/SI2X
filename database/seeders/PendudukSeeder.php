@@ -254,6 +254,21 @@ class PendudukSeeder extends Seeder
                 foreach (range(1, 3) as $index) {
                     $tanggal_lahir = $faker->dateTimeBetween("-30 years", "-1 years")->format('Y-m-d');
                     $umur_anak = Carbon::parse($tanggal_lahir)->age;
+
+                    if ($umur_anak >= 18) {
+                        $pendidikan = $faker->randomElement(['Tidak/Belum Sekolah', 'Belum Tamat SD/Sederajat', 'Tamat SD/Sederajat', 'SLTP/Sederajat', 
+                        'SLTA/Sederajat', 'Diploma I/II', 'Akademi/Diploma III/S. Muda', 'Diploma IV/Strata I', 
+                        'Strata II', 'Strata III']);
+                    } elseif ($umur_anak >= 15) {
+                        $pendidikan = $faker->randomElement(['Tidak/Belum Sekolah', 'Belum Tamat SD/Sederajat', 'Tamat SD/Sederajat', 'SLTP/Sederajat', 
+                        'SLTA/Sederajat', 'Diploma I/II']);
+                    } elseif ($umur_anak >= 12) {
+                        $pendidikan = $faker->randomElement(['Tidak/Belum Sekolah', 'Belum Tamat SD/Sederajat', 'Tamat SD/Sederajat', 'SLTP/Sederajat']);
+                    } elseif ($umur_anak >= 6) {
+                        $pendidikan = $faker->randomElement(['Tidak/Belum Sekolah', 'Belum Tamat SD/Sederajat', 'Tamat SD/Sederajat']);
+                    } else {
+                        $pendidikan = 'Tidak/Belum Sekolah';
+                    }
                 
                     $pekerjaan = ($umur_anak >= 16) ? $faker->randomElement([
                         'Ibu Rumah Tangga',
@@ -344,11 +359,7 @@ class PendudukSeeder extends Seeder
                         'alamat' => $alamat,
                         'jenis_kelamin' => $faker->randomElement(['L', 'P']),
                         'agama' => $faker->randomElement(['Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha', 'Konghucu']),
-                        'pendidikan' => $faker->randomElement([
-                            'Tidak/Belum Sekolah', 'Belum Tamat SD/Sederajat', 'Tamat SD/Sederajat', 'SLTP/Sederajat', 
-                            'SLTA/Sederajat', 'Diploma I/II', 'Akademi/Diploma III/S. Muda', 'Diploma IV/Strata I', 
-                            'Strata II', 'Strata III'
-                        ]),
+                        'pendidikan' => $pendidikan,
                         'pekerjaan' => $pekerjaan,
                         'golongan_darah' => $faker->randomElement(['A', 'B', 'AB', 'O']),
                         'status_pernikahan' => 'Belum Kawin',
@@ -363,6 +374,21 @@ class PendudukSeeder extends Seeder
                 // Hanya 1 anak
                     $tanggal_lahir = $faker->dateTimeBetween("-30 years", "-1 years")->format('Y-m-d');
                     $umur_anak = Carbon::parse($tanggal_lahir)->age;
+
+                    if ($umur_anak >= 18) {
+                        $pendidikan = $faker->randomElement(['Tidak/Belum Sekolah', 'Belum Tamat SD/Sederajat', 'Tamat SD/Sederajat', 'SLTP/Sederajat', 
+                        'SLTA/Sederajat', 'Diploma I/II', 'Akademi/Diploma III/S. Muda', 'Diploma IV/Strata I', 
+                        'Strata II', 'Strata III']);
+                    } elseif ($umur_anak >= 15) {
+                        $pendidikan = $faker->randomElement(['Tidak/Belum Sekolah', 'Belum Tamat SD/Sederajat', 'Tamat SD/Sederajat', 'SLTP/Sederajat', 
+                        'SLTA/Sederajat', 'Diploma I/II']);
+                    } elseif ($umur_anak >= 12) {
+                        $pendidikan = $faker->randomElement(['Tidak/Belum Sekolah', 'Belum Tamat SD/Sederajat', 'Tamat SD/Sederajat', 'SLTP/Sederajat']);
+                    } elseif ($umur_anak >= 6) {
+                        $pendidikan = $faker->randomElement(['Tidak/Belum Sekolah', 'Belum Tamat SD/Sederajat', 'Tamat SD/Sederajat']);
+                    } else {
+                        $pendidikan = 'Tidak/Belum Sekolah';
+                    }
                 
                     $pekerjaan = ($umur_anak >= 16) ? $faker->randomElement([
                         'Ibu Rumah Tangga',
@@ -453,11 +479,7 @@ class PendudukSeeder extends Seeder
                         'alamat' => $alamat,
                         'jenis_kelamin' => $faker->randomElement(['L', 'P']),
                         'agama' => $faker->randomElement(['Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha', 'Konghucu']),
-                        'pendidikan' => $faker->randomElement([
-                            'Tidak/Belum Sekolah', 'Belum Tamat SD/Sederajat', 'Tamat SD/Sederajat', 'SLTP/Sederajat', 
-                            'SLTA/Sederajat', 'Diploma I/II', 'Akademi/Diploma III/S. Muda', 'Diploma IV/Strata I', 
-                            'Strata II', 'Strata III'
-                        ]),
+                        'pendidikan' => $pendidikan,
                         'pekerjaan' => $pekerjaan,
                         'golongan_darah' => $faker->randomElement(['A', 'B', 'AB', 'O']),
                         'status_pernikahan' => 'Belum Kawin',
