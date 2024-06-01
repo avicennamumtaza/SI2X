@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlternatifController;
 use App\Http\Controllers\AlternativeController;
 use App\Http\Controllers\CriteriaController;
 use App\Http\Controllers\DokumenController;
@@ -201,6 +202,9 @@ Route::prefix('profil')->group(function() {
 // use App\Http\Controllers\CriteriaController;
 // use App\Http\Controllers\AlternativeController;
 
-Route::resource('criterias', CriteriaController::class);
-Route::resource('alternatives', AlternativeController::class)->except(['show']);
-Route::get('alternatives/calculate-scores', [AlternativeController::class, 'calculateScores'])->name('alternatives.calculateScores');
+// Route::resource('criterias', CriteriaController::class);
+// Route::resource('alternatives', AlternativeController::class)->except(['show']);
+// Route::get('alternatives/calculate-scores', [AlternativeController::class, 'calculateScores'])->name('alternatives.calculateScores');
+Route::get('bansos', [AlternatifController::class, 'list'])->middleware('isRw')->name('bansos.manage');
+Route::delete('/{alternatif}', [AlternatifController::class, 'destroy'])->name('bansos.destroy')->middleware('isRw');
+Route::get('spk', [AlternatifController::class, 'spk'])->middleware('isRw')->name('spk.result');
