@@ -1,10 +1,13 @@
 @extends('layouts.sidebar')
 
+
+@extends('layouts.sidebar')
+
 @section('content')
     <div class="card card-tabel">
         <div class="card-header card-header-tabel p-4 mb-3">
             <h5>
-                Sistem Pendukung Keputusan Metode A
+                Sistem Pendukung Keputusan Metode B
                 <span>
                     {{-- <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#exportPenduduk">Ekspor
                     Data</button>
@@ -64,34 +67,7 @@
                 </tbody>
             </table>
 
-            <!-- Tabel Alternatif Ternormalisasi -->
-            <h3>Alternatif Ternormalisasi</h3>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>NKK</th>
-                        <th>Penghasilan</th>
-                        <th>Tanggungan</th>
-                        <th>Pajak Bumi Bangunan</th>
-                        <th>Pajak Kendaraan</th>
-                        <th>Daya Listrik</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($normalizedAlternatifs as $index => $alternatif)
-                        <tr>
-                            <td>{{ $alternatifs[$index]['nkk'] }}</td>
-                            <td>{{ $alternatif['penghasilan'] }}</td>
-                            <td>{{ $alternatif['tanggungan'] }}</td>
-                            <td>{{ $alternatif['pajak_bumibangunan'] }}</td>
-                            <td>{{ $alternatif['pajak_kendaraan'] }}</td>
-                            <td>{{ $alternatif['daya_listrik'] }}</td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-
-            <!-- Tabel Alternatif Terbobot -->
+            <!-- Tabel Alternatif Ternormalisasi dan Terbobot -->
             <h3>Alternatif Terbobot</h3>
             <table class="table table-bordered">
                 <thead>
@@ -105,7 +81,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($finalAlternatifs as $index => $alternatif)
+                    @foreach ($normalizedAlternatifs as $index => $alternatif)
                         <tr>
                             <td>{{ $alternatifs[$index]['nkk'] }}</td>
                             <td>{{ $alternatif['penghasilan'] }}</td>
@@ -136,7 +112,6 @@
                     @endforeach
                 </tbody>
             </table>
-
         </div>
     </div>
 @endsection
