@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('skor_method_b', function (Blueprint $table) {
             $table->string('nkk')->primary()->index();
+            $table->double('skor');
             $table->timestamps();
             
             $table->foreign('nkk')->references('nkk')->on('alternatif')->onDelete('cascade');

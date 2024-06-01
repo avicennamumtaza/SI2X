@@ -27,8 +27,8 @@ class PendudukSeeder extends Seeder
             // Tentukan jenis keluarga
             $familyType = $faker->randomElement(['complete', 'single_parent', 'single']);
 
-            $nik = $faker->unique()->numerify('################');
-            $nkk = $faker->numerify('################');
+            $nik = $faker->unique()->numerify('3###############');
+            $nkk = $faker->numerify('3###############');
             $no_rt = $faker->numberBetween(1, 16);
             $alamat = $faker->address();
 
@@ -44,8 +44,8 @@ class PendudukSeeder extends Seeder
                 'jenis_kelamin' => $faker->randomElement(['L', 'P']),
                 'agama' => $faker->randomElement(['Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha', 'Konghucu']),
                 'pendidikan' => $faker->randomElement([
-                    'Tidak/Belum Sekolah', 'Tamat SD/Sederajat', 'SLTP/Sederajat', 
-                    'SLTA/Sederajat', 'Diploma I/II', 'Akademi/Diploma III/S. Muda', 'Diploma IV/Strata I', 
+                    'Tidak/Belum Sekolah', 'Tamat SD/Sederajat', 'SLTP/Sederajat',
+                    'SLTA/Sederajat', 'Diploma I/II', 'Akademi/Diploma III/S. Muda', 'Diploma IV/Strata I',
                     'Strata II', 'Strata III'
                 ]),
                 'pekerjaan' => $faker->randomElement([
@@ -160,8 +160,8 @@ class PendudukSeeder extends Seeder
                     'jenis_kelamin' => $penduduk['jenis_kelamin'] == 'L' ? 'P' : 'L',
                     'agama' => $penduduk['agama'],
                     'pendidikan' => $faker->randomElement([
-                        'Tidak/Belum Sekolah', 'Tamat SD/Sederajat', 'SLTP/Sederajat', 
-                        'SLTA/Sederajat', 'Diploma I/II', 'Akademi/Diploma III/S. Muda', 'Diploma IV/Strata I', 
+                        'Tidak/Belum Sekolah', 'Tamat SD/Sederajat', 'SLTP/Sederajat',
+                        'SLTA/Sederajat', 'Diploma I/II', 'Akademi/Diploma III/S. Muda', 'Diploma IV/Strata I',
                         'Strata II', 'Strata III'
                     ]),
                     'pekerjaan' => $faker->randomElement([
@@ -256,12 +256,16 @@ class PendudukSeeder extends Seeder
                     $umur_anak = Carbon::parse($tanggal_lahir)->age;
 
                     if ($umur_anak >= 18) {
-                        $pendidikan = $faker->randomElement(['Tidak/Belum Sekolah', 'Belum Tamat SD/Sederajat', 'Tamat SD/Sederajat', 'SLTP/Sederajat', 
-                        'SLTA/Sederajat', 'Diploma I/II', 'Akademi/Diploma III/S. Muda', 'Diploma IV/Strata I', 
-                        'Strata II', 'Strata III']);
+                        $pendidikan = $faker->randomElement([
+                            'Tidak/Belum Sekolah', 'Belum Tamat SD/Sederajat', 'Tamat SD/Sederajat', 'SLTP/Sederajat',
+                            'SLTA/Sederajat', 'Diploma I/II', 'Akademi/Diploma III/S. Muda', 'Diploma IV/Strata I',
+                            'Strata II', 'Strata III'
+                        ]);
                     } elseif ($umur_anak >= 15) {
-                        $pendidikan = $faker->randomElement(['Tidak/Belum Sekolah', 'Belum Tamat SD/Sederajat', 'Tamat SD/Sederajat', 'SLTP/Sederajat', 
-                        'SLTA/Sederajat', 'Diploma I/II']);
+                        $pendidikan = $faker->randomElement([
+                            'Tidak/Belum Sekolah', 'Belum Tamat SD/Sederajat', 'Tamat SD/Sederajat', 'SLTP/Sederajat',
+                            'SLTA/Sederajat', 'Diploma I/II'
+                        ]);
                     } elseif ($umur_anak >= 12) {
                         $pendidikan = $faker->randomElement(['Tidak/Belum Sekolah', 'Belum Tamat SD/Sederajat', 'Tamat SD/Sederajat', 'SLTP/Sederajat']);
                     } elseif ($umur_anak >= 6) {
@@ -269,7 +273,7 @@ class PendudukSeeder extends Seeder
                     } else {
                         $pendidikan = 'Tidak/Belum Sekolah';
                     }
-                
+
                     $pekerjaan = ($umur_anak >= 16) ? $faker->randomElement([
                         'Ibu Rumah Tangga',
                         'Pelajar/Mahasiswa',
@@ -348,7 +352,7 @@ class PendudukSeeder extends Seeder
                         'Asisten Ahli',
                         'Lainnya'
                     ]) : 'Belum/Tidak Bekerja';
-                
+
                     DB::table('penduduk')->insert([
                         'nik' => $faker->unique()->numerify('################'),
                         'nkk' => $nkk,
@@ -367,128 +371,128 @@ class PendudukSeeder extends Seeder
                         'created_at' => now(),
                         'updated_at' => now(),
                     ]);
-                                
-
                 }
             } elseif ($familyType == 'single_parent') {
                 // Hanya 1 anak
-                    $tanggal_lahir = $faker->dateTimeBetween("-30 years", "-1 years")->format('Y-m-d');
-                    $umur_anak = Carbon::parse($tanggal_lahir)->age;
+                $tanggal_lahir = $faker->dateTimeBetween("-30 years", "-1 years")->format('Y-m-d');
+                $umur_anak = Carbon::parse($tanggal_lahir)->age;
 
-                    if ($umur_anak >= 18) {
-                        $pendidikan = $faker->randomElement(['Tidak/Belum Sekolah', 'Belum Tamat SD/Sederajat', 'Tamat SD/Sederajat', 'SLTP/Sederajat', 
-                        'SLTA/Sederajat', 'Diploma I/II', 'Akademi/Diploma III/S. Muda', 'Diploma IV/Strata I', 
-                        'Strata II', 'Strata III']);
-                    } elseif ($umur_anak >= 15) {
-                        $pendidikan = $faker->randomElement(['Tidak/Belum Sekolah', 'Belum Tamat SD/Sederajat', 'Tamat SD/Sederajat', 'SLTP/Sederajat', 
-                        'SLTA/Sederajat', 'Diploma I/II']);
-                    } elseif ($umur_anak >= 12) {
-                        $pendidikan = $faker->randomElement(['Tidak/Belum Sekolah', 'Belum Tamat SD/Sederajat', 'Tamat SD/Sederajat', 'SLTP/Sederajat']);
-                    } elseif ($umur_anak >= 6) {
-                        $pendidikan = $faker->randomElement(['Tidak/Belum Sekolah', 'Belum Tamat SD/Sederajat', 'Tamat SD/Sederajat']);
-                    } else {
-                        $pendidikan = 'Tidak/Belum Sekolah';
-                    }
-                
-                    $pekerjaan = ($umur_anak >= 16) ? $faker->randomElement([
-                        'Ibu Rumah Tangga',
-                        'Pelajar/Mahasiswa',
-                        'Pensiunan',
-                        'Pegawai Negeri Sipil',
-                        'TNI/POLRI',
-                        'Pedagang',
-                        'Petani/Pekebun',
-                        'Peternak',
-                        'Nelayan/Perikanan',
-                        'Pegawai Konstruksi',
-                        'Karyawan Swasta',
-                        'Karyawan BUMN',
-                        'Karyawan BUMD',
-                        'Karyawan Honorer',
-                        'Buruh Harian Lepas',
-                        'Buruh Tani/Perkebunan',
-                        'Buruh Nelayan/Perikanan',
-                        'Buruh Peternakan',
-                        'Asisten Rumah Tangga',
-                        'Tukang Listrik',
-                        'Tukang Batu',
-                        'Tukang Kayu',
-                        'Tukang Sol Sepatu',
-                        'Tukang Las/Pandai Besi',
-                        'Tukang Jahit',
-                        'Penata Rias',
-                        'Penata Busana',
-                        'Mekanik',
-                        'Seniman',
-                        'Dokter',
-                        'Perancang Busana',
-                        'Penterjemah',
-                        'Wartawan',
-                        'Pemuka Agama',
-                        'Juru Masak',
-                        'Anggota DPR-RI',
-                        'Anggota DPD',
-                        'Anggota BPK',
-                        'Presiden',
-                        'Wakil Presiden',
-                        'Anggota Mahkamah Konstitusi',
-                        'Anggota Kabinet/Kementerian',
-                        'Duta Besar',
-                        'Gubernur',
-                        'Wakil Gubernur',
-                        'Bupati',
-                        'Wakil Bupati',
-                        'Walikota',
-                        'Wakil Walikota',
-                        'Anggota DPRD Provinsi',
-                        'Anggota DPRD Kabupaten/Kota',
-                        'Dosen',
-                        'Guru',
-                        'Pilot',
-                        'Pramugari',
-                        'Perawat',
-                        'Apoteker',
-                        'Psikiater/Psikolog',
-                        'Penyiar Televisi',
-                        'Penyiar Radio',
-                        'Pelaut',
-                        'Peneliti',
-                        'Sopir',
-                        'Perangkat Desa',
-                        'Kepala Desa',
-                        'Wiraswasta',
-                        'Anggota Lembaga Tinggi',
-                        'Artis',
-                        'Atlit',
-                        'Manajer',
-                        'Tenaga Tata Usaha',
-                        'Operator',
-                        'Pekerja Pengolahan, Kerajinan',
-                        'Teknisi',
-                        'Asisten Ahli',
-                        'Lainnya'
-                    ]) : 'Belum/Tidak Bekerja';
-                
-                    DB::table('penduduk')->insert([
-                        'nik' => $faker->unique()->numerify('################'),
-                        'nkk' => $nkk,
-                        'no_rt' => $no_rt,
-                        'nama' => $faker->name(),
-                        'tempat_lahir' => $faker->city(),
-                        'tanggal_lahir' => $tanggal_lahir,
-                        'alamat' => $alamat,
-                        'jenis_kelamin' => $faker->randomElement(['L', 'P']),
-                        'agama' => $faker->randomElement(['Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha', 'Konghucu']),
-                        'pendidikan' => $pendidikan,
-                        'pekerjaan' => $pekerjaan,
-                        'golongan_darah' => $faker->randomElement(['A', 'B', 'AB', 'O']),
-                        'status_pernikahan' => 'Belum Kawin',
-                        'status_pendatang' => $faker->boolean(),
-                        'created_at' => now(),
-                        'updated_at' => now(),
+                if ($umur_anak >= 18) {
+                    $pendidikan = $faker->randomElement([
+                        'Tidak/Belum Sekolah', 'Belum Tamat SD/Sederajat', 'Tamat SD/Sederajat', 'SLTP/Sederajat',
+                        'SLTA/Sederajat', 'Diploma I/II', 'Akademi/Diploma III/S. Muda', 'Diploma IV/Strata I',
+                        'Strata II', 'Strata III'
                     ]);
-                              
+                } elseif ($umur_anak >= 15) {
+                    $pendidikan = $faker->randomElement([
+                        'Tidak/Belum Sekolah', 'Belum Tamat SD/Sederajat', 'Tamat SD/Sederajat', 'SLTP/Sederajat',
+                        'SLTA/Sederajat', 'Diploma I/II'
+                    ]);
+                } elseif ($umur_anak >= 12) {
+                    $pendidikan = $faker->randomElement(['Tidak/Belum Sekolah', 'Belum Tamat SD/Sederajat', 'Tamat SD/Sederajat', 'SLTP/Sederajat']);
+                } elseif ($umur_anak >= 6) {
+                    $pendidikan = $faker->randomElement(['Tidak/Belum Sekolah', 'Belum Tamat SD/Sederajat', 'Tamat SD/Sederajat']);
+                } else {
+                    $pendidikan = 'Tidak/Belum Sekolah';
+                }
 
+                $pekerjaan = ($umur_anak >= 16) ? $faker->randomElement([
+                    'Ibu Rumah Tangga',
+                    'Pelajar/Mahasiswa',
+                    'Pensiunan',
+                    'Pegawai Negeri Sipil',
+                    'TNI/POLRI',
+                    'Pedagang',
+                    'Petani/Pekebun',
+                    'Peternak',
+                    'Nelayan/Perikanan',
+                    'Pegawai Konstruksi',
+                    'Karyawan Swasta',
+                    'Karyawan BUMN',
+                    'Karyawan BUMD',
+                    'Karyawan Honorer',
+                    'Buruh Harian Lepas',
+                    'Buruh Tani/Perkebunan',
+                    'Buruh Nelayan/Perikanan',
+                    'Buruh Peternakan',
+                    'Asisten Rumah Tangga',
+                    'Tukang Listrik',
+                    'Tukang Batu',
+                    'Tukang Kayu',
+                    'Tukang Sol Sepatu',
+                    'Tukang Las/Pandai Besi',
+                    'Tukang Jahit',
+                    'Penata Rias',
+                    'Penata Busana',
+                    'Mekanik',
+                    'Seniman',
+                    'Dokter',
+                    'Perancang Busana',
+                    'Penterjemah',
+                    'Wartawan',
+                    'Pemuka Agama',
+                    'Juru Masak',
+                    'Anggota DPR-RI',
+                    'Anggota DPD',
+                    'Anggota BPK',
+                    'Presiden',
+                    'Wakil Presiden',
+                    'Anggota Mahkamah Konstitusi',
+                    'Anggota Kabinet/Kementerian',
+                    'Duta Besar',
+                    'Gubernur',
+                    'Wakil Gubernur',
+                    'Bupati',
+                    'Wakil Bupati',
+                    'Walikota',
+                    'Wakil Walikota',
+                    'Anggota DPRD Provinsi',
+                    'Anggota DPRD Kabupaten/Kota',
+                    'Dosen',
+                    'Guru',
+                    'Pilot',
+                    'Pramugari',
+                    'Perawat',
+                    'Apoteker',
+                    'Psikiater/Psikolog',
+                    'Penyiar Televisi',
+                    'Penyiar Radio',
+                    'Pelaut',
+                    'Peneliti',
+                    'Sopir',
+                    'Perangkat Desa',
+                    'Kepala Desa',
+                    'Wiraswasta',
+                    'Anggota Lembaga Tinggi',
+                    'Artis',
+                    'Atlit',
+                    'Manajer',
+                    'Tenaga Tata Usaha',
+                    'Operator',
+                    'Pekerja Pengolahan, Kerajinan',
+                    'Teknisi',
+                    'Asisten Ahli',
+                    'Lainnya'
+                ]) : 'Belum/Tidak Bekerja';
+
+                DB::table('penduduk')->insert([
+                    'nik' => $faker->unique()->numerify('################'),
+                    'nkk' => $nkk,
+                    'no_rt' => $no_rt,
+                    'nama' => $faker->name(),
+                    'tempat_lahir' => $faker->city(),
+                    'tanggal_lahir' => $tanggal_lahir,
+                    'alamat' => $alamat,
+                    'jenis_kelamin' => $faker->randomElement(['L', 'P']),
+                    'agama' => $faker->randomElement(['Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha', 'Konghucu']),
+                    'pendidikan' => $pendidikan,
+                    'pekerjaan' => $pekerjaan,
+                    'golongan_darah' => $faker->randomElement(['A', 'B', 'AB', 'O']),
+                    'status_pernikahan' => 'Belum Kawin',
+                    'status_pendatang' => $faker->boolean(),
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]);
             }
         }
     }
