@@ -132,7 +132,7 @@
                                     <h5 class="modal-title" id="fotoModalLabel{{ $umkm->id_umkm }}">
                                         {{ $umkm->nama_umkm }}</h5>
                                     <i class="bi bi-x-lg text-danger" data-dismiss="modal" aria-label="Close"
-                                        style="font-size: 1.5rem;"></i>
+                                        style="font-size: 1.5rem; cursor: pointer;"></i>
                                 </div>
                                 <div class="modal-body">
                                     <img id="modalImg{{ $umkm->id_umkm }}"
@@ -146,7 +146,10 @@
                 @endif
             @endforeach
         </div>
-
+        <div class="mt-4" style="margin-bottom: -2rem">
+            {{ $umkms->onEachSide(1)->links() }}
+        </div>
+        
     </div>
 
     <!-- Bootstrap JS -->

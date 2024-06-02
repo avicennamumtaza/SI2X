@@ -51,7 +51,7 @@
                     <div class="modal-header d-flex justify-content-between">
                         <h5 class="modal-title" id="fotoModalLabel{{ $pengumuman->id }}">{{ $pengumuman->judul }}</h5>
                         <i class="bi bi-x-lg text-danger" data-dismiss="modal" aria-label="Close"
-                            style="font-size: 1.5rem;"></i>
+                            style="font-size: 1.5rem; cursor: pointer;"></i>
                     </div>
                     <div class="modal-body">
                         <img id="modalImg{{ $pengumuman->id }}"

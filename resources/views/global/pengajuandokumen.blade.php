@@ -130,6 +130,9 @@
                 </table>
                 {{-- </div> --}}
             </div>
+            <div class="mx-4" style="margin-block: -0.5rem">
+                {{ $pengajuanDokumens->onEachSide(1)->links() }}
+            </div>
         </div>
     </div>
 @endsection

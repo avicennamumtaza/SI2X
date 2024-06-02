@@ -6,6 +6,7 @@ use App\Models\Users;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 use Yajra\DataTables\Html\Builder;
+use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         Builder::useVite();
+        Paginator::useBootstrapFive();
 
         Gate::define('isRt', function (Users $user) {
             return $user->role === 'RT';
