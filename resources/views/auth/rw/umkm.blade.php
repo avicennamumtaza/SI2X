@@ -7,7 +7,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Edit UMKM</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" title="Tutup"></button>
                 </div>
 
                 <div class="modal-body justify-content-start text-start">
@@ -61,8 +61,8 @@
                         </div>
 
                         <div class="modal-footer justify-content-end">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                            <button type="submit" class="btn btn-success" name="submit" value="Submit">Simpan
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" title="Batal ubah UMKM">Batal</button>
+                            <button type="submit" class="btn btn-success" name="submit" value="Submit" title="Ubah UMKM">Simpan
                                 Perubahan</button>
                         </div>
                     </form>
@@ -91,8 +91,8 @@
                             <p class="">(UMKM Berstatus <strong id="statusDisplay"></strong>)</p>
                         </div>
                         <div class="modal-footer justify-content-center">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                            <button type="submit" class="btn btn-danger">Hapus</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" title="Batal hapus UMKM">Batal</button>
+                            <button type="submit" class="btn btn-danger" title="Hapus UMKM">Hapus</button>
                         </div>
                     </form>
                 </div>

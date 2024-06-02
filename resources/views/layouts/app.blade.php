@@ -30,7 +30,7 @@
     <div class="container-fluid-nav">
         <nav class="navbar fixed-top my-3 mx-5 custom-nav navbar-expand-lg">
             <a class="navbar-brand" href="{{ route('landing') }}">
-                <img src="{{ asset('assets/Logo.png') }}" alt="tes">
+                <img src="{{ asset('assets/Logo.png') }}" alt="tes" title="Logo SIRW">
                 <span class="navbar-brand mb-0 h1">
                     {{ config('app.name') }}
                 </span>
@@ -65,6 +65,9 @@
                                     title="Pengajuan Surat">Pengajuan Surat</a></li>
                             <li><a class="dropdown-item" href="{{ route('umkm.global') }}" title="Daftar UMKM">Daftar
                                     UMKM</a></li>
+                            <li>
+                            <li><a class="dropdown-item" href="{{ route('umkm.global') }}" title="Daftar UMKM">Bantuan
+                                    Sosial</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -166,7 +169,7 @@
                     {{-- substr_replace($umkm->wa_umkm, '62', 0, 1) --}}
                     @if ($rw)
                         <a href="https://wa.me/{{ $rw->wa_rw }}" target="_blank" data-mdb-ripple-init
-                            class="no-footer">
+                            class="no-footer" title="Nomor WhatsApp RW">
                             <i class="bi bi-whatsapp me-2"></i>RW {{ substr_replace($rw->wa_rw, '+62', 0, 1) }}
                         </a>
                     @endif

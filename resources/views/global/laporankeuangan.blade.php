@@ -50,11 +50,11 @@
                         <thead>
                             <tr>
                                 {{-- <th>Nomor</th> --}}
-                                <th>Tanggal</th>
-                                <th>Jenis Laporan</th>
-                                <th>Nominal</th>
-                                <th>Detail</th>
-                                <th>Saldo</th>
+                                <th title="Tanggal">Tanggal</th>
+                                <th title="Jenis Laporan">Jenis Laporan</th>
+                                <th title="Nominal">Nominal</th>
+                                <th title="Detail">Detail</th>
+                                <th title="Saldo">Saldo</th>
                                 {{-- <th>Pihak Terlibat</th> --}}
                             </tr>
                         </thead>
@@ -62,11 +62,11 @@
                             @foreach ($laporanKeuangans as $laporanKeuangan)
                                 <tr>
                                     {{-- <td>{{ $loop->iteration }}</td> --}}
-                                    <td>{{ $laporanKeuangan->tanggal }}</td>
-                                    <td>{{ $laporanKeuangan->status_pemasukan ? 'Pemasukan' : 'Pengeluaran' }}</td>
-                                    <td>Rp {{ number_format($laporanKeuangan->nominal, 0, ',', '.') }}</td>
-                                    <td>{{ $laporanKeuangan->detail }}</td>
-                                    <td>Rp {{ number_format($laporanKeuangan->saldo, 0, ',', '.') }}</td>
+                                    <td title="Tanggal">{{ $laporanKeuangan->tanggal }}</td>
+                                    <td title="Jenis Laporan">{{ $laporanKeuangan->status_pemasukan ? 'Pemasukan' : 'Pengeluaran' }}</td>
+                                    <td title="Nominal">Rp {{ number_format($laporanKeuangan->nominal, 0, ',', '.') }}</td>
+                                    <td title="Detail">{{ $laporanKeuangan->detail }}</td>
+                                    <td title="Saldo">Rp {{ number_format($laporanKeuangan->saldo, 0, ',', '.') }}</td>
                                     {{-- <td>{{ $laporanKeuangan->pihak_terlibat }}</td> --}}
                                 </tr>
                             @endforeach

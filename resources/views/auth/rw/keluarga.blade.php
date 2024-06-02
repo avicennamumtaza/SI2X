@@ -8,7 +8,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel" title="Tambah Keluarga">Tambah Keluarga</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" title="Tutup"></button>
                 </div>
 
                 <div class="modal-body justify-content-start text-start">
@@ -35,8 +35,8 @@
                         </div>
                 </div>
                 <div class="modal-footer justify-content-end">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" title="Batal">Batal</button>
-                    <button type="submit" class="btn btn-success" title="Kirim">Kirim</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" title="Batal tambah keluarga">Batal</button>
+                    <button type="submit" class="btn btn-success" title="Tambah keluarga">Kirim</button>
                 </div>
                 </form>
             </div>
@@ -82,7 +82,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel" title="Edit Keluarga">Edit Keluarga</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" title="Tutup"></button>
                 </div>
 
                 <div class="modal-body justify-content-start text-start">
@@ -104,8 +104,8 @@
                         </div>
 
                         <div class="modal-footer justify-content-end">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                            <button type="submit" class="btn btn-success" name="submit" value="Submit">Simpan
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" title="Batal ubah keluarga">Batal</button>
+                            <button type="submit" class="btn btn-success" name="submit" value="Submit" title="Ubah keluarga">Simpan
                                 Perubahan</button>
                         </div>
                     </form>
@@ -118,7 +118,7 @@
         <div class="card-header card-header-tabel p-4 mb-3">
             <h5>
                 Keluarga
-                <button class="btn btn-add float-end" data-bs-toggle="modal" data-bs-target="#tambahKeluarga">Tambah
+                <button class="btn btn-add float-end" data-bs-toggle="modal" data-bs-target="#tambahKeluarga" title="Tambah data keluarga">Tambah
                     Data</button>
             </h5>
         </div>

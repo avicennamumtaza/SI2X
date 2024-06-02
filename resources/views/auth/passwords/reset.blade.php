@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="form-header">
-        <a href="{{ route('login') }}">
+        <a href="{{ route('login') }}" title="Kembali">
             <i class="bi bi-arrow-left"></i>
         </a>
         <h2>Reset Password</h2>
@@ -38,7 +38,7 @@
             <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
                 placeholder="Confirm Password" required autocomplete="new-password">
 
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-primary" title="Atur ulang password">
                 Reset Password
             </button>
 

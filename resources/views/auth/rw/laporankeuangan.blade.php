@@ -10,7 +10,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Edit Laporan Keuangan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" title="Tutup"></button>
                 </div>
 
                 <div class="modal-body justify-content-start text-start">
@@ -61,8 +61,8 @@
                         </div> --}}
 
                         <div class="modal-footer justify-content-end">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                            <button type="submit" class="btn btn-success" name="submit" value="Submit">Simpan
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" title="Batal ubah laporan keuangan">Batal</button>
+                            <button type="submit" class="btn btn-success" name="submit" value="Submit" title="Ubah laporan keuangan">Simpan
                                 Perubahan</button>
                         </div>
                     </form>
@@ -78,7 +78,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Tambah Laporan Keuangan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" title="Tutup"></button>
                 </div>
 
                 <div class="modal-body justify-content-start text-start">
@@ -126,8 +126,8 @@
                         <!-- Tambahkan input lainnya sesuai kebutuhan -->
                 </div>
                 <div class="modal-footer justify-content-end">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-success">Kirim</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" title="Batal tambah laporan keuangan">Batal</button>
+                    <button type="submit" class="btn btn-success" title="Tambah laporan keuangan">Kirim</button>
                 </div>
                 </form>
             </div>
@@ -155,8 +155,8 @@
                             <p class="">(Laporan Tanggal <strong id="tanggalDisplay"></strong>)</p>
                         </div>
                         <div class="modal-footer justify-content-center">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                            <button type="submit" class="btn btn-danger">Hapus</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" title="Batal hapus laporan keuangan">Batal</button>
+                            <button type="submit" class="btn btn-danger" title="Hapus laporan keuangan">Hapus</button>
                         </div>
                     </form>
                 </div>
@@ -180,7 +180,7 @@
                         </div>
                 </div>
                 <div class="modal-footer justify-content-end">
-                    <button type="submit" class="btn btn-success">Unduh</button>
+                    <button type="submit" class="btn btn-success" title="Unduh laporanKeuangan.xlsx">Unduh</button>
                 </div>
                 </form>
             </div>
@@ -192,9 +192,8 @@
             <h5>
                 Laporan Keuangan
                 <span>
-                <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#exportLaporanKeuangan">Ekspor Data</button>
-                <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#tambahLaporanKeuangan">Tambah
-                    Data</button>
+                <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#exportLaporanKeuangan" title="Ekspor laporan keuangan">Ekspor Data</button>
+                <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#tambahLaporanKeuangan" title="Tambah laporan keuangan">Tambah Data</button>
                 </span>
             </h5>
         </div>

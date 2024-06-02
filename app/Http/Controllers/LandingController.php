@@ -47,8 +47,8 @@ class LandingController extends Controller
         $nikUsers = Users::all()->pluck('nik');
         foreach ($nikUsers as $nikUser) {
             $pendudukUser = Penduduk::where('nik', $nikUser);
-            $namaUsers[] = $pendudukUser->pluck('nama');
             $titleUsers[] = Users::where('nik', $nikUser)->pluck('role');
+            $namaUsers[] = $pendudukUser->pluck('nama');
             $rtUsers[] = $pendudukUser->pluck('no_rt');
         }
         // dd($fotoUsers, $nikUsers, $namaUsers, $titleUsers, $rtUsers);
