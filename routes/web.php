@@ -63,6 +63,8 @@ Route::prefix('umkm')->group(function() {
 Route::prefix('bansos')->group(function() {
     Route::get('/', [AlternatifController::class, 'index'])->name('bansos.global');
     Route::post('/', [AlternatifController::class, 'store'])->name('bansos.store');
+    Route::get('/rw', [AlternatifController::class, 'list'])->middleware('isRw')->name('bansos.manage');
+    Route::delete('/{alternatif}', [AlternatifController::class, 'destroy'])->name('bansos.destroy')->middleware('isRw');
 });
 
 // global pengajuan dokumen
@@ -90,6 +92,8 @@ Route::prefix('manage')->group(function(){
         Route::get('/edit/{pengumuman}', [PengumumanController::class, 'edit'])->name('pengumuman.edit')->middleware('isRw');
         Route::put('/update/{pengumuman}', [PengumumanController::class, 'update'])->name('pengumuman.update')->middleware('isRw');
         Route::delete('/{pengumuman}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy')->middleware('isRw');
+        // Route::get('/penghapusan', [PengumumanController::class, 'penghapusan'])->name('pengumuman.penghapusan')->middleware('isRw');
+        Route::post('/penghapusan', [PengumumanController::class, 'hapusPengumumanLama'])->name('pengumuman.hapus-lama')->middleware('isRw');
     });
 
     // manage pengajuan dokumen
@@ -198,7 +202,5 @@ Route::prefix('profil')->group(function() {
     // Route::put('/{user}/change_password', [ProfilController::class, 'changePassword'])->name('profil.password');
 });
 
-Route::get('bansos', [AlternatifController::class, 'list'])->middleware('isRw')->name('bansos.manage');
-Route::delete('/{alternatif}', [AlternatifController::class, 'destroy'])->name('bansos.destroy')->middleware('isRw');
 Route::get('spk', [AlternatifController::class, 'spk'])->middleware('isRw')->name('spk.result');
 Route::get('spkk', [AlternatifController::class, 'spkk'])->middleware('isRw')->name('spkk.result');

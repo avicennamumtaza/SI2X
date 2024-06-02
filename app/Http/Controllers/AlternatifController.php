@@ -42,21 +42,26 @@ class AlternatifController extends Controller
     {
         $validated = $request->validate([
             'nkk' => 'required|string|min:15|max:17',
-            'penghasilan' => 'required',
-            'tanggungan' => 'required',
-            'pajak_bumibangunan' => 'required',
-            'pajak_kendaraan' => 'required',
-            'daya_listrik' => 'required',
+            'penghasilan' => 'required|integer',
+            'tanggungan' => 'required|integer',
+            'pajak_bumibangunan' => 'required|integer',
+            'pajak_kendaraan' => 'required|integer',
+            'daya_listrik' => 'required|integer',
         ], [
             'nkk.required' => 'NIK pemilik UMKM wajib diisi.',
             'nkk.string' => 'NIK pemilik UMKM harus berupa teks.',
             'nkk.min' => 'NKK harus harus memiliki panjang minimal :min karakter.',
             'nkk.max' => 'NKK harus memiliki panjang maksimal :max karakter.',
             'penghasilan.required' => 'Penghasilan wajib diisi.',
+            'penghasilan.integer' => 'Penghasilan harus berupa angka.',
             'tanggungan.required' => 'Tanggungan wajib diunggah.',
+            'tanggungan.integer' => 'Tanggungan harus berupa angka.',
             'pajak_bumibangunan.required' => 'Pajak Bumi dan Bangunan wajib diisi.',
+            'pajak_bumibangunan.integer' => 'Pajak Bumi dan Bangunan harus berupa angka.',
             'pajak_kendaraan.required' => 'Pajak Kendaraan wajib diisi.',
+            'pajak_kendaraan.integer' => 'Pajak Kendaraan harus berupa angka.',
             'daya_listrik.required' => 'Daya Listrik wajib diisi.',
+            'daya_listrik.integer' => 'Daya Listrik harus berupa angka.',
         ]);
 
         // Cek apakah ada pengajuan dokumen dengan nik_pemohon yang sama dan status "Baru"
@@ -76,10 +81,9 @@ class AlternatifController extends Controller
                 'tanggungan' => $validated['tanggungan'],
                 'pajak_bumibangunan' => $validated['pajak_bumibangunan'],
                 'pajak_kendaraan' => $validated['pajak_kendaraan'],
-                'daya_listrik' => $validated['Daya Listrik'],
+                'daya_listrik' => $validated['daya_listrik'],
               ]);
-            Alert::success('Data UMKM berhasil diajukan!');
-            return redirect()->back()->with('warning', 'Data yang anda masukkan berhasil1');
+            return redirect()->back()->with('success', 'Anda berhasil mengajukan bantuan sosial!');
         } catch (\Illuminate\Database\QueryException $e) {
             $no_rw = RW::all()->pluck('nik_rw');
             Alert::error('NKK Anda Tidak Terdata!', 'Silahkan hubungi RW anda untuk keperluan kelengkapan data kependudukan di Sistem Informasi Rukun Warga ini melalui nomor ' . $no_rw);
