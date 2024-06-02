@@ -111,7 +111,7 @@
                                     $hash = md5(strtolower(trim($users->email)));
                                     //$gravatar_url = "https://www.gravatar.com/avatar/$hash?s=200&d=mp";
                                 @endphp
-                                <img src="{{ asset('Foto Users/' . $users->foto_profil) }}" class="img-thumbnail"
+                                <img src="{{ asset($users->foto_profil ? 'Foto Users/' . $users->foto_profil : 'Foto Users/default.jpg') }}" class="img-thumbnail"
                                     style="height: 250px; width: 200px;" alt="" title="Foto profil anda">
                                 <div class="pt-4 mx-4">
                                     <button type="button" data-bs-toggle="modal" data-bs-target="#editPicture"
