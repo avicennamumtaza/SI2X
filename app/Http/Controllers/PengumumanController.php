@@ -10,6 +10,29 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class PengumumanController extends Controller
 {
+    public function hapusPengumumanLama(Request $request)
+    {
+        $validated = $request->validate([
+            'hari' => 'required|integer|min:1',
+        ]);
+
+        $hari = $validated['hari'];
+        $batasTanggal = \Carbon\Carbon::now()->subDays($hari)->format('Y-m-d');
+
+        try {
+            $pengumumanDihapus = Pengumuman::where('tanggal', '<', $batasTanggal)->delete();
+
+            if ($pengumumanDihapus > 0) {
+                return redirect()->back()->with('success', 'Pengumuman lama berhasil dihapus!');
+            } else {
+                return redirect()->back()->with('info', 'Tidak ada pengumuman yang perlu dihapus.');
+            }
+        } catch (\Exception $e) {
+            Alert::error('Oops!', $e->getMessage());
+            return redirect()->back();
+        }
+    }
+
     public function index()
     {
         $pengumumans = Pengumuman::all();
@@ -36,30 +59,30 @@ class PengumumanController extends Controller
             'tanggal_pengumuman' => 'required|date',
             'foto_pengumuman' => 'nullable|mimes:png,jpg,jpeg',
         ]);
-    
+
         try {
             $pengumumanData = [
                 'judul' => $validated['judul'],
                 'deskripsi' => $validated['deskripsi'],
                 'tanggal' => $validated['tanggal_pengumuman'],
             ];
-    
+
             if (isset($validated['foto_pengumuman'])) {
                 $foto_pengumuman = $request->file('foto_pengumuman');
                 $foto_pengumuman_ext = $foto_pengumuman->getClientOriginalExtension();
                 $foto_pengumuman_filename = $validated['judul'] . date('ymdhis') . "." . $foto_pengumuman_ext;
                 $foto_pengumuman->move(public_path('Foto Pengumuman'), $foto_pengumuman_filename);
-    
+
                 $pengumumanData['foto_pengumuman'] = $foto_pengumuman_filename;
             }
-    
+
             Pengumuman::create($pengumumanData);
             return redirect()->back()->with('success', 'Pengumuman berhasil dipublish!');
         } catch (\Exception $e) {
             Alert::error('Oops!', $e->getMessage());
             return redirect()->back();
         }
-    }    
+    }
 
     public function edit(Pengumuman $pengumuman)
     {
