@@ -69,7 +69,8 @@
             });
         </script>
 
-        <a class="fixedButton" id="ajukanUmkmButton" data-bs-toggle="modal" data-bs-target="#ajukanUmkmModal"  title="Ajukan UMKM">
+        <a class="fixedButton" id="ajukanUmkmButton" data-bs-toggle="modal" data-bs-target="#ajukanUmkmModal"
+            title="Ajukan UMKM">
             <div class="roundedFixedBtn">
                 <button><i class="bi bi-box-arrow-in-up"></i>Ajukan UMKM</button>
             </div>
@@ -91,15 +92,16 @@
                     </a>
                     <div class="card-body">
                         <h5 class="card-title text-start" title="Nama UMKM">{{ $umkm->nama_umkm }}</h5>
-                        <p class="card-title text-start" style="font-size: 13px;" title="Alamat UMKM">Alamat :&nbsp;{{ $umkm->alamat_umkm }}</p>
+                        <p class="card-title text-start" style="font-size: 13px;" title="Alamat UMKM">Alamat
+                            :&nbsp;{{ $umkm->alamat_umkm }}</p>
                         {{-- <br> --}}
                         <hr class="main" style="height: 2px; background-color: black;">
                         <p class="card-text" title="Deskripsi UMKM">{{ $umkm->deskripsi_umkm }}</p>
                     </div>
                     <div class="card-footer py-3 hub-umkm d-flex justify-content-end">
-                        <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($umkm->alamat_umkm) }}" title="Lokasi UMKM"
-                            class="btn btn-warning me-2" data-mdb-ripple-init><svg xmlns="http://www.w3.org/2000/svg"
-                                width="0.7em" height="1em" viewBox="0 0 256 367"
+                        <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($umkm->alamat_umkm) }}"
+                            title="Lokasi UMKM" class="btn btn-warning me-2" data-mdb-ripple-init><svg
+                                xmlns="http://www.w3.org/2000/svg" width="0.7em" height="1em" viewBox="0 0 256 367"
                                 style="stroke: black; stroke-width: 10px;">
                                 <path fill="#34a853"
                                     d="M70.585 271.865a370.712 370.712 0 0 1 28.911 42.642c7.374 13.982 10.448 23.463 15.837 40.31c3.305 9.308 6.292 12.086 12.714 12.086c6.998 0 10.173-4.726 12.626-12.035c5.094-15.91 9.091-28.052 15.397-39.525c12.374-22.15 27.75-41.833 42.858-60.75c4.09-5.354 30.534-36.545 42.439-61.156c0 0 14.632-27.035 14.632-64.792c0-35.318-14.43-59.813-14.43-59.813l-41.545 11.126l-25.23 66.451l-6.242 9.163l-1.248 1.66l-1.66 2.078l-2.914 3.319l-4.164 4.163l-22.467 18.304l-56.17 32.432z" />
@@ -113,33 +115,35 @@
                                     d="M12.612 188.892S0 164.194 0 128.414c0-33.817 13.146-63.377 30.015-82.649l60.318 50.759z" />
                             </svg>
                             &nbsp;Lokasi</a>
-                        <a href="https://wa.me/{{ substr_replace($umkm->wa_umkm, '62', 0, 1) }}" title="WhatsApp UMKM" class="btn btn-success"
-                            data-mdb-ripple-init><i class="bi bi-whatsapp"></i>&nbsp; Hubungi</a>
+                        <a href="https://wa.me/{{ substr_replace($umkm->wa_umkm, '62', 0, 1) }}" title="WhatsApp UMKM"
+                            class="btn btn-success" data-mdb-ripple-init><i class="bi bi-whatsapp"></i>&nbsp; Hubungi</a>
                         {{-- <button class="btn btn-primary"
                             href="https://wa.me/{{ substr_replace($umkm->wa_umkm, '62', 0, 1) }}"><i
                                 class="bi bi-box-arrow-in-up"></i>Hubungi</button> --}}
                     </div>
                 </div>
                 <!-- Modal untuk setiap UMKM -->
-                <div class="modal fade" id="fotoModal{{ $umkm->id_umkm }}" tabindex="-1" role="dialog"
-                    aria-labelledby="fotoModalLabel{{ $umkm->id_umkm }}" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header d-flex justify-content-between">
-                                <h5 class="modal-title" id="fotoModalLabel{{ $umkm->id_umkm }}">
-                                    {{ $umkm->nama_umkm }}</h5>
-                                <i class="bi bi-x-lg text-danger" data-dismiss="modal" aria-label="Close"
-                                    style="font-size: 1.5rem;"></i>
-                            </div>
-                            <div class="modal-body">
-                                <img id="modalImg{{ $umkm->id_umkm }}"
-                                    src="{{ $umkm->foto_umkm ? asset('Foto UMKM/' . $umkm->foto_umkm) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
-                                    class="img-fluid" alt="Foto UMKM{{ $umkm->id_umkm }}"
-                                    style="min-width: 100%; max-height: auto;">
+                @if (isset($umkm) && !empty($umkm))
+                    <div class="modal fade" id="fotoModal{{ $umkm->id_umkm }}" tabindex="-1" role="dialog"
+                        aria-labelledby="fotoModalLabel{{ $umkm->id_umkm }}" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header d-flex justify-content-between">
+                                    <h5 class="modal-title" id="fotoModalLabel{{ $umkm->id_umkm }}">
+                                        {{ $umkm->nama_umkm }}</h5>
+                                    <i class="bi bi-x-lg text-danger" data-dismiss="modal" aria-label="Close"
+                                        style="font-size: 1.5rem;"></i>
+                                </div>
+                                <div class="modal-body">
+                                    <img id="modalImg{{ $umkm->id_umkm }}"
+                                        src="{{ $umkm->foto_umkm ? asset('Foto UMKM/' . $umkm->foto_umkm) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
+                                        class="img-fluid" alt="Foto UMKM{{ $umkm->id_umkm }}"
+                                        style="min-width: 100%; max-height: auto;">
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endif
             @endforeach
         </div>
 
