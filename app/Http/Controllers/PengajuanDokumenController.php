@@ -20,13 +20,13 @@ class PengajuanDokumenController extends Controller
     {
 
         // Mengambil hanya kolom 'nik' dari model Penduduk
-        $pengajuanDokumens = PengajuanDokumen::all();
+        $pengajuanDokumens = PengajuanDokumen::paginate(20);
         $no_rts = RT::pluck('no_rt');
         // $penduduks = Penduduk::all();
         $dokumens = Dokumen::all();
 
         // Mengirimkan data ke view
-        return view('global.pengajuandokumen', compact('pengajuanDokumens', 'no_rts', 'dokumens'));
+        return view('global.pengajuandokumen', compact('no_rts', 'dokumens'))->with('pengajuanDokumens', $pengajuanDokumens);
     }
 
 

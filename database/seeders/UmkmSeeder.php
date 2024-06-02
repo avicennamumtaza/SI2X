@@ -38,7 +38,7 @@ class UmkmSeeder extends Seeder
                 'nik_pemilik' => $faker->randomElement($nikPemilik),
                 'nama_umkm' => $faker->company(),
                 'wa_umkm' => $faker->numerify('08##########'),
-                'foto_umkm' => $faker->imageUrl(),
+                'foto_umkm' => '',
                 // 'alamat_umkm' => $faker->address(),
                 'alamat_umkm' => $faker->address(),
                 'deskripsi_umkm' => $faker->paragraph(2),
