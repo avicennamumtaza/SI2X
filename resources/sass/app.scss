@@ -134,8 +134,14 @@ $fourthCol: #4461AE;
 }
 
 .secondary {
-    background-color: $secondaryCol;
-    color: #fff;
+    color: $secondaryCol;
+    background-color: #fff;
+    transition: 0.3s ease-in-out;
+    &:hover {
+        background-color: $secondaryCol;
+        color: #fff;
+        box-shadow: 5px 5px 5px 1px #5c5a5a;
+    }
 }
 
 .tertiary {
