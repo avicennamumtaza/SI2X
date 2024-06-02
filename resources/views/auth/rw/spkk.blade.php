@@ -1,8 +1,5 @@
 @extends('layouts.sidebar')
 
-
-@extends('layouts.sidebar')
-
 @section('content')
     <div class="card card-tabel">
         <div class="card-header card-header-tabel p-4 mb-3">
@@ -20,7 +17,7 @@
         </div>
         <hr class="tabel">
         <div class="card-body">
-            <h3>Kriteria</h3>
+            <h5>Kriteria</h5>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -41,7 +38,7 @@
             </table>
 
             <!-- Tabel Alternatif Awal -->
-            <h3>Alternatif Awal</h3>
+            <h5>Alternatif Awal</h5>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -68,7 +65,7 @@
             </table>
 
             <!-- Tabel Alternatif Ternormalisasi dan Terbobot -->
-            <h3>Alternatif Terbobot</h3>
+            <h5>Alternatif Terbobot</h5>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -95,7 +92,7 @@
             </table>
 
             <!-- Tabel Hasil Akhir (Skor) -->
-            <h3>Hasil Akhir (Skor)</h3>
+            <h5>Hasil Akhir (Skor)</h5>
             <table class="table table-bordered">
                 <thead>
                     <tr>
