@@ -34,6 +34,9 @@
                     </tbody>
                 </table>
             </div>
+            <div class="mt-1" style="margin-bottom: -1rem">
+                {{ $penduduk->onEachSide(1)->links() }}
+            </div>
         </div>
     </div>
 @endsection

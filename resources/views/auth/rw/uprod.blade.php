@@ -5,7 +5,8 @@
         <div class="card-header card-header-tabel p-4 mb-3">
             <h5>
                 Penduduk Berusia Produktif
-                <button class="btn btn-add float-end" data-bs-toggle="modal" data-bs-target="#tambahLaporanKeuangan">Kelola Penduduk</button>
+                <button class="btn btn-add float-end" data-bs-toggle="modal" data-bs-target="#tambahLaporanKeuangan">Kelola
+                    Penduduk</button>
             </h5>
         </div>
         <hr class="tabel">
@@ -22,7 +23,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($penduduk as $data)
+                        @foreach ($penduduk as $data)
                             <tr>
                                 <td>{{ $data->nama }}</td>
                                 <td>{{ $data->nik }}</td>
@@ -33,6 +34,9 @@
                         @endforeach
                     </tbody>
                 </table>
+            </div>
+            <div class="mt-1" style="margin-bottom: -1rem">
+                {{ $penduduk->onEachSide(1)->links() }}
             </div>
         </div>
     </div>
