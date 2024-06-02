@@ -47,26 +47,16 @@ class AlternatifController extends Controller
             'pajak_bumibangunan' => 'required',
             'pajak_kendaraan' => 'required',
             'daya_listrik' => 'required',
-            // 'daya_listrik' => [Rule::enum(DayaListrik::class)],
-            // 'no_rw' => 'string',
-            // 'status_umkm' => 'string',
         ], [
             'nkk.required' => 'NIK pemilik UMKM wajib diisi.',
-            // 'nik_pemilik_umkm.string' => 'NIK pemilik UMKM harus berupa teks.',
-            'nkk_umkm.min' => 'NKK harus harus memiliki panjang minimal :min karakter.',
+            'nkk.string' => 'NIK pemilik UMKM harus berupa teks.',
+            'nkk.min' => 'NKK harus harus memiliki panjang minimal :min karakter.',
             'nkk.max' => 'NKK harus memiliki panjang maksimal :max karakter.',
             'penghasilan.required' => 'Penghasilan wajib diisi.',
-            // 'penghasilan.string' => 'Nama UMKM harus berupa teks.',
-            // 'penghasilan.max' => 'Nama UMKM harus memiliki panjang maksimal :max karakter.',
             'tanggungan.required' => 'Tanggungan wajib diunggah.',
-            // 'tanggungan.mimes' => 'Format foto UMKM harus berupa PNG, JPG, atau JPEG.',
             'pajak_bumibangunan.required' => 'Pajak Bumi dan Bangunan wajib diisi.',
-            // 'pajak_bumibangunan.string' => 'Deskripsi UMKM harus berupa teks.',
             'pajak_kendaraan.required' => 'Pajak Kendaraan wajib diisi.',
             'daya_listrik.required' => 'Daya Listrik wajib diisi.',
-            // 'wa_umkm.string' => 'Nomor WhatsApp UMKM harus berupa teks.',
-            // 'wa_umkm.min' => 'Nomor WhatsApp UMKM harus memiliki panjang minimal :min karakter.',
-            // 'wa_umkm.max' => 'Nomor WhatsApp UMKM harus memiliki panjang maksimal :max karakter.',
         ]);
 
         // Cek apakah ada pengajuan dokumen dengan nik_pemohon yang sama dan status "Baru"

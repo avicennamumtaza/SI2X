@@ -21,41 +21,30 @@
                                     required>
                             </div>
                             <div class="form-group mb-3">
-                                <label for="penghasilan" class="form-label">Penghasilan Keluarga</label>
-                                <input class="form-control" id="penghasilan" name="penghasilan"
+                                <label for="penghasilan" class="form-label">Penghasilan Keluarga per Bulan</label>
+                                <input class="form-control" id="penghasilan" type="number" name="penghasilan"
                                     placeholder="Masukkan Penghasilan anda" required>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="tanggungan" class="form-label">Jumlah Tanggungan</label>
                                 <input class="form-control" id="tanggungan" name="tanggungan"
-                                    placeholder="Masukkan Jumlah Tanggungan " required>
+                                    placeholder="Masukkan Jumlah Tanggungan" type="number" required>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="pajak_bumibangunan" class="form-label">Pajak Bumi dan Bangunan</label>
-                                <input class="form-control" id="pajak_bumibangunan" name="pajak_bumibangunan"
-                                    placeholder="Masukkan PBB " required>
+                                <input class="form-control" id="pajak_bumibangunan" type="number" name="pajak_bumibangunan"
+                                    placeholder="Masukkan PBB" required>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="pajak_kendaraan" class="form-label">Pajak Kendaraan</label>
-                                <input class="form-control" id="pajak_kendaraan" name="pajak_kendaraan"
+                                <input class="form-control" id="pajak_kendaraan" type="number" name="pajak_kendaraan"
                                     placeholder="Masukkan Pajak Kendaraan" required>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="daya_listrik" class="form-label">Daya Listrik</label>
-                                <input class="form-control" id="daya_listrik" name="daya_listrik"
+                                <input class="form-control" id="daya_listrik" type="number" name="daya_listrik"
                                     placeholder="Masukkan Daya Listrik" required>
                             </div>
-                            {{-- <div class="form-group mb-3">
-                                <label for="id_dokumen" class="form-label">Pilih Jenis Dokumen</label>
-                                <select class="form-select" id="id_dokumen" name="id_dokumen" required>
-                                    <option value="" selected disabled>Pilih Jenis Dokumen</option>
-                                    @foreach ($dokumens as $dokumen)
-                                        <option value="{{ $dokumen->id_dokumen }}">
-                                            {{ $dokumen->jenis_dokumen }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div> --}}
                     </div>
                     <div class="modal-footer justify-content-end">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
@@ -67,7 +56,7 @@
         </div>
 
         <script>
-            document.getElementById('ajukanBansosButton').addEventListener('click', function() {
+            document.getElementById('ajukanbansosButton').addEventListener('click', function() {
                 var modal = new bootstrap.Modal(document.getElementById('ajukanBansosModal'));
                 modal.show();
             });
@@ -76,15 +65,18 @@
         <a class="fixedButton" id="ajukanbansosButton" data-bs-toggle="modal" data-bs-target="#ajukanBansosModal"
             title="Ajukan Bansos">
             <div class="roundedFixedBtn">
-                <button><i class="bi bi-box-arrow-in-up"></i>Ajukan Bansos</button>
+                <button><i class="bi bi-box-arrow-in-up"></i> Ajukan Bansos</button>
             </div>
         </a>
 
-
-
         <h1 class="heading-center">Bantuan Sosial</h1>
-        <!-- <div class="container"> -->
-        <p>penjelasa AVICENNA.</p>
-
+        <p>Bantuan Sosial adalah program yang <strong>ditujukan untuk membantu penduduk yang membutuhkan.</strong> Penduduk dapat mengajukan
+            bantuan sosial dengan mengisi formulir pengajuan yang tersedia, klik tombol pojok kanan bawah untuk mengakses formulir. Program Bantuan Sosial ini didasarkan pada
+            beberapa dasar hukum seperti Undang-Undang Nomor 11 Tahun 2009 tentang Kesejahteraan Sosial, Peraturan
+            Pemerintah Nomor 39 Tahun 2012 tentang Penyelenggaraan Kesejahteraan Sosial, Peraturan Menteri Sosial Nomor 28
+            Tahun 2017 tentang Pedoman Umum Verifikasi dan Validasi Data Terpadu
+            Penanganan Fakir Miskin dan Orang Tidak Mampu.
+        </p>
+    </div>
     </div>
 @endsection
