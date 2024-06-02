@@ -42,14 +42,7 @@ class LaporanKeuanganController extends Controller
         $latestRow = LaporanKeuangan::latest()->first();
         // Menghitung saldo
         $laporanKeuangans = LaporanKeuangan::all();
-        $saldo = 0;
-        foreach ($laporanKeuangans as $laporanKeuangan) {
-            if ($laporanKeuangan->status_pemasukan) {
-                $saldo += $laporanKeuangan->nominal;
-            } else {
-                $saldo -= $laporanKeuangan->nominal;
-            }
-        }
+        $saldo = LaporanKeuangan::orderBy('tanggal', 'desc')->pluck('saldo')->first();
 
         return $dataTable->render('auth.rw.laporankeuangan', compact('latestRow', 'saldo', 'laporanKeuangans'));
     }
