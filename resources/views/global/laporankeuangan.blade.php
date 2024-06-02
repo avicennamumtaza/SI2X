@@ -27,16 +27,6 @@
                                     </div>
                                     <div class="align-self-center">
                                         <h2 class="">
-                                            <?php
-                                                $saldo = 0;
-                                                foreach ($laporanKeuangans as $laporanKeuangan) {
-                                                    if ($laporanKeuangan->status_pemasukan) {
-                                                        $saldo += $laporanKeuangan->nominal;
-                                                    } else {
-                                                        $saldo -= $laporanKeuangan->nominal;
-                                                    }
-                                                }
-                                            ?>
                                             <b>Rp {{ number_format($saldo, 0, ',', '.') }}</b>
                                         </h2>
                                     </div>
@@ -50,11 +40,11 @@
                         <thead>
                             <tr>
                                 {{-- <th>Nomor</th> --}}
-                                <th title="Tanggal">Tanggal</th>
-                                <th title="Jenis Laporan">Jenis Laporan</th>
-                                <th title="Nominal">Nominal</th>
+                                <th title="Tanggal" style="width: 12%">Tanggal</th>
+                                <th title="Jenis Laporan" style="width: 12%">Laporan</th>
                                 <th title="Detail">Detail</th>
-                                <th title="Saldo">Saldo</th>
+                                <th title="Nominal" style="width: 15%">Nominal</th>
+                                <th title="Saldo" style="width: 15%">Saldo</th>
                                 {{-- <th>Pihak Terlibat</th> --}}
                             </tr>
                         </thead>
@@ -62,11 +52,11 @@
                             @foreach ($laporanKeuangans as $laporanKeuangan)
                                 <tr>
                                     {{-- <td>{{ $loop->iteration }}</td> --}}
-                                    <td title="Tanggal">{{ $laporanKeuangan->tanggal }}</td>
-                                    <td title="Jenis Laporan">{{ $laporanKeuangan->status_pemasukan ? 'Pemasukan' : 'Pengeluaran' }}</td>
-                                    <td title="Nominal">Rp {{ number_format($laporanKeuangan->nominal, 0, ',', '.') }}</td>
+                                    <td title="Tanggal" style="width: 12%">{{ $laporanKeuangan->tanggal }}</td>
+                                    <td title="Jenis Laporan" style="width: 12%">{{ $laporanKeuangan->status_pemasukan ? 'Pemasukan' : 'Pengeluaran' }}</td>
                                     <td title="Detail">{{ $laporanKeuangan->detail }}</td>
-                                    <td title="Saldo">Rp {{ number_format($laporanKeuangan->saldo, 0, ',', '.') }}</td>
+                                    <td title="Nominal" style="width: 15%">Rp {{ number_format($laporanKeuangan->nominal, 0, ',', '.') }}</td>
+                                    <td title="Saldo" style="width: 15%">Rp {{ number_format($laporanKeuangan->saldo, 0, ',', '.') }}</td>
                                     {{-- <td>{{ $laporanKeuangan->pihak_terlibat }}</td> --}}
                                 </tr>
                             @endforeach
