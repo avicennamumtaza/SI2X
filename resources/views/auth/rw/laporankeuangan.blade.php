@@ -96,7 +96,7 @@
 
                         <div class="form-group mb-3">
                             <label for="nominal" class="form-label text-start">Nominal</label>
-                            <input type="number" class="form-control" id="nominal" name="nominal"
+                            <input type="text" class="form-control" id="nominal" name="nominal"
                                 placeholder="Masukkan Nominal" required>
                         </div>
 
