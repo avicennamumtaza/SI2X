@@ -10,6 +10,11 @@ use App\Models\Kriteria;
 use App\Models\SkorMethodA;
 use App\Models\SkorMethodB;
 use Illuminate\Http\Request;
+use App\Models\RW;
+use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Validation\Rule;
+use App\Enums\DayaListrik as DayaListrik;
+
 
 class AlternatifController extends Controller
 {
@@ -18,7 +23,9 @@ class AlternatifController extends Controller
      */
     public function index()
     {
-        //
+        $bansos = Alternatif::all();
+        $nkks = Keluarga::select('nkk')->get();
+        return view('global.bansos')->with('bansos', $bansos)->with('nkks', $nkks);
     }
     public function list(AlternatifDataTable $dataTable)
     {
@@ -28,17 +35,69 @@ class AlternatifController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        //
-    }
-
-    /**
+     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nkk' => 'required|string|min:15|max:17',
+            'penghasilan' => 'required',
+            'tanggungan' => 'required',
+            'pajak_bumibangunan' => 'required',
+            'pajak_kendaraan' => 'required',
+            'daya_listrik' => 'required',
+            // 'daya_listrik' => [Rule::enum(DayaListrik::class)],
+            // 'no_rw' => 'string',
+            // 'status_umkm' => 'string',
+        ], [
+            'nkk.required' => 'NIK pemilik UMKM wajib diisi.',
+            // 'nik_pemilik_umkm.string' => 'NIK pemilik UMKM harus berupa teks.',
+            'nkk_umkm.min' => 'NKK harus harus memiliki panjang minimal :min karakter.',
+            'nkk.max' => 'NKK harus memiliki panjang maksimal :max karakter.',
+            'penghasilan.required' => 'Penghasilan wajib diisi.',
+            // 'penghasilan.string' => 'Nama UMKM harus berupa teks.',
+            // 'penghasilan.max' => 'Nama UMKM harus memiliki panjang maksimal :max karakter.',
+            'tanggungan.required' => 'Tanggungan wajib diunggah.',
+            // 'tanggungan.mimes' => 'Format foto UMKM harus berupa PNG, JPG, atau JPEG.',
+            'pajak_bumibangunan.required' => 'Pajak Bumi dan Bangunan wajib diisi.',
+            // 'pajak_bumibangunan.string' => 'Deskripsi UMKM harus berupa teks.',
+            'pajak_kendaraan.required' => 'Pajak Kendaraan wajib diisi.',
+            'daya_listrik.required' => 'Daya Listrik wajib diisi.',
+            // 'wa_umkm.string' => 'Nomor WhatsApp UMKM harus berupa teks.',
+            // 'wa_umkm.min' => 'Nomor WhatsApp UMKM harus memiliki panjang minimal :min karakter.',
+            // 'wa_umkm.max' => 'Nomor WhatsApp UMKM harus memiliki panjang maksimal :max karakter.',
+        ]);
+
+        // Cek apakah ada pengajuan dokumen dengan nik_pemohon yang sama dan status "Baru"
+        $existingPengajuan = Alternatif::where('nkk', $validated['nkk'])
+            ->first();
+
+        if ($existingPengajuan) {
+            $rw = RW::first();
+            Alert::error('Anda Sudah Mengajukan Bansos!', 'Silahkan tunggu informasi lebih lanjut dari Ketua RW atau hubungi Ketua RW melalui nomor ' . $rw->wa_rw);
+            return redirect()->back();
+        }
+        
+        try {
+            Alternatif::create([
+                'nkk' => $validated['nkk'],
+                'penghasilan' => $validated['penghasilan'],
+                'tanggungan' => $validated['tanggungan'],
+                'pajak_bumibangunan' => $validated['pajak_bumibangunan'],
+                'pajak_kendaraan' => $validated['pajak_kendaraan'],
+                'daya_listrik' => $validated['Daya Listrik'],
+              ]);
+            Alert::success('Data UMKM berhasil diajukan!');
+            return redirect()->back()->with('warning', 'Data yang anda masukkan berhasil1');
+        } catch (\Illuminate\Database\QueryException $e) {
+            $no_rw = RW::all()->pluck('nik_rw');
+            Alert::error('NKK Anda Tidak Terdata!', 'Silahkan hubungi RW anda untuk keperluan kelengkapan data kependudukan di Sistem Informasi Rukun Warga ini melalui nomor ' . $no_rw);
+            return redirect()->back();
+        } catch (\Exception $e) {
+            Alert::error('Oops!', $e->getMessage());
+            return redirect()->back();
+        }
     }
 
     /**
