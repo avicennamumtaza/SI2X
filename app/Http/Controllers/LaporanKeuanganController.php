@@ -21,12 +21,14 @@ class LaporanKeuanganController extends Controller
         // $this->authorize('isRt');
         // return view('global.laporankeuangan');
         $laporankeuangans = LaporanKeuangan::all()->sortByDesc('tanggal');
-        $latestLaporanKeuangan = LaporanKeuangan::latest()->first();
-        if ($latestLaporanKeuangan == null) {
-            $saldo = 0;
-        } else {
-            $saldo = $latestLaporanKeuangan->saldo;
-        }
+        // $latestLaporanKeuangan = LaporanKeuangan::latest()->first();
+        // if ($latestLaporanKeuangan == null) {
+        //     $saldo = 0;
+        // } else {
+        //     $saldo = $latestLaporanKeuangan->saldo;
+        // }
+        $saldo = LaporanKeuangan::orderBy('tanggal', 'desc')->pluck('saldo')->first();
+        // dd($saldo);
 
         foreach ($laporankeuangans as $laporankeuangan) {
             $laporankeuangan->tanggal = Carbon::parse($laporankeuangan->tanggal)->format('d-m-Y');
