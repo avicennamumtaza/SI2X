@@ -158,6 +158,7 @@ Route::prefix('manage')->group(function(){
             Route::get('/', [KeluargaController::class, 'list'])->name('keluarga.manage')->middleware('auth');
             Route::post('/', [KeluargaController::class, 'store'])->name('keluarga.store')->middleware('auth');
             Route::get('/edit/{keluarga}', [KeluargaController::class, 'edit'])->name('keluarga.edit')->middleware('auth');
+            Route::get('/{nkk}/anggota', [KeluargaController::class, 'getAnggota'])->name('keluarga.anggota')->middleware('auth');
             Route::put('/update/{keluarga}', [KeluargaController::class, 'update'])->name('keluarga.update')->middleware('auth');
             Route::delete('/{keluarga}', [KeluargaController::class, 'destroy'])->name('keluarga.destroy')->middleware('auth');
         });
