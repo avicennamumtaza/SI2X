@@ -164,7 +164,7 @@
                         Kode Pos 65137.
                     </p>
                     @php
-                        $rw = \App\Models\RW::first();
+                        $rw = \App\Models\Rw::first();
                     @endphp
                     {{-- substr_replace($umkm->wa_umkm, '62', 0, 1) --}}
                     @if ($rw)
