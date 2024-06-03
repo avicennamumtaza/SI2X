@@ -59,6 +59,9 @@ class PengajuanDokumenDataTable extends DataTable
         } else {
             return (new EloquentDataTable($query))
                 ->setRowId('id')
+                ->editColumn('created_at', function ($row) {
+                    return $row->created_at->format('d-m-Y');
+                })
                 ->addColumn('dokumen', function ($row) {
                     $namaDokumen = Dokumen::where('id_dokumen', $row->id_dokumen)->first();
                     return $namaDokumen->jenis_dokumen;
