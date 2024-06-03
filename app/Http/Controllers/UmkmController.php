@@ -8,8 +8,8 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\DataTables\UmkmDataTable;
-use App\Models\RT;
-use App\Models\RW;
+use App\Models\Rt;
+use App\Models\Rw;
 use Illuminate\Support\Facades\File;
 
 // use Illuminate\Console\View\Components\Alert;
@@ -64,7 +64,7 @@ class UmkmController extends Controller
             ->first();
 
         if ($existingPengajuan) {
-            $rw = RW::first();
+            $rw = Rw::first();
             Alert::error('Pengajuan UMKM sebelumnya belum diproses!', 'Silahkan tunggu UMKM yang anda ajukan sebelumnya diproses oleh Ketua RW atau hubungi Ketua RW melalui nomor ' . $rw->wa_rw);
             return redirect()->back();
         }
@@ -88,7 +88,7 @@ class UmkmController extends Controller
             $foto_umkm->move(public_path('Foto UMKM'), $foto_umkm_filename);
             return redirect()->back()->with('warning', 'Data UMKM yang anda ajukan akan tampil pada halaman ini jika sudah melalui proses validasi oleh Ketua RW');
         } catch (\Illuminate\Database\QueryException $e) {
-            $no_rw = RW::all()->pluck('nik_rw');
+            $no_rw = Rw::all()->pluck('nik_rw');
             Alert::error('NIK Anda Tidak Terdata!', 'Silahkan hubungi RW anda untuk keperluan kelengkapan data kependudukan di Sistem Informasi Rukun Warga ini melalui nomor ' . $no_rw);
             return redirect()->back();
         } catch (\Exception $e) {

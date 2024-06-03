@@ -10,7 +10,7 @@ use App\Models\Kriteria;
 use App\Models\SkorMethodA;
 use App\Models\SkorMethodB;
 use Illuminate\Http\Request;
-use App\Models\RW;
+use App\Models\Rw;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Validation\Rule;
 use App\Enums\DayaListrik as DayaListrik;
@@ -69,7 +69,7 @@ class AlternatifController extends Controller
             ->first();
 
         if ($existingPengajuan) {
-            $rw = RW::first();
+            $rw = Rw::first();
             Alert::error('Anda Sudah Mengajukan Bansos!', 'Silahkan tunggu informasi lebih lanjut dari Ketua RW atau hubungi Ketua RW melalui nomor ' . $rw->wa_rw);
             return redirect()->back();
         }
@@ -85,7 +85,7 @@ class AlternatifController extends Controller
               ]);
             return redirect()->back()->with('success', 'Anda berhasil mengajukan bantuan sosial!');
         } catch (\Illuminate\Database\QueryException $e) {
-            $no_rw = RW::all()->pluck('nik_rw');
+            $no_rw = Rw::all()->pluck('nik_rw');
             Alert::error('NKK Anda Tidak Terdata!', 'Silahkan hubungi RW anda untuk keperluan kelengkapan data kependudukan di Sistem Informasi Rukun Warga ini melalui nomor ' . $no_rw);
             return redirect()->back();
         } catch (\Exception $e) {

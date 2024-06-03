@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\Models\RT;
+use App\Models\Rt;
 use App\Models\Penduduk;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
@@ -66,7 +66,7 @@ class RTDataTable extends DataTable
     /**
      * Get the query source of dataTable.
      */
-    public function query(RT $model): QueryBuilder
+    public function query(Rt $model): QueryBuilder
     {
         return $model->newQuery()
         ->select('rt.*', 'penduduk.nama as nama_rt')

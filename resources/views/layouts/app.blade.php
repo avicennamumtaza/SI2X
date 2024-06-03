@@ -21,7 +21,7 @@
 
     {{-- icons --}}
     {{-- <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css"> --}}
-    <link rel="stylesheet" href="{{ asset('bootstrap-icons.min.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('bootstrap-icons.min.css') }}">
     {{-- <link rel="stylesheet" href="node_modules/"> --}}
 
 </head>
@@ -30,7 +30,7 @@
     <div class="container-fluid-nav">
         <nav class="navbar fixed-top my-3 mx-5 custom-nav navbar-expand-lg">
             <a class="navbar-brand" href="{{ route('landing') }}">
-                <img src="{{ asset('assets/Logo.png') }}" alt="tes" title="Logo SIRW">
+                <img src="{{ secure_asset('assets/Logo.png') }}" alt="tes" title="Logo SIRW">
                 <span class="navbar-brand mb-0 h1">
                     {{ config('app.name') }}
                 </span>
@@ -79,61 +79,6 @@
             </div>
         </nav>
     </div>
-    {{-- <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-                        
-                    </ul>
-                    
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                        @if (Route::has('login'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        @endif
-                        
-                        @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                        @endif
-                        @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
-                            </a>
-                            
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-                            
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                                </div>
-                            </li>
-                            @endguest
-                        </ul>
-                    </div>
-                </div>
-            </nav> --}}
-
     <main class="py-4">
         <div class="mt-9">
             @yield('content')
@@ -144,11 +89,8 @@
     @include('sweetalert::alert')
 
     <footer class="text-center text-lg-start">
-        <!-- Grid container -->
         <div class="f1 container p-5">
-            <!--Grid row-->
             <div class="row">
-                <!--Grid column-->
                 <div class="tentang col-lg-6 col-md-12 mb-4 mb-md-0">
                     <h5 class="text-uppercase">Tentang SIRW</h5>
                     <p>
@@ -156,7 +98,6 @@
                         mempermudah pengelolaan data penduduk dan memaksimalkan pelayanan warga di lingkungan RW.
                     </p>
                 </div>
-                <!--Grid column-->
                 <div class="kontak col-lg-6 col-md-12 mb-4 mb-md-0">
                     <h5 class="text-uppercase">Kontak Kami</h5>
                     <p>
@@ -164,36 +105,20 @@
                         Kode Pos 65137.
                     </p>
                     @php
-                        $rw = \App\Models\RW::first();
+                        $rw = \App\Models\Rw::first();
                     @endphp
-                    {{-- substr_replace($umkm->wa_umkm, '62', 0, 1) --}}
                     @if ($rw)
                         <a href="https://wa.me/{{ $rw->wa_rw }}" target="_blank" data-mdb-ripple-init
                             class="no-footer" title="Nomor WhatsApp RW">
                             <i class="bi bi-whatsapp me-2"></i>RW {{ substr_replace($rw->wa_rw, '+62', 0, 1) }}
                         </a>
                     @endif
-                    {{-- <a href="https://wa.me/{{ $rw->wa_rw }}" target="_blank" data-mdb-ripple-init class="no-footer">
-                    <i class="bi bi-whatsapp"></i> RW {{ $rw->wa_rw }}
-                </a> --}}
                 </div>
             </div>
         </div>
-        <!-- Copyright -->
         <div class="f2 text-center p-3">
             © 2024 Copyright : RW 06 Jodipan
         </div>
-        <!-- Copyright -->
     </footer>
-    {{-- </div> --}}
-
-
-
-    {{-- <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
-
 </body>
-
 </html>

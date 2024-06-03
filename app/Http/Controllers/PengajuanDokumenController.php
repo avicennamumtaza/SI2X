@@ -6,8 +6,8 @@ use App\DataTables\PengajuanDokumenDataTable;
 use App\Models\Dokumen;
 use App\Models\Penduduk;
 use App\Models\PengajuanDokumen;
-use App\Models\RT;
-use App\Models\RW;
+use App\Models\Rt;
+use App\Models\Rw;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -21,7 +21,7 @@ class PengajuanDokumenController extends Controller
 
         // Mengambil hanya kolom 'nik' dari model Penduduk
         $pengajuanDokumens = PengajuanDokumen::paginate(20);
-        $no_rts = RT::pluck('no_rt');
+        $no_rts = Rt::pluck('no_rt');
         // $penduduks = Penduduk::all();
         $dokumens = Dokumen::all();
 
@@ -84,7 +84,7 @@ class PengajuanDokumenController extends Controller
             ->first();
 
         if ($existingPengajuan) {
-            $wa_rt = RT::where('no_rt', $rt->no_rt)->first();
+            $wa_rt = Rt::where('no_rt', $rt->no_rt)->first();
             Alert::error('Permintaan Dokumen sebelumnya belum diproses!', 'Silahkan tunggu permintaan dokumen yang anda ajukan sebelumnya diproses oleh Ketua RT atau hubungi Ketua RT melalui nomor ' . $wa_rt->wa_rt);
             return redirect()->back();
         }
@@ -105,8 +105,8 @@ class PengajuanDokumenController extends Controller
             Alert::success('Permintaan Dokumen berhasil diajukan!');
             return redirect()->back()->with('warning', 'Status Permintaan Dokumen yang anda ajukan akan tampil pada halaman ini jika sudah melalui proses validasi oleh Ketua RT');
         } catch (\Illuminate\Database\QueryException $e) {
-            $rw = RW::all()->first();
-            $rt = RT::where('no_rt', $rt->no_rt)->first();
+            $rw = Rw::all()->first();
+            $rt = Rt::where('no_rt', $rt->no_rt)->first();
             Alert::error('NIK Anda Tidak Terdata!', 'Silahkan hubungi RT anda untuk keperluan kelengkapan data kependudukan di Sistem Informasi Rukun Warga ini melalui nomor ' . $rt->wa_rt . ', atau hubungi RW melalui nomor ' . $rw->wa_rw);
             return redirect()->back();
         } catch (\Exception $e) {

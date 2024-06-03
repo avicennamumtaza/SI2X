@@ -5,7 +5,7 @@ namespace App\DataTables;
 use App\Models\Dokumen;
 use App\Models\Penduduk;
 use App\Models\PengajuanDokumen;
-use App\Models\RT;
+use App\Models\Rt;
 use App\Models\Users;
 use DateTime;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
@@ -126,14 +126,14 @@ class PengajuanDokumenDataTable extends DataTable
         //     // Dapatkan pengguna yang sedang login
         //     $user = Users::where('id_user', auth()->user()->id_user)->first();
         //     $nikRt = $user->nik; // Ambil nilai nik dari pengguna
-        //     $noRt = RT::where('nik_rt', $nikRt)->pluck('no_rt')->first();
+        //     $noRt = Rt::where('nik_rt', $nikRt)->pluck('no_rt')->first();
         //     $pendudukRt = Penduduk::where('no_rt', $noRt)->pluck('nik');
 
         //     return $model->newQuery()->where('nik_pemohon', $pendudukRt);
         // }
         if (auth()->user()->role == 'RT') {
             $nikRt = auth()->user()->nik;
-            $noRt = RT::where('nik_rt', $nikRt)->pluck('no_rt')->first();
+            $noRt = Rt::where('nik_rt', $nikRt)->pluck('no_rt')->first();
             $pendudukRt = Penduduk::where('no_rt', $noRt)->pluck('nik');
 
             return $model->newQuery()->whereIn('nik_pemohon', $pendudukRt);
