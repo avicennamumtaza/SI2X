@@ -150,7 +150,7 @@ class PendudukSeeder extends Seeder
             if ($familyType == 'complete') {
                 // Pasangan
                 DB::table('penduduk')->insert([
-                    'nik' => $faker->unique()->numerify('################'),
+                    'nik' => $faker->unique()->numerify('3###############'),
                     'nkk' => $nkk,
                     'no_rt' => $no_rt,
                     'nama' => $faker->name(),
@@ -354,7 +354,7 @@ class PendudukSeeder extends Seeder
                     ]) : 'Belum/Tidak Bekerja';
 
                     DB::table('penduduk')->insert([
-                        'nik' => $faker->unique()->numerify('################'),
+                        'nik' => $faker->unique()->numerify('3###############'),
                         'nkk' => $nkk,
                         'no_rt' => $no_rt,
                         'nama' => $faker->name(),
@@ -476,7 +476,7 @@ class PendudukSeeder extends Seeder
                 ]) : 'Belum/Tidak Bekerja';
 
                 DB::table('penduduk')->insert([
-                    'nik' => $faker->unique()->numerify('################'),
+                    'nik' => $faker->unique()->numerify('3###############'),
                     'nkk' => $nkk,
                     'no_rt' => $no_rt,
                     'nama' => $faker->name(),
