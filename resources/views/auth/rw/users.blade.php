@@ -7,7 +7,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Tambah Pengguna</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" title="Tutup"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        title="Tutup"></button>
                 </div>
                 <div class="modal-body justify-content-start text-start">
                     <form action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data">
@@ -51,7 +52,8 @@
                                 name="password_confirmation" placeholder="Konfirmasi Password" required>
                         </div>
                         <div class="modal-footer justify-content-end">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" title="Batal tambah pengguna">Batal</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                                title="Batal tambah pengguna">Batal</button>
                             <button type="submit" class="btn btn-success" title="Tambah pengguna">Kirim</button>
                         </div>
                     </form>
@@ -66,7 +68,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="editUsersModalLabel">Edit User</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" title="Tutup"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        title="Tutup"></button>
                 </div>
                 <div class="modal-body justify-content-start text-start">
                     <form id="editUsersForm" method="POST" enctype="multipart/form-data">
@@ -106,19 +109,57 @@
                                 name="password_confirmation">
                         </div> --}}
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" title="Batal ubah pengguna">Batal</button>
-                            <button type="submit" class="btn btn-success" title="Ubah pengguna">Simpan Perubahan</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                                title="Batal ubah pengguna">Batal</button>
+                            <button type="submit" class="btn btn-success" title="Ubah pengguna">Simpan
+                                Perubahan</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+
+    {{-- {{-- Delete user --}}
+    <div class="modal fade" id="deleteUserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Konfirmasi Penghapusan</h5>
+                    {{-- <h5 class="modal-title" id="exampleModalLabel">Delete user</h5> --}}
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <!-- Form untuk penghapusan user -->
+                    <form id="deleteUserForm" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <div class="text-center mb-4">
+                            <p>Apakah anda yakin akan menghapus user berikut? Sebagai informasi, anda tidak bisa
+                                memulihkan data yang telah dihapus.</p>
+                            <h5 class="text-danger"><strong id="nikDisplay"></strong></h5>
+                            <p class="">(Nama Pengguna : <strong id="usernameDisplay"></strong>)</p>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                title="Batal hapus user">Batal</button>
+                            <button type="submit" class="btn btn-danger" title="Hapus user ">Hapus</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="card card-tabel">
         <div class="card-header card-header-tabel p-4 mb-3">
             <h5>
                 Kelola Users
-                <button class="btn btn-add float-end" data-bs-toggle="modal" data-bs-target="#tambahUsers" title="Tambah data pengguna">Tambah
+                <button class="btn btn-add float-end" data-bs-toggle="modal" data-bs-target="#tambahUsers"
+                    title="Tambah data pengguna">Tambah
                     Data</button>
             </h5>
         </div>
@@ -138,6 +179,25 @@
         {{ $dataTable->scripts() }}
         <script>
             $('#users-table').ready(function() {
+
+                $('#deleteUserModal').on('show.bs.modal', function(event) {
+                    var target = $(event.relatedTarget);
+                    let id_user = target.data('id_user');
+                    let nik = target.data('nik');
+                    let username = target.data('username');
+
+                    // Set judul pengumuman di elemen teks
+                    $('#deleteUserModal #nikDisplay').text(nik);
+                    $('#deleteUserModal #usernameDisplay').text(username);
+
+                    // Generate URL untuk form action
+                    let url = "{{ route('users.destroy', ':__id') }}";
+                    url = url.replace(':__id', id_user);
+
+                    // Set form action attribute
+                    $('#deleteUserForm').attr('action', url);
+                });
+
                 $("#editUsersModal").on("show.bs.modal", function(event) {
                     var target = $(event.relatedTarget);
                     let id_user = target.data('id_user')
