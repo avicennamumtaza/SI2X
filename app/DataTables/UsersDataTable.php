@@ -37,12 +37,16 @@ class UsersDataTable extends DataTable
                 data-email="' . $row->email . '"
                 data-bs-toggle="modal" 
                 data-bs-target="#editUsersModal" class="edit btn btn-edit btn-sm">Edit</button>';
-                $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
-                ' . csrf_field() . '
-                ' . method_field('DELETE') . '
-                <button type="submit" class="delete btn btn-delete btn-sm">Delete</button>
-                </form>
-                </div>';
+                $action .= ' <button
+                type="button" 
+                class="delete btn btn-delete btn-sm" 
+                data-bs-target="#deleteUserModal" 
+                data-bs-toggle="modal"
+                data-nik="' . $row->nik . '"
+                data-username="' . $row->username . '"
+                data-id_user="' . $row->id_user . '"
+                >Hapus</button>
+            </div>';
                 return $action;
             });
             

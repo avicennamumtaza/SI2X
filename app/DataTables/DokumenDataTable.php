@@ -33,11 +33,14 @@ class DokumenDataTable extends DataTable
                 data-deskripsi="' . $row->deskripsi . '"
                 data-bs-toggle="modal" data-bs-target="#editDokumenModal"
                 class="edit btn btn-edit btn-sm">Edit</button>';
-                $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
-                ' . csrf_field() . '
-                ' . method_field('DELETE') .
-                '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini? Proses ini akan menyebabkan data pengajuan dokumen yang menggunakan jenis dokumen terkait juga dihapus!\');">Hapus</button>
-                </form>
+                $action .= ' <button
+                type="button" 
+                    class="delete btn btn-delete btn-sm" 
+                    data-bs-target="#deleteDokumenModal" 
+                    data-bs-toggle="modal"
+                    data-jenis_dokumen="' . $row->jenis_dokumen . '"
+                    data-id="' . $row->id_dokumen . '"
+                    >Hapus</button>
                 </div>';
                 return $action;
             });
