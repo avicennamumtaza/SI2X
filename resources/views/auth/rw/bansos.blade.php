@@ -1,7 +1,7 @@
 @extends('layouts.sidebar')
 
 @section('content')
-    {{-- {{-- Delete Pengumuman --}}
+    {{-- {{-- Delete bansos --}}
     <div class="modal fade" id="deleteBansosModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-md">
             <div class="modal-content">
@@ -11,7 +11,7 @@
                 </div>
 
                 <div class="modal-body">
-                    <!-- Form untuk penghapusan pengumuman -->
+                    <!-- Form untuk penghapusan bansos -->
                     <form id="deleteBansosForm" method="POST">
                         @csrf
                         @method('DELETE')
@@ -22,8 +22,8 @@
                         </div>
                         <div class="modal-footer justify-content-center">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                                title="Batal hapus pengumuman">Batal</button>
-                            <button type="submit" class="btn btn-danger" title="Hapus pengumuman">Hapus</button>
+                                title="Batal hapus bansos">Batal</button>
+                            <button type="submit" class="btn btn-danger" title="Hapus bansos">Hapus</button>
                         </div>
                     </form>
                 </div>
