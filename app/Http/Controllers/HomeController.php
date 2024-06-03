@@ -8,8 +8,8 @@ use App\Models\LaporanKeuangan;
 use App\Models\Penduduk;
 use App\Models\PengajuanDokumen;
 use App\Models\Pengumuman;
-use App\Models\RT;
-use App\Models\RW;
+use App\Models\Rt;
+use App\Models\Rw;
 use App\Models\Umkm;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -36,7 +36,7 @@ class HomeController extends Controller
     {
         if (auth()->user()->role == 'RW') {
             $jumlahRt = Cache::remember('jumlahRt', 600, function () {
-                return RT::count();
+                return Rt::count();
             });
 
             $jumlahKeluarga = Cache::remember('jumlahKeluarga', 600, function () {
