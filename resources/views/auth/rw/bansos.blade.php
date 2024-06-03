@@ -1,6 +1,37 @@
 @extends('layouts.sidebar')
 
 @section('content')
+    {{-- {{-- Delete Pengumuman --}}
+    <div class="modal fade" id="deleteBansosModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Konfirmasi Penghapusan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <!-- Form untuk penghapusan pengumuman -->
+                    <form id="deleteBansosForm" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <div class="text-center mb-4">
+                            <p>Apakah anda yakin akan menghapus data bansos keluarga berikut? Sebagai informasi, anda tidak
+                                bisa memulihkan data yang telah dihapus.</p>
+                            <h5 class="text-danger"><strong id="nkkDisplay"></strong></h5>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                title="Batal hapus pengumuman">Batal</button>
+                            <button type="submit" class="btn btn-danger" title="Hapus pengumuman">Hapus</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="card card-tabel">
         <div class="card-header card-header-tabel p-4 mb-3">
             <h5>
@@ -10,8 +41,8 @@
                         Data</button>
                     <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#importPenduduk">Impor
                         Data</button> --}}
-                        <a href="{{ route('spk.result') }}"><button class="btn btn-add">Kalkulasi Metode A</button></a>
-                        <a href="{{ route('spkk.result') }}"><button class="btn btn-add">Kalkulasi Metode B</button></a>
+                    <a href="{{ route('spk.result') }}"><button class="btn btn-add">Kalkulasi Metode A</button></a>
+                    <a href="{{ route('spkk.result') }}"><button class="btn btn-add">Kalkulasi Metode B</button></a>
                 </span>
             </h5>
         </div>
@@ -24,5 +55,27 @@
     </div>
     @push('scripts')
         {{ $dataTable->scripts() }}
+        <script>
+            $('#pengumuman-table').ready(function() {
+
+                $('#deleteBansosModal').on('show.bs.modal', function(event) {
+                    var target = $(event.relatedTarget);
+                    let nkk = target.data('nkk');
+
+                    // Set judul pengumuman di elemen teks
+                    $('#deleteBansosModal #nkkDisplay').text(nkk);
+
+
+                    // Generate URL untuk form action
+                    let url = "{{ route('bansos.destroy', ':__id') }}";
+                    url = url.replace(':__id', nkk);
+
+                    // Set form action attribute
+                    $('#deleteBansosForm').attr('action', url);
+                });
+
+
+            });
+        </script>
     @endpush
 @endsection
