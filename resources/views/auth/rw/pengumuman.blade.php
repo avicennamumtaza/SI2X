@@ -123,16 +123,6 @@
                 <div class="modal-body">
                     <!-- Form untuk penghapusan pengumuman -->
                     <form id="deletePengumumanForm" method="POST">
-                        {{-- @csrf
-                        @method('DELETE')
-                        <div class="text-center mb-4">
-                            <p>Apakah Anda yakin ingin menghapus pengumuman dengan judul:</p>
-                            <h6 class="text-danger"><strong id="judulDisplay"></strong></h6>
-                        </div>
-                        <div class="modal-footer justify-content-center">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                            <button type="submit" class="btn btn-danger">Hapus</button>
-                        </div> --}}
                         @csrf
                         @method('DELETE')
                         <div class="text-center mb-4">
@@ -165,7 +155,8 @@
                     <form action="{{ route('pengumuman.hapus-lama') }}" method="POST">
                         @csrf
                         <div class="form-group text-center">
-                            <label for="hari">Anda bisa mengatur berapa lama selisih (dalam satuan hari) untuk pengumuman
+                            <label for="hari">Anda bisa mengatur berapa lama selisih (dalam satuan hari) untuk
+                                pengumuman
                                 lama yang akan dihapus. Sebagai contoh, anda perlu memasukkan angka 30 untuk menghapus semua
                                 pengumuman yang tanggalnya lebih dari 30 hari yang lalu, terhitung sejak hari ini.</label>
                             <input type="number" name="hari" id="hari" class="form-control my-3"
@@ -188,8 +179,8 @@
                     <button class="btn btn-add float-end mx-2" data-bs-toggle="modal" data-bs-target="#tambahPengumuman"
                         title="Tambah pengumuman">Tambah
                         Data</button>
-                    <button class="btn btn-delete float-end mx-2" data-bs-toggle="modal" data-bs-target="#penghapusanPengumuman"
-                        title="Penghapusan pengumuman">Penghapusan
+                    <button class="btn btn-delete float-end mx-2" data-bs-toggle="modal"
+                        data-bs-target="#penghapusanPengumuman" title="Penghapusan pengumuman">Penghapusan
                         Data</button>
                 </span>
             </h5>
