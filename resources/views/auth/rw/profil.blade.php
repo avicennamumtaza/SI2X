@@ -147,10 +147,10 @@
                                     </div>
 
                                     <div class="form-group row pe-5 py-2">
-                                        <div class="offset-lg-11 offset-md-5">
+                                        <div class="offset-lg-10 offset-md-5">
                                             <button type="button" data-bs-toggle="modal"
                                                 data-bs-target="#editUserPasswordModal" class="edit btn btn-edit btn-sm" title="Ubah profil">
-                                                Edit
+                                                Edit Profil
                                             </button>
 
                                             {{-- <button type="submit" class="edit btn btn-edit btn-sm">

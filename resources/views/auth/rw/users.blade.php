@@ -157,7 +157,7 @@
     <div class="card card-tabel">
         <div class="card-header card-header-tabel p-4 mb-3">
             <h5>
-                Kelola Users
+                Kelola Pengguna
                 <button class="btn btn-add float-end" data-bs-toggle="modal" data-bs-target="#tambahUsers"
                     title="Tambah data pengguna">Tambah
                     Data</button>
