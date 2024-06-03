@@ -86,4 +86,9 @@ class KeluargaController extends Controller
         return redirect()->back()
             ->with('success', 'Keluarga berhasil dihapus.');
     }
+
+    public function getAnggota($nkk){
+        $anggota = Penduduk::where('nkk', $nkk)->get();
+        return response()->json($anggota);
+    }
 }

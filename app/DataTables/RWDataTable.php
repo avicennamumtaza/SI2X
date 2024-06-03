@@ -2,6 +2,7 @@
 
 namespace App\DataTables;
 
+use App\Models\Penduduk;
 use App\Models\RW;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
@@ -22,26 +23,45 @@ class RWDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-        ->setRowId('id')
-        ->addColumn('action', function($row){
-            // $editUrl = route('rw.edit', $row->no_rw);
-            $deleteUrl = route('rw.destroy', $row->no_rw);
-            $action = '
+            ->setRowId('id')
+            ->addColumn('nama_rw', function ($row) {
+                $nama_rw = Penduduk::where('nik', $row->nik_rw)->value('nama');
+                return $nama_rw;
+            })
+            ->addColumn('action', function ($row) {
+                $deleteUrl = route('rw.destroy', $row->no_rw);
+
+                $nama_rw = Penduduk::where('nik', $row->nik_rw)->value('nama');
+
+                $action = '
+            <div class="container-action">';
+
+                $action .= '
             <div class="container-action">
             <button type="button"
             data-id="' . $row->no_rw . '"
             data-nik_rw="' . $row->nik_rw . '"
             data-wa_rw="' . $row->wa_rw . '"
-            data-bs-toggle="modal" data-bs-target="#editRwModal" class="edit-user edit btn btn-edit btn-sm">Edit</button>';
-            // $action .= '
-            // <form action="' . $deleteUrl . '" method="post" style="display:inline;">
-            //     ' . csrf_field() . '
-            //     ' . method_field('DELETE') .
-            //     '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
-            //     </form>
-            // </div>';
-            return $action;
-        });
+            data-nama_rw="' . $nama_rw . '"
+            data-jumlah_penduduk="' . $row->penduduk->count() . '"
+            data-bs-toggle="modal" data-bs-target="#showRwModal" class="show-user show btn btn-show btn-sm">Tampil</button>';
+
+                $action .= '
+            <button type="button"
+            data-id="' . $row->no_rw . '"
+            data-nik_rw="' . $row->nik_rw . '"
+            data-wa_rw="' . $row->wa_rw . '"
+            data-bs-toggle="modal" data-bs-target="#editRwModal" class="edit-user edit btn btn-edit btn-sm">Edit</button>
+            </div>';
+                // $action .= '
+                // <form action="' . $deleteUrl . '" method="post" style="display:inline;">
+                //     ' . csrf_field() . '
+                //     ' . method_field('DELETE') .
+                //     '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
+                //     </form>
+                // </div>';
+                return $action;
+            });
     }
 
     /**
@@ -58,25 +78,25 @@ class RWDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-                    ->setTableId('rw-table')
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->orderBy(0, 'asc') // Set default order by column 0 (id_pengumuman)
-                    ->parameters([
-                        'language' => [
-                            'search' => '', // Menghilangkan teks "Search:"
-                            'searchPlaceholder' => 'Cari Data RW', // Placeholder untuk kolom pencarian
-                            'paginate' => [
-                                'previous' => 'Kembali', // Mengubah teks "Previous"
-                                'next' => 'Lanjut', // Mengubah teks "Next"
-                            ],
-                            'info' => 'Menampilkan _START_ hingga _END_ dari _TOTAL_ entri', // Ubah teks sesuai keinginan Anda
-                        ],
-                        'dom' => 'Bfrtip', // Menambahkan tombol
-                        'buttons' => [], // Menambahkan tombol ekspor dan lainnya
-                        'order' => [], // Mengaktifkan order by untuk setiap kolom
-                    ])
-                    ->selectStyleSingle();
+            ->setTableId('rw-table')
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            ->orderBy(0, 'asc') // Set default order by column 0 (id_pengumuman)
+            ->parameters([
+                'language' => [
+                    'search' => '', // Menghilangkan teks "Search:"
+                    'searchPlaceholder' => 'Cari Data RW', // Placeholder untuk kolom pencarian
+                    'paginate' => [
+                        'previous' => 'Kembali', // Mengubah teks "Previous"
+                        'next' => 'Lanjut', // Mengubah teks "Next"
+                    ],
+                    'info' => 'Menampilkan _START_ hingga _END_ dari _TOTAL_ entri', // Ubah teks sesuai keinginan Anda
+                ],
+                'dom' => 'Bfrtip', // Menambahkan tombol
+                'buttons' => [], // Menambahkan tombol ekspor dan lainnya
+                'order' => [], // Mengaktifkan order by untuk setiap kolom
+            ])
+            ->selectStyleSingle();
     }
 
     /**
@@ -86,14 +106,15 @@ class RWDataTable extends DataTable
     {
         return [
             Column::make('no_rw')->width(100)->title('Nomor RW'),
-            Column::make('nik_rw')->width(200)->title('NIK RW'),
-            Column::make('wa_rw')->width(200)->title('Nomor WhatsApp RW'),
+            Column::make('nama_rw')->width(200)->title('Nama RW'),
+            // Column::make('nik_rw')->width(200)->title('NIK RW'),
+            // Column::make('wa_rw')->width(200)->title('Nomor WhatsApp RW'),
             Column::computed('action')
-                  ->exportable(false)
-                  ->printable(false)
-                  ->width(100)
-                  ->addClass('text-center')
-                  ->title('Aksi'),
+                ->exportable(false)
+                ->printable(false)
+                ->width(100)
+                ->addClass('text-center')
+                ->title('Aksi'),
         ];
     }
 

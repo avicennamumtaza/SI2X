@@ -78,6 +78,7 @@
                 <div class="row">
                     <div class="col-xl-4 col-md-4 col-sm-12 mb-4">
                         <div class="card">
+                            <a href="{{ route('anak') }}" class="secondary" style="text-decoration: none">
                             <div class="card-body" title="Jumlah anak-anak">
                                 <div class="d-flex justify-content-between p-md-1">
                                     <div class="d-flex flex-row">
@@ -91,10 +92,12 @@
                                     </div>
                                 </div>
                             </div>
+                            </a>
                         </div>
                     </div>
                     <div class="col-xl-4 col-md-4 col-sm-12 mb-4">
                         <div class="card">
+                            <a href="{{ route('produktif') }}" class="secondary" style="text-decoration: none">
                             <div class="card-body" title="Jumlah penduduk berusia produktif">
                                 <div class="d-flex justify-content-between p-md-1">
                                     <div class="d-flex flex-row">
@@ -108,10 +111,12 @@
                                     </div>
                                 </div>
                             </div>
+                            </a>
                         </div>
                     </div>
                     <div class="col-xl-4 col-md-4 col-sm-12 mb-4">
                         <div class="card">
+                        <a href="{{ route('lansia') }}" class="secondary" style="text-decoration: none;">
                             <div class="card-body" title="Jumlah penduduk lansia">
                                 <div class="d-flex justify-content-between p-md-1">
                                     <div class="d-flex flex-row">
@@ -125,6 +130,7 @@
                                     </div>
                                 </div>
                             </div>
+                        </a>
                         </div>
                     </div>
                 </div>

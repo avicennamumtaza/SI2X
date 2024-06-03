@@ -163,6 +163,7 @@ Route::prefix('manage')->group(function(){
             Route::get('/', [KeluargaController::class, 'list'])->name('keluarga.manage')->middleware('auth');
             Route::post('/', [KeluargaController::class, 'store'])->name('keluarga.store')->middleware('auth');
             Route::get('/edit/{keluarga}', [KeluargaController::class, 'edit'])->name('keluarga.edit')->middleware('auth');
+            Route::get('/{nkk}/anggota', [KeluargaController::class, 'getAnggota'])->name('keluarga.anggota')->middleware('auth');
             Route::put('/update/{keluarga}', [KeluargaController::class, 'update'])->name('keluarga.update')->middleware('auth');
             Route::delete('/{keluarga}', [KeluargaController::class, 'destroy'])->name('keluarga.destroy')->middleware('auth');
         });
@@ -189,9 +190,9 @@ Route::prefix('dokumen')->group(function(){
 });
 
 Route::prefix('usia')->group(function() {
-    Route::get('/lansia', [PendudukController::class, 'getLansia'])->name('lansia')->middleware('isRw');
-    Route::get('/produktif', [PendudukController::class, 'getProduktif'])->name('produktif')->middleware('isRw');
-    Route::get('/anak', [PendudukController::class, 'getAnak'])->name('anak')->middleware('isRw');
+    Route::get('/lansia', [PendudukController::class, 'getLansia'])->name('lansia')->middleware('auth');
+    Route::get('/produktif', [PendudukController::class, 'getProduktif'])->name('produktif')->middleware('auth');
+    Route::get('/anak', [PendudukController::class, 'getAnak'])->name('anak')->middleware('auth');
 });
 
 Route::prefix('profil')->group(function() {

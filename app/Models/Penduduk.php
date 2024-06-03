@@ -45,12 +45,11 @@ class Penduduk extends Model
         'status_pernikahan' => StatusPernikahan::class,
     ];
 
-    // public function keluarga(): BelongsTo
-    // {
-    //     return $this->belongsTo(Keluarga::class, 'nkk', 'nkk');
-    // }
+    public function keluarga(): BelongsTo
+    {
+        return $this->belongsTo(Keluarga::class, 'nkk', 'nkk');
+    }
 
-    // public function keluarga(): BelongsTo
     public function rw(): HasOne
     {
         return $this->hasOne(RW::class, 'nik_rw', 'nik');

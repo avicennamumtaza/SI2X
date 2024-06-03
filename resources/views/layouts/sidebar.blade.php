@@ -187,8 +187,22 @@
                             <span>Keluar</span>
                         </a>
                     </div>
-
                 </li>
+                {{-- <li class="sidebar-item {{ \Route::is('profil.manage') ? 'active' : '' }}" title="Profil">
+                    <a href="{{ route('profil.manage') }}" class="sidebar-link d-flex align-items-center">
+                        <!-- Profile Picture -->
+                        <img src="{{ asset($users->foto_profil ? 'Foto Users/' . $users->foto_profil : 'Foto Users/default.jpg') }}" 
+                             alt="Foto Profil" 
+                             class="rounded-circle me-2" 
+                             style="width: 40px; height: 40px; object-fit: cover;">
+                        
+                        <!-- User Info -->
+                        <div class="user-info">
+                            <span class="text-muted">{{ $users->username }}</span>
+                            <span class="text-muted">{{ $users->role }}</span>
+                        </div>
+                    </a>
+                </li> --}}
             </ul>
         </aside>
         <div class=""

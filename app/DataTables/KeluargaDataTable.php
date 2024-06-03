@@ -25,10 +25,18 @@ class KeluargaDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->setRowId('id')
-            ->addColumn('action', function($row){
+            ->addColumn('action', function ($row) {
 
                 $deleteUrl = route('keluarga.destroy', $row->nkk);
-                $action ='
+                $action = '
+                <div class="container-action">
+                <button type="button"
+                data-id="' . $row->nkk . '"
+                data-no_rt="' . $row->no_rt . '"
+                data-nik_kepala="' . $row->nik_kepala_keluarga . '"
+                data-bs-toggle="modal" data-bs-target="#showKeluargaModal" class="show-user show btn btn-show btn-sm">Tampil</button>';
+
+                $action .= '
                 <div class="container-action">
                 <button type="button"
                 data-id="' . $row->nkk . '"
@@ -107,11 +115,11 @@ class KeluargaDataTable extends DataTable
             Column::make('no_rt')->width(100)->title('Nomor RT'),
             Column::make('nik_kepala_keluarga')->title('Kepala Keluarga')->width(300),
             Column::computed('action')
-              ->exportable(false)
-              ->printable(false)
-              ->width(200)
-              ->addClass('text-center')
-              ->title('Aksi'),
+                ->exportable(false)
+                ->printable(false)
+                ->width(200)
+                ->addClass('text-center')
+                ->title('Aksi'),
             // Column::make('created_at'),
             // Column::make('updated_at'),
         ];

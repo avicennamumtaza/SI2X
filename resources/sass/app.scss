@@ -92,7 +92,7 @@ $fourthCol: #4461AE;
 @mixin tombolDelete {
     background-color: rgb(195, 8, 8);
     border-radius: 0.7em;
-    padding-inline: 10px;
+    padding-inline: 14px;
     padding-block: 7px;
     color: #ffffff;
     text-decoration: none;
@@ -100,7 +100,7 @@ $fourthCol: #4461AE;
     transition: 0.1s ease-in-out;
 
     &:hover {
-        padding-inline: 9px;
+        padding-inline: 13px;
         padding-block: 6px;
         background-color: #ffffff;
         // border: 1px solid rgb(195, 8, 8);
@@ -127,6 +127,16 @@ $fourthCol: #4461AE;
         font-weight: 700;
         color: rgb(247, 144, 34);
     }
+}
+
+.btn-delete {
+    @include tombolDelete();
+    // margin-inline: 10px;
+}
+
+.btn-edit {
+    @include tombolEdit();
+    // margin-inline: 10px;
 }
 
 .primary {
@@ -201,23 +211,8 @@ body {
     }
 
     .btn-edit {
-        background-color: rgb(247, 144, 34);
-        border-radius: 0.7em;
-        padding-inline: 18px;
-        padding-block: 7px;
-        color: #ffffff;
-        text-decoration: none;
-        border: none;
-        transition: 0.1s;
-
-        &:hover {
-            // padding-inline: 17px;
-            // padding-block: 6px;
-            background-color: rgb(244, 212, 178);
-            // border: 1px solid rgb(247, 144, 34);
-            font-weight: 700;
-            color: rgb(247, 144, 34);
-        }
+        @include tombolEdit();
+        // margin-inline: 10px;
     }
 
     .btn-show {
@@ -238,6 +233,26 @@ body {
             font-weight: 700;
             color: rgb(100, 136, 234)
         }
+    }
+
+    .btn-deleting {
+        background-color: rgb(195, 8, 8);
+        border-radius: 0.7em;
+        padding-inline: 18px;
+        padding-block: 7px;
+        color: #ffffff;
+        text-decoration: none;
+        border: none;
+        transition: 0.1s ease-in-out;
+
+    &:hover {
+        padding-inline: 9px;
+        padding-block: 6px;
+        background-color: #ffffff;
+        // border: 1px solid rgb(195, 8, 8);
+        font-weight: 700;
+        color: rgb(195, 8, 8);
+    }
     }
 
     .container-action {

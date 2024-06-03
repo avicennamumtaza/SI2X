@@ -24,6 +24,10 @@ class UmkmDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->setRowId('id')
+            ->addColumn('nama_pemilik', function ($row) {
+                $pemilik = Penduduk::where('nik', $row->nik_pemilik)->first();                
+                return $pemilik->nama;
+            })
             ->addColumn('status_umkm', function ($row) {
                 $status = $row->status_umkm;
                 $badgeColor = 'darkgoldenrod'; // Default color for 'Baru'
@@ -41,7 +45,7 @@ class UmkmDataTable extends DataTable
                 <span style="background-color: ' . $badgeColor . '; display: flex; font-weight: 600; padding-inline: 10px; padding-block: 5px; width: fit-content; text-align: center;" class="badge rounded-pill">' . $status . '</span>
                 </div>';
             })
-            ->rawColumns(['status_umkm', 'action']) // Make sure to include 'status_umkm' in rawColumns
+            ->rawColumns(['status_umkm', 'action', 'nama_pemilik']) // Make sure to include 'status_umkm' in rawColumns
             ->addColumn('action', function ($row) {
                 $pemilik = Penduduk::where('nik', $row->nik_pemilik)->first();
                 $action = '
@@ -115,7 +119,7 @@ class UmkmDataTable extends DataTable
     {
         return [
             // Column::make('id_umkm')->title('ID')->width(1),
-            Column::make('nik_pemilik')->title('Pemilik')->width(50),
+            Column::make('nama_pemilik')->title('Pemilik')->width(70),
             Column::make('nama_umkm')->title('Nama UMKM')->width(100),
             Column::make('deskripsi_umkm')->title('Deskripsi')->width(400),
             Column::make('status_umkm')->title('Status')->width(20),

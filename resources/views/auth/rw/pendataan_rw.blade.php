@@ -47,6 +47,48 @@
         </div>
     </div>
 
+    {{-- {{-- Show RW --}}
+    <div class="modal fade" id="showRwModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Detail RW</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body justify-content-start text-start">
+                    <div class="form-group mb-3">
+                        <label for="nama_rw" class="form-label text-start">Nama RW</label>
+                        <input type="text" class="form-control" id="nama_rw" name="nama_rw" readonly>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="no_rw" class="form-label text-start">Nomor RW</label>
+                        <input type="text" class="form-control" id="no_rw" name="no_rw" readonly>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="nik_rw" class="form-label">NIK RW</label>
+                        <input type="text" class="form-control" id="nik_rw" name="nik_rw" readonly></input>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="wa_rw" class="form-label">Nomor WhatsApp RW</label>
+                        <input type="text" class="form-control" id="wa_rw" name="wa_rw" readonly>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="jumlah_penduduk" class="form-label">Jumlah Penduduk</label>
+                        <input type="text" class="form-control" id="jumlah_penduduk" name="jumlah_penduduk" readonly>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-end">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     {{-- {{-- Edit RW --}}
     <div class="modal fade" id="editRwModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-md">
@@ -108,6 +150,22 @@
         {{ $dataTable->scripts() }}
         <script>
             $('#rw-table').ready(function() {
+                $("#showRwModal").on("show.bs.modal", function(event) {
+
+                    var target = $(event.relatedTarget);
+                    let no_rw = target.data('id')
+                    let nik_rw = target.data('nik_rw')
+                    let wa_rw = target.data('wa_rw')
+                    let nama_rw = target.data('nama_rw')
+                    let jumlah_penduduk = target.data('jumlah_penduduk')
+
+                    $('#showRwModal #no_rw').val(no_rw);
+                    $('#showRwModal #nik_rw').val(nik_rw);
+                    $('#showRwModal #wa_rw').val(wa_rw);
+                    $('#showRwModal #nama_rw').val(nama_rw);
+                    $('#showRwModal #jumlah_penduduk').val(jumlah_penduduk);
+                });
+
                 $("#editRwModal").on("show.bs.modal", function(event) {
 
                     var target = $(event.relatedTarget);

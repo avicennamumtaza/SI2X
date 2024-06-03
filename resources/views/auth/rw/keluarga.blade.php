@@ -45,6 +45,46 @@
         </div>
     </div>
 
+    {{-- Show Keluarga --}}
+    <div class="modal fade" id="showKeluargaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel" title="Edit Keluarga">Detail Keluarga</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body justify-content-start text-start">
+                    <div class="form-group mb-3">
+                        <label for="nkk" class="form-label text-start">NKK</label>
+                        <input type="text" class="form-control" id="nkk" name="nkk" readonly>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="no_rt" class="form-label text-start">Nomor RT</label>
+                        <input type="text" class="form-control" id="no_rt" name="no_rt" readonly>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="nik_kepala" class="form-label text-start">NIK Kepala Keluarga</label>
+                        <input type="text" class="form-control" id="nik_kepala" name="nik_kepala" readonly>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="pendudukList" class="form-label text-start">Anggota Keluarga</label>
+                        <ul id="pendudukList" class="list-group">
+                            <!-- Daftar penduduk akan dimasukkan di sini -->
+                        </ul>
+                    </div>
+
+                    <div class="modal-footer justify-content-end">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     {{-- Edit Keluarga --}}
     <div class="modal fade" id="editKeluargaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-md">
@@ -156,6 +196,41 @@
                     $('#deleteKeluargaForm').attr('action', url);
                 });
 
+
+                $("#showKeluargaModal").on("show.bs.modal", function(event) {
+
+                    var target = $(event.relatedTarget);
+                    let nkk = target.data('id')
+                    let no_rt = target.data('no_rt')
+                    let nik_kepala = target.data('nik_kepala')
+                    let anggota = target.data('anggota')
+
+                    $('#showKeluargaModal #nkk').val(nkk);
+                    $('#showKeluargaModal #no_rt').val(no_rt);
+                    $('#showKeluargaModal #nik_kepala').val(nik_kepala);
+                    $('#showKeluargaModal #anggota').val(anggota);
+
+                    // Memuat daftar penduduk berdasarkan NKK
+                    $.ajax({
+                        url: "{{ url('manage/pendataan/keluarga') }}/" + nkk + "/anggota",
+                        method: 'GET',
+                        success: function(response) {
+                            var pendudukList = $("#pendudukList");
+                            pendudukList.empty(); // Kosongkan daftar sebelumnya
+                            if (response.length > 0) {
+                                response.forEach(function(penduduk) {
+                                    pendudukList.append(
+                                        '<li class="list-group-item">' + penduduk.nama +
+                                        ' (' + penduduk.nik + ')</li>'
+                                    );
+                                });
+                            } else {
+                                pendudukList.append(
+                                    '<li class="list-group-item">Tidak ada data penduduk</li>');
+                            }
+                        }
+                    });
+                });
 
                 $("#editKeluargaModal").on("show.bs.modal", function(event) {
 
