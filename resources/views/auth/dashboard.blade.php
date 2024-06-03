@@ -78,6 +78,7 @@
                 <div class="row">
                     <div class="col-xl-4 col-md-4 col-sm-12 mb-4">
                         <div class="card">
+                            <a href="{{ route('anak') }}" class="secondary" style="text-decoration: none">
                             <div class="card-body" title="Jumlah anak-anak">
                                 <div class="d-flex justify-content-between p-md-1">
                                     <div class="d-flex flex-row">
@@ -91,10 +92,12 @@
                                     </div>
                                 </div>
                             </div>
+                            </a>
                         </div>
                     </div>
                     <div class="col-xl-4 col-md-4 col-sm-12 mb-4">
                         <div class="card">
+                            <a href="{{ route('produktif') }}" class="secondary" style="text-decoration: none">
                             <div class="card-body" title="Jumlah penduduk berusia produktif">
                                 <div class="d-flex justify-content-between p-md-1">
                                     <div class="d-flex flex-row">
@@ -108,10 +111,12 @@
                                     </div>
                                 </div>
                             </div>
+                            </a>
                         </div>
                     </div>
                     <div class="col-xl-4 col-md-4 col-sm-12 mb-4">
                         <div class="card">
+                        <a href="{{ route('lansia') }}" class="secondary" style="text-decoration: none;">
                             <div class="card-body" title="Jumlah penduduk lansia">
                                 <div class="d-flex justify-content-between p-md-1">
                                     <div class="d-flex flex-row">
@@ -125,6 +130,7 @@
                                     </div>
                                 </div>
                             </div>
+                        </a>
                         </div>
                     </div>
                 </div>
@@ -154,7 +160,8 @@
                                             <p class="mb-0">Jumlah Permintaan Dokumen Secara Keseluruhan</p>
                                         </div>
                                     </div>
-                                    <a href="{{ route('pengajuandokumen.manage') }}" style="text-decoration: none" title="Kelola pengajuan dokumen">
+                                    <a href="{{ route('pengajuandokumen.manage') }}" style="text-decoration: none"
+                                        title="Kelola pengajuan dokumen">
                                         <button type="button" class="mt-2 btn primary position-relative">
                                             Selengkapnya
                                             @if ($jumlahPengajuanDokumenNew > 0)
@@ -237,90 +244,74 @@
                 <div class="row">
                     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 mb-4" tit>
                         <div class="card">
-                            <div class="card-body" title="Jumlah laporan keuangan">
-                                <div class="d-flex justify-content-between">
-                                    <div class="d-flex flex-row">
-                                        <div class="align-self-center">
-                                            <h2 class="h3 mb-0 me-3">{{ $jumlahLaporanKeuangan }}</h2>
-                                        </div>
-                                        <div>
-                                            <h5 style="margin-bottom: 0px; font-size: 1rem;">Laporan Keuangan</h5>
-                                            {{-- <p class="mb-0">0-14 tahun</p> --}}
+                            <a style="text-decoration: none;" class="secondary" href="{{ route('laporankeuangan.manage') }}">
+                                <div class="card-body" title="Jumlah laporan keuangan">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex flex-row">
+                                            <div class="align-self-center">
+                                                <h2 class="h3 mb-0 me-3">{{ $jumlahLaporanKeuangan }}</h2>
+                                            </div>
+                                            <div>
+                                                <h5 style="margin-bottom: 0px; font-size: .9rem;">Laporan <br>Keuangan</h5>
+                                            </div>
                                         </div>
                                     </div>
-                                    {{-- <a href="{{ route('laporankeuangan.manage') }}" style="text-decoration: none">
-                                        <button type="button" class="mt-2 btn primary position-relative">
-                                            >
-                                        </button>
-                                    </a> --}}
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 mb-4">
                         <div class="card">
-                            <div class="card-body" title="Jumlah pengumuman yang dipublikasi">
-                                <div class="d-flex justify-content-between">
-                                    <div class="d-flex flex-row">
-                                        <div class="align-self-center">
-                                            <h2 class="h3 mb-0 me-3">{{ $jumlahPengumuman }}</h2>
-                                        </div>
-                                        <div>
-                                            <h5 style="margin-bottom: 0px; font-size: 1rem;">Publikasi Pengumuman</h5>
-                                            {{-- <p class="mb-0">15-64 tahun</p> --}}
+                            <a style="text-decoration: none;" class="secondary" href="{{ route('pengumuman.manage') }}">
+                                <div class="card-body" title="Jumlah pengumuman yang dipublikasi">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex flex-row">
+                                            <div class="align-self-center">
+                                                <h2 class="h3 mb-0 me-3">{{ $jumlahPengumuman }}</h2>
+                                            </div>
+                                            <div>
+                                                <h5 style="margin-bottom: 0px; font-size: .9rem;">Publikasi Pengumuman</h5>
+                                            </div>
                                         </div>
                                     </div>
-                                    {{-- <a href="{{ route('pengumuman.manage') }}" style="text-decoration: none">
-                                        <button type="button" class="mt-2 btn primary position-relative">
-                                            >
-                                        </button>
-                                    </a> --}}
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 mb-4">
                         <div class="card">
-                            <div class="card-body" title="Jumlah UMKM yang diajukan">
-                                <div class="d-flex justify-content-between">
-                                    <div class="d-flex flex-row">
-                                        <div class="align-self-center">
-                                            <h2 class="h3 mb-0 me-3">{{ $jumlahUmkm }}</h2>
-                                        </div>
-                                        <div>
-                                            <h5 style="margin-bottom: 0px; font-size: 1rem;">Pengajuan <br> UMKM</h5>
-                                            {{-- <p class="mb-0">Pengajuan Ditolak</p> --}}
+                            <a style="text-decoration: none;" class="secondary" href="{{ route('umkm.manage') }}">
+                                <div class="card-body" title="Jumlah UMKM yang diajukan">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex flex-row">
+                                            <div class="align-self-center">
+                                                <h2 class="h3 mb-0 me-3">{{ $jumlahUmkm }}</h2>
+                                            </div>
+                                            <div>
+                                                <h5 style="margin-bottom: 0px; font-size: .9rem;">Pengajuan <br>UMKM</h5>
+                                            </div>
                                         </div>
                                     </div>
-                                    {{-- <a href="{{ route('umkm.manage') }}" style="text-decoration: none">
-                                        <button type="button" class="mt-2 btn primary position-relative">
-                                            >
-                                        </button>
-                                    </a> --}}
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 mb-4">
                         <div class="card">
-                            <div class="card-body" title="Jumlah permintaan dokumen">
-                                <div class="d-flex justify-content-between">
-                                    <div class="d-flex flex-row">
-                                        <div class="align-self-center">
-                                            <h2 class="h3 mb-0 me-3">{{ $jumlahPengajuanDokumen }}</h2>
-                                        </div>
-                                        <div>
-                                            <h5 style="margin-bottom: 0px; font-size: 1rem;">Permintaan Dokumen</h5>
-                                            {{-- <p class="mb-0">Pengajuan Ditolak</p> --}}
+                            <a style="text-decoration: none;" class="secondary" href="{{ route('pengajuandokumen.manage') }}">
+                                <div class="card-body" title="Jumlah permintaan dokumen">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex flex-row">
+                                            <div class="align-self-center">
+                                                <h2 class="h3 mb-0 me-3">{{ $jumlahPengajuanDokumen }}</h2>
+                                            </div>
+                                            <div>
+                                                <h5 style="margin-bottom: 0px; font-size: .9rem;">Permintaan <br>Dokumen</h5>
+                                            </div>
                                         </div>
                                     </div>
-                                    {{-- <a href="{{ route('umkm.manage') }}" style="text-decoration: none">
-                                        <button type="button" class="mt-2 btn primary position-relative">
-                                            >
-                                        </button>
-                                    </a> --}}
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -348,7 +339,8 @@
                                             <p class="mb-0">Jumlah Penduduk Secara Keseluruhan</p>
                                         </div>
                                     </div>
-                                    <a href="{{ route('penduduk.manage') }}" style="text-decoration: none" title="Kelola penduduk">
+                                    <a href="{{ route('penduduk.manage') }}" style="text-decoration: none"
+                                        title="Kelola penduduk">
                                         <button type="button" class="mt-2 btn primary position-relative">
                                             >
                                         </button>
@@ -373,7 +365,8 @@
                                             <p class="mb-0">Jumlah Kepala Keluarga</p>
                                         </div>
                                     </div>
-                                    <a href="{{ route('keluarga.manage') }}" style="text-decoration: none" title="Kelola keluarga">
+                                    <a href="{{ route('keluarga.manage') }}" style="text-decoration: none"
+                                        title="Kelola keluarga">
                                         <button type="button" class="mt-2 btn primary position-relative">
                                             >
                                         </button>
@@ -392,7 +385,7 @@
                                         </div>
                                         <div>
                                             <h4 style="margin-bottom: 2px;">RT</h4>
-                                            <p class="mb-0">Jumlah Ketua Rukun Tetangga</p>
+                                            <p class="mb-0">Jumlah Ketua RT</p>
                                         </div>
                                     </div>
                                     <a href="{{ route('rt.manage') }}" style="text-decoration: none" title="Kelola RT">
@@ -409,7 +402,7 @@
                 <div class="row">
                     <div class="col-xl-4 col-md-4 col-sm-12 mb-4">
                         <div class="card">
-                            <a href="{{ route('anak') }}" style="text-decoration: none">
+                            <a href="{{ route('anak') }}" class="secondary" style="text-decoration: none">
                                 <div class="card-body" title="Jumlah anak-anak">
                                     <div class="d-flex justify-content-between p-md-1">
                                         <div class="d-flex flex-row">
@@ -418,7 +411,7 @@
                                             </div>
                                             <div>
                                                 <h4 style="margin-bottom: 3px;">Anak-anak</h4>
-                                                <p class="mb-0">Jumlah Penduduk Dengan Usia < 14 tahun</p>
+                                                <p class="mb-0">Penduduk Dengan Usia < 14 tahun</p>
                                             </div>
                                         </div>
                                         {{-- <button type="button" class="mt-2 btn primary position-relative">
@@ -431,8 +424,8 @@
                     </div>
                     <div class="col-xl-4 col-md-4 col-sm-12 mb-4">
                         <div class="card">
-                            <a href="{{ route('produktif') }}" style="text-decoration: none">
-                                <div class="card-body" title="Jumlah penduduk berusia produktif">
+                            <a href="{{ route('produktif') }}" class="secondary" style="text-decoration: none">
+                                <div class="card-body" title="penduduk berusia produktif">
                                     <div class="d-flex justify-content-between p-md-1">
                                         <div class="d-flex flex-row">
                                             <div class="align-self-center">
@@ -440,7 +433,7 @@
                                             </div>
                                             <div>
                                                 <h4 style="margin-bottom: 3px;">Usia Produktif</h4>
-                                                <p class="mb-0">Jumlah Penduduk Dengan Usia 15-64 tahun</p>
+                                                <p class="mb-0">Penduduk Dengan Usia 15-64 tahun</p>
                                             </div>
                                         </div>
                                         {{-- <button type="button" class="mt-2 btn primary position-relative">
@@ -453,8 +446,8 @@
                     </div>
                     <div class="col-xl-4 col-md-4 col-sm-12 mb-4">
                         <div class="card">
-                            <a href="{{ route('lansia') }}" style="text-decoration: none">
-                                <div class="card-body" title="Jumlah penduduk lansia">
+                            <a href="{{ route('lansia') }}" class="secondary" style="text-decoration: none;">
+                                <div class="card-body" title="penduduk lansia">
                                     <div class="d-flex justify-content-between p-md-1">
                                         <div class="d-flex flex-row">
                                             <div class="align-self-center">
@@ -462,7 +455,7 @@
                                             </div>
                                             <div>
                                                 <h4 style="margin-bottom: 3px;">Lanjut Usia</h4>
-                                                <p class="mb-0">Jumlah Penduduk Dengan Usia > 65 tahun</p>
+                                                <p class="mb-0">Penduduk Dengan Usia > 65 tahun</p>
                                             </div>
                                         </div>
                                         {{-- <button type="button" class="mt-2 btn primary position-relative">
@@ -474,97 +467,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
-                <div class="row">
-                    <div class="col-12 mt-3 mb-3">
-                        <h4>Statistik Permintaan Dokumen</h4>
-                        <p>Statistik Permintaan Dokumen adalah fitur yang menyajikan data terperinci mengenai
-                            permintaan dokumen di lingkungan Rukun Warga (RW).</p>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-xl-12 col-md-12 col-sm-12 mb-4">
-                        <div class="card">
-                            <div class="card-body" title="Jumlah permintaan dokumen">
-                                <div class="d-flex justify-content-between p-md-1">
-                                    <div class="d-flex flex-row">
-                                        {{-- <span class="position-absolute top-0 me-5 start-50 translate-middle badge rounded-pill bg-warning">
-                                            Permintaan Dokumen Belum Diproses : {{ $jumlahPengajuanDokumenNew }}
-                                          <span class="visually-hidden">unread messages</span>
-                                        </span> --}}
-                                        <div class="align-self-center">
-                                            <h2 class="h3 mb-0 me-4">{{ $jumlahPengajuanDokumen }}</h2>
-                                        </div>
-                                        <div>
-                                            <h4 style="margin-bottom: 2px;">Permintaan Dokumen</h4>
-                                            <p class="mb-0">Jumlah Permintaan Dokumen Secara Keseluruhan</p>
-                                        </div>
-                                    </div>
-                                    <a href="{{ route('pengajuandokumen.manage') }}" style="text-decoration: none" title="Kelola pengajuan dokumen">
-                                        <button type="button" class="mt-2 btn primary position-relative">
-                                            Selengkapnya
-                                            @if ($jumlahPengajuanDokumenNew > 0)
-                                                <span class="badge bg-danger rounded-pill position-absolute top-0 end-0"
-                                                    style="margin-top: -5px; margin-right: -5px;">
-                                                    {{ $jumlahPengajuanDokumenNew }}
-                                                    <span class="visually-hidden">unread messages</span>
-                                            @endif
-                                            </span>
-                                        </button>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-xl-6 col-md-6 col-sm-6 mb-4">
-                        <div class="card">
-                            <div class="card-body" title="Jumlah permintaan dokumen yang disetujui">
-                                <div class="d-flex justify-content-between p-md-1">
-                                    <div class="d-flex flex-row">
-                                        <div class="align-self-center">
-                                            <i class="lni lni-printer text-success"></i>
-                                        </div>
-                                        <div class="mx-4">
-                                            <h4 style="margin-bottom: 0px">Permintaan Dokumen Disetujui</h4>
-                                            {{-- <p class="mb-0">Monthly blog posts</p> --}}
-                                        </div>
-                                    </div>
-                                    <div class="align-self-center">
-                                        <h2 class="h3 mb-0">{{ $jumlahPengajuanDokumenAcc }}</h2>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-md-6 col-sm-6 mb-4">
-                        <div class="card">
-                            <div class="card-body" title="Jumlah permintaan dokumen yang ditolak">
-                                <div class="d-flex justify-content-between p-md-1">
-                                    <div class="d-flex flex-row">
-                                        <div class="align-self-center">
-                                            <i class="lni lni-printer text-danger"></i>
-                                        </div>
-                                        <div class="mx-4">
-                                            <h4 style="margin-bottom: 0px">Permintaan Dokumen Ditolak</h4>
-                                            {{-- <p class="mb-0">Monthly blog posts</p> --}}
-                                        </div>
-                                    </div>
-                                    <div class="align-self-center">
-                                        <h2 class="h3 mb-0">{{ $jumlahPengajuanDokumenDec }}</h2>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
 
 
 
@@ -659,7 +561,5 @@
 @endpush
 
 @push('js')
-    <script>
-        
-    </script>
+    <script></script>
 @endpush

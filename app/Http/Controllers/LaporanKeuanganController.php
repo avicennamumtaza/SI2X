@@ -21,12 +21,14 @@ class LaporanKeuanganController extends Controller
         // $this->authorize('isRt');
         // return view('global.laporankeuangan');
         $laporankeuangans = LaporanKeuangan::all()->sortByDesc('tanggal');
-        $latestLaporanKeuangan = LaporanKeuangan::latest()->first();
-        if ($latestLaporanKeuangan == null) {
-            $saldo = 0;
-        } else {
-            $saldo = $latestLaporanKeuangan->saldo;
-        }
+        // $latestLaporanKeuangan = LaporanKeuangan::latest()->first();
+        // if ($latestLaporanKeuangan == null) {
+        //     $saldo = 0;
+        // } else {
+        //     $saldo = $latestLaporanKeuangan->saldo;
+        // }
+        $saldo = LaporanKeuangan::orderBy('tanggal', 'desc')->pluck('saldo')->first();
+        // dd($saldo);
 
         foreach ($laporankeuangans as $laporankeuangan) {
             $laporankeuangan->tanggal = Carbon::parse($laporankeuangan->tanggal)->format('d-m-Y');
@@ -40,14 +42,7 @@ class LaporanKeuanganController extends Controller
         $latestRow = LaporanKeuangan::latest()->first();
         // Menghitung saldo
         $laporanKeuangans = LaporanKeuangan::all();
-        $saldo = 0;
-        foreach ($laporanKeuangans as $laporanKeuangan) {
-            if ($laporanKeuangan->status_pemasukan) {
-                $saldo += $laporanKeuangan->nominal;
-            } else {
-                $saldo -= $laporanKeuangan->nominal;
-            }
-        }
+        $saldo = LaporanKeuangan::orderBy('tanggal', 'desc')->pluck('saldo')->first();
 
         return $dataTable->render('auth.rw.laporankeuangan', compact('latestRow', 'saldo', 'laporanKeuangans'));
     }

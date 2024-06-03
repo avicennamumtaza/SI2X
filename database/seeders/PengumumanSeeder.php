@@ -32,7 +32,7 @@ class PengumumanSeeder extends Seeder
                 'judul' => $faker->sentence(3),
                 'tanggal' => $faker->date(),
                 'deskripsi' => $faker->paragraph(3),
-                'foto_pengumuman' => $faker->imageUrl(),
+                'foto_pengumuman' => '',
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

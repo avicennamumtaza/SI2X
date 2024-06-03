@@ -18,7 +18,7 @@ class UmkmController extends Controller
 {
     public function index()
     {
-        $umkms = Umkm::where('status_umkm', 'Disetujui')->get();
+        $umkms = Umkm::where('status_umkm', 'Disetujui')->paginate(9);
         $nik_penduduks = Penduduk::select('nik')->get();
         return view('global.umkm')->with('umkms', $umkms)->with('nik_penduduks', $nik_penduduks);
         // return view('global.umkm');

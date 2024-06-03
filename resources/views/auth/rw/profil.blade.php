@@ -20,7 +20,7 @@
                             <input type="text" class="form-control" id="nik" name="nik"
                                 value="{{ $users->nik }}" required readonly>
                         </div>
-                        <div class="form-group mb-3" style="display: none;">
+                        <div class="form-group mb-3">
                             <label for="username" class="form-label text-start">Nama Pengguna</label>
                             <input type="text" class="form-control" id="username" value="{{ $users->username }}"
                                 name="username" required>
@@ -35,7 +35,7 @@
                             <input type="email" class="form-control" id="email" value="{{ $users->email }}"
                                 name="email" required>
                         </div>
-                        <div class="form-group mb-3">
+                        <div class="form-group mb-3" style="display: none;">
                             <label class="custom-file-label mb-2" for="foto_profil">Foto Profil</label>
                             <input type="file" class="form-control" id="foto_profil"
                                 value="{{ $users->foto_profil }}"name="foto_profil">
@@ -111,7 +111,7 @@
                                     $hash = md5(strtolower(trim($users->email)));
                                     //$gravatar_url = "https://www.gravatar.com/avatar/$hash?s=200&d=mp";
                                 @endphp
-                                <img src="{{ asset('Foto Users/' . $users->foto_profil) }}" class="img-thumbnail"
+                                <img src="{{ asset($users->foto_profil ? 'Foto Users/' . $users->foto_profil : 'Foto Users/default.jpg') }}" class="img-thumbnail"
                                     style="height: 250px; width: 200px;" alt="" title="Foto profil anda">
                                 <div class="pt-4 mx-4">
                                     <button type="button" data-bs-toggle="modal" data-bs-target="#editPicture"

@@ -15,6 +15,7 @@ use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\RWController;
 use App\Http\Controllers\RTController;
 use App\Http\Controllers\UsersController;
+use App\Models\Alternatif;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -58,10 +59,12 @@ Route::prefix('umkm')->group(function() {
     Route::post('/', [UmkmController::class, 'store'])->name('umkm.store');
 });
 
-// global umkm
+// global bansos
 Route::prefix('bansos')->group(function() {
-    Route::get('/', [UmkmController::class, 'index'])->name('bansos.global');
-    Route::post('/', [UmkmController::class, 'store'])->name('bansos.store');
+    Route::get('/', [AlternatifController::class, 'index'])->name('bansos.global');
+    Route::post('/', [AlternatifController::class, 'store'])->name('bansos.store');
+    Route::get('/rw', [AlternatifController::class, 'list'])->middleware('isRw')->name('bansos.manage');
+    Route::delete('/{alternatif}', [AlternatifController::class, 'destroy'])->name('bansos.destroy')->middleware('isRw');
 });
 
 // global pengajuan dokumen
@@ -89,6 +92,8 @@ Route::prefix('manage')->group(function(){
         Route::get('/edit/{pengumuman}', [PengumumanController::class, 'edit'])->name('pengumuman.edit')->middleware('isRw');
         Route::put('/update/{pengumuman}', [PengumumanController::class, 'update'])->name('pengumuman.update')->middleware('isRw');
         Route::delete('/{pengumuman}', [PengumumanController::class, 'destroy'])->name('pengumuman.destroy')->middleware('isRw');
+        // Route::get('/penghapusan', [PengumumanController::class, 'penghapusan'])->name('pengumuman.penghapusan')->middleware('isRw');
+        Route::post('/penghapusan', [PengumumanController::class, 'hapusPengumumanLama'])->name('pengumuman.hapus-lama')->middleware('isRw');
     });
 
     // manage pengajuan dokumen
@@ -185,9 +190,9 @@ Route::prefix('dokumen')->group(function(){
 });
 
 Route::prefix('usia')->group(function() {
-    Route::get('/lansia', [PendudukController::class, 'getLansia'])->name('lansia')->middleware('isRw');
-    Route::get('/produktif', [PendudukController::class, 'getProduktif'])->name('produktif')->middleware('isRw');
-    Route::get('/anak', [PendudukController::class, 'getAnak'])->name('anak')->middleware('isRw');
+    Route::get('/lansia', [PendudukController::class, 'getLansia'])->name('lansia')->middleware('auth');
+    Route::get('/produktif', [PendudukController::class, 'getProduktif'])->name('produktif')->middleware('auth');
+    Route::get('/anak', [PendudukController::class, 'getAnak'])->name('anak')->middleware('auth');
 });
 
 Route::prefix('profil')->group(function() {
@@ -198,15 +203,5 @@ Route::prefix('profil')->group(function() {
     // Route::put('/{user}/change_password', [ProfilController::class, 'changePassword'])->name('profil.password');
 });
 
-// routes/web.php
-
-// use App\Http\Controllers\CriteriaController;
-// use App\Http\Controllers\AlternativeController;
-
-// Route::resource('criterias', CriteriaController::class);
-// Route::resource('alternatives', AlternativeController::class)->except(['show']);
-// Route::get('alternatives/calculate-scores', [AlternativeController::class, 'calculateScores'])->name('alternatives.calculateScores');
-Route::get('bansos', [AlternatifController::class, 'list'])->middleware('isRw')->name('bansos.manage');
-Route::delete('/{alternatif}', [AlternatifController::class, 'destroy'])->name('bansos.destroy')->middleware('isRw');
 Route::get('spk', [AlternatifController::class, 'spk'])->middleware('isRw')->name('spk.result');
 Route::get('spkk', [AlternatifController::class, 'spkk'])->middleware('isRw')->name('spkk.result');

@@ -17,7 +17,7 @@
         </div>
         <hr class="tabel">
         <div class="card-body">
-            <h3>Kriteria</h3>
+            <h5>Kriteria</h5>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -38,7 +38,7 @@
             </table>
 
             <!-- Tabel Alternatif Awal -->
-            <h3>Alternatif Awal</h3>
+            <h5>Alternatif Awal</h5>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -65,7 +65,7 @@
             </table>
 
             <!-- Tabel Alternatif Ternormalisasi -->
-            <h3>Alternatif Ternormalisasi</h3>
+            <h5>Alternatif Ternormalisasi</h5>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -92,7 +92,7 @@
             </table>
 
             <!-- Tabel Alternatif Terbobot -->
-            <h3>Alternatif Terbobot</h3>
+            <h5>Alternatif Terbobot</h5>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -119,7 +119,7 @@
             </table>
 
             <!-- Tabel Hasil Akhir (Skor) -->
-            <h3>Hasil Akhir (Skor)</h3>
+            <h5>Hasil Akhir (Skor)</h5>
             <table class="table table-bordered">
                 <thead>
                     <tr>

@@ -28,7 +28,7 @@ class PendudukController extends Controller
     public function getLansia()
     {
         $date = \Carbon\Carbon::now()->subYears(66)->format('Y-m-d');
-        $penduduk = Penduduk::where('tanggal_lahir', '<=', $date)->get(['nik', 'nama', 'tempat_lahir', 'tanggal_lahir']);
+        $penduduk = Penduduk::where('tanggal_lahir', '<=', $date)->select(['nik', 'nama', 'tempat_lahir', 'tanggal_lahir'])->paginate(25);
         return view('auth.rw.ulansia', compact('penduduk'));
     }
 
@@ -36,14 +36,14 @@ class PendudukController extends Controller
     {
         $dateMin = \Carbon\Carbon::now()->subYears(65)->format('Y-m-d');
         $dateMax = \Carbon\Carbon::now()->subYears(15)->format('Y-m-d');
-        $penduduk = Penduduk::whereBetween('tanggal_lahir', [$dateMin, $dateMax])->get(['nik', 'nama', 'tempat_lahir', 'tanggal_lahir']);
+        $penduduk = Penduduk::whereBetween('tanggal_lahir', [$dateMin, $dateMax])->select(['nik', 'nama', 'tempat_lahir', 'tanggal_lahir'])->paginate(25);
         return view('auth.rw.uprod', compact('penduduk'));
     }
 
     public function getAnak()
     {
         $date = \Carbon\Carbon::now()->subYears(15)->format('Y-m-d');
-        $penduduk = Penduduk::where('tanggal_lahir', '>', $date)->get(['nik', 'nama', 'tempat_lahir', 'tanggal_lahir']);
+        $penduduk = Penduduk::where('tanggal_lahir', '>', $date)->select(['nik', 'nama', 'tempat_lahir', 'tanggal_lahir'])->paginate(25);
         return view('auth.rw.uanak', compact('penduduk'));
     }
 

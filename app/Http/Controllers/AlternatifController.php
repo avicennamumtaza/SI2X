@@ -10,6 +10,11 @@ use App\Models\Kriteria;
 use App\Models\SkorMethodA;
 use App\Models\SkorMethodB;
 use Illuminate\Http\Request;
+use App\Models\RW;
+use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Validation\Rule;
+use App\Enums\DayaListrik as DayaListrik;
+
 
 class AlternatifController extends Controller
 {
@@ -18,7 +23,9 @@ class AlternatifController extends Controller
      */
     public function index()
     {
-        //
+        $bansos = Alternatif::all();
+        $nkks = Keluarga::select('nkk')->get();
+        return view('global.bansos')->with('bansos', $bansos)->with('nkks', $nkks);
     }
     public function list(AlternatifDataTable $dataTable)
     {
@@ -28,17 +35,63 @@ class AlternatifController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        //
-    }
-
-    /**
+     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nkk' => 'required|string|min:15|max:17',
+            'penghasilan' => 'required|integer',
+            'tanggungan' => 'required|integer',
+            'pajak_bumibangunan' => 'required|integer',
+            'pajak_kendaraan' => 'required|integer',
+            'daya_listrik' => 'required|integer',
+        ], [
+            'nkk.required' => 'NIK pemilik UMKM wajib diisi.',
+            'nkk.string' => 'NIK pemilik UMKM harus berupa teks.',
+            'nkk.min' => 'NKK harus harus memiliki panjang minimal :min karakter.',
+            'nkk.max' => 'NKK harus memiliki panjang maksimal :max karakter.',
+            'penghasilan.required' => 'Penghasilan wajib diisi.',
+            'penghasilan.integer' => 'Penghasilan harus berupa angka.',
+            'tanggungan.required' => 'Tanggungan wajib diunggah.',
+            'tanggungan.integer' => 'Tanggungan harus berupa angka.',
+            'pajak_bumibangunan.required' => 'Pajak Bumi dan Bangunan wajib diisi.',
+            'pajak_bumibangunan.integer' => 'Pajak Bumi dan Bangunan harus berupa angka.',
+            'pajak_kendaraan.required' => 'Pajak Kendaraan wajib diisi.',
+            'pajak_kendaraan.integer' => 'Pajak Kendaraan harus berupa angka.',
+            'daya_listrik.required' => 'Daya Listrik wajib diisi.',
+            'daya_listrik.integer' => 'Daya Listrik harus berupa angka.',
+        ]);
+
+        // Cek apakah ada pengajuan dokumen dengan nik_pemohon yang sama dan status "Baru"
+        $existingPengajuan = Alternatif::where('nkk', $validated['nkk'])
+            ->first();
+
+        if ($existingPengajuan) {
+            $rw = RW::first();
+            Alert::error('Anda Sudah Mengajukan Bansos!', 'Silahkan tunggu informasi lebih lanjut dari Ketua RW atau hubungi Ketua RW melalui nomor ' . $rw->wa_rw);
+            return redirect()->back();
+        }
+        
+        try {
+            Alternatif::create([
+                'nkk' => $validated['nkk'],
+                'penghasilan' => $validated['penghasilan'],
+                'tanggungan' => $validated['tanggungan'],
+                'pajak_bumibangunan' => $validated['pajak_bumibangunan'],
+                'pajak_kendaraan' => $validated['pajak_kendaraan'],
+                'daya_listrik' => $validated['daya_listrik'],
+              ]);
+            return redirect()->back()->with('success', 'Anda berhasil mengajukan bantuan sosial!');
+        } catch (\Illuminate\Database\QueryException $e) {
+            $no_rw = RW::all()->pluck('nik_rw');
+            Alert::error('NKK Anda Tidak Terdata!', 'Silahkan hubungi RW anda untuk keperluan kelengkapan data kependudukan di Sistem Informasi Rukun Warga ini melalui nomor ' . $no_rw);
+            return redirect()->back();
+        } catch (\Exception $e) {
+            Alert::error('Oops!', $e->getMessage());
+            return redirect()->back();
+        }
     }
 
     /**

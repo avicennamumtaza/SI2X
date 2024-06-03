@@ -48,15 +48,22 @@ class HomeController extends Controller
             });
 
             $jumlahAnakAnak = Cache::remember('jumlahAnakAnak', 600, function () {
-                return Penduduk::whereRaw("YEAR(CURDATE()) - YEAR(tanggal_lahir) < 15")->count();
+                $date = \Carbon\Carbon::now()->subYears(15)->format('Y-m-d');
+                $penduduk = Penduduk::where('tanggal_lahir', '>', $date)->select(['nik', 'nama', 'tempat_lahir', 'tanggal_lahir'])->paginate(25);
+                return $penduduk->count();
             });
 
             $jumlahUsiaProduktif = Cache::remember('jumlahUsiaProduktif', 600, function () {
-                return Penduduk::whereRaw("YEAR(CURDATE()) - YEAR(tanggal_lahir) >= 15 AND YEAR(CURDATE()) - YEAR(tanggal_lahir) < 65")->count();
+                $dateMin = \Carbon\Carbon::now()->subYears(65)->format('Y-m-d');
+                $dateMax = \Carbon\Carbon::now()->subYears(15)->format('Y-m-d');
+                $penduduk = Penduduk::whereBetween('tanggal_lahir', [$dateMin, $dateMax]);
+                return $penduduk->count();
             });
 
             $jumlahLansia = Cache::remember('jumlahLansia', 600, function () {
-                return Penduduk::whereRaw("YEAR(CURDATE()) - YEAR(tanggal_lahir) >= 65")->count();
+                $date = \Carbon\Carbon::now()->subYears(66)->format('Y-m-d');
+                $penduduk = Penduduk::where('tanggal_lahir', '<=', $date)->select(['nik', 'nama', 'tempat_lahir', 'tanggal_lahir'])->paginate(25);
+                return $penduduk->count();
             });
 
             $jumlahUmkmNew = Cache::remember('jumlahUmkmNew', 600, function () {
