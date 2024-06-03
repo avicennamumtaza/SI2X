@@ -1,17 +1,37 @@
 @extends('layouts.sidebar')
 
 @section('content')
+<div class="modal fade" id="exportMFEP" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ekspor Data</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    title="Tutup"></button>
+            </div>
+            <div class="modal-body justify-content-start text-start">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="form-group mb-3">
+                        <p>Anda akan mengunduh data penerima bansos dengan format file xlsx.
+                        <p>
+                    </div>
+            </div>
+            <div class="modal-footer justify-content-end">
+                <button type="submit" class="btn btn-success" title="Unduh data penerima bansos">Unduh</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
     <div class="card card-tabel">
         <div class="card-header card-header-tabel p-4 mb-3">
             <h5>
-                Sistem Pendukung Keputusan Metode B
+                Sistem Pendukung Keputusan Metode MFEP
                 <span>
-                    {{-- <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#exportPenduduk">Ekspor
+                    <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#exportMFEP">Ekspor
                     Data</button>
-                <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#importPenduduk">Impor
-                    Data</button> --}}
-                    {{-- <a href="{{ route('spk.result') }}"><button class="btn btn-add">Kalkulasi Metode A</button></a>
-                    <a href="{{ route('spkk.result') }}"><button class="btn btn-add">Kalkulasi Metode B</button></a> --}}
                 </span>
             </h5>
         </div>
