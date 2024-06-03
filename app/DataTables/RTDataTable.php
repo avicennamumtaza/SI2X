@@ -49,13 +49,16 @@ class RTDataTable extends DataTable
             data-nik_rt="' . $row->nik_rt . '"
             data-wa_rt="' . $row->wa_rt . '"
             data-bs-toggle="modal" data-bs-target="#editRtModal" class="edit-user edit btn btn-edit btn-sm">Edit</button>';
-            $action .= '
-            <form action="' . $deleteUrl . '" method="post" style="display:inline;">
-                ' . csrf_field() . '
-                ' . method_field('DELETE') .
-                '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini? Data-data lain yang memiliki keterkaitan dengan data RT ini juga akan dihapus!\');">Hapus</button>
-                </form>
-            </div>';
+            $action .= ' <button
+            type="button" 
+            class="delete btn btn-delete btn-sm" 
+            data-bs-target="#deleteRtModal" 
+            data-bs-toggle="modal"
+            data-no_rt="' . $row->no_rt . '"
+            data-nik_rt="' . $row->nik_rt . '"
+            data-nama_rt="' . $row->nama_rt . '"
+            >Hapus</button>
+        </div>';
             return $action;
             });
     }
