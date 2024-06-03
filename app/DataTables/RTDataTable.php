@@ -65,9 +65,7 @@ class RTDataTable extends DataTable
      */
     public function query(RT $model): QueryBuilder
     {
-        return $model->newQuery()
-        ->select('rt.*', 'penduduk.nama as nama_rt')
-        ->leftjoin('penduduk', 'rt.nik_rt', '=', 'penduduk.nik');
+        return $model->newQuery();
     }
 
     /**
