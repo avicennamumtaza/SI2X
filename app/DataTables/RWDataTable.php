@@ -39,7 +39,7 @@ class RWDataTable extends DataTable
             data-id="' . $row->no_rw . '"
             data-nik_rw="' . $row->nik_rw . '"
             data-wa_rw="' . $row->wa_rw . '"
-            data-nama_rw="' . $row->nama_rw . '"
+            data-nama_rw="' . $nama_rw . '"
             data-jumlah_penduduk="' . $row->penduduk->count() . '"
             data-bs-toggle="modal" data-bs-target="#showRwModal" class="show-user show btn btn-show btn-sm">Tampil</button>';
 
@@ -66,9 +66,7 @@ class RWDataTable extends DataTable
      */
     public function query(RW $model): QueryBuilder
     {
-        return $model->newQuery()
-        ->select('rw.*', 'penduduk.nama as nama_rw')
-        ->leftjoin('penduduk', 'rw.nik_rw', '=', 'penduduk.nik');
+        return $model->newQuery();
     }
 
     /**
