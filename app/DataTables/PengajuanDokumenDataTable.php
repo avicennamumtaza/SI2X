@@ -96,13 +96,18 @@ class PengajuanDokumenDataTable extends DataTable
                     data-jenis_dokumen="' . $dokumen->jenis_dokumen . '"
                     data-status_pengajuan="' . $row->status_pengajuan . '"
                     data-catatan="' . $row->catatan . '"
+                    data-keperluan="' . $row->keperluan . '"
                     data-bs-toggle="modal" data-bs-target="#editPengajuanDokumenModal" class="edit btn btn-edit btn-sm">Edit</button>';
                     $action .=
-                        '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
-                    ' . csrf_field() . '
-                    ' . method_field('DELETE') .
-                        '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
-                    </form>
+                        ' <button
+                        type="button" 
+                        class="delete btn btn-delete btn-sm" 
+                        data-bs-target="#deletePengajuanDokumenModal" 
+                        data-bs-toggle="modal"
+                        data-nama="' . $pengaju->nama . '"
+                        data-jenis_dokumen="' . $dokumen->jenis_dokumen . '"
+                        data-id_pengajuandokumen="' . $row->id_pengajuandokumen . '"
+                        >Hapus</button>
                     </div>';
                     return $action;
                 });
@@ -193,6 +198,7 @@ class PengajuanDokumenDataTable extends DataTable
                 Column::make('nik_pemohon')->title('NIK'),
                 // Column::make('nama_pemohon')->title('Nama'),
                 Column::make('status_pengajuan')->title('Status'),
+                Column::make('keperluan')->title('Keperluan'),
                 Column::make('catatan')->title('Catatan'),
                 Column::make('created_at')->title('Tanggal'),
                 // Column::make('detail_laporan')->title('Detail Laporan'),
