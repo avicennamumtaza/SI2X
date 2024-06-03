@@ -24,11 +24,16 @@ class RTDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
         ->setRowId('id')
+        ->addColumn('nama_rt', function ($row) {
+            $nama_rt = Penduduk::where('nik', $row->nik_rt)->value('nama');
+            return $nama_rt;
+        })
         ->addColumn('action', function($row){
             // $editUrl = route('rt.edit', $row->no_rt);
-            $penduduk = Penduduk::where('nik', $row->nik_rt)->first();
-            $nama_penduduk = $penduduk ? $penduduk->nama : '-'; // Jika penduduk ditemukan, ambil namanya; jika tidak, tampilkan tanda strip -
+            // $penduduk = Penduduk::where('nik', $row->nik_rt)->first();
+            // $nama_rt = $penduduk ? $penduduk->nama : '-'; // Jika penduduk ditemukan, ambil namanya; jika tidak, tampilkan tanda strip -
 
+            $nama_rt = Penduduk::where('nik', $row->nik_rt)->value('nama');
 
             $deleteUrl = route('rt.destroy', $row->no_rt);
             $action = '
@@ -38,7 +43,7 @@ class RTDataTable extends DataTable
                 <button type="button"
                 data-id="' . $row->no_rt . '"
                 data-nik_rt="' . $row->nik_rt . '"
-                data-nama="' . $nama_penduduk . '"
+                data-nama="' . $nama_rt . '"
                 data-wa_rt="' . $row->wa_rt . '"
                 data-jumlah_keluarga="' . $row->keluarga()->count() . '"
                 data-bs-toggle="modal" data-bs-target="#showRtModal" class="show-user show btn btn-show btn-sm">Tampil</button>';
