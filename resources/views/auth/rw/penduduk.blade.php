@@ -487,6 +487,41 @@
         </div>
     </div>
 
+
+    {{-- {{-- Delete penduduk --}}
+    <div class="modal fade" id="deletePendudukModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Konfirmasi Penghapusan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <!-- Form untuk penghapusan penduduk -->
+                    <form id="deletePendudukForm" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <div class="text-center mb-4">
+                            <p>Apakah anda yakin akan menghapus data penduduk berikut? Sebagai informasi, anda tidak bisa
+                                memulihkan data yang telah dihapus. Dan jika anda menghapus data ini memungkinkan data lain
+                                yang
+                                terkait data ini juga akan terhapus.</p>
+                            <h5 class="text-danger"><strong id="nikDisplay"></strong></h5>
+                            <p class="">(Nama : <strong id="namaDisplay"></strong>)</p>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                title="Batal hapus penduduk">Batal</button>
+                            <button type="submit" class="btn btn-danger" title="Hapus penduduk">Hapus</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     @push('scripts')
         {{ $dataTable->scripts() }}
         <script>
@@ -570,6 +605,27 @@
                     url = url.replace(':__id', nik);
                     $('#editPendudukForm').attr('action', url)
                 });
+
+                $('#deletePendudukModal').on('show.bs.modal', function(event) {
+                    var target = $(event.relatedTarget);
+                    let nik = target.data('nik');
+                    let nama = target.data('nama');
+
+
+                    // Set judul penduduk di elemen teks
+                    $('#deletePendudukModal #nikDisplay').text(nik);
+                    $('#deletePendudukModal #namaDisplay').text(nama);
+
+                    // Generate URL untuk form action
+                    let url = "{{ route('penduduk.destroy', ':__id') }}";
+                    url = url.replace(':__id', nik);
+
+                    // Set form action attribute
+                    $('#deletePendudukForm').attr('action', url);
+                });
+
+
+
             });
         </script>
     @endpush
