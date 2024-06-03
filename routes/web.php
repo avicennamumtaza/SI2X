@@ -189,9 +189,9 @@ Route::prefix('dokumen')->group(function(){
 });
 
 Route::prefix('usia')->group(function() {
-    Route::get('/lansia', [PendudukController::class, 'getLansia'])->name('lansia')->middleware('isRw');
-    Route::get('/produktif', [PendudukController::class, 'getProduktif'])->name('produktif')->middleware('isRw');
-    Route::get('/anak', [PendudukController::class, 'getAnak'])->name('anak')->middleware('isRw');
+    Route::get('/lansia', [PendudukController::class, 'getLansia'])->name('lansia')->middleware('auth');
+    Route::get('/produktif', [PendudukController::class, 'getProduktif'])->name('produktif')->middleware('auth');
+    Route::get('/anak', [PendudukController::class, 'getAnak'])->name('anak')->middleware('auth');
 });
 
 Route::prefix('profil')->group(function() {
