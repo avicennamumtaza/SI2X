@@ -5,16 +5,17 @@
         <div class="row custom-section">
             <div class="col-12 col-lg-5">
                 <h2>Selamat Datang</h2>
-                <h5>Pendaratan yang sempurna!</h5>
-                <p>Mempersembahkan solusi modern untuk kita bersama memaksimalkan optimalisasi layanan dengan pendekatan
-                    yang lebih efisien melalui SIRW sebagai salah satu upaya mendorong kemajuan dan kolaborasi dalam
-                    menjawab kebutuhan sehari-hari di lingkungan Rukun Warga.</p>
+                <h6>Kemudahan dalam Genggaman Anda!</h6>
+                {{-- <div class="col-12 col-lg-10"> --}}
+                  <p>Menghadirkan solusi digital untuk memudahkan komunikasi, pelayanan, dan transparansi dalam lingkungan Rukun Warga Anda,
+                    sehingga setiap kebutuhan warga dapat terlayani dengan lebih cepat dan efisien.</p> 
+                {{-- </div> --}}
                 <a href="#stats" title="Selengkapnya">Selengkapnya</a>
             </div>
         </div>
     </div>
     <img src="{{ asset('assets/landing-pict.png') }}" alt="background" class="main-image">
-    <div id="stats" class="container container-statsngal col-10">
+    <div id="stats" class="container container-statsngal col-10 pt-5">
         <h1 class="heading-center">Statistik</h1>
         <div class="row">
             <div class="col-md-2 col-sm-4">
