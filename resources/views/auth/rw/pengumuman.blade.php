@@ -188,7 +188,7 @@
                     <button class="btn btn-add float-end mx-2" data-bs-toggle="modal" data-bs-target="#tambahPengumuman"
                         title="Tambah pengumuman">Tambah
                         Data</button>
-                    <button class="btn btn-deleting float-end mx-2" data-bs-toggle="modal" data-bs-target="#penghapusanPengumuman"
+                    <button class="btn btn-delete float-end mx-2" data-bs-toggle="modal" data-bs-target="#penghapusanPengumuman"
                         title="Penghapusan pengumuman">Penghapusan
                         Data</button>
                 </span>
