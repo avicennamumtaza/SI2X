@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\RT;
+use App\Models\Rt;
 use App\DataTables\RTDataTable;
 use App\Models\Penduduk;
 
@@ -11,7 +11,7 @@ class RTController extends Controller
 {
     public function index()
     {
-        $rts = RT::all();
+        $rts = Rt::all();
         return view('global.rt')->with('rts', $rts);
         // $pengumumans = Pengumuman::all();
         // return view('auth.rw.pengumuman', compact('pengumumans'));
@@ -26,10 +26,10 @@ class RTController extends Controller
     //     return view('auth.rw.pengumuman.create');
     // }
 
-    public function show(RT $rt)
+    public function show(Rt $rt)
     {
         // Temukan data RT berdasarkan nomor RT
-        $rt = RT::find($rt->no_rt);
+        $rt = Rt::find($rt->no_rt);
 
         // Temukan data penduduk berdasarkan NIK RT
         $penduduk = Penduduk::where('nik', $rt->nik_rt)->first();
@@ -46,7 +46,7 @@ class RTController extends Controller
     // public function getRTData()
     // {
     //     // Menggunakan eager loading untuk mendapatkan data nama penduduk
-    //     $rts = RT::with('penduduk')->get();
+    //     $rts = Rt::with('penduduk')->get();
 
     //     return datatables()->of($rts)
     //         ->addColumn('nama', function (RT $rt) {
@@ -71,7 +71,7 @@ class RTController extends Controller
         //     'tanggal_pengumuman' => $request->tanggal_pengumuman,
         // ]);
 
-        $rt = new RT();
+        $rt = new Rt();
         $rt->no_rt = $request->no_rt;
         $rt->nik_rt = $request->nik_rt;
         $rt->wa_rt = $request->wa_rt;
@@ -80,13 +80,13 @@ class RTController extends Controller
         return redirect()->back()->with('success', 'Data RT Berhasil ditambahkan!');
     }
 
-    public function edit(RT $rt)
+    public function edit(Rt $rt)
     {
-        $rt = RT::findOrFail($rt->no_rt);
+        $rt = Rt::findOrFail($rt->no_rt);
         return view('rt.edit', compact('rt'));
     }
 
-    public function update(Request $request, RT $rt)
+    public function update(Request $request, Rt $rt)
     {
         $request->validate([
             'no_rt' => 'required|unique:rt,no_rt,'. $rt->no_rt .',no_rt', // (tidak bisa mengubah no_rt as primary key, cek view)
@@ -100,7 +100,7 @@ class RTController extends Controller
             ->with('success', 'Data RT Berhasil diperbarui.');
     }
 
-    public function destroy(RT $rt)
+    public function destroy(Rt $rt)
     {
         $rt->delete();
 

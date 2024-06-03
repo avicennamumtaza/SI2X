@@ -16,7 +16,7 @@
                         @method('PUT')
                         @csrf
                         <div class="form-group mb-3">
-                            <label for="id_pengajuandokumen" class="form-label text-start">id_pengajuandokumen</label>
+                            <label for="id_pengajuandokumen" class="form-label text-start">ID</label>
                             <input type="text" readonly disabled class="form-control" id="id_pengajuandokumen"
                                 name="id_pengajuandokumen" required>
                         </div>
@@ -26,37 +26,37 @@
                                 name="nama_pemohon" required>
                         </div> --}}
                         <div class="form-group mb-3">
-                            <label for="no_rt" class="form-label text-start">no_rt</label>
+                            <label for="no_rt" class="form-label text-start">No Rt</label>
                             <input type="text" readonly disabled class="form-control" id="no_rt" name="no_rt"
                                 required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="nik_pemohon" class="form-label text-start">nik_pemohon</label>
+                            <label for="nik_pemohon" class="form-label text-start">NIK Pengaju</label>
                             <input type="text" readonly disabled class="form-control" id="nik_pemohon" name="nik_pemohon"
                                 required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="nama_asli_pengaju" class="form-label text-start">nama_asli_pengaju</label>
+                            <label for="nama_asli_pengaju" class="form-label text-start">Nama Pengaju</label>
                             <input type="text" readonly disabled class="form-control" id="nama_asli_pengaju"
                                 name="nama_asli_pengaju" required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="pekerjaan_pengaju" class="form-label text-start">pekerjaan_pengaju</label>
+                            <label for="pekerjaan_pengaju" class="form-label text-start">Pekerjaan Pengaju</label>
                             <input type="text" readonly disabled class="form-control" id="pekerjaan_pengaju"
                                 name="pekerjaan_pengaju" required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="usia_pengaju" class="form-label text-start">usia_pengaju</label>
+                            <label for="usia_pengaju" class="form-label text-start">Usia Pengaju</label>
                             <input type="text" readonly disabled class="form-control" id="usia_pengaju"
                                 name="usia_pengaju" required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="id_dokumen" class="form-label text-start">id_dokumen</label>
+                            <label for="id_dokumen" class="form-label text-start">ID Dokumen</label>
                             <input type="text" readonly disabled class="form-control" id="id_dokumen" name="id_dokumen"
                                 required>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="jenis_dokumen" class="form-label text-start">jenis_dokumen</label>
+                            <label for="jenis_dokumen" class="form-label text-start">Jenis Dokumen</label>
                             <input type="text" readonly disabled class="form-control" id="jenis_dokumen"
                                 name="jenis_dokumen" required>
                         </div>
@@ -91,6 +91,39 @@
             </div>
         </div>
     </div>
+
+    {{-- Modal delete --}}
+    <div class="modal fade" id="deletePengajuanDokumenModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Konfirmasi Penghapusan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="deletePengajuanDokumenForm" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <div class="text-center mb-4">
+                            <p>Apakah anda yakin ingin menghapus pengajuan dokumen berikut? Sebagai informasi, anda tidak
+                                bisa memulihkan
+                                data yang telah dihapus.</p>
+                            <h5 class="text-danger"><strong id="namaDisplay"></strong></h5>
+                            <p class="">(Dokumen : <strong id="jenisDisplay"></strong>)</p>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                title="Batal hapus pengajuan dokumen">Batal</button>
+                            <button type="submit" class="btn btn-danger" title="Hapus pengajuan dokumen">Hapus</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="card">
         <div class="card-header card-header-tabel p-4 mb-3">
             <h5>
@@ -109,6 +142,27 @@
         {{ $dataTable->scripts() }}
         <script>
             $('#pengajuandokumen-table').ready(function() {
+
+                $('#deletePengajuanDokumenModal').on('show.bs.modal', function(event) {
+                    var target = $(event.relatedTarget);
+                    let id_pengajuandokumen = target.data('id_pengajuandokumen');
+                    let nama = target.data('nama');
+                    let jenis_dokumen = target.data('jenis_dokumen');
+
+
+                    // Set detail pengumuman di elemen teks
+                    $('#deletePengajuanDokumenModal #namaDisplay').text(nama);
+                    $('#deletePengajuanDokumenModal #jenisDisplay').text(jenis_dokumen);
+
+                    // Generate URL untuk form action
+                    let url = "{{ route('pengajuandokumen.destroy', ':__id') }}";
+                    url = url.replace(':__id', id_pengajuandokumen);
+
+                    // Set form action attribute
+                    $('#deletePengajuanDokumenForm').attr('action', url);
+                });
+
+
                 $("#editPengajuanDokumenModal").on("show.bs.modal", function(event) {
 
                     var target = $(event.relatedTarget);
@@ -123,6 +177,7 @@
                     let jenis_dokumen = target.data('jenis_dokumen')
                     let status_pengajuan = target.data('status_pengajuan')
                     let catatan = target.data('catatan')
+                    let keperluan = target.data('keperluan')
 
                     $('#editPengajuanDokumenModal #id_pengajuandokumen').val(id_pengajuandokumen);
                     $('#editPengajuanDokumenModal #nama_pemohon').val(nama_pemohon);
@@ -135,6 +190,7 @@
                     $('#editPengajuanDokumenModal #jenis_dokumen').val(jenis_dokumen);
                     $('#editPengajuanDokumenModal #status_pengajuan').val(status_pengajuan);
                     $('#editPengajuanDokumenModal #catatan').val(catatan);
+                    $('#editPengajuanDokumenModal #keperluan').val(keperluan);
 
                     let url = "{{ route('pengajuandokumen.update', ':__id') }}";
                     url = url.replace(':__id', id_pengajuandokumen);

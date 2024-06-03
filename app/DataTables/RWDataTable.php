@@ -3,7 +3,7 @@
 namespace App\DataTables;
 
 use App\Models\Penduduk;
-use App\Models\RW;
+use App\Models\Rw;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -67,7 +67,7 @@ class RWDataTable extends DataTable
     /**
      * Get the query source of dataTable.
      */
-    public function query(RW $model): QueryBuilder
+    public function query(Rw $model): QueryBuilder
     {
         return $model->newQuery();
     }

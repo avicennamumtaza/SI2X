@@ -11,7 +11,7 @@ use App\Enums\Pekerjaan as Pekerjaan;
 use App\Enums\Pendidikan as Pendidikan;
 use App\Models\Keluarga;
 use App\Models\Penduduk;
-use App\Models\RT;
+use App\Models\Rt;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Log;
@@ -49,7 +49,7 @@ class PendudukController extends Controller
 
     public function list(PendudukDataTable $dataTable)
     {
-        $no_rts = RT::pluck('no_rt');
+        $no_rts = Rt::pluck('no_rt');
         $nkks = Keluarga::pluck('nkk');
         $goldar = GolDar::cases();
         $sp = StatusPernikahan::cases();

@@ -21,6 +21,6 @@ class Pengumuman extends Model
 
     // public function rw(): BelongsTo
     // {
-    //     return $this->belongsTo(RW::class, 'no_rw', 'no_rw');
+    //     return $this->belongsTo(Rw::class, 'no_rw', 'no_rw');
     // }
 }
