@@ -4,11 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Keluarga;
 use App\Models\Penduduk;
-use App\Models\RT;
+use App\Models\Rt;
 use App\Models\Pengumuman;
 use App\Models\Umkm;
 use App\Models\PengajuanDokumen;
-use App\Models\RW;
 use App\Models\Users;
 use Illuminate\Support\Facades\Cache;
 
@@ -26,7 +25,7 @@ class LandingController extends Controller
         });
 
         $jumlah_rt = Cache::remember('jumlah_rt', 600, function () {
-            return RT::count();
+            return Rt::count();
         });
 
         $jumlah_pengumuman = Cache::remember('jumlah_pengumuman', 600, function () {
