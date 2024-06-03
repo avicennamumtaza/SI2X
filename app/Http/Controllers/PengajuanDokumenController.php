@@ -98,7 +98,7 @@ class PengajuanDokumenController extends Controller
                 'id_dokumen' => $validated['id_dokumen'],
                 'nik_pemohon' => $validated['nik_pemohon'],
                 'nama_pemohon' => $pengaju->nama,
-                'keperluan' => '',
+                'keperluan' => $validated['keperluan'],
                 'status_pengajuan' => 'Baru',
                 'catatan' => '',
             ]);
