@@ -21,7 +21,7 @@ class ProfilController extends Controller
 
         // Validasi input
         $validated = $request->validate([
-            //'username' => 'required|string|max:20',
+            'username' => 'required|string|max:20',
             //'nik' => 'required|string|min:15|max:17',
             'email' => 'required|string|email|max:50',
             //'foto_profil' => 'nullable|mimes:png,jpg,jpeg',
@@ -31,7 +31,7 @@ class ProfilController extends Controller
         // Update user
         try {
             $users->update([
-                //'username' => $validated['username'],
+                'username' => $validated['username'],
                 //'foto_profil' => $validated['foto_profil'],
                 'email' => $validated['email'],
             ]);
