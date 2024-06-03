@@ -105,7 +105,7 @@
                         Kode Pos 65137.
                     </p>
                     @php
-                        $rw = \App\Models\RW::first();
+                        $rw = \App\Models\Rw::first();
                     @endphp
                     @if ($rw)
                         <a href="https://wa.me/{{ $rw->wa_rw }}" target="_blank" data-mdb-ripple-init

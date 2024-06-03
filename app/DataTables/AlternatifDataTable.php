@@ -26,16 +26,16 @@ class AlternatifDataTable extends DataTable
             ->setRowId('nkk')
             ->addColumn('action', function ($row) {
 
-                $deleteUrl = route('bansos.destroy', $row->nkk);
-                $action = '
-                <div class="container-action">';
-                
-                $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
-                ' . csrf_field() . '
-                ' . method_field('DELETE') .
-                '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
-                </form>
-                
+                // $deleteUrl = route('bansos.destroy', $row->nkk);
+                $action = ' 
+                <div class="container-action">
+                <button
+                type="button" 
+                class="delete btn btn-delete btn-sm" 
+                data-bs-target="#deleteBansosModal" 
+                data-bs-toggle="modal"
+                data-nkk="' . $row->nkk . '"
+                >Hapus</button>
                 </div>';
                 return $action;
             });

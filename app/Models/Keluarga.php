@@ -20,13 +20,13 @@ class Keluarga extends Model
         'no_rt',
     ];
 
-    public function penduduk(): BelongsTo
+    public function kepalaKeluarga(): BelongsTo
     {
         return $this->belongsTo(Penduduk::class, 'nik_kepala_keluarga', 'nik');
     }
 
     public function rt(): BelongsTo
     {
-        return $this->belongsTo(RT::class, 'no_rt', 'no_rt');
+        return $this->belongsTo(Rt::class, 'no_rt', 'no_rt');
     }
 }

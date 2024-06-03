@@ -15,11 +15,12 @@ return new class extends Migration
             $table->string('nkk', 17)->primary();
             $table->string('nik_kepala_keluarga', 17)->index();
             // $table->integer('jumlah_nik');
-            ;$table->string('no_rt', 2)->index();
+            $table->string('no_rt', 2)->index();
+            $table->string('nomor_telepon')->nullable();
             $table->timestamps();
 
             // Kunci asing
-            // $table->foreign('nkk')->references('nkk')->on('penduduk')->onDelete('cascade');
+            $table->foreign('nkk')->references('nkk')->on('penduduk')->onDelete('cascade');
             $table->foreign('nik_kepala_keluarga')->references('nik')->on('penduduk')->onDelete('cascade');
             $table->foreign('no_rt')->references('no_rt')->on('rt')->onDelete('cascade');
         });

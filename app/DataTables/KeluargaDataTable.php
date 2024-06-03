@@ -3,7 +3,7 @@
 namespace App\DataTables;
 
 use App\Models\Keluarga;
-use App\Models\RT;
+use App\Models\Rt;
 use App\Models\Users;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
@@ -25,10 +25,18 @@ class KeluargaDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->setRowId('id')
-            ->addColumn('action', function($row){
+            ->addColumn('action', function ($row) {
 
                 $deleteUrl = route('keluarga.destroy', $row->nkk);
-                $action ='
+                $action = '
+                <div class="container-action">
+                <button type="button"
+                data-id="' . $row->nkk . '"
+                data-no_rt="' . $row->no_rt . '"
+                data-nik_kepala="' . $row->nik_kepala_keluarga . '"
+                data-bs-toggle="modal" data-bs-target="#showKeluargaModal" class="show-user show btn btn-show btn-sm">Tampil</button>';
+
+                $action .= '
                 <div class="container-action">
                 <button type="button"
                 data-id="' . $row->nkk . '"
@@ -36,11 +44,13 @@ class KeluargaDataTable extends DataTable
                 data-no_rt="' . $row->no_rt . '"
                 data-bs-toggle="modal" data-bs-target="#editKeluargaModal"
                 class="edit btn btn-edit btn-sm">Edit</button>';
-                $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
-                ' . csrf_field() . '
-                ' . method_field('DELETE') .
-                '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
-                </form>
+                $action .= ' <button
+                    type="button" 
+                    class="delete btn btn-delete btn-sm" 
+                    data-bs-target="#deleteKeluargaModal" 
+                    data-bs-toggle="modal"
+                    data-nkk="' . $row->nkk . '"
+                    >Hapus</button>
                 </div>';
                 return $action;
             });
@@ -55,7 +65,7 @@ class KeluargaDataTable extends DataTable
             // Dapatkan pengguna yang sedang login
             $user = Users::where('id_user', auth()->user()->id_user)->first();
             $nikRt = $user->nik; // Ambil nilai nik dari pengguna
-            $noRt = RT::where('nik_rt', $nikRt)->pluck('no_rt')->first();
+            $noRt = Rt::where('nik_rt', $nikRt)->pluck('no_rt')->first();
 
             return $model->newQuery()->where('no_rt', $noRt);
         }
@@ -105,11 +115,11 @@ class KeluargaDataTable extends DataTable
             Column::make('no_rt')->width(100)->title('Nomor RT'),
             Column::make('nik_kepala_keluarga')->title('Kepala Keluarga')->width(300),
             Column::computed('action')
-              ->exportable(false)
-              ->printable(false)
-              ->width(200)
-              ->addClass('text-center')
-              ->title('Aksi'),
+                ->exportable(false)
+                ->printable(false)
+                ->width(200)
+                ->addClass('text-center')
+                ->title('Aksi'),
             // Column::make('created_at'),
             // Column::make('updated_at'),
         ];

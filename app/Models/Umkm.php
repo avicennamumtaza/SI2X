@@ -29,6 +29,6 @@ class Umkm extends Model
 
     // public function rw(): BelongsTo
     // {
-    //     return $this->belongsTo(RW::class, 'nik_pemilik', 'nik_rw');
+    //     return $this->belongsTo(Rw::class, 'nik_pemilik', 'nik_rw');
     // }
 }

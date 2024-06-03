@@ -3,7 +3,7 @@
 namespace App\DataTables;
 
 use App\Models\Penduduk;
-use App\Models\RT;
+use App\Models\Rt;
 use App\Models\Users;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Illuminate\Support\Facades\Auth;
@@ -95,12 +95,14 @@ class PendudukDataTable extends DataTable
                 data-status_pendatang="' . $row->status_pendatang . '"
                 data-bs-toggle="modal" data-bs-target="#editPendudukModal" class="edit-user edit btn btn-edit btn-sm">Edit</button>';
                 
-                $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
-                ' . csrf_field() . '
-                ' . method_field('DELETE') .
-                '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
-                </form>
-                
+                $action .= ' <button
+                    type="button" 
+                    class="delete btn btn-delete btn-sm" 
+                    data-bs-target="#deletePendudukModal" 
+                    data-bs-toggle="modal"
+                    data-nama="' . $row->nama . '"
+                    data-nik="' . $row->nik . '"
+                    >Hapus</button>
                 </div>';
                 return $action;
             });
@@ -115,7 +117,7 @@ class PendudukDataTable extends DataTable
             // Dapatkan pengguna yang sedang login
             $user = Users::where('id_user', auth()->user()->id_user)->first();
             $nikRt = $user->nik; // Ambil nilai nik dari pengguna
-            $noRt = RT::where('nik_rt', $nikRt)->pluck('no_rt')->first();
+            $noRt = Rt::where('nik_rt', $nikRt)->pluck('no_rt')->first();
 
             return $model->newQuery()->where('no_rt', $noRt);
         }
