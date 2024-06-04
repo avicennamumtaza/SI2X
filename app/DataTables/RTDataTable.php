@@ -61,7 +61,7 @@ class RTDataTable extends DataTable
             data-bs-toggle="modal"
             data-no_rt="' . $row->no_rt . '"
             data-nik_rt="' . $row->nik_rt . '"
-            data-nama_rt="' . $row->nama_rt . '"
+            data-nama_rt="' . $nama_rt . '"
             >Hapus</button>
         </div>';
             return $action;
