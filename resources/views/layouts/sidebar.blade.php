@@ -170,14 +170,14 @@
                 <div class="sidebar-footer pt-2">
                 <li class="sidebar-item {{ \Route::is('profil.manage') ? 'active' : '' }}" title="Profil">
                     
-                    <a href="{{ route('profil.manage') }}" class="sidebar-profile d-flex align-items-center">
+                    <a href="{{ route('profil.manage') }}" class="sidebar-profile align-items-center">
                         <!-- Profile Picture -->
                         <?php
                             $users = Auth()->user();
                         ?>
                         <img src="{{ asset($users->foto_profil ? 'Foto Users/' . $users->foto_profil : 'Foto Users/default.jpg') }}" 
                              alt="Foto Profil" 
-                             class="rounded-circle me-3" 
+                             class="profile-picture rounded-circle me-3" 
                              style="width: 40px; height: 40px; object-fit: cover;">
                         <div>
                             <span>{{ $users->username }}</span> <br>
