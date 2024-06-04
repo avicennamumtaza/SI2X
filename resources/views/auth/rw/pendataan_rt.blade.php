@@ -4,7 +4,7 @@
     {{-- <div class="container container-pengumuman col-12"> --}}
     <!-- Modal -->
     <div class="modal fade" id="tambahRT" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-md">
+        <div class="modal-dialog   modal-dialog-centered  modal-md">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Tambah RT</h5>
@@ -50,7 +50,7 @@
 
     {{-- show RT --}}
     <div class="modal fade" id="showRtModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-md">
+        <div class="modal-dialog   modal-dialog-centered  modal-md">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Detail RT</h5>
@@ -101,7 +101,7 @@
 
     {{-- {{-- Edit RT --}}
     <div class="modal fade" id="editRtModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-md">
+        <div class="modal-dialog   modal-dialog-centered  modal-md">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Edit RT</h5>
@@ -145,7 +145,7 @@
 
     {{-- {{-- Delete rt --}}
     <div class="modal fade" id="deleteRtModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-md">
+        <div class="modal-dialog   modal-dialog-centered  modal-md">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Konfirmasi Penghapusan</h5>
