@@ -4,7 +4,7 @@
     <div class="container container-p col-10">
         <!-- Modal -->
         <div class="modal fade" id="ajukanDokumenModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-md">
+            <div class="modal-dialog modal-dialog-centered modal-md">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Permintaan Dokumen</h5>
@@ -60,7 +60,8 @@
             });
         </script>
 
-        <a class="fixedButton" id="ajukanDokumenButton" data-bs-toggle="modal" data-bs-target="#ajukanDokumenModal" title="Ajukan Dokumen">
+        <a class="fixedButton" id="ajukanDokumenButton" data-bs-toggle="modal" data-bs-target="#ajukanDokumenModal"
+            title="Ajukan Dokumen">
             <div class="roundedFixedBtn">
                 <button><i class="bi bi-box-arrow-in-up"></i>Ajukan Dokumen</button>
             </div>
@@ -100,7 +101,8 @@
                                 <td style="width: 25%" title="NIK yang mengajukan dokumen">
                                     {{ substr($pengajuanDokumen->nik_pemohon, 0, 3) . str_repeat('*', strlen($pengajuanDokumen->nik_pemohon) - 7) . substr($pengajuanDokumen->nik_pemohon, -4) }}
                                 </td>
-                                <td style="width: 15%" title="Dokumen yang diajukan">{{ $pengajuanDokumen->dokumen->jenis_dokumen }}</td>
+                                <td style="width: 15%" title="Dokumen yang diajukan">
+                                    {{ $pengajuanDokumen->dokumen->jenis_dokumen }}</td>
                                 <td style="width: 5%" title="Status pengajuan">
                                     @if ($pengajuanDokumen->status_pengajuan == 'Baru')
                                         <span style="background-color: darkgoldenrod"
