@@ -161,14 +161,33 @@
                         </a>
                     </li>
                 @endcan
-                <li class="sidebar-item {{ \Route::is('profil.manage') ? 'active' : '' }}" title="Profil">
+                {{-- <li class="sidebar-item {{ \Route::is('profil.manage') ? 'active' : '' }}" title="Profil">
                     <a href="{{ route('profil.manage') }}" class="sidebar-link">
                         <i class="lni lni-user"></i>
                         <span>Profil</span>
                     </a>
+                </li> --}}
+                <div class="sidebar-footer pt-2">
+                <li class="sidebar-item {{ \Route::is('profil.manage') ? 'active' : '' }}" title="Profil">
+                    
+                    <a href="{{ route('profil.manage') }}" class="sidebar-profile d-flex align-items-center">
+                        <!-- Profile Picture -->
+                        <?php
+                            $users = Auth()->user();
+                        ?>
+                        <img src="{{ asset($users->foto_profil ? 'Foto Users/' . $users->foto_profil : 'Foto Users/default.jpg') }}" 
+                             alt="Foto Profil" 
+                             class="rounded-circle me-3" 
+                             style="width: 40px; height: 40px; object-fit: cover;">
+                        <div>
+                            <span>{{ $users->username }}</span> <br>
+                            <span>{{ $users->role }}</span>
+                        </div>
+                    </a>
                 </li>
+            </div>
+
                 <li class="sidebar-item">
-                    <div class="sidebar-footer">
                         {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST">
                             @csrf
                             <button class="sidebar-link" type="submit">
@@ -186,23 +205,8 @@
                             <i class="lni lni-exit"></i>
                             <span>Keluar</span>
                         </a>
-                    </div>
                 </li>
-                {{-- <li class="sidebar-item {{ \Route::is('profil.manage') ? 'active' : '' }}" title="Profil">
-                    <a href="{{ route('profil.manage') }}" class="sidebar-link d-flex align-items-center">
-                        <!-- Profile Picture -->
-                        <img src="{{ asset($users->foto_profil ? 'Foto Users/' . $users->foto_profil : 'Foto Users/default.jpg') }}" 
-                             alt="Foto Profil" 
-                             class="rounded-circle me-2" 
-                             style="width: 40px; height: 40px; object-fit: cover;">
-                        
-                        <!-- User Info -->
-                        <div class="user-info">
-                            <span class="text-muted">{{ $users->username }}</span>
-                            <span class="text-muted">{{ $users->role }}</span>
-                        </div>
-                    </a>
-                </li> --}}
+                
             </ul>
         </aside>
         <div class=""
