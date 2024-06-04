@@ -8,7 +8,8 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Pengajuan UMKM</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                            style="filter: invert(39%) sepia(75%) saturate(6472%) hue-rotate(352deg) brightness(98%) contrast(104%);"></button>
                     </div>
 
                     <div class="modal-body justify-content-start text-start">
@@ -149,7 +150,7 @@
         <div class="mt-4" style="margin-bottom: -2rem">
             {{ $umkms->onEachSide(1)->links() }}
         </div>
-        
+
     </div>
 
     <!-- Bootstrap JS -->
