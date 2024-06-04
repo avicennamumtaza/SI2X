@@ -23,7 +23,7 @@ class PendudukSeeder extends Seeder
         $umurMax = 30;
 
         // Loop untuk mengisi data sebanyak yang diinginkan
-        foreach (range(1, 500) as $index) {
+        foreach (range(1, 300) as $index) {
             // Tentukan jenis keluarga
             $familyType = $faker->randomElement(['complete', 'single_parent', 'single']);
 
