@@ -1425,9 +1425,28 @@ body {
                     }
                 }
 
+                .sidebar-profile {
+                    padding: .5rem 0.9rem;
+                    color: white;
+                    display: block;
+                    font-size: 1.1rem;
+                    white-space: nowrap;
+                    border: 0;
+
+                    &:hover {
+                        background-color: $primaryCol;
+                        border-left: 3px solid white;
+                    }
+
+                    i {
+                        font-size: 1.2rem;
+                        margin-right: .75rem;
+                    }
+                }
+
                 .sidebar-footer {
                     margin-top: 10px;
-                    padding-top: 10px;
+                    // padding-top: 10px;
                     border-top: 3px solid orange;
                 }
             }
@@ -1450,8 +1469,17 @@ body {
                 margin-left: 0px;
             }
         }
+        // #sidebar:not(.expand) .sidebar-profile,
+        // #sidebar:not(.expand) .sidebar-logo,
+        #sidebar:not(.expand) .sidebar-profile span {
+            display: none;
 
-        #sidebar:not(.expand) button.sidebar-link {
+            .single-item-menu {
+                margin-left: 0px;
+            }
+        }
+
+        #sidebar:not(.expand) button.sidebar-link, button.sidebar-profile {
             // width: 70px;
             padding-right: 12px;
         }
@@ -1485,6 +1513,18 @@ body {
             opacity: 1;
         }
 
+        #sidebar.expand .sidebar-profile[data-bs-toggle="collapse"]::after {
+            border: solid;
+            border-width: 0 .075rem .075rem 0;
+            content: "";
+            display: inline-block;
+            padding: 2px;
+            position: absolute;
+            right: 1.5rem;
+            top: 1.25rem;
+            transform: rotate(-135deg);
+            transition: all .2s ease-out;
+        }
 
         #sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
             border: solid;
@@ -1496,6 +1536,11 @@ body {
             right: 1.5rem;
             top: 1.25rem;
             transform: rotate(-135deg);
+            transition: all .2s ease-out;
+        }
+        
+        #sidebar.expand .sidebar-profile[data-bs-toggle="collapse"].collapsed::after {
+            transform: rotate(45deg);
             transition: all .2s ease-out;
         }
 
