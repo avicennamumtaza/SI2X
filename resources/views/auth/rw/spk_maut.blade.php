@@ -1,7 +1,9 @@
 @extends('layouts.sidebar')
 
 @section('content')
-<div class="modal fade" id="exportMFEP" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+{{-- Ekspor Data Bansos MAUT --}}
+<div class="modal fade" id="exportMAUT" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-md">
         <div class="modal-content">
             <div class="modal-header">
@@ -10,7 +12,7 @@
                     title="Tutup"></button>
             </div>
             <div class="modal-body justify-content-start text-start">
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="{{route('maut.export')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group mb-3">
                         <p>Anda akan mengunduh data penerima bansos dengan format file xlsx.
@@ -28,10 +30,10 @@
     <div class="card card-tabel">
         <div class="card-header card-header-tabel p-4 mb-3">
             <h5>
-                Sistem Pendukung Keputusan Metode MFEP
+                Sistem Pendukung Keputusan Metode MAUT
                 <span>
-                    <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#exportMFEP">Ekspor
-                    Data</button>
+                    <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#exportMAUT">Ekspor
+                        Data</button>
                 </span>
             </h5>
         </div>
@@ -84,8 +86,8 @@
                 </tbody>
             </table>
 
-            <!-- Tabel Alternatif Ternormalisasi dan Terbobot -->
-            <h5>Alternatif Terbobot</h5>
+            <!-- Tabel Alternatif Ternormalisasi -->
+            <h5>Alternatif Ternormalisasi</h5>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -99,6 +101,33 @@
                 </thead>
                 <tbody>
                     @foreach ($normalizedAlternatifs as $index => $alternatif)
+                        <tr>
+                            <td>{{ $alternatifs[$index]['nkk'] }}</td>
+                            <td>{{ $alternatif['penghasilan'] }}</td>
+                            <td>{{ $alternatif['tanggungan'] }}</td>
+                            <td>{{ $alternatif['pajak_bumibangunan'] }}</td>
+                            <td>{{ $alternatif['pajak_kendaraan'] }}</td>
+                            <td>{{ $alternatif['daya_listrik'] }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+
+            <!-- Tabel Alternatif Terbobot -->
+            <h5>Alternatif Terbobot</h5>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>NKK</th>
+                        <th>Penghasilan</th>
+                        <th>Tanggungan</th>
+                        <th>Pajak Bumi Bangunan</th>
+                        <th>Pajak Kendaraan</th>
+                        <th>Daya Listrik</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($finalAlternatifs as $index => $alternatif)
                         <tr>
                             <td>{{ $alternatifs[$index]['nkk'] }}</td>
                             <td>{{ $alternatif['penghasilan'] }}</td>
@@ -129,6 +158,7 @@
                     @endforeach
                 </tbody>
             </table>
+
         </div>
     </div>
 @endsection

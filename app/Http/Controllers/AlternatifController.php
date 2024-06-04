@@ -14,6 +14,9 @@ use App\Models\Rw;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Validation\Rule;
 use App\Enums\DayaListrik as DayaListrik;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 
 class AlternatifController extends Controller
@@ -97,7 +100,7 @@ class AlternatifController extends Controller
     /**
      * Calculate the resources.
      */
-    public function spk()
+    public function spkMaut()
     {
         $ktr = Kriteria::all();
         $sumBobot = 0;
@@ -187,10 +190,10 @@ class AlternatifController extends Controller
             );
         }
 
-        return view('auth.rw.spk', compact('ktr', 'alternatifs', 'normalizedAlternatifs', 'finalAlternatifs', 'ranks'));
+        return view('auth.rw.spk_maut', compact('ktr', 'alternatifs', 'normalizedAlternatifs', 'finalAlternatifs', 'ranks'));
     }
 
-    public function spkk()
+    public function spkMfep()
     {
         $ktr = Kriteria::all();
         $sumBobot = 0;
@@ -246,7 +249,7 @@ class AlternatifController extends Controller
             ]);
         }
 
-        return view('auth.rw.spkk', compact('ktr', 'alternatifs', 'normalizedAlternatifs', 'ranks'));
+        return view('auth.rw.spk_mfep', compact('ktr', 'alternatifs', 'normalizedAlternatifs', 'ranks'));
     }
 
     /**
@@ -274,5 +277,91 @@ class AlternatifController extends Controller
 
         return redirect()->back()
             ->with('success', 'Data calon penerima bansos berhasil dihapus.');
+    }
+
+    public function exportA() {
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->setTitle('Data Calon Penerima Bansos');
+        $sheet->setCellValue('A1', 'NKK');
+        $sheet->setCellValue('B1', 'Penghasilan');
+        $sheet->setCellValue('C1', 'Tanggungan');
+        $sheet->setCellValue('D1', 'Pajak Bumi dan Bangunan');
+        $sheet->setCellValue('E1', 'Pajak Kendaraan');
+        $sheet->setCellValue('F1', 'Daya Listrik');
+
+        $alternatifs = Alternatif::all();
+        $row = 2;
+        foreach ($alternatifs as $alternatif) {
+            $sheet->setCellValue('A' . $row, $alternatif->nkk);
+            $sheet->setCellValue('B' . $row, $alternatif->penghasilan);
+            $sheet->setCellValue('C' . $row, $alternatif->tanggungan);
+            $sheet->setCellValue('D' . $row, $alternatif->pajak_bumibangunan);
+            $sheet->setCellValue('E' . $row, $alternatif->pajak_kendaraan);
+            $sheet->setCellValue('F' . $row, $alternatif->daya_listrik);
+            $row++;
+        }
+
+        $sheetA = $spreadsheet->createSheet();
+        $sheetA->setTitle('Hasil Kalkulasi (MAUT)');
+        $sheetA->setCellValue('A1', 'NKK');
+        $sheetA->setCellValue('B1', 'Skor');
+
+        $skorMethodA = SkorMethodA::all();
+        $row = 2;
+        foreach ($skorMethodA as $skor) {
+            $sheetA->setCellValue('A' . $row, $skor->nkk);
+            $sheetA->setCellValue('B' . $row, $skor->skor);
+            $row++;
+        }
+
+        $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
+        $filename = 'Data Calon Penerima Bansos (MAUT).xlsx';
+        $writer->save($filename);
+
+        return response()->download($filename)->deleteFileAfterSend(true);
+    }
+
+    public function exportB () {
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->setTitle('Data Calon Penerima Bansos');
+        $sheet->setCellValue('A1', 'NKK');
+        $sheet->setCellValue('B1', 'Penghasilan');
+        $sheet->setCellValue('C1', 'Tanggungan');
+        $sheet->setCellValue('D1', 'Pajak Bumi dan Bangunan');
+        $sheet->setCellValue('E1', 'Pajak Kendaraan');
+        $sheet->setCellValue('F1', 'Daya Listrik');
+
+        $alternatifs = Alternatif::all();
+        $row = 2;
+        foreach ($alternatifs as $alternatif) {
+            $sheet->setCellValue('A' . $row, $alternatif->nkk);
+            $sheet->setCellValue('B' . $row, $alternatif->penghasilan);
+            $sheet->setCellValue('C' . $row, $alternatif->tanggungan);
+            $sheet->setCellValue('D' . $row, $alternatif->pajak_bumibangunan);
+            $sheet->setCellValue('E' . $row, $alternatif->pajak_kendaraan);
+            $sheet->setCellValue('F' . $row, $alternatif->daya_listrik);
+            $row++;
+        }
+
+        $sheetB = $spreadsheet->createSheet();
+        $sheetB->setTitle('Hasil Kalkulasi (MFEP)');
+        $sheetB->setCellValue('A1', 'NKK');
+        $sheetB->setCellValue('B1', 'Skor');
+
+        $skorMethodB = SkorMethodB::all();
+        $row = 2;
+        foreach ($skorMethodB as $skor) {
+            $sheetB->setCellValue('A' . $row, $skor->nkk);
+            $sheetB->setCellValue('B' . $row, $skor->skor);
+            $row++;
+        }
+
+        $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
+        $filename = 'Data Calon Penerima Bansos (MFEP).xlsx';
+        $writer->save($filename);
+
+        return response()->download($filename)->deleteFileAfterSend(true);
     }
 }

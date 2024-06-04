@@ -203,5 +203,9 @@ Route::prefix('profil')->group(function() {
     // Route::put('/{user}/change_password', [ProfilController::class, 'changePassword'])->name('profil.password');
 });
 
-Route::get('spk', [AlternatifController::class, 'spk'])->middleware('isRw')->name('spk.result');
-Route::get('spkk', [AlternatifController::class, 'spkk'])->middleware('isRw')->name('spkk.result');
+Route::prefix('spk')->group(function(){
+Route::get('maut', [AlternatifController::class, 'spkMaut'])->name('maut.result')->middleware('isRw');
+Route::post('maut/export', [AlternatifController::class, 'exportA'])->name('maut.export')->middleware('isRw');
+Route::get('mfep', [AlternatifController::class, 'spkMfep'])->name('mfep.result')->middleware('isRw');
+Route::post('mfep/export', [AlternatifController::class, 'exportB'])->name('mfep.export')->middleware('isRw');
+});
