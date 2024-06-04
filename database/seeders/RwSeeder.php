@@ -15,20 +15,10 @@ class RwSeeder extends Seeder
      */
     public function run()
     {
-        // Menggunakan Faker untuk mengisi data
         $faker = Faker::create();
-
-        // Menghitung jumlah baris pada tabel rt, keluarga, penduduk
-        // $jumlahRt = DB::table('rt')->count();
-        // $jumlahRt = DB::table('keluarga')->count();
-        // $jumlahRt = DB::table('penduduk')->count();
-
-        // Ambil semua nik yang ada
         $nikRw = DB::table('penduduk')->pluck('nik')->toArray();
 
-        // Loop untuk mengisi data sebanyak yang diinginkan
         foreach (range(1, 1) as $index) {
-            // Insert data baru ke tabel rw
             DB::table('rw')->insert([
                 'no_rw' => 6,
                 'nik_rw' => $faker->randomElement($nikRw),

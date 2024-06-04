@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Penduduk;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
@@ -15,18 +16,14 @@ class RtSeeder extends Seeder
      */
     public function run()
     {
-        // Menggunakan Faker untuk mengisi data
         $faker = Faker::create();
-        
-        // Ambil semua nik yang ada
-        $nikRt = DB::table('penduduk')->pluck('nik')->toArray();
-
-        // Loop untuk mengisi data sebanyak yang diinginkan
         foreach (range(1, 16) as $index) {
-            // Insert data baru ke tabel rt
+            $randomPenduduk = Penduduk::where('no_rt', $index)->first()->toArray();
+            // $singleCaRt = Penduduk::all()->toArray();
+            // dd($randomPenduduk['no_rt']);
             DB::table('rt')->insert([
-                'no_rt' => $index,
-                'nik_rt' => $faker->randomElement($nikRt),
+                'no_rt' => $randomPenduduk['no_rt'],
+                'nik_rt' => $randomPenduduk['nik'],
                 'wa_rt' => $faker->unique()->numerify('08##########'),
                 'created_at' => now(),
                 'updated_at' => now(),

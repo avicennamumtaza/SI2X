@@ -9,6 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'SIRW') }}</title>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -164,7 +165,7 @@
                         Kode Pos 65137.
                     </p>
                     @php
-                        $rw = \App\Models\RW::first();
+                        $rw = \App\Models\Rw::first();
                     @endphp
                     {{-- substr_replace($umkm->wa_umkm, '62', 0, 1) --}}
                     @if ($rw)
