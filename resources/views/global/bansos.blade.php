@@ -8,7 +8,8 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Pengajuan Bantuan Sosial</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                            style="filter: invert(39%) sepia(75%) saturate(6472%) hue-rotate(352deg) brightness(98%) contrast(104%);"></button>
                     </div>
 
                     <div class="modal-body justify-content-start text-start">
@@ -70,8 +71,10 @@
         </a>
 
         <h1 class="heading-center">Bantuan Sosial</h1>
-        <p>Bantuan Sosial adalah program yang <strong>ditujukan untuk membantu penduduk yang membutuhkan.</strong> Penduduk dapat mengajukan
-            bantuan sosial dengan mengisi formulir pengajuan yang tersedia, klik tombol pojok kanan bawah untuk mengakses formulir. Program Bantuan Sosial ini didasarkan pada
+        <p>Bantuan Sosial adalah program yang <strong>ditujukan untuk membantu penduduk yang membutuhkan.</strong> Penduduk
+            dapat mengajukan
+            bantuan sosial dengan mengisi formulir pengajuan yang tersedia, klik tombol pojok kanan bawah untuk mengakses
+            formulir. Program Bantuan Sosial ini didasarkan pada
             beberapa dasar hukum seperti Undang-Undang Nomor 11 Tahun 2009 tentang Kesejahteraan Sosial, Peraturan
             Pemerintah Nomor 39 Tahun 2012 tentang Penyelenggaraan Kesejahteraan Sosial, Peraturan Menteri Sosial Nomor 28
             Tahun 2017 tentang Pedoman Umum Verifikasi dan Validasi Data Terpadu
