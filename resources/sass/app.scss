@@ -1968,4 +1968,20 @@ body {
     // #laporankeuangan-table_wrapper .dataTables_paginate .paginate_button {
     //     // margin: 0 0.1rem; /* Margin antara tombol paginasi */
     // }
+
+    /* Centering modals vertically and horizontally */
+.modal-dialog {
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    min-height: calc(100vh - 1rem);
+}
+
+/* Media query untuk perangkat kecil */
+@media (max-width: 575.98px) {
+    .modal-dialog {
+        min-height: calc(100vh - 1rem); 
+    }
+}
+
 }
