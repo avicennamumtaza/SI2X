@@ -117,7 +117,7 @@ class KeluargaDataTable extends DataTable
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
-                ->width(200)
+                ->width(270)
                 ->addClass('text-center')
                 ->title('Aksi'),
             // Column::make('created_at'),
