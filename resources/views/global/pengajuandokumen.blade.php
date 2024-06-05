@@ -99,10 +99,10 @@
                         @foreach ($pengajuanDokumens as $pengajuanDokumen)
                             <tr>
                                 <td style="width: 5%" title="Nomor RT">{{ $pengajuanDokumen->penduduk->no_rt }}</td>
-                                <td style="width: 25%" title="NIK yang mengajukan dokumen">
+                                <td style="width: 15%" title="NIK yang mengajukan dokumen">
                                     {{ substr($pengajuanDokumen->nik_pemohon, 0, 3) . str_repeat('*', strlen($pengajuanDokumen->nik_pemohon) - 7) . substr($pengajuanDokumen->nik_pemohon, -4) }}
                                 </td>
-                                <td style="width: 15%" title="Dokumen yang diajukan">
+                                <td style="width: 25%" title="Dokumen yang diajukan">
                                     {{ $pengajuanDokumen->dokumen->jenis_dokumen }}</td>
                                 <td style="width: 5%" title="Status pengajuan">
                                     @if ($pengajuanDokumen->status_pengajuan == 'Baru')
