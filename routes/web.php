@@ -54,13 +54,13 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // global umkm
-Route::prefix('umkm')->group(function() {
+Route::prefix('umkm')->group(function () {
     Route::get('/', [UmkmController::class, 'index'])->name('umkm.global');
     Route::post('/', [UmkmController::class, 'store'])->name('umkm.store');
 });
 
 // global bansos
-Route::prefix('bansos')->group(function() {
+Route::prefix('bansos')->group(function () {
     Route::get('/', [AlternatifController::class, 'index'])->name('bansos.global');
     Route::post('/', [AlternatifController::class, 'store'])->name('bansos.store');
     Route::get('/rw', [AlternatifController::class, 'list'])->middleware('isRw')->name('bansos.manage');
@@ -68,25 +68,25 @@ Route::prefix('bansos')->group(function() {
 });
 
 // global pengajuan dokumen
-Route::prefix('pengajuandokumen')->group(function() {
+Route::prefix('pengajuandokumen')->group(function () {
     Route::post('/', [PengajuanDokumenController::class, 'store'])->name('pengajuandokumen.store');
     Route::get('/', [PengajuanDokumenController::class, 'index'])->name('pengajuandokumen.global');
 });
 
 // global pengumuman
-Route::prefix('pengumuman')->group(function() {
+Route::prefix('pengumuman')->group(function () {
     Route::get('/', [PengumumanController::class, 'index'])->name('pengumuman.global');
 });
 
 // global laporan keuangan
-Route::prefix('laporankeuangan')->group(function() {
+Route::prefix('laporankeuangan')->group(function () {
     Route::get('/', [LaporanKeuanganController::class, 'index'])->name('laporankeuangan.global');
 });
 
 // manage feature
-Route::prefix('manage')->group(function(){
+Route::prefix('manage')->group(function () {
     // manage pengumuman
-    Route::prefix('pengumuman')->group(function() {
+    Route::prefix('pengumuman')->group(function () {
         Route::get('/', [PengumumanController::class, 'list'])->name('pengumuman.manage')->middleware('isRw');
         Route::post('/', [PengumumanController::class, 'store'])->name('pengumuman.store')->middleware('isRw');
         Route::get('/edit/{pengumuman}', [PengumumanController::class, 'edit'])->name('pengumuman.edit')->middleware('isRw');
@@ -97,7 +97,7 @@ Route::prefix('manage')->group(function(){
     });
 
     // manage pengajuan dokumen
-    Route::prefix('pengajuandokumen')->group(function() {
+    Route::prefix('pengajuandokumen')->group(function () {
         Route::get('/', [PengajuanDokumenController::class, 'list'])->name('pengajuandokumen.manage')->middleware('auth');
         Route::get('/edit/{pengajuandokumen}', [PengajuanDokumenController::class, 'edit'])->name('pengajuandokumen.edit')->middleware('isRt');
         Route::put('/update/{pengajuandokumen}', [PengajuanDokumenController::class, 'update'])->name('pengajuandokumen.update')->middleware('isRt');
@@ -105,7 +105,7 @@ Route::prefix('manage')->group(function(){
     });
 
     // manage laporan keuangan
-    Route::prefix('laporankeuangan')->group(function() {
+    Route::prefix('laporankeuangan')->group(function () {
         Route::get('/', [LaporanKeuanganController::class, 'index'])->name('laporankeuangan.global');
         Route::get('/', [LaporanKeuanganController::class, 'list'])->name('laporankeuangan.manage')->middleware('isRw');
         Route::post('/', [LaporanKeuanganController::class, 'store'])->name('laporankeuangan.store')->middleware('isRw');
@@ -116,17 +116,17 @@ Route::prefix('manage')->group(function(){
     });
 
     // manage umkm
-    Route::prefix('umkm')->group(function() {
+    Route::prefix('umkm')->group(function () {
         Route::get('/', [UmkmController::class, 'list'])->name('umkm.manage')->middleware('isRw');
         Route::get('/edit/{umkm}', [UmkmController::class, 'edit'])->name('umkm.edit')->middleware('isRw');
         Route::put('/update/{umkm}', [UmkmController::class, 'update'])->name('umkm.update')->middleware('isRw');
         Route::delete('/{umkm}', [UmkmController::class, 'destroy'])->name('umkm.destroy')->middleware('isRw');
     });
 
-        // manage pendataan
-    Route::prefix('pendataan')->group(function() {
+    // manage pendataan
+    Route::prefix('pendataan')->group(function () {
         //manage rt
-        Route::prefix('rt')->group(function() {
+        Route::prefix('rt')->group(function () {
             Route::get('/', [RTController::class, 'list'])->name('rt.manage')->middleware('isRw');
             Route::post('/', [RTController::class, 'store'])->name('rt.store')->middleware('isRw');
             Route::get('/edit/{rt}', [RTController::class, 'edit'])->name('rt.edit')->middleware('isRw');
@@ -138,7 +138,7 @@ Route::prefix('manage')->group(function(){
         });
 
         //manage rw
-        Route::prefix('rw')->group(function() {
+        Route::prefix('rw')->group(function () {
             Route::get('/', [RWController::class, 'list'])->name('rw.manage')->middleware('isRw');
             Route::get('/{rw}/edit', [RWController::class, 'edit'])->name('rw.edit')->middleware('isRw');
             Route::put('/update/{rw}', [RWController::class, 'update'])->name('rw.update')->middleware('isRw');
@@ -147,7 +147,7 @@ Route::prefix('manage')->group(function(){
         });
 
         // manage penduduk
-        Route::prefix('penduduk')->group(function() {
+        Route::prefix('penduduk')->group(function () {
             Route::get('/', [PendudukController::class, 'list'])->name('penduduk.manage')->middleware('auth');
             Route::post('/', [PendudukController::class, 'store'])->name('penduduk.store')->middleware('auth');
             Route::get('/edit/{penduduk}', [PendudukController::class, 'edit'])->name('penduduk.edit')->middleware('auth');
@@ -159,7 +159,7 @@ Route::prefix('manage')->group(function(){
         });
 
         // manage keluarga
-        Route::prefix('keluarga')->group(function() {
+        Route::prefix('keluarga')->group(function () {
             Route::get('/', [KeluargaController::class, 'list'])->name('keluarga.manage')->middleware('auth');
             Route::post('/', [KeluargaController::class, 'store'])->name('keluarga.store')->middleware('auth');
             Route::get('/edit/{keluarga}', [KeluargaController::class, 'edit'])->name('keluarga.edit')->middleware('auth');
@@ -169,19 +169,18 @@ Route::prefix('manage')->group(function(){
         });
     });
 
-        // manage user
-    Route::prefix('users')->group(function() {
+    // manage user
+    Route::prefix('users')->group(function () {
         Route::get('/', [UsersController::class, 'list'])->name('users.manage')->middleware('isRw');
         Route::post('/', [UsersController::class, 'store'])->name('users.store')->middleware('isRw');
         // Route::get('/edit/{users}', [UsersController::class, 'edit'])->name('users.edit')->middleware('isRw');
         Route::put('/update/{users}', [UsersController::class, 'update'])->name('users.update')->middleware('isRw');
         Route::delete('/{users}', [UsersController::class, 'destroy'])->name('users.destroy')->middleware('isRw');
     });
-
 });
 
 //dokumen
-Route::prefix('dokumen')->group(function(){
+Route::prefix('dokumen')->group(function () {
     Route::get('/', [DokumenController::class, 'list'])->name('dokumen.manage')->middleware('isRw');
     Route::post('/', [DokumenController::class, 'store'])->name('dokumen.store')->middleware('isRw');
     Route::get('/edit/{dokumen}', [DokumenController::class, 'edit'])->name('dokumen.edit')->middleware('isRw');
@@ -189,13 +188,13 @@ Route::prefix('dokumen')->group(function(){
     Route::delete('/{dokumen}', [DokumenController::class, 'destroy'])->name('dokumen.destroy')->middleware('isRw');
 });
 
-Route::prefix('usia')->group(function() {
+Route::prefix('usia')->group(function () {
     Route::get('/lansia', [PendudukController::class, 'getLansia'])->name('lansia')->middleware('auth');
     Route::get('/produktif', [PendudukController::class, 'getProduktif'])->name('produktif')->middleware('auth');
     Route::get('/anak', [PendudukController::class, 'getAnak'])->name('anak')->middleware('auth');
 });
 
-Route::prefix('profil')->group(function() {
+Route::prefix('profil')->group(function () {
     Route::get('/', [ProfilController::class, 'profil'])->name('profil.manage')->middleware('auth');
     Route::put('/update/{users}', [ProfilController::class, 'updateProfil'])->name('profil.update')->middleware('auth');
     Route::put('/update/foto/{users}', [ProfilController::class, 'updateFotoProfil'])->name('profil.foto');
@@ -203,9 +202,9 @@ Route::prefix('profil')->group(function() {
     // Route::put('/{user}/change_password', [ProfilController::class, 'changePassword'])->name('profil.password');
 });
 
-Route::prefix('spk')->group(function(){
-Route::get('maut', [AlternatifController::class, 'spkMaut'])->name('maut.result')->middleware('isRw');
-Route::post('maut/export', [AlternatifController::class, 'exportA'])->name('maut.export')->middleware('isRw');
-Route::get('mfep', [AlternatifController::class, 'spkMfep'])->name('mfep.result')->middleware('isRw');
-Route::post('mfep/export', [AlternatifController::class, 'exportB'])->name('mfep.export')->middleware('isRw');
+Route::prefix('spk')->group(function () {
+    Route::get('maut', [AlternatifController::class, 'spkMaut'])->name('maut.result')->middleware('isRw');
+    Route::post('maut/export', [AlternatifController::class, 'exportA'])->name('maut.export')->middleware('isRw');
+    Route::get('mfep', [AlternatifController::class, 'spkMfep'])->name('mfep.result')->middleware('isRw');
+    Route::post('mfep/export', [AlternatifController::class, 'exportB'])->name('mfep.export')->middleware('isRw');
 });
