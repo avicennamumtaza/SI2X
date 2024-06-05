@@ -368,7 +368,7 @@
                                     <select class="form-select" id="golongan_darah" name="golongan_darah" required>
                                         <option value="" selected disabled>Pilih Golongan Darah</option>
                                         @foreach ($goldar as $item)
-                                            <option value={{ $item->value }}>{{ $item->name }}</option>
+                                            <option value="{{ $item->value }}">{{ $item->value }}</option>
                                         @endforeach
                                     </select>
                                 </div>
