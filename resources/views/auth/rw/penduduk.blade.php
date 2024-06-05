@@ -32,7 +32,7 @@
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label for="nkk" class="form-label text-start">NKK</label>
+                                    <label for="nkk" class="form-label text-start">Nomor Kartu Keluarga</label>
                                     <input list="nkk_list" type="text" class="form-control" id="nkk" name="nkk"
                                         placeholder="Masukkan NKK" required>
                                     <datalist id="nkk_list">
@@ -190,7 +190,7 @@
 
                         <div class="col-md-6">
                             <div class="form-group mb-3">
-                                <label for="nkk" class="form-label">NKK</label>
+                                <label for="nkk" class="form-label">Nomor Kartu Keluarga</label>
                                 <input type="text" class="form-control" id="nkk" readonly>
                             </div>
 
@@ -297,7 +297,7 @@
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label for="nkk" class="form-label text-start">NKK</label>
+                                    <label for="nkk" class="form-label text-start">Nomor Kartu Keluarga</label>
                                     <input type="text" class="form-control" id="nkk" name="nkk" required>
                                 </div>
                             </div>
