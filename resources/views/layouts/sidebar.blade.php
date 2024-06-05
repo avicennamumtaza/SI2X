@@ -83,7 +83,8 @@
                         </a>
                     </li> --}}
                 @endcan
-                <li class="sidebar-item {{ \Route::is('pengajuandokumen.manage') ? 'active' : '' }}" title="Permintaan Dokumen">
+                <li class="sidebar-item {{ \Route::is('pengajuandokumen.manage') ? 'active' : '' }}"
+                    title="Permintaan Dokumen">
                     <a href="{{ route('pengajuandokumen.manage') }}" class="sidebar-link">
                         <i class="lni lni-printer"></i>
                         <span>Permintaan Dokumen</span>
@@ -113,8 +114,10 @@
                         </ul>
                     </li> --}}
                 <li class="sidebar-item" title="Kependudukan">
-                    <a href="#" class="sidebar-link has-dropdown collapsed {{ \Route::is('penduduk.manage') ? 'active' : '' }} {{ \Route::is('keluarga.manage') ? 'active' : '' }} {{ \Route::is('rt.manage') ? 'active' : '' }} {{ \Route::is('rw.manage') ? 'active' : '' }}" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
+                    <a href="#"
+                        class="sidebar-link has-dropdown collapsed {{ \Route::is('penduduk.manage') ? 'active' : '' }} {{ \Route::is('keluarga.manage') ? 'active' : '' }} {{ \Route::is('rt.manage') ? 'active' : '' }} {{ \Route::is('rw.manage') ? 'active' : '' }}"
+                        type="button" data-bs-toggle="collapse" data-bs-target="#multi" aria-expanded="false"
+                        aria-controls="multi">
                         <i class="lni lni-users"></i>
                         <span>Kependudukan</span>
                     </a>
@@ -144,7 +147,8 @@
                     </ul>
                 </li>
                 @can('isRw')
-                    <li class="sidebar-item {{ \Route::is('laporankeuangan.manage') ? 'active' : '' }}" title="Laporan Keuangan">
+                    <li class="sidebar-item {{ \Route::is('laporankeuangan.manage') ? 'active' : '' }}"
+                        title="Laporan Keuangan">
                         <a href="{{ route('laporankeuangan.manage') }}" class="sidebar-link">
                             <i class="lni lni-revenue"></i>
                             {{-- <i class="lni lni-calculator-alt"></i> --}}
@@ -173,43 +177,43 @@
                     </a>
                 </li> --}}
                 <div class="sidebar-footer pt-2">
-                <li class="sidebar-item {{ \Route::is('profil.manage') ? 'active' : '' }}" title="Profil">
+                    <li class="sidebar-item {{ \Route::is('profil.manage') ? 'active' : '' }}" title="Profil">
 
-                    <a href="{{ route('profil.manage') }}" class="sidebar-profile align-items-center">
-                        <!-- Profile Picture -->
-                        <?php
+                        <a href="{{ route('profil.manage') }}" class="sidebar-profile align-items-center">
+                            <!-- Profile Picture -->
+                            <?php
                             $users = Auth()->user();
-                        ?>
-                        <img src="{{ asset($users->foto_profil ? 'Foto Users/' . $users->foto_profil : 'Foto Users/default.jpg') }}"
-                             alt="Foto Profil"
-                             class="profile-picture rounded-circle me-3"
-                             style="width: 40px; height: 40px; object-fit: cover;">
-                        <div>
-                            <span>{{ $users->username }}</span> <br>
-                            <span>{{ $users->role }}</span>
-                        </div>
-                    </a>
-                </li>
-            </div>
+                            ?>
+                            <img src="{{ asset($users->foto_profil ? 'Foto Users/' . $users->foto_profil : 'Foto Users/default.jpg') }}"
+                                alt="Foto Profil" class="profile-picture rounded-circle me-3"
+                                style="width: 40px; height: 40px; object-fit: cover;">
+                            <div>
+                                <span>{{ $users->username }}</span> <br>
+                                <span>{{ $users->role }}</span>
+                            </div>
+                        </a>
+                    </li>
+                </div>
 
                 <li class="sidebar-item">
-                        {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                    {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST">
                             @csrf
                             <button class="sidebar-link" type="submit">
                                 {{-- <a href="{{ route('logout') }}" class="sidebar-link"> --}}
-                                {{-- <i class="lni lni-exit"></i> --}}
-                                {{-- <span>Keluar</span> --}}
-                                {{-- </a> --}}
-                            {{-- </button> --}}
-                        {{-- </form> --}}
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                        <a href="#" class="sidebar-link"
-                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();" title="Keluar">
-                            <i class="lni lni-exit"></i>
-                            <span>Keluar</span>
-                        </a>
+                    {{-- <i class="lni lni-exit"></i> --}}
+                    {{-- <span>Keluar</span> --}}
+                    {{-- </a> --}}
+                    {{-- </button> --}}
+                    {{-- </form> --}}
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    <a href="#" class="sidebar-link"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                        title="Keluar">
+                        <i class="lni lni-exit"></i>
+                        <span>Keluar</span>
+                    </a>
                 </li>
 
             </ul>
