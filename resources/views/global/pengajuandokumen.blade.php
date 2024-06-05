@@ -53,12 +53,13 @@
                 </div>
             </div>
         </div>
-        
-                <a class="fixedButton" id="ajukanDokumenButton" data-bs-toggle="modal" data-bs-target="#ajukanDokumenModal" title="Ajukan Dokumen">
-                    <div class="roundedFixedBtn">
-                        <button><i class="bi bi-box-arrow-in-up"></i>Ajukan Dokumen</button>
-                    </div>
-                </a>
+
+        <a class="fixedButton" id="ajukanDokumenButton" data-bs-toggle="modal" data-bs-target="#ajukanDokumenModal"
+            title="Ajukan Dokumen">
+            <div class="roundedFixedBtn">
+                <button><i class="bi bi-box-arrow-in-up"></i>Ajukan Dokumen</button>
+            </div>
+        </a>
 
         <script>
             document.getElementById('ajukanDokumenButton').addEventListener('click', function() {
