@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\DataTables\PengumumanDataTable;
 use App\Models\Pengumuman;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -35,7 +36,9 @@ class PengumumanController extends Controller
 
     public function index()
     {
-        $pengumumans = Pengumuman::all();
+        $pengumumans = Cache::remember('globalPengumuman', 600, function() {
+            return Pengumuman::all();
+        });
         return view('global.pengumuman')->with('pengumumans', $pengumumans);
         // $pengumumans = Pengumuman::all();
         // return view('auth.rw.pengumuman', compact('pengumumans'));

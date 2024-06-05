@@ -10,6 +10,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use App\DataTables\UmkmDataTable;
 use App\Models\Rt;
 use App\Models\Rw;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
 
 // use Illuminate\Console\View\Components\Alert;
@@ -18,11 +19,13 @@ class UmkmController extends Controller
 {
     public function index()
     {
-        $umkms = Umkm::where('status_umkm', 'Disetujui')->paginate(9);
-        $nik_penduduks = Penduduk::select('nik')->get();
-        return view('global.umkm')->with('umkms', $umkms)->with('nik_penduduks', $nik_penduduks);
-        // return view('global.umkm');
+        $umkms = Cache::remember('globalUmkmPage' . request('page', 1), 600, function() {
+            return Umkm::where('status_umkm', 'Disetujui')->paginate(9);
+        });
+    
+        return view('global.umkm')->with('umkms', $umkms);
     }
+
     // Fungsi tambahan untuk menampilkan seluruh data UMKM
     public function list(UmkmDataTable $dataTable)
     {

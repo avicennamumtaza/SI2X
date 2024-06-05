@@ -9,7 +9,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use Carbon\Carbon;
-
+use Illuminate\Support\Facades\Cache;
 
 class LaporanKeuanganController extends Controller
 {
@@ -20,14 +20,18 @@ class LaporanKeuanganController extends Controller
     {
         // $this->authorize('isRt');
         // return view('global.laporankeuangan');
-        $laporankeuangans = LaporanKeuangan::all()->sortByDesc('tanggal');
+        $laporankeuangans = Cache::remember('globalLaporanKeuangan', 600, function() {
+            return LaporanKeuangan::all()->sortByDesc('tanggal');
+        });
         // $latestLaporanKeuangan = LaporanKeuangan::latest()->first();
         // if ($latestLaporanKeuangan == null) {
         //     $saldo = 0;
         // } else {
         //     $saldo = $latestLaporanKeuangan->saldo;
         // }
-        $saldo = LaporanKeuangan::orderBy('tanggal', 'desc')->pluck('saldo')->first();
+        $saldo = Cache::remember('globalSaldo', 600, function() {
+            return LaporanKeuangan::orderBy('tanggal', 'desc')->pluck('saldo')->first();
+        });
         // dd($saldo);
 
         foreach ($laporankeuangans as $laporankeuangan) {

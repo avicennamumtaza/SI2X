@@ -188,7 +188,7 @@
                                             <i class="lni lni-printer text-success"></i>
                                         </div>
                                         <div class="mx-4">
-                                            <h4 style="margin-bottom: 0px">Permintaan Dokumen Disetujui</h4>
+                                            <h4 style="margin-bottom: 0px">Permintaan Dokumen<br>Disetujui</h4>
                                             {{-- <p class="mb-0">Monthly blog posts</p> --}}
                                         </div>
                                     </div>
@@ -208,7 +208,7 @@
                                             <i class="lni lni-printer text-danger"></i>
                                         </div>
                                         <div class="mx-4">
-                                            <h4 style="margin-bottom: 0px">Permintaan Dokumen Ditolak</h4>
+                                            <h4 style="margin-bottom: 0px">Permintaan Dokumen<br>Ditolak</h4>
                                             {{-- <p class="mb-0">Monthly blog posts</p> --}}
                                         </div>
                                     </div>

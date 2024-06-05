@@ -129,25 +129,36 @@ class HomeController extends Controller
                 'jumlahPengajuanDokumenDec',
                 'jumlahPengajuanDokumen'
             ));
+
         } else if (auth()->user()->role == 'RT') {
-            $jumlahKeluarga = Cache::remember('jumlahKeluarga', 600, function () {
-                return Keluarga::count();
+            $rt = Rt::where('nik_rt', auth()->user()->nik)->first()->toArray();
+            $noRt = $rt['no_rt']; // Simpan nomor RT di variabel
+        
+            $jumlahKeluarga = Cache::remember('jumlahKeluarga', 600, function () use ($noRt) {
+                return Keluarga::where('no_rt', $noRt)->count();
+            });
+        
+            $jumlahPenduduk = Cache::remember('jumlahPenduduk', 600, function () use ($noRt) {
+                return Penduduk::where('no_rt', $noRt)->count();
             });
 
-            $jumlahPenduduk = Cache::remember('jumlahPenduduk', 600, function () {
-                return Penduduk::count();
+            $jumlahAnakAnak = Cache::remember('jumlahAnakAnak', 600, function () use ($noRt) {
+                $date = \Carbon\Carbon::now()->subYears(15)->format('Y-m-d');
+                $penduduk = Penduduk::where('no_rt', $noRt)->where('tanggal_lahir', '>', $date)->select(['nik', 'nama', 'tempat_lahir', 'tanggal_lahir'])->paginate(25);
+                return $penduduk->count();
             });
 
-            $jumlahAnakAnak = Cache::remember('jumlahAnakAnak', 600, function () {
-                return Penduduk::whereRaw("YEAR(CURDATE()) - YEAR(tanggal_lahir) < 15")->count();
+            $jumlahUsiaProduktif = Cache::remember('jumlahUsiaProduktif', 600, function () use ($noRt) {
+                $dateMin = \Carbon\Carbon::now()->subYears(65)->format('Y-m-d');
+                $dateMax = \Carbon\Carbon::now()->subYears(15)->format('Y-m-d');
+                $penduduk = Penduduk::where('no_rt', $noRt)->whereBetween('tanggal_lahir', [$dateMin, $dateMax]);
+                return $penduduk->count();
             });
 
-            $jumlahUsiaProduktif = Cache::remember('jumlahUsiaProduktif', 600, function () {
-                return Penduduk::whereRaw("YEAR(CURDATE()) - YEAR(tanggal_lahir) >= 15 AND YEAR(CURDATE()) - YEAR(tanggal_lahir) < 65")->count();
-            });
-
-            $jumlahLansia = Cache::remember('jumlahLansia', 600, function () {
-                return Penduduk::whereRaw("YEAR(CURDATE()) - YEAR(tanggal_lahir) >= 65")->count();
+            $jumlahLansia = Cache::remember('jumlahLansia', 600, function () use ($noRt) {
+                $date = \Carbon\Carbon::now()->subYears(66)->format('Y-m-d');
+                $penduduk = Penduduk::where('no_rt', $noRt)->where('tanggal_lahir', '<=', $date)->select(['nik', 'nama', 'tempat_lahir', 'tanggal_lahir'])->paginate(25);
+                return $penduduk->count();
             });
 
             $jumlahPengajuanDokumenNew = Cache::remember('jumlahPengajuanDokumenNew', 600, function () {

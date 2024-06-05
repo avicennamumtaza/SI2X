@@ -9,6 +9,7 @@ use App\Models\PengajuanDokumen;
 use App\Models\Rt;
 use App\Models\Rw;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class PengajuanDokumenController extends Controller
@@ -20,10 +21,16 @@ class PengajuanDokumenController extends Controller
     {
 
         // Mengambil hanya kolom 'nik' dari model Penduduk
-        $pengajuanDokumens = PengajuanDokumen::paginate(20);
-        $no_rts = Rt::pluck('no_rt');
+        $pengajuanDokumens = Cache::remember('globalPengajuanDokumenPage' . request('page', 1), 600, function() {
+            return PengajuanDokumen::paginate(20);
+        });
+        $no_rts = Cache::remember('globalRts', 600, function() {
+            return Rt::pluck('no_rt');
+        });
         // $penduduks = Penduduk::all();
-        $dokumens = Dokumen::all();
+        $dokumens = Cache::remember('globalDokumens', 600, function() {
+            return Dokumen::all();
+        });
 
         // Mengirimkan data ke view
         return view('global.pengajuandokumen', compact('no_rts', 'dokumens'))->with('pengajuanDokumens', $pengajuanDokumens);
