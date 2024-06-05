@@ -194,7 +194,74 @@
     </div>
 
     @push('scripts')
-        {{ $dataTable->scripts() }}
+        <script type="module">
+            $(function() {
+                window.LaravelDataTables = window.LaravelDataTables || {};
+                window.LaravelDataTables["pengumuman-table"] = $("#pengumuman-table").DataTable({
+                    "serverSide": true,
+                    "processing": true,
+                    "ajax": {
+                        "url": "{{ url('/manage/pengumuman') }}",
+                        "type": "GET",
+                        "data": function(data) {
+                            for (var i = 0, len = data.columns.length; i < len; i++) {
+                                if (!data.columns[i].search.value) delete data.columns[i].search;
+                                if (data.columns[i].searchable === true) delete data.columns[i].searchable;
+                                if (data.columns[i].orderable === true) delete data.columns[i].orderable;
+                                if (data.columns[i].data === data.columns[i].name) delete data.columns[i]
+                                    .name;
+                            }
+                            delete data.search.regex;
+                        }
+                    },
+                    "columns": [{
+                        "data": "judul",
+                        "name": "judul",
+                        "title": "Judul",
+                        "orderable": true,
+                        "searchable": true,
+                        "width": 200
+                    }, {
+                        "data": "tanggal",
+                        "name": "tanggal",
+                        "title": "Tanggal",
+                        "orderable": true,
+                        "searchable": true,
+                        "width": 10
+                    }, {
+                        "data": "deskripsi",
+                        "name": "deskripsi",
+                        "title": "Deskripsi",
+                        "orderable": true,
+                        "searchable": true,
+                        "width": 400
+                    }, {
+                        "data": "action",
+                        "name": "action",
+                        "title": "Aksi",
+                        "orderable": false,
+                        "searchable": false,
+                        "width": 141,
+                        "className": "text-center"
+                    }],
+                    "order": [],
+                    "language": {
+                        "search": "",
+                        "searchPlaceholder": "Cari Pengumuman",
+                        "paginate": {
+                            "previous": "Kembali",
+                            "next": "Lanjut"
+                        },
+                        "info": "Menampilkan _START_ hingga _END_ dari _TOTAL_ entri"
+                    },
+                    "dom": "Bfrtip",
+                    "buttons": [],
+                    "select": {
+                        "style": "single"
+                    }
+                });
+            });
+        </script>
         <script>
             $('#pengumuman-table').ready(function() {
 
