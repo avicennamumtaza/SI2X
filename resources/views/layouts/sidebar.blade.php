@@ -19,6 +19,11 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ secure_asset('build/assets/app-D9bWMgn2.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('build/assets/app-VjUO5sCd.js') }}">
+    <link rel="stylesheet" href="{{ secure_asset('bootstrap-icons.min.css') }}">
+
     {{-- Icons --}}
     <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet">
