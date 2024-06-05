@@ -5,17 +5,22 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'resources/sass/app.scss',
                 'resources/js/app.js',
+                'resources/sass/app.scss',
             ],
             // publicDirectory: "../",
             refresh: true,
         }),
     ],
-    build: {
-        outDir: 'public/build/vite',
-        manifest: true,
-    },
+    server: {
+        https: true,
+        // host: 'si2x-production.up.railway.app',  // Ganti dengan domain Anda jika berbeda
+        // port: 443,
+    }
+    // build: {
+    //     outDir: 'public/build/vite',
+    //     manifest: true,
+    // },
 });
 
 // vite.config.js

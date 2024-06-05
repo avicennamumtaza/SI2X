@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 use Yajra\DataTables\Html\Builder;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -34,5 +35,10 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('isRw', function (Users $user) {
             return $user->role === 'RW';
         });
+
+        if (env('APP_ENV') !== 'local') {
+            # code...
+            URL::forceScheme('https');
+        }
     }
 }
