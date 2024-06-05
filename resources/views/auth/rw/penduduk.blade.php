@@ -61,7 +61,7 @@
                                     <select class="form-select" id="jenis_kelamin" name="jenis_kelamin" required>
                                         <option value="" selected disabled>Pilih Jenis Kelamin</option>
                                         @foreach ($jk as $jenisKelamin)
-                                            <option value={{ $jenisKelamin->name }}>{{ $jenisKelamin->getDescription() }}
+                                            <option value="{{ $jenisKelamin->name }}">{{ $jenisKelamin->getDescription() }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -72,7 +72,7 @@
                                     <select class="form-select" id="agama" name="agama" required>
                                         <option value="" selected disabled>Pilih Agama</option>
                                         @foreach ($agamas as $agama)
-                                            <option value={{ $agama->value }}>{{ $agama->name }}</option>
+                                            <option value="{{ $agama->value }}">{{ $agama->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -114,7 +114,7 @@
                                     <select class="form-select" id="golongan_darah" name="golongan_darah" required>
                                         <option value="" selected disabled>Pilih Golongan Darah</option>
                                         @foreach ($goldar as $item)
-                                            <option value={{ $item->value }}>{{ $item->name }}</option>
+                                            <option value="{{ $item->value }}">{{ $item->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
