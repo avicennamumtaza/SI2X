@@ -69,7 +69,7 @@ class PendudukDataTable extends DataTable
                 data-tanggal_lahir="' . $row->tanggal_lahir . '"
                 data-umur="' . Carbon::parse($row->tanggal_lahir)->age . '"
                 data-alamat="' . $row->alamat . '"
-                data-jenis_kelamin="' . $row->jenis_kelamin->value . '"
+                data-jenis_kelamin="' . $row->jenis_kelamin->getDescription() . '"
                 data-pendidikan="' . $row->pendidikan->value . '"
                 data-agama="' . $row->agama->value . '"
                 data-pekerjaan="' . $row->pekerjaan->value . '"
