@@ -20,9 +20,9 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ secure_asset('build/assets/app-D9bWMgn2.css') }}">
-    <script src="{{ secure_asset('build/assets/app-VjUO5sCd.js') }}"></script>
-    <link rel="stylesheet" href="{{ secure_asset('bootstrap-icons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/assets/app-D9bWMgn2.css') }}">
+    <script src="{{ asset('build/assets/app-VjUO5sCd.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('bootstrap-icons.min.css') }}">
 
     {{-- Icons --}}
     <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
@@ -174,15 +174,15 @@
                 </li> --}}
                 <div class="sidebar-footer pt-2">
                 <li class="sidebar-item {{ \Route::is('profil.manage') ? 'active' : '' }}" title="Profil">
-                    
+
                     <a href="{{ route('profil.manage') }}" class="sidebar-profile align-items-center">
                         <!-- Profile Picture -->
                         <?php
                             $users = Auth()->user();
                         ?>
-                        <img src="{{ asset($users->foto_profil ? 'Foto Users/' . $users->foto_profil : 'Foto Users/default.jpg') }}" 
-                             alt="Foto Profil" 
-                             class="profile-picture rounded-circle me-3" 
+                        <img src="{{ asset($users->foto_profil ? 'Foto Users/' . $users->foto_profil : 'Foto Users/default.jpg') }}"
+                             alt="Foto Profil"
+                             class="profile-picture rounded-circle me-3"
                              style="width: 40px; height: 40px; object-fit: cover;">
                         <div>
                             <span>{{ $users->username }}</span> <br>
@@ -211,7 +211,7 @@
                             <span>Keluar</span>
                         </a>
                 </li>
-                
+
             </ul>
         </aside>
         <div class=""

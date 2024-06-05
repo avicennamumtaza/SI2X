@@ -12,11 +12,11 @@ export default defineConfig({
             refresh: true,
         }),
     ],
-    server: {
-        https: true,
+    // server: {
+        // https: true,
         // host: 'si2x-production.up.railway.app',  // Ganti dengan domain Anda jika berbeda
         // port: 443,
-    }
+    // }
     // build: {
     //     outDir: 'public/build/vite',
     //     manifest: true,

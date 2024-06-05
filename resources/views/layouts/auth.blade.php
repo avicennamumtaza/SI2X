@@ -24,9 +24,9 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ secure_asset('build/assets/app-D9bWMgn2.css') }}">
-    <script src="{{ secure_asset('build/assets/app-VjUO5sCd.js') }}"></script>
-    <link rel="stylesheet" href="{{ secure_asset('bootstrap-icons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/assets/app-D9bWMgn2.css') }}">
+    <script src="{{ asset('build/assets/app-VjUO5sCd.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('bootstrap-icons.min.css') }}">
 
     {{-- icons --}}
     <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css">

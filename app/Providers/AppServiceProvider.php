@@ -31,13 +31,12 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('isRt', function (Users $user) {
             return $user->role === 'RT';
         });
-        
+
         Gate::define('isRw', function (Users $user) {
             return $user->role === 'RW';
         });
 
-        if (env('APP_ENV') !== 'local') {
-            # code...
+        if (!app()->isLocal()) {
             URL::forceScheme('https');
         }
     }
