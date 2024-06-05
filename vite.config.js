@@ -12,6 +12,9 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    server: {
+        https: true,
+    },
     // build: {
     //     outDir: 'public/build/vite',
     //     manifest: true,
