@@ -17,12 +17,17 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ secure_asset('build/assets/app-AvFd_Vyv.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('build/assets/app--CxZbYsQ.js') }}">
+    <link rel="stylesheet" href="{{ secure_asset('bootstrap-icons.min.css') }}">
+    
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     {{-- icons --}}
     {{-- <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css"> --}}
-    <link rel="stylesheet" href="{{ asset('bootstrap-icons.min.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('bootstrap-icons.min.css') }}"> --}}
     {{-- <link rel="stylesheet" href="node_modules/"> --}}
 
 </head>
@@ -31,7 +36,7 @@
     <div class="container-fluid-nav">
         <nav class="navbar fixed-top my-3 mx-5 custom-nav navbar-expand-lg">
             <a class="navbar-brand" href="{{ route('landing') }}">
-                <img src="{{ asset('assets/Logo.png') }}" alt="tes" title="Logo SIRW">
+                <img src="{{ secure_asset('assets/Logo.png') }}" alt="tes" title="Logo SIRW">
                 <span class="navbar-brand mb-0 h1">
                     {{ config('app.name') }}
                 </span>
