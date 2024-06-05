@@ -17,15 +17,15 @@
         rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite('resources/js/app.js')
 
-    <!-- Styles -->
+    {{-- <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('build/assets/app-D9bWMgn2.css') }}">
     <script src="{{ asset('build/assets/app-VjUO5sCd.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('bootstrap-icons.min.css') }}">
 
     {{-- Icons --}}
-    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
+    {{-- <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css"> --}} --}}
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet">
 
     {{-- DataTables --}}

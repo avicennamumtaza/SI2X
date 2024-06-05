@@ -36,7 +36,8 @@ class AppServiceProvider extends ServiceProvider
             return $user->role === 'RW';
         });
 
-        if (!app()->isLocal()) {
+        if (app()->isProduction()) {
+            URL::forceRootUrl(config('app.url'));
             URL::forceScheme('https');
         }
     }
