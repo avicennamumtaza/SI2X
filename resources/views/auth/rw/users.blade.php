@@ -3,7 +3,7 @@
 @section('content')
     <!-- Modal for Adding Users -->
     <div class="modal fade" id="tambahUsers" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-md">
+        <div class="modal-dialog modal-dialog-centered modal-md">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Tambah Pengguna</h5>
@@ -64,7 +64,7 @@
 
     <!-- Modal for Editing Users -->
     <div class="modal fade" id="editUsersModal" tabindex="-1" aria-labelledby="editUsersModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-md">
+        <div class="modal-dialog modal-dialog-centered modal-md">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="editUsersModalLabel">Edit User</h5>
@@ -123,7 +123,7 @@
 
     {{-- {{-- Delete user --}}
     <div class="modal fade" id="deleteUserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-md">
+        <div class="modal-dialog modal-dialog-centered modal-md">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Konfirmasi Penghapusan</h5>

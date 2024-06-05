@@ -4,11 +4,12 @@
     <div class="container container-umkm col-10">
         <!-- Modal -->
         <div class="modal fade" id="ajukanUmkmModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-md">
+            <div class="modal-dialog modal-dialog-centered modal-md">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Pengajuan UMKM</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                            style="filter: invert(39%) sepia(75%) saturate(6472%) hue-rotate(352deg) brightness(98%) contrast(104%);"></button>
                     </div>
 
                     <div class="modal-body justify-content-start text-start">
@@ -149,7 +150,7 @@
         <div class="mt-4" style="margin-bottom: -2rem">
             {{ $umkms->onEachSide(1)->links() }}
         </div>
-        
+
     </div>
 
     <!-- Bootstrap JS -->

@@ -3,7 +3,7 @@
 @section('content')
     <!-- Modal for Adding Dokumen -->
     <div class="modal fade" id="tambahDokumen" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-md">
+        <div class="modal-dialog modal-dialog-centered modal-md">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Tambah Dokumen</h5>
@@ -36,7 +36,7 @@
 
     <!-- Modal for Editing Dokumen -->
     <div class="modal fade" id="editDokumenModal" tabindex="-1" aria-labelledby="editDokumenModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-md">
+        <div class="modal-dialog modal-dialog-centered  modal-md">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="editDokumenModalLabel">Edit Dokumen</h5>
@@ -68,7 +68,7 @@
 
     {{-- {{-- Delete dokumen --}}
     <div class="modal fade" id="deleteDokumenModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-md">
+        <div class="modal-dialog modal-dialog-centered  modal-md">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Konfirmasi Penghapusan</h5>

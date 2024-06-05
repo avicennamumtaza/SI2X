@@ -4,7 +4,7 @@
     {{-- <div class="container container-keluarga col-12"> --}}
     <!-- Modal -->
     <div class="modal fade" id="tambahKeluarga" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-md">
+        <div class="modal-dialog modal-dialog-centered modal-md">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel" title="Tambah Keluarga">Tambah Keluarga</h5>
@@ -47,7 +47,7 @@
 
     {{-- Show Keluarga --}}
     <div class="modal fade" id="showKeluargaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-md">
+        <div class="modal-dialog modal-dialog-centered modal-md">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel" title="Edit Keluarga">Detail Keluarga</h5>
@@ -87,7 +87,7 @@
 
     {{-- Edit Keluarga --}}
     <div class="modal fade" id="editKeluargaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-md">
+        <div class="modal-dialog modal-dialog-centered modal-md">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel" title="Edit Keluarga">Edit Keluarga</h5>
@@ -127,8 +127,9 @@
     </div>
 
     {{-- {{-- Delete keluarga --}}
-    <div class="modal fade" id="deleteKeluargaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-md">
+    <div class="modal fade" id="deleteKeluargaModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Konfirmasi Penghapusan</h5>

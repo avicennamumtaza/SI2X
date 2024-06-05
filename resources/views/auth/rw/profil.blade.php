@@ -4,7 +4,7 @@
     <!-- Modal for Editing Users -->
     <div class="modal fade" id="editUserPasswordModal" tabindex="-1" aria-labelledby="editUserPasswordModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog modal-md">
+        <div class="modal-dialog modal-dialog-centered modal-md">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="editUserPasswordModalLabel">Edit User</h5>
@@ -62,7 +62,7 @@
 
         {{-- Edit Foto Profil --}}
     <div class="modal fade" id="editPicture" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-md">
+        <div class="modal-dialog modal-dialog-centered modal-md">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Ganti Foto Profil</h5>

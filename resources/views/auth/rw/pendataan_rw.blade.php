@@ -4,7 +4,7 @@
     {{-- <div class="container container-pengumuman col-12"> --}}
     <!-- Modal -->
     <div class="modal fade" id="tambahRW" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-md">
+        <div class="modal-dialog modal-dialog-centered modal-md">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Tambah RW</h5>
@@ -49,7 +49,7 @@
 
     {{-- {{-- Show RW --}}
     <div class="modal fade" id="showRwModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-md">
+        <div class="modal-dialog modal-dialog-centered modal-md">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Detail RW</h5>
@@ -91,7 +91,7 @@
 
     {{-- {{-- Edit RW --}}
     <div class="modal fade" id="editRwModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-md">
+        <div class="modal-dialog modal-dialog-centered modal-md">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Edit RW</h5>

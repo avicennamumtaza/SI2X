@@ -100,7 +100,7 @@ class PengajuanDokumenDataTable extends DataTable
                     data-status_pengajuan="' . $row->status_pengajuan . '"
                     data-catatan="' . $row->catatan . '"
                     data-keperluan="' . $row->keperluan . '"
-                    data-bs-toggle="modal" data-bs-target="#editPengajuanDokumenModal" class="edit btn btn-edit btn-sm">Edit</button>';
+                    data-bs-toggle="modal" data-bs-target="#editPengajuanDokumenModal" class="edit btn btn-edit btn-sm" style="inline" >Edit</button>';
                     $action .=
                         ' <button
                         type="button" 
@@ -183,7 +183,7 @@ class PengajuanDokumenDataTable extends DataTable
                 // Column::make('nama_pemohon')->title('Nama'),
                 Column::make('status_pengajuan')->title('Status'),
                 Column::make('keperluan')->title('Keperluan'),
-                Column::make('catatan')->title('Catatan'),
+                // Column::make('catatan')->title('Catatan'),
                 Column::make('created_at')->title('Tanggal'),
                 // Column::make('detail_laporan')->title('Detail Laporan'),
                 // Column::make('saldo')->title('Saldo'),
@@ -202,14 +202,14 @@ class PengajuanDokumenDataTable extends DataTable
                 // Column::make('nama_pemohon')->title('Nama'),
                 Column::make('status_pengajuan')->title('Status'),
                 Column::make('keperluan')->title('Keperluan'),
-                Column::make('catatan')->title('Catatan'),
+                // Column::make('catatan')->title('Catatan'),
                 Column::make('created_at')->title('Tanggal'),
                 // Column::make('detail_laporan')->title('Detail Laporan'),
                 // Column::make('saldo')->title('Saldo'),
                 Column::computed('action')
                     ->exportable(false)
                     ->printable(false)
-                    ->width(130)
+                    ->width(160)
                     ->addClass('text-center')
                     ->title('Aksi'),
             ];
