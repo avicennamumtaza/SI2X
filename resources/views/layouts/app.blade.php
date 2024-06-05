@@ -21,7 +21,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ secure_asset('build/assets/app-D9bWMgn2.css') }}">
-    <link rel="stylesheet" href="{{ secure_asset('build/assets/app-VjUO5sCd.js') }}">
+    <script src="{{ secure_asset('build/assets/app-VjUO5sCd.js') }}"></script>
     <link rel="stylesheet" href="{{ secure_asset('bootstrap-icons.min.css') }}">
 
 </head>
