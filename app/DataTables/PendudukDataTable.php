@@ -75,7 +75,7 @@ class PendudukDataTable extends DataTable
                 data-pekerjaan="' . $row->pekerjaan->value . '"
                 data-golongan_darah="' . $row->golongan_darah->value . '"
                 data-status_pernikahan="' . $row->status_pernikahan->value . '"
-                data-status_pendatang="' . ($row->status_pendatang == 0 ? 'domisili' : 'non domisili') . '"
+                data-status_pendatang="' . ($row->status_pendatang == 0 ? 'Domisili' : 'Non Domisili') . '"
                 data-bs-toggle="modal" data-bs-target="#showPendudukModal" class="show-user show btn btn-show btn-sm me-1">Tampil</button>';
 
                 $action .= '<button type="button"
@@ -94,11 +94,11 @@ class PendudukDataTable extends DataTable
                 data-status_pernikahan="' . $row->status_pernikahan->value . '"
                 data-status_pendatang="' . $row->status_pendatang . '"
                 data-bs-toggle="modal" data-bs-target="#editPendudukModal" class="edit-user edit btn btn-edit btn-sm">Edit</button>';
-                
+
                 $action .= ' <button
-                    type="button" 
-                    class="delete btn btn-delete btn-sm" 
-                    data-bs-target="#deletePendudukModal" 
+                    type="button"
+                    class="delete btn btn-delete btn-sm"
+                    data-bs-target="#deletePendudukModal"
                     data-bs-toggle="modal"
                     data-nama="' . $row->nama . '"
                     data-nik="' . $row->nik . '"
