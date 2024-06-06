@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="{{ asset('bootstrap-icons.min.css') }}">
 
     {{-- Icons --}}
-    {{-- <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css"> --}}
+    {{-- <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css"> --}} --}}
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet">
 
     {{-- DataTables --}}
