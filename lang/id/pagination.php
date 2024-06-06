@@ -13,7 +13,8 @@ return [
     |
     */
 
-'previous' => '&laquo; Sebelumnya',
-    'next' => 'Berikutnya &raquo;',
+    'previous' => '&laquo; Sebelumnya',
+    'next' => 'Selanjutnya &raquo;',
+    'showing' => 'Menampilkan :from sampai :to dari :total hasil',
 
 ];

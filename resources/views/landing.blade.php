@@ -18,7 +18,7 @@
     </div>
     <img src="{{ asset('assets/landing-pict.png') }}" alt="background" class="main-image">
     <div id="stats" class="container container-statsngal col-10 pt-5">
-        <h1 class="heading-center">Statistik</h1>
+        <h1 class="heading-center pt-5">Statistik</h1>
         <div class="row">
             <div class="col-md-2 col-sm-4">
                 <div class="card">
@@ -66,7 +66,7 @@
     </div>    
     @if ($pengumuman1 != null)
     <div id="pengumuman" class="container container-pengumuman col-10">
-        <h1 class="heading-center">Pengumuman Terbaru</h1>
+        <h1 class="heading-center pt-5">Pengumuman Terbaru</h1>
         <div class="container">
             <div class="row justify-content-center">
                 {{-- <span> --}}

@@ -141,41 +141,51 @@ class HomeController extends Controller
             $jumlahPenduduk = Cache::remember('jumlahPenduduk', 600, function () use ($noRt) {
                 return Penduduk::where('no_rt', $noRt)->count();
             });
-
+            
             $jumlahAnakAnak = Cache::remember('jumlahAnakAnak', 600, function () use ($noRt) {
                 $date = \Carbon\Carbon::now()->subYears(15)->format('Y-m-d');
-                $penduduk = Penduduk::where('no_rt', $noRt)->where('tanggal_lahir', '>', $date)->select(['nik', 'nama', 'tempat_lahir', 'tanggal_lahir'])->paginate(25);
-                return $penduduk->count();
+                $penduduk = Penduduk::where('no_rt', $noRt)->where('tanggal_lahir', '>', $date)->paginate(25);
+                return $penduduk->total();
             });
-
+            
             $jumlahUsiaProduktif = Cache::remember('jumlahUsiaProduktif', 600, function () use ($noRt) {
                 $dateMin = \Carbon\Carbon::now()->subYears(65)->format('Y-m-d');
                 $dateMax = \Carbon\Carbon::now()->subYears(15)->format('Y-m-d');
-                $penduduk = Penduduk::where('no_rt', $noRt)->whereBetween('tanggal_lahir', [$dateMin, $dateMax]);
-                return $penduduk->count();
+                $penduduk = Penduduk::where('no_rt', $noRt)->whereBetween('tanggal_lahir', [$dateMin, $dateMax])->paginate(25);
+                return $penduduk->total();
             });
-
+            
             $jumlahLansia = Cache::remember('jumlahLansia', 600, function () use ($noRt) {
                 $date = \Carbon\Carbon::now()->subYears(66)->format('Y-m-d');
-                $penduduk = Penduduk::where('no_rt', $noRt)->where('tanggal_lahir', '<=', $date)->select(['nik', 'nama', 'tempat_lahir', 'tanggal_lahir'])->paginate(25);
-                return $penduduk->count();
+                $penduduk = Penduduk::where('no_rt', $noRt)->where('tanggal_lahir', '<=', $date)->paginate(25);
+                return $penduduk->total();
             });
+            
 
-            $jumlahPengajuanDokumenNew = Cache::remember('jumlahPengajuanDokumenNew', 600, function () {
-                return PengajuanDokumen::where('status_pengajuan', 'Baru')->count();
+            $jumlahPengajuanDokumenNew = Cache::remember('jumlahPengajuanDokumenNew', 600, function () use ($noRt) {
+                return PengajuanDokumen::whereHas('penduduk', function ($query) use ($noRt) {
+                    $query->where('no_rt', $noRt);
+                })->where('status_pengajuan', 'Baru')->count();
             });
-
-            $jumlahPengajuanDokumenAcc = Cache::remember('jumlahPengajuanDokumenAcc', 600, function () {
-                return PengajuanDokumen::where('status_pengajuan', 'Disetujui')->count();
+            
+            $jumlahPengajuanDokumenAcc = Cache::remember('jumlahPengajuanDokumenAcc', 600, function () use ($noRt) {
+                return PengajuanDokumen::whereHas('penduduk', function ($query) use ($noRt) {
+                    $query->where('no_rt', $noRt);
+                })->where('status_pengajuan', 'Disetujui')->count();
             });
-
-            $jumlahPengajuanDokumenDec = Cache::remember('jumlahPengajuanDokumenDec', 600, function () {
-                return PengajuanDokumen::where('status_pengajuan', 'Ditolak')->count();
+            
+            $jumlahPengajuanDokumenDec = Cache::remember('jumlahPengajuanDokumenDec', 600, function () use ($noRt) {
+                return PengajuanDokumen::whereHas('penduduk', function ($query) use ($noRt) {
+                    $query->where('no_rt', $noRt);
+                })->where('status_pengajuan', 'Ditolak')->count();
             });
-
-            $jumlahPengajuanDokumen = Cache::remember('jumlahPengajuanDokumen', 600, function () {
-                return PengajuanDokumen::count();
+            
+            $jumlahPengajuanDokumen = Cache::remember('jumlahPengajuanDokumen', 600, function () use ($noRt) {
+                return PengajuanDokumen::whereHas('penduduk', function ($query) use ($noRt) {
+                    $query->where('no_rt', $noRt);
+                })->count();
             });
+            
 
             return view('auth.dashboard', compact(
                 'jumlahKeluarga',
