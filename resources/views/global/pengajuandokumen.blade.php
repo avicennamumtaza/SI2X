@@ -54,6 +54,13 @@
             </div>
         </div>
 
+        <script>
+            document.getElementById('ajukanDokumenButton').addEventListener('click', function() {
+                var modal = new bootstrap.Modal(document.getElementById('ajukanDokumenModal'));
+                modal.show();
+            });
+        </script>
+        
         <a class="fixedButton" id="ajukanDokumenButton" data-bs-toggle="modal" data-bs-target="#ajukanDokumenModal"
             title="Ajukan Dokumen">
             <div class="roundedFixedBtn">
@@ -61,12 +68,6 @@
             </div>
         </a>
 
-        <script>
-            document.getElementById('ajukanDokumenButton').addEventListener('click', function() {
-                var modal = new bootstrap.Modal(document.getElementById('ajukanDokumenModal'));
-                modal.show();
-            });
-        </script>
 
         <h1 class="heading-center">Permintaan Dokumen</h1>
         <!-- <div class="container"> -->

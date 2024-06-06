@@ -5,7 +5,9 @@
         <div class="row custom-section">
             <div class="col-12 col-lg-5">
                 <h2>Selamat Datang</h2>
-                <h6>Kemudahan dalam Genggaman Anda!</h6>
+                <h6>
+                  <b>Kemudahan dalam Genggaman Anda!</b>
+                  </h6>
                 {{-- <div class="col-12 col-lg-10"> --}}
                   <p>Menghadirkan solusi digital untuk memudahkan komunikasi, pelayanan, dan transparansi dalam lingkungan Rukun Warga Anda,
                     sehingga setiap kebutuhan warga dapat terlayani dengan lebih cepat dan efisien.</p> 

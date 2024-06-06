@@ -71,7 +71,7 @@
         </a>
 
         <h1 class="heading-center">Bantuan Sosial</h1>
-        <p>Bantuan Sosial adalah program yang <strong>ditujukan untuk membantu penduduk yang membutuhkan.</strong> Penduduk
+        <p class="pt-5">Bantuan Sosial adalah program yang <strong>ditujukan untuk membantu penduduk yang membutuhkan.</strong> Penduduk
             dapat mengajukan
             bantuan sosial dengan mengisi formulir pengajuan yang tersedia, klik tombol pojok kanan bawah untuk mengakses
             formulir. Program Bantuan Sosial ini didasarkan pada

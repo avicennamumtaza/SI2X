@@ -17,11 +17,6 @@
                     <form id='editLaporanKeuanganForm' method="POST">
                         @method('PUT')
                         @csrf
-                        <div class="form-group mb-3">
-                            <label for="id_laporankeuangan" class="form-label text-start">id_laporankeuangan</label>
-                            <input type="text" class="form-control" id="id_laporankeuangan" name="id_laporankeuangan"
-                                required readonly disabled>
-                        </div>
 
                         <div class="form-group mb-3">
                             <label for="status_pemasukan" class="form-label">Jenis Laporan</label>

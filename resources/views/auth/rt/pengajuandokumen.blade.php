@@ -26,7 +26,7 @@
                                 name="nama_pemohon" required>
                         </div> --}}
                         <div class="form-group mb-3">
-                            <label for="no_rt" class="form-label text-start">No Rt</label>
+                            <label for="no_rt" class="form-label text-start">Nomor RT</label>
                             <input type="text" readonly disabled class="form-control" id="no_rt" name="no_rt"
                                 required>
                         </div>
@@ -77,7 +77,7 @@
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="catatan" class="form-label text-start">catatan</label>
+                            <label for="catatan" class="form-label text-start">Catatan</label>
                             <input type="text" class="form-control" id="catatan" name="catatan" required>
                         </div>
 
