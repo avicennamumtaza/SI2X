@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\DataPendudukChart;
+use App\Charts\KasRWChart;
 use App\Models\Dokumen;
 use App\Models\Keluarga;
 use App\Models\LaporanKeuangan;
@@ -32,7 +34,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(DataPendudukChart $dataPendudukChart, KasRWChart $kasRWChart)
     {
         if (auth()->user()->role == 'RW') {
             $jumlahRt = Cache::remember('jumlahRt', 600, function () {
@@ -110,6 +112,11 @@ class HomeController extends Controller
                 return PengajuanDokumen::count();
             });
 
+            $data['dataPendudukChart'] = $dataPendudukChart->build();
+            $dataKas['kasRWChart'] = $kasRWChart->build();
+            
+            
+
             return view('auth.dashboard', compact(
                 'jumlahRt',
                 'jumlahKeluarga',
@@ -127,7 +134,9 @@ class HomeController extends Controller
                 'jumlahPengajuanDokumenNew',
                 'jumlahPengajuanDokumenAcc',
                 'jumlahPengajuanDokumenDec',
-                'jumlahPengajuanDokumen'
+                'jumlahPengajuanDokumen',
+                'data',
+                'dataKas'
             ));
 
         } else if (auth()->user()->role == 'RT') {
