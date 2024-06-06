@@ -6,11 +6,12 @@
             <div class="col-12 col-lg-5">
                 <h2>Selamat Datang</h2>
                 <h6>
-                  <b>Kemudahan dalam Genggaman Anda!</b>
-                  </h6>
+                    <b>Kemudahan dalam Genggaman Anda!</b>
+                </h6>
                 {{-- <div class="col-12 col-lg-10"> --}}
-                  <p>Menghadirkan solusi digital untuk memudahkan komunikasi, pelayanan, dan transparansi dalam lingkungan Rukun Warga Anda,
-                    sehingga setiap kebutuhan warga dapat terlayani dengan lebih cepat dan efisien.</p> 
+                <p>Menghadirkan solusi digital untuk memudahkan komunikasi, pelayanan, dan transparansi dalam lingkungan
+                    Rukun Warga Anda,
+                    sehingga setiap kebutuhan warga dapat terlayani dengan lebih cepat dan efisien.</p>
                 {{-- </div> --}}
                 <a href="#stats" title="Selengkapnya">Selengkapnya</a>
             </div>
@@ -63,176 +64,89 @@
                 </div>
             </div>
         </div>
-    </div>    
-    @if ($pengumuman1 != null)
-    <div id="pengumuman" class="container container-pengumuman col-10">
-        <h1 class="heading-center pt-5">Pengumuman Terbaru</h1>
-        <div class="container">
-            <div class="row justify-content-center">
-                {{-- <span> --}}
-                {{-- <span> --}}
-                <div class="card col-md-5 p-0 m-4 border-4 rounded">
-                    <img class="img-fluid rounded-bottom pengimg"
-                        src="{{ $pengumuman1['foto_pengumuman'] ? asset('Foto Pengumuman/' . $pengumuman1['foto_pengumuman']) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
-                        alt="Foto Pengumuman{{ $pengumuman1['foto_pengumuman'] }}">
-                    <div class="card-body">
-                        <h5 class="mt-3">{{ $pengumuman1['judul'] }}</h5>
-                        <p class="">{{ $pengumuman1['deskripsi'] }}</p>
-                        <p class="">
-                            <small class="">
-                                {{ \Carbon\Carbon::parse($pengumuman1['tanggal'])->translatedFormat('d F Y') }}
-                            </small>
-                        </p>
-                    </div>
-                </div>
-                <div class="card col-md-5 p-0 m-4 border-4 rounded">
-                    <img class="img-fluid rounded-bottom pengimg"
-                        src="{{ $pengumuman2['foto_pengumuman'] ? asset('Foto Pengumuman/' . $pengumuman2['foto_pengumuman']) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
-                        alt="Foto Pengumuman{{ $pengumuman2['foto_pengumuman'] }}">
-                    <div class="card-body">
-                        <h5 class="mt-3">{{ $pengumuman2['judul'] }}</h5>
-                        <p class="">{{ $pengumuman2['deskripsi'] }}</p>
-                        <p class="">
-                            <small class="">
-                                {{ \Carbon\Carbon::parse($pengumuman2['tanggal'])->translatedFormat('d F Y') }}
-                            </small>
-                        </p>
-                    </div>
-                </div>
-                {{-- </span> --}}
-                {{-- </span> --}}
-            </div>
-            <a class="position-absolute start-50 translate-middle-x" href="{{ route('pengumuman.global') }}"
-                title="Pengumuman lainnya">Lainnya</a>
-        </div>     
     </div>
+    @if ($pengumuman1 != null)
+        <div id="pengumuman" class="container container-pengumuman col-10">
+            <h1 class="heading-center pt-5">Pengumuman Terbaru</h1>
+            <div class="container">
+                <div class="row justify-content-center">
+                    {{-- <span> --}}
+                    {{-- <span> --}}
+                    <div class="card col-md-5 p-0 m-4 border-4 rounded">
+                        <img class="img-fluid rounded-bottom pengimg"
+                            src="{{ $pengumuman1['foto_pengumuman'] ? asset('Foto Pengumuman/' . $pengumuman1['foto_pengumuman']) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
+                            alt="Foto Pengumuman{{ $pengumuman1['foto_pengumuman'] }}">
+                        <div class="card-body">
+                            <h5 class="mt-3">{{ $pengumuman1['judul'] }}</h5>
+                            <p class="">{{ $pengumuman1['deskripsi'] }}</p>
+                            <p class="">
+                                <small class="">
+                                    {{ \Carbon\Carbon::parse($pengumuman1['tanggal'])->translatedFormat('d F Y') }}
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card col-md-5 p-0 m-4 border-4 rounded">
+                        <img class="img-fluid rounded-bottom pengimg"
+                            src="{{ $pengumuman2['foto_pengumuman'] ? asset('Foto Pengumuman/' . $pengumuman2['foto_pengumuman']) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
+                            alt="Foto Pengumuman{{ $pengumuman2['foto_pengumuman'] }}">
+                        <div class="card-body">
+                            <h5 class="mt-3">{{ $pengumuman2['judul'] }}</h5>
+                            <p class="">{{ $pengumuman2['deskripsi'] }}</p>
+                            <p class="">
+                                <small class="">
+                                    {{ \Carbon\Carbon::parse($pengumuman2['tanggal'])->translatedFormat('d F Y') }}
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+                    {{-- </span> --}}
+                    {{-- </span> --}}
+                </div>
+                <a class="position-absolute start-50 translate-middle-x" href="{{ route('pengumuman.global') }}"
+                    title="Pengumuman lainnya">Lainnya</a>
+            </div>
+        </div>
     @endif
     <div id="" class="container container-rtrw col-10">
-      <h1 class="heading-center">Kenalan</h1>
+        <h1 class="heading-center">Kenalan</h1>
         <div class='row wrapper'>
             <div class='carousel'>
-              <div class='carousel__item'>
-                <div class='carousel__item-head'>
-                  🐳
-                </div>
-                <div class='carousel__item-body'>
-                  <p class='title'>spouting whale</p>
-                  <p>Unicode: U+1F433</p>
-                </div>
-              </div>
-              <div class='carousel__item'>
-                <div class='carousel__item-head'>
-                  🐋
-                </div>
-                <div class='carousel__item-body'>
-                  <p class='title'>whale</p>
-                  <p>Unicode: U+1F40B</p>
-                </div>
-              </div>
-              <div class='carousel__item'>
-                <div class='carousel__item-head'>
-                  🐬
-                </div>
-                <div class='carousel__item-body'>
-                  <p class='title'>dolphin</p>
-                  <p>Unicode: U+1F42C</p>
-                </div>
-              </div>
-              <div class='carousel__item'>
-                <div class='carousel__item-head'>
-                  🐟
-                </div>
-                <div class='carousel__item-body'>
-                  <p class='title'>fish</p>
-                  <p>Unicode: U+1F41F</p>
-                </div>
-              </div>
-              <div class='carousel__item'>
-                <div class='carousel__item-head'>
-                  🐠
-                </div>
-                <div class='carousel__item-body'>
-                  <p class='title'>tropical fish</p>
-                  <p>Unicode: U+1F420</p>
-                </div>
-              </div>
-              <div class='carousel__item'>
-                <div class='carousel__item-head'>
-                  🐡
-                </div>
-                <div class='carousel__item-body'>
-                  <p class='title'>blowfish</p>
-                  <p>Unicode: U+1F421</p>
-                </div>
-              </div>
-              <div class='carousel__item'>
-                <div class='carousel__item-head'>
-                  🦈
-                </div>
-                <div class='carousel__item-body'>
-                  <p class='title'>shark</p>
-                  <p>Unicode: U+1F988</p>
-                </div>
-              </div>
-              <div class='carousel__item'>
-                <div class='carousel__item-head'>
-                  🐙
-                </div>
-                <div class='carousel__item-body'>
-                  <p class='title'>octopus</p>
-                  <p>Unicode: U+1F419</p>
-                </div>
-              </div>
-              <div class='carousel__item'>
-                <div class='carousel__item-head'>
-                  🐚
-                </div>
-                <div class='carousel__item-body'>
-                  <p class='title'>spiral shell</p>
-                  <p>Unicode: U+1F41A</p>
-                </div>
-              </div>
+                <?php $counter = 20; ?>
+                @foreach ($fotoUsers as $index => $fotoUser)
+                    <?php $counter--; ?>
+                    <div class='carousel__item'>
+                        <div class='carousel__item-head'>
+                            <img class="profile-picture rounded-circle"
+                                src="{{ $fotoUsers[$index] ? asset('Foto Users/' . $fotoUsers[$index]) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
+                                alt="Foto User{{ $fotoUsers[$index] }}"
+                                style="width: 85px; height: 85px; object-fit: cover;">
+                        </div>
+                        <div class='carousel__item-body'>
+                            <p class='title'>{{ str_replace(['[', ']', '"'], '', $namaUsers[$index]) }}</p>
+                            @if (str_replace(['[', ']', '"'], '', $titleUsers[$index]) == 'RW')
+                                <p>Ketua RW</p>
+                            @elseif (str_replace(['[', ']', '"'], '', $titleUsers[$index]) == 'RT')
+                                <p>Ketua RT {{ str_replace(['[', ']', '"'], '', $rtUsers[$index]) }}</p>
+                            @endif
+                        </div>
+                    </div>
+                @endforeach
+                @for ($i = 0; $i < $counter; $i++)
+                    <div class='carousel__item'>
+                        <div class='carousel__item-head'>
+                            <img class="profile-picture rounded-circle"
+                                src="{{ 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
+                                alt="Foto User" style="width: 85px; height: 85px; object-fit: cover;">
+                        </div>
+                        <div class='carousel__item-body'>
+                            <p class='title'>Staff ke-{{ $i + 1 }}</p>
+                            <p>Administrator</p>
+                        </div>
+                    </div>
+                @endfor
             </div>
-          </div>          
-        {{-- <h1 class="heading-center">Galeri RW</h1>
-        <div id="carouselExampleCaptions" class="carousel slide mt-1 px-3">
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900" class="d-block w-100" alt="https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>First slide label</h5>
-                  <p>Some representative placeholder content for the first slide.</p>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img src="https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900" class="d-block w-100" alt="https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Second slide label</h5>
-                  <p>Some representative placeholder content for the second slide.</p>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img src="https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900" class="d-block w-100" alt="https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5>Third slide label</h5>
-                  <p>Some representative placeholder content for the third slide.</p>
-                </div>
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div> --}}
+        </div>
     </div>
     <div id="layanan" class="container container-layanan col-10">
         <h1 class="heading-center">Layanan</h1>

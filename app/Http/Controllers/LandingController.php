@@ -79,6 +79,6 @@ class LandingController extends Controller
         ];
 
         // Mengirimkan data ke view dalam bentuk array
-        return view('landing', compact('data', 'pengumuman1', 'pengumuman2'));
+        return view('landing', compact('data', 'pengumuman1', 'pengumuman2', 'fotoUsers', 'namaUsers', 'titleUsers', 'rtUsers'));
     }
 }
