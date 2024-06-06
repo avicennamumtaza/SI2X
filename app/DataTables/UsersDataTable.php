@@ -25,7 +25,6 @@ class UsersDataTable extends DataTable
         return (new EloquentDataTable($query))
             ->setRowId('id')
             ->addColumn('action', function($row){
-                $deleteUrl = route('users.destroy', $row->id_user);
                 $action = '
                 <div class="container-action">
                 <button type="button"
@@ -33,8 +32,6 @@ class UsersDataTable extends DataTable
                 data-nik="' . $row->nik . '"
                 data-username="' . $row->username . '"
                 data-role="' . $row->role . '"
-                data-foto_profil="' . $row->foto_profil . '"
-                data-email="' . $row->email . '"
                 data-bs-toggle="modal" 
                 data-bs-target="#editUsersModal" class="edit btn btn-edit btn-sm">Edit</button>';
                 $action .= ' <button

@@ -47,6 +47,14 @@ class UsersController extends Controller
             'password.min' => 'password harus memiliki panjang minimal :min.',
         ]);
 
+        // Validasi manual NIK
+        $nikExistsInRt = \App\Models\Rt::where('nik_rt', $validated['nik'])->exists();
+        $nikExistsInRw = \App\Models\Rw::where('nik_rw', $validated['nik'])->exists();
+    
+        if (!$nikExistsInRt && !$nikExistsInRw) {
+            return redirect()->back()->withErrors(['nik' => 'NIK harus ada di tabel RT atau RW.'])->withInput();
+        }
+
         $foto_profil = $request->file('foto_profil');
         $foto_profil_ext = $foto_profil->getClientOriginalExtension();
         $foto_profil_filename = $validated['username'] . date('ymdhis') . "." . $foto_profil_ext;

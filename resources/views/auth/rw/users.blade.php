@@ -77,7 +77,7 @@
                         @method('PUT')
                         <div class="form-group mb-3">
                             <label for="nik" class="form-label text-start">NIK</label>
-                            <input type="text" class="form-control" id="nik" name="nik" required>
+                            <input type="text" class="form-control" id="nik" name="nik" readonly style="background-color: #e0e0de" required>
                         </div>
                         <div class="form-group mb-3">
                             <label for="username" class="form-label text-start">Username</label>
@@ -91,23 +91,10 @@
                                 <option value="RW">RW</option>
                             </select>
                         </div>
-                        {{-- <div class="form-group mb-3">
-                            <label for="email" class="form-label text-start">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
-                        </div> --}}
-                        <div class="form-group mb-3">
+                        <div class="form-group mb-3" hidden>
                             <label class="custom-file-label mb-2" for="foto_profil">Foto Profil</label>
                             <input type="file" class="form-control" id="foto_profil" name="foto_profil">
                         </div>
-                        {{-- <div class="form-group mb-3">
-                            <label for="password" class="form-label text-start">Password (Biarkan Kosong Jika Tidak Ada Perubahan)</label>
-                            <input type="password" class="form-control" id="password" name="password">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="password_confirmation" class="form-label text-start">Konfirmasi Password</label>
-                            <input type="password" class="form-control" id="password_confirmation"
-                                name="password_confirmation">
-                        </div> --}}
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
                                 title="Batal ubah pengguna">Batal</button>
@@ -204,25 +191,10 @@
                     let nik = target.data('nik')
                     let username = target.data('username')
                     let role = target.data('role')
-                    //let email = target.data('email')
-                    //let foto_profil = target.data('foto_profil')
-                    // let password = target.data('password')
-                    // let password_conformation = target.data('password_conformation')
 
                     $('#editUsersModal #nik').val(nik);
                     $('#editUsersModal #username').val(username);
                     $('#editUsersModal #role').val(role);
-                    // $('#editUsersModal #email').val(email);
-                    // //$('#editUsersModal #foto_profil').val(foto_profil);
-                    // $('#editUsersModal #password').val(password);
-                    // $('#editUsersModal #password_c onfirmation').val(password_confirmation);
-
-                    // $('#editUsersModal #nik').val(button.data('nik'));
-                    // $('#editUsersModal #username').val(button.data('username'));
-                    // $('#editUsersModal #role').val(button.data('role'));
-                    // $('#editUsersModal #email').val(button.data('email'));
-                    // $('#editUsersModal #password').val(button.data('password'));
-                    // $('#editUsersModal #password_confirmation').val(button.data('password_confirmation'));
 
                     let url = "{{ route('users.update', ':__id') }}";
                     url = url.replace(':__id', id_user);
