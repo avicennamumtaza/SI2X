@@ -37,15 +37,15 @@ class AppServiceProvider extends ServiceProvider
         });
 
         // old
-        // if (app()->isProduction()) {
-        //     URL::forceRootUrl(config('app.url'));
-        //     URL::forceScheme('https');
-        // }
+        if (app()->isProduction()) {
+            URL::forceRootUrl(config('app.url'));
+            URL::forceScheme('https');
+        }
 
         // new
-        if (env('APP_ENV') === 'production') {
-            $this->app['request']->server->set('HTTPS', 'on');
-            \Illuminate\Support\Facades\URL::forceScheme('https');
-        }
+        // if (env('APP_ENV') === 'production') {
+        //     $this->app['request']->server->set('HTTPS', 'on');
+        //     \Illuminate\Support\Facades\URL::forceScheme('https');
+        // }
     }
 }
