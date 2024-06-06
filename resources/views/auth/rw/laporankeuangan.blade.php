@@ -41,7 +41,7 @@
                         <div class="form-group mb-3">
                             <label for="tanggal" class="form-label text-start">Tanggal</label>
                             <input type="text" class="form-control" id="tanggal" name="tanggal"
-                                value="{{ Carbon::now()->format('Y-m-d') }}" required readonly>
+                                value="{{ Carbon::now()->format('Y-m-d') }}" required readonly style="background-color: #e0e0de">
                         </div>
 
                         <div class="form-group mb-3">
@@ -103,7 +103,7 @@
                         <div class="form-group mb-3">
                             <label for="tanggal" class="form-label">Tanggal</label>
                             <input type="date" class="form-control" id="tanggal" name="tanggal"
-                                value="{{ Carbon::now()->format('Y-m-d') }}" required readonly>
+                                value="{{ Carbon::now()->format('Y-m-d') }}" required readonly style="background-color: #e0e0de">
                         </div>
 
                         <div class="form-group mb-3">

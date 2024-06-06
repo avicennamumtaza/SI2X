@@ -19,45 +19,6 @@ class LaporanKeuanganDataTable extends DataTable
      *
      * @param QueryBuilder $query Results from query() method.
      */
-    // public function dataTable(QueryBuilder $query): EloquentDataTable
-    // {
-    //     // Query the latest entry ID directly from the database
-    //     $latestEntryId = $query->latest()->first()->id;
-
-    //     $eloquentDataTable = new EloquentDataTable($query);
-
-    //     return $eloquentDataTable
-    //         ->setRowId('id')
-    //         ->editColumn('status_pemasukan', function ($row) {
-    //             return $row->status_pemasukan ? 'Pemasukkan' : 'Pengeluaran';
-    //         })
-    //         ->addColumn('action', function ($row) use ($latestEntryId) {
-    //             $action = '';
-
-    //             if ($row->id == $latestEntryId) {
-    //                 $deleteUrl = route('laporankeuangan.destroy', $row->id_laporankeuangan);
-    //                 $action = '
-    //             <div class="container-action">
-    //             <button type="button"
-    //             data-id_laporankeuangan="' . $row->id_laporankeuangan . '"
-    //             data-nominal="' . $row->nominal . '"
-    //             data-detail="' . $row->detail . '"
-    //             data-tanggal="' . $row->tanggal . '"
-    //             data-pihak_terlibat="' . $row->pihak_terlibat . '"
-    //             data-saldo="' . $row->saldo . '"
-    //             data-is_income="' . $row->status_pemasukan . '"
-    //             data-bs-toggle="modal" data-bs-target="#editLaporanKeuanganModal" class="edit btn btn-edit btn-sm">Edit</button>';
-    //                 $action .= '<form action="' . $deleteUrl . '" method="post" style="display:inline;">
-    //             ' . csrf_field() . '
-    //             ' . method_field('DELETE') . '
-    //             <button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Delete</button>
-    //             </form>
-    //             </div>';
-    //             }
-
-    //             return $action;
-    //         });
-    // }
 
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
@@ -67,8 +28,9 @@ class LaporanKeuanganDataTable extends DataTable
                 return $row->status_pemasukan ? 'Pemasukkan' : 'Pengeluaran';
             })
             ->addColumn('action', function ($row) {
-                $latestTanggal = LaporanKeuangan::orderBy('tanggal', 'desc')->take(1)->get()->value('tanggal');
-                if ($row->tanggal == $latestTanggal) {
+                // $latestTanggal = LaporanKeuangan::orderBy('tanggal', 'desc')->take(1)->get()->value('tanggal');
+                $latestUpdate = LaporanKeuangan::latest('updated_at')->value('updated_at');
+                if ($row->updated_at == $latestUpdate) {
                     $action = '
                     <div class="container-action">
                     <button type="button"
@@ -107,7 +69,7 @@ class LaporanKeuanganDataTable extends DataTable
      */
     public function query(LaporanKeuangan $model): QueryBuilder
     {
-        return $model->newQuery()->orderBy('tanggal', 'desc');
+        return $model->newQuery()->orderBy('updated_at', 'desc');
     }
 
     /**
