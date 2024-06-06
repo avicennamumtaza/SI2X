@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Rt;
 use App\DataTables\RTDataTable;
 use App\Models\Penduduk;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class RTController extends Controller
 {
@@ -57,27 +58,42 @@ class RTController extends Controller
 
     public function store(Request $request)
     {
-        // Validasi data input dari form
-        $request->validate([
+        $validated = $request->validate([
             'no_rt' => 'required|unique:rt,no_rt',
             'nik_rt' => 'required|min:15|max:17|unique:rt,nik_rt',
             'wa_rt' => 'required|min:11|max:14',
+        ], [
+            'no_rt.required' => 'Nomor RT wajib diisi.',
+            'no_rt.unique' => 'Nomor RT sudah digunakan.',
+            'nik_rt.required' => 'NIK RT wajib diisi.',
+            'nik_rt.min' => 'NIK RT harus memiliki panjang minimal :min digit.',
+            'nik_rt.max' => 'NIK RT harus memiliki panjang maksimal :max digit.',
+            'nik_rt.unique' => 'NIK RT sudah digunakan.',
+            'wa_rt.required' => 'Nomor WhatsApp RT wajib diisi.',
+            'wa_rt.min' => 'Nomor WhatsApp RT harus memiliki panjang minimal :min digit.',
+            'wa_rt.max' => 'Nomor WhatsApp RT harus memiliki panjang maksimal :max digit.',
         ]);
 
-        // Simpan data pengumuman ke dalam database
-        // Pengumuman::create([
-        //     'nama_pengumuman' => $request->nama_pengumuman,
-        //     'desc_pengumuman' => $request->desc_pengumuman,
-        //     'tanggal_pengumuman' => $request->tanggal_pengumuman,
-        // ]);
+        $ketua_rt = Penduduk::all()->where('nik', $validated['nik_rt'])->first();
+        // dd($ketua_rt);
 
-        $rt = new Rt();
-        $rt->no_rt = $request->no_rt;
-        $rt->nik_rt = $request->nik_rt;
-        $rt->wa_rt = $request->wa_rt;
-        $rt->save();
+        if (!$ketua_rt) {
+            return redirect()->back()->with('error', 'NIK Ketua RT yang anda masukkan tidak terdaftar dalam data penduduk!');
+        } elseif ($validated['no_rt'] != $ketua_rt->no_rt) {
+            return redirect()->back()->with('error', 'Nomor RT yang anda masukkan harus sesuai dengan Nomor RT milik Ketua RT di data penduduk!');
+        }
 
-        return redirect()->back()->with('success', 'Data RT Berhasil ditambahkan!');
+        try{
+            Rt::create([
+                'no_rt' => $validated['no_rt'],
+                'nik_rt' => $validated['nik_rt'],
+                'wa_rt' => $validated['wa_rt'],
+            ]);
+            return redirect()->back()->with('success', 'Data RT berhasil ditambahkan!');
+        } catch(\Exception $e){
+            Alert::error('Error', $e->getMessage());
+            return redirect()->back();
+        }
     }
 
     public function edit(Rt $rt)
@@ -88,16 +104,38 @@ class RTController extends Controller
 
     public function update(Request $request, Rt $rt)
     {
-        $request->validate([
+        $validated = $request->validate([
             'no_rt' => 'required|unique:rt,no_rt,'. $rt->no_rt .',no_rt', // (tidak bisa mengubah no_rt as primary key, cek view)
             'nik_rt' => 'required|min:15|max:17|unique:rt,nik_rt,'. $rt->no_rt .',no_rt',
             'wa_rt' => 'required|min:11|max:14',
+        ], [
+            'no_rt.required' => 'Nomor RT wajib diisi.',
+            'no_rt.unique' => 'Nomor RT sudah digunakan.',
+            'nik_rt.required' => 'NIK RT wajib diisi.',
+            'nik_rt.min' => 'NIK RT harus memiliki panjang minimal :min digit.',
+            'nik_rt.max' => 'NIK RT harus memiliki panjang maksimal :max digit.',
+            'nik_rt.unique' => 'NIK RT sudah digunakan.',
+            'wa_rt.required' => 'Nomor WhatsApp RT wajib diisi.',
+            'wa_rt.min' => 'Nomor WhatsApp RT harus memiliki panjang minimal :min digit.',
+            'wa_rt.max' => 'Nomor WhatsApp RT harus memiliki panjang maksimal :max digit.',
         ]);
 
-        $rt->update($request->all());
+        $ketua_rt = Penduduk::all()->where('nik', $validated['nik_rt'])->first();
+        // dd($ketua_rt);
 
-        return redirect()->route('rt.manage')
-            ->with('success', 'Data RT Berhasil diperbarui.');
+        if (!$ketua_rt) {
+            return redirect()->back()->with('error', 'NIK Ketua RT yang anda masukkan tidak terdaftar dalam data penduduk!');
+        } elseif ($validated['no_rt'] != $ketua_rt->no_rt) {
+            return redirect()->back()->with('error', 'Nomor RT yang anda masukkan harus sesuai dengan Nomor RT milik Ketua RT di data penduduk!');
+        }
+
+        try{
+            $rt->update($request->all());
+            return redirect()->back()->with('success', 'Data RT berhasil diperbarui!');
+        } catch(\Exception $e){
+            Alert::error('Error', $e->getMessage());
+            return redirect()->back();
+        }
     }
 
     public function destroy(Rt $rt)

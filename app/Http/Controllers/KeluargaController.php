@@ -15,6 +15,7 @@ class KeluargaController extends Controller
         $niks = Penduduk::pluck('nik');
         return $dataTable->render('auth.rw.keluarga', compact('niks'));
     }
+    
     public function store(Request $request)
     {
         // Validasi input
@@ -38,7 +39,10 @@ class KeluargaController extends Controller
         $kepala_keluarga = Penduduk::all()->where('nik', $validated['nik_kepala_keluarga'])->first();
         // dd($kepala_keluarga->nkk);
         
-        if ($validated['nkk'] != $kepala_keluarga->nkk) {
+        if (!$kepala_keluarga) {
+            return redirect()->back()->with('error', 'NIK Kepala Keluarga yang anda masukkan tidak terdaftar dalam data penduduk!');
+        }
+        elseif ($validated['nkk'] != $kepala_keluarga->nkk) {
             return redirect()->back()->with('error', 'Nomor kartu keluarga harus sesuai dengan nomor kepala keluarga!');
         }
 
@@ -48,12 +52,13 @@ class KeluargaController extends Controller
                 'nik_kepala_keluarga' => $validated['nik_kepala_keluarga'],
                 'no_rt' => $kepala_keluarga->no_rt,
             ]);
-            return redirect()->back()->with('success', 'Data Keluarga berhasil ditambahkan!');
+            return redirect()->back()->with('success', 'Data keluarga berhasil ditambahkan!');
         } catch(\Exception $e){
             Alert::error('Error', $e->getMessage());
             return redirect()->back();
         }
     }
+
     public function edit(Keluarga $keluarga)
     {
         // $keluarga = Keluarga::findOrFail($keluarga->nkk);
@@ -84,14 +89,20 @@ class KeluargaController extends Controller
         // dd($validated);
         
         if (!$kepala_keluarga) {
-            return redirect()->back()->with('error', 'NIK kepala keluarga yang anda masukkan tidak terdaftar dalam data penduduk!');
+            return redirect()->back()->with('error', 'NIK Kepala Keluarga yang anda masukkan tidak terdaftar dalam data penduduk!');
         } elseif ($validated['nkk'] != $kepala_keluarga->nkk) {
-            return redirect()->back()->with('error', 'Nomor kartu keluarga harus sesuai dengan nomor kepala keluarga!');
+            return redirect()->back()->with('error', 'Nomor Kartu Keluarga yang anda masukkan harus sesuai dengan Nomor Kartu Keluarga milik Kepala Keluarga di data penduduk!');
         }
 
-        $keluarga->update([
-            'nik_kepala_keluarga' => $validated['nik_kepala_keluarga']
-        ]);
+        try{
+            $keluarga->update([
+                'nik_kepala_keluarga' => $validated['nik_kepala_keluarga']
+            ]);
+            return redirect()->back()->with('success', 'Data keluarga berhasil diperbarui!');
+        } catch(\Exception $e){
+            Alert::error('Error', $e->getMessage());
+            return redirect()->back();
+        }
 
         return redirect()->route('keluarga.manage')
             ->with('success', 'Keluarga berhasil diperbarui.');

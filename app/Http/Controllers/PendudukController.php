@@ -49,7 +49,7 @@ class PendudukController extends Controller
 
     public function list(PendudukDataTable $dataTable)
     {
-        $no_rts = Rt::pluck('no_rt');
+        // $no_rts = Rt::pluck('no_rt');
         $nkks = Keluarga::pluck('nkk');
         $goldar = GolDar::cases();
         $sp = StatusPernikahan::cases();
@@ -58,7 +58,7 @@ class PendudukController extends Controller
         $pekerjaans = Pekerjaan::cases();
         $pendidikans = Pendidikan::cases();
 
-        return $dataTable->render('auth.rw.penduduk', compact('no_rts', 'nkks', 'goldar', 'pekerjaans', 'pendidikans', 'sp', 'jk', 'agamas'));
+        return $dataTable->render('auth.rw.penduduk', compact('nkks', 'goldar', 'pekerjaans', 'pendidikans', 'sp', 'jk', 'agamas'));
         // return $dataTable->render('auth.rw.penduduk', ['goldar' => GolDar::cases()]);
     }
     // public function edit(Penduduk $penduduk)
@@ -89,7 +89,7 @@ class PendudukController extends Controller
             'no_rt' => 'required|string|max:2',
             'nama' => 'required|string|max:49',
             'tempat_lahir' => 'required|string|min:2|max:49',
-            'tanggal_lahir' => 'required|date',
+            'tanggal_lahir' => 'required|date|before_or_equal:today',
             'alamat' => 'required|string|min:5',
             'jenis_kelamin' => [Rule::enum(JenisKelamin::class)],
             'agama' => [Rule::enum(Agama::class)],
@@ -99,7 +99,58 @@ class PendudukController extends Controller
             'golongan_darah' =>  [Rule::enum(GolDar::class)],
             'status_pernikahan' => [Rule::enum(StatusPernikahan::class)],
             'status_pendatang' => 'required',
-            // Tambahkan validasi untuk input lainnya jika diperlukan
+        ], [
+            'nik.required' => 'NIK wajib diisi.',
+            'nik.string' => 'NIK harus berupa teks.',
+            'nik.min' => 'NIK harus memiliki panjang minimal :min digit.',
+            'nik.max' => 'NIK harus memiliki panjang maksimal :max digit.',
+            'nik.unique' => 'NIK sudah digunakan.',
+        
+            'nkk.required' => 'Nomor Kartu Keluarga (NKK) wajib diisi.',
+            'nkk.string' => 'Nomor Kartu Keluarga (NKK) harus berupa teks.',
+            'nkk.min' => 'Nomor Kartu Keluarga (NKK) harus memiliki panjang minimal :min digit.',
+            'nkk.max' => 'Nomor Kartu Keluarga (NKK) harus memiliki panjang maksimal :max digit.',
+        
+            'no_rt.required' => 'Nomor RT wajib diisi.',
+            'no_rt.string' => 'Nomor RT harus berupa teks.',
+            'no_rt.max' => 'Nomor RT harus memiliki panjang maksimal :max digit.',
+        
+            'nama.required' => 'Nama wajib diisi.',
+            'nama.string' => 'Nama harus berupa teks.',
+            'nama.max' => 'Nama harus memiliki panjang maksimal :max karakter.',
+        
+            'tempat_lahir.required' => 'Tempat Lahir wajib diisi.',
+            'tempat_lahir.string' => 'Tempat Lahir harus berupa teks.',
+            'tempat_lahir.min' => 'Tempat Lahir harus memiliki panjang minimal :min karakter.',
+            'tempat_lahir.max' => 'Tempat Lahir harus memiliki panjang maksimal :max karakter.',
+        
+            'tanggal_lahir.required' => 'Tanggal Lahir wajib diisi.',
+            'tanggal_lahir.date' => 'Tanggal Lahir harus berupa tanggal yang valid (format bulan/tanggal/tahun).',
+            'tanggal_lahir.before_or_equal' => 'Tanggal Lahir tidak boleh di masa depan.',
+        
+            'alamat.required' => 'Alamat wajib diisi.',
+            'alamat.string' => 'Alamat harus berupa teks.',
+            'alamat.min' => 'Alamat harus memiliki panjang minimal :min karakter.',
+        
+            'jenis_kelamin.required' => 'Jenis Kelamin wajib diisi.',
+            'jenis_kelamin.enum' => 'Jenis Kelamin tidak valid.',
+        
+            'agama.required' => 'Agama wajib diisi.',
+            'agama.enum' => 'Agama tidak valid.',
+        
+            'pendidikan.required' => 'Pendidikan wajib diisi.',
+            'pendidikan.enum' => 'Pendidikan tidak valid.',
+        
+            'pekerjaan.required' => 'Pekerjaan wajib diisi.',
+            'pekerjaan.enum' => 'Pekerjaan tidak valid.',
+        
+            'golongan_darah.required' => 'Golongan Darah wajib diisi.',
+            'golongan_darah.enum' => 'Golongan Darah tidak valid.',
+        
+            'status_pernikahan.required' => 'Status Pernikahan wajib diisi.',
+            'status_pernikahan.enum' => 'Status Pernikahan tidak valid.',
+        
+            'status_pendatang.required' => 'Status Pendatang wajib diisi.',
         ]);
 
         try {
@@ -134,27 +185,97 @@ class PendudukController extends Controller
     public function update(Request $request, Penduduk $penduduk)
     {
 
-        $request->validate([
-            'nik' => 'required|string|min:15|max:17|unique:penduduk,nik,' . $penduduk->nik . ',nik', // gbisa edit primary key
+        $validated = $request->validate([
+            'nik' => 'required|string|min:15|max:17|unique:penduduk,nik,' . $penduduk->nik . ',nik',
             'nkk' => 'required|string|min:15|max:17',
             'no_rt' => 'required|string|max:2',
             'nama' => 'required|string|max:49',
             'tempat_lahir' => 'required|string|min:2|max:49',
-            'tanggal_lahir' => 'required|date',
+            'tanggal_lahir' => 'required|date|before_or_equal:today',
             'alamat' => 'required|string|min:5',
             'jenis_kelamin' => [Rule::enum(JenisKelamin::class)],
             'agama' => [Rule::enum(Agama::class)],
             'pendidikan' => [Rule::enum(Pendidikan::class)],
             'pekerjaan' => [Rule::enum(Pekerjaan::class)],
-            'golongan_darah' =>  [Rule::enum(GolDar::class)],
+            'golongan_darah' => [Rule::enum(GolDar::class)],
             'status_pernikahan' => [Rule::enum(StatusPernikahan::class)],
             'status_pendatang' => 'required',
+        ], [
+            'nik.required' => 'NIK wajib diisi.',
+            'nik.string' => 'NIK harus berupa teks.',
+            'nik.min' => 'NIK harus memiliki panjang minimal :min digit.',
+            'nik.max' => 'NIK harus memiliki panjang maksimal :max digit.',
+            'nik.unique' => 'NIK sudah digunakan.',
+        
+            'nkk.required' => 'Nomor Kartu Keluarga (NKK) wajib diisi.',
+            'nkk.string' => 'Nomor Kartu Keluarga (NKK) harus berupa teks.',
+            'nkk.min' => 'Nomor Kartu Keluarga (NKK) harus memiliki panjang minimal :min digit.',
+            'nkk.max' => 'Nomor Kartu Keluarga (NKK) harus memiliki panjang maksimal :max digit.',
+        
+            'no_rt.required' => 'Nomor RT wajib diisi.',
+            'no_rt.string' => 'Nomor RT harus berupa teks.',
+            'no_rt.max' => 'Nomor RT harus memiliki panjang maksimal :max digit.',
+        
+            'nama.required' => 'Nama wajib diisi.',
+            'nama.string' => 'Nama harus berupa teks.',
+            'nama.max' => 'Nama harus memiliki panjang maksimal :max karakter.',
+        
+            'tempat_lahir.required' => 'Tempat Lahir wajib diisi.',
+            'tempat_lahir.string' => 'Tempat Lahir harus berupa teks.',
+            'tempat_lahir.min' => 'Tempat Lahir harus memiliki panjang minimal :min karakter.',
+            'tempat_lahir.max' => 'Tempat Lahir harus memiliki panjang maksimal :max karakter.',
+        
+            'tanggal_lahir.required' => 'Tanggal Lahir wajib diisi.',
+            'tanggal_lahir.date' => 'Tanggal Lahir harus berupa tanggal yang valid.',
+            'tanggal_lahir.before_or_equal' => 'Tanggal Lahir tidak boleh di masa depan.',
+        
+            'alamat.required' => 'Alamat wajib diisi.',
+            'alamat.string' => 'Alamat harus berupa teks.',
+            'alamat.min' => 'Alamat harus memiliki panjang minimal :min karakter.',
+        
+            'jenis_kelamin.required' => 'Jenis Kelamin wajib diisi.',
+            'jenis_kelamin.enum' => 'Jenis Kelamin tidak valid.',
+        
+            'agama.required' => 'Agama wajib diisi.',
+            'agama.enum' => 'Agama tidak valid.',
+        
+            'pendidikan.required' => 'Pendidikan wajib diisi.',
+            'pendidikan.enum' => 'Pendidikan tidak valid.',
+        
+            'pekerjaan.required' => 'Pekerjaan wajib diisi.',
+            'pekerjaan.enum' => 'Pekerjaan tidak valid.',
+        
+            'golongan_darah.required' => 'Golongan Darah wajib diisi.',
+            'golongan_darah.enum' => 'Golongan Darah tidak valid.',
+        
+            'status_pernikahan.required' => 'Status Pernikahan wajib diisi.',
+            'status_pernikahan.enum' => 'Status Pernikahan tidak valid.',
+        
+            'status_pendatang.required' => 'Status Pendatang wajib diisi.',
         ]);
 
-        $penduduk->update($request->all());
-
-        return redirect()->route('penduduk.manage')
-            ->with('success', 'Penduduk berhasil diperbarui.');
+        try {
+            $penduduk->update([
+                'nik' => $validated['nik'],
+                'nkk' => $validated['nkk'],
+                'no_rt' => $validated['no_rt'],
+                'nama' => $validated['nama'],
+                'tempat_lahir' => $validated['tempat_lahir'],
+                'tanggal_lahir' => $validated['tanggal_lahir'],
+                'alamat' => $validated['alamat'],
+                'jenis_kelamin' => $validated['jenis_kelamin'],
+                'agama' => $validated['agama'],
+                'pendidikan' => $validated['pendidikan'],
+                'pekerjaan' => $validated['pekerjaan'],
+                'golongan_darah' => $validated['golongan_darah'],
+                'status_pernikahan' => $validated['status_pernikahan'],
+                'status_pendatang' => $validated['status_pendatang'],
+            ]);
+            return redirect()->back()->with('success', 'Data Penduduk berhasil diperbarui!');
+        } catch (\Exception $e) {
+            Alert::error('Error', $e->getMessage());
+            return redirect()->back();
+        }
     }
 
     public function destroy(Penduduk $penduduk)

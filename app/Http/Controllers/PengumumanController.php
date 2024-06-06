@@ -7,6 +7,7 @@ use App\Models\Pengumuman;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class PengumumanController extends Controller
@@ -75,6 +76,8 @@ class PengumumanController extends Controller
                 $foto_pengumuman_ext = $foto_pengumuman->getClientOriginalExtension();
                 $foto_pengumuman_filename = $validated['judul'] . date('ymdhis') . "." . $foto_pengumuman_ext;
                 $foto_pengumuman->move(public_path('Foto Pengumuman'), $foto_pengumuman_filename);
+
+                // Storage::disk('foto_pengumuman')->put($foto_pengumuman_filename, file_get_contents($foto_pengumuman));
 
                 $pengumumanData['foto_pengumuman'] = $foto_pengumuman_filename;
             }

@@ -91,12 +91,7 @@
                             <div class="col-md-6">
                                 <div class="form-group mb-3">
                                     <label for="no_rt" class="form-label text-start">Nomor RT</label>
-                                    <select class="form-select" id="no_rt" name="no_rt" required>
-                                        <option value="" selected disabled>Pilih Nomor RT</option>
-                                        @foreach ($no_rts as $no_rt)
-                                            <option value="{{ $no_rt }}">{{ $no_rt }}</option>
-                                        @endforeach
-                                    </select>
+                                    <input type="text" class="form-control" id="no_rt" name="no_rt" required>
                                 </div>
 
                                 <div class="form-group mb-3">
@@ -389,8 +384,8 @@
                                     <select type="text" class="form-select" id="status_pendatang"
                                         name="status_pendatang" required>
                                         <option value="" selected disabled>Pilih Status Pendatang</option>
-                                        <option value="0">Domisili</option>
-                                        <option value="1">Non Domisili</option>
+                                        <option value="0">Penduduk Asli</option>
+                                        <option value="1">Penduduk Pendatang</option>
                                     </select>
                                 </div>
                             </div>
