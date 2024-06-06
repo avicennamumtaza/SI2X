@@ -25,14 +25,9 @@
                         </div>
 
                         <div class="form-group mb-3" title="Masukkan NIK Kepala Keluarga">
-                            <label for="nik_kepala" class="form-label text-start">NIK Kepala Keluarga</label>
-                            <input list="nik_list" type="text" class="form-control" id="nik_kepala" name="nik_kepala"
+                            <label for="nik_kepala_keluarga" class="form-label text-start">NIK Kepala Keluarga</label>
+                            <input type="text" class="form-control" id="nik_kepala_keluarga" name="nik_kepala_keluarga"
                                 placeholder="Masukkan NIK Kepala Keluarga" required>
-                            <datalist id="nik_list">
-                                @foreach ($niks as $nik)
-                                    <option value="{{ $nik }}">{{ $nik }}</option>
-                                @endforeach
-                            </datalist>
                         </div>
                 </div>
                 <div class="modal-footer justify-content-end">
@@ -104,12 +99,12 @@
                         <div class="form-group mb-3">
                             <label for="nkk" class="form-label text-start">NKK</label>
                             <input type="text" class="form-control" id="nkk" name="nkk"
-                                placeholder="Masukkan NKK" required>
+                                placeholder="Masukkan NKK" readonly required style="background-color: #e0e0de">
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="nik_kepala" class="form-label text-start">NIK Kepala Keluarga</label>
-                            <input type="text" class="form-control" id="nik_kepala" name="nik_kepala"
+                            <label for="nik_kepala_keluarga" class="form-label text-start">NIK Kepala Keluarga</label>
+                            <input type="text" class="form-control" id="nik_kepala_keluarga" name="nik_kepala_keluarga"
                                 placeholder="Masukkan NIK Kepala Keluarga" required>
                         </div>
 
@@ -238,11 +233,11 @@
                     var target = $(event.relatedTarget);
                     let nkk = target.data('id')
                     let nik_kepala = target.data('nik_kepala')
-                    let jumlah_nik = target.data('jumlah_nik')
+                    // let jumlah_nik = target.data('jumlah_nik')
 
                     $('#editKeluargaModal #nkk').val(nkk);
-                    $('#editKeluargaModal #nik_kepala').val(nik_kepala);
-                    $('#editKeluargaModal #jumlah_nik').val(jumlah_nik);
+                    $('#editKeluargaModal #nik_kepala_keluarga').val(nik_kepala);
+                    // $('#editKeluargaModal #jumlah_nik').val(jumlah_nik);
 
                     let url = "{{ route('keluarga.update', ':__id') }}";
                     url = url.replace(':__id', nkk);

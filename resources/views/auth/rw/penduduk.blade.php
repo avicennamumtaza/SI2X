@@ -51,7 +51,7 @@
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
+                                    <label for="tanggal_lahir" class="form-label">Tanggal Lahir (Bulan/Tanggal/Tahun)</label>
                                     <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir"
                                         required>
                                 </div>
@@ -134,8 +134,8 @@
                                     <label for="status_pendatang" class="form-label text-start">Status Pendatang</label>
                                     <select class="form-select" id="status_pendatang" name="status_pendatang" required>
                                         <option value="" selected disabled>Pilih Status Pendatang</option>
-                                        <option value="0">Domisili</option>
-                                        <option value="1">Non Domisili</option>
+                                        <option value="0">Penduduk Asli</option>
+                                        <option value="1">Penduduk Pendatang</option>
                                     </select>
                                 </div>
                             </div>
