@@ -399,13 +399,16 @@
                         <h4>Statistik Laporan Keuangan</h4>
                     </div>
                 </div>
-                <div class="row">
-                    
+
+
+                <div class="row mt-4">
+                    <div class="col-xl-12 col-md-12 col-sm-12 mb-4">
                         <div class="card flex-fill w-100">
                             {!! $dataKas['kasRWChart']->container() !!}
                         </div>
-                    
+                    </div>
                 </div>
+
 
                 <div class="row">
                     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 mb-4" tit>

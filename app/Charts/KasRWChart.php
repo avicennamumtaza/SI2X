@@ -44,8 +44,9 @@ class KasRWChart
         }
     
         return $this->chart->lineChart()
-            ->setTitle('Saldo during 2021.')
-            ->setSubtitle('Pemasukan vs Pengeluaran.')
+            ->setTitle('Kas RW 06 Jodipan.')
+            ->setHeight(400)
+            ->setWidth(950)  
             ->addData('Total Saldo', $dataTotalSaldo)
             ->setXAxis($dataBulan);
     }
