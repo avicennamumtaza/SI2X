@@ -26,17 +26,28 @@ class DokumenDataTable extends DataTable
             ->addColumn('action', function($row){
                 $deleteUrl = route('dokumen.destroy', $row->id_dokumen);
                 $action ='
-                <div class="container-action">
+                <div class="container-action">';
+
+                $action .='
+                <button type="button"
+                data-id="' . $row->id_dokumen . '"
+                data-jenis_dokumen="' . $row->jenis_dokumen . '"
+                data-deskripsi="' . $row->deskripsi . '"
+                data-bs-toggle="modal" data-bs-target="#showDokumenModal"
+                class="show-user show btn btn-show btn-sm me-1">Tampil</button>';
+
+                $action .='
                 <button type="button"
                 data-id="' . $row->id_dokumen . '"
                 data-jenis_dokumen="' . $row->jenis_dokumen . '"
                 data-deskripsi="' . $row->deskripsi . '"
                 data-bs-toggle="modal" data-bs-target="#editDokumenModal"
                 class="edit btn btn-edit btn-sm">Edit</button>';
+
                 $action .= ' <button
-                type="button" 
-                    class="delete btn btn-delete btn-sm" 
-                    data-bs-target="#deleteDokumenModal" 
+                type="button"
+                    class="delete btn btn-delete btn-sm"
+                    data-bs-target="#deleteDokumenModal"
                     data-bs-toggle="modal"
                     data-jenis_dokumen="' . $row->jenis_dokumen . '"
                     data-id="' . $row->id_dokumen . '"
@@ -59,11 +70,11 @@ class DokumenDataTable extends DataTable
      */
     public function html(): HtmlBuilder
     {
-        return $this->builder()    
+        return $this->builder()
             ->setTableId('dokumen-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->orderBy(0, 'asc') 
+            ->orderBy(0, 'asc')
             ->parameters([
                 'language' => [
                     'search' => '', // Menghilangkan teks "Search:"

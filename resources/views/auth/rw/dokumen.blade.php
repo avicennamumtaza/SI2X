@@ -34,6 +34,34 @@
         </div>
     </div>
 
+    <!-- Modal for Show Dokumen Detail -->
+    <div class="modal fade" id="showDokumenModal" tabindex="-1" aria-labelledby="showDokumenModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered  modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="showDokumenModalLabel">Detail Dokumen</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        title="Tutup"></button>
+                </div>
+                <div class="modal-body justify-content-start text-start">
+                        <div class="form-group mb-3">
+                            <label for="jenis_dokumen" class="form-label text-start">Jenis Dokumen</label>
+                            <input type="text" class="form-control" id="jenis_dokumen" name="jenis_dokumen" readonly>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="deskripsi" class="form-label text-start">Deskripsi Dokumen</label>
+                            <input type="text" class="form-control" id="deskripsi" name="deskripsi" readonly>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                                title="Batal ubah dokumen">Tutup</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Modal for Editing Dokumen -->
     <div class="modal fade" id="editDokumenModal" tabindex="-1" aria-labelledby="editDokumenModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered  modal-md">
@@ -143,7 +171,15 @@
                     $('#deleteDokumenForm').attr('action', url);
                 });
 
+                $("#showDokumenModal").on("show.bs.modal", function(event) {
+                    var target = $(event.relatedTarget);
+                    let id_dokumen = target.data('id')
+                    let jenis_dokumen = target.data('jenis_dokumen')
+                    let deskripsi = target.data('deskripsi')
 
+                    $('#showDokumenModal #jenis_dokumen').val(jenis_dokumen);
+                    $('#showDokumenModal #deskripsi').val(deskripsi);
+                });
 
                 $("#editDokumenModal").on("show.bs.modal", function(event) {
                     var target = $(event.relatedTarget);
