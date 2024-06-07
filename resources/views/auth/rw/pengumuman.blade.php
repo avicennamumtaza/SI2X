@@ -93,7 +93,7 @@
                             <br>
                             <input type="file" class="form-control" id="foto_pengumuman_edit" name="foto_pengumuman">
                             <br>
-                            <img id="foto_pengumuman_preview" class="img-thumbnail" src="" width="300"
+                            <img id="edit_foto_pengumuman_preview" class="img-thumbnail" src="" width="300"
                                 height="300" alt="Foto Pengumuman">
                         </div>
 
@@ -238,13 +238,12 @@
                     $('#editPengumumanModal #tanggal_pengumuman').val(tanggal);
                     // $('#editPengumumanModal #foto_pengumuman').val(foto);
 
-                    // Memperbarui src gambar pratinjau
-                    let foto_pengumuman_path = "{{ asset('Foto Pengumuman/') }}/" + foto;
-                    $('#foto_pengumuman_preview').attr('src', foto_pengumuman_path);
-
                     // Menghapus gambar pratinjau jika tidak ada gambar baru yang dipilih
                     if (foto === null) {
-                        $('#foto_pengumuman_preview').attr('src', ''); // Mengosongkan src gambar
+                        $('#edit_foto_pengumuman_preview').attr('src', ''); // Mengosongkan src gambar
+                    } {
+                        let foto_pengumuman_path = "{{ asset('Foto Pengumuman/') }}/" + foto;
+                        $('#edit_foto_pengumuman_preview').attr('src', foto_pengumuman_path);
                     }
 
                     let url = "{{ route('pengumuman.update', ':__id') }}";
