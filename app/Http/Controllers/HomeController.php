@@ -38,6 +38,11 @@ class HomeController extends Controller
     public function index(DataPendudukChart $dataPendudukChart, KasRWChart $kasRWChart, DataPendudukRTChart $dataPendudukRTChart)
     {
         if (auth()->user()->role == 'RW') {
+            if (!Rw::where('nik_rw', auth()->user()->nik)->first()) {
+                auth()->logout();
+                return redirect(route('landing'))->with('info', 'Anda harus terdaftar sebagai Ketua RT atau Ketua RW terlebih dahulu untuk bisa masuk.');
+            }
+
             $jumlahRt = Cache::remember('jumlahRt', 1, function () {
                 return Rt::count();
             });
@@ -114,9 +119,7 @@ class HomeController extends Controller
             });
 
             $data['dataPendudukChart'] = $dataPendudukChart->build();
-            $dataKas['kasRWChart'] = $kasRWChart->build();
-            
-            
+            $dataKas['kasRWChart'] = $kasRWChart->build();            
 
             return view('auth.dashboard', compact(
                 'jumlahRt',
@@ -141,6 +144,10 @@ class HomeController extends Controller
             ));
 
         } else if (auth()->user()->role == 'RT') {
+            if (!Rt::where('nik_rt', auth()->user()->nik)->first()) {
+                auth()->logout();
+                return redirect(route('landing'))->with('info', 'Anda harus terdaftar sebagai Ketua RT atau Ketua RW terlebih dahulu untuk bisa masuk.');
+            }
             $rt = Rt::where('nik_rt', auth()->user()->nik)->first()->toArray();
             $noRt = $rt['no_rt']; // Simpan nomor RT di variabel
         
@@ -169,8 +176,7 @@ class HomeController extends Controller
                 $date = \Carbon\Carbon::now()->subYears(66)->format('Y-m-d');
                 $penduduk = Penduduk::where('no_rt', $noRt)->where('tanggal_lahir', '<=', $date)->paginate(25);
                 return $penduduk->total();
-            });
-            
+            });            
 
             $jumlahPengajuanDokumenNew = Cache::remember('jumlahPengajuanDokumenNew', 1, function () use ($noRt) {
                 return PengajuanDokumen::whereHas('penduduk', function ($query) use ($noRt) {

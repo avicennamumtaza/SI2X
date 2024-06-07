@@ -7,12 +7,15 @@
 @section('content')
     <div class="container container-p col-10">
         <h1 class="heading-center">Pengumuman</h1>
-        <!-- <div class="container"> -->
         <p>Fitur pengumuman dalam SIRW adalah sebuah sarana menfasilitasi penyebaran informasi kepada penduduk. Pengumuman
             ini dapat berupa berbagai hal, mulai dari pengumuman kegiatan sosial, keamanan lingkungan, pemberitahuan acara,
             hingga informasi urgent seperti perubahan kebijakan pemerintah.</p>
-        @foreach ($pengumumans as $pengumuman)
-            <article class="postcard light blue" title="Pengumuman">
+        @foreach ($pengumumans as $key => $pengumuman)
+            @php
+                $colors = ['blue', 'green', 'red', 'yellow'];
+                $color = $colors[$key % count($colors)];
+            @endphp
+            <article class="postcard light {{ $color }}" title="Pengumuman">
                 <a class="postcard__img_link" href="#" data-toggle="modal" data-target="#fotoModal{{ $pengumuman->id }}"
                     title="Foto Pengumuman">
                     <img class="postcard__img"
@@ -22,26 +25,28 @@
                 </a>
 
                 <div class="postcard__text t-dark">
-                    <h1 class="postcard__title blue" title="Judul Pengumuman">{{ $pengumuman->judul }}</h1>
-                    {{-- <div class="postcard__subtitle small">
-                        <time datetime="2020-05-25 12:00:00">
-                            <i class="fas fa-calendar-alt mr-2"></i>
-                            {{ $pengumuman->tanggal_pengumuman }}
-                        </time>
-                    </div> --}}
-                    <div class="postcard__bar"></div>
+                    <h1 class="postcard__title {{ $color }}" title="Judul Pengumuman">{{ $pengumuman->judul }}</h1>
+                    {{-- <div class="postcard__bar"></div> --}}
+                    <div class="my-1"></div>
                     <div class="postcard__preview-txt" title="Deskripsi Pengumuman">
                         {{ $pengumuman->deskripsi }}
                     </div>
-                    <ul class="postcard__tagbox">
-                        <li class="tag__item" title="Tanggal Pengumuman"><i
-                                class="fas fa-tag mr-2"></i>{{ Carbon::parse($pengumuman->tanggal)->translatedFormat('d F Y') }}
-                        </li>
-                    </ul>
+                    {{-- <ul class="postcard__tagbox">
+                        <li class="tag__item" title="Tanggal Pengumuman"> --}}
+                            {{-- <i class="fas fa-tag mr-2"></i> --}}
+                            <div class="mt-2">
+                                <hr>
+                                {{-- ---------------------------------- --}}
+                                {{ Carbon::parse($pengumuman->tanggal)->translatedFormat('d F Y') }}
+                                {{-- ---------------------------------- --}}
+                            </div>
+                        {{-- </li>
+                    </ul> --}}
                 </div>
             </article>
         @endforeach
     </div>
+
     <!-- Modal untuk setiap UMKM -->
     @if (isset($pengumuman) && !empty($pengumuman))
         <div class="modal fade" id="fotoModal{{ $pengumuman->id }}" tabindex="-1" role="dialog"
