@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Charts\DataPendudukChart;
+use App\Charts\DataPendudukRTChart;
 use App\Charts\KasRWChart;
 use App\Models\Dokumen;
 use App\Models\Keluarga;
@@ -34,7 +35,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index(DataPendudukChart $dataPendudukChart, KasRWChart $kasRWChart)
+    public function index(DataPendudukChart $dataPendudukChart, KasRWChart $kasRWChart, DataPendudukRTChart $dataPendudukRTChart)
     {
         if (auth()->user()->role == 'RW') {
             $jumlahRt = Cache::remember('jumlahRt', 600, function () {
@@ -195,7 +196,7 @@ class HomeController extends Controller
                 })->count();
             });
             
-
+            $dataPendRt['dataPendudukRTChart'] = $dataPendudukRTChart->build();
             return view('auth.dashboard', compact(
                 'jumlahKeluarga',
                 'jumlahPenduduk',
@@ -205,7 +206,8 @@ class HomeController extends Controller
                 'jumlahPengajuanDokumenNew',
                 'jumlahPengajuanDokumenAcc',
                 'jumlahPengajuanDokumenDec',
-                'jumlahPengajuanDokumen'
+                'jumlahPengajuanDokumen',
+                'dataPendRt'
             ));
         }
 
