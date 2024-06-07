@@ -40,11 +40,11 @@ class DataPendudukRTChart
         $penduduk = Penduduk::where('no_rt', $noRt)->where('tanggal_lahir', '<=', $date)->paginate(25);
         return $penduduk->total();
     });
-        return $this->chart->pieChart()
-        ->setTitle('Distribusi Penduduk Rw 06 Jodipan Malang Berdasarkan Usia')
-            ->setWidth(600)   
-        ->setHeight(360)
-            ->setSubtitle('Season 2021.')
+        return $this->chart->pieChart() 
+            ->setFontFamily('Poppins, sans-serif')
+            ->setWidth(600)
+            ->setHeight(360)
+            ->setStroke(1)
             ->addData([$jumlahAnakAnak, $jumlahUsiaProduktif, $jumlahLansia])
             ->setLabels(['Anak-Anak ' ,
             'Usia Produktif ',

@@ -195,7 +195,7 @@
         <hr class="tabel">
         <div class="card-body">
             <div class="table-responsive tabel">
-                <div class="text-start" style="margin-bottom: -2rem;">
+                <div class="text-start" style="margin-bottom: -2rem; margin-left: 1rem;">
                     <div class="align-self-center">
                         <h3>Kas RW</h3>
                     </div>

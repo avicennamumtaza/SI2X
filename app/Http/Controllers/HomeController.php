@@ -38,78 +38,78 @@ class HomeController extends Controller
     public function index(DataPendudukChart $dataPendudukChart, KasRWChart $kasRWChart, DataPendudukRTChart $dataPendudukRTChart)
     {
         if (auth()->user()->role == 'RW') {
-            $jumlahRt = Cache::remember('jumlahRt', 600, function () {
+            $jumlahRt = Cache::remember('jumlahRt', 1, function () {
                 return Rt::count();
             });
 
-            $jumlahKeluarga = Cache::remember('jumlahKeluarga', 600, function () {
+            $jumlahKeluarga = Cache::remember('jumlahKeluarga', 1, function () {
                 return Keluarga::count();
             });
 
-            $jumlahPenduduk = Cache::remember('jumlahPenduduk', 600, function () {
+            $jumlahPenduduk = Cache::remember('jumlahPenduduk', 1, function () {
                 return Penduduk::count();
             });
 
-            $jumlahAnakAnak = Cache::remember('jumlahAnakAnak', 600, function () {
+            $jumlahAnakAnak = Cache::remember('jumlahAnakAnak', 1, function () {
                 $date = \Carbon\Carbon::now()->subYears(15)->format('Y-m-d');
                 $penduduk = Penduduk::where('tanggal_lahir', '>', $date)->select(['nik', 'nama', 'tempat_lahir', 'tanggal_lahir'])->paginate(25);
                 return $penduduk->count();
             });
 
-            $jumlahUsiaProduktif = Cache::remember('jumlahUsiaProduktif', 600, function () {
+            $jumlahUsiaProduktif = Cache::remember('jumlahUsiaProduktif', 1, function () {
                 $dateMin = \Carbon\Carbon::now()->subYears(65)->format('Y-m-d');
                 $dateMax = \Carbon\Carbon::now()->subYears(15)->format('Y-m-d');
                 $penduduk = Penduduk::whereBetween('tanggal_lahir', [$dateMin, $dateMax]);
                 return $penduduk->count();
             });
 
-            $jumlahLansia = Cache::remember('jumlahLansia', 600, function () {
+            $jumlahLansia = Cache::remember('jumlahLansia', 1, function () {
                 $date = \Carbon\Carbon::now()->subYears(66)->format('Y-m-d');
                 $penduduk = Penduduk::where('tanggal_lahir', '<=', $date)->select(['nik', 'nama', 'tempat_lahir', 'tanggal_lahir'])->paginate(25);
                 return $penduduk->count();
             });
 
-            $jumlahUmkmNew = Cache::remember('jumlahUmkmNew', 600, function () {
+            $jumlahUmkmNew = Cache::remember('jumlahUmkmNew', 1, function () {
                 return Umkm::where('status_umkm', 'Baru')->count();
             });
 
-            $jumlahUmkmAcc = Cache::remember('jumlahUmkmAcc', 600, function () {
+            $jumlahUmkmAcc = Cache::remember('jumlahUmkmAcc', 1, function () {
                 return Umkm::where('status_umkm', 'Disetujui')->count();
             });
 
-            $jumlahUmkmDec = Cache::remember('jumlahUmkmDec', 600, function () {
+            $jumlahUmkmDec = Cache::remember('jumlahUmkmDec', 1, function () {
                 return Umkm::where('status_umkm', 'Ditolak')->count();
             });
 
-            $jumlahUmkm = Cache::remember('jumlahUmkm', 600, function () {
+            $jumlahUmkm = Cache::remember('jumlahUmkm', 1, function () {
                 return Umkm::count();
             });
 
-            $jumlahPengumuman = Cache::remember('jumlahPengumuman', 600, function () {
+            $jumlahPengumuman = Cache::remember('jumlahPengumuman', 1, function () {
                 return Pengumuman::count();
             });
 
-            $jumlahLaporanKeuangan = Cache::remember('jumlahLaporanKeuangan', 600, function () {
+            $jumlahLaporanKeuangan = Cache::remember('jumlahLaporanKeuangan', 1, function () {
                 return LaporanKeuangan::count();
             });
 
-            $jumlahDokumen = Cache::remember('jumlahDokumen', 600, function () {
+            $jumlahDokumen = Cache::remember('jumlahDokumen', 1, function () {
                 return Dokumen::count();
             });
 
-            $jumlahPengajuanDokumenNew = Cache::remember('jumlahPengajuanDokumenNew', 600, function () {
+            $jumlahPengajuanDokumenNew = Cache::remember('jumlahPengajuanDokumenNew', 1, function () {
                 return PengajuanDokumen::where('status_pengajuan', 'Baru')->count();
             });
 
-            $jumlahPengajuanDokumenAcc = Cache::remember('jumlahPengajuanDokumenAcc', 600, function () {
+            $jumlahPengajuanDokumenAcc = Cache::remember('jumlahPengajuanDokumenAcc', 1, function () {
                 return PengajuanDokumen::where('status_pengajuan', 'Disetujui')->count();
             });
 
-            $jumlahPengajuanDokumenDec = Cache::remember('jumlahPengajuanDokumenDec', 600, function () {
+            $jumlahPengajuanDokumenDec = Cache::remember('jumlahPengajuanDokumenDec', 1, function () {
                 return PengajuanDokumen::where('status_pengajuan', 'Ditolak')->count();
             });
 
-            $jumlahPengajuanDokumen = Cache::remember('jumlahPengajuanDokumen', 600, function () {
+            $jumlahPengajuanDokumen = Cache::remember('jumlahPengajuanDokumen', 1, function () {
                 return PengajuanDokumen::count();
             });
 
@@ -144,53 +144,53 @@ class HomeController extends Controller
             $rt = Rt::where('nik_rt', auth()->user()->nik)->first()->toArray();
             $noRt = $rt['no_rt']; // Simpan nomor RT di variabel
         
-            $jumlahKeluarga = Cache::remember('jumlahKeluarga', 600, function () use ($noRt) {
+            $jumlahKeluarga = Cache::remember('jumlahKeluarga', 1, function () use ($noRt) {
                 return Keluarga::where('no_rt', $noRt)->count();
             });
         
-            $jumlahPenduduk = Cache::remember('jumlahPenduduk', 600, function () use ($noRt) {
+            $jumlahPenduduk = Cache::remember('jumlahPenduduk', 1, function () use ($noRt) {
                 return Penduduk::where('no_rt', $noRt)->count();
             });
             
-            $jumlahAnakAnak = Cache::remember('jumlahAnakAnak', 600, function () use ($noRt) {
+            $jumlahAnakAnak = Cache::remember('jumlahAnakAnak', 1, function () use ($noRt) {
                 $date = \Carbon\Carbon::now()->subYears(15)->format('Y-m-d');
                 $penduduk = Penduduk::where('no_rt', $noRt)->where('tanggal_lahir', '>', $date)->paginate(25);
                 return $penduduk->total();
             });
             
-            $jumlahUsiaProduktif = Cache::remember('jumlahUsiaProduktif', 600, function () use ($noRt) {
+            $jumlahUsiaProduktif = Cache::remember('jumlahUsiaProduktif', 1, function () use ($noRt) {
                 $dateMin = \Carbon\Carbon::now()->subYears(65)->format('Y-m-d');
                 $dateMax = \Carbon\Carbon::now()->subYears(15)->format('Y-m-d');
                 $penduduk = Penduduk::where('no_rt', $noRt)->whereBetween('tanggal_lahir', [$dateMin, $dateMax])->paginate(25);
                 return $penduduk->total();
             });
             
-            $jumlahLansia = Cache::remember('jumlahLansia', 600, function () use ($noRt) {
+            $jumlahLansia = Cache::remember('jumlahLansia', 1, function () use ($noRt) {
                 $date = \Carbon\Carbon::now()->subYears(66)->format('Y-m-d');
                 $penduduk = Penduduk::where('no_rt', $noRt)->where('tanggal_lahir', '<=', $date)->paginate(25);
                 return $penduduk->total();
             });
             
 
-            $jumlahPengajuanDokumenNew = Cache::remember('jumlahPengajuanDokumenNew', 600, function () use ($noRt) {
+            $jumlahPengajuanDokumenNew = Cache::remember('jumlahPengajuanDokumenNew', 1, function () use ($noRt) {
                 return PengajuanDokumen::whereHas('penduduk', function ($query) use ($noRt) {
                     $query->where('no_rt', $noRt);
                 })->where('status_pengajuan', 'Baru')->count();
             });
             
-            $jumlahPengajuanDokumenAcc = Cache::remember('jumlahPengajuanDokumenAcc', 600, function () use ($noRt) {
+            $jumlahPengajuanDokumenAcc = Cache::remember('jumlahPengajuanDokumenAcc', 1, function () use ($noRt) {
                 return PengajuanDokumen::whereHas('penduduk', function ($query) use ($noRt) {
                     $query->where('no_rt', $noRt);
                 })->where('status_pengajuan', 'Disetujui')->count();
             });
             
-            $jumlahPengajuanDokumenDec = Cache::remember('jumlahPengajuanDokumenDec', 600, function () use ($noRt) {
+            $jumlahPengajuanDokumenDec = Cache::remember('jumlahPengajuanDokumenDec', 1, function () use ($noRt) {
                 return PengajuanDokumen::whereHas('penduduk', function ($query) use ($noRt) {
                     $query->where('no_rt', $noRt);
                 })->where('status_pengajuan', 'Ditolak')->count();
             });
             
-            $jumlahPengajuanDokumen = Cache::remember('jumlahPengajuanDokumen', 600, function () use ($noRt) {
+            $jumlahPengajuanDokumen = Cache::remember('jumlahPengajuanDokumen', 1, function () use ($noRt) {
                 return PengajuanDokumen::whereHas('penduduk', function ($query) use ($noRt) {
                     $query->where('no_rt', $noRt);
                 })->count();
