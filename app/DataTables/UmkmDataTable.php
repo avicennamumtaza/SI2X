@@ -25,7 +25,7 @@ class UmkmDataTable extends DataTable
         return (new EloquentDataTable($query))
             ->setRowId('id')
             ->addColumn('nama_pemilik', function ($row) {
-                $pemilik = Penduduk::where('nik', $row->nik_pemilik)->first();                
+                $pemilik = Penduduk::where('nik', $row->nik_pemilik)->first();
                 return $pemilik->nama;
             })
             ->addColumn('status_umkm', function ($row) {
@@ -49,7 +49,22 @@ class UmkmDataTable extends DataTable
             ->addColumn('action', function ($row) {
                 $pemilik = Penduduk::where('nik', $row->nik_pemilik)->first();
                 $action = '
-                <div class="container-action">
+                <div class="container-action">';
+
+                $action .= '
+                <button type="button"
+                data-id_umkm="' . $row->id_umkm . '"
+                data-nik_pemilik="' . $row->nik_pemilik . '"
+                data-nama_pemilik="' . $pemilik->nama . '"
+                data-alamat_pemilik="' . $pemilik->alamat . '"
+                data-nama_umkm="' . $row->nama_umkm . '"
+                data-wa_umkm="' . $row->wa_umkm . '"
+                data-foto_umkm="' . $row->foto_umkm . '"
+                data-deskripsi_umkm="' . $row->deskripsi_umkm . '"
+                data-status_umkm="' . $row->status_umkm . '"
+                data-bs-toggle="modal" data-bs-target="#showUmkmModal" class="show-user show btn btn-show btn-sm me-1">Tampil</button>';
+
+                $action .= '
                 <button type="button"
                 data-id_umkm="' . $row->id_umkm . '"
                 data-nik_pemilik="' . $row->nik_pemilik . '"
@@ -61,11 +76,12 @@ class UmkmDataTable extends DataTable
                 data-deskripsi_umkm="' . $row->deskripsi_umkm . '"
                 data-status_umkm="' . $row->status_umkm . '"
                 data-bs-toggle="modal" data-bs-target="#editUmkmModal" class="edit btn btn-edit btn-sm">Edit</button>';
+
                 $action .= '
                 <button
-                type="button" 
-                class="delete btn btn-delete btn-sm" 
-                data-bs-target="#deleteUmkmModal" 
+                type="button"
+                class="delete btn btn-delete btn-sm"
+                data-bs-target="#deleteUmkmModal"
                 data-bs-toggle="modal"
                 data-nama="' . $row->nama_umkm . '"
                 data-status="' . $row->status_umkm . '"
