@@ -983,7 +983,6 @@ body {
         .postcard {
             flex-wrap: wrap;
             display: flex;
-
             box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
             border-radius: 10px;
             margin: 0 0 2rem 0;
@@ -1029,14 +1028,14 @@ body {
                 display: contents;
             }
 
-            .postcard__bar {
-                width: 50px;
-                height: 10px;
-                margin: 10px 0;
-                border-radius: 5px;
-                background-color: #424242;
-                transition: width 0.2s ease;
-            }
+            // .postcard__bar {
+            //     width: 50px;
+            //     height: 10px;
+            //     margin: 10px 0;
+            //     border-radius: 5px;
+            //     background-color: #424242;
+            //     transition: width 0.2s ease;
+            // }
 
             .postcard__text {
                 padding: 1.5rem;
@@ -1179,14 +1178,9 @@ body {
             }
         }
 
-        /* COLORS */
         .postcard .postcard__tagbox .green.play:hover {
             background: $main-green;
             color: black;
-        }
-
-        .green .postcard__title:hover {
-            color: $main-green;
         }
 
         .green .postcard__bar {
@@ -1207,10 +1201,6 @@ body {
             background: $main-blue;
         }
 
-        // .blue .postcard__title:hover {
-        //     color: $main-blue;
-        // }
-
         .blue .postcard__bar {
             background-color: $main-blue;
         }
@@ -1226,10 +1216,6 @@ body {
         .postcard .postcard__tagbox .red.play:hover {
             background: $main-red;
         }
-
-        // .red .postcard__title:hover {
-        //     color: $main-red;
-        // }
 
         .red .postcard__bar {
             background-color: $main-red;
@@ -1247,10 +1233,6 @@ body {
             background: $main-yellow;
             color: black;
         }
-
-        // .yellow .postcard__title:hover {
-        //     color: $main-yellow;
-        // }
 
         .yellow .postcard__bar {
             background-color: $main-yellow;
