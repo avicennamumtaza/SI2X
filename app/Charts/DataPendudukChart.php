@@ -40,7 +40,7 @@ class DataPendudukChart
         ->setTitle('Distribusi Penduduk Rw 06 Jodipan Malang Berdasarkan Usia')
         // ->setSubtitle('Data Tahun 2024')
         ->setWidth(600)   
-        ->setHeight(400)
+        ->setHeight(360)
         ->addData([$jumlahAnakAnak, $jumlahUsiaProduktif, $jumlahLansia])
         ->setLabels([
             'Anak-Anak' ,
