@@ -50,6 +50,48 @@
         </div>
     </div>
 
+    {{-- {{-- Detail Pengumuman --}}
+    <div class="modal fade" id="showPengumumanModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Detail Pengumuman</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        title="Tutup"></button>
+                </div>
+
+                <div class="modal-body justify-content-start text-start">
+                    <div class="form-group mb-3">
+                        <label for="judul" class="form-label text-start">Judul</label>
+                        <input type="text" class="form-control" id="judul" name="judul" readonly>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="deskripsi" class="form-label">Deskripsi</label>
+                        <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3" readonly></textarea>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="tanggal_pengumuman" class="form-label">Tanggal Pengumuman</label>
+                        <input type="date" class="form-control" id="tanggal_pengumuman" name="tanggal_pengumuman"
+                            readonly>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="show_foto_pengumuman_detail" class="form-label">Foto</label>
+                        <br>
+                        <img id="show_foto_pengumuman_detail" class="img-thumbnail" src="" width="300"
+                            height="300" alt="Foto Pengumuman">
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-end">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                        title="Batal ubah pengumuman">Tutup</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     {{-- {{-- Edit Pengumuman --}}
     <div class="modal fade" id="editPengumumanModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-md">
@@ -223,6 +265,30 @@
                 //     $('#deletePengumumanModal').modal('show');
                 //     // $('#deleting_id').val(id);
                 // });
+
+                $("#showPengumumanModal").on("show.bs.modal", function(event) {
+
+                    var target = $(event.relatedTarget);
+                    let id_pengumuman = target.data('id')
+                    let judul = target.data('judul')
+                    let deskripsi = target.data('deskripsi')
+                    let tanggal = target.data('tanggal_pengumuman')
+                    let foto = target.data('foto_pengumuman')
+
+                    $('#showPengumumanModal #judul').val(judul);
+                    $('#showPengumumanModal #deskripsi').val(deskripsi);
+                    $('#showPengumumanModal #tanggal_pengumuman').val(tanggal);
+                    // $('#showPengumumanModal #foto_pengumuman').val(foto);
+
+                    // Memperbarui src gambar pratinjau
+                    let foto_pengumuman_path = "{{ asset('Foto Pengumuman/') }}/" + foto;
+                    $('#show_foto_pengumuman_detail').attr('src', foto_pengumuman_path);
+
+                    // Menghapus gambar pratinjau jika tidak ada gambar baru yang dipilih
+                    // if (foto === null) {
+                    //     $('#foto_pengumuman_preview').attr('src', ''); // Mengosongkan src gambar
+                    // }
+                });
 
                 $("#editPengumumanModal").on("show.bs.modal", function(event) {
 

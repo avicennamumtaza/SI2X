@@ -28,7 +28,18 @@ class PengumumanDataTable extends DataTable
 
                 // $editUrl = route('pengumuman.edit', $row->id_pengumuman);
                 $action = '
-                <div class="container-action">
+                <div class="container-action">';
+
+                $action .='
+                <button type="button"
+                data-id="' . $row->id_pengumuman . '"
+                data-judul="' . $row->judul . '"
+                data-tanggal_pengumuman="' . $row->tanggal . '"
+                data-deskripsi="' . $row->deskripsi . '"
+                data-foto_pengumuman="' . $row->foto_pengumuman . '"
+                data-bs-toggle="modal" data-bs-target="#showPengumumanModal" class="show-user show btn btn-show btn-sm me-1">Tampil</button>';
+
+                $action .='
                 <button type="button"
                 data-id="' . $row->id_pengumuman . '"
                 data-judul="' . $row->judul . '"
@@ -36,11 +47,12 @@ class PengumumanDataTable extends DataTable
                 data-deskripsi="' . $row->deskripsi . '"
                 data-foto_pengumuman="' . $row->foto_pengumuman . '"
                 data-bs-toggle="modal" data-bs-target="#editPengumumanModal" class="edit-user edit btn btn-edit btn-sm">Edit</button>';
+
                 $action .= '
                     <button
-                    type="button" 
-                    class="delete btn btn-delete btn-sm" 
-                    data-bs-target="#deletePengumumanModal" 
+                    type="button"
+                    class="delete btn btn-delete btn-sm"
+                    data-bs-target="#deletePengumumanModal"
                     data-bs-toggle="modal"
                     data-judul="' . $row->judul . '"
                     data-tanggal="' . $row->tanggal . '"
@@ -61,7 +73,7 @@ class PengumumanDataTable extends DataTable
         // $action .= '
         // <form action="' . $deleteUrl . '" method="post" style="display:inline;">
         //     ' . csrf_field() . '
-        //     ' . method_field('DELETE') . 
+        //     ' . method_field('DELETE') .
         //     // <button type="submit" class="delete btn btn-delete btn-sm">Delete</button>
         //     '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
         // </form>
