@@ -22,14 +22,23 @@
                     </div>
                 @endif
                 <div class="row">
-                    <div class="col-12 mt-3 mb-3">
-                        <h2 class="">Dashboard RT</h2>
-                        <hr class="hrmain mt-4 mb-5" style="height: 2px;">
-                        <h4>Statistik Pendataan Penduduk &amp; Klasifikasi Berdasarkan Usia</h4>
-                        <p>Statistik Pendataan Penduduk &amp; Klasifikasi Berdasarkan Usia adalah fitur yang memberikan data
-                            penduduk dalam wilayah Rukun Warga (RW).</p>
+                    <div class="col-12 mt-0 mb-3">
+                        <?php
+                        $users = Auth()->user();
+                        ?>
+                        <div class="row">
+                            <div class="col mb-0">
+                                <h3>Hello <span>{{ $users->username }}</span></h3>
+                            </div>
+                            <div class="col-auto ml-auto">
+                                <p id="current-date" style="font-size: 14 px;margin-top: 20px;">{{ $date }}</p>
+                            </div>
+                        </div>
+                        <p style="font-size: 12 px;">Selamat Datang di dashboard RT</p>
+                        {{-- <hr class="hrmain mt-4 mb-1" style="height: 2px;"> --}}
                     </div>
                 </div>
+
 
                 <div class="row">
                     <div class="col-xl-6 col-md-6 col-sm-6 mb-4">
@@ -77,62 +86,83 @@
                         </div>
                     </div>
                 </div>
+
+
                 <div class="row">
-                    <div class="col-xl-4 col-md-4 col-sm-12 mb-4">
-                        <div class="card">
-                            <a href="{{ route('anak') }}" class="secondary" style="text-decoration: none">
-                                <div class="card-body" title="Jumlah anak-anak">
-                                    <div class="d-flex justify-content-between p-md-1">
-                                        <div class="d-flex flex-row">
-                                            <div class="align-self-center">
-                                                <h2 class="h3 mb-0 me-4">{{ $jumlahAnakAnak }}</h2>
-                                            </div>
-                                            <div>
-                                                <h4 style="margin-bottom: 3px;">Anak-anak</h4>
-                                                <p class="mb-0">Jumlah Penduduk Dengan Usia < 14 tahun</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
+                    <div class="col-xl-8 col-md-12 col-sm-12 mb-4">
+                        <div class="card flex-fill w-100">
+                            {!! $dataPendRt['dataPendudukRTChart']->container() !!}
                         </div>
                     </div>
-                    <div class="col-xl-4 col-md-4 col-sm-12 mb-4">
-                        <div class="card">
-                            <a href="{{ route('produktif') }}" class="secondary" style="text-decoration: none">
-                                <div class="card-body" title="Jumlah penduduk berusia produktif">
-                                    <div class="d-flex justify-content-between p-md-1">
-                                        <div class="d-flex flex-row">
-                                            <div class="align-self-center">
-                                                <h2 class="h3 mb-0 me-4">{{ $jumlahUsiaProduktif }}</h2>
-                                            </div>
-                                            <div>
-                                                <h4 style="margin-bottom: 3px;">Usia Produktif</h4>
-                                                <p class="mb-0">Jumlah Penduduk Dengan Usia 15-64 tahun</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-md-4 col-sm-12 mb-4">
-                        <div class="card">
-                            <a href="{{ route('lansia') }}" class="secondary" style="text-decoration: none;">
-                                <div class="card-body" title="Jumlah penduduk lansia">
-                                    <div class="d-flex justify-content-between p-md-1">
-                                        <div class="d-flex flex-row">
-                                            <div class="align-self-center">
-                                                <h2 class="h3 mb-0 me-4">{{ $jumlahLansia }}</h2>
-                                            </div>
-                                            <div>
-                                                <h4 style="margin-bottom: 3px;">Lanjut Usia</h4>
-                                                <p class="mb-0">Jumlah Penduduk Dengan Usia > 65 tahun</p>
+
+                    <div class="col-xl-4 col-md-12 col-sm-12 mb-4">
+                        <div class="row">
+                            <div class="col-12 mb-4">
+                                <div class="card">
+                                    <a href="{{ route('anak') }}" class="secondary" style="text-decoration: none">
+                                        <div class="card-body" title="Jumlah anak-anak">
+                                            <div class="d-flex justify-content-between p-md-1">
+                                                <div class="d-flex flex-row">
+                                                    <div class="align-self-center">
+                                                        <h2 class="h3 mb-0 me-4">{{ $jumlahAnakAnak }}</h2>
+                                                    </div>
+                                                    <div>
+                                                        <h4 style="margin-bottom: 3px;">Data Anak-anak</h4>
+                                                        <p class="mb-0">Penduduk Berusia < 14 tahun</p>
+                                                    </div>
+                                                </div>
+                                                {{-- <button type="button" class="mt-2 btn primary position-relative">
+                                                    >
+                                                </button> --}}
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
-                            </a>
+                            </div>
+                            <div class="col-12 mb-4">
+                                <div class="card">
+                                    <a href="{{ route('produktif') }}" class="secondary" style="text-decoration: none">
+                                        <div class="card-body" title="penduduk berusia produktif">
+                                            <div class="d-flex justify-content-between p-md-1">
+                                                <div class="d-flex flex-row">
+                                                    <div class="align-self-center">
+                                                        <h2 class="h3 mb-0 me-4">{{ $jumlahUsiaProduktif }}</h2>
+                                                    </div>
+                                                    <div>
+                                                        <h4 style="margin-bottom: 3px;">Data Remaja</h4>
+                                                        <p class="mb-0">Penduduk 15-64 tahun</p>
+                                                    </div>
+                                                </div>
+                                                {{-- <button type="button" class="mt-2 btn primary position-relative">
+                                                    >
+                                                </button> --}}
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-12 mb-4">
+                                <div class="card">
+                                    <a href="{{ route('lansia') }}" class="secondary" style="text-decoration: none;">
+                                        <div class="card-body" title="penduduk lansia">
+                                            <div class="d-flex justify-content-between p-md-1">
+                                                <div class="d-flex flex-row">
+                                                    <div class="align-self-center">
+                                                        <h2 class="h3 mb-0 me-4">{{ $jumlahLansia }}</h2>
+                                                    </div>
+                                                    <div>
+                                                        <h4 style="margin-bottom: 3px;">Lanjut Usia</h4>
+                                                        <p class="mb-0">Penduduk Berusia > 65 tahun</p>
+                                                    </div>
+                                                </div>
+                                                {{-- <button type="button" class="mt-2 btn primary position-relative">
+                                                >
+                                            </button> --}}
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -217,6 +247,9 @@
                     </div>
                 </div>
             </section>
+            <script src="{{ $dataPendRt['dataPendudukRTChart']->cdn() }}"></script>
+
+            {{ $dataPendRt['dataPendudukRTChart']->script() }}
         @endcan
 
 
@@ -327,6 +360,7 @@
                             {!! $data['dataPendudukChart']->container() !!}
                         </div>
                     </div>
+
                     <div class="col-xl-4 col-md-12 col-sm-12 mb-4">
                         <div class="row">
                             <div class="col-12 mb-4">
@@ -576,15 +610,15 @@
                     </div>
                 </div>
             </section>
+            <script src="{{ $data['dataPendudukChart']->cdn() }}"></script>
+
+            {{ $data['dataPendudukChart']->script() }}
+
+            <script src="{{ $dataKas['kasRWChart']->cdn() }}"></script>
+
+            {{ $dataKas['kasRWChart']->script() }}
         @endcan
     </div>
-    <script src="{{ $data['dataPendudukChart']->cdn() }}"></script>
-
-    {{ $data['dataPendudukChart']->script() }}
-
-    <script src="{{ $dataKas['kasRWChart']->cdn() }}"></script>
-
-    {{ $dataKas['kasRWChart']->script() }}
 
 @endsection
 
