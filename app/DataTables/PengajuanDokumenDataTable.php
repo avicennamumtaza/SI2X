@@ -54,8 +54,8 @@ class PengajuanDokumenDataTable extends DataTable
                     }
                     return '<span style="background-color: ' . $badgeColor . '; display: inline-block; text-align: center; width: 100%;" class="badge rounded-pill">' . $status . '</span>';            })
                 ->rawColumns(['status_pengajuan', 'action']); // Make sure to include 'status_pengajuan'
-             
-                
+
+
         } else {
             return (new EloquentDataTable($query))
                 ->setRowId('id')
@@ -87,7 +87,24 @@ class PengajuanDokumenDataTable extends DataTable
                     $age = $currentDate->diff($birthDate)->y;
 
                     $action = '
-                    <div class="container-action">
+                    <div class="container-action">';
+
+                    $action .='
+                    <button type="button"
+                    data-id_pengajuandokumen="' . $row->id_pengajuandokumen . '"
+                    data-no_rt="' . $pengaju->no_rt . '"
+                    data-nik_pemohon="' . $row->nik_pemohon . '"
+                    data-nama_asli_pengaju="' . $pengaju->nama . '"
+                    data-usia_pengaju="' . $age . '"
+                    data-pekerjaan_pengaju="' . $pengaju->pekerjaan->value . '"
+                    data-id_dokumen="' . $row->id_dokumen . '"
+                    data-jenis_dokumen="' . $dokumen->jenis_dokumen . '"
+                    data-status_pengajuan="' . $row->status_pengajuan . '"
+                    data-catatan="' . $row->catatan . '"
+                    data-keperluan="' . $row->keperluan . '"
+                    data-bs-toggle="modal" data-bs-target="#showPengajuanDokumenModal" class="show-user show btn btn-show btn-sm me-1">Tampil</button>';
+
+                    $action .='
                     <button type="button"
                     data-id_pengajuandokumen="' . $row->id_pengajuandokumen . '"
                     data-no_rt="' . $pengaju->no_rt . '"
@@ -101,11 +118,12 @@ class PengajuanDokumenDataTable extends DataTable
                     data-catatan="' . $row->catatan . '"
                     data-keperluan="' . $row->keperluan . '"
                     data-bs-toggle="modal" data-bs-target="#editPengajuanDokumenModal" class="edit btn btn-edit btn-sm" style="inline" >Edit</button>';
+
                     $action .=
                         ' <button
-                        type="button" 
-                        class="delete btn btn-delete btn-sm" 
-                        data-bs-target="#deletePengajuanDokumenModal" 
+                        type="button"
+                        class="delete btn btn-delete btn-sm"
+                        data-bs-target="#deletePengajuanDokumenModal"
                         data-bs-toggle="modal"
                         data-nama="' . $pengaju->nama . '"
                         data-jenis_dokumen="' . $dokumen->jenis_dokumen . '"
@@ -190,7 +208,7 @@ class PengajuanDokumenDataTable extends DataTable
                 // Column::computed('action')
                 //   ->exportable(false)
                 //   ->printable(false)
-                //   ->width(130) 
+                //   ->width(130)
                 //   ->addClass('text-center'),
             ];
         } else {
