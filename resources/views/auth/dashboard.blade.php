@@ -229,7 +229,7 @@
                         ?>
                         <div class="row">
                             <div class="col mb-0">
-                                <h3>Hello <span>{{ $users->username }}</span></h3>
+                                <h3>Halo, <span>{{ $users->username }}</span></h3>
                             </div>
                             <div class="col-auto ml-auto">
                                 <p id="current-date" style="font-size: 14 px;margin-top: 20px;">{{ $date }}</p>
@@ -316,6 +316,11 @@
                 </div>
 
 
+                <div class="row mt-4">
+                    <div class="col-12 mt-3 mb-3">
+                        <h4>Distribusi Penduduk Berdasarkan Usia</h4>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-xl-8 col-md-12 col-sm-12 mb-4">
                         <div class="card flex-fill w-100">
@@ -394,8 +399,8 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-12 mt-3 mb-3">
+                <div class="row mt-4">
+                    <div class="col-12 mt-3">
                         <h4>Statistik Laporan Keuangan</h4>
                     </div>
                 </div>
@@ -490,11 +495,9 @@
 
 
 
-                <div class="row">
+                <div class="row mt-4">
                     <div class="col-12 mt-3 mb-3">
                         <h4>Statistik Pendataan UMKM</h4>
-                        <p>Statistik Pendataan UMKM adalah sebuah fitur yang menyediakan data komprehensif
-                            mengenai Usaha Mikro, Kecil, dan Menengah (UMKM) dalam wilayah RW (Rukun Warga).</p>
                     </div>
                 </div>
 

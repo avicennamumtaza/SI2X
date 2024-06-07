@@ -37,15 +37,16 @@ class DataPendudukChart
        
 
         return $this->chart->pieChart()
-        ->setTitle('Distribusi Penduduk Rw 06 Jodipan Malang Berdasarkan Usia')
         // ->setSubtitle('Data Tahun 2024')
+        ->setFontFamily('Poppins, sans-serif')
         ->setWidth(600)   
         ->setHeight(360)
+        ->setStroke(1)
         ->addData([$jumlahAnakAnak, $jumlahUsiaProduktif, $jumlahLansia])
         ->setLabels([
             'Anak-Anak' ,
             'Usia Produktif ',
-            'Lansia: '
+            'Lansia '
         ]);
             
         }
