@@ -222,6 +222,17 @@
 
         @can('isRw')
             <section>
+                @if (auth()->user()->updated_at == auth()->user()->created_at)
+                    <div class="alert alert-danger" role="alert">
+                        <h4 class="alert-heading">Perhatian!</h4>
+                        <p>Demi keamanan akun anda, harap perbarui password dengan segera. Password yang saat ini anda gunakan
+                            merupakan password ketika akun pertama kali dibuat dan perlu diperbarui. Pastikan untuk menggunakan
+                            password baru yang kuat dan unik untuk menjaga akun anda tetap aman.</p>
+                        <hr>
+                        <p class="mb-0">Anda bisa klik <a style="text-decoration: underline"
+                                href="{{ route('profil.manage') }}">link ini</a> untuk menggunakan fitur ubah password.</p>
+                    </div>
+                @endif
                 <div class="row">
                     <div class="col-12 mt-0 mb-3">
                         <?php
@@ -231,8 +242,17 @@
                             <div class="col mb-0">
                                 <h3>Halo, <span>{{ $users->username }}</span></h3>
                             </div>
-                            <div class="col-auto ml-auto">
-                                <p id="current-date" style="font-size: 14 px;margin-top: 20px;">{{ $date }}</p>
+                            <div class="row">
+                                <span class="col-10 pe-0">
+                                    <hr>
+                                </span>
+                                <span class="col-2 pe-0">
+                                    {{-- <div class="col-auto ml-auto"> --}}
+                                    <p id="current-date" class="mt-1 text-align-end" style="font-size: .95rem;">
+                                        {{ $date }}
+                                    </p>
+                                    {{-- </div> --}}
+                                </span>
                             </div>
                         </div>
                         <p style="font-size: 12 px;">Selamat Datang di dashboard RW</p>
@@ -404,14 +424,12 @@
                         <h4>Statistik Laporan Keuangan</h4>
                     </div>
                 </div>
+                <div class="row">
 
-
-                <div class="row mt-4">
-                    <div class="col-xl-12 col-md-12 col-sm-12 mb-4">
-                        <div class="card flex-fill w-100">
-                            {!! $dataKas['kasRWChart']->container() !!}
-                        </div>
+                    <div class="card flex-fill w-100">
+                        {!! $dataKas['kasRWChart']->container() !!}
                     </div>
+
                 </div>
 
 
@@ -576,15 +594,15 @@
                     </div>
                 </div>
             </section>
+            <script src="{{ $data['dataPendudukChart']->cdn() }}"></script>
+        
+            {{ $data['dataPendudukChart']->script() }}
+        
+            <script src="{{ $dataKas['kasRWChart']->cdn() }}"></script>
+        
+            {{ $dataKas['kasRWChart']->script() }}
         @endcan
     </div>
-    <script src="{{ $data['dataPendudukChart']->cdn() }}"></script>
-
-    {{ $data['dataPendudukChart']->script() }}
-
-    <script src="{{ $dataKas['kasRWChart']->cdn() }}"></script>
-
-    {{ $dataKas['kasRWChart']->script() }}
 
 @endsection
 
