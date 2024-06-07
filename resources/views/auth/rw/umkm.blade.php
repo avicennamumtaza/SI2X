@@ -42,7 +42,7 @@
                             <label for="foto_umkm" class="form-label text-start">Foto</label>
                             <br>
                             {{-- <input type="hidden" id="foto_umkm" name="foto_umkm" required> --}}
-                            <img id="foto_umkm_preview" class="img-thumbnail" src="" width="300" height="300"
+                            <img id="edit_foto_umkm_preview" class="img-thumbnail" src="" width="300" height="300"
                                 alt="Foto UMKM">
                         </div>
                         <div class="form-group mb-3">
@@ -166,7 +166,7 @@
 
                     // Memperbarui src gambar pratinjau
                     let foto_umkm_path = "{{ asset('Foto UMKM/') }}/" + foto_umkm;
-                    $('#foto_umkm_preview').attr('src', foto_umkm_path);
+                    $('#edit_foto_umkm_preview').attr('src', foto_umkm_path);
 
                     // Mengatur URL aksi formulir sesuai dengan ID UMKM
                     let url = "{{ route('umkm.update', ':__id') }}";
