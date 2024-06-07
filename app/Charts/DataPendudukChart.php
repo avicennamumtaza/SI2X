@@ -4,7 +4,8 @@ namespace App\Charts;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 use App\Models\Penduduk;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Cache; // Import the Cache facade
+use Illuminate\Support\Facades\Cache; 
+
 
 class DataPendudukChart
 {
@@ -44,7 +45,7 @@ class DataPendudukChart
         ->setStroke(1)
         ->addData([$jumlahAnakAnak, $jumlahUsiaProduktif, $jumlahLansia])
         ->setLabels([
-            'Anak-Anak' ,
+            'Anak-Anak ' ,
             'Usia Produktif ',
             'Lansia '
         ]);
