@@ -26,18 +26,30 @@ class UsersDataTable extends DataTable
             ->setRowId('id')
             ->addColumn('action', function($row){
                 $action = '
-                <div class="container-action">
+                <div class="container-action">';
+
+                $action .='
                 <button type="button"
                 data-id_user="' . $row->id_user . '"
                 data-nik="' . $row->nik . '"
                 data-username="' . $row->username . '"
                 data-role="' . $row->role . '"
-                data-bs-toggle="modal" 
+                data-bs-toggle="modal"
+                data-bs-target="#showUsersModal" class="show-user show btn btn-show btn-sm me-1">Tampil</button>';
+
+                $action .='
+                <button type="button"
+                data-id_user="' . $row->id_user . '"
+                data-nik="' . $row->nik . '"
+                data-username="' . $row->username . '"
+                data-role="' . $row->role . '"
+                data-bs-toggle="modal"
                 data-bs-target="#editUsersModal" class="edit btn btn-edit btn-sm">Edit</button>';
+
                 $action .= ' <button
-                type="button" 
-                class="delete btn btn-delete btn-sm" 
-                data-bs-target="#deleteUserModal" 
+                type="button"
+                class="delete btn btn-delete btn-sm"
+                data-bs-target="#deleteUserModal"
                 data-bs-toggle="modal"
                 data-nik="' . $row->nik . '"
                 data-username="' . $row->username . '"
@@ -46,7 +58,7 @@ class UsersDataTable extends DataTable
             </div>';
                 return $action;
             });
-            
+
     }
 
     /**

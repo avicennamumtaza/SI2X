@@ -62,6 +62,46 @@
         </div>
     </div>
 
+    <!-- Modal for Show Users Detail-->
+    <div class="modal fade" id="showUsersModal" tabindex="-1" aria-labelledby="showUsersModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="showUsersModalLabel">Detail User</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        title="Tutup"></button>
+                </div>
+                <div class="modal-body justify-content-start text-start">
+                        <div class="form-group mb-3">
+                            <label for="nik" class="form-label text-start">NIK</label>
+                            <input type="text" class="form-control" id="nik" name="nik" readonly style="background-color: #e0e0de" readonly>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="username" class="form-label text-start">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" readonly>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="role" class="form-label text-start">Peran</label>
+                            <select class="form-select" id="role" name="role" disabled>
+                                <option value="" selected disabled>Pilih Peran</option>
+                                <option value="RT">RT</option>
+                                <option value="RW">RW</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-3" hidden>
+                            <label class="custom-file-label mb-2" for="foto_profil">Foto Profil</label>
+                            <input type="file" class="form-control" id="foto_profil" name="foto_profil">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                                title="Batal ubah pengguna">Tutup</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Modal for Editing Users -->
     <div class="modal fade" id="editUsersModal" tabindex="-1" aria-labelledby="editUsersModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-md">
@@ -183,6 +223,18 @@
 
                     // Set form action attribute
                     $('#deleteUserForm').attr('action', url);
+                });
+
+                $("#showUsersModal").on("show.bs.modal", function(event) {
+                    var target = $(event.relatedTarget);
+                    let id_user = target.data('id_user')
+                    let nik = target.data('nik')
+                    let username = target.data('username')
+                    let role = target.data('role')
+
+                    $('#showUsersModal #nik').val(nik);
+                    $('#showUsersModal #username').val(username);
+                    $('#showUsersModal #role').val(role);
                 });
 
                 $("#editUsersModal").on("show.bs.modal", function(event) {
