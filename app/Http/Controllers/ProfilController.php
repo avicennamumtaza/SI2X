@@ -76,6 +76,7 @@ class ProfilController extends Controller
         // Cek apakah ada file foto baru yang diunggah
         if ($foto_profil) {
             // Hapus foto profil yang saat ini tersimpan di server
+            try {
             $this->hapusFotoProfil($users);
 
             // Menyimpan foto baru yang diunggah
@@ -83,7 +84,7 @@ class ProfilController extends Controller
             $foto_profil_filename = $validated['username'] . date('ymdhis') . "." . $foto_profil_ext;
             $foto_profil->move(public_path('Foto Users'), $foto_profil_filename);
 
-            try {
+            
                 // Update data pengguna dengan nama file foto baru
                 $users->update([
                     'foto_profil' => $foto_profil_filename,
