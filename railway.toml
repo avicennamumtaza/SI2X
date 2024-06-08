@@ -1,4 +1,4 @@
-[phases.build]
+[build.nixpacksPlan.phases.build]
 cmds = ['find /app/public -type d -exec chmod -R 777 {} +']
 
 [build]
