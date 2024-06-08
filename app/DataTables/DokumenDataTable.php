@@ -104,7 +104,7 @@ class DokumenDataTable extends DataTable
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
-                  ->width(200)
+                  ->width(300)
                   ->addClass('text-center')
                   ->title('Aksi'),
         ];
