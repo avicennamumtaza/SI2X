@@ -84,10 +84,10 @@
                     </li> --}}
                 @endcan
                 <li class="sidebar-item {{ \Route::is('pengajuandokumen.manage') ? 'active' : '' }}"
-                    title="Permintaan Dokumen">
+                    title="Pengajuan Dokumen">
                     <a href="{{ route('pengajuandokumen.manage') }}" class="sidebar-link">
                         <i class="lni lni-printer"></i>
-                        <span>Permintaan Dokumen</span>
+                        <span>Pengajuan Dokumen</span>
                     </a>
                 </li>
                 {{-- @can('isRt')

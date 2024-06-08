@@ -6,14 +6,14 @@
             <div class="col-12 col-lg-5">
                 <h2>Selamat Datang</h2>
                 <h6>
-                    <b>Kemudahan dalam Genggaman Anda!</b>
+                    <b>Kemudahan Layanan dalam Jangkauan!</b>
                 </h6>
                 {{-- <div class="col-12 col-lg-10"> --}}
-                <p>Menghadirkan solusi digital untuk memudahkan komunikasi, pelayanan, dan transparansi dalam lingkungan
-                    Rukun Warga Anda,
-                    sehingga setiap kebutuhan warga dapat terlayani dengan lebih cepat dan efisien.</p>
+                <p>Menghadirkan inovasi digital yang solutif untuk memudahkan pelayanan, pengelolaan, dan transparansi dalam lingkungan
+                Rukun Warga. Pelayanan yang efektif dan efisien bagi anda adalah prioritas bagi kami. Klik tombol selengkapnya untuk melihat
+                layanan kami.</p>
                 {{-- </div> --}}
-                <a href="#stats" title="Selengkapnya">Selengkapnya</a>
+                <a href="#layanan" id="selengkapnya-btn" title="Selengkapnya">Selengkapnya</a>
             </div>
         </div>
     </div>
@@ -109,8 +109,8 @@
         </div>
     @endif
     <div id="" class="container container-rtrw col-10">
-        <h1 class="heading-center">Kenalan</h1>
-        <div class='row wrapper'>
+        <h1 class="heading-center mb-0">Administrator</h1>
+        <div class='row wrapper' style="margin-top: 11rem">
             <div class='carousel'>
                 <?php $counter = 20; ?>
                 @foreach ($fotoUsers as $index => $fotoUser)
@@ -170,9 +170,9 @@
             </div>
             <div class="col-md-3 col-sm-6">
                 <a href="{{ route('pengajuandokumen.global') }}" style="text-decoration: none">
-                    <button class="card" title="Permintaan Dokumen">
+                    <button class="card" title="Pengajuan Dokumen">
                         <i class="bi bi-file-earmark-pdf card-icon"></i>
-                        <span class="span-head">Permintaan Dokumen</span>
+                        <span class="span-head">Pengajuan Dokumen</span>
                     </button>
                 </a>
             </div>
@@ -187,4 +187,10 @@
         </div>
         <!-- </div> -->
     </div>
+    <script>
+        document.getElementById('selengkapnya-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#layanan').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
 @endsection

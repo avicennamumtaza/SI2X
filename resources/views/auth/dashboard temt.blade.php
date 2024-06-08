@@ -138,27 +138,23 @@
 
                 <div class="row">
                     <div class="col-12 mt-3 mb-3">
-                        <h4>Statistik Permintaan Dokumen</h4>
-                        <p>Statistik Permintaan Dokumen adalah fitur yang menyajikan data terperinci mengenai
-                            permintaan dokumen di lingkungan Rukun Warga (RW).</p>
+                        <h4>Statistik Pengajuan Dokumen</h4>
+                        <p>Statistik Pengajuan Dokumen adalah fitur yang menyajikan data mengenai
+                            angka pengajuan dokumen di lingkungan Rukun Warga (RW).</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xl-12 col-md-12 col-sm-12 mb-4">
                         <div class="card">
-                            <div class="card-body" title="Jumlah permintaan dokumen">
+                            <div class="card-body" title="Jumlah Pengajuan Dokumen">
                                 <div class="d-flex justify-content-between p-md-1">
                                     <div class="d-flex flex-row">
-                                        {{-- <span class="position-absolute top-0 me-5 start-50 translate-middle badge rounded-pill bg-warning">
-                                            Permintaan Dokumen Belum Diproses : {{ $jumlahPengajuanDokumenNew }}
-                                          <span class="visually-hidden">unread messages</span>
-                                        </span> --}}
                                         <div class="align-self-center">
                                             <h2 class="h3 mb-0 me-4">{{ $jumlahPengajuanDokumen }}</h2>
                                         </div>
                                         <div>
-                                            <h4 style="margin-bottom: 2px;">Permintaan Dokumen</h4>
-                                            <p class="mb-0">Jumlah Permintaan Dokumen Secara Keseluruhan</p>
+                                            <h4 style="margin-bottom: 2px;">Pengajuan Dokumen</h4>
+                                            <p class="mb-0">Jumlah Pengajuan Dokumen Secara Keseluruhan</p>
                                         </div>
                                     </div>
                                     <a href="{{ route('pengajuandokumen.manage') }}" style="text-decoration: none"
@@ -182,14 +178,14 @@
                 <div class="row">
                     <div class="col-xl-6 col-md-6 col-sm-6 mb-4">
                         <div class="card">
-                            <div class="card-body" title="Jumlah permintaan dokumen yang disetujui">
+                            <div class="card-body" title="Jumlah Pengajuan Dokumen yang disetujui">
                                 <div class="d-flex justify-content-between p-md-1">
                                     <div class="d-flex flex-row">
                                         <div class="align-self-center">
                                             <i class="lni lni-printer text-success"></i>
                                         </div>
                                         <div class="mx-4">
-                                            <h4 style="margin-bottom: 0px">Permintaan Dokumen Disetujui</h4>
+                                            <h4 style="margin-bottom: 0px">Pengajuan Dokumen Disetujui</h4>
                                             {{-- <p class="mb-0">Monthly blog posts</p> --}}
                                         </div>
                                     </div>
@@ -202,14 +198,14 @@
                     </div>
                     <div class="col-xl-6 col-md-6 col-sm-6 mb-4">
                         <div class="card">
-                            <div class="card-body" title="Jumlah permintaan dokumen yang ditolak">
+                            <div class="card-body" title="Jumlah Pengajuan Dokumen yang ditolak">
                                 <div class="d-flex justify-content-between p-md-1">
                                     <div class="d-flex flex-row">
                                         <div class="align-self-center">
                                             <i class="lni lni-printer text-danger"></i>
                                         </div>
                                         <div class="mx-4">
-                                            <h4 style="margin-bottom: 0px">Permintaan Dokumen Ditolak</h4>
+                                            <h4 style="margin-bottom: 0px">Pengajuan Dokumen Ditolak</h4>
                                             {{-- <p class="mb-0">Monthly blog posts</p> --}}
                                         </div>
                                     </div>
@@ -310,14 +306,14 @@
                         <div class="card">
                             <a style="text-decoration: none;" class="secondary"
                                 href="{{ route('pengajuandokumen.manage') }}">
-                                <div class="card-body" title="Jumlah permintaan dokumen">
+                                <div class="card-body" title="Jumlah Pengajuan dokumen">
                                     <div class="d-flex justify-content-between">
                                         <div class="d-flex flex-row">
                                             <div class="align-self-center">
                                                 <h2 class="h3 mb-0 me-3">{{ $jumlahPengajuanDokumen }}</h2>
                                             </div>
                                             <div>
-                                                <h5 style="margin-bottom: 0px; font-size: .9rem;">Permintaan <br>Dokumen
+                                                <h5 style="margin-bottom: 0px; font-size: .9rem;">Pengajuan <br>Dokumen
                                                 </h5>
                                             </div>
                                         </div>

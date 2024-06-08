@@ -92,7 +92,7 @@ class PengajuanDokumenController extends Controller
 
         if ($existingPengajuan) {
             $wa_rt = Rt::where('no_rt', $rt->no_rt)->first();
-            Alert::error('Permintaan Dokumen sebelumnya belum diproses!', 'Silahkan tunggu permintaan dokumen yang anda ajukan sebelumnya diproses oleh Ketua RT atau hubungi Ketua RT melalui nomor ' . $wa_rt->wa_rt);
+            Alert::error('Pengajuan Dokumen sebelumnya belum diproses!', 'Silahkan tunggu Pengajuan dokumen yang anda ajukan sebelumnya diproses oleh Ketua RT atau hubungi Ketua RT melalui nomor ' . $wa_rt->wa_rt);
             return redirect()->back();
         }
 
@@ -109,8 +109,8 @@ class PengajuanDokumenController extends Controller
                 'status_pengajuan' => 'Baru',
                 'catatan' => '',
             ]);
-            Alert::success('Permintaan Dokumen berhasil diajukan!');
-            return redirect()->back()->with('warning', 'Status Permintaan Dokumen yang anda ajukan akan tampil pada halaman ini jika sudah melalui proses validasi oleh Ketua RT');
+            Alert::success('Pengajuan Dokumen berhasil diajukan!');
+            return redirect()->back()->with('warning', 'Status Dokumen yang anda ajukan akan tampil pada halaman ini jika sudah melalui proses validasi oleh Ketua RT');
         } catch (\Illuminate\Database\QueryException $e) {
             $rw = Rw::all()->first();
             $rt = Rt::where('no_rt', $rt->no_rt)->first();
@@ -160,7 +160,7 @@ class PengajuanDokumenController extends Controller
         $pengajuandokumen->update($request->all());
 
         return redirect()->route('pengajuandokumen.manage')
-            ->with('success', 'Status Permintaan Dokumen berhasil diperbarui.');
+            ->with('success', 'Status Pengajuan Dokumen berhasil diperbarui.');
     }
 
     /**

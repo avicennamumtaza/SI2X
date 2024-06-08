@@ -150,7 +150,7 @@
                 <div class="tentang col-lg-6 col-md-12 mb-4 mb-md-0">
                     <h5 class="text-uppercase">Tentang SIRW</h5>
                     <p>
-                        Sistem Informasi Rukun Warga (SIRW) adalah suatu aplikasi berbasis website yang bertujuan untuk
+                        SIRW merupakan singkatan dari Sistem Informasi RW. Pengembangan Website SIRW ini bertujuan untuk
                         mempermudah pengelolaan data penduduk dan memaksimalkan pelayanan warga di lingkungan RW.
                     </p>
                 </div>
