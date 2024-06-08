@@ -52,7 +52,7 @@ return [
         // ],
 
         'public' => [
-            'driver' => 'local',
+            'driver' => 'public',
             'root' => public_path('/'),
             'url' => env('APP_URL') . '/public',
             'visibility' => 'public',
