@@ -18,7 +18,12 @@ class LaporanKeuanganController extends Controller
      */
     public function index()
     {
-        $laporankeuangans = LaporanKeuangan::all()->sortByDesc('updated_at');
+        $laporankeuangans = 
+        // Cache::remember('globalLaporanKeuangan' . request('page', 1), 600, function() {
+            // return 
+            LaporanKeuangan::orderBy('updated_at', 'desc')->paginate(10);
+        // });
+        
         // });
         $saldo = Cache::remember('globalSaldo', 600, function () {
             return LaporanKeuangan::latest('updated_at')->value('saldo');
@@ -28,7 +33,7 @@ class LaporanKeuanganController extends Controller
             $laporankeuangan->tanggal = Carbon::parse($laporankeuangan->tanggal)->format('d-m-Y');
         }
 
-        return view('global.laporankeuangan')->with('laporanKeuangans', $laporankeuangans)->with('saldo', $saldo);
+        return view('global.laporankeuangan')->with('laporankeuangans', $laporankeuangans)->with('saldo', $saldo);
     }
 
     public function list(LaporanKeuanganDataTable $dataTable)
