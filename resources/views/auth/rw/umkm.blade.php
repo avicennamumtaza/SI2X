@@ -1,26 +1,24 @@
 @extends('layouts.sidebar')
 
 @section('content')
-
-{{-- Detail UMKM --}}
+    {{-- Detail UMKM --}}
     <div class="modal fade" id="showUmkmModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-md">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Detail UMKM</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" title="Tutup"></button>
-            </div>
+        <div class="modal-dialog modal-dialog-centered modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Detail UMKM</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        title="Tutup"></button>
+                </div>
 
-            <div class="modal-body justify-content-start text-start">
+                <div class="modal-body justify-content-start text-start">
                     <div class="form-group mb-3">
                         <label for="nik_pemilik" class="form-label text-start">NIK Pemilik</label>
-                        <input type="text" readonly class="form-control" id="nik_pemilik" name="nik_pemilik"
-                            readonly>
+                        <input type="text" readonly class="form-control" id="nik_pemilik" name="nik_pemilik" readonly>
                     </div>
                     <div class="form-group mb-3">
                         <label for="nama_pemilik" class="form-label text-start">Nama Pemilik</label>
-                        <input type="text" readonly class="form-control" id="nama_pemilik" name="nama_pemilik"
-                            readonly>
+                        <input type="text" readonly class="form-control" id="nama_pemilik" name="nama_pemilik" readonly>
                     </div>
                     <div class="form-group mb-3">
                         <label for="alamat_pemilik" class="form-label text-start">Alamat Pemilik</label>
@@ -58,12 +56,13 @@
                     </div>
 
                     <div class="modal-footer justify-content-end">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" title="Batal ubah UMKM">Batal</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                            title="Batal ubah UMKM">Batal</button>
                     </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
     </div>
     {{-- Edit UMKM --}}
     <div class="modal fade" id="editUmkmModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -71,7 +70,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Edit UMKM</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" title="Tutup"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        title="Tutup"></button>
                 </div>
 
                 <div class="modal-body justify-content-start text-start">
@@ -91,12 +91,13 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="alamat_pemilik" class="form-label text-start">Alamat Pemilik</label>
-                            <input type="text" readonly class="form-control" id="alamat_pemilik" name="alamat_pemilik"
-                                required>
+                            <input type="text" readonly class="form-control" id="alamat_pemilik"
+                                name="alamat_pemilik" required>
                         </div>
                         <div class="form-group mb-3">
                             <label for="nama_umkm" class="form-label text-start">Nama UMKM</label>
-                            <input type="text" readonly class="form-control" id="nama_umkm" name="nama_umkm" required>
+                            <input type="text" readonly class="form-control" id="nama_umkm" name="nama_umkm"
+                                required>
                         </div>
                         <div class="form-group mb-3">
                             <label for="wa_umkm" class="form-label text-start">Nomor WhatsApp</label>
@@ -106,13 +107,13 @@
                             <label for="foto_umkm" class="form-label text-start">Foto</label>
                             <br>
                             {{-- <input type="hidden" id="foto_umkm" name="foto_umkm" required> --}}
-                            <img id="edit_foto_umkm_preview" class="img-thumbnail" src="" width="300" height="300"
-                                alt="Foto UMKM">
+                            <img id="edit_foto_umkm_preview" class="img-thumbnail" src="" width="300"
+                                height="300" alt="Foto UMKM">
                         </div>
                         <div class="form-group mb-3">
                             <label for="deskripsi_umkm" class="form-label text-start">Deskripsi</label>
-                            <input type="text" readonly class="form-control" id="deskripsi_umkm" name="deskripsi_umkm"
-                                required>
+                            <input type="text" readonly class="form-control" id="deskripsi_umkm"
+                                name="deskripsi_umkm" required>
                         </div>
                         <div class="form-group mb-3">
                             <label for="status_umkm" class="form-label text-start">Status Pengajuan</label>
@@ -125,8 +126,10 @@
                         </div>
 
                         <div class="modal-footer justify-content-end">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" title="Batal ubah UMKM">Batal</button>
-                            <button type="submit" class="btn btn-success" name="submit" value="Submit" title="Ubah UMKM">Simpan
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                                title="Batal ubah UMKM">Batal</button>
+                            <button type="submit" class="btn btn-success" name="submit" value="Submit"
+                                title="Ubah UMKM">Simpan
                                 Perubahan</button>
                         </div>
                     </form>
@@ -150,12 +153,14 @@
                         @csrf
                         @method('DELETE')
                         <div class="text-center mb-4">
-                            <p>Apakah anda yakin ingin menghapus UMKM berikut? Sebagai informasi, anda tidak bisa memulihkan data yang telah dihapus.</p>
+                            <p>Apakah anda yakin ingin menghapus UMKM berikut? Sebagai informasi, anda tidak bisa memulihkan
+                                data yang telah dihapus.</p>
                             <h5 class="text-danger"><strong id="namaDisplay"></strong></h5>
                             <p class="">(UMKM Berstatus <strong id="statusDisplay"></strong>)</p>
                         </div>
                         <div class="modal-footer justify-content-center">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" title="Batal hapus UMKM">Batal</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                title="Batal hapus UMKM">Batal</button>
                             <button type="submit" class="btn btn-danger" title="Hapus UMKM">Hapus</button>
                         </div>
                     </form>
@@ -229,7 +234,8 @@
                     $('#showUmkmModal #status_umkm').val(status_umkm);
 
                     // Memperbarui src gambar pratinjau
-                    let foto_umkm_path = "{{ env('APP_URL') }}/" + foto_umkm;
+                    let foto_umkm_path = `{{ asset('${foto_umkm}') }}`;
+                    // C:\laragon\www\SI2X\public\Foto UMKM\Jual Pesawat Terbang240609040440.png
                     $('#show_foto_umkm_detail').attr('src', foto_umkm_path);
                 });
 
@@ -257,7 +263,7 @@
                     $('#editUmkmModal #status_umkm').val(status_umkm);
 
                     // Memperbarui src gambar pratinjau
-                    let foto_umkm_path = "{{ env('APP_URL') }}/" + foto_umkm;
+                    let foto_umkm_path = `{{ asset('${foto_umkm}') }}`;
                     $('#edit_foto_umkm_preview').attr('src', foto_umkm_path);
 
                     // Mengatur URL aksi formulir sesuai dengan ID UMKM
