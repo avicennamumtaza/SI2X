@@ -36,12 +36,12 @@ return [
             'throw' => false,
         ],
 
-        // 'foto_pengumuman' => [
-        //     'driver' => 'local',
-        //     'root' => public_path('Foto Pengumuman'),
-        //     'url' => env('APP_URL') . '/Foto Pengumuman',
-        //     'visibility' => 'public',
-        // ],
+        'foto_pengumuman' => [
+            'driver' => 'local',
+            'root' => public_path('Foto Pengumuman'),
+            'url' => env('APP_URL') . '/Foto Pengumuman',
+            'visibility' => 'public',
+        ],
 
         // 'public' => [
         //     'driver' => 'local',
