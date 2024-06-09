@@ -19,9 +19,8 @@ class UmkmController extends Controller
 {
     public function index()
     {
-        $umkms = Cache::remember('globalUmkmPage' . request('page', 1), 600, function() {
-            return Umkm::where('status_umkm', 'Disetujui')->paginate(9);
-        });
+        $umkms = Umkm::where('status_umkm', 'Disetujui')->paginate(9);
+        // });
     
         return view('global.umkm')->with('umkms', $umkms);
     }
