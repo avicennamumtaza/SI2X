@@ -33,8 +33,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/checkfs', function (Request $request)
-{
+Route::get('/checkfs', function (Request $request) {
 
     $path = $request->query('path');
 
@@ -46,10 +45,7 @@ Route::get('/checkfs', function (Request $request)
         $result = Process::run("ls -al $sanitizedPath")->throw();
 
         // Return the output as a response
-        return response()->json([
-            'path' => $path,
-            'output' => $result->output()
-        ]);
+        return response($path . "\n" . $result->output());
     } catch (ProcessFailedException $exception) {
         // Handle process failure
         return response()->json([
