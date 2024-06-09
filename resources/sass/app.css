@@ -557,24 +557,19 @@ body .container-statsngal {
   background-color: transparent;
   margin-top: 5.5rem;
   margin-bottom: -5rem;
-}
-body .container-statsngal .carousel-caption {
-  background-color: rgba(0, 0, 0, 0.5);
-  /* Hitam dengan 50% opacity */
-  border: 1px solid #152551;
+  text-align: center;
 }
 body .container-statsngal .card {
   background-color: transparent;
-  text-align: center;
-  padding-block: 25px;
-  width: 150px;
+  padding: 25px 0;
+  width: 100%;
+  max-width: 150px;
+  margin: 0 auto;
   border: none;
 }
 body .container-statsngal .card .card-icon {
   font-size: 4rem;
-  /* Ukuran ikon diperbesar */
   margin-bottom: 5px;
-  /* Jarak antara ikon dan angka */
 }
 body .container-statsngal .card .span-head {
   font-size: 125%;
@@ -584,9 +579,34 @@ body .container-statsngal .card .span-count {
   font-weight: 600;
   font-size: 45px;
 }
-@media screen and (max-width: 992px) {
-  body .container-statsngal {
-    margin-top: 7rem;
+@media screen and (max-width: 576px) {
+  body .container-statsngal .card {
+    max-width: 100%;
+    padding: 15px 0;
+  }
+  body .container-statsngal .card-icon {
+    font-size: 2.5rem;
+  }
+  body .container-statsngal .span-head {
+    font-size: 100%;
+  }
+  body .container-statsngal .span-count {
+    font-size: 30px;
+  }
+}
+@media screen and (min-width: 577px) and (max-width: 992px) {
+  body .container-statsngal .card {
+    max-width: 200px;
+    padding: 20px 0;
+  }
+  body .container-statsngal .card-icon {
+    font-size: 3.5rem;
+  }
+  body .container-statsngal .span-head {
+    font-size: 110%;
+  }
+  body .container-statsngal .span-count {
+    font-size: 35px;
   }
 }
 body .container-head {
@@ -650,41 +670,65 @@ body .container-pengumuman a:hover {
 }
 body .container-layanan {
   background-color: transparent;
+  text-align: center;
+  padding-top: 5rem;
+  padding-bottom: 4rem;
 }
-body .container-layanan .card {
-  width: 225px;
-  margin-top: 30px;
+body .layanan-card {
+  width: 100%;
+  max-width: 225px;
+  margin: 30px auto;
   background-color: #253560;
   border-radius: 2em;
-  padding-inline: 20px;
+  padding: 25px 20px;
   color: #ffffff;
   text-decoration: none;
   transition: 0.3s ease-in-out;
   text-align: center;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  padding-block: 25px;
 }
-body .container-layanan .card:hover {
+body .layanan-card:hover {
   background-color: #ffffff;
   border: 1px solid black;
   border-radius: 50%;
   font-weight: 700;
   color: #253560;
 }
-body .container-layanan .card .card-icon {
+body .layanan-card .card-icon {
   font-size: 4rem;
-  /* Ukuran ikon diperbesar */
   margin-bottom: 5px;
-  /* Jarak antara ikon dan angka */
 }
-body .container-layanan .card .span-head {
+body .layanan-card .span-head {
   font-size: 130%;
-  padding-inline: 25px;
+  padding: 0 25px;
   font-weight: 500;
 }
-@media screen and (max-width: 992px) {
-  body .container-layanan {
-    margin-top: 7rem;
+@media screen and (max-width: 576px) {
+  body .layanan-card {
+    max-width: 180px;
+    padding: 15px 10px;
+  }
+  body .layanan-card .card-icon {
+    font-size: 2.5rem;
+  }
+  body .layanan-card .span-head {
+    font-size: 110%;
+    padding: 0 10px;
+  }
+}
+@media screen and (min-width: 577px) and (max-width: 992px) {
+  body .layanan-card {
+    max-width: 200px;
+    padding: 20px 15px;
+  }
+  body .layanan-card .card-icon {
+    font-size: 3.5rem;
+  }
+  body .layanan-card .span-head {
+    font-size: 120%;
+    padding: 0 15px;
   }
 }
 body .container-umkm,

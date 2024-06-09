@@ -671,46 +671,77 @@ body {
         }
     }
 
-    .container-statsngal {
+    
+  // Statistik
+.container-statsngal {
+    background-color: transparent;
+    margin-top: 5.5rem;
+    margin-bottom: -5rem;
+    text-align: center;
+
+    .card {
         background-color: transparent;
-        margin-top: 5.5rem;
-        margin-bottom: -5rem;
+        padding: 25px 0;
+        width: 100%;
+        max-width: 150px;
+        margin: 0 auto;
+        border: none;
 
-        .carousel-caption {
-            background-color: rgba(0, 0, 0, 0.5);
-            /* Hitam dengan 50% opacity */
-            border: 1px solid $secondaryCol;
+        .card-icon {
+            font-size: 4rem;
+            margin-bottom: 5px;
         }
 
-        .card {
-            background-color: transparent;
-            text-align: center;
-            padding-block: 25px;
-            width: 150px;
-            border: none;
-
-            .card-icon {
-                font-size: 4rem;
-                /* Ukuran ikon diperbesar */
-                margin-bottom: 5px;
-                /* Jarak antara ikon dan angka */
-            }
-
-            .span-head {
-                font-size: 125%;
-                font-weight: 600;
-            }
-
-            .span-count {
-                font-weight: 600;
-                font-size: 45px;
-            }
+        .span-head {
+            font-size: 125%;
+            font-weight: 600;
         }
 
-        @media screen and (max-width: 992px) {
-            margin-top: 7rem;
+        .span-count {
+            font-weight: 600;
+            font-size: 45px;
         }
     }
+
+    @media screen and (max-width: 576px) {
+        .card {
+            max-width: 100%;
+            padding: 15px 0;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+        }
+
+        .span-head {
+            font-size: 100%;
+        }
+
+        .span-count {
+            font-size: 30px;
+        }
+    }
+
+    @media screen and (min-width: 577px) and (max-width: 992px) {
+        .card {
+            max-width: 200px;
+            padding: 20px 0;
+        }
+
+        .card-icon {
+            font-size: 3.5rem;
+        }
+
+        .span-head {
+            font-size: 110%;
+        }
+
+        .span-count {
+            font-size: 35px;
+        }
+    }
+}
+
 
     .container-head {
         background-color: transparent;
@@ -784,52 +815,80 @@ body {
     }
 
     // layanan
-    .container-layanan {
-        background-color: transparent;
-        // margin-top: 9rem;
+   .container-layanan {
+    background-color: transparent;
+    text-align: center;
+    padding-top: 5rem;
+    padding-bottom: 4rem;
+}
 
-        // margin-bottom: 4rem;
-        .card {
-            width: 225px;
-            margin-top: 30px;
-            background-color: $primaryCol;
-            border-radius: 2em;
-            padding-inline: 20px;
-            // padding-block: 7px;
-            color: #ffffff;
-            text-decoration: none;
-            transition: 0.3s ease-in-out;
-            text-align: center;
-            align-items: center;
-            padding-block: 25px;
+.layanan-card {
+    width: 100%;
+    max-width: 225px;
+    margin: 30px auto;
+    background-color: $primaryCol;
+    border-radius: 2em;
+    padding: 25px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-            &:hover {
-                background-color: #ffffff;
-                border: 1px solid black;
-                border-radius: 50%;
-                font-weight: 700;
-                color: $primaryCol;
-            }
+.layanan-card:hover {
+    background-color: #ffffff;
+    border: 1px solid black;
+    border-radius: 50%;
+    font-weight: 700;
+    color: $primaryCol;
+}
 
-            // border: none;
-            .card-icon {
-                font-size: 4rem;
-                /* Ukuran ikon diperbesar */
-                margin-bottom: 5px;
-                /* Jarak antara ikon dan angka */
-            }
+.layanan-card .card-icon {
+    font-size: 4rem;
+    margin-bottom: 5px;
+}
 
-            .span-head {
-                font-size: 130%;
-                padding-inline: 25px;
-                font-weight: 500;
-            }
-        }
+.layanan-card .span-head {
+    font-size: 130%;
+    padding: 0 25px;
+    font-weight: 500;
+}
 
-        @media screen and (max-width: 992px) {
-            margin-top: 7rem;
-        }
+@media screen and (max-width: 576px) {
+    .layanan-card {
+        max-width: 180px;
+        padding: 15px 10px;
     }
+
+    .layanan-card .card-icon {
+        font-size: 2.5rem;
+    }
+
+    .layanan-card .span-head {
+        font-size: 110%;
+        padding: 0 10px;
+    }
+}
+
+@media screen and (min-width: 577px) and (max-width: 992px) {
+    .layanan-card {
+        max-width: 200px;
+        padding: 20px 15px;
+    }
+
+    .layanan-card .card-icon {
+        font-size: 3.5rem;
+    }
+
+    .layanan-card .span-head {
+        font-size: 120%;
+        padding: 0 15px;
+    }
+}
+
 
     .container-umkm,
     .container-p {

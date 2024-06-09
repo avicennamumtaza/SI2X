@@ -9,9 +9,11 @@
                     <b>Kemudahan Layanan dalam Jangkauan!</b>
                 </h6>
                 {{-- <div class="col-12 col-lg-10"> --}}
-                <p>Menghadirkan inovasi digital yang solutif untuk memudahkan pelayanan, pengelolaan, dan transparansi dalam lingkungan
-                Rukun Warga. Pelayanan yang efektif dan efisien bagi anda adalah prioritas bagi kami. Klik tombol selengkapnya untuk melihat
-                layanan kami.</p>
+                <p>Menghadirkan inovasi digital yang solutif untuk memudahkan pelayanan, pengelolaan, dan transparansi dalam
+                    lingkungan
+                    Rukun Warga. Pelayanan yang efektif dan efisien bagi anda adalah prioritas bagi kami. Klik tombol
+                    selengkapnya untuk melihat
+                    layanan kami.</p>
                 {{-- </div> --}}
                 <a href="#layanan" id="selengkapnya-btn" title="Selengkapnya">Selengkapnya</a>
             </div>
@@ -19,44 +21,44 @@
     </div>
     <img src="{{ asset('assets/landing-pict.png') }}" alt="background" class="main-image">
     <div id="stats" class="container container-statsngal col-10 pt-5">
-        <h1 class="heading-center pt-5">Statistik</h1>
-        <div class="row">
-            <div class="col-md-2 col-sm-4">
+        <h1 class="heading-center pt-5 text-center">Statistik</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-2 col-sm-4 col-12 mb-4">
                 <div class="card">
                     <i class="bi bi-person-check card-icon"></i>
                     <span class="span-count">{{ $data['jumlah_penduduk'] }}</span>
                     <span class="span-head">Penduduk Terdata</span>
                 </div>
             </div>
-            <div class="col-md-2 col-sm-4">
+            <div class="col-md-2 col-sm-4 col-12 mb-4">
                 <div class="card">
                     <i class="bi bi-house-door card-icon"></i>
                     <span class="span-count">{{ $data['jumlah_keluarga'] }}</span>
                     <span class="span-head">Keluarga Terdata</span>
                 </div>
             </div>
-            <div class="col-md-2 col-sm-4">
+            <div class="col-md-2 col-sm-4 col-12 mb-4">
                 <div class="card">
                     <i class="bi bi-person-badge card-icon"></i>
                     <span class="span-count">{{ $data['jumlah_rt'] }}</span>
                     <span class="span-head">Rukun Tetangga</span>
                 </div>
             </div>
-            <div class="col-md-2 col-sm-4">
+            <div class="col-md-2 col-sm-4 col-12 mb-4">
                 <div class="card">
                     <i class="bi bi-megaphone card-icon"></i>
                     <span class="span-count">{{ $data['jumlah_pengumuman'] }}</span>
                     <span class="span-head">Pengumuman Diterbitkan</span>
                 </div>
             </div>
-            <div class="col-md-2 col-sm-4">
+            <div class="col-md-2 col-sm-4 col-12 mb-4">
                 <div class="card">
                     <i class="bi bi-shop-window card-icon"></i>
                     <span class="span-count">{{ $data['jumlah_umkm'] }}</span>
                     <span class="span-head">UMKM Terdaftar</span>
                 </div>
             </div>
-            <div class="col-md-2 col-sm-4">
+            <div class="col-md-2 col-sm-4 col-12 mb-4">
                 <div class="card">
                     <i class="bi bi-file-earmark-pdf card-icon"></i>
                     <span class="span-count">{{ $data['jumlah_pengajuan_dokumen'] }}</span>
@@ -65,6 +67,7 @@
             </div>
         </div>
     </div>
+
     @if ($pengumuman1 != null)
         <div id="pengumuman" class="container container-pengumuman col-10">
             <h1 class="heading-center pt-5">Pengumuman Terbaru</h1>
@@ -190,7 +193,9 @@
     <script>
         document.getElementById('selengkapnya-btn').addEventListener('click', function(e) {
             e.preventDefault();
-            document.querySelector('#layanan').scrollIntoView({ behavior: 'smooth' });
+            document.querySelector('#layanan').scrollIntoView({
+                behavior: 'smooth'
+            });
         });
     </script>
 @endsection
