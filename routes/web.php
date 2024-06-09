@@ -16,7 +16,10 @@ use App\Http\Controllers\RWController;
 use App\Http\Controllers\RTController;
 use App\Http\Controllers\UsersController;
 use App\Models\Alternatif;
+use Illuminate\Http\Request;
+use Illuminate\Process\Exceptions\ProcessFailedException;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Process;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +32,32 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/checkfs', function (Request $request)
+{
+
+    $path = $request->query('path');
+
+    // Sanitize the path input
+    $sanitizedPath = escapeshellarg($path);
+
+    try {
+
+        $result = Process::run("ls -al $sanitizedPath")->throw();
+
+        // Return the output as a response
+        return response()->json([
+            'path' => $path,
+            'output' => $result->output()
+        ]);
+    } catch (ProcessFailedException $exception) {
+        // Handle process failure
+        return response()->json([
+            'error' => 'Unable to list filesystem for the given path',
+            'message' => $exception->getMessage()
+        ], 400);
+    }
+});
 
 Route::get('/', [LandingController::class, 'index'])->name('landing');
 
