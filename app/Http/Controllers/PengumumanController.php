@@ -75,7 +75,7 @@ class PengumumanController extends Controller
                 $foto_pengumuman = $request->file('foto_pengumuman');
                 $foto_pengumuman_ext = $foto_pengumuman->getClientOriginalExtension();
                 $foto_pengumuman_filename = $validated['judul'] . date('ymdhis') . "." . $foto_pengumuman_ext;
-                $foto_pengumuman->move(public_path('Foto Pengumuman'), $foto_pengumuman_filename);
+                $foto_pengumuman->storeAs('', $foto_pengumuman_filename, 'foto_pengumuman');
 
                 // Storage::disk('foto_pengumuman')->put($foto_pengumuman_filename, file_get_contents($foto_pengumuman));
 
