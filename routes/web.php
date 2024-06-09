@@ -1,8 +1,6 @@
 <?php
 
 use App\Http\Controllers\AlternatifController;
-use App\Http\Controllers\AlternativeController;
-use App\Http\Controllers\CriteriaController;
 use App\Http\Controllers\DokumenController;
 use App\Http\Controllers\KeluargaController;
 use App\Http\Controllers\LandingController;
@@ -15,7 +13,6 @@ use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\RWController;
 use App\Http\Controllers\RTController;
 use App\Http\Controllers\UsersController;
-use App\Models\Alternatif;
 use Illuminate\Http\Request;
 use Illuminate\Process\Exceptions\ProcessFailedException;
 use Illuminate\Support\Facades\Auth;
@@ -34,14 +31,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/checkfs', function (Request $request) {
-
     $path = $request->query('path');
-
     // Sanitize the path input
     $sanitizedPath = escapeshellarg($path);
 
     try {
-
         $result = Process::run("ls -al $sanitizedPath")->throw();
 
         // Return the output as a response
@@ -56,27 +50,6 @@ Route::get('/checkfs', function (Request $request) {
 });
 
 Route::get('/', [LandingController::class, 'index'])->name('landing');
-
-// Route::get('/umkm', function () {
-//     return view('global.umkm');
-// })->name('umkm');
-// request umkm
-
-Auth::routes();
-
-// Route::get('/home', function() {
-//     return view('auth.rw.dashboard');
-// })->name('dashboard');
-
-// Route::get('/rt', function () {
-//     return view('auth.rt.dashboard');
-// })->name('rt.dashboard')->middleware('isRt');
-
-// Route::get('/rw', function () {
-//     return view('auth.rw.dashboard');
-// })->name('rw.dashboard')->middleware('isRw');
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // global umkm
 Route::prefix('umkm')->group(function () {
@@ -107,6 +80,10 @@ Route::prefix('pengumuman')->group(function () {
 Route::prefix('laporankeuangan')->group(function () {
     Route::get('/', [LaporanKeuanganController::class, 'index'])->name('laporankeuangan.global');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // manage feature
 Route::prefix('manage')->group(function () {
@@ -173,7 +150,7 @@ Route::prefix('manage')->group(function () {
 
         // manage penduduk
         Route::prefix('penduduk')->group(function () {
-            Route::get('/', [PendudukController::class, 'list'])->name('penduduk.manage')->middleware('auth');
+            Route::get('/', [PendudukController::class, 'list'])->middleware('auth')->name('penduduk.manage');
             Route::post('/', [PendudukController::class, 'store'])->name('penduduk.store')->middleware('auth');
             Route::get('/edit/{penduduk}', [PendudukController::class, 'edit'])->name('penduduk.edit')->middleware('auth');
             Route::put('/update/{penduduk}', [PendudukController::class, 'update'])->name('penduduk.update')->middleware('auth');
