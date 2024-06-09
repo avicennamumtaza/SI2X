@@ -229,7 +229,7 @@
                     $('#showUmkmModal #status_umkm').val(status_umkm);
 
                     // Memperbarui src gambar pratinjau
-                    let foto_umkm_path = "{{ asset('Foto UMKM/') }}/" + foto_umkm;
+                    let foto_umkm_path = "{{ env('APP_URL') }}/" + foto_umkm;
                     $('#show_foto_umkm_detail').attr('src', foto_umkm_path);
                 });
 
@@ -257,7 +257,7 @@
                     $('#editUmkmModal #status_umkm').val(status_umkm);
 
                     // Memperbarui src gambar pratinjau
-                    let foto_umkm_path = "{{ asset('Foto UMKM/') }}/" + foto_umkm;
+                    let foto_umkm_path = "{{ env('APP_URL') }}/" + foto_umkm;
                     $('#edit_foto_umkm_preview').attr('src', foto_umkm_path);
 
                     // Mengatur URL aksi formulir sesuai dengan ID UMKM

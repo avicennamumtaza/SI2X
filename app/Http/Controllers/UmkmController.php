@@ -72,6 +72,7 @@ class UmkmController extends Controller
             return redirect()->back();
         }
 
+        $path_foto = 'uploads/umkm/';
         $foto_umkm = $request->file('foto_umkm');
         $foto_umkm_ext = $foto_umkm->getClientOriginalExtension();;
         $foto_umkm_filename = $validated['nama_umkm'] . date('ymdhis') . "." . $foto_umkm_ext;
@@ -81,14 +82,15 @@ class UmkmController extends Controller
                 'nama_umkm' => $validated['nama_umkm'],
                 'nik_pemilik' => $validated['nik_pemilik_umkm'],
                 'wa_umkm' => $validated['wa_umkm'],
-                'foto_umkm' => $foto_umkm_filename,
+                'foto_umkm' => $path_foto . $foto_umkm_filename,
                 'deskripsi_umkm' => $validated['deskripsi_umkm'],
                 // 'no_rw' => $validated['no_rw'],
                 'status_umkm' => 'Baru',
                 'alamat_umkm' => $request->alamat_umkm,
             ]);
             Alert::success('Data UMKM berhasil diajukan!');
-            $foto_umkm->move(public_path('Foto UMKM'), $foto_umkm_filename);
+            $foto_umkm->move($path_foto, $foto_umkm_filename);
+            // $foto_umkm->move(public_path('Foto UMKM'), $foto_umkm_filename);
             return redirect()->back()->with('info', 'Data UMKM yang anda ajukan akan tampil pada halaman ini jika sudah melalui proses validasi oleh Ketua RW');
         } catch (\Illuminate\Database\QueryException $e) {
             $no_rw = Rw::all()->pluck('nik_rw');
