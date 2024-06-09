@@ -1,8 +1,5 @@
-[build.nixpacksPlan.phases.build]
-cmds = ['find /app/public -type d -exec chmod -R 777 {} +']
-
 [build.nixpacksPlan.phases.install]
-cmds = ['composer install --ignore-platform-reqs', 'php artisan storage:link']
+cmds = ['mkdir -p /var/log/nginx && mkdir -p /var/cache/nginx', 'composer install --ignore-platform-reqs', 'php artisan storage:link', 'npm ci']
 
 [build]
 builder = "NIXPACKS"
