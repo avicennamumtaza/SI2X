@@ -153,7 +153,6 @@
     </div>
     <div id="layanan" class="container container-layanan col-10">
         <h1 class="heading-center">Layanan</h1>
-        <!-- <div class="container"> -->
         <div class="row">
             <div class="col-md-3 col-sm-6">
                 <a href="{{ route('pengumuman.global') }}" style="text-decoration: none">
@@ -167,7 +166,7 @@
                 <a href="{{ route('umkm.global') }}" style="text-decoration: none">
                     <button class="card" title="Pengajuan UMKM">
                         <i class="bi bi-shop-window card-icon"></i>
-                        <span class="span-head">Daftar UMKM</span>
+                        <span class="span-head">Daftar <br> UMKM </span>
                     </button>
                 </a>
             </div>
@@ -188,8 +187,9 @@
                 </a>
             </div>
         </div>
-        <!-- </div> -->
     </div>
+
+
     <script>
         document.getElementById('selengkapnya-btn').addEventListener('click', function(e) {
             e.preventDefault();

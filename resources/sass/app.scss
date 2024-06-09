@@ -814,80 +814,80 @@ body {
         }
     }
 
-    // layanan
-   .container-layanan {
-    background-color: transparent;
-    text-align: center;
-    padding-top: 5rem;
-    padding-bottom: 4rem;
-}
-
-.layanan-card {
-    width: 100%;
-    max-width: 225px;
-    margin: 30px auto;
-    background-color: $primaryCol;
-    border-radius: 2em;
-    padding: 25px 20px;
-    color: #ffffff;
-    text-decoration: none;
-    transition: 0.3s ease-in-out;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.layanan-card:hover {
-    background-color: #ffffff;
-    border: 1px solid black;
-    border-radius: 50%;
-    font-weight: 700;
-    color: $primaryCol;
-}
-
-.layanan-card .card-icon {
-    font-size: 4rem;
-    margin-bottom: 5px;
-}
-
-.layanan-card .span-head {
-    font-size: 130%;
-    padding: 0 25px;
-    font-weight: 500;
-}
-
-@media screen and (max-width: 576px) {
-    .layanan-card {
-        max-width: 180px;
-        padding: 15px 10px;
+    //layanan
+    .container-layanan {
+        background-color: transparent;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2rem;
+        padding-left: 30px; 
+    
+        .row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+    
+        .card {
+            flex: 1 1 225px;
+            // height: 220px; 
+            width: 225px;
+            margin: 15px;
+            background-color: $primaryCol;
+            border-radius: 2em;
+            padding: 25px 20px;
+            color: #ffffff;
+            text-decoration: none;
+            transition: 0.3s ease-in-out;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        
+    
+            &:hover {
+                background-color: #ffffff;
+                border: 1px solid black;
+                border-radius: 50%;
+                font-weight: 700;
+                color: $primaryCol;
+            }
+    
+            .card-icon {
+                font-size: 4rem;
+                margin-bottom: 5px;
+            }
+    
+            .span-head {
+                font-size: 130%;
+                font-weight: 500;
+            }
+        }
+    
+        @media screen and (max-width: 992px) {
+            .card {
+                margin-top: 15px;
+            }
+        }
+    
+        @media screen and (max-width: 576px) {
+            .row {
+                flex-direction: column;
+                align-items: center;
+            }
+    
+            .card {
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+        }
     }
-
-    .layanan-card .card-icon {
-        font-size: 2.5rem;
-    }
-
-    .layanan-card .span-head {
-        font-size: 110%;
-        padding: 0 10px;
-    }
-}
-
-@media screen and (min-width: 577px) and (max-width: 992px) {
-    .layanan-card {
-        max-width: 200px;
-        padding: 20px 15px;
-    }
-
-    .layanan-card .card-icon {
-        font-size: 3.5rem;
-    }
-
-    .layanan-card .span-head {
-        font-size: 120%;
-        padding: 0 15px;
-    }
-}
+    
+    
+    
+    
 
 
     .container-umkm,
