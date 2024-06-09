@@ -1,6 +1,8 @@
-[build.nixpacksPlan.phases.build]
-cmds = ['find /app/public -type d -exec chmod -R 777 {} +']
+[build.nixpacksPlan.start]
+cmd = "ln -s /app/storage /storage && node /assets/scripts/prestart.mjs /assets/nginx.template.conf /nginx.conf && php artisan storage:link && (php-fpm -y /assets/php-fpm.conf & nginx -c /nginx.conf)"
 
 [build]
 builder = "NIXPACKS"
 buildCommand = "npm run build"
+
+
