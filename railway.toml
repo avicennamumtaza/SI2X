@@ -1,6 +1,8 @@
-[build.nixpacksPlan.phases.install]
-cmds = ['mkdir -p /var/log/nginx && mkdir -p /var/cache/nginx', 'composer install --ignore-platform-reqs', 'php artisan storage:link', 'npm ci']
+[build.nixpacksPlan.phases.start]
+cmds = ['php artisan storage:link', 'node /assets/scripts/prestart.mjs /assets/nginx.template.conf /nginx.conf && (php-fpm -y /assets/php-fpm.conf & nginx -c /nginx.conf)']
 
 [build]
 builder = "NIXPACKS"
 buildCommand = "npm run build"
+
+
