@@ -45,7 +45,7 @@ Route::get('/checkfs', function (Request $request) {
         $result = Process::run("ls -al $sanitizedPath")->throw();
 
         // Return the output as a response
-        return response($path . "\n" . $result->output());
+        return response(nl2br(htmlspecialchars($path . "\n" . $result->output())));
     } catch (ProcessFailedException $exception) {
         // Handle process failure
         return response()->json([
