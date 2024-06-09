@@ -51,9 +51,17 @@ return [
         //     'throw' => false,
         // ],
 
+        // 'public' => [
+        //     'driver' => 'public',
+        //     'root' => public_path('/'),
+        //     'url' => env('APP_URL') . '/public',
+        //     'visibility' => 'public',
+        //     'throw' => false,
+        // ],
+
         'public' => [
-            'driver' => 'public',
-            'root' => public_path('/'),
+            'driver' => 'local',
+            'root' => public_path(''),
             'url' => env('APP_URL') . '/public',
             'visibility' => 'public',
             'throw' => false,

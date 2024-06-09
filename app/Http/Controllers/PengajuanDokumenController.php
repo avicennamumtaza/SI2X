@@ -110,7 +110,7 @@ class PengajuanDokumenController extends Controller
                 'catatan' => '',
             ]);
             Alert::success('Pengajuan Dokumen berhasil diajukan!');
-            return redirect()->back()->with('warning', 'Status Dokumen yang anda ajukan akan tampil pada halaman ini jika sudah melalui proses validasi oleh Ketua RT');
+            return redirect()->back()->with('info', 'Status Dokumen yang anda ajukan akan tampil pada halaman ini jika sudah melalui proses validasi oleh Ketua RT');
         } catch (\Illuminate\Database\QueryException $e) {
             $rw = Rw::all()->first();
             $rt = Rt::where('no_rt', $rt->no_rt)->first();

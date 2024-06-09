@@ -89,7 +89,7 @@ class UmkmController extends Controller
             ]);
             Alert::success('Data UMKM berhasil diajukan!');
             $foto_umkm->move(public_path('Foto UMKM'), $foto_umkm_filename);
-            return redirect()->back()->with('warning', 'Data UMKM yang anda ajukan akan tampil pada halaman ini jika sudah melalui proses validasi oleh Ketua RW');
+            return redirect()->back()->with('info', 'Data UMKM yang anda ajukan akan tampil pada halaman ini jika sudah melalui proses validasi oleh Ketua RW');
         } catch (\Illuminate\Database\QueryException $e) {
             $no_rw = Rw::all()->pluck('nik_rw');
             Alert::error('NIK Anda Tidak Terdata!', 'Silahkan hubungi RW anda untuk keperluan kelengkapan data kependudukan di Sistem Informasi Rukun Warga ini melalui nomor ' . $no_rw);
