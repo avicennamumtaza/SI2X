@@ -412,7 +412,7 @@ body .container-landing .custom-section a:hover {
 }
 body .container-rtrw {
   background-color: transparent;
-  margin-block: 7.5rem;
+  margin-top: 6.5rem;
 }
 body .container-rtrw .wrapper {
   background: linear-gradient(60deg, #420285, #08BDBD);
@@ -421,7 +421,7 @@ body .container-rtrw .wrapper {
   display: flex;
   justify-content: center;
   margin-top: 13rem;
-  margin-bottom: 15rem;
+  margin-bottom: 13.5rem;
 }
 body .container-rtrw .carousel {
   position: relative;
@@ -567,7 +567,7 @@ body .container-rtrw .title {
 }
 body .container-statsngal {
   background-color: transparent;
-  margin-top: 7.5rem;
+  margin-top: 5.5rem;
   margin-bottom: -5rem;
 }
 body .container-statsngal .carousel-caption {
@@ -632,7 +632,7 @@ body .container-head .card .span-count {
 }
 body .container-pengumuman {
   background-color: transparent;
-  margin-top: 8rem;
+  margin-top: 5.5rem;
   text-align: center;
 }
 body .container-pengumuman .row .card {
@@ -662,7 +662,6 @@ body .container-pengumuman a:hover {
 }
 body .container-layanan {
   background-color: transparent;
-  margin-top: 9rem;
 }
 body .container-layanan .card {
   width: 225px;
@@ -793,7 +792,6 @@ body .container-p {
   @import url("https://fonts.googleapis.com/css2?family=Baloo+2&display=swap");
   /* This pen */
   /* Cards */
-  /* COLORS */
 }
 body .container-p p {
   width: 100%;
@@ -860,14 +858,6 @@ body .container-p .postcard .postcard__img {
 }
 body .container-p .postcard .postcard__img_link {
   display: contents;
-}
-body .container-p .postcard .postcard__bar {
-  width: 50px;
-  height: 10px;
-  margin: 10px 0;
-  border-radius: 5px;
-  background-color: #424242;
-  transition: width 0.2s ease;
 }
 body .container-p .postcard .postcard__text {
   padding: 1.5rem;
@@ -985,17 +975,14 @@ body .container-p .postcard .postcard__tagbox .green.play:hover {
   background: #79dd09;
   color: black;
 }
-body .container-p .green .postcard__title:hover {
-  color: #79dd09;
-}
 body .container-p .green .postcard__bar {
   background-color: #79dd09;
 }
 body .container-p .green::before {
-  background-image: linear-gradient(-30deg, rgba(121, 221, 9, 0.1), transparent 50%);
+  background-image: linear-gradient(-30deg, rgba(122, 221, 9, 0.5), transparent 50%);
 }
 body .container-p .green:nth-child(2n)::before {
-  background-image: linear-gradient(30deg, rgba(121, 221, 9, 0.1), transparent 50%);
+  background-image: linear-gradient(30deg, rgba(122, 221, 9, 0.5), transparent 50%);
 }
 body .container-p .postcard .postcard__tagbox .blue.play:hover {
   background: #0076bd;
@@ -1004,10 +991,10 @@ body .container-p .blue .postcard__bar {
   background-color: #0076bd;
 }
 body .container-p .blue::before {
-  background-image: linear-gradient(-30deg, rgba(0, 118, 189, 0.1), transparent 50%);
+  background-image: linear-gradient(-30deg, rgba(0, 117, 189, 0.5), transparent 50%);
 }
 body .container-p .blue:nth-child(2n)::before {
-  background-image: linear-gradient(30deg, rgba(0, 118, 189, 0.1), transparent 50%);
+  background-image: linear-gradient(30deg, rgba(0, 117, 189, 0.5), transparent 50%);
 }
 body .container-p .postcard .postcard__tagbox .red.play:hover {
   background: #bd150b;
@@ -1016,10 +1003,10 @@ body .container-p .red .postcard__bar {
   background-color: #bd150b;
 }
 body .container-p .red::before {
-  background-image: linear-gradient(-30deg, rgba(189, 21, 11, 0.1), transparent 50%);
+  background-image: linear-gradient(-30deg, rgba(189, 20, 11, 0.5), transparent 50%);
 }
 body .container-p .red:nth-child(2n)::before {
-  background-image: linear-gradient(30deg, rgba(189, 21, 11, 0.1), transparent 50%);
+  background-image: linear-gradient(30deg, rgba(189, 20, 11, 0.5), transparent 50%);
 }
 body .container-p .postcard .postcard__tagbox .yellow.play:hover {
   background: #bdbb49;
@@ -1029,35 +1016,35 @@ body .container-p .yellow .postcard__bar {
   background-color: #bdbb49;
 }
 body .container-p .yellow::before {
-  background-image: linear-gradient(-30deg, rgba(189, 187, 73, 0.1), transparent 50%);
+  background-image: linear-gradient(-30deg, rgba(189, 187, 73, 0.5), transparent 50%);
 }
 body .container-p .yellow:nth-child(2n)::before {
-  background-image: linear-gradient(30deg, rgba(189, 187, 73, 0.1), transparent 50%);
+  background-image: linear-gradient(30deg, rgba(189, 187, 73, 0.5), transparent 50%);
 }
 @media screen and (min-width: 769px) {
   body .container-p .green::before {
-    background-image: linear-gradient(-80deg, rgba(121, 221, 9, 0.1), transparent 50%);
+    background-image: linear-gradient(-80deg, rgba(122, 221, 9, 0.5), transparent 50%);
   }
   body .container-p .green:nth-child(2n)::before {
-    background-image: linear-gradient(80deg, rgba(121, 221, 9, 0.1), transparent 50%);
+    background-image: linear-gradient(80deg, rgba(122, 221, 9, 0.5), transparent 50%);
   }
   body .container-p .blue::before {
-    background-image: linear-gradient(-80deg, rgba(0, 118, 189, 0.1), transparent 50%);
+    background-image: linear-gradient(-80deg, rgba(0, 117, 189, 0.5), transparent 50%);
   }
   body .container-p .blue:nth-child(2n)::before {
-    background-image: linear-gradient(80deg, rgba(0, 118, 189, 0.1), transparent 50%);
+    background-image: linear-gradient(80deg, rgba(0, 117, 189, 0.5), transparent 50%);
   }
   body .container-p .red::before {
-    background-image: linear-gradient(-80deg, rgba(189, 21, 11, 0.1), transparent 50%);
+    background-image: linear-gradient(-80deg, rgba(189, 20, 11, 0.5), transparent 50%);
   }
   body .container-p .red:nth-child(2n)::before {
-    background-image: linear-gradient(80deg, rgba(189, 21, 11, 0.1), transparent 50%);
+    background-image: linear-gradient(80deg, rgba(189, 20, 11, 0.5), transparent 50%);
   }
   body .container-p .yellow::before {
-    background-image: linear-gradient(-80deg, rgba(189, 187, 73, 0.1), transparent 50%);
+    background-image: linear-gradient(-80deg, rgba(189, 187, 73, 0.5), transparent 50%);
   }
   body .container-p .yellow:nth-child(2n)::before {
-    background-image: linear-gradient(80deg, rgba(189, 187, 73, 0.1), transparent 50%);
+    background-image: linear-gradient(80deg, rgba(189, 187, 73, 0.5), transparent 50%);
   }
 }
 body .wrapper {

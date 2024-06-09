@@ -30,15 +30,23 @@
                             <div class="col mb-0">
                                 <h3>Halo, <span>{{ $users->username }}</span></h3>
                             </div>
-                            <div class="col-auto ml-auto">
-                                <p id="current-date" style="font-size: 14 px;margin-top: 20px;">{{ $date }}</p>
+                            <div class="row">
+                                <span class="col-10 pe-0">
+                                    <hr>
+                                </span>
+                                <span class="col-2 pe-0">
+                                    {{-- <div class="col-auto ml-auto"> --}}
+                                    <p id="current-date" class="mt-1 text-align-end" style="font-size: .9rem;">
+                                        {{ $date }}
+                                    </p>
+                                    {{-- </div> --}}
+                                </span>
                             </div>
                         </div>
                         <p style="font-size: 12 px;">Selamat Datang di dashboard RT</p>
                         {{-- <hr class="hrmain mt-4 mb-1" style="height: 2px;"> --}}
                     </div>
                 </div>
-
 
                 <div class="row mt-4">
                     <div class="col-xl-6 col-md-6 col-sm-6 mb-4">
@@ -172,21 +180,21 @@
 
                 <div class="row mt-4">
                     <div class="col-12 mt-3 mb-3">
-                        <h4>Statistik Permintaan Dokumen</h4>
+                        <h4>Statistik Pengajuan Dokumen</h4>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xl-12 col-md-12 col-sm-12 mb-4">
                         <div class="card">
-                            <div class="card-body" title="Jumlah permintaan dokumen">
+                            <div class="card-body" title="Jumlah Pengajuan Dokumen">
                                 <div class="d-flex justify-content-between p-md-1">
                                     <div class="d-flex flex-row">
                                         <div class="align-self-center">
                                             <h2 class="h3 mb-0 me-4">{{ $jumlahPengajuanDokumen }}</h2>
                                         </div>
                                         <div>
-                                            <h4 style="margin-bottom: 2px;">Permintaan Dokumen</h4>
-                                            <p class="mb-0">Jumlah Permintaan Dokumen Secara Keseluruhan</p>
+                                            <h4 style="margin-bottom: 2px;">Pengajuan Dokumen</h4>
+                                            <p class="mb-0">Jumlah Pengajuan Dokumen Secara Keseluruhan</p>
                                         </div>
                                     </div>
                                     <a href="{{ route('pengajuandokumen.manage') }}" style="text-decoration: none"
@@ -210,14 +218,14 @@
                 <div class="row">
                     <div class="col-xl-6 col-md-6 col-sm-6 mb-4">
                         <div class="card">
-                            <div class="card-body" title="Jumlah permintaan dokumen yang disetujui">
+                            <div class="card-body" title="Jumlah Pengajuan Dokumen yang disetujui">
                                 <div class="d-flex justify-content-between p-md-1">
                                     <div class="d-flex flex-row">
                                         <div class="align-self-center">
                                             <i class="lni lni-printer text-success"></i>
                                         </div>
                                         <div class="mx-4">
-                                            <h4 style="margin-bottom: 0px">Permintaan Dokumen<br>Disetujui</h4>
+                                            <h4 style="margin-bottom: 0px">Pengajuan Dokumen<br>Disetujui</h4>
                                         </div>
                                     </div>
                                     <div class="align-self-center">
@@ -229,14 +237,14 @@
                     </div>
                     <div class="col-xl-6 col-md-6 col-sm-6 mb-4">
                         <div class="card">
-                            <div class="card-body" title="Jumlah permintaan dokumen yang ditolak">
+                            <div class="card-body" title="Jumlah Pengajuan Dokumen yang ditolak">
                                 <div class="d-flex justify-content-between p-md-1">
                                     <div class="d-flex flex-row">
                                         <div class="align-self-center">
                                             <i class="lni lni-printer text-danger"></i>
                                         </div>
                                         <div class="mx-4">
-                                            <h4 style="margin-bottom: 0px">Permintaan Dokumen<br>Ditolak</h4>
+                                            <h4 style="margin-bottom: 0px">Pengajuan Dokumen<br>Ditolak</h4>
                                         </div>
                                     </div>
                                     <div class="align-self-center">
@@ -282,7 +290,7 @@
                                 </span>
                                 <span class="col-2 pe-0">
                                     {{-- <div class="col-auto ml-auto"> --}}
-                                    <p id="current-date" class="mt-1 text-align-end" style="font-size: .95rem;">
+                                    <p id="current-date" class="mt-1 text-align-end" style="font-size: .9rem;">
                                         {{ $date }}
                                     </p>
                                     {{-- </div> --}}
@@ -294,8 +302,86 @@
                     </div>
                 </div>
 
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 mb-4" tit>
+                        <div class="card">
+                            <a style="text-decoration: none;" class="secondary"
+                                href="{{ route('laporankeuangan.manage') }}">
+                                <div class="card-body" title="Jumlah laporan keuangan">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex flex-row">
+                                            <div class="align-self-center">
+                                                <h2 class="h3 mb-0 me-3">{{ $jumlahLaporanKeuangan }}</h2>
+                                            </div>
+                                            <div>
+                                                <h5 style="margin-bottom: 0px; font-size: .9rem;">Laporan <br>Keuangan</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 mb-4">
+                        <div class="card">
+                            <a style="text-decoration: none;" class="secondary" href="{{ route('pengumuman.manage') }}">
+                                <div class="card-body" title="Jumlah pengumuman yang dipublikasi">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex flex-row">
+                                            <div class="align-self-center">
+                                                <h2 class="h3 mb-0 me-3">{{ $jumlahPengumuman }}</h2>
+                                            </div>
+                                            <div>
+                                                <h5 style="margin-bottom: 0px; font-size: .9rem;">Publikasi Pengumuman</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 mb-4">
+                        <div class="card">
+                            <a style="text-decoration: none;" class="secondary" href="{{ route('umkm.manage') }}">
+                                <div class="card-body" title="Jumlah UMKM yang diajukan">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex flex-row">
+                                            <div class="align-self-center">
+                                                <h2 class="h3 mb-0 me-3">{{ $jumlahUmkm }}</h2>
+                                            </div>
+                                            <div>
+                                                <h5 style="margin-bottom: 0px; font-size: .9rem;">Pengajuan <br>UMKM</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 mb-4">
+                        <div class="card">
+                            <a style="text-decoration: none;" class="secondary"
+                                href="{{ route('pengajuandokumen.manage') }}">
+                                <div class="card-body" title="Jumlah Pengajuan Dokumen">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex flex-row">
+                                            <div class="align-self-center">
+                                                <h2 class="h3 mb-0 me-3">{{ $jumlahPengajuanDokumen }}</h2>
+                                            </div>
+                                            <div>
+                                                <h5 style="margin-bottom: 0px; font-size: .9rem;">Pengajuan <br>Dokumen
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-                <div class="row mt-4">
+
+                <div class="row mt-3">
                     <div class="col-xl-12 col-md-12 col-sm-12 mb-4">
                         <div class="card">
                             <div class="card-body" title="Jumlah penduduk yang terdaftar">
@@ -370,7 +456,7 @@
                 </div>
 
 
-                <div class="row mt-4">
+                <div class="row">
                     <div class="col-12 mt-3 mb-3">
                         <h4>Distribusi Penduduk Berdasarkan Usia</h4>
                     </div>
@@ -382,7 +468,7 @@
                         </div>
                     </div>
 
-                    <div class="col-xl-4 col-md-12 col-sm-12 mb-4">
+                    <div class="col-xl-4 col-md-12 col-sm-12">
                         <div class="row">
                             <div class="col-12 mb-4">
                                 <div class="card">
@@ -454,8 +540,8 @@
                     </div>
                 </div>
 
-                <div class="row mt-4">
-                    <div class="col-12 mt-3">
+                <div class="row">
+                    <div class="col-12 mt-3 mb-3">
                         <h4>Statistik Laporan Keuangan</h4>
                     </div>
                 </div>
@@ -466,87 +552,6 @@
                     </div>
 
                 </div>
-
-
-                <div class="row">
-                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 mb-4" tit>
-                        <div class="card">
-                            <a style="text-decoration: none;" class="secondary"
-                                href="{{ route('laporankeuangan.manage') }}">
-                                <div class="card-body" title="Jumlah laporan keuangan">
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex flex-row">
-                                            <div class="align-self-center">
-                                                <h2 class="h3 mb-0 me-3">{{ $jumlahLaporanKeuangan }}</h2>
-                                            </div>
-                                            <div>
-                                                <h5 style="margin-bottom: 0px; font-size: .9rem;">Laporan <br>Keuangan</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 mb-4">
-                        <div class="card">
-                            <a style="text-decoration: none;" class="secondary" href="{{ route('pengumuman.manage') }}">
-                                <div class="card-body" title="Jumlah pengumuman yang dipublikasi">
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex flex-row">
-                                            <div class="align-self-center">
-                                                <h2 class="h3 mb-0 me-3">{{ $jumlahPengumuman }}</h2>
-                                            </div>
-                                            <div>
-                                                <h5 style="margin-bottom: 0px; font-size: .9rem;">Publikasi Pengumuman</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 mb-4">
-                        <div class="card">
-                            <a style="text-decoration: none;" class="secondary" href="{{ route('umkm.manage') }}">
-                                <div class="card-body" title="Jumlah UMKM yang diajukan">
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex flex-row">
-                                            <div class="align-self-center">
-                                                <h2 class="h3 mb-0 me-3">{{ $jumlahUmkm }}</h2>
-                                            </div>
-                                            <div>
-                                                <h5 style="margin-bottom: 0px; font-size: .9rem;">Pengajuan <br>UMKM</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 mb-4">
-                        <div class="card">
-                            <a style="text-decoration: none;" class="secondary"
-                                href="{{ route('pengajuandokumen.manage') }}">
-                                <div class="card-body" title="Jumlah permintaan dokumen">
-                                    <div class="d-flex justify-content-between">
-                                        <div class="d-flex flex-row">
-                                            <div class="align-self-center">
-                                                <h2 class="h3 mb-0 me-3">{{ $jumlahPengajuanDokumen }}</h2>
-                                            </div>
-                                            <div>
-                                                <h5 style="margin-bottom: 0px; font-size: .9rem;">Permintaan <br>Dokumen
-                                                </h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-
 
                 <div class="row mt-4">
                     <div class="col-12 mt-3 mb-3">

@@ -515,7 +515,7 @@ body {
     .container-rtrw {
 
         background-color: transparent;
-        margin-block: 7.5rem;
+        margin-top: 6.5rem;
 
         // *,
         // *::before,
@@ -530,7 +530,7 @@ body {
             display: flex;
             justify-content: center;
             margin-top: 13rem;
-            margin-bottom: 15rem;
+            margin-bottom: 13.5rem;
         }
 
         .carousel {
@@ -561,17 +561,6 @@ body {
                 animation-delay: calc(2s * (#{$i} - 20));
             }
         }
-
-        // @for $i from 1 through 19 {
-        //     .carousel__item:nth-child(#{$i}) {
-        //         -webkit-animation-delay: calc(2s * (#{$i} - 20));
-        //         animation-delay: calc(2s * (#{$i} - 20));
-        //     }
-        // }
-        // .carousel__item:last-child {
-        //     -webkit-animation-delay: calc(-2s * (20 - 0));
-        //     animation-delay: calc(-2s * (20 - 0));
-        // }
 
         .carousel__item-head {
             border-radius: 50%;
@@ -684,7 +673,7 @@ body {
 
     .container-statsngal {
         background-color: transparent;
-        margin-top: 7.5rem;
+        margin-top: 5.5rem;
         margin-bottom: -5rem;
 
         .carousel-caption {
@@ -765,7 +754,7 @@ body {
     // pengumuman
     .container-pengumuman {
         background-color: transparent;
-        margin-top: 8rem;
+        margin-top: 5.5rem;
         text-align: center;
 
         .row {
@@ -797,7 +786,7 @@ body {
     // layanan
     .container-layanan {
         background-color: transparent;
-        margin-top: 9rem;
+        // margin-top: 9rem;
 
         // margin-bottom: 4rem;
         .card {

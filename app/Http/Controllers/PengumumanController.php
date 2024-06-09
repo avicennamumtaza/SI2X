@@ -37,9 +37,11 @@ class PengumumanController extends Controller
 
     public function index()
     {
-        $pengumumans = Cache::remember('globalPengumuman', 600, function() {
-            return Pengumuman::all();
-        });
+        $pengumumans = 
+        // Cache::remember('globalPengumuman' . request('page', 1), 600, function () {
+            // return 
+            Pengumuman::orderBy('updated_at', 'desc')->paginate(5);
+        // });
         return view('global.pengumuman')->with('pengumumans', $pengumumans);
         // $pengumumans = Pengumuman::all();
         // return view('auth.rw.pengumuman', compact('pengumumans'));

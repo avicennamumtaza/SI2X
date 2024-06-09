@@ -26,25 +26,20 @@
 
                 <div class="postcard__text t-dark">
                     <h1 class="postcard__title {{ $color }}" title="Judul Pengumuman">{{ $pengumuman->judul }}</h1>
-                    {{-- <div class="postcard__bar"></div> --}}
                     <div class="my-1"></div>
                     <div class="postcard__preview-txt" title="Deskripsi Pengumuman">
                         {{ $pengumuman->deskripsi }}
                     </div>
-                    {{-- <ul class="postcard__tagbox">
-                        <li class="tag__item" title="Tanggal Pengumuman"> --}}
-                            {{-- <i class="fas fa-tag mr-2"></i> --}}
-                            <div class="mt-2">
-                                <hr>
-                                {{-- ---------------------------------- --}}
-                                {{ Carbon::parse($pengumuman->tanggal)->translatedFormat('d F Y') }}
-                                {{-- ---------------------------------- --}}
-                            </div>
-                        {{-- </li>
-                    </ul> --}}
+                    <div class="mt-2">
+                        <hr>
+                        {{ Carbon::parse($pengumuman->tanggal)->translatedFormat('d F Y') }}
+                    </div>
                 </div>
             </article>
         @endforeach
+        <div class="mt-4" style="margin-bottom: -2rem">
+            {{ $pengumumans->onEachSide(1)->links() }}
+        </div>
     </div>
 
     <!-- Modal untuk setiap UMKM -->

@@ -7,7 +7,7 @@
             <div class="modal-dialog modal-dialog-centered modal-md">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Permintaan Dokumen</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Pengajuan Dokumen</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
                             style="filter: invert(39%) sepia(75%) saturate(6472%) hue-rotate(352deg) brightness(98%) contrast(104%);"></button>
                     </div>
@@ -69,17 +69,16 @@
         </a>
 
 
-        <h1 class="heading-center">Permintaan Dokumen</h1>
+        <h1 class="heading-center">Pengajuan Dokumen</h1>
         <!-- <div class="container"> -->
-        <p>Fitur permintaan dokumen/surat dalam SIRW memberikan kemudahan bagi warga untuk mengajukan dokumen atau surat
-            yang
-            diperlukan melalui platform website. Selama proses ini berlangsung, warga dapat memantau status pengajuan
+        <p>Fitur Pengajuan Dokumen dalam SIRW memberikan kemudahan bagi warga untuk mengajukan dokumen atau surat
+            yang diperlukan melalui platform website. Selama proses ini berlangsung, warga dapat memantau status pengajuan
             mereka, sehingga memungkinkan sistem yang lebih transparan.</p>
 
         <div class="card">
             <div class="card-header card-header-tabel p-4 mb-3">
                 <h5>
-                    Riwayat Permintaan Dokumen
+                    Riwayat Pengajuan Dokumen
                     {{-- <button class="btn btn-add float-end" data-bs-toggle="modal" data-bs-target="#ajukanpengumumanModal">Tambah Data</button> --}}
                 </h5>
             </div>

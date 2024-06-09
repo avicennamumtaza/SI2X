@@ -43,10 +43,26 @@ return [
             'visibility' => 'public',
         ],
 
+        // 'public' => [
+        //     'driver' => 'local',
+        //     'root' => storage_path('app/public'),
+        //     'url' => env('APP_URL') . '/storage',
+        //     'visibility' => 'public',
+        //     'throw' => false,
+        // ],
+
+        // 'public' => [
+        //     'driver' => 'public',
+        //     'root' => public_path('/'),
+        //     'url' => env('APP_URL') . '/public',
+        //     'visibility' => 'public',
+        //     'throw' => false,
+        // ],
+
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('APP_URL') . '/storage',
+            'root' => public_path(''),
+            'url' => env('APP_URL') . '/public',
             'visibility' => 'public',
             'throw' => false,
         ],
