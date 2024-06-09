@@ -112,7 +112,7 @@
         <h1 class="heading-center mb-0">Administrator</h1>
         <div class='row wrapper' style="margin-top: 11rem">
             <div class='carousel'>
-                <?php $counter = 20; ?>
+                <?php $counter = 16; ?>
                 @foreach ($fotoUsers as $index => $fotoUser)
                     <?php $counter--; ?>
                     <div class='carousel__item'>

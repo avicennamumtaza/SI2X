@@ -440,67 +440,55 @@ body .container-rtrw .carousel__item {
   opacity: 0;
   filter: drop-shadow(0 2px 2px #555);
   will-change: transform, opacity;
-  animation: carousel-animate-vertical 40s linear infinite;
+  animation: carousel-animate-vertical 32s linear infinite;
 }
 body .container-rtrw .carousel__item:nth-child(1) {
-  animation-delay: calc(2s * (1 - 20));
+  animation-delay: calc(2s * (1 - 16));
 }
 body .container-rtrw .carousel__item:nth-child(2) {
-  animation-delay: calc(2s * (2 - 20));
+  animation-delay: calc(2s * (2 - 16));
 }
 body .container-rtrw .carousel__item:nth-child(3) {
-  animation-delay: calc(2s * (3 - 20));
+  animation-delay: calc(2s * (3 - 16));
 }
 body .container-rtrw .carousel__item:nth-child(4) {
-  animation-delay: calc(2s * (4 - 20));
+  animation-delay: calc(2s * (4 - 16));
 }
 body .container-rtrw .carousel__item:nth-child(5) {
-  animation-delay: calc(2s * (5 - 20));
+  animation-delay: calc(2s * (5 - 16));
 }
 body .container-rtrw .carousel__item:nth-child(6) {
-  animation-delay: calc(2s * (6 - 20));
+  animation-delay: calc(2s * (6 - 16));
 }
 body .container-rtrw .carousel__item:nth-child(7) {
-  animation-delay: calc(2s * (7 - 20));
+  animation-delay: calc(2s * (7 - 16));
 }
 body .container-rtrw .carousel__item:nth-child(8) {
-  animation-delay: calc(2s * (8 - 20));
+  animation-delay: calc(2s * (8 - 16));
 }
 body .container-rtrw .carousel__item:nth-child(9) {
-  animation-delay: calc(2s * (9 - 20));
+  animation-delay: calc(2s * (9 - 16));
 }
 body .container-rtrw .carousel__item:nth-child(10) {
-  animation-delay: calc(2s * (10 - 20));
+  animation-delay: calc(2s * (10 - 16));
 }
 body .container-rtrw .carousel__item:nth-child(11) {
-  animation-delay: calc(2s * (11 - 20));
+  animation-delay: calc(2s * (11 - 16));
 }
 body .container-rtrw .carousel__item:nth-child(12) {
-  animation-delay: calc(2s * (12 - 20));
+  animation-delay: calc(2s * (12 - 16));
 }
 body .container-rtrw .carousel__item:nth-child(13) {
-  animation-delay: calc(2s * (13 - 20));
+  animation-delay: calc(2s * (13 - 16));
 }
 body .container-rtrw .carousel__item:nth-child(14) {
-  animation-delay: calc(2s * (14 - 20));
+  animation-delay: calc(2s * (14 - 16));
 }
 body .container-rtrw .carousel__item:nth-child(15) {
-  animation-delay: calc(2s * (15 - 20));
+  animation-delay: calc(2s * (15 - 16));
 }
 body .container-rtrw .carousel__item:nth-child(16) {
-  animation-delay: calc(2s * (16 - 20));
-}
-body .container-rtrw .carousel__item:nth-child(17) {
-  animation-delay: calc(2s * (17 - 20));
-}
-body .container-rtrw .carousel__item:nth-child(18) {
-  animation-delay: calc(2s * (18 - 20));
-}
-body .container-rtrw .carousel__item:nth-child(19) {
-  animation-delay: calc(2s * (19 - 20));
-}
-body .container-rtrw .carousel__item:nth-child(20) {
-  animation-delay: calc(2s * (20 - 20));
+  animation-delay: calc(2s * (16 - 16));
 }
 body .container-rtrw .carousel__item-head {
   border-radius: 50%;

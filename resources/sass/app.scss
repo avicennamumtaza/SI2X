@@ -551,14 +551,14 @@ body {
             opacity: 0;
             filter: drop-shadow(0 2px 2px #555);
             will-change: transform, opacity;
-            -webkit-animation: carousel-animate-vertical 40s linear infinite;
-            animation: carousel-animate-vertical 40s linear infinite;
+            -webkit-animation: carousel-animate-vertical 32s linear infinite;
+            animation: carousel-animate-vertical 32s linear infinite;
         }
 
-        @for $i from 1 through 20 {
+        @for $i from 1 through 16 {
             .carousel__item:nth-child(#{$i}) {
-                -webkit-animation-delay: calc(2s * (#{$i} - 20));
-                animation-delay: calc(2s * (#{$i} - 20));
+                -webkit-animation-delay: calc(2s * (#{$i} - 16));
+                animation-delay: calc(2s * (#{$i} - 16));
             }
         }
 
