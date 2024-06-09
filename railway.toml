@@ -2,7 +2,7 @@
 cmds = ['find /app/public -type d -exec chmod -R 777 {} +']
 
 [build.nixpacksPlan.phases.install]
-cmds = ['php artisan storage:link']
+cmds = ['composer install --ignore-platform-reqs', 'php artisan storage:link']
 
 [build]
 builder = "NIXPACKS"
