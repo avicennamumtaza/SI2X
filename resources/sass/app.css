@@ -670,14 +670,22 @@ body .container-pengumuman a:hover {
 }
 body .container-layanan {
   background-color: transparent;
-  text-align: center;
-  padding-top: 5rem;
-  padding-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  padding-left: 30px;
 }
-body .layanan-card {
+body .container-layanan .row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   width: 100%;
-  max-width: 225px;
-  margin: 30px auto;
+}
+body .container-layanan .card {
+  flex: 1 1 225px;
+  width: 225px;
+  margin: 15px;
   background-color: #253560;
   border-radius: 2em;
   padding: 25px 20px;
@@ -689,46 +697,34 @@ body .layanan-card {
   flex-direction: column;
   align-items: center;
 }
-body .layanan-card:hover {
+body .container-layanan .card:hover {
   background-color: #ffffff;
   border: 1px solid black;
   border-radius: 50%;
   font-weight: 700;
   color: #253560;
 }
-body .layanan-card .card-icon {
+body .container-layanan .card .card-icon {
   font-size: 4rem;
   margin-bottom: 5px;
 }
-body .layanan-card .span-head {
+body .container-layanan .card .span-head {
   font-size: 130%;
-  padding: 0 25px;
   font-weight: 500;
 }
-@media screen and (max-width: 576px) {
-  body .layanan-card {
-    max-width: 180px;
-    padding: 15px 10px;
-  }
-  body .layanan-card .card-icon {
-    font-size: 2.5rem;
-  }
-  body .layanan-card .span-head {
-    font-size: 110%;
-    padding: 0 10px;
+@media screen and (max-width: 992px) {
+  body .container-layanan .card {
+    margin-top: 15px;
   }
 }
-@media screen and (min-width: 577px) and (max-width: 992px) {
-  body .layanan-card {
-    max-width: 200px;
-    padding: 20px 15px;
+@media screen and (max-width: 576px) {
+  body .container-layanan .row {
+    flex-direction: column;
+    align-items: center;
   }
-  body .layanan-card .card-icon {
-    font-size: 3.5rem;
-  }
-  body .layanan-card .span-head {
-    font-size: 120%;
-    padding: 0 15px;
+  body .container-layanan .card {
+    margin-top: 15px;
+    margin-bottom: 15px;
   }
 }
 body .container-umkm,
