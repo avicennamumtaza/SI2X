@@ -37,9 +37,9 @@ class PengumumanController extends Controller
 
     public function index()
     {
-        $pengumumans = 
+        $pengumumans =
         // Cache::remember('globalPengumuman' . request('page', 1), 600, function () {
-            // return 
+            // return
             Pengumuman::orderBy('updated_at', 'desc')->paginate(5);
         // });
         return view('global.pengumuman')->with('pengumumans', $pengumumans);
@@ -77,7 +77,7 @@ class PengumumanController extends Controller
                 $foto_pengumuman = $request->file('foto_pengumuman');
                 $foto_pengumuman_ext = $foto_pengumuman->getClientOriginalExtension();
                 $foto_pengumuman_filename = $validated['judul'] . date('ymdhis') . "." . $foto_pengumuman_ext;
-                $foto_pengumuman->storeAs('', $foto_pengumuman_filename, 'foto_pengumuman');
+                $foto_pengumuman->storeAs('foto_pengumuman', $foto_pengumuman_filename, 'public');
 
                 // Storage::disk('foto_pengumuman')->put($foto_pengumuman_filename, file_get_contents($foto_pengumuman));
 

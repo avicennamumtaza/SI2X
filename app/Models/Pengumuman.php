@@ -24,7 +24,7 @@ class Pengumuman extends Model
     protected function photoUrl(): Attribute
     {
         return Attribute::make(
-            get: fn () => Storage::disk('foto_pengumuman')->url($this->foto_pengumuman),
+            get: fn () => Storage::disk('public')->url('foto_pengumuman/'.$this->foto_pengumuman),
         );
     }
 
