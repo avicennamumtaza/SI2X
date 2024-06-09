@@ -87,7 +87,7 @@
 
                     <a class="umkm_img_link" href="#" data-toggle="modal" title="Foto UMKM"
                         data-target="#fotoModal{{ $umkm->id_umkm }}">
-                        <img src="{{ $umkm->foto_umkm ? asset($umkm->foto_umkm) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
+                        <img src="{{ $umkm->foto_umkm ? asset('storage/' . $umkm->foto_umkm) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
                             class="card-img-top" alt="Foto UMKM{{ $umkm->id_umkm }}" data-id_umkm="{{ $umkm->id_umkm }}"
                             data-target="#fotoModal{{ $umkm->id_umkm }}" />
                     </a>
@@ -137,7 +137,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <img id="modalImg{{ $umkm->id_umkm }}"
-                                        src="{{ $umkm->foto_umkm ? asset($umkm->foto_umkm) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
+                                        src="{{ $umkm->foto_umkm ? asset('storage/' . $umkm->foto_umkm) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
                                         class="img-fluid" alt="Foto UMKM{{ $umkm->id_umkm }}"
                                         style="min-width: 100%; max-height: auto;">
                                 </div>
