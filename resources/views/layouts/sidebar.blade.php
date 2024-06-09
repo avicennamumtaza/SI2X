@@ -8,7 +8,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'SIRW') }}</title>
+    <title>{{ $pageTitle ?? config('app.name', 'SIRW') }}</title>
+    <link rel="icon" href="{{ asset('assets/Logo.png') ?? null; }}" type="image/x-icon">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
