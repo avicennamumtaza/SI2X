@@ -111,8 +111,7 @@ return [
             'handler' => StreamHandler::class,
             'with' => [
                 'stream' => 'php://stdout',
-            ],
-            'processors' => [PsrLogMessageProcessor::class],
+            ]
         ],
 
         'syslog' => [

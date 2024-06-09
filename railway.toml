@@ -1,5 +1,5 @@
 [build.nixpacksPlan.start]
-cmd = "php artisan storage:link && node /assets/scripts/prestart.mjs /assets/nginx.template.conf /nginx.conf && (php-fpm -y /assets/php-fpm.conf & nginx -c /nginx.conf)"
+cmd = "node /assets/scripts/prestart.mjs /assets/nginx.template.conf /nginx.conf && php artisan storage:link && (php-fpm -y /assets/php-fpm.conf & nginx -c /nginx.conf)"
 
 [build]
 builder = "NIXPACKS"
