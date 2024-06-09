@@ -36,16 +36,16 @@ class PengumumanDataTable extends DataTable
                 data-judul="' . $row->judul . '"
                 data-tanggal_pengumuman="' . $row->tanggal . '"
                 data-deskripsi="' . $row->deskripsi . '"
-                data-foto_pengumuman="' . $row->foto_pengumuman . '"
+                data-foto_pengumuman="' . $row->photoUrl . '"
                 data-bs-toggle="modal" data-bs-target="#showPengumumanModal" class="show-user show btn btn-show btn-sm me-1">Tampil</button>';
 
                 $action .='
-                <button type="button"
+                <button type="button"a
                 data-id="' . $row->id_pengumuman . '"
                 data-judul="' . $row->judul . '"
                 data-tanggal_pengumuman="' . $row->tanggal . '"
                 data-deskripsi="' . $row->deskripsi . '"
-                data-foto_pengumuman="' . $row->foto_pengumuman . '"
+                data-foto_pengumuman="' . $row->photoUrl . '"
                 data-bs-toggle="modal" data-bs-target="#editPengumumanModal" class="edit-user edit btn btn-edit btn-sm">Edit</button>';
 
                 $action .= '

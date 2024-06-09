@@ -281,8 +281,8 @@
                     // $('#showPengumumanModal #foto_pengumuman').val(foto);
 
                     // Memperbarui src gambar pratinjau
-                    let foto_pengumuman_path = "{{ asset('Foto Pengumuman/') }}/" + foto;
-                    $('#show_foto_pengumuman_detail').attr('src', foto_pengumuman_path);
+                    // let foto_pengumuman_path = "{{ asset('Foto Pengumuman/') }}/" + foto;
+                    $('#show_foto_pengumuman_detail').attr('src', foto);
 
                     // Menghapus gambar pratinjau jika tidak ada gambar baru yang dipilih
                     // if (foto === null) {
@@ -308,8 +308,8 @@
                     if (foto === null) {
                         $('#edit_foto_pengumuman_preview').attr('src', ''); // Mengosongkan src gambar
                     } {
-                        let foto_pengumuman_path = "{{ asset('Foto Pengumuman/') }}/" + foto;
-                        $('#edit_foto_pengumuman_preview').attr('src', foto_pengumuman_path);
+                        // let foto_pengumuman_path = "{{ asset('Foto Pengumuman/') }}/" + foto;
+                        $('#edit_foto_pengumuman_preview').attr('src', foto);
                     }
 
                     let url = "{{ route('pengumuman.update', ':__id') }}";
