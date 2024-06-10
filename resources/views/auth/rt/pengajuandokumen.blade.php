@@ -67,8 +67,8 @@
 
                     <div class="form-group mb-3">
                         <label for="keperluan" class="form-label text-start">Keperluan</label>
-                        <input type="text" readonly class="form-control" id="keperluan" name="keperluan"
-                            readonly>
+                        <textarea type="text" readonly class="form-control" rows="2" id="keperluan" name="keperluan"
+                            readonly></textarea>
                     </div>
 
                     <div class="form-group mb-3">
@@ -155,8 +155,8 @@
 
                         <div class="form-group mb-3">
                             <label for="keperluan" class="form-label text-start">Keperluan</label>
-                            <input type="text" readonly disabled class="form-control" id="keperluan" name="keperluan"
-                                required>
+                            <textarea type="text" readonly disabled class="form-control" rows="2" id="keperluan" name="keperluan"
+                                required></textarea>
                         </div>
 
                         <div class="form-group mb-3">
