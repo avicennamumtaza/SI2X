@@ -36,7 +36,7 @@ class PengumumanDataTable extends DataTable
                 data-judul="' . $row->judul . '"
                 data-tanggal_pengumuman="' . $row->tanggal . '"
                 data-deskripsi="' . $row->deskripsi . '"
-                data-foto_pengumuman="' . $row->photoUrl . '"
+                data-foto_pengumuman="' . $row->foto_pengumuman . '"
                 data-bs-toggle="modal" data-bs-target="#showPengumumanModal" class="show-user show btn btn-show btn-sm me-1">Tampil</button>';
 
                 $action .='
@@ -45,7 +45,7 @@ class PengumumanDataTable extends DataTable
                 data-judul="' . $row->judul . '"
                 data-tanggal_pengumuman="' . $row->tanggal . '"
                 data-deskripsi="' . $row->deskripsi . '"
-                data-foto_pengumuman="' . $row->photoUrl . '"
+                data-foto_pengumuman="' . $row->foto_pengumuman . '"
                 data-bs-toggle="modal" data-bs-target="#editPengumumanModal" class="edit-user edit btn btn-edit btn-sm">Edit</button>';
 
                 $action .= '

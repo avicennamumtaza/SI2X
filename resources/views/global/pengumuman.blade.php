@@ -19,7 +19,7 @@
                 <a class="postcard__img_link" href="#" data-toggle="modal" data-target="#fotoModal{{ $pengumuman->id }}"
                     title="Foto Pengumuman">
                     <img class="postcard__img"
-                        src="{{ $pengumuman->foto_pengumuman ? asset('Foto Pengumuman/' . $pengumuman->foto_pengumuman) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
+                        src="{{ $pengumuman->foto_pengumuman ? asset('storage/' . $pengumuman->foto_pengumuman) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
                         alt="Foto Pengumuman{{ $pengumuman->id }}" data-id="{{ $pengumuman->id }}"
                         data-target="#fotoModal{{ $pengumuman->id }}" />
                 </a>
@@ -42,20 +42,19 @@
         </div>
     </div>
 
-    <!-- Modal untuk setiap UMKM -->
     @if (isset($pengumuman) && !empty($pengumuman))
         <div class="modal fade" id="fotoModal{{ $pengumuman->id }}" tabindex="-1" role="dialog"
             aria-labelledby="fotoModalLabel{{ $pengumuman->id }}" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header d-flex justify-content-between">
-                        <h5 class="modal-title" id="fotoModalLabel{{ $pengumuman->id }}">{{ $pengumuman->judul }}</h5>
+                        <h5 class="modal-title" id="fotoModalLabel{{ $pengumuman->id }}">Foto Pengumuman</h5>
                         <i class="bi bi-x-lg text-danger" data-dismiss="modal" aria-label="Close"
                             style="font-size: 1.5rem; cursor: pointer;"></i>
                     </div>
                     <div class="modal-body">
                         <img id="modalImg{{ $pengumuman->id }}"
-                            src="{{ $pengumuman->foto_pengumuman ? asset('Foto pengumuman/' . $pengumuman->foto_pengumuman) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
+                            src="{{ $pengumuman->foto_pengumuman ? asset('storage/' . $pengumuman->foto_pengumuman) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
                             class="img-fluid" alt="Foto pengumuman{{ $pengumuman->id }}"
                             style="min-width: 100%; max-height: auto;">
                     </div>
