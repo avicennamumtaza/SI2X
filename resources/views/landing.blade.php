@@ -68,17 +68,15 @@
         </div>
     </div>
 
-    @if ($pengumuman1 != null)
+    @if ($pengumuman2 != null)
         <div id="pengumuman" class="container container-pengumuman col-10">
             <h1 class="heading-center pt-5">Pengumuman Terbaru</h1>
             <div class="container">
                 <div class="row justify-content-center">
-                    {{-- <span> --}}
-                    {{-- <span> --}}
-                    <div class="card col-md-5 p-0 m-4 border-4 rounded">
+                    <div class="card col-md-5 p-0 m-4 rounded">
                         <img class="img-fluid rounded-bottom pengimg"
-                            src="{{ $pengumuman1['foto_pengumuman'] ? asset('Foto Pengumuman/' . $pengumuman1['foto_pengumuman']) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
-                            alt="Foto Pengumuman{{ $pengumuman1['foto_pengumuman'] }}">
+                        src="{{ $pengumuman1['foto_pengumuman'] ? asset('storage/' . $pengumuman1['foto_pengumuman']) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
+                        alt="Foto Pengumuman{{ $pengumuman1['foto_pengumuman'] }}">
                         <div class="card-body">
                             <h5 class="mt-3">{{ $pengumuman1['judul'] }}</h5>
                             <p class="">{{ $pengumuman1['deskripsi'] }}</p>
@@ -89,9 +87,9 @@
                             </p>
                         </div>
                     </div>
-                    <div class="card col-md-5 p-0 m-4 border-4 rounded">
+                    <div class="card col-md-5 p-0 m-4 rounded">
                         <img class="img-fluid rounded-bottom pengimg"
-                            src="{{ $pengumuman2['foto_pengumuman'] ? asset('Foto Pengumuman/' . $pengumuman2['foto_pengumuman']) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
+                        src="{{ $pengumuman2['foto_pengumuman'] ? asset('storage/' . $pengumuman2['foto_pengumuman']) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
                             alt="Foto Pengumuman{{ $pengumuman2['foto_pengumuman'] }}">
                         <div class="card-body">
                             <h5 class="mt-3">{{ $pengumuman2['judul'] }}</h5>
@@ -103,8 +101,6 @@
                             </p>
                         </div>
                     </div>
-                    {{-- </span> --}}
-                    {{-- </span> --}}
                 </div>
                 <a class="position-absolute start-50 translate-middle-x" href="{{ route('pengumuman.global') }}"
                     title="Pengumuman lainnya">Lainnya</a>
@@ -128,9 +124,9 @@
                         <div class='carousel__item-body'>
                             <p class='title'>{{ str_replace(['[', ']', '"'], '', $namaUsers[$index]) }}</p>
                             @if (str_replace(['[', ']', '"'], '', $titleUsers[$index]) == 'RW')
-                                <p>Ketua RW</p>
+                                <p>RW</p>
                             @elseif (str_replace(['[', ']', '"'], '', $titleUsers[$index]) == 'RT')
-                                <p>Ketua RT {{ str_replace(['[', ']', '"'], '', $rtUsers[$index]) }}</p>
+                                <p>RT {{ str_replace(['[', ']', '"'], '', $rtUsers[$index]) }}</p>
                             @endif
                         </div>
                     </div>
@@ -151,27 +147,27 @@
             </div>
         </div>
     </div>
-    <div id="layanan" class="container container-layanan col-10">
+    <div id="layanan" class="container container-layanan col-12 px-5">
         <h1 class="heading-center">Layanan</h1>
         <div class="row">
-            <div class="col-md-4 col-sm-6 px-0 py-1">
-                <a href="{{ route('pengumuman.global') }}" style="text-decoration: none">
+            <div class="col-md-3 col-sm-6 px-">
+                <a href="{{ route('pengumuman.global') }}" style="text-decoration: none;">
                     <div class="card" title="Daftar Pengumuman">
                         <i class="bi bi-megaphone card-icon"></i>
                         <span class="span-head">Pengumuman Terkini</span>
                     </div>
                 </a>
             </div>
-            <div class="col-md-4 col-sm-6 px-0 py-1">
-                <a href="{{ route('umkm.global') }}" style="text-decoration: none">
+            <div class="col-md-3 col-sm-6 px-">
+                <a href="{{ route('umkm.global') }}" style="text-decoration: none;">
                     <div class="card" title="Pengajuan UMKM">
                         <i class="bi bi-shop-window card-icon"></i>
                         <span class="span-head">Daftar<br>UMKM </span>
                     </div>
                 </a>
             </div>
-            <div class="col-md-4 col-sm-6 px-0 py-1">
-                <a href="{{ route('pengajuandokumen.global') }}" style="text-decoration: none">
+            <div class="col-md-3 col-sm-6 px-">
+                <a href="{{ route('pengajuandokumen.global') }}" style="text-decoration: none;">
                     <div class="card" title="Pengajuan Dokumen">
                         <i class="bi bi-file-earmark-pdf card-icon"></i>
                         <span class="span-head">Pengajuan Dokumen</span>
@@ -180,16 +176,16 @@
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-md-4 col-sm-6 px-0 py-1">
-                <a href="{{ route('laporankeuangan.global') }}" style="text-decoration: none">
+            <div class="col-md-3 col-sm-6 px-">
+                <a href="{{ route('laporankeuangan.global') }}" style="text-decoration: none;">
                     <div class="card" title="Laporan Keuangan">
                         <i class="bi bi-receipt-cutoff card-icon"></i>
                         <span class="span-head">Laporan Keuangan</span>
                     </div>
                 </a>
             </div>
-            <div class="col-md-4 col-sm-6 px-0 py-1">
-                <a href="{{ route('bansos.global') }}" style="text-decoration: none">
+            <div class="col-md-3 col-sm-6 px-">
+                <a href="{{ route('bansos.global') }}" style="text-decoration: none;">
                     <div class="card" title="Bantuan Sosial">
                         <i style="margin-block: 1.15rem;" class="lni lni-target-customer card-icon"></i>
                         <span class="span-head">Bantuan<br>Sosial</span>

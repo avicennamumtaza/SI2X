@@ -70,8 +70,6 @@ class UmkmController extends Controller
             Alert::error('Pengajuan UMKM sebelumnya belum diproses!', 'Silahkan tunggu UMKM yang anda ajukan sebelumnya diproses oleh Ketua RW atau hubungi Ketua RW melalui nomor ' . $rw->wa_rw);
             return redirect()->back();
         }
-
-        $path_foto = 'uploads/umkm/';
         $foto_umkm = $request->file('foto_umkm');
         $foto_umkm_ext = $foto_umkm->getClientOriginalExtension();;
         $foto_umkm_filename = $validated['nama_umkm'] . date('ymdhis') . "." . $foto_umkm_ext;

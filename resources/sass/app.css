@@ -643,8 +643,8 @@ body .container-pengumuman {
   text-align: center;
 }
 body .container-pengumuman .row .card {
-  background-color: #253560;
-  color: rgba(255, 255, 255, 0.8745098039);
+  background-color: #fff;
+  color: #152551;
   text-align: center;
 }
 body .container-pengumuman a {

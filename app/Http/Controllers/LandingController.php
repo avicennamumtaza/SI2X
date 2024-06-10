@@ -55,9 +55,8 @@ class LandingController extends Controller
         
 
         // Mengambil dua pengumuman terbaru
-        $pengumuman = Cache::remember('pengumuman_terbaru', 600, function () {
-            return Pengumuman::orderBy('created_at', 'desc')->take(2)->get();
-        });
+        $pengumuman = Pengumuman::orderBy('created_at', 'desc')->take(2)->get();
+        // });
 
         $pengumuman1 = null;
         $pengumuman2 = null;
