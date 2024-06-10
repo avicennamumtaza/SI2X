@@ -235,13 +235,14 @@ body .main-image {
   height: auto;
   /* Warna latar belakang jika gambar tidak tersedia */
   /* Warna latar belakang jika gambar tidak tersedia */
+  /* Warna latar belakang jika gambar tidak tersedia */
+  /* Warna latar belakang jika gambar tidak tersedia */
 }
-@media screen and (min-width: 1370px) {
+@media screen and (min-width: 1490px) {
   body .main-image {
     /* Mengubah posisi menjadi relatif untuk menempatkan di bawah container */
     top: 100px;
-    left: 350px;
-    opacity: 20%;
+    left: 200px;
     width: 50%;
     display: none;
     /* Mengisi lebar container penuh */
@@ -253,9 +254,54 @@ body .main-image {
     /* Mengubah posisi menjadi relatif untuk menempatkan di bawah container */
     top: 100px;
     left: 200px;
-    opacity: 20%;
     width: 50%;
     display: none;
+    /* Mengisi lebar container penuh */
+    /* Atur jarak antara gambar dan container */
+  }
+}
+@media screen and (min-width: 1480px) {
+  body .main-image {
+    position: absolute;
+    top: 150px;
+    left: 950px;
+    width: 27%;
+    height: auto;
+    /* Mengisi lebar container penuh */
+    /* Atur jarak antara gambar dan container */
+  }
+}
+@media screen and (max-width: 1360px) {
+  body .main-image {
+    /* Mengubah posisi menjadi relatif untuk menempatkan di bawah container */
+    position: absolute;
+    top: 130px;
+    left: 950px;
+    width: 27%;
+    height: auto;
+    /* Mengisi lebar container penuh */
+    /* Atur jarak antara gambar dan container */
+  }
+}
+@media screen and (min-width: 1350px) {
+  body .main-image {
+    position: absolute;
+    top: 150px;
+    left: 900px;
+    width: 25%;
+    height: auto;
+    /* Mengisi lebar container penuh */
+    /* Atur jarak antara gambar dan container */
+  }
+}
+@media screen and (max-width: 1200px) {
+  body .main-image {
+    /* Mengubah posisi menjadi relatif untuk menempatkan di bawah container */
+    position: absolute;
+    top: 130px;
+    left: 710px;
+    width: 32%;
+    height: auto;
     /* Mengisi lebar container penuh */
     /* Atur jarak antara gambar dan container */
   }
@@ -369,12 +415,12 @@ body .container-landing .custom-section a:hover {
   font-weight: 700;
   color: #253560;
 }
-@media screen and (min-width: 1370px) {
+@media screen and (min-width: 1490px) {
   body .container-landing .custom-section {
     justify-content: center;
-    margin: 0;
-    padding: 0;
     text-align: center;
+    margin-top: 50px;
+    padding: 0;
   }
   body .container-landing .custom-section p {
     width: 100%;
@@ -571,7 +617,7 @@ body .container-statsngal .card .card-icon {
   margin-bottom: 5px;
 }
 body .container-statsngal .card .span-head {
-  font-size: 125%;
+  font-size: 120%;
   font-weight: 600;
 }
 body .container-statsngal .card .span-count {
@@ -1177,7 +1223,8 @@ body .wrapper #sidebar:not(.expand) .sidebar-profile span {
 body .wrapper #sidebar:not(.expand) .sidebar-profile span .single-item-menu {
   margin-left: 0px;
 }
-body .wrapper #sidebar:not(.expand) button.sidebar-link, body .wrapper button.sidebar-profile {
+body .wrapper #sidebar:not(.expand) button.sidebar-link,
+body .wrapper button.sidebar-profile {
   padding-right: 12px;
 }
 body .wrapper #sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
@@ -1242,7 +1289,8 @@ body .profile-picture {
   height: 40px;
   -o-object-fit: cover;
      object-fit: cover;
-  flex-shrink: 0; /* Prevents the image from shrinking */
+  flex-shrink: 0;
+  /* Prevents the image from shrinking */
 }
 body .card-header-tabel {
   background-color: #253560;
