@@ -117,7 +117,7 @@ class PengumumanController extends Controller
 
         if ($request->hasFile('foto_pengumuman')) {
             $foto_pengumuman = $request->file('foto_pengumuman');
-            $foto_pengumuman_ext = $foto_pengumuman->getClientOriginalExtension();;
+            $foto_pengumuman_ext = $foto_pengumuman->getClientOriginalExtension();
             $foto_pengumuman_filename = $validated['judul'] . date('ymdhis') . "." . $foto_pengumuman_ext;
 
             // Hapus foto lama dari sistem penyimpanan
@@ -125,7 +125,7 @@ class PengumumanController extends Controller
                 File::delete(public_path('Foto Pengumuman') . '/' . $pengumuman->foto_pengumuman);
             }
             // Simpan foto baru ke sistem penyimpanan
-            $foto_pengumuman->move(public_path('Foto Pengumuman'), $foto_pengumuman_filename);
+            $foto_pengumuman->storeAs('foto_pengumuman', $foto_pengumuman_filename, 'public');
             $pengumuman->update(['foto_pengumuman' => $foto_pengumuman_filename]);
         }
 
