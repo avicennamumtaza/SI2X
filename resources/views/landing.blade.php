@@ -18,8 +18,8 @@
                 <a href="#layanan" id="selengkapnya-btn" title="Selengkapnya">Selengkapnya</a>
             </div>
         </div>
+        <img src="{{ asset('assets/landing-pict.png') }}" alt="background" class="main-image">
     </div>
-    <img src="{{ asset('assets/landing-pict.png') }}" alt="background" class="main-image">
     <div id="stats" class="container container-statsngal col-10 pt-5">
         <h1 class="heading-center pt-5 text-center">Statistik</h1>
         <div class="row justify-content-center">

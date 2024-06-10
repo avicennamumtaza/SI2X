@@ -14,24 +14,23 @@
                 <div class="modal-body justify-content-start text-start">
                     <div class="form-group mb-3">
                         <label for="nik_pemilik" class="form-label text-start">NIK Pemilik</label>
-                        <input type="text" readonly class="form-control" id="nik_pemilik" name="nik_pemilik" readonly>
+                        <input type="text" readonly class="form-control" id="nik_pemilik" name="nik_pemilik" style="background-color: #e0e0de" readonly>
                     </div>
                     <div class="form-group mb-3">
                         <label for="nama_pemilik" class="form-label text-start">Nama Pemilik</label>
-                        <input type="text" readonly class="form-control" id="nama_pemilik" name="nama_pemilik" readonly>
+                        <input type="text" readonly class="form-control" id="nama_pemilik" name="nama_pemilik" style="background-color: #e0e0de" readonly>
                     </div>
                     <div class="form-group mb-3">
                         <label for="alamat_pemilik" class="form-label text-start">Alamat Pemilik</label>
-                        <input type="text" readonly class="form-control" id="alamat_pemilik" name="alamat_pemilik"
-                            readonly>
+                        <input type="text" readonly class="form-control" id="alamat_pemilik" name="alamat_pemilik" style="background-color: #e0e0de" readonly>
                     </div>
                     <div class="form-group mb-3">
                         <label for="nama_umkm" class="form-label text-start">Nama UMKM</label>
-                        <input type="text" readonly class="form-control" id="nama_umkm" name="nama_umkm" readonly>
+                        <input type="text" readonly class="form-control" id="nama_umkm" name="nama_umkm" style="background-color: #e0e0de" readonly>
                     </div>
                     <div class="form-group mb-3">
                         <label for="wa_umkm" class="form-label text-start">Nomor WhatsApp</label>
-                        <input type="text" readonly class="form-control" id="wa_umkm" name="wa_umkm" readonly>
+                        <input type="text" readonly class="form-control" id="wa_umkm" name="wa_umkm" style="background-color: #e0e0de" readonly>
                     </div>
                     <div class="form-group mb-3">
                         <label for="foto_umkm" class="form-label text-start">Foto</label>
@@ -42,8 +41,7 @@
                     </div>
                     <div class="form-group mb-3">
                         <label for="deskripsi_umkm" class="form-label text-start">Deskripsi</label>
-                        <input type="text" readonly class="form-control" id="deskripsi_umkm" name="deskripsi_umkm"
-                            readonly>
+                        <input type="text" readonly class="form-control" id="deskripsi_umkm" name="deskripsi_umkm" style="background-color: #e0e0de" readonly>
                     </div>
                     <div class="form-group mb-3">
                         <label for="status_umkm" class="form-label text-start">Status Pengajuan</label>

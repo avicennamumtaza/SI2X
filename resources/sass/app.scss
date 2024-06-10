@@ -291,12 +291,11 @@ body {
         // background-color: transparent;
 
         /* Warna latar belakang jika gambar tidak tersedia */
-        @media screen and (min-width: 1370px) {
-            // position: relative;
+        @media screen and (min-width: 1490px) {
+            // position: absolute;
             /* Mengubah posisi menjadi relatif untuk menempatkan di bawah container */
             top: 100px;
-            left: 350px;
-            opacity: 20%;
+            left: 200px;
             width: 50%;
             display: none;
             /* Mengisi lebar container penuh */
@@ -310,7 +309,6 @@ body {
             /* Mengubah posisi menjadi relatif untuk menempatkan di bawah container */
             top: 100px;
             left: 200px;
-            opacity: 20%;
             width: 50%;
             display: none;
             /* Mengisi lebar container penuh */
@@ -318,6 +316,55 @@ body {
             /* Atur jarak antara gambar dan container */
         }
 
+        @media screen and (min-width: 1480px) {
+            position: absolute;
+            top: 150px;
+            left: 950px;
+            width: 27%;
+            height: auto;    
+            /* Mengisi lebar container penuh */
+            // padding-top: 90px;
+            /* Atur jarak antara gambar dan container */
+        }
+
+        /* Warna latar belakang jika gambar tidak tersedia */
+        @media screen and (max-width: 1360px) {
+            // position: relative;
+            /* Mengubah posisi menjadi relatif untuk menempatkan di bawah container */
+            position: absolute;
+            top: 130px;
+            left: 950px;
+            width: 27%;
+            height: auto;
+                /* Mengisi lebar container penuh */
+            // padding-top: 90px;
+            /* Atur jarak antara gambar dan container */
+        }
+
+        @media screen and (min-width: 1350px) {
+            position: absolute;
+            top: 150px;
+            left: 900px;
+            width: 25%;
+            height: auto;    
+            /* Mengisi lebar container penuh */
+            // padding-top: 90px;
+            /* Atur jarak antara gambar dan container */
+        }
+
+        /* Warna latar belakang jika gambar tidak tersedia */
+        @media screen and (max-width: 1200px) {
+            // position: relative;
+            /* Mengubah posisi menjadi relatif untuk menempatkan di bawah container */
+            position: absolute;
+            top: 130px;
+            left: 710px;
+            width: 32%;
+            height: auto;
+                /* Mengisi lebar container penuh */
+            // padding-top: 90px;
+            /* Atur jarak antara gambar dan container */
+        }
         // @media screen and (max-width:500px) {
         //     // position: relative;
         //     /* Mengubah posisi menjadi relatif untuk menempatkan di bawah container */
@@ -463,11 +510,11 @@ body {
                 @include tombol();
             }
 
-            @media screen and (min-width: 1370px) {
+            @media screen and (min-width: 1490px) {
                 justify-content: center;
-                margin: 0;
-                padding: 0;
                 text-align: center;
+                margin-top: 50px;
+                padding: 0;
 
                 p {
                     width: 100%;

@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="{{ asset('bootstrap-icons.min.css') }}">
 
     {{-- icons --}}
-    {{-- <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css"> --}} --}}
+    {{-- <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css"> --}}
 
 </head>
 
