@@ -137,12 +137,12 @@ class UmkmDataTable extends DataTable
             // Column::make('id_umkm')->title('ID')->width(1),
             Column::make('nama_pemilik')->title('Pemilik')->width(70),
             Column::make('nama_umkm')->title('Nama UMKM')->width(100),
-            Column::make('deskripsi_umkm')->title('Deskripsi')->width(400),
+            Column::make('deskripsi_umkm')->title('Deskripsi')->width(300),
             Column::make('status_umkm')->title('Status')->width(20),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
-                ->width(150)
+                ->width(230)
                 ->addClass('text-center')
                 ->title('Aksi'),
         ];
