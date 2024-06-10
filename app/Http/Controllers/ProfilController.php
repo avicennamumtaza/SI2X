@@ -70,24 +70,22 @@ class ProfilController extends Controller
             'username' => 'required|string|max:20',
             'foto_profil' => 'required|mimes:png,jpg,jpeg',
         ]);
-
+    
         $foto_profil = $request->file('foto_profil');
-
+        $foto_profil_ext = $foto_profil->getClientOriginalExtension();
+        $foto_profil_filename = $validated['username'] . date('ymdhis') . "." . $foto_profil_ext;
+    
         // Cek apakah ada file foto baru yang diunggah
         if ($foto_profil) {
             // Hapus foto profil yang saat ini tersimpan di server
             try {
-            $this->hapusFotoProfil($users);
-
-            // Menyimpan foto baru yang diunggah
-            $foto_profil_ext = $foto_profil->getClientOriginalExtension();
-            $foto_profil_filename = $validated['username'] . date('ymdhis') . "." . $foto_profil_ext;
-            $foto_profil->move(public_path('Foto Users'), $foto_profil_filename);
-
-            
+                $this->hapusFotoProfil($users);
+                $path_foto = 'Foto Profil';
+                $path = $foto_profil->storeAs($path_foto, $foto_profil_filename, 'public');
+    
                 // Update data pengguna dengan nama file foto baru
                 $users->update([
-                    'foto_profil' => $foto_profil_filename,
+                    'foto_profil' => $path, 
                 ]);
                 // Redirect kembali ke halaman profil dengan pesan sukses
                 return redirect()->back()->with('success', 'Foto profil berhasil diperbarui.');
@@ -96,12 +94,16 @@ class ProfilController extends Controller
             }
         }
     }
+    
+
 
     private function hapusFotoProfil($users)
     {
-        $foto_profil_path = public_path('Foto Users') . '/' . $users->foto_profil;
-        if (File::exists($foto_profil_path)) {
-            File::delete($foto_profil_path);
+        if ($users->foto_profil) {
+            $foto_profil_path = storage_path('app/public/' . $users->foto_profil);
+            if (File::exists($foto_profil_path)) {
+                File::delete($foto_profil_path);
+            }
         }
     }
 }
