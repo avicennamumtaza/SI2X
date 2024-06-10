@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ $pageTitle ?? config('app.name', 'SIRW') }}</title>
-    <link rel="icon" href="{{ asset('assets/Logo.png') ?? null; }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('assets/Logo.png') ?? null }}" type="image/x-icon">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">

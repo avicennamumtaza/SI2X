@@ -43,8 +43,14 @@
                             </div>
                             <div class="form-group mb-3">
                                 <label for="daya_listrik" class="form-label">Daya Listrik</label>
-                                <input class="form-control" id="daya_listrik" type="number" name="daya_listrik"
-                                    placeholder="Masukkan Daya Listrik" required>
+                                <select class="form-control" id="daya_listrik" name="daya_listrik" required>
+                                    <option value="" disabled selected>Masukkan Daya Listrik</option>
+                                    <option value="450">450 VA</option>
+                                    <option value="900">900 VA</option>
+                                    <option value="1300">1300 VA</option>
+                                    <option value="2200">2200 VA</option>
+                                    <option value="3500">3500 VA</option>
+                                </select>
                             </div>
                     </div>
                     <div class="modal-footer justify-content-end">
