@@ -278,10 +278,7 @@
                     $('#showPengumumanModal #judul').val(judul);
                     $('#showPengumumanModal #deskripsi').val(deskripsi);
                     $('#showPengumumanModal #tanggal_pengumuman').val(tanggal);
-                    // $('#showPengumumanModal #foto_pengumuman').val(foto);
 
-                    // Memperbarui src gambar pratinjau
-                    // let foto_pengumuman_path = "{{ asset('Foto Pengumuman/') }}/" + foto;
                     let foto_pengumuman_path = `{{ asset('storage/${foto}') }}`;
                     $('#show_foto_pengumuman_detail').attr('src', foto_pengumuman_path);
                 });
@@ -298,9 +295,7 @@
                     $('#editPengumumanModal #judul').val(judul);
                     $('#editPengumumanModal #deskripsi').val(deskripsi);
                     $('#editPengumumanModal #tanggal_pengumuman').val(tanggal);
-                    // $('#editPengumumanModal #foto_pengumuman').val(foto);
 
-                    // Menghapus gambar pratinjau jika tidak ada gambar baru yang dipilih
                     let foto_pengumuman_path = `{{ asset('storage/${foto}') }}`;
                     $('#edit_foto_pengumuman_preview').attr('src', foto_pengumuman_path);
 
