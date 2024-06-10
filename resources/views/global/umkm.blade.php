@@ -78,13 +78,12 @@
         </a>
 
         <h1 class="heading-center">UMKM</h1>
-        <p>Fitur UMKM pada SIRW memungkinkan para warga untuk dengan mudah mengakses dan menjelajahi daftar UMKM yang
-            beroperasi di lingkungan mereka. Melalui fitur ini, pengguna dapat mengetahui beragam usaha mikro, kecil, dan
-            menengah (UMKM) yang terdaftar dalam lingkungan RW ini.</p>
+        <p>Fitur UMKM memungkinkan siapapun dapat dengan mudah mengakses dan menjelajahi daftar UMKM yang
+            beroperasi di lingkungan RW 6. Melalui fitur ini juga penduduk dapat mendaftarkan UMKM miliknya supaya
+            dapat dipublish ke website SIRW sebagai salah satu bentuk branding atau promosi.</p>
         <div class="card-container">
             @foreach ($umkms as $umkm)
                 <div class="card">
-
                     <a class="umkm_img_link" href="#" data-toggle="modal" title="Foto UMKM"
                         data-target="#fotoModal{{ $umkm->id_umkm }}">
                         <img src="{{ $umkm->foto_umkm ? asset('storage/' . $umkm->foto_umkm) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
@@ -95,7 +94,6 @@
                         <h5 class="card-title text-start" title="Nama UMKM">{{ $umkm->nama_umkm }}</h5>
                         <p class="card-title text-start" style="font-size: 13px;" title="Alamat UMKM">Alamat
                             :&nbsp;{{ $umkm->alamat_umkm }}</p>
-                        {{-- <br> --}}
                         <hr class="main" style="height: 2px; background-color: black;">
                         <p class="card-text" title="Deskripsi UMKM">{{ $umkm->deskripsi_umkm }}</p>
                     </div>

@@ -9,13 +9,14 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ $pageTitle ?? config('app.name', 'SIRW') }}</title>
-    <link rel="icon" href="{{ asset('assets/Logo.png') ?? null; }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('assets/Logo.png') ?? null }}" type="image/x-icon">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
         rel="stylesheet">
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet">
 
     <!-- Scripts -->
     @vite('resources/js/app.js')
@@ -61,7 +62,7 @@
                             {{-- <li><a class="dropdown-item" href="{{ route('pengumuman.global') }}">Pengumuman</a></li>
                             <li><a class="dropdown-item" href="{{ route('umkm.global') }}">Daftar UMKM</a></li> --}}
                             <li><a class="dropdown-item" href="{{ route('pengajuandokumen.global') }}"
-                                    title="Pengajuan Surat">Pengajuan Surat</a></li>
+                                    title="Pengajuan Surat">Pengajuan Dokumen</a></li>
                             <li><a class="dropdown-item" href="{{ route('umkm.global') }}" title="Daftar UMKM">Daftar
                                     UMKM</a></li>
                             <li>

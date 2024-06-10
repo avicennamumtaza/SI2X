@@ -71,9 +71,9 @@
 
         <h1 class="heading-center">Pengajuan Dokumen</h1>
         <!-- <div class="container"> -->
-        <p>Fitur Pengajuan Dokumen dalam SIRW memberikan kemudahan bagi warga untuk mengajukan dokumen atau surat
-            yang diperlukan melalui platform website. Selama proses ini berlangsung, warga dapat memantau status pengajuan
-            mereka, sehingga memungkinkan sistem yang lebih transparan.</p>
+        <p>Fitur Pengajuan Dokumen memberikan kemudahan bagi penduduk untuk mengajukan dokumen atau surat yang mereka
+            perlukan hanya dengan mengakses dan mengisi formulir melalui website SIRW. Selama proses ini berlangsung, penduduk
+            juga dapat memantau status dokumen yang telah mereka ajukan di tabel riwayat pengajuan dokumen pada halaman ini.</p>
 
         <div class="card">
             <div class="card-header card-header-tabel p-4 mb-3">

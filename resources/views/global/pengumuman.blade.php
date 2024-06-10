@@ -7,9 +7,9 @@
 @section('content')
     <div class="container container-p col-10">
         <h1 class="heading-center">Pengumuman</h1>
-        <p>Fitur pengumuman dalam SIRW adalah sebuah sarana menfasilitasi penyebaran informasi kepada penduduk. Pengumuman
-            ini dapat berupa berbagai hal, mulai dari pengumuman kegiatan sosial, keamanan lingkungan, pemberitahuan acara,
-            hingga informasi urgent seperti perubahan kebijakan pemerintah.</p>
+        <p>Fitur Pengumuman merupakan sarana fasilitasi distribusi dan transparansi informasi oleh RW kepada penduduk. Pengumuman
+            ini bisa berupa informasi apapun, mulai dari undangan kegiatan, keamanan lingkungan, pemberitahuan acara,
+            hingga informasi darurat seperti peringatan potensi bencana.</p>
         @foreach ($pengumumans as $key => $pengumuman)
             @php
                 $colors = ['blue', 'green', 'red', 'yellow'];

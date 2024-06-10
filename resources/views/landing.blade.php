@@ -154,36 +154,46 @@
     <div id="layanan" class="container container-layanan col-10">
         <h1 class="heading-center">Layanan</h1>
         <div class="row">
-            <div class="col-md-3 col-sm-6">
+            <div class="col-md-4 col-sm-6 px-0 py-1">
                 <a href="{{ route('pengumuman.global') }}" style="text-decoration: none">
-                    <button class="card" title="Daftar Pengumuman">
+                    <div class="card" title="Daftar Pengumuman">
                         <i class="bi bi-megaphone card-icon"></i>
                         <span class="span-head">Pengumuman Terkini</span>
-                    </button>
+                    </div>
                 </a>
             </div>
-            <div class="col-md-3 col-sm-6">
+            <div class="col-md-4 col-sm-6 px-0 py-1">
                 <a href="{{ route('umkm.global') }}" style="text-decoration: none">
-                    <button class="card" title="Pengajuan UMKM">
+                    <div class="card" title="Pengajuan UMKM">
                         <i class="bi bi-shop-window card-icon"></i>
-                        <span class="span-head">Daftar <br> UMKM </span>
-                    </button>
+                        <span class="span-head">Daftar<br>UMKM </span>
+                    </div>
                 </a>
             </div>
-            <div class="col-md-3 col-sm-6">
+            <div class="col-md-4 col-sm-6 px-0 py-1">
                 <a href="{{ route('pengajuandokumen.global') }}" style="text-decoration: none">
-                    <button class="card" title="Pengajuan Dokumen">
+                    <div class="card" title="Pengajuan Dokumen">
                         <i class="bi bi-file-earmark-pdf card-icon"></i>
                         <span class="span-head">Pengajuan Dokumen</span>
-                    </button>
+                    </div>
                 </a>
             </div>
-            <div class="col-md-3 col-sm-6">
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-4 col-sm-6 px-0 py-1">
                 <a href="{{ route('laporankeuangan.global') }}" style="text-decoration: none">
-                    <button class="card" title="Laporan Keuangan">
+                    <div class="card" title="Laporan Keuangan">
                         <i class="bi bi-receipt-cutoff card-icon"></i>
                         <span class="span-head">Laporan Keuangan</span>
-                    </button>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 col-sm-6 px-0 py-1">
+                <a href="{{ route('bansos.global') }}" style="text-decoration: none">
+                    <div class="card" title="Bantuan Sosial">
+                        <i style="margin-block: 1.15rem;" class="lni lni-target-customer card-icon"></i>
+                        <span class="span-head">Bantuan<br>Sosial</span>
+                    </div>
                 </a>
             </div>
         </div>

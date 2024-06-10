@@ -11,7 +11,7 @@ class SetTitle
     {
         $routeName = Route::currentRouteName();
         $titles = [
-            'landing' => 'Home',
+            'landing' => 'Beranda',
             'home' => 'Dashboard',
             'umkm.global' => 'UMKM',
             'umkm.store' => 'Tambah UMKM',
