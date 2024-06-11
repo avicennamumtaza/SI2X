@@ -29,11 +29,11 @@
                                 placeholder="Masukkan Deskripsi pengumuman" required></textarea>
                         </div>
 
-                        <div class="form-group mb-3">
+                        {{-- <div class="form-group mb-3">
                             <label for="tanggal_pengumuman" class="form-label">Tanggal Pengumuman</label>
                             <input type="date" class="form-control" id="tanggal_pengumuman" name="tanggal_pengumuman"
                                 required>
-                        </div>
+                        </div> --}}
 
                         <div class="form-group mb-3">
                             <label for="foto_pengumuman" class="form-label">Foto Pengumuman</label>
@@ -118,11 +118,11 @@
                             <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3" required></textarea>
                         </div>
 
-                        <div class="form-group mb-3">
+                        {{-- <div class="form-group mb-3">
                             <label for="tanggal_pengumuman" class="form-label">Tanggal Pengumuman</label>
                             <input type="date" class="form-control" id="tanggal_pengumuman" name="tanggal_pengumuman"
                                 required>
-                        </div>
+                        </div> --}}
                         {{-- @if ($pengumumans->foto_pengumuman)
                             <div class="form-group mb-3">
                                 <img id="foto_pengumuman_preview" class="img-thumbnail" src="" width="300"
@@ -202,7 +202,7 @@
                                 lama yang akan dihapus. Sebagai contoh, anda perlu memasukkan angka 30 untuk menghapus semua
                                 pengumuman yang tanggalnya lebih dari 30 hari yang lalu, terhitung sejak hari ini.</label>
                             <input type="number" name="hari" id="hari" class="form-control my-3"
-                                placeholder="Masukkan jumlah hari" required>
+                                placeholder="Masukkan jumlah selisih hari" required>
                         </div>
                         <div class="modal-footer justify-content-center">
                             <button type="submit" class="btn btn-danger">Hapus Pengumuman</button>

@@ -17,17 +17,28 @@ class PengumumanController extends Controller
         $validated = $request->validate([
             'hari' => 'required|integer|min:1',
         ]);
-
         $hari = $validated['hari'];
         $batasTanggal = \Carbon\Carbon::now()->subDays($hari)->format('Y-m-d');
 
         try {
-            $pengumumanDihapus = Pengumuman::where('tanggal', '<', $batasTanggal)->delete();
+            $pengumumanLama = Pengumuman::where('tanggal', '<', $batasTanggal)->get();
 
+            $i = 0;
+            foreach ($pengumumanLama as $pengumuman) {
+                if ($pengumuman->foto_pengumuman) {
+                    $fotoPath = public_path('storage/' . $pengumuman->foto_pengumuman);
+                    if (File::exists($fotoPath)) {
+                        File::delete($fotoPath);
+                    }
+                }
+                $i++;
+            }
+
+            $pengumumanDihapus = Pengumuman::where('tanggal', '<', $batasTanggal)->delete();
             if ($pengumumanDihapus > 0) {
-                return redirect()->back()->with('success', 'Pengumuman lama berhasil dihapus!');
+                return redirect()->back()->with('success', $i . ' data pengumuman berhasil dihapus!');
             } else {
-                return redirect()->back()->with('info', 'Tidak ada pengumuman yang perlu dihapus.');
+                return redirect()->back()->with('info', 'Tidak ada pengumuman yang dapat dihapus.');
             }
         } catch (\Exception $e) {
             Alert::error('Oops!', $e->getMessage());
@@ -35,16 +46,13 @@ class PengumumanController extends Controller
         }
     }
 
+
     public function index()
     {
-        $pengumumans =
-            // Cache::remember('globalPengumuman' . request('page', 1), 600, function () {
-            // return
-            Pengumuman::orderBy('updated_at', 'desc')->paginate(5);
-        // });
+        $pengumumans = Cache::remember('globalPengumuman' . request('page', 1), 100, function () {
+            return Pengumuman::orderBy('updated_at', 'desc')->paginate(5);
+        });
         return view('global.pengumuman')->with('pengumumans', $pengumumans);
-        // $pengumumans = Pengumuman::all();
-        // return view('auth.rw.pengumuman', compact('pengumumans'));
     }
 
     public function list(PengumumanDataTable $dataTable)
@@ -52,35 +60,30 @@ class PengumumanController extends Controller
         return $dataTable->render('auth.rw.pengumuman');
     }
 
-    // public function create()
-    // {
-    //     return view('auth.rw.pengumuman.create');
-    // }
-
     public function store(Request $request)
     {
         $validated = $request->validate([
             'judul' => 'required|min:5|max:49',
             'deskripsi' => 'required',
-            'tanggal_pengumuman' => 'required|date',
             'foto_pengumuman' => 'nullable|mimes:png,jpg,jpeg',
         ]);
 
         try {
-            if (isset($validated['foto_pengumuman'])) {
+            if ($request->hasFile('foto_pengumuman')) {
                 $path_foto = 'Foto Pengumuman';
                 $foto_pengumuman = $request->file('foto_pengumuman');
                 $foto_pengumuman_ext = $foto_pengumuman->getClientOriginalExtension();
                 $foto_pengumuman_filename = $validated['judul'] . date('ymdhis') . "." . $foto_pengumuman_ext;
                 $path = $foto_pengumuman->storeAs($path_foto, $foto_pengumuman_filename, 'public');
-                // $pengumumanData['foto_pengumuman'] = $path;
             } else {
                 $path = "";
             }
+
+            $tanggalSekarang = \Carbon\Carbon::now();
             $pengumumanData = [
                 'judul' => $validated['judul'],
                 'deskripsi' => $validated['deskripsi'],
-                'tanggal' => $validated['tanggal_pengumuman'],
+                'tanggal' => $tanggalSekarang,
                 'foto_pengumuman' => $path,
             ];
 
@@ -92,30 +95,22 @@ class PengumumanController extends Controller
         }
     }
 
-    public function edit(Pengumuman $pengumuman)
-    {
-        // $pengumuman = Pengumuman::findOrFail($pengumuman->id_pengumuman);
-        return view('pengumuman.edit', compact('pengumuman'));
-    }
-
     public function update(Request $request, Pengumuman $pengumuman)
     {
         $validated = $request->validate([
             'judul' => 'required|min:5|max:49',
             'deskripsi' => 'required',
-            'tanggal_pengumuman' => 'required|date',
             'foto_pengumuman' => 'nullable|image|mimes:jpeg,jpg,png',
         ]);
 
         try {
-            // Update data tanpa foto
+            $tanggalSekarang = \Carbon\Carbon::now();
             $pengumuman->update([
                 'judul' => $validated['judul'],
                 'deskripsi' => $validated['deskripsi'],
-                'tanggal' => $validated['tanggal_pengumuman'],
+                'tanggal' => $tanggalSekarang,
             ]);
 
-            // Jika ada foto yang diupload
             if ($request->hasFile('foto_pengumuman')) {
                 $path_foto = 'Foto Pengumuman';
                 $foto_pengumuman = $request->file('foto_pengumuman');
@@ -126,8 +121,6 @@ class PengumumanController extends Controller
                     $old_photo_path = storage_path('app/public/' . $pengumuman->foto_pengumuman);
                     if (File::exists($old_photo_path)) {
                         File::delete($old_photo_path);
-                    } else {
-                        return Alert::warning('Old photo not found: ' . $old_photo_path);
                     }
                 }
 
@@ -144,10 +137,19 @@ class PengumumanController extends Controller
 
     public function destroy(Pengumuman $pengumuman)
     {
-        // Pengumuman::find($pengumuman->id_pengumuman)->delete();
-        File::delete(public_path('Foto Pengumuman') . '/' . $pengumuman->foto_pengumuman);
-        $pengumuman->delete();
-        return redirect()->back()
-            ->with('success', 'Pengumuman berhasil dihapus.');
+        try {
+            if ($pengumuman->foto_pengumuman) {
+                $old_photo_path = storage_path('app/public/' . $pengumuman->foto_pengumuman);
+                if (File::exists($old_photo_path)) {
+                    File::delete($old_photo_path);
+                }
+            }
+            $pengumuman->delete();
+            return redirect()->back()
+                ->with('success', 'Pengumuman berhasil dihapus.');
+        } catch (\Exception $e) {
+            Alert::error('Oops!', $e->getMessage());
+            return redirect()->back();
+        }
     }
 }
