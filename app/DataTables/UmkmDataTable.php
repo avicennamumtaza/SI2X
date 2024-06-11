@@ -62,7 +62,7 @@ class UmkmDataTable extends DataTable
                 data-foto_umkm="' . $row->foto_umkm . '"
                 data-deskripsi_umkm="' . $row->deskripsi_umkm . '"
                 data-status_umkm="' . $row->status_umkm . '"
-                data-bs-toggle="modal" data-bs-target="#showUmkmModal" class="show-user show btn btn-show btn-sm me-1">Tampil</button>';
+                data-bs-toggle="modal" data-bs-target="#showUmkmModal" class="show-user show btn btn-show btn-sm">Tampil</button>';
 
                 $action .= '
                 <button type="button"

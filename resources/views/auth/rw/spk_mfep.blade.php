@@ -130,5 +130,11 @@
                 </tbody>
             </table>
         </div>
+        <!-- Tombol kembali mfep -->
+        <div class="card-footer text-start">
+            <form action="{{ url()->previous() }}" method="get">
+                <button type="submit" class="btn btn-danger">Kembali</button>
+            </form>
+        </div>
     </div>
 @endsection

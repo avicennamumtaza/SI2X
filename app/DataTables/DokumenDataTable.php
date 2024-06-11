@@ -34,7 +34,7 @@ class DokumenDataTable extends DataTable
                 data-jenis_dokumen="' . $row->jenis_dokumen . '"
                 data-deskripsi="' . $row->deskripsi . '"
                 data-bs-toggle="modal" data-bs-target="#showDokumenModal"
-                class="show-user show btn btn-show btn-sm me-1">Tampil</button>';
+                class="show-user show btn btn-show btn-sm">Tampil</button>';
 
                 $action .='
                 <button type="button"

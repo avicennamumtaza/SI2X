@@ -37,7 +37,7 @@ class PengumumanDataTable extends DataTable
                 data-tanggal_pengumuman="' . $row->tanggal . '"
                 data-deskripsi="' . $row->deskripsi . '"
                 data-foto_pengumuman="' . $row->foto_pengumuman . '"
-                data-bs-toggle="modal" data-bs-target="#showPengumumanModal" class="show-user show btn btn-show btn-sm me-1">Tampil</button>';
+                data-bs-toggle="modal" data-bs-target="#showPengumumanModal" class="show-user show btn btn-show btn-sm">Tampil</button>';
 
                 $action .='
                 <button type="button"a
