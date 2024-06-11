@@ -49,7 +49,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{{ route('landing') }}"
-                            title="Beranda website">Beranda</a>
+                            title="Beranda">Beranda</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('pengumuman.global') }}" title="Pengumuman">Pengumuman</a>
