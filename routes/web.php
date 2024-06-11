@@ -64,7 +64,7 @@ Route::prefix('bansos')->group(function () {
     Route::post('/', [AlternatifController::class, 'store'])->name('bansos.store');
     Route::get('/rw', [AlternatifController::class, 'list'])->middleware('isRw')->name('bansos.manage');
     Route::get('/kriteria', [KriteriaController::class, 'index'])->name('kriteria.manage');
-    Route::put('/update/{kriteria}', [KriteriaController::class, 'update'])->name('kriteria.update')->middleware('isRw');
+    Route::put('/update/{kriteria}', [KriteriaController::class, 'updatee'])->name('kriteria.update')->middleware('isRw');
     Route::delete('/{alternatif}', [AlternatifController::class, 'destroy'])->name('bansos.destroy')->middleware('isRw');
 });
 

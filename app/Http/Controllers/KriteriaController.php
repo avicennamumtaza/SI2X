@@ -18,4 +18,13 @@ class KriteriaController extends Controller
     {
         // Logic for the update method
     }
+
+    public function updatee(Request $request, $id_ktr)
+    {
+        $kriteria = Kriteria::findOrFail($id_ktr);
+        $kriteria->bobot_ktr = $request->input('bobot_ktr');
+        $kriteria->save();
+
+        return redirect()->route('kriteria.manage')->with('success', 'Bobot kriteria berhasil diperbarui.');
+    }
 }
