@@ -35,7 +35,7 @@ class UsersDataTable extends DataTable
                 data-username="' . $row->username . '"
                 data-role="' . $row->role . '"
                 data-bs-toggle="modal"
-                data-bs-target="#showUsersModal" class="show-user show btn btn-show btn-sm me-1">Tampil</button>';
+                data-bs-target="#showUsersModal" class="show-user show btn btn-show btn-sm">Tampil</button>';
 
                 $action .='
                 <button type="button"
