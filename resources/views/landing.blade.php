@@ -149,47 +149,47 @@
     </div>
     <div id="layanan" class="container container-layanan col-12 px-5">
         <h1 class="heading-center">Layanan</h1>
-        <div class="row">
+        <div class="row pe-4">
             <div class="col-md-3 col-sm-6 px-">
-                <a href="{{ route('pengumuman.global') }}" style="text-decoration: none;">
-                    <div class="card" title="Daftar Pengumuman">
+                <a class="card" href="{{ route('pengumuman.global') }}" style="text-decoration: none;">
+                    {{-- <div class="card" title="Daftar Pengumuman"> --}}
                         <i class="bi bi-megaphone card-icon"></i>
                         <span class="span-head">Pengumuman Terkini</span>
-                    </div>
+                    {{-- </div> --}}
                 </a>
             </div>
             <div class="col-md-3 col-sm-6 px-">
-                <a href="{{ route('umkm.global') }}" style="text-decoration: none;">
-                    <div class="card" title="Pengajuan UMKM">
+                <a class="card" href="{{ route('umkm.global') }}" style="text-decoration: none;">
+                    {{-- <div class="card" title="Pengajuan UMKM"> --}}
                         <i class="bi bi-shop-window card-icon"></i>
                         <span class="span-head">Daftar<br>UMKM </span>
-                    </div>
+                    {{-- </div> --}}
                 </a>
             </div>
             <div class="col-md-3 col-sm-6 px-">
-                <a href="{{ route('pengajuandokumen.global') }}" style="text-decoration: none;">
-                    <div class="card" title="Pengajuan Dokumen">
+                <a class="card" href="{{ route('pengajuandokumen.global') }}" style="text-decoration: none;">
+                    {{-- <div class="card" title="Pengajuan Dokumen"> --}}
                         <i class="bi bi-file-earmark-pdf card-icon"></i>
                         <span class="span-head">Pengajuan Dokumen</span>
-                    </div>
+                    {{-- </div> --}}
                 </a>
             </div>
         </div>
-        <div class="row justify-content-center">
+        <div class="row pe-4 justify-content-center">
             <div class="col-md-3 col-sm-6 px-">
-                <a href="{{ route('laporankeuangan.global') }}" style="text-decoration: none;">
-                    <div class="card" title="Laporan Keuangan">
+                <a class="card" href="{{ route('laporankeuangan.global') }}" style="text-decoration: none;">
+                    {{-- <div class="card" title="Laporan Keuangan"> --}}
                         <i class="bi bi-receipt-cutoff card-icon"></i>
                         <span class="span-head">Laporan Keuangan</span>
-                    </div>
+                    {{-- </div> --}}
                 </a>
             </div>
             <div class="col-md-3 col-sm-6 px-">
-                <a href="{{ route('bansos.global') }}" style="text-decoration: none;">
-                    <div class="card" title="Bantuan Sosial">
+                <a class="card" href="{{ route('bansos.global') }}" style="text-decoration: none;">
+                    {{-- <div class="card" title="Bantuan Sosial"> --}}
                         <i style="margin-block: 1.15rem;" class="lni lni-target-customer card-icon"></i>
                         <span class="span-head">Bantuan<br>Sosial</span>
-                    </div>
+                    {{-- </div> --}}
                 </a>
             </div>
         </div>

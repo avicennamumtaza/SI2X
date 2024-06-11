@@ -44,7 +44,7 @@ $fourthCol: #4461AE;
     &:hover {
         background-color: #ffffff;
         border: 1px solid black;
-        font-weight: 700;
+        font-weight: 600;
         color: $primaryCol;
     }
 }
@@ -333,8 +333,8 @@ body {
             // position: relative;
             /* Mengubah posisi menjadi relatif untuk menempatkan di bawah container */
             position: absolute;
-            top: 130px;
-            left: 950px;
+            top: 150px;
+            left: 789px;
             width: 27%;
             height: auto;
             /* Mengisi lebar container penuh */
@@ -974,8 +974,7 @@ body {
             // padding: 13px;
             // padding-inline: 20px;  
             border-radius: 25px;
-            border-style: double;
-            border-color: #ffffff;
+            border: 1px solid $tertiaryCol;
             background-color: $secondaryCol;
             cursor: pointer;
 

@@ -77,15 +77,9 @@
         </a>
 
         <h1 class="heading-center">Bantuan Sosial</h1>
-        <p class="pt-5">Bantuan Sosial adalah program yang <strong>ditujukan untuk membantu penduduk yang membutuhkan.</strong> Penduduk
-            dapat mengajukan
-            bantuan sosial dengan mengisi formulir pengajuan yang tersedia, klik tombol pojok kanan bawah untuk mengakses
-            formulir. Program Bantuan Sosial ini didasarkan pada
-            beberapa dasar hukum seperti Undang-Undang Nomor 11 Tahun 2009 tentang Kesejahteraan Sosial, Peraturan
-            Pemerintah Nomor 39 Tahun 2012 tentang Penyelenggaraan Kesejahteraan Sosial, Peraturan Menteri Sosial Nomor 28
-            Tahun 2017 tentang Pedoman Umum Verifikasi dan Validasi Data Terpadu
-            Penanganan Fakir Miskin dan Orang Tidak Mampu.
+        <p class="">Fitur Bantuan Sosial adalah program pemberian bantuan yang <strong>ditujukan kepada keluarga yang benar-benar membutuhkan.</strong> Apabila ada keluarga
+            yang merasa membutuhkannya, dapat dengan mudah mengajukan melalui formulir yang tersedia, klik tombol pojok kanan bawah untuk mengakses
+            formulir. Fitur ini dilengkapi sistem pendukung keputusan untuk mempermudah kalkulasi pemeringkatan calon penerima bantuan sosial.
         </p>
-    </div>
     </div>
 @endsection
