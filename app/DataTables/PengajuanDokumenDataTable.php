@@ -227,7 +227,7 @@ class PengajuanDokumenDataTable extends DataTable
                 Column::computed('action')
                     ->exportable(false)
                     ->printable(false)
-                    ->width(160)
+                    ->width(250)
                     ->addClass('text-center')
                     ->title('Aksi'),
             ];

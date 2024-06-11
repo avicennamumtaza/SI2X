@@ -20,8 +20,8 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="deskripsi">Deskripsi Dokumen</label>
-                            <input type="text" class="form-control" id="deskripsi" name="deskripsi"
-                                placeholder="Masukkan Deskripsi Dokumen" required>
+                            <textarea type="text" class="form-control" id="deskripsi" name="deskripsi" rows="3"
+                                placeholder="Masukkan Deskripsi Dokumen" required></textarea>
                         </div>
                         <div class="modal-footer justify-content-end">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
@@ -50,7 +50,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="deskripsi" class="form-label text-start">Deskripsi Dokumen</label>
-                            <input type="text" class="form-control" id="deskripsi" name="deskripsi" readonly>
+                            <textarea type="text" class="form-control" id="deskripsi" rows="3" name="deskripsi" readonly></textarea>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
@@ -81,7 +81,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="deskripsi" class="form-label text-start">Deskripsi Dokumen</label>
-                            <input type="text" class="form-control" id="deskripsi" name="deskripsi" required>
+                            <textarea type="text" class="form-control" rows="3" id="deskripsi" name="deskripsi" required></textarea>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal"

@@ -74,7 +74,7 @@
                 <div class="modal-body justify-content-start text-start">
                         <div class="form-group mb-3">
                             <label for="nik" class="form-label text-start">NIK</label>
-                            <input type="text" class="form-control" id="nik" name="nik" readonly style="background-color: #e0e0de" readonly>
+                            <input type="text" class="form-control" id="nik" name="nik" readonly>
                         </div>
                         <div class="form-group mb-3">
                             <label for="username" class="form-label text-start">Username</label>
@@ -82,7 +82,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="role" class="form-label text-start">Peran</label>
-                            <select class="form-select" id="role" name="role" disabled>
+                            <select class="form-select" id="role" name="role" disabled style="background-color: #e0e0de">
                                 <option value="" selected disabled>Pilih Peran</option>
                                 <option value="RT">RT</option>
                                 <option value="RW">RW</option>

@@ -315,11 +315,12 @@ class AlternatifController extends Controller
             $row++;
         }
 
-        $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
+        $writer = new Xlsx($spreadsheet);
         $filename = 'Data Calon Penerima Bansos (MAUT).xlsx';
-        $writer->save($filename);
+        $temp_file = tempnam(sys_get_temp_dir(), $filename);
+        $writer->save($temp_file);
 
-        return response()->download($filename)->deleteFileAfterSend(true);
+        return response()->download($temp_file, $filename)->deleteFileAfterSend(true);
     }
 
     public function exportB () {
@@ -358,10 +359,11 @@ class AlternatifController extends Controller
             $row++;
         }
 
-        $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
+        $writer = new Xlsx($spreadsheet);
         $filename = 'Data Calon Penerima Bansos (MFEP).xlsx';
-        $writer->save($filename);
+        $temp_file = tempnam(sys_get_temp_dir(), $filename);
+        $writer->save($temp_file);
 
-        return response()->download($filename)->deleteFileAfterSend(true);
+        return response()->download($temp_file, $filename)->deleteFileAfterSend(true);
     }
 }

@@ -14,7 +14,7 @@
             <div class="modal-body justify-content-start text-start">
                     <div class="form-group mb-3">
                         <label for="id_pengajuandokumen" class="form-label text-start">ID</label>
-                        <input type="text" readonly disabled class="form-control" id="id_pengajuandokumen"
+                        <input type="text" readonly class="form-control" id="id_pengajuandokumen"
                             name="id_pengajuandokumen" readonly>
                     </div>
                     {{-- <div class="form-group mb-3">
@@ -24,40 +24,40 @@
                     </div> --}}
                     <div class="form-group mb-3">
                         <label for="no_rt" class="form-label text-start">Nomor RT</label>
-                        <input type="text" readonly disabled class="form-control" id="no_rt" name="no_rt"
+                        <input type="text" readonly class="form-control" id="no_rt" name="no_rt"
                             readonly>
                     </div>
                     <div class="form-group mb-3">
                         <label for="nik_pemohon" class="form-label text-start">NIK Pengaju</label>
-                        <input type="text" readonly disabled class="form-control" id="nik_pemohon" name="nik_pemohon">
+                        <input type="text" readonly class="form-control" id="nik_pemohon" name="nik_pemohon">
                     </div>
                     <div class="form-group mb-3">
                         <label for="nama_asli_pengaju" class="form-label text-start">Nama Pengaju</label>
-                        <input type="text" readonly disabled class="form-control" id="nama_asli_pengaju"
+                        <input type="text" readonly class="form-control" id="nama_asli_pengaju"
                             name="nama_asli_pengaju" readonly>
                     </div>
                     <div class="form-group mb-3">
                         <label for="pekerjaan_pengaju" class="form-label text-start">Pekerjaan Pengaju</label>
-                        <input type="text" readonly disabled class="form-control" id="pekerjaan_pengaju"
+                        <input type="text" readonly class="form-control" id="pekerjaan_pengaju"
                             name="pekerjaan_pengaju">
                     </div>
                     <div class="form-group mb-3">
                         <label for="usia_pengaju" class="form-label text-start">Usia Pengaju</label>
-                        <input type="text" readonly disabled class="form-control" id="usia_pengaju"
+                        <input type="text" readonly class="form-control" id="usia_pengaju"
                             name="usia_pengaju">
                     </div>
                     <div class="form-group mb-3">
                         <label for="id_dokumen" class="form-label text-start">ID Dokumen</label>
-                        <input type="text" readonly disabled class="form-control" id="id_dokumen" name="id_dokumen">
+                        <input type="text" readonly class="form-control" id="id_dokumen" name="id_dokumen">
                     </div>
                     <div class="form-group mb-3">
                         <label for="jenis_dokumen" class="form-label text-start">Jenis Dokumen</label>
-                        <input type="text" readonly disabled class="form-control" id="jenis_dokumen"
+                        <input type="text" readonly class="form-control" id="jenis_dokumen"
                             name="jenis_dokumen">
                     </div>
                     <div class="form-group mb-3">
                         <label for="status_pengajuan" class="form-label text-start">Status Pengajuan</label>
-                        <select class="form-select" id="status_pengajuan" name="status_pengajuan">
+                        <select class="form-select" id="status_pengajuan" name="status_pengajuan" disabled style="background-color: #ffffff">
                             <option value="" selected disabled>Pilih Status Pengajuan</option>
                             <option value="Baru">Baru</option>
                             <option value="Disetujui">Setuju</option>
@@ -67,13 +67,13 @@
 
                     <div class="form-group mb-3">
                         <label for="keperluan" class="form-label text-start">Keperluan</label>
-                        <input type="text" readonly disabled class="form-control" id="keperluan" name="keperluan"
-                            readonly>
+                        <textarea type="text" readonly class="form-control" rows="2" id="keperluan" name="keperluan"
+                            readonly></textarea>
                     </div>
 
                     <div class="form-group mb-3">
                         <label for="catatan" class="form-label text-start">Catatan</label>
-                        <input type="text" class="form-control" id="catatan" name="catatan" readonly>
+                        <textarea type="text" class="form-control" rows="3" id="catatan" name="catatan" readonly></textarea>
                     </div>
 
                     <div class="modal-footer justify-content-end">
@@ -155,13 +155,13 @@
 
                         <div class="form-group mb-3">
                             <label for="keperluan" class="form-label text-start">Keperluan</label>
-                            <input type="text" readonly disabled class="form-control" id="keperluan" name="keperluan"
-                                required>
+                            <textarea type="text" readonly disabled class="form-control" rows="2" id="keperluan" name="keperluan"
+                                required></textarea>
                         </div>
 
                         <div class="form-group mb-3">
                             <label for="catatan" class="form-label text-start">Catatan</label>
-                            <input type="text" class="form-control" id="catatan" name="catatan" required>
+                            <textarea type="text" class="form-control" rows="3" id="catatan" name="catatan" required></textarea>
                         </div>
 
                         <div class="modal-footer justify-content-end">
