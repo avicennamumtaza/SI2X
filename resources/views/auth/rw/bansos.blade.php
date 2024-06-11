@@ -41,6 +41,7 @@
                         Data</button>
                     <button class="btn btn-add" data-bs-toggle="modal" data-bs-target="#importPenduduk">Impor
                         Data</button> --}}
+                    <a href="{{ route('kriteria.manage') }}"><button class="btn btn-edit">Kriteria</button></a>
                     <a href="{{ route('maut.result') }}"><button class="btn btn-add">Metode MAUT</button></a>
                     <a href="{{ route('mfep.result') }}"><button class="btn btn-add">Metode MFEP</button></a>
                 </span>

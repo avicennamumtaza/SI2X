@@ -18,33 +18,33 @@
                             @csrf
                             <div class="form-group mb-3">
                                 <label for="nkk" class="form-label">Nomor Kartu Keluarga</label>
-                                <input class="form-control" id="nkk" name="nkk" placeholder="Masukkan NKK anda"
+                                <input class="form-control" id="nkk" name="nkk" placeholder="Masukkan NKK calon penerima"
                                     required>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="penghasilan" class="form-label">Penghasilan Keluarga per Bulan</label>
                                 <input class="form-control" id="penghasilan" type="number" name="penghasilan"
-                                    placeholder="Masukkan Penghasilan anda" required>
+                                    placeholder="Masukkan total penghasilan keluarga" required>
                             </div>
                             <div class="form-group mb-3">
-                                <label for="tanggungan" class="form-label">Jumlah Tanggungan</label>
+                                <label for="tanggungan" class="form-label">Jumlah Tanggungan (Orang)</label>
                                 <input class="form-control" id="tanggungan" name="tanggungan"
-                                    placeholder="Masukkan Jumlah Tanggungan" type="number" required>
+                                    placeholder="Masukkan jumlah orang yang ditanggung" type="number" required>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="pajak_bumibangunan" class="form-label">Pajak Bumi dan Bangunan</label>
                                 <input class="form-control" id="pajak_bumibangunan" type="number" name="pajak_bumibangunan"
-                                    placeholder="Masukkan PBB" required>
+                                    placeholder="Masukkan total PBB dari semua tanah/bangunan" required>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="pajak_kendaraan" class="form-label">Pajak Kendaraan</label>
                                 <input class="form-control" id="pajak_kendaraan" type="number" name="pajak_kendaraan"
-                                    placeholder="Masukkan Pajak Kendaraan" required>
+                                    placeholder="Masukkan total pajak dari semua kendaraan" required>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="daya_listrik" class="form-label">Daya Listrik</label>
-                                <select class="form-control" id="daya_listrik" name="daya_listrik" required>
-                                    <option value="" disabled selected>Masukkan Daya Listrik</option>
+                                <select class="form-select" id="daya_listrik" name="daya_listrik" required>
+                                    <option value="" disabled selected>Masukkan daya listrik</option>
                                     <option value="450">450 VA</option>
                                     <option value="900">900 VA</option>
                                     <option value="1300">1300 VA</option>
@@ -77,7 +77,7 @@
         </a>
 
         <h1 class="heading-center">Bantuan Sosial</h1>
-        <p class="">Fitur Bantuan Sosial adalah program pemberian bantuan yang <strong>ditujukan kepada keluarga yang benar-benar membutuhkan.</strong> Apabila ada keluarga
+        <p class="">Fitur Bantuan Sosial adalah program pemberian bantuan yang <strong>ditujukan kepada keluarga yang membutuhkan.</strong> Apabila ada keluarga
             yang merasa membutuhkannya, dapat dengan mudah mengajukan melalui formulir yang tersedia, klik tombol pojok kanan bawah untuk mengakses
             formulir. Fitur ini dilengkapi sistem pendukung keputusan untuk mempermudah kalkulasi pemeringkatan calon penerima bantuan sosial.
         </p>

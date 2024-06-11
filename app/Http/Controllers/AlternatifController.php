@@ -120,7 +120,6 @@ class AlternatifController extends Controller
         }
 
         $alternatifs = Alternatif::all()->toArray();
-        // Menghapus kolom 'nkk' dari setiap item dalam array
         // foreach ($alternatifs as &$alternatif) {
         //     unset($alternatif['nkk']);
         // }
@@ -132,7 +131,6 @@ class AlternatifController extends Controller
         $allValues['pajak_kendaraan'] = Alternatif::all()->pluck('pajak_kendaraan')->toArray();
         $allValues['daya_listrik'] = Alternatif::all()->pluck('daya_listrik')->toArray();
         // dd($alternatifs);
-        // Normalisasi setiap atribut
         foreach ($alternatifs as $index => $alternatif) {
             foreach ($alternatif as $key => $value) {
                 if (isset($allValues[$key])) {

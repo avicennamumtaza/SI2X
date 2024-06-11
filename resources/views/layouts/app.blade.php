@@ -26,7 +26,12 @@
 
 </head>
 
-<body>
+<body 
+{{-- onload="stopLoad();" --}}
+>
+    <div class="loading">
+        <div class="lds-dual-ring" bis_skin_checked="1"></div>
+    </div>
     <div class="container-fluid-nav">
         <nav class="navbar fixed-top my-3 mx-5 custom-nav navbar-expand-lg">
             <a class="navbar-brand" href="{{ route('landing') }}">
@@ -86,6 +91,13 @@
         </div>
     </main>
 
+    {{-- <script>
+        let target = document.querySelector(".loading")
+        function stopLoad() {
+            target.style.display = "none";
+        }
+    </script> --}}
+
     {{-- Sweet Alert --}}
     @include('sweetalert::alert')
 
@@ -98,17 +110,18 @@
                 <div class="tentang col-lg-6 col-md-12 mb-4 mb-md-0">
                     <h5 class="text-uppercase">Tentang SIRW</h5>
                     <p>
-                        SIRW merupakan singkatan dari Sistem Informasi RW. Pengembangan Website SIRW ini bertujuan untuk
+                        SIRW, singkatan dari Sistem Informasi Rukun Warga. Pengembangan Website SIRW ini bertujuan untuk
                         mempermudah pengelolaan data penduduk dan memaksimalkan pelayanan warga di lingkungan RW.
                     </p>
                 </div>
                 <!--Grid column-->
                 <div class="kontak col-lg-6 col-md-12 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Kontak Kami</h5>
+                    <h5 class="text-uppercase">Alamat & Kontak</h5>
                     <p>
-                        Jalan Jodipan Wetan Gang 3, RW 06, Kelurahan Jodipan, Kecamatan Blimbing, Kota Malang.
+                        Rukun Warga 6, Kelurahan Jodipan, Kecamatan Blimbing, Kota Malang.
                         Kode Pos 65137.
                     </p>
+                    <hr>
                     @php
                         $rw = \App\Models\Rw::first();
                     @endphp
@@ -127,7 +140,7 @@
         </div>
         <!-- Copyright -->
         <div class="f2 text-center p-3">
-            © 2024 Copyright : RW 06 Jodipan
+            © 2024 Copyright : RW 6 Jodipan
         </div>
         <!-- Copyright -->
     </footer>
