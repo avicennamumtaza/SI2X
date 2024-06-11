@@ -185,7 +185,7 @@
                             <?php
                             $users = Auth()->user();
                             ?>
-                            <img src="{{ asset($users->foto_profil ? 'Foto Users/' . $users->foto_profil : 'Foto Users/default.jpg') }}"
+                            <img src="{{ asset($users->foto_profil ? 'storage/' . $users->foto_profil : 'Foto Users/default.jpg') }}"
                                 alt="Foto Profil" class="profile-picture rounded-circle me-3"
                                 style="width: 40px; height: 40px; object-fit: cover;">
                             <div>
@@ -211,7 +211,8 @@
                     </form>
                     <a href="#" class="sidebar-link"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                        title="Keluar">
+                        title="Keluar"
+                        style="padding-left: 20px">
                         <i class="lni lni-exit"></i>
                         <span>Keluar</span>
                     </a>

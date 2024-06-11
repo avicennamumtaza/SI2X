@@ -18,20 +18,20 @@ class DataPendudukChart
 
     public function build(): \ArielMejiaDev\LarapexCharts\PieChart
     {
-        $jumlahAnakAnak = Cache::remember('jumlahAnakAnak', 600, function () {
+        $jumlahAnakAnak = Cache::remember('jumlahAnakAnak', 100, function () {
             $date = Carbon::now()->subYears(15)->format('Y-m-d');
-            $penduduk = Penduduk::where('tanggal_lahir', '>', $date)->select(['nik', 'nama', 'tempat_lahir', 'tanggal_lahir'])->paginate(25);
+            $penduduk = Penduduk::where('tanggal_lahir', '>', $date)->select(['nik', 'nama', 'tempat_lahir', 'tanggal_lahir']);
             return $penduduk->count();
         });
 
-        $jumlahUsiaProduktif = Cache::remember('jumlahUsiaProduktif', 600, function () {
+        $jumlahUsiaProduktif = Cache::remember('jumlahUsiaProduktif', 100, function () {
             $dateMin = Carbon::now()->subYears(65)->format('Y-m-d');
             $dateMax = Carbon::now()->subYears(15)->format('Y-m-d');
             $penduduk = Penduduk::whereBetween('tanggal_lahir', [$dateMin, $dateMax]);
             return $penduduk->count();
         });
 
-        $jumlahLansia = Cache::remember('jumlahLansia', 600, function () {
+        $jumlahLansia = Cache::remember('jumlahLansia', 100, function () {
             $date = Carbon::now()->subYears(65)->format('Y-m-d');
             return Penduduk::where('tanggal_lahir', '<=', $date)->count();
         });

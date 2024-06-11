@@ -19,13 +19,13 @@ class LaporanKeuanganController extends Controller
     public function index()
     {
         $laporankeuangans = 
-        // Cache::remember('globalLaporanKeuangan' . request('page', 1), 600, function() {
+        // Cache::remember('globalLaporanKeuangan' . request('page', 1), 100, function() {
             // return 
             LaporanKeuangan::orderBy('updated_at', 'desc')->paginate(10);
         // });
         
         // });
-        $saldo = Cache::remember('globalSaldo', 600, function () {
+        $saldo = Cache::remember('globalSaldo', 100, function () {
             return LaporanKeuangan::latest('updated_at')->value('saldo');
         });
 

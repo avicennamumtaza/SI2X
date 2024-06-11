@@ -28,13 +28,13 @@
                         ?>
                         <div class="row">
                             <div class="col mb-0">
-                                <h3>Halo, <span>{{ $users->username }}</span></h3>
+                                <h3>Selamat Datang, <span>{{ $users->username }}</span></h3>
                             </div>
                             <div class="row">
-                                <span class="col-10 pe-0">
+                                <span class="col-lg-10 col-md-10 col-sm-10 pe-0">
                                     <hr>
                                 </span>
-                                <span class="col-2 pe-0">
+                                <span class="col-lg-2 col-md-2 col-sm-2 pe-0">
                                     {{-- <div class="col-auto ml-auto"> --}}
                                     <p id="current-date" class="mt-1 text-align-end" style="font-size: .9rem;">
                                         {{ $date }}
@@ -43,7 +43,7 @@
                                 </span>
                             </div>
                         </div>
-                        <p style="font-size: 12 px;">Selamat Datang di dashboard RT</p>
+                        <p style="font-size: 12 px;">Senang melihat Anda kembali. Semoga Anda memiliki hari yang produktif dan menyenangkan!</p>
                         {{-- <hr class="hrmain mt-4 mb-1" style="height: 2px;"> --}}
                     </div>
                 </div>
@@ -282,13 +282,13 @@
                         ?>
                         <div class="row">
                             <div class="col mb-0">
-                                <h3>Halo, <span>{{ $users->username }}</span></h3>
+                                <h3>Selamat Datang, <span>{{ $users->username }}</span></h3>
                             </div>
                             <div class="row">
-                                <span class="col-10 pe-0">
+                                <span class="col-lg-10 col-md-10 col-sm-10 pe-0">
                                     <hr>
                                 </span>
-                                <span class="col-2 pe-0">
+                                <span class="col-lg-2 col-md-2 col-sm-2 pe-0">
                                     {{-- <div class="col-auto ml-auto"> --}}
                                     <p id="current-date" class="mt-1 text-align-end" style="font-size: .9rem;">
                                         {{ $date }}
@@ -297,7 +297,7 @@
                                 </span>
                             </div>
                         </div>
-                        <p style="font-size: 12 px;">Selamat Datang di dashboard RW</p>
+                        <p style="font-size: 12 px;">Senang melihat Anda kembali. Semoga Anda memiliki hari yang produktif dan menyenangkan!</p>
                         {{-- <hr class="hrmain mt-4 mb-1" style="height: 2px;"> --}}
                     </div>
                 </div>
@@ -314,7 +314,7 @@
                                                 <h2 class="h3 mb-0 me-3">{{ $jumlahLaporanKeuangan }}</h2>
                                             </div>
                                             <div>
-                                                <h5 style="margin-bottom: 0px; font-size: .9rem;">Laporan <br>Keuangan</h5>
+                                                <h5 style="margin-bottom: 0px; font-size: .9rem;">Laporan<br>Keuangan</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -332,7 +332,7 @@
                                                 <h2 class="h3 mb-0 me-3">{{ $jumlahPengumuman }}</h2>
                                             </div>
                                             <div>
-                                                <h5 style="margin-bottom: 0px; font-size: .9rem;">Publikasi Pengumuman</h5>
+                                                <h5 style="margin-bottom: 0px; font-size: .9rem;">Publikasi<br>Pengumuman</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -350,7 +350,7 @@
                                                 <h2 class="h3 mb-0 me-3">{{ $jumlahUmkm }}</h2>
                                             </div>
                                             <div>
-                                                <h5 style="margin-bottom: 0px; font-size: .9rem;">Pengajuan <br>UMKM</h5>
+                                                <h5 style="margin-bottom: 0px; font-size: .9rem;">Pengajuan<br>UMKM</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -369,7 +369,7 @@
                                                 <h2 class="h3 mb-0 me-3">{{ $jumlahPengajuanDokumen }}</h2>
                                             </div>
                                             <div>
-                                                <h5 style="margin-bottom: 0px; font-size: .9rem;">Pengajuan <br>Dokumen
+                                                <h5 style="margin-bottom: 0px; font-size: .9rem;">Pengajuan<br>Dokumen
                                                 </h5>
                                             </div>
                                         </div>
@@ -480,7 +480,7 @@
                                                         <h2 class="h3 mb-0 me-4">{{ $jumlahAnakAnak }}</h2>
                                                     </div>
                                                     <div>
-                                                        <h4 style="margin-bottom: 3px;">Data Anak-anak</h4>
+                                                        <h4 style="margin-bottom: 3px;">Anak-anak</h4>
                                                         <p class="mb-0">Penduduk Berusia < 14 tahun</p>
                                                     </div>
                                                 </div>
@@ -502,7 +502,7 @@
                                                         <h2 class="h3 mb-0 me-4">{{ $jumlahUsiaProduktif }}</h2>
                                                     </div>
                                                     <div>
-                                                        <h4 style="margin-bottom: 3px;">Data Remaja</h4>
+                                                        <h4 style="margin-bottom: 3px;">Usia Produktif</h4>
                                                         <p class="mb-0">Penduduk 15-64 tahun</p>
                                                     </div>
                                                 </div>

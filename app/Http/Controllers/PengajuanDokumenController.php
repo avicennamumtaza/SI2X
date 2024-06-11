@@ -21,14 +21,14 @@ class PengajuanDokumenController extends Controller
     {
 
         // Mengambil hanya kolom 'nik' dari model Penduduk
-        $pengajuanDokumens = Cache::remember('globalPengajuanDokumenPage' . request('page', 1), 600, function() {
+        $pengajuanDokumens = Cache::remember('globalPengajuanDokumenPage' . request('page', 1), 100, function() {
             return PengajuanDokumen::paginate(20);
         });
-        $no_rts = Cache::remember('globalRts', 600, function() {
+        $no_rts = Cache::remember('globalRts', 100, function() {
             return Rt::pluck('no_rt');
         });
         // $penduduks = Penduduk::all();
-        $dokumens = Cache::remember('globalDokumens', 600, function() {
+        $dokumens = Cache::remember('globalDokumens', 100, function() {
             return Dokumen::all();
         });
 

@@ -16,27 +16,27 @@ class LandingController extends Controller
     public function index()
     {
         // Mengambil jumlah baris data dari masing-masing model
-        $jumlah_keluarga = Cache::remember('jumlah_keluarga', 600, function () {
+        $jumlah_keluarga = Cache::remember('jumlah_keluarga', 100, function () {
             return Keluarga::count();
         });
 
-        $jumlah_penduduk = Cache::remember('jumlah_penduduk', 600, function () {
+        $jumlah_penduduk = Cache::remember('jumlah_penduduk', 100, function () {
             return Penduduk::count();
         });
 
-        $jumlah_rt = Cache::remember('jumlah_rt', 600, function () {
+        $jumlah_rt = Cache::remember('jumlah_rt', 100, function () {
             return Rt::count();
         });
 
-        $jumlah_pengumuman = Cache::remember('jumlah_pengumuman', 600, function () {
+        $jumlah_pengumuman = Cache::remember('jumlah_pengumuman', 100, function () {
             return Pengumuman::count();
         });
 
-        $jumlah_umkm = Cache::remember('jumlah_umkm', 600, function () {
+        $jumlah_umkm = Cache::remember('jumlah_umkm', 100, function () {
             return Umkm::count();
         });
 
-        $jumlah_pengajuan_dokumen = Cache::remember('jumlah_pengajuan_dokumen', 600, function () {
+        $jumlah_pengajuan_dokumen = Cache::remember('jumlah_pengajuan_dokumen', 100, function () {
             return PengajuanDokumen::count();
         });
 
