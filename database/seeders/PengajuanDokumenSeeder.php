@@ -32,8 +32,8 @@ class PengajuanDokumenSeeder extends Seeder
                 'id_dokumen' => $faker->randomElement($idDokumen),
                 'nik_pemohon' => $faker->randomElement($nikPengaju),
                 'keperluan' => $faker->sentence(5),
-                'status_pengajuan' => $faker->randomElement(['Baru', 'Disetujui', 'Ditolak']),
-                'catatan' => $faker->sentence(5),
+                'status_pengajuan' => $faker->randomElement(['Baru']),
+                'catatan' => $faker->randomElement(['Pengajuan belum diproses RT']),
                 'created_at' => $createdAt,
                 'updated_at' => $createdAt,
             ]);
