@@ -61,19 +61,19 @@ class UsersController extends Controller
         $foto_profil = $request->file('foto_profil');
         $foto_profil_ext = $foto_profil->getClientOriginalExtension();
         $foto_profil_filename = $validated['username'] . date('ymdhis') . "." . $foto_profil_ext;
+        $path_foto = 'Foto Profil';
+        $path = $foto_profil->storeAs($path_foto, $foto_profil_filename, 'public');
 
         try {
             Users::create([
                 'username' => $validated['username'],
                 'nik' => $validated['nik'],
                 'role' => $validated['role'],
-                'foto_profil' => $foto_profil_filename,
+                'foto_profil' => $path,
                 'email' => $validated['email'],
                 'password' => Hash::make($validated['password']),
             ]);
             Alert::success('Registrasi Berhasil', 'Akun berhasil dibuat!');
-            $path_foto = 'Foto Profil';
-            $foto_profil->storeAs($path_foto, $foto_profil_filename, 'public');
             return redirect()->back()->with('success', 'Data User berhasil ditambahkan!');
         } catch (\Exception $e) {
             Alert::error('Error', $e->getMessage());
