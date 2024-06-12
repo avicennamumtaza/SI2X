@@ -29,12 +29,7 @@ class RTDataTable extends DataTable
             return $nama_rt;
         })
         ->addColumn('action', function($row){
-            // $editUrl = route('rt.edit', $row->no_rt);
-            // $penduduk = Penduduk::where('nik', $row->nik_rt)->first();
-            // $nama_rt = $penduduk ? $penduduk->nama : '-'; // Jika penduduk ditemukan, ambil namanya; jika tidak, tampilkan tanda strip -
-
             $nama_rt = Penduduk::where('nik', $row->nik_rt)->value('nama');
-
             $deleteUrl = route('rt.destroy', $row->no_rt);
             $action = '
             <div class="container-action">';
@@ -85,20 +80,20 @@ class RTDataTable extends DataTable
         ->setTableId('rt-table')
         ->columns($this->getColumns())
         ->minifiedAjax()
-        ->orderBy(0, 'asc') // Set default order by column 0 (id_pengumuman)
+        ->orderBy(0, 'asc') 
         ->parameters([
             'language' => [
-                'search' => '', // Menghilangkan teks "Search:"
-                'searchPlaceholder' => 'Cari Data RT', // Placeholder untuk kolom pencarian
+                'search' => '', 
+                'searchPlaceholder' => 'Cari Data RT', 
                 'paginate' => [
-                    'previous' => 'Kembali', // Mengubah teks "Previous"
-                    'next' => 'Lanjut', // Mengubah teks "Next"
+                    'previous' => 'Kembali', 
+                    'next' => 'Lanjut', 
                 ],
-                'info' => 'Menampilkan _START_ hingga _END_ dari _TOTAL_ entri', // Ubah teks sesuai keinginan Anda
+                'info' => 'Menampilkan _START_ hingga _END_ dari _TOTAL_ entri', 
             ],
-            'dom' => 'Bfrtip', // Menambahkan tombol
-            'buttons' => [], // Menambahkan tombol ekspor dan lainnya
-            'order' => [], // Mengaktifkan order by untuk setiap kolom
+            'dom' => 'Bfrtip', 
+            'buttons' => [], 
+            'order' => [], 
         ])
         ->selectStyleSingle();
     }
@@ -111,8 +106,6 @@ class RTDataTable extends DataTable
         return [
             Column::make('no_rt')->title('Nomor RT')->width(70),
             Column::make('nama_rt')->title('Nama RT')->width(200),
-            //Column::make('nik_rt')->title('NIK RT')->width(200),
-            //Column::make('wa_rt')->title('Nomor WhatsApp RT')->width(200),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
