@@ -53,13 +53,6 @@ class RWDataTable extends DataTable
             data-wa_rw="' . $row->wa_rw . '"
             data-bs-toggle="modal" data-bs-target="#editRwModal" class="edit-user edit btn btn-edit btn-sm">Edit</button>
             </div>';
-                // $action .= '
-                // <form action="' . $deleteUrl . '" method="post" style="display:inline;">
-                //     ' . csrf_field() . '
-                //     ' . method_field('DELETE') .
-                //     '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
-                //     </form>
-                // </div>';
                 return $action;
             });
     }
@@ -81,20 +74,20 @@ class RWDataTable extends DataTable
             ->setTableId('rw-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->orderBy(0, 'asc') // Set default order by column 0 (id_pengumuman)
+            ->orderBy(0, 'asc') 
             ->parameters([
                 'language' => [
-                    'search' => '', // Menghilangkan teks "Search:"
-                    'searchPlaceholder' => 'Cari Data RW', // Placeholder untuk kolom pencarian
+                    'search' => '', 
+                    'searchPlaceholder' => 'Cari Data RW', 
                     'paginate' => [
-                        'previous' => 'Kembali', // Mengubah teks "Previous"
-                        'next' => 'Lanjut', // Mengubah teks "Next"
+                        'previous' => 'Kembali', 
+                        'next' => 'Lanjut', 
                     ],
-                    'info' => 'Menampilkan _START_ hingga _END_ dari _TOTAL_ entri', // Ubah teks sesuai keinginan Anda
+                    'info' => 'Menampilkan _START_ hingga _END_ dari _TOTAL_ entri', 
                 ],
-                'dom' => 'Bfrtip', // Menambahkan tombol
-                'buttons' => [], // Menambahkan tombol ekspor dan lainnya
-                'order' => [], // Mengaktifkan order by untuk setiap kolom
+                'dom' => 'Bfrtip', 
+                'buttons' => [], 
+                'order' => [], 
             ])
             ->selectStyleSingle();
     }
@@ -107,8 +100,6 @@ class RWDataTable extends DataTable
         return [
             Column::make('no_rw')->width(100)->title('Nomor RW'),
             Column::make('nama_rw')->width(200)->title('Nama RW'),
-            // Column::make('nik_rw')->width(200)->title('NIK RW'),
-            // Column::make('wa_rw')->width(200)->title('Nomor WhatsApp RW'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
