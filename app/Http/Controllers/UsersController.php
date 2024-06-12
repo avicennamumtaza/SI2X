@@ -72,7 +72,8 @@ class UsersController extends Controller
                 'password' => Hash::make($validated['password']),
             ]);
             Alert::success('Registrasi Berhasil', 'Akun berhasil dibuat!');
-            $foto_profil->move(public_path('Foto Users'), $foto_profil_filename);
+            $path_foto = 'Foto Profil';
+            $foto_profil->storeAs($path_foto, $foto_profil_filename, 'public');
             return redirect()->back()->with('success', 'Data User berhasil ditambahkan!');
         } catch (\Exception $e) {
             Alert::error('Error', $e->getMessage());
