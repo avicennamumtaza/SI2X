@@ -503,7 +503,7 @@
                                                     </div>
                                                     <div>
                                                         <h4 style="margin-bottom: 3px;">Usia Produktif</h4>
-                                                        <p class="mb-0">Penduduk 15-64 tahun</p>
+                                                        <p class="mb-0">Penduduk Berusia 15-64 tahun</p>
                                                     </div>
                                                 </div>
                                                 {{-- <button type="button" class="mt-2 btn primary position-relative">

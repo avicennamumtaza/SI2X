@@ -138,7 +138,7 @@
                                 $user = Auth::user();
                             @endphp
                             @if ($user)
-                                <img src="{{ asset($user->foto_profil ? 'storage/' . $user->foto_profil : 'Foto Users/default.jpg') }}"
+                                <img src="{{ asset($user->foto_profil ? 'storage/' . $user->foto_profil : 'public/Foto Users/default.jpg') }}"
                                     alt="Foto Profil" class="profile-picture rounded-circle me-3"
                                     style="width: 40px; height: 40px; object-fit: cover;">
                                 <div>
