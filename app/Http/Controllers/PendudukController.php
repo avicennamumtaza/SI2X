@@ -82,7 +82,6 @@ class PendudukController extends Controller
 
     public function store(Request $request)
     {
-        // Validasi input
         $validated = $request->validate([
             'nik' => 'required|string|min:15|max:17|unique:penduduk,nik',
             'nkk' => 'required|string|min:15|max:17',
