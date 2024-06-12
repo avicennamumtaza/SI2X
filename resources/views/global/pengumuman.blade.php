@@ -7,7 +7,7 @@
 @section('content')
     <div class="container container-p col-10">
         <h1 class="heading-center">Pengumuman</h1>
-        <p>Fitur Pengumuman merupakan sarana fasilitasi distribusi dan transparansi informasi oleh RW kepada penduduk. Pengumuman
+        <p>Fitur Pengumuman merupakan sarana fasilitasi, distribusi, dan transparansi informasi oleh RW kepada penduduk. Pengumuman
             ini bisa berupa informasi apapun, mulai dari undangan kegiatan, keamanan lingkungan, pemberitahuan acara,
             hingga informasi darurat seperti peringatan potensi bencana.</p>
         @foreach ($pengumumans as $key => $pengumuman)

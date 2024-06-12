@@ -84,49 +84,26 @@ class LaporanKeuanganDataTable extends DataTable
             // ->orderBy(0, 'asc')
             ->parameters([
                 'language' => [
-                    'search' => '', // Menghilangkan teks "Search:"
-                    'searchPlaceholder' => 'Cari Laporan Keuangan', // Placeholder untuk kolom pencarian
+                    'search' => '', 
+                    'searchPlaceholder' => 'Cari Laporan Keuangan', 
                     'paginate' => [
-                        'previous' => 'Kembali', // Mengubah teks "Previous"
-                        'next' => 'Lanjut', // Mengubah teks "Next"
+                        'previous' => 'Kembali',
+                        'next' => 'Lanjut', 
                     ],
-                    'info' => 'Menampilkan _START_ hingga _END_ dari _TOTAL_ entri', // Ubah teks sesuai keinginan Anda
+                    'info' => 'Menampilkan _START_ hingga _END_ dari _TOTAL_ entri', 
                 ],
-                'dom' => 'Bfrtip', // Menambahkan tombol
-                'buttons' => [], // Menambahkan tombol ekspor dan lainnya
-                'order' => [], // Mengaktifkan order by untuk setiap kolom
+                'dom' => 'Bfrtip', 
+                'buttons' => [], 
+                'order' => [], 
                 'columnDefs' => [
-                    // Disable sorting and searching for all columns
-                    ['targets' => -1, 'searchable' => false, 'orderable' => false] // Perhatikan 'targets' disini
+                    
+                    ['targets' => -1, 'searchable' => false, 'orderable' => false] 
                 ]
             ])
             ->selectStyleSingle();
     }
 
-    // /**
-    //  * Get the dataTable columns definition.
-    //  */
-    // public function getColumns(): array
-    // {
-    //     return [
-    //         Column::make('id_laporankeuangan')->title('ID')->width(1),
-    //         Column::make('tanggal')->title('Tanggal')->width(10),
-    //         Column::make('status_pemasukan')->title('Jenis')->width(10),
-    //         Column::make('nominal')->title('Nominal')->width(10),
-    //         Column::make('pihak_terlibat')->title('Pihak Terlibat')->width(111),
-    //         Column::make('detail')->title('Detail Laporan')->width(172), // Mengatur lebar kolom "Detail"
-    //         Column::make('saldo')->title('Saldo')->width(10),
-    //         Column::computed('action')
-    //               ->exportable(false)
-    //               ->printable(false)
-    //               ->width(190) 
-    //               ->addClass('text-center')
-    //               ->title('Aksi'),
-    //     ];
-    // }
-
-
-
+   
     public function getColumns(): array
     {
         return [

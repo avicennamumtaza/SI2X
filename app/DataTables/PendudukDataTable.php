@@ -27,32 +27,13 @@ class PendudukDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->setRowId('id')
-            // ->editColumn('jenis_kelamin', function ($row) {
-            //     if ($row->jenis_kelamin === 'L') {
-            //         return 'Laki-laki';
-            //     } elseif ($row->jenis_kelamin === 'P') {
-            //         return 'Perempuan';}
-            // })
+            ->setRowId('id')           
             ->editColumn('jenis_kelamin', function ($row) {
                 return $row->jenis_kelamin->getDescription();
             })
-            // ->editColumn('status_pernikahan', function ($row) {
-            //     return $row->status_pernikahan ? 'Menikah' : 'Belum Menikah';
-            // })
             ->editColumn('status_pendatang', function ($row) {
                 return $row->status_domisili ? 'Pendatang' : 'Asli';
             })
-            // ->editColumn('golongan_darah', function ($row) {
-            //     return $row->golongan_darah->value;
-            // })
-            // ->addColumn('umur', function ($row) {
-            //     // Menghitung umur berdasarkan tanggal lahir
-            //     $tanggal_lahir = new DateTime($row->tanggal_lahir);
-            //     $waktu_sekarang = new DateTime();
-            //     $selisih = $tanggal_lahir->diff($waktu_sekarang);
-            //     return $selisih->y;
-            // })
             ->addColumn('action', function ($row) {
 
                 $deleteUrl = route('penduduk.destroy', $row->nik);
@@ -114,9 +95,8 @@ class PendudukDataTable extends DataTable
     public function query(Penduduk $model): QueryBuilder
     {
         if (auth()->user()->role == 'RT') {
-            // Dapatkan pengguna yang sedang login
             $user = Users::where('id_user', auth()->user()->id_user)->first();
-            $nikRt = $user->nik; // Ambil nilai nik dari pengguna
+            $nikRt = $user->nik; 
             $noRt = Rt::where('nik_rt', $nikRt)->pluck('no_rt')->first();
 
             return $model->newQuery()->where('no_rt', $noRt);
@@ -137,17 +117,17 @@ class PendudukDataTable extends DataTable
             ->orderBy(0, 'asc')
             ->parameters([
                 'language' => [
-                    'search' => '', // Menghilangkan teks "Search:"
-                    'searchPlaceholder' => 'Cari Data Penduduk', // Placeholder untuk kolom pencarian
+                    'search' => '', 
+                    'searchPlaceholder' => 'Cari Data Penduduk',
                     'paginate' => [
-                        'previous' => 'Kembali', // Mengubah teks "Previous"
-                        'next' => 'Lanjut', // Mengubah teks "Next"
+                        'previous' => 'Kembali', 
+                        'next' => 'Lanjut', 
                     ],
-                    'info' => 'Menampilkan _START_ hingga _END_ dari _TOTAL_ entri', // Ubah teks sesuai keinginan Anda
+                    'info' => 'Menampilkan _START_ hingga _END_ dari _TOTAL_ entri', 
                 ],
-                'dom' => 'Bfrtip', // Menambahkan tombol
-                'buttons' => [], // Menambahkan tombol ekspor dan lainnya
-                'order' => [], // Mengaktifkan order by untuk setiap kolom
+                'dom' => 'Bfrtip', 
+                'buttons' => [], 
+                'order' => [], 
             ])
             ->selectStyleSingle();
     }
@@ -158,34 +138,15 @@ class PendudukDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            // Column::computed('action')
-            //     ->exportable(false)
-            //     ->printable(false)
-            //     ->width(60)
-            //     ->addClass('text-center'),
             Column::make('nik')->type('string')->title('NIK'),
-            //Column::make('nkk')->title('NKK'),
-            //Column::make('no_rt')->title('Nomor RT'),
             Column::make('nama'),
-            //Column::make('tempat_lahir'),
-            //Column::make('tanggal_lahir'),
-            // Column::make('umur'),
             Column::make('alamat')->width(350),
-            //Column::make('jenis_kelamin'),
-            //Column::make('agama'),
-            //Column::make('pendidikan'),
-            //Column::make('pekerjaan'),
-            //Column::make('golongan_darah'),
-            //Column::make('status_pernikahan'),
-            //Column::make('status_pendatang')->title('Status'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
                 ->width(300)
                 ->addClass('text-center')
                 ->title('Aksi'),
-            // Column::make('created_at'),
-            // Column::make('updated_at'),
         ];
     }
 

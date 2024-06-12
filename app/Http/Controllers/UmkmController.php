@@ -12,20 +12,16 @@ use App\Models\Rt;
 use App\Models\Rw;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
-
 // use Illuminate\Console\View\Components\Alert;
 
 class UmkmController extends Controller
 {
     public function index()
     {
-        $umkms = Umkm::where('status_umkm', 'Disetujui')->paginate(9);
-        // });
-    
+        $umkms = Umkm::where('status_umkm', 'Disetujui')->paginate(9);   
         return view('global.umkm')->with('umkms', $umkms);
     }
 
-    // Fungsi tambahan untuk menampilkan seluruh data UMKM
     public function list(UmkmDataTable $dataTable)
     {
         // $umkms = Umkm::all();
@@ -60,7 +56,6 @@ class UmkmController extends Controller
             'wa_umkm.max' => 'Nomor WhatsApp UMKM harus memiliki panjang maksimal :max karakter.',
         ]);
 
-        // Cek apakah ada pengajuan dokumen dengan nik_pemohon yang sama dan status "Baru"
         $existingPengajuan = Umkm::where('nik_pemilik', $validated['nik_pemilik_umkm'])
             ->where('status_umkm', 'Baru')
             ->first();
@@ -76,9 +71,10 @@ class UmkmController extends Controller
         $foto_umkm_filename = $validated['nama_umkm'] . date('ymdhis') . "." . $foto_umkm_ext;
 
         try {
-            // Tentukan path tempat penyimpanan
             $path_foto = 'Foto UMKM';
-            // Simpan file ke direktori storage
+
+
+
             $path = $foto_umkm->storeAs($path_foto, $foto_umkm_filename, 'public');
         
             Umkm::create([

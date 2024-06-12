@@ -78,20 +78,20 @@ class UsersDataTable extends DataTable
             ->setTableId('users-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->orderBy(0, 'asc') // Set default order by column 0 (id_pengumuman)
+            ->orderBy(0, 'asc') 
             ->parameters([
                 'language' => [
-                    'search' => '', // Menghilangkan teks "Search:"
-                    'searchPlaceholder' => 'Cari Data User', // Placeholder untuk kolom pencarian
+                    'search' => '', 
+                    'searchPlaceholder' => 'Cari Data User', 
                     'paginate' => [
-                        'previous' => 'Kembali', // Mengubah teks "Previous"
-                        'next' => 'Lanjut', // Mengubah teks "Next"
+                        'previous' => 'Kembali', 
+                        'next' => 'Lanjut', 
                     ],
-                    'info' => 'Menampilkan _START_ hingga _END_ dari _TOTAL_ entri', // Ubah teks sesuai keinginan Anda
+                    'info' => 'Menampilkan _START_ hingga _END_ dari _TOTAL_ entri', 
                 ],
-                'dom' => 'Bfrtip', // Menambahkan tombol
-                'buttons' => [], // Menambahkan tombol ekspor dan lainnya
-                'order' => [], // Mengaktifkan order by untuk setiap kolom
+                'dom' => 'Bfrtip', 
+                'buttons' => [], 
+                'order' => [], 
             ])
             ->selectStyleSingle();
     }

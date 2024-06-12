@@ -58,21 +58,20 @@ class AlternatifDataTable extends DataTable
         ->setTableId('alternatif')
         ->columns($this->getColumns())
         ->minifiedAjax()
-        //->dom('Bfrtip')
         ->orderBy(0, 'asc')
         ->parameters([
             'language' => [
-                'search' => '', // Menghilangkan teks "Search:"
-                'searchPlaceholder' => 'Cari Data', // Placeholder untuk kolom pencarian
+                'search' => '', 
+                'searchPlaceholder' => 'Cari Data', 
                 'paginate' => [
-                    'previous' => 'Kembali', // Mengubah teks "Previous"
-                    'next' => 'Lanjut', // Mengubah teks "Next"
+                    'previous' => 'Kembali', 
+                    'next' => 'Lanjut', 
                 ],
-                'info' => 'Menampilkan _START_ hingga _END_ dari _TOTAL_ entri', // Ubah teks sesuai keinginan Anda
+                'info' => 'Menampilkan _START_ hingga _END_ dari _TOTAL_ entri', 
             ],
-            'dom' => 'Bfrtip', // Menambahkan tombol
-            'buttons' => [], // Menambahkan tombol ekspor dan lainnya
-            'order' => [], // Mengaktifkan order by untuk setiap kolom
+            'dom' => 'Bfrtip', 
+            'buttons' => [], 
+            'order' => [], 
         ])
         ->selectStyleSingle();
     }
@@ -89,7 +88,6 @@ class AlternatifDataTable extends DataTable
             Column::make('pajak_bumibangunan')->title('Pajak Bumi Bangunan'),
             Column::make('pajak_kendaraan')->title('Pajak Kendaraan'),
             Column::make('daya_listrik')->title('Daya Listrik'),
-            // Column::make('updated_at')->title('tan'),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)

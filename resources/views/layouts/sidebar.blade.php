@@ -20,17 +20,8 @@
     <!-- Scripts -->
     @vite('resources/js/app.js')
 
-    {{-- <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('build/assets/app-D9bWMgn2.css') }}">
-    <script src="{{ asset('build/assets/app-VjUO5sCd.js') }}"></script>
-    <link rel="stylesheet" href="{{ asset('bootstrap-icons.min.css') }}">
-
-    {{-- Icons --}}
-    {{-- <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css"> --}}
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet">
 
-    {{-- DataTables --}}
-    {{-- <link href="vendor\datatables.net\datatables.net-bs5\css\dataTables.bootstrap5.min.css" rel="stylesheet"></link> --}}
     <link href="https://cdn.datatables.net/v/bs5/dt-2.0.3/datatables.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -38,7 +29,6 @@
 </head>
 
 <body>
-    {{-- <div class=""> --}}
     <div class="wrapper">
         <aside id="sidebar">
             <div class="d-flex">
@@ -64,7 +54,7 @@
                             <span>Pengumuman</span>
                         </a>
                     </li>
-                    <li class="sidebar-item {{ \Route::is('bansos.manage') ? 'active' : '' }}" title="Bantuan Sosial">
+                    <li class="sidebar-item {{ \Route::is('bansos.manage') ? 'active' : '' }} {{ \Route::is('kriteria.manage') ? 'active' : '' }}" title="Bantuan Sosial">
                         <a href="{{ route('bansos.manage') }}" class="sidebar-link">
                             <i class="lni lni-target-customer"></i>
                             {{-- <i class="lni lni-license"></i> --}}
@@ -77,12 +67,6 @@
                             <span>Dokumen</span>
                         </a>
                     </li>
-                    {{-- <li class="sidebar-item" title="Dokumen">
-                        <a href="{{ route('dokumen.manage') }}" class="sidebar-link">
-                            <i class="lni lni-control-panel"></i>
-                            <span>Dokumen</span>
-                        </a>
-                    </li> --}}
                 @endcan
                 <li class="sidebar-item {{ \Route::is('pengajuandokumen.manage') ? 'active' : '' }}"
                     title="Pengajuan Dokumen">
@@ -91,29 +75,7 @@
                         <span>Pengajuan Dokumen</span>
                     </a>
                 </li>
-                {{-- @can('isRt')
-                    <li class="sidebar-item {{ \Route::is('home') ? 'active' : '' }}">
-                        <a href="{{ route('home') }}" class="sidebar-link">
-                            <i class="lni lni-home"></i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-                    @endcan --}}
-                {{-- <li class="sidebar-item">
-                        <a href="#" class="sidebar-link has-dropdown collapsed" type="button"
-                            data-bs-toggle="collapse" data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
-                            <i class="lni lni-protection"></i>
-                            <span>Auth</span>
-                        </a>
-                        <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                            <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">Login</a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">Register</a>
-                            </li>
-                        </ul>
-                    </li> --}}
+                
                 <li class="sidebar-item" title="Kependudukan">
                     <a href="#"
                         class="sidebar-link has-dropdown collapsed {{ \Route::is('penduduk.manage') ? 'active' : '' }} {{ \Route::is('keluarga.manage') ? 'active' : '' }} {{ \Route::is('rt.manage') ? 'active' : '' }} {{ \Route::is('rw.manage') ? 'active' : '' }}"
@@ -152,9 +114,6 @@
                         title="Laporan Keuangan">
                         <a href="{{ route('laporankeuangan.manage') }}" class="sidebar-link">
                             <i class="lni lni-revenue"></i>
-                            {{-- <i class="lni lni-calculator-alt"></i> --}}
-                            {{-- <i class="lni lni-bar-chart"></i> --}}
-                            {{-- <i class="lni lni-money-protection"></i> --}}
                             <span>Keuangan</span>
                         </a>
                     </li>
@@ -171,41 +130,27 @@
                         </a>
                     </li>
                 @endcan
-                {{-- <li class="sidebar-item {{ \Route::is('profil.manage') ? 'active' : '' }}" title="Profil">
-                    <a href="{{ route('profil.manage') }}" class="sidebar-link">
-                        <i class="lni lni-user"></i>
-                        <span>Profil</span>
-                    </a>
-                </li> --}}
+                
                 <div class="sidebar-footer pt-2">
                     <li class="sidebar-item {{ \Route::is('profil.manage') ? 'active' : '' }}" title="Profil">
-
                         <a href="{{ route('profil.manage') }}" class="sidebar-profile align-items-center">
-                            <!-- Profile Picture -->
-                            <?php
-                            $users = Auth()->user();
-                            ?>
-                            <img src="{{ asset($users->foto_profil ? 'storage/' . $users->foto_profil : 'Foto Users/default.jpg') }}"
-                                alt="Foto Profil" class="profile-picture rounded-circle me-3"
-                                style="width: 40px; height: 40px; object-fit: cover;">
-                            <div>
-                                <span>{{ $users->username }}</span> <br>
-                                <span>{{ $users->role }}</span>
-                            </div>
+                            @php
+                                $user = Auth::user();
+                            @endphp
+                            @if ($user)
+                                <img src="{{ asset($user->foto_profil ? 'storage/' . $user->foto_profil : 'public/Foto Users/default.jpg') }}"
+                                    alt="Foto Profil" class="profile-picture rounded-circle me-3"
+                                    style="width: 40px; height: 40px; object-fit: cover;">
+                                <div>
+                                    <span>{{ $user->username }}</span> <br>
+                                    <span>{{ $user->role }}</span>
+                                </div>
+                            @endif
                         </a>
                     </li>
-                </div>
+                </div>                
 
                 <li class="sidebar-item">
-                    {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                            @csrf
-                            <button class="sidebar-link" type="submit">
-                                {{-- <a href="{{ route('logout') }}" class="sidebar-link"> --}}
-                    {{-- <i class="lni lni-exit"></i> --}}
-                    {{-- <span>Keluar</span> --}}
-                    {{-- </a> --}}
-                    {{-- </button> --}}
-                    {{-- </form> --}}
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>

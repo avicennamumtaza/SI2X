@@ -85,17 +85,16 @@ class KeluargaDataTable extends DataTable
             ->orderBy(0, 'asc')
             ->parameters([
                 'language' => [
-                    'search' => '', // Menghilangkan teks "Search:"
-                    'searchPlaceholder' => 'Cari Data Keluarga', // Placeholder untuk kolom pencarian
+                    'search' => '', 
+                    'searchPlaceholder' => 'Cari Data Keluarga', 
                     'paginate' => [
-                        'previous' => 'Kembali', // Mengubah teks "Previous"
-                        'next' => 'Lanjut', // Mengubah teks "Next"
+                        'previous' => 'Kembali', 
                     ],
-                    'info' => 'Menampilkan _START_ hingga _END_ dari _TOTAL_ entri', // Ubah teks sesuai keinginan Anda
+                    'info' => 'Menampilkan _START_ hingga _END_ dari _TOTAL_ entri', 
                 ],
-                'dom' => 'Bfrtip', // Menambahkan tombol
-                'buttons' => [], // Menambahkan tombol ekspor dan lainnya
-                'order' => [], // Mengaktifkan order by untuk setiap kolom
+                'dom' => 'Bfrtip', 
+                'buttons' => [], 
+                'order' => [],
             ])
             ->selectStyleSingle();
     }
@@ -106,11 +105,6 @@ class KeluargaDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            // Column::computed('action')
-            //     ->exportable(false)
-            //     ->printable(false)
-            //     ->width(60)
-            //     ->addClass('text-center'),
             Column::make('nkk')->width(300)->title('Nomor KK'),
             Column::make('no_rt')->width(100)->title('Nomor RT'),
             Column::make('nik_kepala_keluarga')->title('Kepala Keluarga')->width(300),
@@ -120,8 +114,6 @@ class KeluargaDataTable extends DataTable
                 ->width(270)
                 ->addClass('text-center')
                 ->title('Aksi'),
-            // Column::make('created_at'),
-            // Column::make('updated_at'),
         ];
     }
 

@@ -84,9 +84,7 @@ class LaporanKeuanganController extends Controller
             'tanggal.date' => 'Tanggal harus dalam format tanggal yang benar.',
         ]);
 
-        // Mengambil data terbaru kolom saldo
         $latestSaldo = LaporanKeuangan::latest('updated_at')->value('saldo');
-        // dd($latestSaldo);
 
         try {
             $laporanKeuangan = new LaporanKeuangan();
@@ -138,11 +136,8 @@ class LaporanKeuanganController extends Controller
         ]);
 
         try {
-            // Mengambil data terbaru kolom saldo
             $latestRow = LaporanKeuangan::orderBy('updated_at', 'desc')->take(2)->get();
-            // dd($latestRow);
             $latestSaldo = $latestRow->skip(1)->value('saldo');
-            // dd($latestSaldo);
 
             $laporankeuangan->nominal = $request->nominal;
             $laporankeuangan->pihak_terlibat = $request->pihak_terlibat;
@@ -158,7 +153,6 @@ class LaporanKeuanganController extends Controller
             } elseif ($laporankeuangan->status_pemasukan == 1) {
                 $laporankeuangan->saldo = $latestSaldo + $laporankeuangan->nominal;
             }
-            // $laporankeuangan->update($request->all());
             $laporankeuangan->save();
 
             return redirect()->route('laporankeuangan.manage')

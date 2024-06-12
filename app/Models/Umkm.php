@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -31,4 +32,15 @@ class Umkm extends Model
     // {
     //     return $this->belongsTo(Rw::class, 'nik_pemilik', 'nik_rw');
     // }
+
+    public static function deleteUmkmDitolak()
+    {
+        $oneMonthAgo = Carbon::now()->subMonth();
+        $umkms = Umkm::where('status_umkm', 'Ditolak')
+            ->where('updated_at', '<', $oneMonthAgo)
+            ->get();
+        foreach ($umkms as $umkm) {
+            $umkm->delete();
+        }
+    }
 }

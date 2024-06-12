@@ -61,18 +61,19 @@ class UsersController extends Controller
         $foto_profil = $request->file('foto_profil');
         $foto_profil_ext = $foto_profil->getClientOriginalExtension();
         $foto_profil_filename = $validated['username'] . date('ymdhis') . "." . $foto_profil_ext;
+        $path_foto = 'Foto Profil';
+        $path = $foto_profil->storeAs($path_foto, $foto_profil_filename, 'public');
 
         try {
             Users::create([
                 'username' => $validated['username'],
                 'nik' => $validated['nik'],
                 'role' => $validated['role'],
-                'foto_profil' => $foto_profil_filename,
+                'foto_profil' => $path,
                 'email' => $validated['email'],
                 'password' => Hash::make($validated['password']),
             ]);
             Alert::success('Registrasi Berhasil', 'Akun berhasil dibuat!');
-            $foto_profil->move(public_path('Foto Users'), $foto_profil_filename);
             return redirect()->back()->with('success', 'Data User berhasil ditambahkan!');
         } catch (\Exception $e) {
             Alert::error('Error', $e->getMessage());
@@ -113,7 +114,7 @@ class UsersController extends Controller
             $this->hapusFotoProfil($users);
             $foto_profil_ext = $foto_profil->getClientOriginalExtension();
             $foto_profil_filename = $validated['username'] . date('ymdhis') . "." . $foto_profil_ext;
-            $foto_profil->move(public_path('Foto Users'), $foto_profil_filename);
+            $foto_profil->move(public_path('Foto Profil'), $foto_profil_filename);
             $users->update([
                 'foto_profil' => $foto_profil_filename,
             ]);
@@ -139,7 +140,7 @@ class UsersController extends Controller
 
     private function hapusFotoProfil($users)
     {
-        $foto_profil_path = public_path('Foto Users') . '/' . $users->foto_profil;
+        $foto_profil_path = public_path('Foto Profil') . '/' . $users->foto_profil;
         if (File::exists($foto_profil_path)) {
             File::delete($foto_profil_path);
         }
@@ -148,7 +149,7 @@ class UsersController extends Controller
     public function destroy($id)
     {
         $user = Users::findOrFail($id);
-        File::delete(public_path('Foto Users') . '/' . $user->foto_profil);
+        File::delete(public_path('Foto Profil') . '/' . $user->foto_profil);
         $user->delete();
         return redirect()->back()->with('success', 'Data berhasil dihapus!');
     }

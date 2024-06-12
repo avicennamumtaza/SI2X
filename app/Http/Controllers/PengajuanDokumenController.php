@@ -19,21 +19,18 @@ class PengajuanDokumenController extends Controller
      */
     public function index()
     {
-
-        // Mengambil hanya kolom 'nik' dari model Penduduk
         $pengajuanDokumens = Cache::remember('globalPengajuanDokumenPage' . request('page', 1), 100, function() {
             return PengajuanDokumen::paginate(20);
         });
-        $no_rts = Cache::remember('globalRts', 100, function() {
-            return Rt::pluck('no_rt');
-        });
+        // $no_rts = Cache::remember('globalRts', 100, function() {
+        //     return Rt::pluck('no_rt');
+        // });
         // $penduduks = Penduduk::all();
         $dokumens = Cache::remember('globalDokumens', 100, function() {
             return Dokumen::all();
         });
 
-        // Mengirimkan data ke view
-        return view('global.pengajuandokumen', compact('no_rts', 'dokumens'))->with('pengajuanDokumens', $pengajuanDokumens);
+        return view('global.pengajuandokumen', compact('dokumens'))->with('pengajuanDokumens', $pengajuanDokumens);
     }
 
 
@@ -56,9 +53,6 @@ class PengajuanDokumenController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-        // Validasi input
-
         $validated = $request->validate([
             // 'id_pengajuandokumen' => 'required', // (tidak bisa mengedit id as primary key, cek view)
             // 'no_rt' => 'required|max:2',
@@ -85,7 +79,6 @@ class PengajuanDokumenController extends Controller
 
         $rt = Penduduk::where('nik', $validated['nik_pemohon'])->first();
         
-        // Cek apakah ada pengajuan dokumen dengan nik_pemohon yang sama dan status "Baru"
         $existingPengajuan = PengajuanDokumen::where('nik_pemohon', $validated['nik_pemohon'])
             ->where('status_pengajuan', 'Baru')
             ->first();
@@ -120,23 +113,6 @@ class PengajuanDokumenController extends Controller
             Alert::error('Oops!', $e->getMessage());
             return redirect()->back();
         }
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(PengajuanDokumen $pengajuandokumen)
-    {
-        $pengajuandokumen = PengajuanDokumen::findOrFail($pengajuandokumen->id_pengajuandokumen);
-        return view('pengajuandokumen.edit', compact('pengajuandokumen'));
     }
 
     public function update(Request $request, PengajuanDokumen $pengajuandokumen)

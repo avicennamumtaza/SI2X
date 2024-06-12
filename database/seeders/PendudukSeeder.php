@@ -16,15 +16,12 @@ class PendudukSeeder extends Seeder
      */
     public function run()
     {
-        // Menggunakan Faker untuk mengisi data
         $faker = Faker::create('id_ID');
 
         $umurMin = 1;
         $umurMax = 30;
 
-        // Loop untuk mengisi data sebanyak yang diinginkan
         foreach (range(1, 300) as $index) {
-            // Tentukan jenis keluarga
             $familyType = $faker->randomElement(['complete', 'single_parent', 'single']);
 
             $nik = $faker->unique()->numerify('3###############');
@@ -134,11 +131,9 @@ class PendudukSeeder extends Seeder
                 'updated_at' => now(),
             ];
 
-            // Tentukan status pernikahan berdasarkan familyType
             if ($familyType == 'complete') {
                 $penduduk['status_pernikahan'] = 'Kawin';
             } elseif ($familyType == 'single_parent') {
-                // Set status pernikahan sebagai 'Cerai Hidup' atau 'Cerai Mati'
                 $penduduk['status_pernikahan'] = $faker->randomElement(['Cerai Hidup', 'Cerai Mati']);
             } elseif ($familyType == 'single') {
                 $penduduk['status_pernikahan'] = 'Belum Kawin';
@@ -146,9 +141,7 @@ class PendudukSeeder extends Seeder
 
             DB::table('penduduk')->insert($penduduk);
 
-            // Tambahkan anggota keluarga berdasarkan jenis keluarga
             if ($familyType == 'complete') {
-                // Pasangan
                 DB::table('penduduk')->insert([
                     'nik' => $faker->unique()->numerify('3###############'),
                     'nkk' => $nkk,

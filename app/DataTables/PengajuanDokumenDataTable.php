@@ -68,14 +68,14 @@ class PengajuanDokumenDataTable extends DataTable
                 })
                 ->addColumn('status_pengajuan', function ($row) {
                     $status = $row->status_pengajuan;
-                    $badgeColor = '#FFC107 '; // Default color for 'Baru'
+                    $badgeColor = '#FFC107 '; 
                     if ($status == 'Disetujui') {
                         $badgeColor = 'green';
                     } elseif ($status == 'Ditolak') {
                         $badgeColor = 'red';
                     }
                     return '<span style="background-color: ' . $badgeColor . '; display: inline-block; text-align: center; width: 100%;" class="badge rounded-pill">' . $status . '</span>';            })
-                ->rawColumns(['status_pengajuan', 'action']) // Make sure to include 'status_pengajuan' in rawColumns
+                ->rawColumns(['status_pengajuan', 'action'])
                 ->addColumn('action', function ($row) {
                     $pengaju = Penduduk::where('nik', $row->nik_pemohon)->first();
                     $dokumen = Dokumen::where('id_dokumen', $row->id_dokumen)->first();
@@ -168,20 +168,20 @@ class PengajuanDokumenDataTable extends DataTable
             ->setTableId('pengajuandokumen-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->orderBy(0, 'asc') // Set default order by column 0 (id_pengumuman)
+            ->orderBy(0, 'asc') 
             ->parameters([
                 'language' => [
-                    'search' => '', // Menghilangkan teks "Search:"
-                    'searchPlaceholder' => 'Cari Pengajuan Dokumen', // Placeholder untuk kolom pencarian
+                    'search' => '', 
+                    'searchPlaceholder' => 'Cari Pengajuan Dokumen',
                     'paginate' => [
-                        'previous' => 'Kembali', // Mengubah teks "Previous"
-                        'next' => 'Lanjut', // Mengubah teks "Next"
+                        'previous' => 'Kembali', 
+                        'next' => 'Lanjut', 
                     ],
-                    'info' => 'Menampilkan _START_ hingga _END_ dari _TOTAL_ entri', // Ubah teks sesuai keinginan Anda
+                    'info' => 'Menampilkan _START_ hingga _END_ dari _TOTAL_ entri', 
                 ],
-                'dom' => 'Bfrtip', // Menambahkan tombol
-                'buttons' => [], // Menambahkan tombol ekspor dan lainnya
-                'order' => [], // Mengaktifkan order by untuk setiap kolom
+                'dom' => 'Bfrtip',
+                'buttons' => [], 
+                'order' => [], 
             ])
             ->selectStyleSingle();
     }
@@ -194,36 +194,20 @@ class PengajuanDokumenDataTable extends DataTable
         if (auth()->user()->role == 'RW') {
             # code...
             return [
-                // Column::make('id_pengajuandokumen')->title('ID'),
                 Column::make('dokumen')->title('Dokumen'),
                 Column::make('no_rt')->title('RT'),
                 Column::make('nik_pemohon')->title('NIK'),
-                // Column::make('nama_pemohon')->title('Nama'),
                 Column::make('status_pengajuan')->title('Status'),
                 Column::make('keperluan')->title('Keperluan'),
-                // Column::make('catatan')->title('Catatan'),
                 Column::make('created_at')->title('Tanggal'),
-                // Column::make('detail_laporan')->title('Detail Laporan'),
-                // Column::make('saldo')->title('Saldo'),
-                // Column::computed('action')
-                //   ->exportable(false)
-                //   ->printable(false)
-                //   ->width(130)
-                //   ->addClass('text-center'),
             ];
         } else {
             return [
-                // Column::make('id_pengajuandokumen')->title('ID'),
                 Column::make('dokumen')->title('Dokumen'),
-                // Column::make('no_rt')->title('Nomor RT'),
                 Column::make('nik_pemohon')->title('NIK'),
-                // Column::make('nama_pemohon')->title('Nama'),
                 Column::make('status_pengajuan')->title('Status'),
                 Column::make('keperluan')->title('Keperluan'),
-                // Column::make('catatan')->title('Catatan'),
                 Column::make('created_at')->title('Tanggal'),
-                // Column::make('detail_laporan')->title('Detail Laporan'),
-                // Column::make('saldo')->title('Saldo'),
                 Column::computed('action')
                     ->exportable(false)
                     ->printable(false)

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AlternatifController;
 use App\Http\Controllers\DokumenController;
 use App\Http\Controllers\KeluargaController;
+use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LaporanKeuanganController;
 use App\Http\Controllers\PendudukController;
@@ -62,6 +63,8 @@ Route::prefix('bansos')->group(function () {
     Route::get('/', [AlternatifController::class, 'index'])->name('bansos.global');
     Route::post('/', [AlternatifController::class, 'store'])->name('bansos.store');
     Route::get('/rw', [AlternatifController::class, 'list'])->middleware('isRw')->name('bansos.manage');
+    Route::get('/kriteria', [KriteriaController::class, 'index'])->middleware('isRw')->name('kriteria.manage');
+    Route::put('/update/{kriteria}', [KriteriaController::class, 'updatee'])->name('kriteria.update')->middleware('isRw');
     Route::delete('/{alternatif}', [AlternatifController::class, 'destroy'])->name('bansos.destroy')->middleware('isRw');
 });
 

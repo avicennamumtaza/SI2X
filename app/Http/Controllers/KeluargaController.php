@@ -20,8 +20,8 @@ class KeluargaController extends Controller
     {
         // Validasi input
         $validated = $request->validate([
-            'nkk' => 'required|string|min:15|max:17|unique:keluarga,nkk', // Ganti nama_tabel dengan nama tabel sebenarnya
-            'nik_kepala_keluarga' => 'required|string|min:15|max:17|unique:keluarga,nik_kepala_keluarga', // Ganti nama_tabel dengan nama tabel sebenarnya
+            'nkk' => 'required|string|min:15|max:17|unique:keluarga,nkk',
+            'nik_kepala_keluarga' => 'required|string|min:15|max:17|unique:keluarga,nik_kepala_keluarga',
             // 'no_rt' => 'required|string|max:2',
         ], [
             'nkk.required' => 'Nomor Kartu Keluarga (NKK) wajib diisi.',
@@ -68,8 +68,8 @@ class KeluargaController extends Controller
     public function update(Request $request, Keluarga $keluarga)
     {
         $validated = $request->validate([
-            'nkk' => 'required|string|min:15|max:17', // Ganti nama_tabel dengan nama tabel sebenarnya
-            'nik_kepala_keluarga' => 'required|string|min:15|max:17', // Ganti nama_tabel dengan nama tabel sebenarnya
+            'nkk' => 'required|string|min:15|max:17',
+            'nik_kepala_keluarga' => 'required|string|min:15|max:17',
             // 'no_rt' => 'required|string|max:2',
             // 'jumlah_nik' => 'required',
         ], [

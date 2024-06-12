@@ -15,7 +15,6 @@ class LandingController extends Controller
 {
     public function index()
     {
-        // Mengambil jumlah baris data dari masing-masing model
         $jumlah_keluarga = Cache::remember('jumlah_keluarga', 100, function () {
             return Keluarga::count();
         });
@@ -50,14 +49,8 @@ class LandingController extends Controller
             $namaUsers[] = $pendudukUser->pluck('nama');
             $rtUsers[] = $pendudukUser->pluck('no_rt');
         }
-        // dd($fotoUsers, $nikUsers, $namaUsers, $titleUsers, $rtUsers);
-        // END DATA UNTUK CONTAINER KENALAN
-        
-
-        // Mengambil dua pengumuman terbaru
+      
         $pengumuman = Pengumuman::orderBy('created_at', 'desc')->take(2)->get();
-        // });
-
         $pengumuman1 = null;
         $pengumuman2 = null;
 

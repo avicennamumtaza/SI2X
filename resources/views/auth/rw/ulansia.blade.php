@@ -5,7 +5,7 @@
         <div class="card-header card-header-tabel p-4 mb-3">
             <h5>
                 Penduduk Lanjut Usia
-                <button class="btn btn-add float-end" data-bs-toggle="modal" data-bs-target="#tambahLaporanKeuangan">Kelola Penduduk</button>
+                <a href="{{ route('penduduk.manage') }}" class="btn btn-add float-end">Kelola Penduduk</a>
             </h5>
         </div>
         <hr class="tabel">

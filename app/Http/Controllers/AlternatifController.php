@@ -120,7 +120,6 @@ class AlternatifController extends Controller
         }
 
         $alternatifs = Alternatif::all()->toArray();
-        // Menghapus kolom 'nkk' dari setiap item dalam array
         // foreach ($alternatifs as &$alternatif) {
         //     unset($alternatif['nkk']);
         // }
@@ -132,14 +131,13 @@ class AlternatifController extends Controller
         $allValues['pajak_kendaraan'] = Alternatif::all()->pluck('pajak_kendaraan')->toArray();
         $allValues['daya_listrik'] = Alternatif::all()->pluck('daya_listrik')->toArray();
         // dd($alternatifs);
-        // Normalisasi setiap atribut
         foreach ($alternatifs as $index => $alternatif) {
             foreach ($alternatif as $key => $value) {
                 if (isset($allValues[$key])) {
                     $minValue = min($allValues[$key]);
                     $maxValue = max($allValues[$key]);
                     if ($maxValue - $minValue == 0) {
-                        $normalizedAlternatifs[$index][$key] = 0; // atau beberapa nilai default
+                        $normalizedAlternatifs[$index][$key] = 0; 
                     } else {
                         if ($key == 'tanggungan') { // BENEFIT
                             # code...
@@ -149,16 +147,12 @@ class AlternatifController extends Controller
                         }
                     }
                 } else {
-                    $normalizedAlternatifs[$index][$key] = $value; // Menjaga nilai non-numeric apa adanya
+                    $normalizedAlternatifs[$index][$key] = $value; 
                 }
             }
         }
 
         $finalAlternatifs = $normalizedAlternatifs;
-        // foreach ($finalAlternatifs as $index => $value) {
-        //     unset($finalAlternatifs[$index]['nkk']);
-        // }
-        // dd($finalAlternatifs);
         $bobotKriterias = Kriteria::all()->pluck('bobot_ktr', 'nama_ktr')->toArray();
         // dd($bobotKriterias);
         foreach ($finalAlternatifs as $index => $alternatif) {
@@ -167,7 +161,7 @@ class AlternatifController extends Controller
                     $bobotKriteria = $bobotKriterias[$key];
                     $finalAlternatifs[$index][$key] *= $bobotKriteria;
                 } else {
-                    $finalAlternatifs[$index][$key] = $value; // Menjaga nilai non-numeric apa adanya
+                    $finalAlternatifs[$index][$key] = $value; 
                 }
             }
         }
@@ -220,17 +214,15 @@ class AlternatifController extends Controller
             foreach ($alternatif as $key => $value) {
                 // if (isset($alternatif[$key])) {
                 if (isset($bobotKriterias[$key])) {
-                    $normalizedAlternatifs[$index][$key] = $alternatif[$key] * $bobotKriterias[$key]; // Menjaga nilai non-numeric apa adanya
+                    $normalizedAlternatifs[$index][$key] = $alternatif[$key] * $bobotKriterias[$key]; 
                 } else {
-                    $normalizedAlternatifs[$index][$key] = $value; // Menjaga nilai non-numeric apa adanya
+                    $normalizedAlternatifs[$index][$key] = $value; 
                 }
                 // } else {
-                //     $normalizedAlternatifs[$index][$key] = $value; // Menjaga nilai non-numeric apa adanya
+                //     $normalizedAlternatifs[$index][$key] = $value; 
                 // }
             }
         }
-
-        // dd($normalizedAlternatifs);
 
         $calculateAlternatifs = $normalizedAlternatifs;
         $keluargas = Alternatif::all()->pluck('nkk')->toArray();
