@@ -29,18 +29,14 @@ class RTController extends Controller
 
     public function show(Rt $rt)
     {
-        // Temukan data RT berdasarkan nomor RT
         $rt = Rt::find($rt->no_rt);
 
-        // Temukan data penduduk berdasarkan NIK RT
         $penduduk = Penduduk::where('nik', $rt->nik_rt)->first();
 
-        // Hitung jumlah keluarga dalam RT ini
         $jumlah_keluarga = $rt->keluarga()->count();
 
         dd($jumlah_keluarga);
 
-        // Kirim data RT, data penduduk, dan jumlah keluarga ke tampilan
         return view('rt.show', compact('rt', 'penduduk', 'jumlah_keluarga'));
     }
 
