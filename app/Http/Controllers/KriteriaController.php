@@ -14,11 +14,6 @@ class KriteriaController extends Controller
         return view('auth.rw.kriteria', compact('kriterias'));
     }
 
-    public function update(Request $request, Kriteria $kriteria)
-    {
-        // Logic for the update method
-    }
-
     public function updatee(Request $request, $id_ktr)
     {
         $kriteria = Kriteria::findOrFail($id_ktr);
