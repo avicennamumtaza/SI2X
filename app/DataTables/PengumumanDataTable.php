@@ -61,33 +61,7 @@ class PengumumanDataTable extends DataTable
                 </div>';
                 return $action;
             });
-        // $action = '
-        // <div class="container-action">
-        // <button type="button"
-        // data-id="' . $row->id_pengumuman . '"
-        // data-judul="' . $row->judul . '"
-        // data-tanggal_pengumuman="' . $row->tanggal . '"
-        // data-deskripsi="' . $row->deskripsi . '"
-        // data-foto_pengumuman="' . $row->foto_pengumuman. '"
-        // data-bs-toggle="modal" data-bs-target="#editPengumumanModal" class="edit-user edit btn btn-edit btn-sm">Edit</button>';
-        // $action .= '
-        // <form action="' . $deleteUrl . '" method="post" style="display:inline;">
-        //     ' . csrf_field() . '
-        //     ' . method_field('DELETE') .
-        //     // <button type="submit" class="delete btn btn-delete btn-sm">Delete</button>
-        //     '<button type="submit" class="delete btn btn-delete btn-sm" onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button>
-        // </form>
-        // </div>';
-        // return $action;
-
-        // Menambahkan kolom "foto" ke tabel
-        // ->addColumn('foto', function($row) {
-        //     // Pastikan $row adalah objek yang memiliki properti "foto"
-        //     $imageUrl = isset($row->foto) ? $row->foto : '';
-        //     $foto = '<img src="' . $imageUrl . '" width="100" height="100">';
-        //     return $foto;
-        // });
-    }
+            }
 
     /**
      * Get the query source of dataTable.
@@ -106,20 +80,20 @@ class PengumumanDataTable extends DataTable
             ->setTableId('pengumuman-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->orderBy(0, 'asc') // Set default order by column 0 (id_pengumuman)
+            ->orderBy(0, 'asc') 
             ->parameters([
                 'language' => [
-                    'search' => '', // Menghilangkan teks "Search:"
-                    'searchPlaceholder' => 'Cari Pengumuman', // Placeholder untuk kolom pencarian
+                    'search' => '', 
+                    'searchPlaceholder' => 'Cari Pengumuman', 
                     'paginate' => [
-                        'previous' => 'Kembali', // Mengubah teks "Previous"
-                        'next' => 'Lanjut', // Mengubah teks "Next"
+                        'previous' => 'Kembali', 
+                        'next' => 'Lanjut', 
                     ],
-                    'info' => 'Menampilkan _START_ hingga _END_ dari _TOTAL_ entri', // Ubah teks sesuai keinginan Anda
+                    'info' => 'Menampilkan _START_ hingga _END_ dari _TOTAL_ entri', 
                 ],
-                'dom' => 'Bfrtip', // Menambahkan tombol
-                'buttons' => [], // Menambahkan tombol ekspor dan lainnya
-                'order' => [], // Mengaktifkan order by untuk setiap kolom
+                'dom' => 'Bfrtip',
+                'buttons' => [], 
+                'order' => [], 
             ])
             ->selectStyleSingle();
     }
