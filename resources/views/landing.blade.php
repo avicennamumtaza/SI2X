@@ -117,7 +117,7 @@
                     <div class='carousel__item'>
                         <div class='carousel__item-head'>
                             <img class="profile-picture rounded-circle"
-                                src="{{ $fotoUsers[$index] ? asset('Foto Users/' . $fotoUsers[$index]) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
+                                src="{{ $fotoUsers[$index] ? asset('storage/' . $fotoUsers[$index]) : 'https://img.freepik.com/free-photo/stylish-asian-girl-making-announcement-megaphone-shouting-with-speakerphone-smiling-inviting-people-recruiting-standing-blue-background_1258-89437.jpg?w=900' }}"
                                 alt="Foto User{{ $fotoUsers[$index] }}"
                                 style="width: 85px; height: 85px; object-fit: cover;">
                         </div>
