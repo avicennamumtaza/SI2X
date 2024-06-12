@@ -28,7 +28,6 @@ class RWController extends Controller
 
     public function store(Request $request)
     {
-        // Validasi data input dari form
         $request->validate([
             'no_rw' => 'required',
             'nik_rw' => 'required|min:15|max:17',
