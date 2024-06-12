@@ -80,6 +80,7 @@
                         <div class="card-body">
                             <h5 class="mt-3">{{ $pengumuman1['judul'] }}</h5>
                             <p class="">{{ $pengumuman1['deskripsi'] }}</p>
+                            <hr>
                             <p class="">
                                 <small class="">
                                     {{ \Carbon\Carbon::parse($pengumuman1['tanggal'])->translatedFormat('d F Y') }}
@@ -94,6 +95,7 @@
                         <div class="card-body">
                             <h5 class="mt-3">{{ $pengumuman2['judul'] }}</h5>
                             <p class="">{{ $pengumuman2['deskripsi'] }}</p>
+                            <hr>
                             <p class="">
                                 <small class="">
                                     {{ \Carbon\Carbon::parse($pengumuman2['tanggal'])->translatedFormat('d F Y') }}
