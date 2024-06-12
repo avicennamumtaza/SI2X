@@ -53,9 +53,6 @@ class PengajuanDokumenController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-        // Validasi input
-
         $validated = $request->validate([
             // 'id_pengajuandokumen' => 'required', // (tidak bisa mengedit id as primary key, cek view)
             // 'no_rt' => 'required|max:2',
@@ -82,7 +79,6 @@ class PengajuanDokumenController extends Controller
 
         $rt = Penduduk::where('nik', $validated['nik_pemohon'])->first();
         
-        // Cek apakah ada pengajuan dokumen dengan nik_pemohon yang sama dan status "Baru"
         $existingPengajuan = PengajuanDokumen::where('nik_pemohon', $validated['nik_pemohon'])
             ->where('status_pengajuan', 'Baru')
             ->first();
