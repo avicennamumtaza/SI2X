@@ -15,9 +15,7 @@ class IsRw
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // Memeriksa peran pengguna
         if (!auth()->check() || auth()->guest() || auth()->user()->role !== 'RW') {
-            // Jika peran pengguna bukan 'rw', munculkan error 403
             abort(403);
         }
         return $next($request);
