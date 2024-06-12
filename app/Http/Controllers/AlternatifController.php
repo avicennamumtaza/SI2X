@@ -153,10 +153,6 @@ class AlternatifController extends Controller
         }
 
         $finalAlternatifs = $normalizedAlternatifs;
-        // foreach ($finalAlternatifs as $index => $value) {
-        //     unset($finalAlternatifs[$index]['nkk']);
-        // }
-        // dd($finalAlternatifs);
         $bobotKriterias = Kriteria::all()->pluck('bobot_ktr', 'nama_ktr')->toArray();
         // dd($bobotKriterias);
         foreach ($finalAlternatifs as $index => $alternatif) {

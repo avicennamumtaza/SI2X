@@ -54,7 +54,7 @@
                             <span>Pengumuman</span>
                         </a>
                     </li>
-                    <li class="sidebar-item {{ \Route::is('bansos.manage') ? 'active' : '' }}" title="Bantuan Sosial">
+                    <li class="sidebar-item {{ \Route::is('bansos.manage') ? 'active' : '' }} {{ \Route::is('kriteria.manage') ? 'active' : '' }}" title="Bantuan Sosial">
                         <a href="{{ route('bansos.manage') }}" class="sidebar-link">
                             <i class="lni lni-target-customer"></i>
                             {{-- <i class="lni lni-license"></i> --}}
