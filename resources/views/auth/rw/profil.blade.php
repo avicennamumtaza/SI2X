@@ -89,7 +89,7 @@
                                 onchange="previewImage(event)">
                             <div class="d-flex justify-content-center pt-4">
                                 <img id="image_preview"
-                                    src="{{ asset($users->foto_profil ? 'storage/' . $users->foto_profil : 'Foto Users/default.jpg') }}"
+                                    src="{{ asset($users->foto_profil ? 'storage/' . $users->foto_profil : 'public/Foto Users/default.jpg') }}"
                                     class="img-thumbnail" style="height: 250px; width: 200px;" alt="Foto Profil"
                                     title="Foto profil">
 
@@ -120,7 +120,7 @@
                                     $hash = md5(strtolower(trim($users->email)));
                                     //$gravatar_url = "https://www.gravatar.com/avatar/$hash?s=200&d=mp";
                                 @endphp
-                                <img src="{{ asset($users->foto_profil ? 'storage/' . $users->foto_profil : 'Foto Users/default.jpg') }}"
+                                <img src="{{ asset($users->foto_profil ? 'storage/' . $users->foto_profil : 'public/Foto Users/default.jpg') }}"
                                     class="img-thumbnail" style="height: 250px; width: 200px;" alt=""
                                     title="Foto profil anda">
 
