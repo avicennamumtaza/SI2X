@@ -19,7 +19,6 @@ class ProfilController extends Controller
     public function updateProfil(Request $request, Users $users)
     {
 
-        // Validasi input
         $validated = $request->validate([
             'username' => 'required|string|max:20',
             //'nik' => 'required|string|min:15|max:17',
@@ -28,7 +27,6 @@ class ProfilController extends Controller
             'password' => 'nullable|string|min:6|confirmed',
         ]);
 
-        // Update user
         try {
             $users->update([
                 'username' => $validated['username'],
@@ -36,7 +34,6 @@ class ProfilController extends Controller
                 'email' => $validated['email'],
             ]);
 
-            // Hanya update password jika field tersebut diisi
             if (!empty($validated['password'])) {
                 $users->password = Hash::make($validated['password']);
                 $users->save();
@@ -50,22 +47,18 @@ class ProfilController extends Controller
 
     public function changePassword(Request $request, Users $users)
     {
-        // Validasi request
         $request->validate([
             'new_password' => 'required|min:8|confirmed', // Konfirmasi password baru
         ]);
 
-        // Setel password baru
         $users->password = Hash::make($request->new_password);
         $users->save();
 
-        // Redirect kembali ke halaman profil dengan pesan sukses
         return redirect()->route('profil')->with('success', 'Password berhasil diubah.');
     }
 
     public function updateFotoProfil(Request $request, Users $users)
     {
-        // Validasi input
         $validated = $request->validate([
             'username' => 'required|string|max:20',
             'foto_profil' => 'required|mimes:png,jpg,jpeg',
@@ -75,19 +68,14 @@ class ProfilController extends Controller
         $foto_profil_ext = $foto_profil->getClientOriginalExtension();
         $foto_profil_filename = $validated['username'] . date('ymdhis') . "." . $foto_profil_ext;
     
-        // Cek apakah ada file foto baru yang diunggah
         if ($foto_profil) {
-            // Hapus foto profil yang saat ini tersimpan di server
             try {
                 $this->hapusFotoProfil($users);
                 $path_foto = 'Foto Profil';
                 $path = $foto_profil->storeAs($path_foto, $foto_profil_filename, 'public');
-    
-                // Update data pengguna dengan nama file foto baru
                 $users->update([
                     'foto_profil' => $path, 
                 ]);
-                // Redirect kembali ke halaman profil dengan pesan sukses
                 return redirect()->back()->with('success', 'Foto profil berhasil diperbarui.');
             } catch (\Exception $e) {
                 return redirect()->back()->with('error', 'Update gagal: ' . $e->getMessage());
