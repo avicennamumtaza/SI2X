@@ -15,15 +15,12 @@ class LaporanKeuanganSeeder extends Seeder
      */
     public function run()
     {
-        // Menggunakan Faker untuk mengisi data
         $faker = Faker::create();
 
-        // Loop untuk mengisi data sebanyak yang diinginkan
         $faker = Faker::create();
         $saldo = 0;
         $entries = [];
         
-        // Buat 20 entri dengan tanggal acak
         foreach (range(1, 20) as $index) {
             $entries[] = [
                 'status_pemasukan' => $faker->boolean(),
@@ -36,12 +33,10 @@ class LaporanKeuanganSeeder extends Seeder
             ];
         }
         
-        // Urutkan entri berdasarkan tanggal terlama ke terbaru
         usort($entries, function ($a, $b) {
             return $a['tanggal'] <=> $b['tanggal'];
         });
         
-        // Insert data baru ke tabel laporan_keuangan dengan saldo yang diperhitungkan
         foreach ($entries as &$entry) {
             if ($entry['status_pemasukan']) {
                 $saldo += $entry['nominal'];
