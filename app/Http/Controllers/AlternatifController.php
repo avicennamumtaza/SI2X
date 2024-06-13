@@ -177,12 +177,16 @@ class AlternatifController extends Controller
         }
         // dd($ranks);
 
+        $ranks = collect($ranks)->sortByDesc('skor')->values()->all();
+
         foreach ($ranks as $rank) {
             SkorMethodA::updateOrCreate(
                 ['nkk' => $rank['nkk']],
                 ['skor' => $rank['skor']]
             );
         }
+
+    
 
         return view('auth.rw.spk_maut', compact('ktr', 'alternatifs', 'normalizedAlternatifs', 'finalAlternatifs', 'ranks'));
     }
@@ -234,6 +238,8 @@ class AlternatifController extends Controller
         }
         // dd($ranks);
 
+        $ranks = collect($ranks)->sortBy('skor')->values()->all();
+        
         foreach ($ranks as $rank => $value) {
             SkorMethodB::updateOrCreate([
                 'nkk' => $ranks[$rank]['nkk'],
