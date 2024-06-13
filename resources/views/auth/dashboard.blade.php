@@ -84,7 +84,7 @@
                                             <p class="mb-0">Jumlah Kepala Keluarga</p>
                                         </div>
                                     </div>
-                                    <a href="{{ route('rt.manage') }}" style="text-decoration: none">
+                                    <a href="{{ route('keluarga.manage') }}" style="text-decoration: none">
                                         <button type="button" class="mt-2 btn primary position-relative">
                                             >
                                         </button>
