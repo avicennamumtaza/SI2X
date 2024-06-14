@@ -26,9 +26,7 @@
 
 </head>
 
-<body 
-{{-- onload="stopLoad();" --}}
->
+<body {{-- onload="stopLoad();" --}}>
     <div class="loading">
         <div class="lds-dual-ring" bis_skin_checked="1"></div>
     </div>
@@ -103,15 +101,57 @@
 
     <footer class="text-center text-lg-start">
         <!-- Grid container -->
-        <div class="f1 container p-5">
+        <div class="f1 container px-5 py-4">
             <!--Grid row-->
+            <div class="row mb-4">
+                <div class="d-flex justify-content-center mb-2">
+                    <h5 class="text-uppercase ps-3">Tim Pengembang</h5>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-column align-items-center">
+                        {{-- img --}}
+                        <img src="https://i.pinimg.com/originals/d1/ab/8b/d1ab8b4fd4bb22168e1870646f6bc45e.jpg"
+                            alt="Foto Profil" class="rounded-circle mb-2"
+                            style="width: 5rem; height: 5rem; object-fit: cover;">
+                        <h6>Afrizal Dwi Septian</h6>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                        {{-- img --}}
+                        <img src="https://i.pinimg.com/originals/1e/fb/81/1efb81d40f292db2464dd31c7783eeb6.jpg"
+                            alt="Foto Profil" class="rounded-circle mb-2"
+                            style="width: 5rem; height: 5rem; object-fit: cover;">
+                        <h6>Avicenna Mumtaza</h6>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                        {{-- img --}}
+                        <img src="https://i.pinimg.com/originals/3f/79/56/3f7956196606168c39839d6dbad7d7e5.jpg"
+                            alt="Foto Profil" class="rounded-circle mb-2"
+                            style="width: 5rem; height: 5rem; object-fit: cover;">
+                        <h6>Ana Bellatus M.</h6>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                        {{-- img --}}
+                        <img src="https://i.pinimg.com/originals/0d/a0/5a/0da05a14eab9f0916c1e003fd6911702.jpg"
+                            alt="Foto Profil" class="rounded-circle mb-2"
+                            style="width: 5rem; height: 5rem; object-fit: cover;">
+                        <h6>Dea Putri Nastiti</h6>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                        {{-- img --}}
+                        <img src="https://i.pinimg.com/originals/16/91/f7/1691f7d0221ec716020fe3373b01f453.jpg"
+                            alt="Foto Profil" class="rounded-circle mb-2"
+                            style="width: 5rem; height: 5rem; object-fit: cover;">
+                        <h6>M. Bagus Indrawan</h6>
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <!--Grid column-->
                 <div class="tentang col-lg-6 col-md-12 mb-4 mb-md-0">
                     <h5 class="text-uppercase">Tentang SIRW</h5>
                     <p>
-                        SIRW, singkatan dari Sistem Informasi Rukun Warga. Pengembangan Website SIRW ini bertujuan untuk
-                        mempermudah pengelolaan data penduduk dan memaksimalkan pelayanan warga di lingkungan RW.
+                        SIRW, singkatan dari Sistem Informasi Rukun Warga. Pengembangan Web SIRW bertujuan untuk
+                        mempermudah pengelolaan data kependudukan dan efisiensi memaksimalkan pelayanan warga di lingkungan RW.
                     </p>
                 </div>
                 <!--Grid column-->
@@ -140,7 +180,10 @@
         </div>
         <!-- Copyright -->
         <div class="f2 text-center p-3">
-            © 2024 Copyright : RW 6 Jodipan
+            © 2024 Copyright
+            <img src="{{ asset('assets/Logo JTI.png') }}" style="width: 2.5%" alt="Jurusan Teknologi Informasi">
+            <img src="{{ asset('assets/Logo Polinema.png') }}" style="width: 2.5%" alt="Politeknik Negeri Malang">
+            <img src="{{ asset('assets/Logo Malang.png') }}" style="width: 2.5%" alt="RW 06 Jodipan">
         </div>
         <!-- Copyright -->
     </footer>
