@@ -151,7 +151,7 @@
                     <h5 class="text-uppercase">Tentang SIRW</h5>
                     <p>
                         SIRW, singkatan dari Sistem Informasi Rukun Warga. Pengembangan Web SIRW bertujuan untuk
-                        mempermudah pengelolaan data kependudukan dan efisiensi memaksimalkan pelayanan warga di lingkungan RW.
+                        mempermudah pengelolaan data kependudukan dan memaksimalkan efisiensi pelayanan warga di lingkungan RW.
                     </p>
                 </div>
                 <!--Grid column-->
